@@ -1,2 +1,73 @@
-# wordquest-web
-WordQuest R3.2 complete English, mathematics and arcade program, all modules and learning data, with audit evidence.
+# WordQuest R3.2
+
+完整的英文學習、普通數學、奧數及森林學園街機程式。此倉庫保存 R3.2 完整包的全部程式、教材、角色素材、開發模組、歷史原件、文件及測試證據，並附上 2026-09-30 的完整漏洞審查。
+
+**R3.2 是驗收候選版。審查發現的四項問題尚未修復；上傳版本保留原始交付內容。**
+
+## 開啟程式
+
+下載並解壓整個倉庫，開啟 `START_HERE.html`，再選完整程式。Windows 可執行 `START_WINDOWS.cmd`。已安裝 Node.js 20 或以上的開發者可在倉庫根目錄執行：
+
+```sh
+node server/local_server.mjs
+```
+
+然後開啟 `http://127.0.0.1:8765/app/index.html`。本機伺服器預設只監聽迴路位址。完整操作及升級說明見 [README_R3_2.md](README_R3_2.md)。
+
+更換版本、瀏覽器或網址前，請先在家長頁匯出家庭完整備份。本倉庫不包含使用者裝置內的真實學員紀錄；測試證據使用人工測試資料。家庭備份包含姓名及學習紀錄，請自行妥善保管。
+
+## 模組與資料
+
+| 路徑 | 內容 |
+| --- | --- |
+| `app/` | 完整整合程式、教材資料、角色及圖片素材、離線相關檔案、阿峰動作檢視與裝置自檢 |
+| `arcade_src/`、`arcade_tests/`、`arcade_evidence/` | 26 款街機的開發模組、測試與證據 |
+| `r3_src/`、`r31_src/`、`r32_src/` | R3、R3.1、R3.2 增量來源模組，包括家庭資料流程與角色接入 |
+| `tests/`、`r3_tests/`、`r31_tests/`、`r32_tests/` | 各版本測試程式 |
+| `evidence/`、`r3_evidence/`、`r31_evidence/`、`r32_evidence/` | 原交付包的測試結果、截圖及執行紀錄 |
+| `server/` | 可選本機 HTTP 伺服器及語音代理；付費語音金鑰由環境變數提供 |
+| `tools/`、`patches/` | 重建工具及增量修訂資料 |
+| `docs/` | 使用、驗收及技術文件 |
+| `originals/` | 保留的歷史版本、英文與數學原件及先前審查資料 |
+| `docs/audit/2026-09-30/` | 最新漏洞審查報告、結果、重現程式及全部審查證據 |
+
+教材檢查涵蓋英文 80 個單元、607 個詞項、4,923 題、6,057 筆字典資料，以及數學 122 項技能、366 個生成模板。程式包括六位森林學園角色及 26 款街機。這些數量不代表教師或真實學生驗收已完成。
+
+## 最新審查與已知問題
+
+完整報告：[WordQuest_R3_2_Vulnerability_Audit_20260930.html](docs/audit/2026-09-30/WordQuest_R3_2_Vulnerability_Audit_20260930.html)。GitHub 的檔案頁顯示原始碼；下載後以瀏覽器開啟可閱讀報告。
+
+| 等級 | 尚未修復的問題 |
+| --- | --- |
+| 高 | 復原標記存在但復原日誌遺失時，合法家庭備份也無法還原 |
+| 中 | 刪除學員後，其自訂圖片與註記仍可能留在家庭匯出媒體內 |
+| 中 | 可選本機語音 API 的延遲請求內容可繞過並行及頻率限制 |
+| 中 | 離線準備按鈕被停用，完整離線準備流程尚未完成 |
+
+審查獨立驗算了 6,222 個目前數學生成案例；既有 Node 回歸共 448 項通過。原生瀏覽器檢查的 63 個命名項目中，60 項通過、3 項失敗；語音 API 的兩個失敗案例屬於同一限制競爭問題。完整範圍及限制以最新審查報告為準，歷史報告不代表本次重新驗證的結果。
+
+## 開發
+
+正常使用不需要 Python 或測試套件。重建 R3.2：
+
+```sh
+python tools/build_r32.py
+```
+
+開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.2 回歸入口：
+
+```sh
+python r32_tests/run_release.py
+```
+
+原生裝置驗收流程、測試依賴及各項未完成驗證見 [README_R3_2.md](README_R3_2.md) 與 `docs/`。重建會改動產物，應重新產生校驗清單。
+
+## 原件與校驗
+
+原始 `WordQuest_R3_2_Complete.zip` 含 1,199 個檔案，解壓後共 203,017,802 bytes，其 SHA-256 為：
+
+```text
+7acea2291f3a58116b1cebc1c1aea618a06288789fd1bfd5462ea8810ee9639b
+```
+
+`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 保留原交付包的清單與校驗；新增的 GitHub 首頁、忽略規則及審查證據列於 `GITHUB_UPLOAD_MANIFEST.json`。原交付包檔案保持逐位元組一致。

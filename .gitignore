@@ -1,0 +1,16 @@
+# Local credentials and actual family backups must stay on the user's device.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+WordQuest_Family*.json
+
+# Generated development caches; packaged test evidence is intentionally retained.
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
