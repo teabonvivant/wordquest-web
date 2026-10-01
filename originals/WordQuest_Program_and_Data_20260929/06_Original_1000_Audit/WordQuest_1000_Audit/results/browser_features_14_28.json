@@ -1,0 +1,286 @@
+[
+  {
+    "id": "UI-099",
+    "category": "UI",
+    "name": "暫停後保留應用題算式及單位",
+    "expected": "算式／答案／單位全部保留",
+    "status": "FAIL",
+    "actual": "未提交的算式／答案／單位消失",
+    "issue": "F-DRAFT-LOSS",
+    "evidence": "evidence/UI-099_failure.png",
+    "actions": [
+      "click resume",
+      "fill expression=100-20",
+      "fill answer=80",
+      "select unit=元",
+      "click pause",
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-100",
+    "category": "UI",
+    "name": "導航攔截後保留草稿",
+    "expected": "返回課堂後仍有答案",
+    "status": "FAIL",
+    "actual": "導航／繼續後草稿消失",
+    "issue": "F-DRAFT-LOSS",
+    "evidence": "evidence/UI-100_failure.png",
+    "actions": [
+      "click resume",
+      "fill answer=15",
+      "click nav:home",
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-101",
+    "category": "UI",
+    "name": "報錯題目不清空輸入",
+    "expected": "紀錄模板、種子並保留作答",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=12",
+      "click report-item"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-102",
+    "category": "UI",
+    "name": "打開提示保留草稿",
+    "expected": "答案仍在、提示數增加",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=12",
+      "click hint"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-103",
+    "category": "UI",
+    "name": "分數鍵盤輸入及刪除",
+    "expected": "1/2 然後刪去 2",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "click key:1",
+      "click key:/",
+      "click key:2",
+      "click key:⌫"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-104",
+    "category": "UI",
+    "name": "連續 Enter 不重複記分",
+    "expected": "同一題只記一次",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=11"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-105",
+    "category": "UI",
+    "name": "空白答案顯示錯誤且不記分",
+    "expected": "作答數為 0",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-106",
+    "category": "UI",
+    "name": "選擇题未選答案不記分",
+    "expected": "提示先選答案",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-107",
+    "category": "UI",
+    "name": "看完整解答後插入新題",
+    "expected": "下一題換數字且不能只抄答案通關",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "click hint",
+      "click hint",
+      "click hint",
+      "click hint",
+      "click hint",
+      "fill answer=11",
+      "click submit",
+      "click nextq"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-108",
+    "category": "UI",
+    "name": "數線不能超過 0–20",
+    "expected": "兩邊邊界有上限",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:numberline",
+      "click tool:jump:5",
+      "click tool:jump:5",
+      "click tool:jump:5",
+      "click tool:jump:5",
+      "click tool:jump:5",
+      "click tool:jump:5",
+      "click tool:jump:-5",
+      "click tool:jump:-5",
+      "click tool:jump:-5",
+      "click tool:jump:-5",
+      "click tool:jump:-5",
+      "click tool:jump:-5"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-109",
+    "category": "UI",
+    "name": "十格框填滿及清空",
+    "expected": "最多 20 粒並可清空",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:tenframe",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:more",
+      "click tool:clear"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-110",
+    "category": "UI",
+    "name": "十進位教具拆合總量不變",
+    "expected": "拆十／合十維持同一總量",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:blocks",
+      "click tool:split",
+      "click tool:merge"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-111",
+    "category": "UI",
+    "name": "港幣教具加入及移除",
+    "expected": "50+20-50=20",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:money",
+      "click tool:coin:50",
+      "click tool:coin:20",
+      "click tool:remove-coin:0"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-112",
+    "category": "UI",
+    "name": "分數條減少等份不越界",
+    "expected": "分子不得超過分母",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:fraction",
+      "click tool:part:3",
+      "select tool-den=2"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  }
+]

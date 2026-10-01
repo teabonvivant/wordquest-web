@@ -1,0 +1,134 @@
+[
+  {
+    "id": "FAMILY-1",
+    "name": "Family management and offline preparation controls visible",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-2",
+    "name": "Fresh family settings are valid and 45-minute total default",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-3",
+    "name": "Real button produces downloaded family JSON with maths and custom-media fixtures",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-4",
+    "name": "SHA256 payload checksum independently rechecked in Python",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-5",
+    "name": "No account credential registry in family backup",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-6",
+    "name": "Family restore shows real preview and explicit replacement consent",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-7",
+    "name": "Restore button without consent cannot write",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-8",
+    "name": "Confirmed restore preserves full custom-media count and closes dialog",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-9",
+    "name": "Successful transaction leaves no journal/marker",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-10",
+    "name": "Transaction read-media fault keeps prior family intact",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-11",
+    "name": "Transaction journal-put fault keeps prior family intact",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-12",
+    "name": "Transaction write-media fault keeps prior family intact",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-13",
+    "name": "Committed transaction with cleanup failure completes through recovery",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-14",
+    "name": "Missing prepared journal is not silently treated as successful recovery",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-15",
+    "name": "Full-time guard blocks new activity after daily total",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-16",
+    "name": "Same-account restore cannot rewind accumulated cross-subject time",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-17",
+    "name": "Old learner name and target shown before merge",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-18",
+    "name": "Confirmed old maths merge adds record without awarding old currency",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-19",
+    "name": "Repeated old backup cannot duplicate submitted answers",
+    "status": "fail",
+    "error": "assertion failed"
+  },
+  {
+    "id": "FAMILY-20",
+    "name": "Account reset removes maths main and restoration copies plus custom media",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-21",
+    "name": "Account reset preserves unrelated family data",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FAMILY-22",
+    "name": "No uncaught JavaScript browser errors",
+    "status": "pass",
+    "detail": true
+  }
+]

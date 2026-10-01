@@ -1,0 +1,223 @@
+[
+  {
+    "id": "F-ARRAY-STATE",
+    "priority": "P1",
+    "title": "損壞資料可令掌握度及時限紀錄靜默消失",
+    "scope": "資料完整性；異常儲存／備份輸入",
+    "trigger": "把 mastery.normal、mastery.olympiad 或 usage 由物件改為 []；重新讀取、完成一次作答或記錄時間，再保存並重新讀取。",
+    "observed": "驗證器接受陣列。使用技能 ID 或日期作鍵寫入陣列後，JSON 序列化不保留這些字串鍵。實測答案紀錄仍在，但普通數學掌握度消失；60000 毫秒的時間紀錄重讀後變成 undefined。",
+    "impact": "可能令孩子看似沒有進步，或每日時限漏計。這是異常資料觸發，不代表每次正常保存都失敗。",
+    "source": [
+      "source/maths_script_1.js:129–145",
+      "source/maths_script_1.js:166–185",
+      "source/maths_script_2.js:44–53"
+    ],
+    "fix": "對所有字典欄位使用一致的純物件驗證，明確拒絕 Array；舊資料遷移前先留不可覆蓋快照。不能用錯誤結構直接繼續保存。",
+    "acceptance": "三種陣列輸入都安全拒絕；正常物件可以保存和還原；異常讀取不覆蓋原檔；學習和時限紀錄經完整讀寫往返仍一致。",
+    "cases": [
+      "STATE-045",
+      "STATE-046",
+      "STATE-064",
+      "STORAGE-037",
+      "STORAGE-038"
+    ],
+    "failed_cases": 5
+  },
+  {
+    "id": "F-REGISTRY-BOOT",
+    "priority": "P1",
+    "title": "孩子名單損壞或儲存讀取被拒，啟動變白畫面",
+    "scope": "啟動可靠性；故障注入",
+    "trigger": "將 wqm-profiles-v1 設為損壞 JSON，或令 localStorage.getItem 拋出 SecurityError，然後啟動頁面。",
+    "observed": "registry() 與 bridge.profile() 在 Store 讀取保護區外拋錯。兩個瀏覽器案例都沒有任何可操作按鈕；分別收到 JSON 解析例外與 Denied。",
+    "impact": "家長無法在程式內取得恢復說明或進入訪客模式。這裡模擬儲存被拒，沒有聲稱所有私隱模式或真機都會發生。",
+    "source": [
+      "source/maths_script_2.js:33–46"
+    ],
+    "fix": "將學員名單和儲存存取納入啟動錯誤邊界；保留原始內容，提供只讀恢復與不持久保存的訪客模式，避免自動清空。",
+    "acceptance": "損壞 JSON、名單型別錯誤、getItem 拒絕均能顯示可操作的安全畫面；正常名單仍能切換；不因恢復而刪除英文或其他孩子資料。",
+    "cases": [
+      "STORAGE-035",
+      "STORAGE-036",
+      "UI-091",
+      "UI-092"
+    ],
+    "failed_cases": 4
+  },
+  {
+    "id": "F-ATTEMPT-VALIDATION",
+    "priority": "P1",
+    "title": "舊作答紀錄驗證不完整，會卡住新練習或家長頁",
+    "scope": "資料模型驗證；兩種 UI 故障已重現",
+    "trigger": "在舊 attempts 放入不存在／不相符模板、異常 seed、credit、difficulty、independent、mode，或 at=1e20；重新讀取後開新練習／家長頁。",
+    "observed": "15 組不符合模型的資料通過 validateState。瀏覽器另重現：不存在模板的舊紀錄令 nextQuestion 顯示「題目模板不存在」；巨大時間戳令家長頁日期運算失敗。",
+    "impact": "一筆損壞舊資料即可阻擋其他操作。其他未驗證欄位目前屬防護缺口，不把每個欄位都稱為獨立可利用的安全漏洞。",
+    "source": [
+      "source/maths_script_1.js:133–134",
+      "source/maths_script_1.js:189–194",
+      "source/maths_script_3.js:115–116"
+    ],
+    "fix": "驗證模板存在且與 skill／track 一致、seed 為 uint32、credit 範圍與型別、difficulty 為 1–3、布林與模式列舉，以及可用時間戳。對舊版本缺欄位先做版本化遷移，不可粗暴刪紀錄。",
+    "acceptance": "15 組異常全部被安全拒絕／隔離；正常歷史備份仍可還原；即使歷史紀錄有問題，提供恢復入口而非讓新練習或週報無法打開。",
+    "cases": [
+      "STATE-030",
+      "STATE-032",
+      "STATE-033",
+      "STATE-034",
+      "STATE-035",
+      "STATE-036",
+      "STATE-037",
+      "STATE-038",
+      "STATE-039",
+      "STATE-040",
+      "STATE-041",
+      "STATE-042",
+      "STATE-043",
+      "STATE-044",
+      "STATE-091",
+      "UI-126",
+      "UI-127"
+    ],
+    "failed_cases": 17
+  },
+  {
+    "id": "F-OUTBOX-CAPACITY",
+    "priority": "P1",
+    "title": "200 筆已結算獎勵仍會阻擋下一次課堂完成",
+    "scope": "長期使用邊界；已結算收據不是待同步項目",
+    "trigger": "建立 200 筆仍在保留期內、settled=true 的獎勵紀錄，再完成符合獎勵條件的新課堂。",
+    "observed": "enqueueReward 以整個 outbox 的長度判斷上限，拋出「請先處理待同步獎勵」。實際點擊課堂完成後，current.completed 仍為 false。",
+    "impact": "程式將已完成同步的收據也算入待處理上限。這是構造 200 筆收據的邊界測試，未估算一般家庭多久會遇到。",
+    "source": [
+      "source/maths_script_1.js:210–212",
+      "source/maths_script_3.js:171–182"
+    ],
+    "fix": "分開待同步佇列與已結算去重紀錄；按容量及保留期整理收據，同時保留重試不重派的保障。課堂完成保存不應被獎勵同步失敗整筆取消。",
+    "acceptance": "大量已結算紀錄不阻擋新課堂；真正待同步上限有清楚處理；在錢包完成但回執未寫入時重試也不重派；課堂進度先可靠保存。",
+    "cases": [
+      "LEARNING-056",
+      "STORAGE-040",
+      "UI-128"
+    ],
+    "failed_cases": 3
+  },
+  {
+    "id": "F-DELETE-BACKUP",
+    "priority": "P1",
+    "title": "刪除學員未刪除該學員的復原備份",
+    "scope": "資料刪除完整性；本機資料保留",
+    "trigger": "匯入同一孩子的備份，令系統建立 :before-restore 快照，再從學員頁刪除這名學員。",
+    "observed": "名單與主進度 key 被刪，但 wqm-state-v1:<account>:<child>:before-restore 仍保存完整狀態。函式層和 UI 都重現。",
+    "impact": "介面已刪除學員，但本機仍有可復原的孩子資料；不是已證明的對外資料洩漏。",
+    "source": [
+      "source/maths_script_2.js:40",
+      "source/maths_script_2.js:63–64"
+    ],
+    "fix": "維護按帳戶／孩子分組的資料清單；刪除時涵蓋主檔、復原快照、相關暫存。不可呼叫 localStorage.clear()，以免連英文與其他學員也刪除。",
+    "acceptance": "刪除後該孩子相關資料全部移除，其他孩子與英文資料不变；部分刪除失敗要回報，不能假裝已完全清除。",
+    "cases": [
+      "STORAGE-034",
+      "UI-129"
+    ],
+    "failed_cases": 2
+  },
+  {
+    "id": "F-FRACTION-SLASH",
+    "priority": "P2",
+    "title": "數值正確的 Unicode 分數被誤判格式錯誤",
+    "scope": "判分一致性；部分分數格式",
+    "trigger": "在 3N5.1 分數題輸入 3⁄4 或 2⁄3，其中分隔符為 U+2044「⁄」，而非一般「/」。",
+    "observed": "Q.parse 可正確解析；mark 的格式識別只檢查一般 /，把輸入當成整數，三個模板均誤拒。補充瀏覽器重現 2⁄3 被拒。",
+    "impact": "貼上或某些輸入來源的等值分數會被判為格式錯誤；一般鍵盤 / 和全形格式的案例通過。",
+    "source": [
+      "source/maths_script_1.js:23–38",
+      "source/maths_script_1.js:105–111"
+    ],
+    "fix": "將数值解析、格式分類、最簡分數檢查共用同一個正規化入口，統一處理 NFKC、Unicode 分數斜線與負號。",
+    "acceptance": "三個失敗模板全部通過；一般 /、全形、Unicode 斜線在同一規則下判分；不因此接受錯誤值或不符合最簡分數要求的答案。",
+    "cases": [
+      "GRADE-061",
+      "GRADE-062",
+      "GRADE-063"
+    ],
+    "failed_cases": 3
+  },
+  {
+    "id": "F-DRAFT-LOSS",
+    "priority": "P2",
+    "title": "暫停或切換導航會遺失未提交草稿",
+    "scope": "一般操作可遇到的使用體驗缺陷",
+    "trigger": "輸入數值但不提交；按「稍後繼續」再恢復，或按其他導航後再恢復。應用題另填算式、答案及單位。",
+    "observed": "三種流程分別遺失數字 123、算式／答案／單位，以及導航前的數字 15。已提交答案的恢復測試通過；看提示時保存草稿的測試也通過。",
+    "impact": "孩子離開一下就要重新輸入，應用題尤其明顯。已完成的作答紀錄不等於未提交的草稿。",
+    "source": [
+      "source/maths_script_3.js:125–131",
+      "source/maths_script_3.js:194",
+      "source/maths_script_3.js:219"
+    ],
+    "fix": "在暫停、導航、切換及重繪前集中擷取各欄位草稿；按題目 ID 綁定並還原。頁面離開時的保存策略另需真瀏覽器驗證。",
+    "acceptance": "數字、算式、單位、餘數及選項均能恢復；換題要清舊草稿；恢復不產生重複作答或重複獎勵。",
+    "cases": [
+      "UI-098",
+      "UI-099",
+      "UI-100"
+    ],
+    "failed_cases": 3
+  },
+  {
+    "id": "F-CURRENT-QUEUE",
+    "priority": "P2",
+    "title": "執行中練習缺少題目仍可被讀取",
+    "scope": "異常課堂狀態／恢復流程",
+    "trigger": "令未完成 practice 的 stage=4，但 queues={}，重新讀取並續課。",
+    "observed": "STATE-085 中驗證器接受。額外、未加入 1,000 項數目的重現確認：續課後只有標題與空白題目區，沒有答案欄和提交按鈕。",
+    "impact": "孩子可進入沒有題目的課堂，沒有正常繼續作答的入口；可透過結束這輪退出，不是整個瀏覽器崩潰。",
+    "source": [
+      "source/maths_script_1.js:153–157",
+      "source/maths_script_3.js:101–109"
+    ],
+    "fix": "按 mode／track／stage 驗證題目佇列是否必需；缺少時安全隔離該課堂、保留作答紀錄並提供重新開始。",
+    "acceptance": "需要題目的階段不能接受缺失／空佇列；導入、恢復及舊版本遷移皆有清楚處理；正常探索與小結阶段不能被誤拒。",
+    "cases": [
+      "STATE-085"
+    ],
+    "failed_cases": 1
+  },
+  {
+    "id": "F-FOCUS-LOSS",
+    "priority": "P2",
+    "title": "鍵盤提交後焦點掉回 BODY",
+    "scope": "鍵盤可用性；未聲稱已完成輔助技術驗收",
+    "trigger": "在答案欄以鍵盤 Enter 提交正答。",
+    "observed": "重繪後 shadowRoot.activeElement=null，document.activeElement=BODY；沒有把焦點帶到回饋或下一步。",
+    "impact": "純鍵盤使用者要重新尋找位置，不能連貫操作；滑鼠能點下一步不代表焦點管理正確。",
+    "source": [
+      "source/maths_script_3.js:125–130",
+      "source/maths_script_3.js:148–159"
+    ],
+    "fix": "完成重繪後將焦點送到回饋或「下一題」，同時保留清楚的狀態通知；下一題恢復到合理輸入點。",
+    "acceptance": "只用 Tab／Shift+Tab／Enter 能完成整輪；每次提交和換題後焦點有合理位置；再用螢幕閱讀器做獨立驗收。",
+    "cases": [
+      "UI-140"
+    ],
+    "failed_cases": 1
+  },
+  {
+    "id": "F-USAGE-DATE",
+    "priority": "P3",
+    "title": "使用時間紀錄接受不存在的日期",
+    "scope": "日期驗證一致性；資料防護缺口",
+    "trigger": "在 usage 放入 2026-02-30:1000。",
+    "observed": "validateState 只檢查 YYYY-MM-DD 外形，沒有像其他欄位般驗證實際日曆日期，故接受 2 月 30 日。",
+    "impact": "可能污染週報或時限資料；本案例只證明驗證缺口，沒有證明一般操作會產生這個日期。",
+    "source": [
+      "source/maths_script_1.js:138–140"
+    ],
+    "fix": "使用同一個日期驗證器，驗證格式、真實日期及系統採用的日期邊界。",
+    "acceptance": "拒絕不存在日期，閏年及香港日期跨日正常；週報、重溫、錢包及 usage 使用同一套規則。",
+    "cases": [
+      "STATE-067"
+    ],
+    "failed_cases": 1
+  }
+]

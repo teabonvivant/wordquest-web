@@ -1,0 +1,29 @@
+{
+  "browser": "Chromium via Playwright, headless",
+  "ui": "actual DOM, mouse clicks, keyboard, file download",
+  "native_navigation": {
+    "url": "file:///mnt/data/wq_character_work/WordQuest_R3/app/index.html",
+    "result": "ERR_BLOCKED_BY_ADMINISTRATOR"
+  },
+  "adapters": [
+    "in-memory localStorage/sessionStorage",
+    "Web Locks test adapter",
+    "WebCrypto backed by Python SHA256/PBKDF2",
+    "R3 family media/transaction journal I/O adapters only in relevant tests"
+  ],
+  "not_verified": [
+    "native close/reopen persistence",
+    "native cross-tab competition",
+    "physical Android/iPhone",
+    "Safari",
+    "Windows launchers",
+    "human audio listening",
+    "teacher/student usability assessment"
+  ],
+  "images": "six generated PNG posters from this conversation, manually measured crops; no OCR used",
+  "first_run_notes": [
+    "Three simultaneous Chromium suites experienced page crashes; repeated serially rather than declaring an application fix. Cause not proven.",
+    "Initial hide test counted a non-visible cached hero node. A dedicated probe confirmed no rendered rectangles. Test corrected to measure visibility; app hide policy was already effective."
+  ],
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+}

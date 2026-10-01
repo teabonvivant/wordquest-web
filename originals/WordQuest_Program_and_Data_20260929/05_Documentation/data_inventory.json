@@ -1,0 +1,61 @@
+{
+  "english": [
+    {
+      "name": "WQ_PHONICS_DATA",
+      "file": "01_English_V32/data/WQ_PHONICS_DATA.json",
+      "items": 10
+    },
+    {
+      "name": "WQ_TEACHER_PATCH",
+      "file": "01_English_V32/data/WQ_TEACHER_PATCH.json",
+      "items": 4
+    },
+    {
+      "name": "WQ_FAMILY_DATA",
+      "file": "01_English_V32/data/WQ_FAMILY_DATA.json",
+      "items": 7
+    },
+    {
+      "name": "WQ_SHARED_REFERENCE",
+      "file": "01_English_V32/data/WQ_SHARED_REFERENCE.json",
+      "items": 6057
+    },
+    {
+      "name": "WQStateFields",
+      "file": "01_English_V32/data/WQStateFields.json",
+      "items": 20
+    },
+    {
+      "name": "WQ30Data",
+      "file": "01_English_V32/data/WQ30Data.json",
+      "items": 8
+    },
+    {
+      "name": "WQ31Data",
+      "file": "01_English_V32/data/WQ31Data.json",
+      "items": 4
+    },
+    {
+      "name": "WQ32Art",
+      "file": "01_English_V32/data/WQ32Art.json",
+      "items": 49
+    }
+  ],
+  "mathsKeys": [
+    "version",
+    "contentVersion",
+    "editorialStatus",
+    "units",
+    "skills",
+    "templates",
+    "cards",
+    "misconceptions",
+    "sources",
+    "rules",
+    "glossary",
+    "archiveTemplates",
+    "contentRevision",
+    "languagePolicy"
+  ],
+  "mathsVersion": 1
+}

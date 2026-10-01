@@ -1,0 +1,87 @@
+{
+  "version": "R3.2.0",
+  "classification": "acceptance candidate; native browser persistence not certified",
+  "appSHA256": "8657afc155e26f9206bfc7abc02b80b982ede397366988cb1d932e2a2aa157d7",
+  "suites": [
+    {
+      "suite": "街機引擎及存檔規則",
+      "passed": 292,
+      "total": 292,
+      "file": "arcade_core_results.json"
+    },
+    {
+      "suite": "家庭資料合約",
+      "passed": 55,
+      "total": 55,
+      "file": "family_contracts.json"
+    },
+    {
+      "suite": "新增日誌與動作規則",
+      "passed": 64,
+      "total": 64,
+      "file": "new_core_results.json"
+    },
+    {
+      "suite": "家庭備份還原DOM",
+      "passed": 24,
+      "total": 24,
+      "file": "family_browser.json"
+    },
+    {
+      "suite": "英數課堂及版面抽測",
+      "passed": 75,
+      "total": 75,
+      "file": "integration_results.json"
+    },
+    {
+      "suite": "五款街機瀏覽器回歸",
+      "passed": 80,
+      "total": 80,
+      "file": "arcade_browser_results.json"
+    },
+    {
+      "suite": "新增保護／裝置頁／動作頁",
+      "passed": 39,
+      "total": 39,
+      "file": "new_browser_results.json"
+    },
+    {
+      "suite": "阿峰實際遊戲操作",
+      "passed": 7,
+      "total": 7,
+      "file": "cloud_live.json"
+    },
+    {
+      "suite": "伺服器處理器合約",
+      "passed": 37,
+      "total": 37,
+      "file": "server_contracts.json"
+    },
+    {
+      "suite": "真正本機HTTP與檔案",
+      "passed": 15,
+      "total": 15,
+      "file": "server_native_http.json"
+    }
+  ],
+  "cases": 688,
+  "passed": 688,
+  "syntax": 45,
+  "nativeBrowser": "BLOCKED_BY_ADMINISTRATOR; no native app-persistence passes",
+  "templateCoverage": "12/366 current templates re-rendered, selected evenly; existing complete six-step ordinary/Olympiad flows also executed; no new full independent answer audit",
+  "environment": {
+    "python": "3.13.5",
+    "node": "v22.16.0",
+    "browser": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)",
+    "appUI": "Chromium actual DOM/canvas/input/download with explicit storage/WebLocks/WebCrypto and applicable family-media/journal I/O adapters",
+    "nativeDevicePage": "No adapters; verified correct BLOCKED/attestation controls, NOT successful native persistence",
+    "nativeHTTP": "15 real loopback HTTP tests, separate from browser"
+  },
+  "excluded": [
+    "historical R3/R3.1 test counts",
+    "incomplete first full-template run",
+    "initial development failures",
+    "package hash/file counts",
+    "native blocked steps"
+  ]
+}

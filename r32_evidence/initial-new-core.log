@@ -1,0 +1,129 @@
+new core 70 pass 62
+Articulated idle supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated run supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:367
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated jump supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated fall supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated land supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated dash supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated hit supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+Articulated victory supports reduced motion AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ -0
+- 0
+
+    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:367
+    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)
+    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)

@@ -1,0 +1,142 @@
+[
+  {
+    "command": [
+      "node",
+      "r3_tests/content_generate.cjs"
+    ],
+    "started_at_utc": "2026-09-29T15:06:28.603956+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 3660,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:29.003210+00:00",
+    "log": "delivery_content_generate.cjs.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/independent_oracle.py"
+    ],
+    "started_at_utc": "2026-09-29T15:06:29.003250+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 3660,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:29.725914+00:00",
+    "log": "delivery_independent_oracle.py.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/family_contracts.cjs"
+    ],
+    "started_at_utc": "2026-09-29T15:06:29.726154+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 55,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:29.840801+00:00",
+    "log": "delivery_family_contracts.cjs.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/server_contracts.mjs"
+    ],
+    "started_at_utc": "2026-09-29T15:06:29.840829+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 37,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:29.955476+00:00",
+    "log": "delivery_server_contracts.mjs.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/arcade_regression.cjs"
+    ],
+    "started_at_utc": "2026-09-29T15:06:29.955503+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 292,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:31.633866+00:00",
+    "log": "delivery_arcade_regression.cjs.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/family_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T15:06:31.634554+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 24,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:06:39.009127+00:00",
+    "log": "delivery_family_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/new_features_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T15:06:31.634888+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 35,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:07:07.448673+00:00",
+    "log": "delivery_new_features_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/arcade_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T15:06:31.635122+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 80,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:07:13.400288+00:00",
+    "log": "delivery_arcade_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/integration_regression.py"
+    ],
+    "started_at_utc": "2026-09-29T15:06:39.009182+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 429,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:09:36.868022+00:00",
+    "log": "delivery_integration_regression.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/lesson_text_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T15:07:07.448742+00:00",
+    "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+    "cases": 143,
+    "failed_cases": 0,
+    "returncode": 0,
+    "process_returncode": 0,
+    "finished_at_utc": "2026-09-29T15:07:50.190160+00:00",
+    "log": "delivery_lesson_text_browser.py.log"
+  }
+]

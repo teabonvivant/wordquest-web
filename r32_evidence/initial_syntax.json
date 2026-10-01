@@ -1,0 +1,222 @@
+[
+  {
+    "id": "inline-0",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-1",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-2",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-3",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-4",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-5",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-6",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-7",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-8",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-9",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-10",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-11",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-12",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-13",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-14",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-15",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-16",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-17",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-18",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-19",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-20",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-21",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-22",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-23",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-24",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-25",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-26",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-27",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-28",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-29",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-30",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-31",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-32",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-33",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-34",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-35",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-36",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-37",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-38",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "inline-39",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "app/afeng-rig.js",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "app/device-check.js",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "server/local_server.mjs",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "id": "app/sw.js",
+    "pass": true,
+    "detail": ""
+  }
+]

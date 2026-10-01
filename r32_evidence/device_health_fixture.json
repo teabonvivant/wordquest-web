@@ -1,0 +1,35 @@
+{
+  "format": "wordquest-device-report",
+  "version": "3.2.0",
+  "createdAt": "2026-09-29T18:25:16.536Z",
+  "origin": "null",
+  "secureContext": false,
+  "features": {
+    "webLocks": true,
+    "webCrypto": true,
+    "indexedDB": true,
+    "serviceWorker": false
+  },
+  "current": {
+    "loggedIn": true,
+    "writer": true,
+    "readOnly": false,
+    "blocked": false,
+    "transactionBusy": false,
+    "recoveryPending": false,
+    "lastSaveAt": null
+  },
+  "counts": {
+    "children": 1,
+    "englishAttempts": 0,
+    "maths": [],
+    "mediaItems": 0
+  },
+  "artwork": {
+    "cloudIsland": "A-Feng procedural articulated rig; physics and snapshots unchanged"
+  },
+  "limitations": [
+    "This is a point-in-time health report, not proof of successful browser restart or backup restoration.",
+    "No physical device, human pronunciation, OCR accuracy, or classroom assessment is certified."
+  ]
+}

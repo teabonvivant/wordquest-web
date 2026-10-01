@@ -1,0 +1,78 @@
+/* WordQuest V20 import selection. Pure, local functions; no network or user storage.
+ * Recognition is evidence, not authority. Preserve originals; never auto-correct spelling.
+ * The short phrase list is deliberately conservative, not a grammar parser.
+ */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WQImportCore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){'use strict';
+const VERSION='20.1';
+const COMMON=new Set(('a an the I you he she it we they me him her us them my your his its our their am is are was were be been being in on at to of for from by with and or but as if so not no yes do does did have has had can could will would shall should may might must this that these those there here all some any one two').toLowerCase().split(/\s+/));
+const SAFE_PHRASES=new Set(`ice cream|school bag|school bus|in front of|next to|a lot of|a pair of|a piece of|a bottle of|a cup of|a glass of|a bowl of|a slice of|a few|a little|as well as|because of|instead of|such as|look after|look for|look into|look forward to|take care of|take part in|take responsibility for|come up with|get up|wake up|put on|take off|turn on|turn off|pick up|give up|find out|go out|sit down|stand up|every day|on time|in time|at home|at school|by bus|by train|by car|at first|at last|at least|of course|in fact|in addition|for example|for instance|first aid|fire engine|police station|post office|traffic light|traffic lights|bus stop|train station|rubbish bin|solar energy|climate change|global warming|air pollution|water pollution|natural disaster|living room|dining room|computer room|music room|swimming pool|sports centre|shopping centre|ice skating|table tennis|Hong Kong|New Zealand|United Kingdom|South Africa|English language|human rights|make a decision|reach a conclusion|do homework|have breakfast|go shopping|in order to|as soon as|even though|rather than|so that|used to|be used to|according to|out of|a number of|plenty of`.toLowerCase().split('|'));
+const fold=s=>String(s??'').normalize('NFKC').replace(/[’‘]/g,"'").replace(/[‐‑]/g,'-').trim().replace(/\s+/g,' ').toLowerCase();
+const exact=s=>String(s??'').trim().replace(/\s+/g,' ');
+const clone=o=>JSON.parse(JSON.stringify(o));
+const median=a=>{const b=a.filter(Number.isFinite).sort((x,y)=>x-y);return b.length?b[Math.floor(b.length/2)]:0;};
+function box(b){if(!b)return null;const z={x0:+b.x0,y0:+b.y0,x1:+b.x1,y1:+b.y1};return Object.values(z).every(Number.isFinite)&&z.x1>=z.x0&&z.y1>=z.y0?z:null;}
+function union(bs){bs=bs.filter(Boolean);return bs.length?{x0:Math.min(...bs.map(b=>b.x0)),y0:Math.min(...bs.map(b=>b.y0)),x1:Math.max(...bs.map(b=>b.x1)),y1:Math.max(...bs.map(b=>b.y1))}:null;}
+function dictIndex(entries){const map=new Map();for(const e of entries||[])if(e&&e.key)map.set(fold(e.key),e);return map;}
+function gloss(en,map){const e=map.get(fold(en));if(!e)return {known:false,zh:'',choices:[],example:''};const same=(e.senses||[]).filter(s=>s.headword===exact(en));const senses=same.length?same:e.senses||[];const choices=[...new Set(senses.map(s=>s.zhHK).filter(Boolean))];return {known:true,zh:choices.length===1?choices[0]:'',choices,example:choices.length===1?(e.examples?.[0]?.en||''):''};}
+function kind(en){return /[.!?]["'”’)]?$/.test(en)?'sentence':/\s/.test(en)?'phrase':'word';}
+function isCommon(en){return !/\s/.test(exact(en))&&COMMON.has(fold(en));}
+function header(text){const t=exact(text);if(/^(English\s+)?Dictation(?:\s+(?:range|list|words|\d+|Unit\s*\d+))?[.:]?$/i.test(t))return '可能是頁首';if(/^(Name|Class|Date|School|Page|Grade)\s*[:：_]/i.test(t))return '可能是姓名、班別或日期';if(/^(Unit|Chapter|Lesson|Page)\s+\d+\b/i.test(t))return '可能是課名或頁碼';if(/^\d{1,4}[-/\.]\d{1,2}[-/\.]\d{1,4}$/.test(t)||/^\d+$/.test(t))return '可能是日期或編號';if(/^(Read|Write|Learn|Listen|Circle|Underline)\b.{0,110}\b(words|sentences|following|carefully)\b/i.test(t))return '可能是指示';return '';}
+/* Retain misscanned digits within Latin tokens so sch00l remains visible for review. */
+function lex(text){const arr=[];const rx=/[A-Za-z0-9]+(?:['’‘][A-Za-z0-9]+)*(?:[-‐‑][A-Za-z0-9]+(?:['’‘][A-Za-z0-9]+)*)*(?:['’](?![A-Za-z0-9]))?|\|/g;let m;while((m=rx.exec(text))!==null)if(/[A-Za-z]/.test(m[0])||m[0]==='|')arr.push({text:m[0],start:m.index,end:m.index+m[0].length});return arr;}
+function fromText(raw,regionId='text1'){raw=String(raw||'').replace(/\r\n?/g,'\n');let offset=0;const lines=raw.split('\n').map((text,i)=>{const r={id:regionId+'-l'+i,regionId,blockId:regionId+'-b0',paragraphId:regionId+'-p0',text,originalText:text,offset,tokens:[],bbox:null};offset+=text.length+1;return r;});return {id:regionId,raw,lines,structured:false,fromOCR:false,warnings:[]};}
+function fromOCR(data,regionId='ocr1'){
+ data=data||{};const lines=[];let tokenN=0;
+ function addWords(ws,bi,pi,li,original){if(!Array.isArray(ws)||!ws.length)return;let text='',tokens=[];for(const w of ws){const str=String(w.text??'').trim();if(!str)continue;const b=box(w.bbox),prev=tokens.at(-1),gap=b&&prev?.bbox?b.x0-prev.bbox.x1:0;const h=b?b.y1-b.y0:15;const breakBefore=gap>Math.max(28,h*1.65);if(text)text+=breakBefore?'    ':' ';const start=text.length;text+=str;const confidence=Number.isFinite(w.confidence)&&w.confidence>=0?w.confidence:null;tokens.push({id:regionId+'-t'+tokenN++,text:str,start,end:text.length,bbox:b,confidence,breakBefore});}if(!text)return;lines.push({id:regionId+'-l'+lines.length,regionId,blockId:regionId+'-b'+bi,paragraphId:regionId+'-b'+bi+'p'+pi,text,originalText:String(original||text).trim(),tokens,bbox:union(tokens.map(t=>t.bbox))});}
+ if(Array.isArray(data.blocks))data.blocks.forEach((b,bi)=>{(b.paragraphs||[]).forEach((p,pi)=>(p.lines||[]).forEach((l,li)=>addWords(l.words,bi,pi,li,l.text)));});
+ if(!lines.length&&Array.isArray(data.lines))data.lines.forEach((l,i)=>addWords(l.words,l.block_num||0,l.par_num||0,i,l.text));
+ if(!lines.length&&typeof data.tsv==='string'){
+  const rows=data.tsv.trim().split(/\r?\n/),names=(rows.shift()||'').split('\t'),groups=new Map();
+  for(const row of rows){const cols=row.split('\t'),o=Object.fromEntries(names.map((n,i)=>[n,cols[i]]));if(o.level!=='5'||!o.text?.trim())continue;const id=[o.page_num,o.block_num,o.par_num,o.line_num].join('-');if(!groups.has(id))groups.set(id,[]);groups.get(id).push({text:o.text,confidence:+o.conf,bbox:{x0:+o.left,y0:+o.top,x1:+o.left+(+o.width),y1:+o.top+(+o.height)}});}
+  for(const [id,ws] of groups){const [page,block,par,line]=id.split('-');addWords(ws,page+'-'+block,par,line);}
+ }
+ if(!lines.length&&Array.isArray(data.words)){
+  const groups=[];for(const w of data.words){const b=box(w.bbox);if(!b)continue;let g=groups.find(g=>Math.abs(g.y-(b.y0+b.y1)/2)<Math.max(6,(b.y1-b.y0)*.45));if(!g){g={y:(b.y0+b.y1)/2,words:[]};groups.push(g);}g.words.push(w);}
+  groups.sort((a,b)=>a.y-b.y).forEach((g,i)=>addWords(g.words.sort((a,b)=>a.bbox.x0-b.bbox.x0),0,0,i));
+ }
+ if(!lines.length){const d=fromText(data.text||'',regionId);d.fromOCR=true;d.warnings=['辨認引擎未提供字詞位置；可以選字，原相只能整張對照。'];return d;}
+ return {id:regionId,raw:lines.map(l=>l.text).join('\n'),lines,structured:true,fromOCR:true,warnings:[]};
+}
+function segments(line){const t=line.text,cuts=[0,t.length],rx=/(?:^|\s)(?:\d{1,3}[.)、:]|[•●▪])\s*/g;let m;while((m=rx.exec(t))){cuts.push(m.index,m.index+m[0].length);}const gaps=/\t+| {3,}/g;while((m=gaps.exec(t))){cuts.push(m.index,m.index+m[0].length);}const c=[...new Set(cuts)].sort((a,b)=>a-b),out=[];for(let i=0;i<c.length-1;i++){let start=c[i],end=c[i+1];while(start<end&&/\s/.test(t[start]))start++;while(end>start&&/\s/.test(t[end-1]))end--;const text=t.slice(start,end);if(text&&!/^(\d+[.)、:]|[•●▪])$/.test(text))out.push({start,end,text});}return out;}
+function sentenceParts(text){let out=[],start=0;const abbr=/\b(?:Mr|Mrs|Ms|Dr|Prof|St|Jr|Sr|No|e\.g|i\.e|etc)$/i;for(let i=0;i<text.length;i++){if(!/[.!?]/.test(text[i]))continue;if(text[i]==='.'&&(abbr.test(text.slice(start,i))||/\d/.test(text[i-1]||'')&&/\d/.test(text[i+1]||'')))continue;let end=i+1;while(/["'”’)]/.test(text[end]||'')&&end<text.length)end++;if(end<text.length&&!/\s/.test(text[end]))continue;const part=text.slice(start,end);if(part.trim())out.push({text:exact(part),raw:part,start,end});start=end;i=end-1;}if(text.slice(start).trim())out.push({text:exact(text.slice(start)),raw:text.slice(start),start,end:text.length});return out;}
+function candidates(doc,{mode='list',dictionary=new Map(),common=COMMON}={}){
+ const out=[];let n=0;
+ function make(en,line,start,end,opts={}){en=exact(en);if(!en)return null;const tokens=(line.tokens||[]).filter(t=>t.end>start&&t.start<end);const conf=tokens.map(t=>t.confidence).filter(Number.isFinite);const g=gloss(en,dictionary);const reasons=[];const excluded=opts.excluded||'';
+ if(!excluded){if(en.includes('|'))reasons.push('直線符號可能是 I 或 l，請看原相');if(conf.length&&Math.min(...conf)<75)reasons.push('原相這裏需要再看');if(/[0-9]/.test(en)&&/[A-Za-z][0-9]|[0-9][A-Za-z]/.test(en))reasons.push('數字可能混入字母');if(!g.known&&opts.kind!=='sentence')reasons.push('詞庫未收錄，可核對後保留');if(g.choices.length>1)reasons.push('請選今次的意思');if(/-$/.test(en)||opts.broken)reasons.push('可能是跨行斷字，請看原稿');if(opts.ambiguous)reasons.push('分法請再核對');}
+ const c={id:doc.id+'-c'+n++,en,originalText:line.text.slice(start,end)||en,zh:opts.zh??g.zh,kind:opts.kind||kind(en),sourceRegionId:doc.id,lineId:line.id,paragraphId:line.paragraphId,sourceText:line.originalText||line.text,sourceTokenIds:tokens.map(t=>t.id),sourceBoxes:tokens.map(t=>t.bbox).filter(Boolean),confidenceRaw:conf.length?Math.min(...conf):null,reviewReasons:reasons,reviewed:false,selected:!excluded,excludedReason:excluded,common:opts.kind!=='sentence'&&!/\s/.test(en)&&common.has(fold(en)),known:g.known,choices:g.choices,example:g.example,span:[start,end],explicit:opts.explicit||false};out.push(c);return c;}
+ function splitSegment(seg,line){const {text,start,end}=seg;const ex=header(text);if(ex){make(text,line,start,end,{excluded:ex});return;}
+  const pipe=text.indexOf('|');if(pipe>=0&&(!doc.fromOCR)&&(/[\u3400-\u9fff]/.test(text.slice(pipe+1))||!text.slice(pipe+1).trim())){make(text.slice(0,pipe),line,start,end,{zh:text.slice(pipe+1).trim(),explicit:true});return;}
+  const ls=lex(text);if(!ls.length){make(text,line,start,end,{excluded:'非英文內容，請核對'});return;}
+  // A complete line/cell that matches a known phrase remains intact. Paragraph mode
+  // only joins the conservative phrase whitelist, never arbitrary long dictionary phrases.
+  if(mode==='list'&&dictionary.has(fold(text))&&/\s/.test(text)){make(text,line,start,end);return;}
+  for(let i=0;i<ls.length;){let count=1;
+   for(let j=Math.min(ls.length,i+4);j>i+1;j--){const slice=text.slice(ls[i].start,ls[j-1].end);if(/^[A-Za-z'’‘‐‑\-\s]+$/.test(slice)&&!/[\n\t]| {3,}/.test(slice)&&SAFE_PHRASES.has(fold(slice))){count=j-i;break;}}
+   const last=ls[i+count-1];let to=last.end;if(text[to]==='-'&&(to===text.length-1))to++;
+   make(text.slice(ls[i].start,to),line,start+ls[i].start,start+to,{broken:to>last.end});i+=count;
+  }
+ }
+ if(mode!=='sentences')for(const line of doc.lines){if(mode==='list')segments(line).forEach(seg=>splitSegment(seg,line));else splitSegment({text:line.text,start:0,end:line.text.length},line);}
+ else{
+  let group=[];const flush=()=>{if(!group.length)return;const text=group.map(l=>l.text).join('\n');let pos=0,tokens=[];for(const l of group){tokens.push(...l.tokens.map(t=>({...t,start:t.start+pos,end:t.end+pos})));pos+=l.text.length+1;}const line={...group[0],text,originalText:text,tokens};for(const s of sentenceParts(text)){const c=make(s.text,line,s.start,s.end,{kind:'sentence',broken:/-\s*\n/.test(s.raw)});if(c&&!/[.!?]["'”’)]?$/.test(c.en))c.reviewReasons.push('句子未見句末標點，請看原稿');}group=[];};
+  for(const l of doc.lines){const ex=header(l.text);if(!l.text.trim()){flush();continue;}if(ex){flush();make(l.text,l,0,l.text.length,{excluded:ex});continue;}const ss=segments(l); // Big gaps/columns form separate chunks, never one sentence across the page.
+   if(ss.length>1){flush();for(const s of ss){const sub={...l,text:s.text,originalText:l.text,tokens:l.tokens.filter(t=>t.start>=s.start&&t.end<=s.end).map(t=>({...t,start:t.start-s.start,end:t.end-s.start}))};for(const part of sentenceParts(s.text))make(part.text,sub,part.start,part.end,{kind:'sentence'});}continue;}
+   if(group.length&&group.at(-1).paragraphId!==l.paragraphId)flush();group.push(l);
+  }flush();
+ }
+ return out;
+}
+function editDistance(a,b,max=2){if(Math.abs(a.length-b.length)>max)return max+1;let row=Array.from({length:b.length+1},(_,i)=>i),prev=null;for(let i=1;i<=a.length;i++){const next=[i];for(let j=1;j<=b.length;j++){next[j]=Math.min(row[j]+1,next[j-1]+1,row[j-1]+(a[i-1]===b[j-1]?0:1));if(prev&&i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])next[j]=Math.min(next[j],prev[j-2]+1);}prev=row;row=next;}return row[b.length];}
+function suggestions(en,map){const key=fold(en);if(key==='|')return ['I','l'];if(map.has(key)||key.length<4||key.length>35||/\s/.test(key))return [];const list=[];for(const [k,e] of map){if(/\s/.test(k)||Math.abs(k.length-key.length)>1)continue;const d=editDistance(key,k,1);if(d<=1)list.push({en:e.en||k,d});}return list.sort((a,b)=>a.d-b.d||a.en.localeCompare(b.en)).slice(0,4).map(x=>x.en);}
+function merge(items,fromId,toId,newId){const a=items.findIndex(x=>x.id===fromId),b=items.findIndex(x=>x.id===toId);if(a<0||b<0)throw Error('請重新選擇起點和終點。');const lo=Math.min(a,b),hi=Math.max(a,b),xs=items.slice(lo,hi+1);if(xs.length<2||xs.length>12)throw Error('請選相鄰的 2–12 個字詞。');if(xs.some(x=>x.sourceRegionId!==xs[0].sourceRegionId||x.lineId!==xs[0].lineId||x.kind==='sentence'||x.excludedReason))throw Error('只可合併同一行、同一區域的相鄰字詞；跨行請用修改文字。');
+ const first=clone(xs[0]),en=xs.map(x=>x.en).join(' ');if(en.length>240)throw Error('詞組太長，請分開加入。');Object.assign(first,{id:newId,en,zh:'',kind:'phrase',originalText:xs.map(x=>x.originalText).join(' '),sourceBoxes:xs.flatMap(x=>x.sourceBoxes),sourceTokenIds:xs.flatMap(x=>x.sourceTokenIds),reviewReasons:['新合併詞組，請核對'],reviewed:false,common:false,known:false,choices:[],example:'',selected:true,span:[xs[0].span[0],xs.at(-1).span[1]],parts:xs});return [...items.slice(0,lo),first,...items.slice(hi+1)];}
+function split(item,idPrefix){if(item.parts)return clone(item.parts).map((x,i)=>({...x,id:idPrefix+'-'+i,selected:item.selected}));const ls=lex(item.en);if(ls.length<2)throw Error('這項只有一個完整字；可用「修改」調整。');return ls.map((x,i)=>({...clone(item),id:idPrefix+'-'+i,en:x.text,originalText:x.text,zh:'',kind:'word',common:isCommon(x.text),known:false,choices:[],example:'',reviewed:false,reviewReasons:['拆開後，請核對意思'],parts:undefined}));}
+function deduplicate(items){const seen=new Map(),out=[];let count=0;for(const item of items){if(!item.selected){out.push(item);continue;}const key=item.en+'\u0000'+item.zh;const prior=seen.get(key);if(prior){prior.occurrences=(prior.occurrences||1)+(item.occurrences||1);prior.moreSources=[...(prior.moreSources||[]),...(item.moreSources||[]),{text:item.originalText,sourceText:item.sourceText,regionId:item.sourceRegionId,boxes:item.sourceBoxes}];prior.reviewReasons=[...new Set([...prior.reviewReasons,...item.reviewReasons])];prior.reviewed=prior.reviewed&&item.reviewed;count++;}else{const c=clone(item);seen.set(key,c);out.push(c);}}return {items:out,count};}
+function pending(c){return c.selected&&c.reviewReasons.length>0&&!c.reviewed;}
+function selected(items){return items.filter(x=>x.selected);}
+return Object.freeze({VERSION,COMMON,SAFE_PHRASES,fold,exact,box,union,dictIndex,gloss,kind,isCommon,header,lex,fromText,fromOCR,segments,sentenceParts,candidates,suggestions,merge,split,deduplicate,pending,selected,clone});
+});

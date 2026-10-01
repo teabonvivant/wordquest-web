@@ -1,0 +1,116 @@
+{
+  "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f",
+  "newScriptCount": 40,
+  "unchangedMath": {
+    "math_data": {
+      "sha256": "e09bb9a3b51f264dcc56314a0be22263b41a4e7c528b40dc3d8f723741988db5",
+      "exactSourcePresent": true
+    },
+    "r3_curriculum_extension": {
+      "sha256": "288dfb33e7ab020e73eaaeb4d2222d6ec69f827953f73966b94f840cf143463c",
+      "exactSourcePresent": true
+    },
+    "math_visuals": {
+      "sha256": "c886134808d1622c9b50349a40a76904570b018752f6c5f5ad3d1935037655b6",
+      "exactSourcePresent": true
+    },
+    "math_core": {
+      "sha256": "e09c9851210232c75c8aad252287464a1184e8adc26bd9323ee0b0f4702b1fb2",
+      "exactSourcePresent": true
+    },
+    "math_storage": {
+      "sha256": "d6a4f52caa1107931077910f6f7abd44cc4eb0b06acf2b6e078fa8f7381866a3",
+      "exactSourcePresent": true
+    }
+  },
+  "unchangedArcade": {
+    "0": {
+      "sha256": "8c382dd65fa3aaa7c4741be59307cc4858a382a7a6403ab4a8b603100325fc6b",
+      "exactSourcePresent": true
+    },
+    "1": {
+      "sha256": "1099f698e5d77f53f6de493a197a368d8af33f5da7e0176fa7ae8edad7b201b5",
+      "exactSourcePresent": true
+    },
+    "12": {
+      "sha256": "d50627ef4d5b2f4c53b08e443c68eeecd2b048dbcc0467939e1ba4e9115d1601",
+      "exactSourcePresent": true
+    },
+    "13": {
+      "sha256": "428f0ecb0f8f52a0d8cc9ade566d122a87cb63b870cb889fb5178ffe6aaebc3a",
+      "exactSourcePresent": true
+    },
+    "14": {
+      "sha256": "8e9c9e7af2aafdebe2a5e04033cbe416aed3fb662fa7d89a818d614b1d8f9ba5",
+      "exactSourcePresent": true
+    },
+    "15": {
+      "sha256": "f48bfb6726f8fc994299698be1eae3d23d0378da91fe3a80612331da05002758",
+      "exactSourcePresent": true
+    },
+    "16": {
+      "sha256": "17006ed8fed05520faa9e46b22de73cc972e7ccb46a55c4bfb954bdd516fc615",
+      "exactSourcePresent": true
+    },
+    "17": {
+      "sha256": "2204d6d9423c4e9c8a3fb95c7a40ddcb51d158e1ab7bfcaa55bc6214c6153165",
+      "exactSourcePresent": true
+    },
+    "18": {
+      "sha256": "23a037e31db0e74bb8314623f58432a5501ffcaa803147752e1c38cae70de380",
+      "exactSourcePresent": true
+    },
+    "19": {
+      "sha256": "b7a4994fd70d3e2aa139f9993cb715b964ad15d29e3601159fc7f7ca970920fa",
+      "exactSourcePresent": true
+    },
+    "20": {
+      "sha256": "e525399b907fb0dd4fb75a57aefbbd04bf4b2437d794de038e4138993d6f863a",
+      "exactSourcePresent": true
+    },
+    "21": {
+      "sha256": "e5ebf03c94b1674c8fedff86052ea2b9ae841e9539d71439e0df5cb88e6c01b5",
+      "exactSourcePresent": true
+    },
+    "22": {
+      "sha256": "9538cb73b22727c94db1c7497dd988d7405cf63714211dc03337941009636b2f",
+      "exactSourcePresent": true
+    },
+    "23": {
+      "sha256": "f58008b132d85555674b1287b118ad629316b521490108391f8a5391b1c83c10",
+      "exactSourcePresent": true
+    }
+  },
+  "newSourcePNGs": [
+    {
+      "name": "烈烈老師",
+      "sha256": "5fd9a3d0ed1295716c138aca9d56752f47115ad991aaa2d925386f65ca03bdc2",
+      "size": 2411976
+    },
+    {
+      "name": "柚柚老師",
+      "sha256": "483a9ce59488b1c954c28c54de51b8d3349734237c8de2cf7bb615fb68b38c88",
+      "size": 2373534
+    },
+    {
+      "name": "糖栗老師",
+      "sha256": "78e77c482f5108a8e8624c1ff626bc6786d7b675478e471f96dea30e72bf2534",
+      "size": 2515436
+    },
+    {
+      "name": "波波",
+      "sha256": "96e7d07fd0b63910ea844e463046b26d5af508e360c084381cde0df8618594a5",
+      "size": 2455623
+    },
+    {
+      "name": "刺刺",
+      "sha256": "fb3cb6afb95e5f6771c6bf90a710ef3e94b2afd9979f26d8f22a3bdaccdb61bd",
+      "size": 2408893
+    },
+    {
+      "name": "阿峰",
+      "sha256": "8f417caa20b338ffd0fb5f7320f00de91b615316ad13dbf4edc14d5a8903f453",
+      "size": 2326995
+    }
+  ]
+}

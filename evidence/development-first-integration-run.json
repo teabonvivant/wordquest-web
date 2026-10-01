@@ -1,0 +1,1462 @@
+[
+  {
+    "id": "R1-001",
+    "group": "INTEGRATION",
+    "name": "Host bridge exposes correct version and no mutable database",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R1-002",
+    "group": "INTEGRATION",
+    "name": "Single homepage has both ordinary maths and Olympiad buttons",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.023
+  },
+  {
+    "id": "R1-003",
+    "group": "INTEGRATION",
+    "name": "Maths resolves the real V32 bridge, not standalone profile adapter",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.011
+  },
+  {
+    "id": "R1-004",
+    "group": "INTEGRATION",
+    "name": "Retained bank contains 28 skills and 84 templates",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R1-005",
+    "group": "INTEGRATION",
+    "name": "Original V32 companion is decoded and visible in maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.029
+  },
+  {
+    "id": "R1-006",
+    "group": "INTEGRATION",
+    "name": "Guest open does not create standalone child registry",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-007",
+    "group": "INTEGRATION",
+    "name": "Guest unfinished answer survives closing/reopening on same page",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.181
+  },
+  {
+    "id": "R1-008",
+    "group": "INTEGRATION",
+    "name": "Real registration is shared by English and maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R1-009",
+    "group": "INTEGRATION",
+    "name": "Registered maths opens current English child, without second registry",
+    "status": "FAIL",
+    "detail": "not shared",
+    "seconds": 0.005
+  },
+  {
+    "id": "R1-010",
+    "group": "INTEGRATION",
+    "name": "Ten-question daily task completed by actual answer inputs",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 7.241
+  },
+  {
+    "id": "R1-011",
+    "group": "INTEGRATION",
+    "name": "Daily task writes ten maths attempts to the shared child scope",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R1-012",
+    "group": "INTEGRATION",
+    "name": "Eligible maths completion credits the original English coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.001
+  },
+  {
+    "id": "R1-013",
+    "group": "INTEGRATION",
+    "name": "Outbox settles once after English wallet success",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.012
+  },
+  {
+    "id": "R1-014",
+    "group": "INTEGRATION",
+    "name": "Repeated flush does not award a second coin",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R1-015",
+    "group": "INTEGRATION",
+    "name": "Maths completion preserves existing English learning content",
+    "status": "PASS",
+    "detail": {
+      "unchanged_fields": [
+        "ranges",
+        "attempts",
+        "words"
+      ],
+      "all_equal": true
+    },
+    "seconds": 0.003
+  },
+  {
+    "id": "R1-016",
+    "group": "INTEGRATION",
+    "name": "Maths parent entry redirects to existing English password gate",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.025
+  },
+  {
+    "id": "R1-017",
+    "group": "INTEGRATION",
+    "name": "Incorrect password cannot unlock maths settings",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.334
+  },
+  {
+    "id": "R1-018",
+    "group": "INTEGRATION",
+    "name": "Existing parent password unlocks without another account",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.151
+  },
+  {
+    "id": "R1-019",
+    "group": "INTEGRATION",
+    "name": "English parent page displays separate maths activity count",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-020",
+    "group": "INTEGRATION",
+    "name": "Unlocked maths settings open in same program",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R1-021",
+    "group": "INTEGRATION",
+    "name": "Parent settings persist through guarded UI save",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.252
+  },
+  {
+    "id": "R1-022",
+    "group": "INTEGRATION",
+    "name": "Actual browser run so far has no JavaScript exceptions",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R1-023",
+    "group": "INTEGRATION",
+    "name": "Serialized reload restores current child and maths attempts",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.013
+  },
+  {
+    "id": "R1-024",
+    "group": "FAULT",
+    "name": "Uncommitted reward event cannot credit wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  },
+  {
+    "id": "R1-025",
+    "group": "FAULT",
+    "name": "Reward for wrong child scope is rejected",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-026",
+    "group": "FAULT",
+    "name": "Event payload must match saved outbox",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-027",
+    "group": "FAULT",
+    "name": "Wallet storage failure leaves original wallet unchanged",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R1-028",
+    "group": "FAULT",
+    "name": "Wallet-success/outbox-ack-failure retries without double payout",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  },
+  {
+    "id": "R1-029",
+    "group": "FAULT",
+    "name": "Maths storage quota failure preserves previous serialized data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R1-030",
+    "group": "FAULT",
+    "name": "Stale maths revision cannot overwrite newer data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-031",
+    "group": "FAULT",
+    "name": "Stale English revision prevents cross-subject writing",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.001
+  },
+  {
+    "id": "R1-032",
+    "group": "FAULT",
+    "name": "Corrupt maths data is read-only and raw bytes are preserved",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-033",
+    "group": "FAULT",
+    "name": "Backup owned by another child cannot replace current progress",
+    "status": "FAIL",
+    "detail": "Page.evaluate: SyntaxError: \"[object Object]\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at eval (eval at evaluate (:290:30), <anonymous>:1:120)\n    at UtilityScript.evaluate (<anonymous>:297:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "seconds": 0.003
+  },
+  {
+    "id": "R1-034",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects an over-seven-day event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R1-035",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects a future-dated event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.006
+  },
+  {
+    "id": "R1-036",
+    "group": "FAULT",
+    "name": "Maths uses existing four-task/five-coin daily cap",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.015
+  },
+  {
+    "id": "R1-037",
+    "group": "FAULT",
+    "name": "Backup restore creates recovery copy without replaying coins",
+    "status": "FAIL",
+    "detail": "Page.evaluate: SyntaxError: \"[object Object]\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at eval (eval at evaluate (:290:30), <anonymous>:1:88)\n    at UtilityScript.evaluate (<anonymous>:297:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "seconds": 0.003
+  },
+  {
+    "id": "R1-038",
+    "group": "INTEGRATION",
+    "name": "Existing English parent UI creates the shared second child",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.18
+  },
+  {
+    "id": "R1-039",
+    "group": "INTEGRATION",
+    "name": "New child starts with isolated maths progress and wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.007
+  },
+  {
+    "id": "R1-040",
+    "group": "INTEGRATION",
+    "name": "Switching back restores original child progress and coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.393
+  },
+  {
+    "id": "R1-041",
+    "group": "INTEGRATION",
+    "name": "Switching child invalidates the previous parent unlock",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R1-042",
+    "group": "FAULT",
+    "name": "Sidecar deletion failure cancels persisted English child deletion",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.153
+  },
+  {
+    "id": "R1-043",
+    "group": "INTEGRATION",
+    "name": "Deleting English child also removes maths progress and recovery copy",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.151
+  },
+  {
+    "id": "R1-044",
+    "group": "INTEGRATION",
+    "name": "No uncaught JavaScript errors in fault and child-management scenarios",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R1-045",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.876
+  },
+  {
+    "id": "R1-046",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.101
+  },
+  {
+    "id": "R1-047",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.318
+  },
+  {
+    "id": "R1-048",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-049",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.282
+  },
+  {
+    "id": "R1-050",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R1-051",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-052",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-053",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R1-054",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R1-055",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R1-056",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R1-057",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R1-058",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.306
+  },
+  {
+    "id": "R1-059",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R1-060",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-061",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-062",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R1-063",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R1-064",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R1-065",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-066",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.012
+  },
+  {
+    "id": "R1-067",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.8
+  },
+  {
+    "id": "R1-068",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.813
+  },
+  {
+    "id": "R1-069",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.094
+  },
+  {
+    "id": "R1-070",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R1-071",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R1-072",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R1-073",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-074",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R1-075",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R1-076",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.282
+  },
+  {
+    "id": "R1-077",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R1-078",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R1-079",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R1-080",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R1-081",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-082",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R1-083",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R1-084",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T1: render, input, mark, feedback focus",
+    "status": "FAIL",
+    "detail": "wrong answer/rendering",
+    "seconds": 0.566
+  },
+  {
+    "id": "R1-085",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T2: render, input, mark, feedback focus",
+    "status": "FAIL",
+    "detail": "wrong answer/rendering",
+    "seconds": 0.341
+  },
+  {
+    "id": "R1-086",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T3: render, input, mark, feedback focus",
+    "status": "FAIL",
+    "detail": "wrong answer/rendering",
+    "seconds": 0.348
+  },
+  {
+    "id": "R1-087",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T1",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.441
+  },
+  {
+    "id": "R1-088",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T2",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.449
+  },
+  {
+    "id": "R1-089",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T3",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.456
+  },
+  {
+    "id": "R1-090",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.079
+  },
+  {
+    "id": "R1-091",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.315
+  },
+  {
+    "id": "R1-092",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-093",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R1-094",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R1-095",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R1-096",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T1",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.656
+  },
+  {
+    "id": "R1-097",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T2",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.463
+  },
+  {
+    "id": "R1-098",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T3",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.448
+  },
+  {
+    "id": "R1-099",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.087
+  },
+  {
+    "id": "R1-100",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R1-101",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R1-102",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T1",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.559
+  },
+  {
+    "id": "R1-103",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T2",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.347
+  },
+  {
+    "id": "R1-104",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T3",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.348
+  },
+  {
+    "id": "R1-105",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.454
+  },
+  {
+    "id": "R1-106",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.467
+  },
+  {
+    "id": "R1-107",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.446
+  },
+  {
+    "id": "R1-108",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.822
+  },
+  {
+    "id": "R1-109",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.814
+  },
+  {
+    "id": "R1-110",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.819
+  },
+  {
+    "id": "R1-111",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.467
+  },
+  {
+    "id": "R1-112",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.456
+  },
+  {
+    "id": "R1-113",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.455
+  },
+  {
+    "id": "R1-114",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.078
+  },
+  {
+    "id": "R1-115",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R1-116",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R1-117",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-118",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R1-119",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R1-120",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R1-121",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.315
+  },
+  {
+    "id": "R1-122",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.281
+  },
+  {
+    "id": "R1-123",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.324
+  },
+  {
+    "id": "R1-124",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.309
+  },
+  {
+    "id": "R1-125",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R1-126",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R1-127",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R1-128",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R1-129",
+    "group": "INTEGRATION",
+    "name": "No JavaScript errors across all template DOM operations",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R1-130",
+    "group": "VIEWPORT",
+    "name": "1280px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.02
+  },
+  {
+    "id": "R1-131",
+    "group": "VIEWPORT",
+    "name": "1280px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.024
+  }
+]

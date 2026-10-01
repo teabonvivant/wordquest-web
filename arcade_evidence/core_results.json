@@ -1,0 +1,2556 @@
+[
+  {
+    "id": "CORE-001",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 944,
+      "seconds": 15.733333333333695,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-002",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-003",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1082,
+      "seconds": 18.03333333333359,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-004",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-005",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 927,
+      "seconds": 15.450000000000347,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-006",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-007",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 786,
+      "seconds": 13.10000000000023,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-008",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-009",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1181,
+      "seconds": 19.683333333333497,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-010",
+    "group": "ENGINE",
+    "name": "ruins-courier d0 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-011",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 419,
+      "seconds": 6.983333333333314,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-012",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-013",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 680,
+      "seconds": 11.333333333333476,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-014",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-015",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 418,
+      "seconds": 6.966666666666647,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-016",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-017",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 420,
+      "seconds": 6.9999999999999805,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-018",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-019",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 408,
+      "seconds": 6.799999999999981,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-020",
+    "group": "ENGINE",
+    "name": "ruins-courier d1 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-021",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 598,
+      "seconds": 9.966666666666741,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-022",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-023",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 591,
+      "seconds": 9.850000000000069,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-024",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-025",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 602,
+      "seconds": 10.033333333333411,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-026",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-027",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 598,
+      "seconds": 9.966666666666741,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-028",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-029",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 683,
+      "seconds": 11.383333333333479,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-030",
+    "group": "ENGINE",
+    "name": "ruins-courier d2 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-031",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-032",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-033",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-034",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-035",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-036",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-037",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-038",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-039",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-040",
+    "group": "ENGINE",
+    "name": "cloud-island d0 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-041",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-042",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-043",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-044",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-045",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-046",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-047",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-048",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-049",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1537,
+      "seconds": 25.616666666666493,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-050",
+    "group": "ENGINE",
+    "name": "cloud-island d1 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-051",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1716,
+      "seconds": 28.599999999999657,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-052",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-053",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1716,
+      "seconds": 28.599999999999657,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-054",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-055",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1716,
+      "seconds": 28.599999999999657,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-056",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-057",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1716,
+      "seconds": 28.599999999999657,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-058",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-059",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1716,
+      "seconds": 28.599999999999657,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-060",
+    "group": "ENGINE",
+    "name": "cloud-island d2 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-061",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 710,
+      "seconds": 11.833333333333501,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-062",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-063",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 710,
+      "seconds": 11.833333333333501,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-064",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-065",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 710,
+      "seconds": 11.833333333333501,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-066",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-067",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 710,
+      "seconds": 11.833333333333501,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-068",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-069",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 710,
+      "seconds": 11.833333333333501,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-070",
+    "group": "ENGINE",
+    "name": "star-patrol d0 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-071",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 595,
+      "seconds": 9.916666666666739,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-072",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-073",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 595,
+      "seconds": 9.916666666666739,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-074",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-075",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 595,
+      "seconds": 9.916666666666739,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-076",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-077",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 595,
+      "seconds": 9.916666666666739,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-078",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-079",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 595,
+      "seconds": 9.916666666666739,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-080",
+    "group": "ENGINE",
+    "name": "star-patrol d1 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-081",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 623,
+      "seconds": 10.383333333333429,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-082",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-083",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 623,
+      "seconds": 10.383333333333429,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-084",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-085",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 623,
+      "seconds": 10.383333333333429,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-086",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-087",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 623,
+      "seconds": 10.383333333333429,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-088",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-089",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 623,
+      "seconds": 10.383333333333429,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-090",
+    "group": "ENGINE",
+    "name": "star-patrol d2 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-091",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 673,
+      "seconds": 11.216666666666804,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-092",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-093",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 687,
+      "seconds": 11.450000000000149,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-094",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-095",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 653,
+      "seconds": 10.883333333333454,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-096",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-097",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 734,
+      "seconds": 12.23333333333352,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-098",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-099",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 654,
+      "seconds": 10.900000000000121,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-100",
+    "group": "ENGINE",
+    "name": "lighthouse-well d0 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-101",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 725,
+      "seconds": 12.083333333333513,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-102",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-103",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 824,
+      "seconds": 13.733333333333595,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-104",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-105",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 653,
+      "seconds": 10.883333333333454,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-106",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-107",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1259,
+      "seconds": 20.983333333333423,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-108",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-109",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 665,
+      "seconds": 11.083333333333464,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-110",
+    "group": "ENGINE",
+    "name": "lighthouse-well d1 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-111",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1107,
+      "seconds": 18.450000000000234,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-112",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-113",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 727,
+      "seconds": 12.116666666666848,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-114",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-115",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 653,
+      "seconds": 10.883333333333454,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-116",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-117",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 638,
+      "seconds": 10.633333333333441,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-118",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-119",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 890,
+      "seconds": 14.83333333333365,
+      "done": true,
+      "won": false,
+      "health": 0
+    }
+  },
+  {
+    "id": "CORE-120",
+    "group": "ENGINE",
+    "name": "lighthouse-well d2 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-121",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-122",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-123",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1013,
+      "seconds": 16.883333333333656,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-124",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-125",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-126",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-127",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1013,
+      "seconds": 16.883333333333656,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-128",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-129",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1013,
+      "seconds": 16.883333333333656,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-130",
+    "group": "ENGINE",
+    "name": "harbor-volley d0 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-131",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-132",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-133",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-134",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-135",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-136",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-137",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-138",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-139",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1015,
+      "seconds": 16.916666666666988,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-140",
+    "group": "ENGINE",
+    "name": "harbor-volley d1 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-141",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-142",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed1: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-143",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-144",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed12: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-145",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-146",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed456: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-147",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-148",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed9876: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-149",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true,
+    "detail": {
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
+      "done": true,
+      "won": false,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-150",
+    "group": "ENGINE",
+    "name": "harbor-volley d2 seed654321: checkpoint RNG replay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-151",
+    "group": "ENGINE",
+    "name": "ruins-courier: draw is read-only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-152",
+    "group": "VALIDATION",
+    "name": "ruins-courier: reject missing",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-153",
+    "group": "VALIDATION",
+    "name": "ruins-courier: reject bad-health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-154",
+    "group": "VALIDATION",
+    "name": "ruins-courier: reject huge-array",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-155",
+    "group": "VALIDATION",
+    "name": "ruins-courier: reject prototype",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-156",
+    "group": "VALIDATION",
+    "name": "ruins-courier: reject unknown-method",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-157",
+    "group": "ENGINE",
+    "name": "cloud-island: draw is read-only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-158",
+    "group": "VALIDATION",
+    "name": "cloud-island: reject missing",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-159",
+    "group": "VALIDATION",
+    "name": "cloud-island: reject bad-health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-160",
+    "group": "VALIDATION",
+    "name": "cloud-island: reject huge-array",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-161",
+    "group": "VALIDATION",
+    "name": "cloud-island: reject prototype",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-162",
+    "group": "VALIDATION",
+    "name": "cloud-island: reject unknown-method",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-163",
+    "group": "ENGINE",
+    "name": "star-patrol: draw is read-only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-164",
+    "group": "VALIDATION",
+    "name": "star-patrol: reject missing",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-165",
+    "group": "VALIDATION",
+    "name": "star-patrol: reject bad-health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-166",
+    "group": "VALIDATION",
+    "name": "star-patrol: reject huge-array",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-167",
+    "group": "VALIDATION",
+    "name": "star-patrol: reject prototype",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-168",
+    "group": "VALIDATION",
+    "name": "star-patrol: reject unknown-method",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-169",
+    "group": "ENGINE",
+    "name": "lighthouse-well: draw is read-only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-170",
+    "group": "VALIDATION",
+    "name": "lighthouse-well: reject missing",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-171",
+    "group": "VALIDATION",
+    "name": "lighthouse-well: reject bad-health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-172",
+    "group": "VALIDATION",
+    "name": "lighthouse-well: reject huge-array",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-173",
+    "group": "VALIDATION",
+    "name": "lighthouse-well: reject prototype",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-174",
+    "group": "VALIDATION",
+    "name": "lighthouse-well: reject unknown-method",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-175",
+    "group": "ENGINE",
+    "name": "harbor-volley: draw is read-only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-176",
+    "group": "VALIDATION",
+    "name": "harbor-volley: reject missing",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-177",
+    "group": "VALIDATION",
+    "name": "harbor-volley: reject bad-health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-178",
+    "group": "VALIDATION",
+    "name": "harbor-volley: reject huge-array",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-179",
+    "group": "VALIDATION",
+    "name": "harbor-volley: reject prototype",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-180",
+    "group": "VALIDATION",
+    "name": "harbor-volley: reject unknown-method",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-181",
+    "group": "COMPATIBILITY",
+    "name": "Catalogue contains 26 unique IDs, with original 21 in original order",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-182",
+    "group": "COMPATIBILITY",
+    "name": "sky-rescue d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-183",
+    "group": "COMPATIBILITY",
+    "name": "sky-rescue d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-184",
+    "group": "COMPATIBILITY",
+    "name": "sky-rescue d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-185",
+    "group": "COMPATIBILITY",
+    "name": "forest-dash d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-186",
+    "group": "COMPATIBILITY",
+    "name": "forest-dash d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-187",
+    "group": "COMPATIBILITY",
+    "name": "forest-dash d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-188",
+    "group": "COMPATIBILITY",
+    "name": "moon-bells d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-189",
+    "group": "COMPATIBILITY",
+    "name": "moon-bells d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-190",
+    "group": "COMPATIBILITY",
+    "name": "moon-bells d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-191",
+    "group": "COMPATIBILITY",
+    "name": "bounce-basket d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-192",
+    "group": "COMPATIBILITY",
+    "name": "bounce-basket d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-193",
+    "group": "COMPATIBILITY",
+    "name": "bounce-basket d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-194",
+    "group": "COMPATIBILITY",
+    "name": "number-garden d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-195",
+    "group": "COMPATIBILITY",
+    "name": "number-garden d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-196",
+    "group": "COMPATIBILITY",
+    "name": "number-garden d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-197",
+    "group": "COMPATIBILITY",
+    "name": "forest-band d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-198",
+    "group": "COMPATIBILITY",
+    "name": "forest-band d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-199",
+    "group": "COMPATIBILITY",
+    "name": "forest-band d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-200",
+    "group": "COMPATIBILITY",
+    "name": "drift-path d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-201",
+    "group": "COMPATIBILITY",
+    "name": "drift-path d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-202",
+    "group": "COMPATIBILITY",
+    "name": "drift-path d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-203",
+    "group": "COMPATIBILITY",
+    "name": "meadow-cricket d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-204",
+    "group": "COMPATIBILITY",
+    "name": "meadow-cricket d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-205",
+    "group": "COMPATIBILITY",
+    "name": "meadow-cricket d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-206",
+    "group": "COMPATIBILITY",
+    "name": "honey-delivery d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-207",
+    "group": "COMPATIBILITY",
+    "name": "honey-delivery d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-208",
+    "group": "COMPATIBILITY",
+    "name": "honey-delivery d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-209",
+    "group": "COMPATIBILITY",
+    "name": "color-workshop d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-210",
+    "group": "COMPATIBILITY",
+    "name": "color-workshop d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-211",
+    "group": "COMPATIBILITY",
+    "name": "color-workshop d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-212",
+    "group": "COMPATIBILITY",
+    "name": "forest-pong d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-213",
+    "group": "COMPATIBILITY",
+    "name": "forest-pong d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-214",
+    "group": "COMPATIBILITY",
+    "name": "forest-pong d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-215",
+    "group": "COMPATIBILITY",
+    "name": "juice-lines d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-216",
+    "group": "COMPATIBILITY",
+    "name": "juice-lines d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-217",
+    "group": "COMPATIBILITY",
+    "name": "juice-lines d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-218",
+    "group": "COMPATIBILITY",
+    "name": "honeycomb-puzzle d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-219",
+    "group": "COMPATIBILITY",
+    "name": "honeycomb-puzzle d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-220",
+    "group": "COMPATIBILITY",
+    "name": "honeycomb-puzzle d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-221",
+    "group": "COMPATIBILITY",
+    "name": "valley-race d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-222",
+    "group": "COMPATIBILITY",
+    "name": "valley-race d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-223",
+    "group": "COMPATIBILITY",
+    "name": "valley-race d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-224",
+    "group": "COMPATIBILITY",
+    "name": "rolling-block d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-225",
+    "group": "COMPATIBILITY",
+    "name": "rolling-block d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-226",
+    "group": "COMPATIBILITY",
+    "name": "rolling-block d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-227",
+    "group": "COMPATIBILITY",
+    "name": "block-studio d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-228",
+    "group": "COMPATIBILITY",
+    "name": "block-studio d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-229",
+    "group": "COMPATIBILITY",
+    "name": "block-studio d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-230",
+    "group": "COMPATIBILITY",
+    "name": "star-rhythm d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-231",
+    "group": "COMPATIBILITY",
+    "name": "star-rhythm d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-232",
+    "group": "COMPATIBILITY",
+    "name": "star-rhythm d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-233",
+    "group": "COMPATIBILITY",
+    "name": "color-orbit d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-234",
+    "group": "COMPATIBILITY",
+    "name": "color-orbit d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-235",
+    "group": "COMPATIBILITY",
+    "name": "color-orbit d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-236",
+    "group": "COMPATIBILITY",
+    "name": "garden-paths d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-237",
+    "group": "COMPATIBILITY",
+    "name": "garden-paths d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-238",
+    "group": "COMPATIBILITY",
+    "name": "garden-paths d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-239",
+    "group": "COMPATIBILITY",
+    "name": "little-engineer d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-240",
+    "group": "COMPATIBILITY",
+    "name": "little-engineer d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-241",
+    "group": "COMPATIBILITY",
+    "name": "little-engineer d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-242",
+    "group": "COMPATIBILITY",
+    "name": "sweet-studio d0: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-243",
+    "group": "COMPATIBILITY",
+    "name": "sweet-studio d1: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-244",
+    "group": "COMPATIBILITY",
+    "name": "sweet-studio d2: original snapshot constructor roundtrip",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-245",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d0 seed12",
+    "pass": true,
+    "detail": {
+      "metres": 279.41666666666754
+    }
+  },
+  {
+    "id": "CORE-246",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d0 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 39.64999999999903,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-247",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d0 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 46.16666666666533,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-248",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d0 seed456",
+    "pass": true,
+    "detail": {
+      "metres": 278.8333333333342
+    }
+  },
+  {
+    "id": "CORE-249",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d0 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 39.64999999999903,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-250",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d0 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 47.79999999999857,
+      "health": 2
+    }
+  },
+  {
+    "id": "CORE-251",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d1 seed12",
+    "pass": true,
+    "detail": {
+      "metres": 279.3333333333325
+    }
+  },
+  {
+    "id": "CORE-252",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d1 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 34.9999999999993,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-253",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d1 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 48.49999999999853,
+      "health": 1
+    }
+  },
+  {
+    "id": "CORE-254",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d1 seed456",
+    "pass": true,
+    "detail": {
+      "metres": 278.66666666666583
+    }
+  },
+  {
+    "id": "CORE-255",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d1 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 34.9999999999993,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-256",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d1 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 47.79999999999857,
+      "health": 2
+    }
+  },
+  {
+    "id": "CORE-257",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d2 seed12",
+    "pass": true,
+    "detail": {
+      "metres": 279.8333333333349
+    }
+  },
+  {
+    "id": "CORE-258",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d2 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 30.699999999999537,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-259",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d2 seed12",
+    "pass": true,
+    "detail": {
+      "seconds": 48.18333333333188,
+      "health": 1
+    }
+  },
+  {
+    "id": "CORE-260",
+    "group": "GAMEPLAY",
+    "name": "runner lane changes alone cannot finish d2 seed456",
+    "pass": true,
+    "detail": {
+      "metres": 279.06666666666825
+    }
+  },
+  {
+    "id": "CORE-261",
+    "group": "GAMEPLAY",
+    "name": "runner jump-slide route completes d2 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 30.699999999999537,
+      "health": 3
+    }
+  },
+  {
+    "id": "CORE-262",
+    "group": "GAMEPLAY",
+    "name": "cloud controlled jumps complete three islands d2 seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 48.56666666666519,
+      "health": 2
+    }
+  },
+  {
+    "id": "CORE-263",
+    "group": "GAMEPLAY",
+    "name": "well 60-floor controlled route d0, seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 144.6833333333406,
+      "health": 2,
+      "floor": 60
+    }
+  },
+  {
+    "id": "CORE-264",
+    "group": "GAMEPLAY",
+    "name": "well 60-floor controlled route d1, seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 115.68333333332805,
+      "health": 3,
+      "floor": 60
+    }
+  },
+  {
+    "id": "CORE-265",
+    "group": "GAMEPLAY",
+    "name": "well 60-floor controlled route d2, seed456",
+    "pass": true,
+    "detail": {
+      "seconds": 96.6499999999958,
+      "health": 3,
+      "floor": 60
+    }
+  },
+  {
+    "id": "CORE-266",
+    "group": "REGRESSION",
+    "name": "cloud-island: repeated fall during invulnerability returns to safe position without extra damage",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-267",
+    "group": "REGRESSION",
+    "name": "lighthouse-well: repeated fall during invulnerability returns to safe position without extra damage",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-268",
+    "group": "REGRESSION",
+    "name": "cloud initial damage produces safe checkpoint and 2.2 seconds protection",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-269",
+    "group": "REGRESSION",
+    "name": "cloud releasing one jump key retains the other held key",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-270",
+    "group": "VALIDATION",
+    "name": "cloud reject dangerous checkpoint height",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-271",
+    "group": "GAMEPLAY",
+    "name": "cloud island change preserves lost lives and varies platform layout",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-272",
+    "group": "GAMEPLAY",
+    "name": "shooter power-up changes projectile damage",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-273",
+    "group": "GAMEPLAY",
+    "name": "shooter diagonal velocity is not faster",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-274",
+    "group": "GAMEPLAY",
+    "name": "shooter precise movement slower than normal",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-275",
+    "group": "GAMEPLAY",
+    "name": "shooter shield clears bullets and has cooldown",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-276",
+    "group": "GAMEPLAY",
+    "name": "shooter half-health boss changes fan from five to seven",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-277",
+    "group": "GAMEPLAY",
+    "name": "shooter each boss advances and third completes without restoring health",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-278",
+    "group": "REGRESSION",
+    "name": "volleyball fourth touch awards one point; terminal state remains valid",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-279",
+    "group": "GAMEPLAY",
+    "name": "volleyball deuce needs two-point lead, capped at seven",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-280",
+    "group": "GAMEPLAY",
+    "name": "volleyball lob, short and airborne spike produce different trajectories",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-281",
+    "group": "GAMEPLAY",
+    "name": "volleyball swept net blocks fast low shot",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-282",
+    "group": "WALLET",
+    "name": "R1 balance migration remains idempotent",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-283",
+    "group": "WALLET",
+    "name": "ruins-courier: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-284",
+    "group": "WALLET",
+    "name": "cloud-island: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-285",
+    "group": "WALLET",
+    "name": "star-patrol: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-286",
+    "group": "WALLET",
+    "name": "lighthouse-well: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-287",
+    "group": "WALLET",
+    "name": "harbor-volley: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-288",
+    "group": "WALLET",
+    "name": "untouched admission refundable once only",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-289",
+    "group": "WALLET",
+    "name": "sixth admission blocked at batch five, no negative balance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-290",
+    "group": "WALLET",
+    "name": "all 78 best-score slots validated and old values kept",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-291",
+    "group": "WALLET",
+    "name": "damaged new snapshot isolated without deleting other records",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "CORE-292",
+    "group": "COMPATIBILITY",
+    "name": "unknown V33 game ID is rejected rather than guessed",
+    "pass": true,
+    "detail": null
+  }
+]

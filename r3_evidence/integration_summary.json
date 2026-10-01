@@ -1,0 +1,14 @@
+{
+  "counts": {
+    "PASS": 429,
+    "FAIL": 0
+  },
+  "total": 429,
+  "environment": "Chromium real DOM / page.set_content; explicit memory storage, Web Locks and crypto adapters; network blocked; synthetic fixtures",
+  "groups": {
+    "FAULT": 15,
+    "INTEGRATION": 36,
+    "TEMPLATE_DOM": 366,
+    "VIEWPORT": 12
+  }
+}

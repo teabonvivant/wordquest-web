@@ -1,0 +1,102 @@
+[
+  {
+    "page": "START_HERE.html",
+    "link": "app/index.html",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "docs/本輪套用及驗證報告.html",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "README_先看這份.md",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "docs/開發交接_R1.md",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "originals/WordQuest_Program_and_Data_20260929/START_HERE.html",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "originals/WordQuest_Program_and_Data_20260929/04_Assets/素材索引.html",
+    "exists": true
+  },
+  {
+    "page": "START_HERE.html",
+    "link": "PACKAGE_MANIFEST.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../app/index.html",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../START_HERE.html",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/english-home-1280.png",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/maths-home-390.png",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/maths-answer-390.png",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/integration_results.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../tests/legacy_rerun/results/core_results.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../tests/legacy_rerun/results/generation_results.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/environment.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../evidence/originals_integrity.json",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "開發交接_R1.md",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../README_先看這份.md",
+    "exists": true
+  },
+  {
+    "page": "docs/本輪套用及驗證報告.html",
+    "link": "../originals/WordQuest_Program_and_Data_20260929/START_HERE.html",
+    "exists": true
+  }
+]

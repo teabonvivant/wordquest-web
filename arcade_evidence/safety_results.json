@@ -1,0 +1,199 @@
+[
+  {
+    "id": "SAFE-001",
+    "name": "Native AudioContext produces nonzero measured samples",
+    "pass": true,
+    "detail": [
+      0,
+      0.008899294771254063,
+      0.007759064435958862,
+      0.0001173897908302024,
+      1.3459857655107044e-05,
+      2.7947285161644686e-06,
+      0,
+      0.009344721212983131,
+      0.0018439199775457382,
+      0.00017946537991520017,
+      1.9304392480989918e-05,
+      2.7860717182193184e-06
+    ]
+  },
+  {
+    "id": "SAFE-002",
+    "name": "Both volume buses at zero output zero samples",
+    "pass": true,
+    "detail": {
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "buses": {
+        "sfx": 0,
+        "music": 0
+      }
+    }
+  },
+  {
+    "id": "SAFE-003",
+    "name": "Zero volume schedules no new sound nodes",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-004",
+    "name": "Independent SFX and music gain controls",
+    "pass": true,
+    "detail": {
+      "sfx": 0.4000000059604645,
+      "music": 0.20000000298023224
+    }
+  },
+  {
+    "id": "SAFE-005",
+    "name": "Volume settings survive serialization and new DOM",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-006",
+    "name": "Pointer-held control moves player",
+    "pass": true,
+    "detail": {
+      "before": 400,
+      "after": 444.99999999999983
+    }
+  },
+  {
+    "id": "SAFE-007",
+    "name": "Pointer release stops movement",
+    "pass": true,
+    "detail": {
+      "after": 444.99999999999983,
+      "later": 444.99999999999983
+    }
+  },
+  {
+    "id": "SAFE-008",
+    "name": "Global sound toggle mutes both buses",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-009",
+    "name": "Global mute does not stop gameplay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-010",
+    "name": "Global toggle restores configured volumes",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-011",
+    "name": "Window blur releases input and pauses",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-012",
+    "name": "No native-audio/control JavaScript errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "SAFE-013",
+    "name": "Admission save failure does not debit in-memory coins",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-014",
+    "name": "Admission save failure does not debit stored coins",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-015",
+    "name": "Admission save failure has no playable charged run",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-016",
+    "name": "Checkpoint failure freezes playing state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-017",
+    "name": "Checkpoint failure retains stored last-good data",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-018",
+    "name": "Checkpoint failure presents recovery action",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-019",
+    "name": "Retry save clears failure without a second admission",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-020",
+    "name": "Cloud pointer press holds jump",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-021",
+    "name": "Cloud pointer cancellation clears held jump",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-022",
+    "name": "All tab displays old 21 plus new 5 cabinets",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-023",
+    "name": "Old best score visible by original game identity",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-024",
+    "name": "Original music studio still starts after audio replacement",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-025",
+    "name": "Original game obeys new SFX volume bus",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-026",
+    "name": "Old game and all-catalogue no JS errors",
+    "pass": true,
+    "detail": []
+  }
+]

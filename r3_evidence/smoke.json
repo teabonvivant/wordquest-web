@@ -1,0 +1,12 @@
+{
+  "errors": [],
+  "dialogs": [],
+  "profile": {
+    "id": "c_demo",
+    "name": "整合測試學員",
+    "grade": 3,
+    "account": "u_mumroyid_1_gqphm7e6dba",
+    "persistent": true,
+    "balance": 0
+  }
+}

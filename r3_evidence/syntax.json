@@ -1,0 +1,212 @@
+{
+  "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+  "embedded_scripts": 39,
+  "additional_scripts": 2,
+  "tests": [
+    {
+      "script": 0,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 1,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 2,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 3,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 4,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 5,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 6,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 7,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 8,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 9,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 10,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 11,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 12,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 13,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 14,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 15,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 16,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 17,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 18,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 19,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 20,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 21,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 22,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 23,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 24,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 25,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 26,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 27,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 28,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 29,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 30,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 31,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 32,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 33,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 34,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 35,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 36,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 37,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": 38,
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": "app/sw.js",
+      "pass": true,
+      "error": ""
+    },
+    {
+      "script": "server/local_server.mjs",
+      "pass": true,
+      "error": ""
+    }
+  ]
+}

@@ -1,0 +1,6440 @@
+[
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-001",
+    "name": "Legacy slot identifiers remain stable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-002",
+    "name": "New canonical character identity is explicit",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-003",
+    "name": "New account animation defaults off",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-004",
+    "name": "Old record resolves to automatic guide without mutation",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-005",
+    "name": "Malformed preference safe normalization: null",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-006",
+    "name": "Malformed preference safe normalization: 42",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-007",
+    "name": "Malformed preference safe normalization: \"fox\"",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-008",
+    "name": "Malformed preference safe normalization: []",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-009",
+    "name": "Malformed preference safe normalization: {\"guide\":\"hacker\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-010",
+    "name": "Malformed preference safe normalization: {\"show\":\"false\",\"compact\":1}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-011",
+    "name": "Malformed preference safe normalization: {\"guide\":\"__proto__\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-012",
+    "name": "Malformed preference safe normalization: {\"__proto__\":{\"show\":false}}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-013",
+    "name": "Fixed guide owl supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-014",
+    "name": "Fixed guide owl supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-015",
+    "name": "Valid expression mapping owl thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-016",
+    "name": "Valid expression mapping owl retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-017",
+    "name": "Valid expression mapping owl correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-018",
+    "name": "Valid expression mapping owl complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-019",
+    "name": "Valid expression mapping owl rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-020",
+    "name": "Valid expression mapping owl hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-021",
+    "name": "Valid expression mapping owl teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-022",
+    "name": "Character owl metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-023",
+    "name": "Fixed guide fox supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-024",
+    "name": "Fixed guide fox supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-025",
+    "name": "Valid expression mapping fox thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-026",
+    "name": "Valid expression mapping fox retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-027",
+    "name": "Valid expression mapping fox correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-028",
+    "name": "Valid expression mapping fox complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-029",
+    "name": "Valid expression mapping fox rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-030",
+    "name": "Valid expression mapping fox hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-031",
+    "name": "Valid expression mapping fox teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-032",
+    "name": "Character fox metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-033",
+    "name": "Fixed guide panda supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-034",
+    "name": "Fixed guide panda supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-035",
+    "name": "Valid expression mapping panda thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-036",
+    "name": "Valid expression mapping panda retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-037",
+    "name": "Valid expression mapping panda correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-038",
+    "name": "Valid expression mapping panda complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-039",
+    "name": "Valid expression mapping panda rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-040",
+    "name": "Valid expression mapping panda hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-041",
+    "name": "Valid expression mapping panda teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-042",
+    "name": "Character panda metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-043",
+    "name": "Fixed guide bee supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-044",
+    "name": "Fixed guide bee supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-045",
+    "name": "Valid expression mapping bee thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-046",
+    "name": "Valid expression mapping bee retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-047",
+    "name": "Valid expression mapping bee correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-048",
+    "name": "Valid expression mapping bee complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-049",
+    "name": "Valid expression mapping bee rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-050",
+    "name": "Valid expression mapping bee hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-051",
+    "name": "Valid expression mapping bee teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-052",
+    "name": "Character bee metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-053",
+    "name": "Fixed guide star supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-054",
+    "name": "Fixed guide star supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-055",
+    "name": "Valid expression mapping star thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-056",
+    "name": "Valid expression mapping star retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-057",
+    "name": "Valid expression mapping star correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-058",
+    "name": "Valid expression mapping star complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-059",
+    "name": "Valid expression mapping star rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-060",
+    "name": "Valid expression mapping star hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-061",
+    "name": "Valid expression mapping star teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-062",
+    "name": "Character star metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-063",
+    "name": "Fixed guide rabbit supported in math",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-064",
+    "name": "Fixed guide rabbit supported in English",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-065",
+    "name": "Valid expression mapping rabbit thinking",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-066",
+    "name": "Valid expression mapping rabbit retry",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-067",
+    "name": "Valid expression mapping rabbit correct",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-068",
+    "name": "Valid expression mapping rabbit complete",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-069",
+    "name": "Valid expression mapping rabbit rest",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-070",
+    "name": "Valid expression mapping rabbit hint",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-071",
+    "name": "Valid expression mapping rabbit teach",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-072",
+    "name": "Character rabbit metadata immutable",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-073",
+    "name": "Automatic state dispatch {\"view\":\"home\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-074",
+    "name": "Automatic state dispatch {\"view\":\"tools\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-075",
+    "name": "Automatic state dispatch {\"view\":\"cards\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-076",
+    "name": "Automatic state dispatch {\"view\":\"olympiad\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-077",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"track\":\"olympiad\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-078",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"earlyNumber\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-079",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"visual\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-080",
+    "name": "Automatic state dispatch {\"view\":\"lesson\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-081",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"feedback\":\"retry\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-082",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"visual\":true,\"hinted\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-083",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"exploring\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-084",
+    "name": "Automatic state dispatch {\"view\":\"resume\"}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-085",
+    "name": "Automatic state dispatch {\"view\":\"home\",\"rest\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-086",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"completed\":true}",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-087",
+    "name": "Assessment mode mock has quiet guide regardless of fixed selection",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-088",
+    "name": "Assessment mode diagnostic has quiet guide regardless of fixed selection",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-089",
+    "name": "Assessment mode exam has quiet guide regardless of fixed selection",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-090",
+    "name": "Assessment mode assessment has quiet guide regardless of fixed selection",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-091",
+    "name": "Assessment mode dictation has quiet guide regardless of fixed selection",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-092",
+    "name": "Hidden guide returns no portrait data",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-093",
+    "name": "Upper-primary automatically compact",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-094",
+    "name": "Typing stage automatically compact",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-095",
+    "name": "Invalid backup role is refused, not silently accepted",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-096",
+    "name": "Existing backup without guide field stays valid",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-097",
+    "name": "Guide ignores answer, HTML and student input fields",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-098",
+    "name": "Guide never alters supplied context or preferences",
+    "pass": true
+  },
+  {
+    "suite": "角色分工、表情及輸入邊界",
+    "id": "FOREST-CORE-099",
+    "name": "Neither normal guide nor fixed preference influences award value",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-001",
+    "name": "App opens without JavaScript exceptions",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-002",
+    "name": "Six named animals, never the previous owl/firefly/bee identities",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-003",
+    "name": "42 inline artwork assets decode without network",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-004",
+    "name": "New account defaults disable animation and use automatic assignment",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-005",
+    "name": "Gallery owl: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-006",
+    "name": "Gallery owl: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-007",
+    "name": "Gallery owl: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-008",
+    "name": "Gallery owl: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-009",
+    "name": "Gallery owl: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-010",
+    "name": "Gallery owl: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-011",
+    "name": "Gallery owl: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-012",
+    "name": "Gallery fox: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-013",
+    "name": "Gallery fox: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-014",
+    "name": "Gallery fox: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-015",
+    "name": "Gallery fox: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-016",
+    "name": "Gallery fox: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-017",
+    "name": "Gallery fox: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-018",
+    "name": "Gallery fox: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-019",
+    "name": "Gallery panda: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-020",
+    "name": "Gallery panda: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-021",
+    "name": "Gallery panda: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-022",
+    "name": "Gallery panda: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-023",
+    "name": "Gallery panda: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-024",
+    "name": "Gallery panda: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-025",
+    "name": "Gallery panda: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-026",
+    "name": "Gallery bee: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-027",
+    "name": "Gallery bee: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-028",
+    "name": "Gallery bee: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-029",
+    "name": "Gallery bee: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-030",
+    "name": "Gallery bee: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-031",
+    "name": "Gallery bee: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-032",
+    "name": "Gallery bee: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-033",
+    "name": "Gallery star: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-034",
+    "name": "Gallery star: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-035",
+    "name": "Gallery star: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-036",
+    "name": "Gallery star: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-037",
+    "name": "Gallery star: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-038",
+    "name": "Gallery star: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-039",
+    "name": "Gallery star: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-040",
+    "name": "Gallery rabbit: real click selects decoded front",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-041",
+    "name": "Gallery rabbit: real click selects decoded face0",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-042",
+    "name": "Gallery rabbit: real click selects decoded face1",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-043",
+    "name": "Gallery rabbit: real click selects decoded face2",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-044",
+    "name": "Gallery rabbit: real click selects decoded face3",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-045",
+    "name": "Gallery rabbit: real click selects decoded face4",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-046",
+    "name": "Gallery rabbit: real click selects decoded sheet",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-047",
+    "name": "No invented side or back angles advertised as available",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-048",
+    "name": "Gallery no horizontal overflow at 320px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-049",
+    "name": "Gallery no horizontal overflow at 390px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-050",
+    "name": "Gallery no horizontal overflow at 768px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-051",
+    "name": "Gallery no horizontal overflow at 1280px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-052",
+    "name": "Gallery fixed selection keeps keyboard focus on the replacement selector",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-053",
+    "name": "Home character opens actual modal with focus on close control",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-054",
+    "name": "Escape closes gallery and returns focus to origin button",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-055",
+    "name": "Maths home automatically uses otter helper",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-056",
+    "name": "Tool workshop uses the red panda teacher",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-057",
+    "name": "Olympiad home uses the goat classmate",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-058",
+    "name": "Early number practice uses the otter",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-059",
+    "name": "Changing fixed maths helper preserves unsubmitted input",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-060",
+    "name": "Changing fixed helper does not write maths state or balance",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-061",
+    "name": "Fixed helper actually changes image and name",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-062",
+    "name": "Hide setting removes maths portrait without deleting draft",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-063",
+    "name": "Wrong answer shows supportive hedgehog, not reward or shame",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-064",
+    "name": "Enter submission retains keyboard focus on actual feedback",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-065",
+    "name": "Correct submission switches to success expression",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-066",
+    "name": "Companion never prints the answer or invokes scoring itself",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-067",
+    "name": "Geometry practice chooses fox teacher from skill context",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-068",
+    "name": "Maths guide and question no overflow at 320px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-069",
+    "name": "Maths guide and question no overflow at 390px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-070",
+    "name": "Maths guide and question no overflow at 844px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-071",
+    "name": "Maths guide and question no overflow at 1280px",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-072",
+    "name": "Global hide makes decorative English portraits invisible and keeps character gallery access",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-073",
+    "name": "Reduced-motion preference suppresses maths entry animation",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-074",
+    "name": "Simulated app reopen restores per-child fixed preference",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-075",
+    "name": "Restored preference is used by actual maths image",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-076",
+    "name": "Storage failure reports session-only preferences and preserves stored JSON",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-077",
+    "name": "Family JSON exports new fixed-helper preference",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-078",
+    "name": "Family JSON checksum matches independent Python SHA256",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-079",
+    "name": "New family backup accurately identifies R3.1 application version",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-080",
+    "name": "Restore reloads backed-up preference in UI without extra rewards",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-081",
+    "name": "Old R3 family preferences without new field restore as automatic",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-082",
+    "name": "Malformed new preference is rejected before family replacement",
+    "pass": true
+  },
+  {
+    "suite": "角色瀏覽器及備份流程",
+    "id": "FOREST-UI-083",
+    "name": "No uncaught JavaScript exceptions in complete UI run",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-01",
+    "name": "First child uses chosen hedgehog helper",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-02",
+    "name": "Second child identity actually differs",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-03",
+    "name": "Second child defaults do not inherit first child selection",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-04",
+    "name": "Second child independent choice saved",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-05",
+    "name": "Switching back restores first child helper, not second child choice",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-06",
+    "name": "First child actual maths portrait is hedgehog",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-07",
+    "name": "Real mock button enters independent diagnostic mode",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-08",
+    "name": "Independent assessment hides fixed companion and its settings",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-09",
+    "name": "Independent assessment leaves original question and submit available",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-10",
+    "name": "Character actions have not added any coins",
+    "pass": true
+  },
+  {
+    "suite": "孩子隔離及獨立作答介面",
+    "id": "FOREST-SCOPE-11",
+    "name": "No uncaught browser errors",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:1",
+    "name": "Default settings accepted",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:2",
+    "name": "Valid calendar 2024-02-29",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:3",
+    "name": "Valid calendar 2000-02-29",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:4",
+    "name": "Valid calendar 2026-09-29",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:5",
+    "name": "Valid calendar 2026-12-31",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:6",
+    "name": "Reject calendar 2026-02-29",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:7",
+    "name": "Reject calendar 2026-02-30",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:8",
+    "name": "Reject calendar 1900-02-29",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:9",
+    "name": "Reject calendar 2026-00-01",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:10",
+    "name": "Reject calendar 2026-13-01",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:11",
+    "name": "Reject calendar 2026-04-31",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:12",
+    "name": "Reject calendar 2026-9-1",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:13",
+    "name": "Reject calendar x",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:14",
+    "name": "Hong Kong day boundary deterministic",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:15",
+    "name": "Invalid total time -1",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:16",
+    "name": "Invalid total time 4",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:17",
+    "name": "Invalid total time 181",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:18",
+    "name": "Invalid total time Infinity",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:19",
+    "name": "Invalid total time NaN",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:20",
+    "name": "Invalid total time 5.5",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:21",
+    "name": "Invalid total time 45",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:22",
+    "name": "Planned subject quotas cannot exceed total",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:23",
+    "name": "External speech endpoint rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:24",
+    "name": "Protocol-relative speech endpoint rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:25",
+    "name": "Consent cannot be inferred from a string",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:26",
+    "name": "Voice injection rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:27",
+    "name": "Unknown usage fields rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:28",
+    "name": "Missing usage fields rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:29",
+    "name": "Daily aggregate above 24h rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:30",
+    "name": "Fractional millisecond counter rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:31",
+    "name": "Prototype pollution key rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:32",
+    "name": "Constructor key rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:33",
+    "name": "Depth limit",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:34",
+    "name": "Long scheduling gap clamps to 5 seconds",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:35",
+    "name": "Negative elapsed time rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:36",
+    "name": "Unknown subject rejected",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:37",
+    "name": "Complete family contract accepted",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:38",
+    "name": "Missing child maths row refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:39",
+    "name": "Duplicate child maths row refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:40",
+    "name": "Other child maths refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:41",
+    "name": "Other child time refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:42",
+    "name": "Unknown character owner refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:43",
+    "name": "Invalid character boolean refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:44",
+    "name": "Image contract accepted (synthetic bytes, not image decoding)",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:45",
+    "name": "Repeated media key refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:46",
+    "name": "Kind and MIME mismatch refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:47",
+    "name": "Invalid Base64 length refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:48",
+    "name": "SVG active media refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:49",
+    "name": "Data URI MIME mismatch refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:50",
+    "name": "Unrecognized source owner refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:51",
+    "name": "Valid backup envelope accepted",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:52",
+    "name": "Impossible backup creation date refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:53",
+    "name": "Missing digest refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:54",
+    "name": "Unknown version refused",
+    "pass": true
+  },
+  {
+    "suite": "家庭資料驗證規則",
+    "id": "family_contracts.json:55",
+    "name": "Correct choice labels and lesson placeholders can resolve across 122 skills",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-1",
+    "name": "Family management and offline preparation controls visible",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-2",
+    "name": "Fresh family settings are valid and 45-minute total default",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-3",
+    "name": "Real button produces downloaded family JSON with maths and custom-media fixtures",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-4",
+    "name": "SHA256 payload checksum independently rechecked in Python",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-5",
+    "name": "Family backup includes per-child character preferences",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-6",
+    "name": "No account credential registry in family backup",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-7",
+    "name": "Family restore shows real preview and explicit replacement consent",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-8",
+    "name": "Restore button without consent cannot write",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-9",
+    "name": "Confirmed restore preserves full custom-media count and closes dialog",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-10",
+    "name": "Confirmed family restore retains character preferences",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-11",
+    "name": "Successful transaction leaves no journal/marker",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-12",
+    "name": "Transaction read-media fault keeps prior family intact",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-13",
+    "name": "Transaction journal-put fault keeps prior family intact",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-14",
+    "name": "Transaction write-media fault keeps prior family intact",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-15",
+    "name": "Committed transaction with cleanup failure completes through recovery",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-16",
+    "name": "Missing prepared journal is not silently treated as successful recovery",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-17",
+    "name": "Full-time guard blocks new activity after daily total",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-18",
+    "name": "Same-account restore cannot rewind accumulated cross-subject time",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-19",
+    "name": "Old learner name and target shown before merge",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-20",
+    "name": "Confirmed old maths merge adds record without awarding old currency",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-21",
+    "name": "Repeated old backup cannot duplicate submitted answers",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-22",
+    "name": "Account reset removes maths main and restoration copies plus custom media",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-23",
+    "name": "Account reset preserves unrelated family data",
+    "pass": true
+  },
+  {
+    "suite": "家庭備份、搬移及清除流程",
+    "id": "FAMILY-24",
+    "name": "No uncaught JavaScript browser errors",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-001",
+    "name": "Host bridge exposes correct version and no mutable database",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-002",
+    "name": "Single homepage has both ordinary maths and Olympiad buttons",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-003",
+    "name": "Maths resolves the real V32 bridge, not standalone profile adapter",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-004",
+    "name": "Expanded bank contains 122 skills and 366 templates",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-005",
+    "name": "Original V32 companion is decoded and visible in maths",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-006",
+    "name": "Guest open does not create standalone child registry",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-007",
+    "name": "Guest unfinished answer survives closing/reopening on same page",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-008",
+    "name": "Real registration is shared by English and maths",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-009",
+    "name": "Registered maths opens current English child, without second registry",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-010",
+    "name": "Ten-question daily task completed by actual answer inputs",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-011",
+    "name": "Daily task writes ten maths attempts to the shared child scope",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-012",
+    "name": "Eligible maths completion credits the original English coin balance",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-013",
+    "name": "Outbox settles once after English wallet success",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-014",
+    "name": "Repeated flush does not award a second coin",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-015",
+    "name": "Maths completion preserves existing English learning content",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-016",
+    "name": "Completion-page progress button cannot bypass English parent guard",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-017",
+    "name": "Maths parent entry redirects to existing English password gate",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-018",
+    "name": "Incorrect password cannot unlock maths settings",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-019",
+    "name": "Existing parent password unlocks without another account",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-020",
+    "name": "English parent page displays separate maths activity count",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-021",
+    "name": "Unlocked maths settings open in same program",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-022",
+    "name": "Parent settings persist through guarded UI save",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-023",
+    "name": "Actual browser run so far has no JavaScript exceptions",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-024",
+    "name": "Serialized reload restores current child and maths attempts",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-025",
+    "name": "Uncommitted reward event cannot credit wallet",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-026",
+    "name": "Reward for wrong child scope is rejected",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-027",
+    "name": "Event payload must match saved outbox",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-028",
+    "name": "Wallet storage failure leaves original wallet unchanged",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-029",
+    "name": "Wallet-success/outbox-ack-failure retries without double payout",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-030",
+    "name": "Maths storage quota failure preserves previous serialized data",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-031",
+    "name": "Stale maths revision cannot overwrite newer data",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-032",
+    "name": "Stale English revision prevents cross-subject writing",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-033",
+    "name": "Corrupt maths data is read-only and raw bytes are preserved",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-034",
+    "name": "Backup owned by another child cannot replace current progress",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-035",
+    "name": "Automatic reward sync rejects an over-seven-day event",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-036",
+    "name": "Automatic reward sync rejects a future-dated event",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-037",
+    "name": "Maths uses existing four-task/five-coin daily cap",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-038",
+    "name": "Backup restore creates recovery copy without replaying coins",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-039",
+    "name": "Existing English parent UI creates the shared second child",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-040",
+    "name": "New child starts with isolated maths progress and wallet",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-041",
+    "name": "Switching back restores original child progress and coin balance",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-042",
+    "name": "Switching child invalidates the previous parent unlock",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-043",
+    "name": "Sidecar deletion failure cancels persisted English child deletion",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-044",
+    "name": "Deleting English child also removes maths progress and recovery copy",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-045",
+    "name": "No uncaught JavaScript errors in fault and child-management scenarios",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-046",
+    "name": "Full ordinary lesson completes all six teaching stages",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-047",
+    "name": "Guided questions remain separate from independent mastery attempts",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-048",
+    "name": "Full Olympiad lesson completes challenge, teaching and reflection",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-049",
+    "name": "Correct Olympiad reflection earns the real strategy card",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-050",
+    "name": "Ordinary and Olympiad attempts coexist with separate track fields",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-051",
+    "name": "Template 1N1.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-052",
+    "name": "Template 1N1.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-053",
+    "name": "Template 1N1.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-054",
+    "name": "Template 1N1.5-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-055",
+    "name": "Template 1N1.5-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-056",
+    "name": "Template 1N1.5-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-057",
+    "name": "Template 1N2.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-058",
+    "name": "Template 1N2.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-059",
+    "name": "Template 1N2.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-060",
+    "name": "Template 1N3.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-061",
+    "name": "Template 1N3.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-062",
+    "name": "Template 1N3.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-063",
+    "name": "Template 1N4.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-064",
+    "name": "Template 1N4.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-065",
+    "name": "Template 1N4.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-066",
+    "name": "Template 1N4.4-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-067",
+    "name": "Template 1N4.4-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-068",
+    "name": "Template 1N4.4-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-069",
+    "name": "Template 2N1.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-070",
+    "name": "Template 2N1.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-071",
+    "name": "Template 2N1.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-072",
+    "name": "Template 2N1.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-073",
+    "name": "Template 2N1.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-074",
+    "name": "Template 2N1.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-075",
+    "name": "Template 2N2.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-076",
+    "name": "Template 2N2.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-077",
+    "name": "Template 2N2.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-078",
+    "name": "Template 2N2.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-079",
+    "name": "Template 2N2.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-080",
+    "name": "Template 2N2.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-081",
+    "name": "Template 2N3.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-082",
+    "name": "Template 2N3.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-083",
+    "name": "Template 2N3.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-084",
+    "name": "Template 2N4.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-085",
+    "name": "Template 2N4.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-086",
+    "name": "Template 2N4.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-087",
+    "name": "Template 2N5.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-088",
+    "name": "Template 2N5.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-089",
+    "name": "Template 2N5.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-090",
+    "name": "Template 2N5.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-091",
+    "name": "Template 2N5.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-092",
+    "name": "Template 2N5.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-093",
+    "name": "Template 2N6.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-094",
+    "name": "Template 2N6.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-095",
+    "name": "Template 2N6.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-096",
+    "name": "Template 3N1.2-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-097",
+    "name": "Template 3N1.2-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-098",
+    "name": "Template 3N1.2-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-099",
+    "name": "Template 3N2.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-100",
+    "name": "Template 3N2.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-101",
+    "name": "Template 3N2.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-102",
+    "name": "Template 3N3.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-103",
+    "name": "Template 3N3.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-104",
+    "name": "Template 3N3.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-105",
+    "name": "Template 3N4.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-106",
+    "name": "Template 3N4.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-107",
+    "name": "Template 3N4.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-108",
+    "name": "Template 3N4.4-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-109",
+    "name": "Template 3N4.4-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-110",
+    "name": "Template 3N4.4-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-111",
+    "name": "Template 3N5.1-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-112",
+    "name": "Template 3N5.1-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-113",
+    "name": "Template 3N5.1-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-114",
+    "name": "Template 3N5.3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-115",
+    "name": "Template 3N5.3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-116",
+    "name": "Template 3N5.3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-117",
+    "name": "Template 3N5.4-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-118",
+    "name": "Template 3N5.4-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-119",
+    "name": "Template 3N5.4-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-120",
+    "name": "Template O-CAL-pattern-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-121",
+    "name": "Template O-CAL-pattern-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-122",
+    "name": "Template O-CAL-pattern-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-123",
+    "name": "Template O-NUM-pairs-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-124",
+    "name": "Template O-NUM-pairs-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-125",
+    "name": "Template O-NUM-pairs-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-126",
+    "name": "Template O-APP-queue-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-127",
+    "name": "Template O-APP-queue-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-128",
+    "name": "Template O-APP-queue-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-129",
+    "name": "Template O-GEO-segments-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-130",
+    "name": "Template O-GEO-segments-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-131",
+    "name": "Template O-GEO-segments-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-132",
+    "name": "Template O-LOG-digits-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-133",
+    "name": "Template O-LOG-digits-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-134",
+    "name": "Template O-LOG-digits-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-135",
+    "name": "Template 1N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-136",
+    "name": "Template 1N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-137",
+    "name": "Template 1N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-138",
+    "name": "Template 1N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-139",
+    "name": "Template 1N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-140",
+    "name": "Template 1N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-141",
+    "name": "Template 1N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-142",
+    "name": "Template 1N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-143",
+    "name": "Template 1N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-144",
+    "name": "Template 1N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-145",
+    "name": "Template 1N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-146",
+    "name": "Template 1N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-147",
+    "name": "Template 2N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-148",
+    "name": "Template 2N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-149",
+    "name": "Template 2N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-150",
+    "name": "Template 2N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-151",
+    "name": "Template 2N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-152",
+    "name": "Template 2N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-153",
+    "name": "Template 2N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-154",
+    "name": "Template 2N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-155",
+    "name": "Template 2N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-156",
+    "name": "Template 2N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-157",
+    "name": "Template 2N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-158",
+    "name": "Template 2N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-159",
+    "name": "Template 2N5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-160",
+    "name": "Template 2N5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-161",
+    "name": "Template 2N5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-162",
+    "name": "Template 2N6.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-163",
+    "name": "Template 2N6.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-164",
+    "name": "Template 2N6.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-165",
+    "name": "Template 3N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-166",
+    "name": "Template 3N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-167",
+    "name": "Template 3N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-168",
+    "name": "Template 3N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-169",
+    "name": "Template 3N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-170",
+    "name": "Template 3N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-171",
+    "name": "Template 3N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-172",
+    "name": "Template 3N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-173",
+    "name": "Template 3N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-174",
+    "name": "Template 3N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-175",
+    "name": "Template 3N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-176",
+    "name": "Template 3N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-177",
+    "name": "Template 3N5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-178",
+    "name": "Template 3N5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-179",
+    "name": "Template 3N5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-180",
+    "name": "Template 4N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-181",
+    "name": "Template 4N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-182",
+    "name": "Template 4N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-183",
+    "name": "Template 4N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-184",
+    "name": "Template 4N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-185",
+    "name": "Template 4N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-186",
+    "name": "Template 4N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-187",
+    "name": "Template 4N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-188",
+    "name": "Template 4N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-189",
+    "name": "Template 4N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-190",
+    "name": "Template 4N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-191",
+    "name": "Template 4N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-192",
+    "name": "Template 4N5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-193",
+    "name": "Template 4N5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-194",
+    "name": "Template 4N5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-195",
+    "name": "Template 4N6.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-196",
+    "name": "Template 4N6.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-197",
+    "name": "Template 4N6.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-198",
+    "name": "Template 4N7.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-199",
+    "name": "Template 4N7.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-200",
+    "name": "Template 4N7.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-201",
+    "name": "Template 4N8.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-202",
+    "name": "Template 4N8.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-203",
+    "name": "Template 4N8.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-204",
+    "name": "Template 5N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-205",
+    "name": "Template 5N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-206",
+    "name": "Template 5N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-207",
+    "name": "Template 5N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-208",
+    "name": "Template 5N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-209",
+    "name": "Template 5N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-210",
+    "name": "Template 5N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-211",
+    "name": "Template 5N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-212",
+    "name": "Template 5N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-213",
+    "name": "Template 5N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-214",
+    "name": "Template 5N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-215",
+    "name": "Template 5N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-216",
+    "name": "Template 5N5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-217",
+    "name": "Template 5N5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-218",
+    "name": "Template 5N5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-219",
+    "name": "Template 6N1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-220",
+    "name": "Template 6N1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-221",
+    "name": "Template 6N1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-222",
+    "name": "Template 6N2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-223",
+    "name": "Template 6N2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-224",
+    "name": "Template 6N2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-225",
+    "name": "Template 6N3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-226",
+    "name": "Template 6N3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-227",
+    "name": "Template 6N3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-228",
+    "name": "Template 6N4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-229",
+    "name": "Template 6N4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-230",
+    "name": "Template 6N4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-231",
+    "name": "Template 1M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-232",
+    "name": "Template 1M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-233",
+    "name": "Template 1M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-234",
+    "name": "Template 1M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-235",
+    "name": "Template 1M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-236",
+    "name": "Template 1M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-237",
+    "name": "Template 1M3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-238",
+    "name": "Template 1M3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-239",
+    "name": "Template 1M3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-240",
+    "name": "Template 1M4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-241",
+    "name": "Template 1M4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-242",
+    "name": "Template 1M4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-243",
+    "name": "Template 2M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-244",
+    "name": "Template 2M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-245",
+    "name": "Template 2M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-246",
+    "name": "Template 2M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-247",
+    "name": "Template 2M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-248",
+    "name": "Template 2M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-249",
+    "name": "Template 2M3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-250",
+    "name": "Template 2M3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-251",
+    "name": "Template 2M3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-252",
+    "name": "Template 3M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-253",
+    "name": "Template 3M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-254",
+    "name": "Template 3M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-255",
+    "name": "Template 3M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-256",
+    "name": "Template 3M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-257",
+    "name": "Template 3M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-258",
+    "name": "Template 3M3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-259",
+    "name": "Template 3M3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-260",
+    "name": "Template 3M3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-261",
+    "name": "Template 3M4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-262",
+    "name": "Template 3M4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-263",
+    "name": "Template 3M4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-264",
+    "name": "Template 3M5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-265",
+    "name": "Template 3M5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-266",
+    "name": "Template 3M5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-267",
+    "name": "Template 4M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-268",
+    "name": "Template 4M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-269",
+    "name": "Template 4M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-270",
+    "name": "Template 4M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-271",
+    "name": "Template 4M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-272",
+    "name": "Template 4M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-273",
+    "name": "Template 5M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-274",
+    "name": "Template 5M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-275",
+    "name": "Template 5M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-276",
+    "name": "Template 5M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-277",
+    "name": "Template 5M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-278",
+    "name": "Template 5M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-279",
+    "name": "Template 6M1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-280",
+    "name": "Template 6M1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-281",
+    "name": "Template 6M1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-282",
+    "name": "Template 6M2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-283",
+    "name": "Template 6M2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-284",
+    "name": "Template 6M2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-285",
+    "name": "Template 6M3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-286",
+    "name": "Template 6M3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-287",
+    "name": "Template 6M3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-288",
+    "name": "Template 6M4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-289",
+    "name": "Template 6M4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-290",
+    "name": "Template 6M4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-291",
+    "name": "Template 6M5.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-292",
+    "name": "Template 6M5.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-293",
+    "name": "Template 6M5.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-294",
+    "name": "Template 1S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-295",
+    "name": "Template 1S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-296",
+    "name": "Template 1S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-297",
+    "name": "Template 1S2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-298",
+    "name": "Template 1S2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-299",
+    "name": "Template 1S2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-300",
+    "name": "Template 1S3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-301",
+    "name": "Template 1S3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-302",
+    "name": "Template 1S3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-303",
+    "name": "Template 2S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-304",
+    "name": "Template 2S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-305",
+    "name": "Template 2S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-306",
+    "name": "Template 2S2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-307",
+    "name": "Template 2S2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-308",
+    "name": "Template 2S2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-309",
+    "name": "Template 2S3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-310",
+    "name": "Template 2S3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-311",
+    "name": "Template 2S3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-312",
+    "name": "Template 2S4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-313",
+    "name": "Template 2S4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-314",
+    "name": "Template 2S4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-315",
+    "name": "Template 3S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-316",
+    "name": "Template 3S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-317",
+    "name": "Template 3S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-318",
+    "name": "Template 3S2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-319",
+    "name": "Template 3S2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-320",
+    "name": "Template 3S2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-321",
+    "name": "Template 4S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-322",
+    "name": "Template 4S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-323",
+    "name": "Template 4S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-324",
+    "name": "Template 4S2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-325",
+    "name": "Template 4S2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-326",
+    "name": "Template 4S2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-327",
+    "name": "Template 4S3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-328",
+    "name": "Template 4S3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-329",
+    "name": "Template 4S3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-330",
+    "name": "Template 5S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-331",
+    "name": "Template 5S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-332",
+    "name": "Template 5S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-333",
+    "name": "Template 5S2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-334",
+    "name": "Template 5S2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-335",
+    "name": "Template 5S2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-336",
+    "name": "Template 6S1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-337",
+    "name": "Template 6S1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-338",
+    "name": "Template 6S1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-339",
+    "name": "Template 2D1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-340",
+    "name": "Template 2D1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-341",
+    "name": "Template 2D1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-342",
+    "name": "Template 3D1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-343",
+    "name": "Template 3D1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-344",
+    "name": "Template 3D1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-345",
+    "name": "Template 4D1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-346",
+    "name": "Template 4D1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-347",
+    "name": "Template 4D1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-348",
+    "name": "Template 5D1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-349",
+    "name": "Template 5D1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-350",
+    "name": "Template 5D1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-351",
+    "name": "Template 6D1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-352",
+    "name": "Template 6D1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-353",
+    "name": "Template 6D1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-354",
+    "name": "Template 6D2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-355",
+    "name": "Template 6D2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-356",
+    "name": "Template 6D2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-357",
+    "name": "Template 6D3.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-358",
+    "name": "Template 6D3.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-359",
+    "name": "Template 6D3.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-360",
+    "name": "Template 6D4.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-361",
+    "name": "Template 6D4.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-362",
+    "name": "Template 6D4.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-363",
+    "name": "Template 5A1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-364",
+    "name": "Template 5A1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-365",
+    "name": "Template 5A1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-366",
+    "name": "Template 5A2.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-367",
+    "name": "Template 5A2.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-368",
+    "name": "Template 5A2.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-369",
+    "name": "Template 6A1.R3-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-370",
+    "name": "Template 6A1.R3-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-371",
+    "name": "Template 6A1.R3-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-372",
+    "name": "Template O-R3-L2-inverse-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-373",
+    "name": "Template O-R3-L2-inverse-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-374",
+    "name": "Template O-R3-L2-inverse-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-375",
+    "name": "Template O-R3-L2-count-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-376",
+    "name": "Template O-R3-L2-count-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-377",
+    "name": "Template O-R3-L2-count-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-378",
+    "name": "Template O-R3-L2-geometry-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-379",
+    "name": "Template O-R3-L2-geometry-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-380",
+    "name": "Template O-R3-L2-geometry-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-381",
+    "name": "Template O-R3-L2-logic-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-382",
+    "name": "Template O-R3-L2-logic-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-383",
+    "name": "Template O-R3-L2-logic-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-384",
+    "name": "Template O-R3-L2-applied-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-385",
+    "name": "Template O-R3-L2-applied-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-386",
+    "name": "Template O-R3-L2-applied-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-387",
+    "name": "Template O-R3-L3-inverse-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-388",
+    "name": "Template O-R3-L3-inverse-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-389",
+    "name": "Template O-R3-L3-inverse-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-390",
+    "name": "Template O-R3-L3-count-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-391",
+    "name": "Template O-R3-L3-count-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-392",
+    "name": "Template O-R3-L3-count-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-393",
+    "name": "Template O-R3-L3-geometry-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-394",
+    "name": "Template O-R3-L3-geometry-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-395",
+    "name": "Template O-R3-L3-geometry-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-396",
+    "name": "Template O-R3-L3-logic-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-397",
+    "name": "Template O-R3-L3-logic-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-398",
+    "name": "Template O-R3-L3-logic-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-399",
+    "name": "Template O-R3-L3-applied-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-400",
+    "name": "Template O-R3-L3-applied-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-401",
+    "name": "Template O-R3-L3-applied-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-402",
+    "name": "Template O-R3-L4-inverse-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-403",
+    "name": "Template O-R3-L4-inverse-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-404",
+    "name": "Template O-R3-L4-inverse-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-405",
+    "name": "Template O-R3-L4-count-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-406",
+    "name": "Template O-R3-L4-count-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-407",
+    "name": "Template O-R3-L4-count-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-408",
+    "name": "Template O-R3-L4-geometry-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-409",
+    "name": "Template O-R3-L4-geometry-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-410",
+    "name": "Template O-R3-L4-geometry-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-411",
+    "name": "Template O-R3-L4-logic-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-412",
+    "name": "Template O-R3-L4-logic-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-413",
+    "name": "Template O-R3-L4-logic-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-414",
+    "name": "Template O-R3-L4-applied-T1: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-415",
+    "name": "Template O-R3-L4-applied-T2: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-416",
+    "name": "Template O-R3-L4-applied-T3: render, input, mark, feedback focus",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-417",
+    "name": "No JavaScript errors across all template DOM operations",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-418",
+    "name": "1280px English subject buttons are visible with no page overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-419",
+    "name": "1280px maths catalogue has no horizontal content overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-420",
+    "name": "1280px question and submit button visible",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-421",
+    "name": "768px English subject buttons are visible with no page overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-422",
+    "name": "768px maths catalogue has no horizontal content overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-423",
+    "name": "768px question and submit button visible",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-424",
+    "name": "390px English subject buttons are visible with no page overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-425",
+    "name": "390px maths catalogue has no horizontal content overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-426",
+    "name": "390px question and submit button visible",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-427",
+    "name": "320px English subject buttons are visible with no page overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-428",
+    "name": "320px maths catalogue has no horizontal content overflow",
+    "pass": true
+  },
+  {
+    "suite": "英文／數學整合回歸",
+    "id": "R3-REG-429",
+    "name": "320px question and submit button visible",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-001",
+    "name": "ruins-courier d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-002",
+    "name": "ruins-courier d0 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-003",
+    "name": "ruins-courier d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-004",
+    "name": "ruins-courier d0 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-005",
+    "name": "ruins-courier d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-006",
+    "name": "ruins-courier d0 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-007",
+    "name": "ruins-courier d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-008",
+    "name": "ruins-courier d0 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-009",
+    "name": "ruins-courier d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-010",
+    "name": "ruins-courier d0 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-011",
+    "name": "ruins-courier d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-012",
+    "name": "ruins-courier d1 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-013",
+    "name": "ruins-courier d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-014",
+    "name": "ruins-courier d1 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-015",
+    "name": "ruins-courier d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-016",
+    "name": "ruins-courier d1 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-017",
+    "name": "ruins-courier d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-018",
+    "name": "ruins-courier d1 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-019",
+    "name": "ruins-courier d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-020",
+    "name": "ruins-courier d1 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-021",
+    "name": "ruins-courier d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-022",
+    "name": "ruins-courier d2 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-023",
+    "name": "ruins-courier d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-024",
+    "name": "ruins-courier d2 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-025",
+    "name": "ruins-courier d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-026",
+    "name": "ruins-courier d2 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-027",
+    "name": "ruins-courier d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-028",
+    "name": "ruins-courier d2 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-029",
+    "name": "ruins-courier d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-030",
+    "name": "ruins-courier d2 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-031",
+    "name": "cloud-island d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-032",
+    "name": "cloud-island d0 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-033",
+    "name": "cloud-island d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-034",
+    "name": "cloud-island d0 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-035",
+    "name": "cloud-island d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-036",
+    "name": "cloud-island d0 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-037",
+    "name": "cloud-island d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-038",
+    "name": "cloud-island d0 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-039",
+    "name": "cloud-island d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-040",
+    "name": "cloud-island d0 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-041",
+    "name": "cloud-island d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-042",
+    "name": "cloud-island d1 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-043",
+    "name": "cloud-island d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-044",
+    "name": "cloud-island d1 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-045",
+    "name": "cloud-island d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-046",
+    "name": "cloud-island d1 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-047",
+    "name": "cloud-island d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-048",
+    "name": "cloud-island d1 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-049",
+    "name": "cloud-island d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-050",
+    "name": "cloud-island d1 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-051",
+    "name": "cloud-island d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-052",
+    "name": "cloud-island d2 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-053",
+    "name": "cloud-island d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-054",
+    "name": "cloud-island d2 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-055",
+    "name": "cloud-island d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-056",
+    "name": "cloud-island d2 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-057",
+    "name": "cloud-island d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-058",
+    "name": "cloud-island d2 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-059",
+    "name": "cloud-island d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-060",
+    "name": "cloud-island d2 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-061",
+    "name": "star-patrol d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-062",
+    "name": "star-patrol d0 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-063",
+    "name": "star-patrol d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-064",
+    "name": "star-patrol d0 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-065",
+    "name": "star-patrol d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-066",
+    "name": "star-patrol d0 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-067",
+    "name": "star-patrol d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-068",
+    "name": "star-patrol d0 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-069",
+    "name": "star-patrol d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-070",
+    "name": "star-patrol d0 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-071",
+    "name": "star-patrol d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-072",
+    "name": "star-patrol d1 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-073",
+    "name": "star-patrol d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-074",
+    "name": "star-patrol d1 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-075",
+    "name": "star-patrol d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-076",
+    "name": "star-patrol d1 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-077",
+    "name": "star-patrol d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-078",
+    "name": "star-patrol d1 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-079",
+    "name": "star-patrol d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-080",
+    "name": "star-patrol d1 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-081",
+    "name": "star-patrol d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-082",
+    "name": "star-patrol d2 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-083",
+    "name": "star-patrol d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-084",
+    "name": "star-patrol d2 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-085",
+    "name": "star-patrol d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-086",
+    "name": "star-patrol d2 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-087",
+    "name": "star-patrol d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-088",
+    "name": "star-patrol d2 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-089",
+    "name": "star-patrol d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-090",
+    "name": "star-patrol d2 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-091",
+    "name": "lighthouse-well d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-092",
+    "name": "lighthouse-well d0 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-093",
+    "name": "lighthouse-well d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-094",
+    "name": "lighthouse-well d0 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-095",
+    "name": "lighthouse-well d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-096",
+    "name": "lighthouse-well d0 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-097",
+    "name": "lighthouse-well d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-098",
+    "name": "lighthouse-well d0 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-099",
+    "name": "lighthouse-well d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-100",
+    "name": "lighthouse-well d0 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-101",
+    "name": "lighthouse-well d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-102",
+    "name": "lighthouse-well d1 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-103",
+    "name": "lighthouse-well d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-104",
+    "name": "lighthouse-well d1 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-105",
+    "name": "lighthouse-well d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-106",
+    "name": "lighthouse-well d1 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-107",
+    "name": "lighthouse-well d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-108",
+    "name": "lighthouse-well d1 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-109",
+    "name": "lighthouse-well d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-110",
+    "name": "lighthouse-well d1 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-111",
+    "name": "lighthouse-well d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-112",
+    "name": "lighthouse-well d2 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-113",
+    "name": "lighthouse-well d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-114",
+    "name": "lighthouse-well d2 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-115",
+    "name": "lighthouse-well d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-116",
+    "name": "lighthouse-well d2 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-117",
+    "name": "lighthouse-well d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-118",
+    "name": "lighthouse-well d2 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-119",
+    "name": "lighthouse-well d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-120",
+    "name": "lighthouse-well d2 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-121",
+    "name": "harbor-volley d0 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-122",
+    "name": "harbor-volley d0 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-123",
+    "name": "harbor-volley d0 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-124",
+    "name": "harbor-volley d0 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-125",
+    "name": "harbor-volley d0 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-126",
+    "name": "harbor-volley d0 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-127",
+    "name": "harbor-volley d0 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-128",
+    "name": "harbor-volley d0 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-129",
+    "name": "harbor-volley d0 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-130",
+    "name": "harbor-volley d0 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-131",
+    "name": "harbor-volley d1 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-132",
+    "name": "harbor-volley d1 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-133",
+    "name": "harbor-volley d1 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-134",
+    "name": "harbor-volley d1 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-135",
+    "name": "harbor-volley d1 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-136",
+    "name": "harbor-volley d1 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-137",
+    "name": "harbor-volley d1 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-138",
+    "name": "harbor-volley d1 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-139",
+    "name": "harbor-volley d1 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-140",
+    "name": "harbor-volley d1 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-141",
+    "name": "harbor-volley d2 seed1: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-142",
+    "name": "harbor-volley d2 seed1: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-143",
+    "name": "harbor-volley d2 seed12: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-144",
+    "name": "harbor-volley d2 seed12: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-145",
+    "name": "harbor-volley d2 seed456: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-146",
+    "name": "harbor-volley d2 seed456: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-147",
+    "name": "harbor-volley d2 seed9876: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-148",
+    "name": "harbor-volley d2 seed9876: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-149",
+    "name": "harbor-volley d2 seed654321: bounded snapshots throughout simulated run",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-150",
+    "name": "harbor-volley d2 seed654321: checkpoint RNG replay",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-151",
+    "name": "ruins-courier: draw is read-only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-152",
+    "name": "ruins-courier: reject missing",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-153",
+    "name": "ruins-courier: reject bad-health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-154",
+    "name": "ruins-courier: reject huge-array",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-155",
+    "name": "ruins-courier: reject prototype",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-156",
+    "name": "ruins-courier: reject unknown-method",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-157",
+    "name": "cloud-island: draw is read-only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-158",
+    "name": "cloud-island: reject missing",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-159",
+    "name": "cloud-island: reject bad-health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-160",
+    "name": "cloud-island: reject huge-array",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-161",
+    "name": "cloud-island: reject prototype",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-162",
+    "name": "cloud-island: reject unknown-method",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-163",
+    "name": "star-patrol: draw is read-only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-164",
+    "name": "star-patrol: reject missing",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-165",
+    "name": "star-patrol: reject bad-health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-166",
+    "name": "star-patrol: reject huge-array",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-167",
+    "name": "star-patrol: reject prototype",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-168",
+    "name": "star-patrol: reject unknown-method",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-169",
+    "name": "lighthouse-well: draw is read-only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-170",
+    "name": "lighthouse-well: reject missing",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-171",
+    "name": "lighthouse-well: reject bad-health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-172",
+    "name": "lighthouse-well: reject huge-array",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-173",
+    "name": "lighthouse-well: reject prototype",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-174",
+    "name": "lighthouse-well: reject unknown-method",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-175",
+    "name": "harbor-volley: draw is read-only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-176",
+    "name": "harbor-volley: reject missing",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-177",
+    "name": "harbor-volley: reject bad-health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-178",
+    "name": "harbor-volley: reject huge-array",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-179",
+    "name": "harbor-volley: reject prototype",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-180",
+    "name": "harbor-volley: reject unknown-method",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-181",
+    "name": "Catalogue contains 26 unique IDs, with original 21 in original order",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-182",
+    "name": "sky-rescue d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-183",
+    "name": "sky-rescue d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-184",
+    "name": "sky-rescue d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-185",
+    "name": "forest-dash d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-186",
+    "name": "forest-dash d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-187",
+    "name": "forest-dash d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-188",
+    "name": "moon-bells d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-189",
+    "name": "moon-bells d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-190",
+    "name": "moon-bells d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-191",
+    "name": "bounce-basket d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-192",
+    "name": "bounce-basket d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-193",
+    "name": "bounce-basket d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-194",
+    "name": "number-garden d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-195",
+    "name": "number-garden d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-196",
+    "name": "number-garden d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-197",
+    "name": "forest-band d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-198",
+    "name": "forest-band d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-199",
+    "name": "forest-band d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-200",
+    "name": "drift-path d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-201",
+    "name": "drift-path d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-202",
+    "name": "drift-path d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-203",
+    "name": "meadow-cricket d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-204",
+    "name": "meadow-cricket d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-205",
+    "name": "meadow-cricket d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-206",
+    "name": "honey-delivery d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-207",
+    "name": "honey-delivery d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-208",
+    "name": "honey-delivery d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-209",
+    "name": "color-workshop d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-210",
+    "name": "color-workshop d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-211",
+    "name": "color-workshop d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-212",
+    "name": "forest-pong d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-213",
+    "name": "forest-pong d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-214",
+    "name": "forest-pong d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-215",
+    "name": "juice-lines d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-216",
+    "name": "juice-lines d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-217",
+    "name": "juice-lines d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-218",
+    "name": "honeycomb-puzzle d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-219",
+    "name": "honeycomb-puzzle d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-220",
+    "name": "honeycomb-puzzle d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-221",
+    "name": "valley-race d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-222",
+    "name": "valley-race d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-223",
+    "name": "valley-race d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-224",
+    "name": "rolling-block d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-225",
+    "name": "rolling-block d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-226",
+    "name": "rolling-block d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-227",
+    "name": "block-studio d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-228",
+    "name": "block-studio d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-229",
+    "name": "block-studio d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-230",
+    "name": "star-rhythm d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-231",
+    "name": "star-rhythm d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-232",
+    "name": "star-rhythm d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-233",
+    "name": "color-orbit d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-234",
+    "name": "color-orbit d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-235",
+    "name": "color-orbit d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-236",
+    "name": "garden-paths d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-237",
+    "name": "garden-paths d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-238",
+    "name": "garden-paths d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-239",
+    "name": "little-engineer d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-240",
+    "name": "little-engineer d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-241",
+    "name": "little-engineer d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-242",
+    "name": "sweet-studio d0: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-243",
+    "name": "sweet-studio d1: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-244",
+    "name": "sweet-studio d2: original snapshot constructor roundtrip",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-245",
+    "name": "runner lane changes alone cannot finish d0 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-246",
+    "name": "runner jump-slide route completes d0 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-247",
+    "name": "cloud controlled jumps complete three islands d0 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-248",
+    "name": "runner lane changes alone cannot finish d0 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-249",
+    "name": "runner jump-slide route completes d0 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-250",
+    "name": "cloud controlled jumps complete three islands d0 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-251",
+    "name": "runner lane changes alone cannot finish d1 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-252",
+    "name": "runner jump-slide route completes d1 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-253",
+    "name": "cloud controlled jumps complete three islands d1 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-254",
+    "name": "runner lane changes alone cannot finish d1 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-255",
+    "name": "runner jump-slide route completes d1 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-256",
+    "name": "cloud controlled jumps complete three islands d1 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-257",
+    "name": "runner lane changes alone cannot finish d2 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-258",
+    "name": "runner jump-slide route completes d2 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-259",
+    "name": "cloud controlled jumps complete three islands d2 seed12",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-260",
+    "name": "runner lane changes alone cannot finish d2 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-261",
+    "name": "runner jump-slide route completes d2 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-262",
+    "name": "cloud controlled jumps complete three islands d2 seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-263",
+    "name": "well 60-floor controlled route d0, seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-264",
+    "name": "well 60-floor controlled route d1, seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-265",
+    "name": "well 60-floor controlled route d2, seed456",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-266",
+    "name": "cloud-island: repeated fall during invulnerability returns to safe position without extra damage",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-267",
+    "name": "lighthouse-well: repeated fall during invulnerability returns to safe position without extra damage",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-268",
+    "name": "cloud initial damage produces safe checkpoint and 2.2 seconds protection",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-269",
+    "name": "cloud releasing one jump key retains the other held key",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-270",
+    "name": "cloud reject dangerous checkpoint height",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-271",
+    "name": "cloud island change preserves lost lives and varies platform layout",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-272",
+    "name": "shooter power-up changes projectile damage",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-273",
+    "name": "shooter diagonal velocity is not faster",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-274",
+    "name": "shooter precise movement slower than normal",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-275",
+    "name": "shooter shield clears bullets and has cooldown",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-276",
+    "name": "shooter half-health boss changes fan from five to seven",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-277",
+    "name": "shooter each boss advances and third completes without restoring health",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-278",
+    "name": "volleyball fourth touch awards one point; terminal state remains valid",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-279",
+    "name": "volleyball deuce needs two-point lead, capped at seven",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-280",
+    "name": "volleyball lob, short and airborne spike produce different trajectories",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-281",
+    "name": "volleyball swept net blocks fast low shot",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-282",
+    "name": "R1 balance migration remains idempotent",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-283",
+    "name": "ruins-courier: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-284",
+    "name": "cloud-island: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-285",
+    "name": "star-patrol: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-286",
+    "name": "lighthouse-well: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-287",
+    "name": "harbor-volley: one coin, pause/resume no charge, no duplicate receipt",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-288",
+    "name": "untouched admission refundable once only",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-289",
+    "name": "sixth admission blocked at batch five, no negative balance",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-290",
+    "name": "all 78 best-score slots validated and old values kept",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-291",
+    "name": "damaged new snapshot isolated without deleting other records",
+    "pass": true
+  },
+  {
+    "suite": "街機引擎及局面相容",
+    "id": "CORE-292",
+    "name": "unknown V33 game ID is rejected rather than guessed",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-001",
+    "name": "ruins-courier one coin admission",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-002",
+    "name": "ruins-courier registered ID and state",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-003",
+    "name": "ruins-courier keyboard updates simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-004",
+    "name": "ruins-courier native audio running",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-005",
+    "name": "ruins-courier pause freezes simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-006",
+    "name": "ruins-courier pause stops audio",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-007",
+    "name": "ruins-courier resume no second charge",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-008",
+    "name": "ruins-courier restore on independent DOM instance",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-009",
+    "name": "ruins-courier old best retained",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-010",
+    "name": "ruins-courier 320x568 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-011",
+    "name": "ruins-courier 320x568 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-012",
+    "name": "ruins-courier 390x844 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-013",
+    "name": "ruins-courier 390x844 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-014",
+    "name": "ruins-courier 844x390 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-015",
+    "name": "ruins-courier 844x390 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-016",
+    "name": "ruins-courier no browser exceptions",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-017",
+    "name": "cloud-island one coin admission",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-018",
+    "name": "cloud-island registered ID and state",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-019",
+    "name": "cloud-island keyboard updates simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-020",
+    "name": "cloud-island native audio running",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-021",
+    "name": "cloud-island pause freezes simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-022",
+    "name": "cloud-island pause stops audio",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-023",
+    "name": "cloud-island resume no second charge",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-024",
+    "name": "cloud-island restore on independent DOM instance",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-025",
+    "name": "cloud-island old best retained",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-026",
+    "name": "cloud-island 320x568 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-027",
+    "name": "cloud-island 320x568 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-028",
+    "name": "cloud-island 390x844 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-029",
+    "name": "cloud-island 390x844 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-030",
+    "name": "cloud-island 844x390 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-031",
+    "name": "cloud-island 844x390 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-032",
+    "name": "cloud-island no browser exceptions",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-033",
+    "name": "star-patrol one coin admission",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-034",
+    "name": "star-patrol registered ID and state",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-035",
+    "name": "star-patrol keyboard updates simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-036",
+    "name": "star-patrol native audio running",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-037",
+    "name": "star-patrol pause freezes simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-038",
+    "name": "star-patrol pause stops audio",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-039",
+    "name": "star-patrol resume no second charge",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-040",
+    "name": "star-patrol restore on independent DOM instance",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-041",
+    "name": "star-patrol old best retained",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-042",
+    "name": "star-patrol 320x568 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-043",
+    "name": "star-patrol 320x568 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-044",
+    "name": "star-patrol 390x844 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-045",
+    "name": "star-patrol 390x844 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-046",
+    "name": "star-patrol 844x390 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-047",
+    "name": "star-patrol 844x390 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-048",
+    "name": "star-patrol no browser exceptions",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-049",
+    "name": "lighthouse-well one coin admission",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-050",
+    "name": "lighthouse-well registered ID and state",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-051",
+    "name": "lighthouse-well keyboard updates simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-052",
+    "name": "lighthouse-well native audio running",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-053",
+    "name": "lighthouse-well pause freezes simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-054",
+    "name": "lighthouse-well pause stops audio",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-055",
+    "name": "lighthouse-well resume no second charge",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-056",
+    "name": "lighthouse-well restore on independent DOM instance",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-057",
+    "name": "lighthouse-well old best retained",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-058",
+    "name": "lighthouse-well 320x568 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-059",
+    "name": "lighthouse-well 320x568 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-060",
+    "name": "lighthouse-well 390x844 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-061",
+    "name": "lighthouse-well 390x844 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-062",
+    "name": "lighthouse-well 844x390 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-063",
+    "name": "lighthouse-well 844x390 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-064",
+    "name": "lighthouse-well no browser exceptions",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-065",
+    "name": "harbor-volley one coin admission",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-066",
+    "name": "harbor-volley registered ID and state",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-067",
+    "name": "harbor-volley keyboard updates simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-068",
+    "name": "harbor-volley native audio running",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-069",
+    "name": "harbor-volley pause freezes simulation",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-070",
+    "name": "harbor-volley pause stops audio",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-071",
+    "name": "harbor-volley resume no second charge",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-072",
+    "name": "harbor-volley restore on independent DOM instance",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-073",
+    "name": "harbor-volley old best retained",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-074",
+    "name": "harbor-volley 320x568 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-075",
+    "name": "harbor-volley 320x568 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-076",
+    "name": "harbor-volley 390x844 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-077",
+    "name": "harbor-volley 390x844 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-078",
+    "name": "harbor-volley 844x390 enlarged canvas",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-079",
+    "name": "harbor-volley 844x390 touch targets",
+    "pass": true
+  },
+  {
+    "suite": "街機實際操作及畫面",
+    "id": "UI-080",
+    "name": "harbor-volley no browser exceptions",
+    "pass": true
+  }
+]

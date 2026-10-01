@@ -1,0 +1,15 @@
+[
+  {
+    "test": "Report filters, 4755 case index, pagination and text rendering",
+    "pass": true,
+    "environment": "Real Chromium document DOM; no storage required"
+  },
+  {
+    "test": "Start page 390px no horizontal overflow",
+    "pass": true
+  },
+  {
+    "test": "Entry and current documentation relative links exist",
+    "pass": true
+  }
+]

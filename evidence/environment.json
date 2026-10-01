@@ -1,0 +1,14 @@
+{
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "node": "v22.16.0",
+  "chromium": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)",
+  "browser_input": "page.set_content(full app/index.html)",
+  "storage": "Explicit memory adapter with get/set/remove fault injection",
+  "web_locks": "In-page adapter; not native cross-tab locking",
+  "webcrypto": "Test adapter calls actual Python hashlib.pbkdf2_hmac SHA-256; native browser API not certified",
+  "fixtures": "Synthetic accounts, answers and failure conditions; not real student data",
+  "network": "All external requests aborted; file/HTTP navigation blocked by environment",
+  "windows_launcher": "Not executed on Windows",
+  "playwright": "1.57.0"
+}

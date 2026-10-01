@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "name": "35 original scripts + 1 new script",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Only intended original scripts changed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "No test diagnostics in production",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "New engine source embedded verbatim",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Every checksum-listed R1 file recoverable unchanged",
+      "pass": true,
+      "detail": {
+        "files": 705,
+        "missing_or_changed": []
+      }
+    },
+    {
+      "name": "core_results.json final cases pass",
+      "pass": true,
+      "detail": 292
+    },
+    {
+      "name": "browser_results.json final cases pass",
+      "pass": true,
+      "detail": 80
+    },
+    {
+      "name": "safety_results.json final cases pass",
+      "pass": true,
+      "detail": 26
+    },
+    {
+      "name": "compatibility_results.json final cases pass",
+      "pass": true,
+      "detail": 10
+    },
+    {
+      "name": "English and maths regression passes",
+      "pass": true,
+      "detail": 147
+    },
+    {
+      "name": "Report matches current app",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "START_HERE.html internal links exist",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "docs/街機R2_升級及驗證報告.html internal links exist",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "All JavaScript syntax checks pass",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "pass": 14,
+  "total": 14,
+  "app_sha256": "4de1c712588f3ae1cb3b201138a336d347819cbf118a964f44ca7ad6e068c3ae"
+}

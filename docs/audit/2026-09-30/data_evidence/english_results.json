@@ -1,0 +1,22 @@
+{
+  "method": "Exact current app pure modules; structural and grading checks, not teacher validation",
+  "units": 80,
+  "words": 607,
+  "questions": 4923,
+  "dictionaryEntries": 6057,
+  "assemblyGroups": 15,
+  "assemblyRecipes": 92,
+  "phonicsLessons": 12,
+  "phonicsWordCards": 48,
+  "arcadeGames": 26,
+  "checked": [
+    "duplicate IDs",
+    "unit and word references",
+    "question target references",
+    "own-answer accepted",
+    "invalid answer rejected",
+    "choice canonical uniqueness and correct answer presence",
+    "shared dictionary ID uniqueness"
+  ],
+  "issues": []
+}

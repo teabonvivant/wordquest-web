@@ -1,0 +1,82 @@
+{
+  "package_date": "2026-09-29",
+  "package_kind": "available_source_and_data_archive",
+  "latest_complete_release": false,
+  "new_functional_merge_performed": false,
+  "english": {
+    "version": "V32",
+    "file": "01_English_V32/WordQuest_V32_Integrated.html",
+    "source": "Complete Library HTML text recovered in five contiguous ranges, 1–4677.",
+    "bytes": 12441050,
+    "recorded_source_bytes": 12441050,
+    "sha256": "7ab658a1e276964aca58984b8c2330ff9515b83cbfe79188305cf69e33108359",
+    "original_raw_file_hash_available": false,
+    "logic_changes": []
+  },
+  "maths": {
+    "version": "0.1.2",
+    "file": "02_Maths_0.1.2/WordQuest_Maths_0.1.2.html",
+    "source": "UTF-8 HTML payload embedded in the recovered original 0.1.2 Installer.",
+    "plugin_sha256": "972025218dbe1da2d433bee31988d7bcf9e0e1d4061c250fc53cd6b0f7861c94",
+    "changes": [
+      "Added standalone HTML document wrapper.",
+      "Changed WQM_INTEGRATED from true to false."
+    ],
+    "new_bug_fixes_in_this_packaging_task": false,
+    "shared_english_account_or_wallet": false
+  },
+  "assets": {
+    "unique_embedded_images": 495,
+    "image_occurrences": 496,
+    "original_images_retained_inline": true,
+    "new_math_character_pngs_available": false,
+    "font_files_included": false
+  },
+  "original_audit": {
+    "source": "WordQuest_1000_Checks_Audit_20260929.zip",
+    "source_sha256": "29263ba172abc03eecd0df01ed23ea6d6ce1990f2727c6db2ea2f27d62fc9501",
+    "historical_tests": 1000,
+    "historical_pass": 960,
+    "historical_fail": 40,
+    "rerun_during_packaging": false
+  },
+  "missing_sources": [
+    {
+      "name": "WordQuest_V33_Original_Arcade_Package.zip",
+      "status": "Record found; raw ZIP unavailable."
+    },
+    {
+      "name": "WordQuest_Maths_0.1.3_Character_Features.zip",
+      "status": "Record found; raw ZIP unavailable; only its report text recovered."
+    },
+    {
+      "name": "Original maths 0.1.3 character PNG artwork",
+      "status": "Records found; raw original artwork not retrieved."
+    },
+    {
+      "name": "WordQuest_V33_Playtest_Audit_Package.zip",
+      "status": "Record found; raw ZIP unavailable."
+    }
+  ],
+  "not_included": [
+    "Browser-local student data and account databases",
+    "User API keys or cloud credentials",
+    "Unretrieved newer releases and their missing evidence",
+    "Offline OCR runtime and model files"
+  ],
+  "notes": [
+    "This archive must not be described as V33 or the latest complete optimized integrated release.",
+    "The V32 English game design and the maths 0.1.3 character work are not upgraded by this packaging task.",
+    "A file listing or a historical report is not proof that the corresponding original files are present."
+  ],
+  "package_verification": {
+    "javascript_scripts_checked": 35,
+    "embedded_images_verified": 495,
+    "original_audit_files_byte_compared": 70,
+    "browser_smoke_pass": 14,
+    "browser_smoke_fail": 0,
+    "integration_known_limitation": 1,
+    "browser_storage": "in-memory adapter; native persistence not verified",
+    "file_navigation": "blocked by browser administrative policy; not certified"
+  }
+}

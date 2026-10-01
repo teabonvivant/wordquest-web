@@ -1,0 +1,669 @@
+{
+  "schema": "wordquest-phonics-lessons",
+  "version": 1,
+  "revision": "v18-r1",
+  "locale": "en-GB",
+  "lessonCount": 12,
+  "wordCardCount": 48,
+  "distinctWords": 46,
+  "quizSize": 5,
+  "lessons": [
+    {
+      "id": "air-1",
+      "number": 1,
+      "title": "先學 air",
+      "pattern": "air",
+      "ipa": "/eə/",
+      "tip": "看看共同的 air，聽一聽，再跟讀。",
+      "parentNote": "今課以 air 的英式讀音作比較；不把 a、i、r 三個字母名稱拼成聲音。",
+      "words": [
+        {
+          "word": "air",
+          "meaning": "空氣",
+          "symbol": "≋",
+          "image": null,
+          "focusIndices": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "word": "hair",
+          "meaning": "頭髮",
+          "symbol": "👩",
+          "image": null,
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "word": "pair",
+          "meaning": "一對",
+          "symbol": "🧦",
+          "image": "socks",
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "word": "fair",
+          "meaning": "公平的",
+          "symbol": "⚖",
+          "image": null,
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/air",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "air-2",
+      "number": 2,
+      "title": "air 藏在新字裏",
+      "pattern": "air",
+      "ipa": "/eə/",
+      "tip": "熟悉的 air，會在哪裏出現？",
+      "parentNote": "這是拼法關聯，不是詞根切分。repair 的重音在後一音節；stairs 最後還有 s。air 在詞尾的 r 是否發出，要看口音及下一個音。",
+      "words": [
+        {
+          "word": "chair",
+          "meaning": "椅子",
+          "symbol": "🪑",
+          "image": "chair",
+          "focusIndices": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "word": "stairs",
+          "meaning": "樓梯",
+          "symbol": "🪜",
+          "image": null,
+          "focusIndices": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "word": "repair",
+          "meaning": "修理",
+          "symbol": "🔧",
+          "image": null,
+          "focusIndices": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "word": "air",
+          "meaning": "空氣",
+          "symbol": "≋",
+          "image": null,
+          "focusIndices": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/chair",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "ay",
+      "number": 3,
+      "title": "由 day 帶出 ay",
+      "pattern": "ay",
+      "ipa": "/eɪ/",
+      "tip": "留意字尾的 ay，聽完整的字。",
+      "parentNote": "今課 ay 表示 /eɪ/。same spelling 並非所有字都只有一種讀法，例如 says 是例外，今課不混入。",
+      "words": [
+        {
+          "word": "day",
+          "meaning": "日子",
+          "symbol": "☀",
+          "image": "sun",
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "say",
+          "meaning": "說",
+          "symbol": "💬",
+          "image": null,
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "play",
+          "meaning": "玩耍",
+          "symbol": "🧸",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        },
+        {
+          "word": "stay",
+          "meaning": "留下",
+          "symbol": "⌂",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/day",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "ee",
+      "number": 4,
+      "title": "一起記 ee",
+      "pattern": "ee",
+      "ipa": "/iː/",
+      "tip": "兩個 e 放在一起，留心聽。",
+      "parentNote": "今課 ee 對應 /iː/；示範是完整單字，不朗讀 E-E 字母名稱冒充音素。",
+      "words": [
+        {
+          "word": "see",
+          "meaning": "看見",
+          "symbol": "👁",
+          "image": null,
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "bee",
+          "meaning": "蜜蜂",
+          "symbol": "🐝",
+          "image": "bee",
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "tree",
+          "meaning": "樹",
+          "symbol": "🌳",
+          "image": "tree",
+          "focusIndices": [
+            2,
+            3
+          ]
+        },
+        {
+          "word": "three",
+          "meaning": "三",
+          "symbol": "3",
+          "image": null,
+          "focusIndices": [
+            3,
+            4
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/see",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "oa",
+      "number": 5,
+      "title": "看看 oa",
+      "pattern": "oa",
+      "ipa": "/əʊ/",
+      "tip": "找出中間的 oa，再跟着讀。",
+      "parentNote": "採英式 /əʊ/。這是本課所選單字的對應，不是一條沒有例外的規則。",
+      "words": [
+        {
+          "word": "boat",
+          "meaning": "小船",
+          "symbol": "⛵",
+          "image": "boat",
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "coat",
+          "meaning": "外套",
+          "symbol": "🧥",
+          "image": "coat",
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "goat",
+          "meaning": "山羊",
+          "symbol": "🐐",
+          "image": "goat",
+          "focusIndices": [
+            1,
+            2
+          ]
+        },
+        {
+          "word": "road",
+          "meaning": "道路",
+          "symbol": "🛣",
+          "image": null,
+          "focusIndices": [
+            1,
+            2
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/boat",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "igh",
+      "number": 6,
+      "title": "三個字母，一起記",
+      "pattern": "igh",
+      "ipa": "/aɪ/",
+      "tip": "igh 放在同一塊，聽完整的字。",
+      "parentNote": "這組 igh 對應 /aɪ/，並非逐個字母朗讀；right 在本課只教「右邊」。",
+      "words": [
+        {
+          "word": "night",
+          "meaning": "夜晚",
+          "symbol": "🌙",
+          "image": "moon",
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "word": "light",
+          "meaning": "光",
+          "symbol": "💡",
+          "image": "light-bulb",
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "word": "right",
+          "meaning": "右邊",
+          "symbol": "→",
+          "image": null,
+          "focusIndices": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "word": "bright",
+          "meaning": "明亮的",
+          "symbol": "☀",
+          "image": null,
+          "focusIndices": [
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/night",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "sh",
+      "number": 7,
+      "title": "聽聽 sh",
+      "pattern": "sh",
+      "ipa": "/ʃ/",
+      "tip": "嘴唇稍圓，輕輕送氣，再跟讀。",
+      "parentNote": "發 /ʃ/ 時嘴唇稍圓，氣流持續；不要在後面額外加母音。讀 ship 和 fish，比較 sh 的位置。",
+      "words": [
+        {
+          "word": "ship",
+          "meaning": "大船",
+          "symbol": "🚢",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "shop",
+          "meaning": "商店",
+          "symbol": "🏪",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "fish",
+          "meaning": "魚",
+          "symbol": "🐟",
+          "image": "fish",
+          "focusIndices": [
+            2,
+            3
+          ]
+        },
+        {
+          "word": "dish",
+          "meaning": "碟",
+          "symbol": "🍽",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/ship",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "ch",
+      "number": 8,
+      "title": "聽聽 ch",
+      "pattern": "ch",
+      "ipa": "/tʃ/",
+      "tip": "留心聽 ch，聲音短短的。",
+      "parentNote": "本課 ch 是 /tʃ/，先擋住再放出氣流；school 的 ch 讀 /k/，不屬本課這個讀音。",
+      "words": [
+        {
+          "word": "chin",
+          "meaning": "下巴",
+          "symbol": "🙂",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "chip",
+          "meaning": "一條薯條",
+          "symbol": "🍟",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "rich",
+          "meaning": "富有的",
+          "symbol": "💰",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        },
+        {
+          "word": "much",
+          "meaning": "很多（用於不可數量）",
+          "symbol": "▥",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/chin",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "th-air",
+      "number": 9,
+      "title": "th：輕輕送氣",
+      "pattern": "th",
+      "ipa": "/θ/",
+      "tip": "舌尖輕放牙邊，跟着讀。",
+      "parentNote": "thin 的 /θ/ 是清音，與 this 的 /ð/ 分課比較；不是 /s/ 或 /f/。不以同一字串判定相同發音。",
+      "words": [
+        {
+          "word": "thin",
+          "meaning": "薄的",
+          "symbol": "▯",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "thick",
+          "meaning": "厚的",
+          "symbol": "▣",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "moth",
+          "meaning": "飛蛾",
+          "symbol": "🦋",
+          "image": null,
+          "focusIndices": [
+            2,
+            3
+          ]
+        },
+        {
+          "word": "three",
+          "meaning": "三",
+          "symbol": "3",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/thin",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "th-voice",
+      "number": 10,
+      "title": "th：聲帶也振動",
+      "pattern": "th",
+      "ipa": "/ð/",
+      "tip": "舌尖輕放牙邊，喉嚨也輕輕震動。",
+      "parentNote": "this、that、them、then 的 th 是 /ð/。輕觸喉部可感受震動；跟讀只作自行練習，系統不判斷口音。",
+      "words": [
+        {
+          "word": "this",
+          "meaning": "這個",
+          "symbol": "☞",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "that",
+          "meaning": "那個",
+          "symbol": "☛",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "them",
+          "meaning": "他們／她們／它們（受詞）",
+          "symbol": "👥",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "then",
+          "meaning": "然後",
+          "symbol": "→",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/this",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "ph",
+      "number": 11,
+      "title": "ph 的讀音",
+      "pattern": "ph",
+      "ipa": "/f/",
+      "tip": "上門牙輕碰下唇，送氣，再跟讀。",
+      "parentNote": "本課 ph 表示 /f/；上門牙輕碰下唇送氣。photo、elephant、dolphin 的重音與其他母音仍要逐字聽。",
+      "words": [
+        {
+          "word": "phone",
+          "meaning": "電話",
+          "symbol": "☎",
+          "image": "telephone",
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "photo",
+          "meaning": "相片",
+          "symbol": "🖼",
+          "image": null,
+          "focusIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "word": "dolphin",
+          "meaning": "海豚",
+          "symbol": "🐬",
+          "image": "dolphin",
+          "focusIndices": [
+            3,
+            4
+          ]
+        },
+        {
+          "word": "elephant",
+          "meaning": "大象",
+          "symbol": "🐘",
+          "image": "elephant",
+          "focusIndices": [
+            3,
+            4
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/phone",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    },
+    {
+      "id": "a-e",
+      "number": 12,
+      "title": "隔開的 a、e",
+      "pattern": "a_e",
+      "ipa": "/eɪ/",
+      "tip": "a、e 隔一格，也是一組。",
+      "parentNote": "本課 a_e 是分隔的字母組合，對應 /eɪ/，末尾 e 不另讀；不是所有 a_e 都如此，例如 have 不在這組。小測補字時按次序填 a、e。",
+      "words": [
+        {
+          "word": "name",
+          "meaning": "名字",
+          "symbol": "🏷",
+          "image": null,
+          "focusIndices": [
+            1,
+            3
+          ]
+        },
+        {
+          "word": "game",
+          "meaning": "遊戲",
+          "symbol": "🎲",
+          "image": null,
+          "focusIndices": [
+            1,
+            3
+          ]
+        },
+        {
+          "word": "same",
+          "meaning": "相同的",
+          "symbol": "=",
+          "image": null,
+          "focusIndices": [
+            1,
+            3
+          ]
+        },
+        {
+          "word": "flame",
+          "meaning": "火焰",
+          "symbol": "🔥",
+          "image": "fire",
+          "focusIndices": [
+            2,
+            4
+          ]
+        }
+      ],
+      "reference": "https://dictionary.cambridge.org/pronunciation/english/name",
+      "reviewStatus": "editorial_selection_not_teacher_certified"
+    }
+  ],
+  "rewardPolicy": {
+    "maxPerLesson": 3,
+    "completion": 1,
+    "score3or4": 2,
+    "score5": 3,
+    "retest": "only-improvement-difference",
+    "technicalSkip": "no-award-pending-retry",
+    "guest": "no-persistence-no-stars"
+  }
+}

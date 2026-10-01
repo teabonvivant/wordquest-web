@@ -1,0 +1,225 @@
+{
+  "scope": "pure contracts, synthetic fixtures, no native I/O",
+  "tests": [
+    {
+      "name": "Default settings accepted",
+      "pass": true
+    },
+    {
+      "name": "Valid calendar 2024-02-29",
+      "pass": true
+    },
+    {
+      "name": "Valid calendar 2000-02-29",
+      "pass": true
+    },
+    {
+      "name": "Valid calendar 2026-09-29",
+      "pass": true
+    },
+    {
+      "name": "Valid calendar 2026-12-31",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-02-29",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-02-30",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 1900-02-29",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-00-01",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-13-01",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-04-31",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar 2026-9-1",
+      "pass": true
+    },
+    {
+      "name": "Reject calendar x",
+      "pass": true
+    },
+    {
+      "name": "Hong Kong day boundary deterministic",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time -1",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time 4",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time 181",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time Infinity",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time NaN",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time 5.5",
+      "pass": true
+    },
+    {
+      "name": "Invalid total time 45",
+      "pass": true
+    },
+    {
+      "name": "Planned subject quotas cannot exceed total",
+      "pass": true
+    },
+    {
+      "name": "External speech endpoint rejected",
+      "pass": true
+    },
+    {
+      "name": "Protocol-relative speech endpoint rejected",
+      "pass": true
+    },
+    {
+      "name": "Consent cannot be inferred from a string",
+      "pass": true
+    },
+    {
+      "name": "Voice injection rejected",
+      "pass": true
+    },
+    {
+      "name": "Unknown usage fields rejected",
+      "pass": true
+    },
+    {
+      "name": "Missing usage fields rejected",
+      "pass": true
+    },
+    {
+      "name": "Daily aggregate above 24h rejected",
+      "pass": true
+    },
+    {
+      "name": "Fractional millisecond counter rejected",
+      "pass": true
+    },
+    {
+      "name": "Prototype pollution key rejected",
+      "pass": true
+    },
+    {
+      "name": "Constructor key rejected",
+      "pass": true
+    },
+    {
+      "name": "Depth limit",
+      "pass": true
+    },
+    {
+      "name": "Long scheduling gap clamps to 5 seconds",
+      "pass": true
+    },
+    {
+      "name": "Negative elapsed time rejected",
+      "pass": true
+    },
+    {
+      "name": "Unknown subject rejected",
+      "pass": true
+    },
+    {
+      "name": "Complete family contract accepted",
+      "pass": true
+    },
+    {
+      "name": "Missing child maths row refused",
+      "pass": true
+    },
+    {
+      "name": "Duplicate child maths row refused",
+      "pass": true
+    },
+    {
+      "name": "Other child maths refused",
+      "pass": true
+    },
+    {
+      "name": "Other child time refused",
+      "pass": true
+    },
+    {
+      "name": "Unknown character owner refused",
+      "pass": true
+    },
+    {
+      "name": "Invalid character boolean refused",
+      "pass": true
+    },
+    {
+      "name": "Image contract accepted (synthetic bytes, not image decoding)",
+      "pass": true
+    },
+    {
+      "name": "Repeated media key refused",
+      "pass": true
+    },
+    {
+      "name": "Kind and MIME mismatch refused",
+      "pass": true
+    },
+    {
+      "name": "Invalid Base64 length refused",
+      "pass": true
+    },
+    {
+      "name": "SVG active media refused",
+      "pass": true
+    },
+    {
+      "name": "Data URI MIME mismatch refused",
+      "pass": true
+    },
+    {
+      "name": "Unrecognized source owner refused",
+      "pass": true
+    },
+    {
+      "name": "Valid backup envelope accepted",
+      "pass": true
+    },
+    {
+      "name": "Impossible backup creation date refused",
+      "pass": true
+    },
+    {
+      "name": "Missing digest refused",
+      "pass": true
+    },
+    {
+      "name": "Unknown version refused",
+      "pass": true
+    },
+    {
+      "name": "Correct choice labels and lesson placeholders can resolve across 122 skills",
+      "pass": true
+    }
+  ]
+}

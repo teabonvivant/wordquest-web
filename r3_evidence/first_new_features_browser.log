@@ -1,0 +1,35 @@
+True Grade 1 has startable real lessons
+True Grade 2 has startable real lessons
+True Grade 3 has startable real lessons
+True Grade 4 has startable real lessons
+True Grade 5 has startable real lessons
+True Grade 6 has startable real lessons
+True All five ordinary maths strands have skills
+True Clock keyboard range updates to 23:59
+True Clock buttons still work after redraw
+True Range listener retained after redraw
+True Protractor shows 175 degree bounded value
+True Unit-cube stack has 125 cubes, not a flat cuboid placeholder
+True 3D tool 320px width has no horizontal overflow
+True Ruler start/end remain ordered at right bound
+True Ruler left bound keeps a positive interval
+True Zero data chart has no NaN/Infinity SVG coordinates
+True Lesson clock adjustment persists through close and resume
+True Olympiad level 1 shows five different skills
+True Original mock 1 includes ten questions and correct level
+True Mock 1 completed without paying exam coins
+True Olympiad level 2 shows five different skills
+True Original mock 2 includes ten questions and correct level
+True Mock 2 completed without paying exam coins
+True Olympiad level 3 shows five different skills
+True Original mock 3 includes ten questions and correct level
+True Mock 3 completed without paying exam coins
+True Olympiad level 4 shows five different skills
+True Original mock 4 includes ten questions and correct level
+True Mock 4 completed without paying exam coins
+True No browser exceptions across new tools and mocks
+Traceback (most recent call last):
+  File "/mnt/data/WordQuest_R3_Complete/r3_tests/new_features_browser.py", line 53, in <module>
+    fixture=json.loads((R/'arcade_evidence/test_fixture_initial.json').read_text());key=next(k for k in fixture['local'] if k.startswith('wordquest-v10-user-'));db=json.loads(fixture['local'][key]);db['children'][0]['stars']=40;db['arcadeV28']['children']['c_demo']['permissions']['star-patrol']='open';db['arcadeV28']['children']['c_demo']['batch']['used']=0;fixture['local'][key]=json.dumps(db)
+                                                                                                                                                                                                                                    ~~^^^^^^^^^^^^^
+KeyError: 'arcadeV28'

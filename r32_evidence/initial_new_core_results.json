@@ -1,0 +1,352 @@
+[
+  {
+    "name": "Allow exact family main key ",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow exact family main key -before-restore",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow exact family main key -v24-protection",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow owned sidecar wq-r3-family:family-a",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow owned sidecar wqm-state-v1:family-a:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow owned sidecar wqm-state-v1:family-a:child:before-restore",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow owned sidecar wordquest-v32-characters:normal:family-a:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Allow owned sidecar wordquest-v32-characters:sandbox:family-a:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wordquest-v10-accounts",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wordquest-v10-data-family-a-x",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wq-r3-recovery:family-a",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wqm-state-v1:family-ab:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wqm-state-v1:family-b:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key wordquest-v32-characters:normal:family-b:child",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key arbitrary",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key __proto__",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key constructor",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Refuse unknown / foreign journal key prototype",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Valid recovery journal accepted",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: owner",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: missing main",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: non-string",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: missing media",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: duplicated media",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: foreign media",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: invalid media type",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: invalid date",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Reject malformed journal: too many keys",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size allowed 0",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size allowed 1",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size allowed 139999999",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size allowed 140000000",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected -1",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected 1.1",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected 140000001",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected Infinity",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected NaN",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Export size rejected 123",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated idle deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated idle supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated run deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated run supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:367\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated jump deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated jump supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated fall deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated fall supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated land deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated land supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated dash deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated dash supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated hit deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated hit supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:407\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Articulated victory deterministic and finite",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Articulated victory supports reduced motion",
+    "status": "fail",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at /mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:367\n    at test (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:3:41)\n    at Object.<anonymous> (/mnt/data/wq32_work/WordQuest_R3_1_Forest/r32_tests/new_core.cjs:12:269)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)"
+  },
+  {
+    "name": "Running animates leg and arm joints independently",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Unknown art action safely falls back",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: idle",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: run",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: jump",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: fall",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: land",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: dash",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: hit",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Eight distinct silhouette/state structures: victory",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Facing is retained when horizontal speed returns to zero",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Landing state lasts briefly then returns to idle",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Invulnerability does not repeatedly trigger hurt animation",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Completed cloud-island state selects victory",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Cloud draw leaves serialized physics state byte-identical",
+    "status": "pass",
+    "detail": null
+  },
+  {
+    "name": "Observation does not add fields to game save object",
+    "status": "pass",
+    "detail": null
+  }
+]

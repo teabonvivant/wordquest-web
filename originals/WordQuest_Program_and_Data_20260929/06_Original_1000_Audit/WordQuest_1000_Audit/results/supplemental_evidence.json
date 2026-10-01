@@ -1,0 +1,12 @@
+{
+  "counted_in_1000": false,
+  "purpose": "確認 STATE-085 的畫面影響及補拍已完成進場動畫的截圖",
+  "invalid_queue_accepted": true,
+  "view": "lesson",
+  "answer_inputs": 0,
+  "submit_buttons": 0,
+  "page_errors": [],
+  "screen_excerpt": "rd{gap:4px}.placeboard>div{font-size:12px}.placeboard strong{font-size:26px}.placeboard button{min-width:34px;min-height:40px;padding:3px}.actions{gap:13px}.actions>.primary{flex:1}.report-row{flex-wrap:wrap}.tag{font-size:11px}.tower{padding:24px}.tower h1{font-size:30px}.topbar .name{display:none}.tool-tabs{gap:3px}.tool-tabs button{font-size:12px;padding:5px 8px}.foot{font-size:11px}.tenframe{grid-template-columns:repeat(5,minmax(30px,43px));gap:4px}.keypad button{min-width:43px}.coin{min-height:53px;min-width:53px}}\n\n.lesson-title>button{flex-shrink:0;white-space:nowrap}.lesson-title>div{min-width:0}@media(max-width:600px){.lesson-title{align-items:flex-start}.lesson-title>button{font-size:13px;padding:8px;min-height:44px}.nav button{min-height:44px}}\nWWordQuest數學群島 · 思維之塔測試學員 · 小3◉ 0 金幣切換學員學習主頁數學群島思維之塔教具工房家長與進度Practice a little, remember more18 以內加減稍後繼續WordQuest Maths 0.1.0 · 本機功能試用版2017 課程框架／2026 建模修訂另作版本記錄 · 課程及粵語語音仍待獨立教師與真人試用審核。23 個普通數學入門技能 ＋ 5 個奧數主題；其餘課程未完成。離線答案可被檢視，不適合正式比賽判分。",
+  "result": "缺題目佇列可被讀取；續課顯示空白題目區，沒有填答或提交入口。",
+  "method": "Chromium DOM + isolated in-memory localStorage; not native storage"
+}

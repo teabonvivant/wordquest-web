@@ -1,0 +1,53 @@
+{
+  "audit_date": "2026-09-29",
+  "product": "WordQuest Maths 0.1.0 standalone",
+  "source_name": "WordQuest_Maths_Try.html",
+  "source_origin": "Library indexed full-text materialization; raw ZIP and HTML original bytes unavailable",
+  "source_bytes": 208912,
+  "source_sha256": "d40c974475ef1777877e82723283bbd12e1feddf13c16b369ed200e1d8c449f9",
+  "source_html_scripts": 4,
+  "source_modified": false,
+  "case_count": 1000,
+  "status_counts": {
+    "PASS": 960,
+    "FAIL": 40
+  },
+  "root_causes": 10,
+  "browser": {
+    "engine": "Chromium 144.0.7559.96",
+    "storage": "in-memory adapter",
+    "input": "Playwright real DOM click/fill/keyboard"
+  },
+  "node": "v22.16.0",
+  "python": "3.13.5",
+  "generation_seeds": [
+    0,
+    1,
+    2,
+    42,
+    65535,
+    4294967295
+  ],
+  "generation_cases": 504,
+  "unique_template_prompt_answer_remainder": 465,
+  "not_tested": [
+    "Actual V33 English build or merged application",
+    "Native localStorage and file/HTTP origins",
+    "Real mobile devices or Safari/WebKit",
+    "Human listening and Cantonese pronunciation quality",
+    "Teacher review or full P1-P6 coverage",
+    "Live host-wallet integration / cloud accounts / production security audit"
+  ],
+  "result_files": [
+    "results/generation_results.json",
+    "results/core_results.json",
+    "results/browser_features_0_14.json",
+    "results/browser_features_14_28.json",
+    "results/browser_features_28_42.json",
+    "results/browser_features_42_56.json",
+    "results/browser_templates_0_28.json",
+    "results/browser_templates_28_56.json",
+    "results/browser_templates_56_84.json"
+  ],
+  "supplemental_counted": false
+}

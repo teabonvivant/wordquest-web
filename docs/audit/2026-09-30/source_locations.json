@@ -1,0 +1,45 @@
+{
+  "WQ32-01": [
+    {
+      "file": "app/index.html",
+      "line": 3883,
+      "anchor": "function v24CanWrite()"
+    },
+    {
+      "file": "app/index.html",
+      "line": 5187,
+      "anchor": "function r3Parent()"
+    },
+    {
+      "file": "app/index.html",
+      "line": 5211,
+      "anchor": "async function r3Recover()"
+    }
+  ],
+  "WQ32-02": [
+    {
+      "file": "app/index.html",
+      "line": 2575,
+      "anchor": "function deleteChild(id)"
+    },
+    {
+      "file": "app/index.html",
+      "line": 5216,
+      "anchor": "async function r3Export()"
+    }
+  ],
+  "WQ32-03": [
+    {
+      "file": "server/local_server.mjs",
+      "line": 12,
+      "anchor": "if(u.pathname==='/api/speech')"
+    }
+  ],
+  "WQ32-04": [
+    {
+      "file": "app/index.html",
+      "line": 2851,
+      "anchor": "async function prepareShell()"
+    }
+  ]
+}

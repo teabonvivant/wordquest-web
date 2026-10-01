@@ -1,0 +1,95 @@
+[
+  {
+    "name": "英文 V32 1280px 首頁啟動",
+    "status": "PASS",
+    "actual": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "英文 V32 1280px 圖像載入",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "英文角色入口實際點擊",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "英文街機入口實際點擊",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "英文 V32 390px 首頁啟動",
+    "status": "PASS",
+    "actual": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "英文 V32 390px 圖像載入",
+    "status": "FAIL",
+    "actual": "有未能解碼的圖像"
+  },
+  {
+    "name": "數學 0.1.2 1280px 首頁啟動",
+    "status": "PASS",
+    "actual": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "數學 1280px 題庫讀取",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "數學建立測試學員",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "數學開始今日練習",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "數學實際填答及提交",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "數學儲存序列化（隔離替身）",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "數學 0.1.2 390px 首頁啟動",
+    "status": "PASS",
+    "actual": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "數學 390px 題庫讀取",
+    "status": "PASS",
+    "actual": "符合本項預期"
+  },
+  {
+    "name": "0.1.2 整合器直接注入 V32 的相容性",
+    "status": "KNOWN_LIMITATION",
+    "actual": "未能識別這個英文版本的帳戶或錢包介面。為免損壞資料，數學插件沒有啟動。請使用獨立試玩版，並提供原 HTML 作完整整合測試。",
+    "host_connected": false,
+    "included_as_merged_release": false
+  }
+]

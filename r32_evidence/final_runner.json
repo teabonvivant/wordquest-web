@@ -1,0 +1,62 @@
+[
+  {
+    "name": "arcade-core",
+    "started": 1790706230.076593,
+    "returncode": 0,
+    "seconds": 1.67
+  },
+  {
+    "name": "family-core",
+    "started": 1790706231.7457392,
+    "returncode": 0,
+    "seconds": 0.11
+  },
+  {
+    "name": "new-core",
+    "started": 1790706231.8607993,
+    "returncode": 0,
+    "seconds": 0.11
+  },
+  {
+    "name": "family-browser",
+    "started": 1790706231.9757433,
+    "returncode": 0,
+    "seconds": 5.09
+  },
+  {
+    "name": "integration-focused",
+    "started": 1790706237.0699472,
+    "returncode": 0,
+    "seconds": 42.7
+  },
+  {
+    "name": "arcade-browser",
+    "started": 1790706279.7717073,
+    "returncode": 0,
+    "seconds": 32.96
+  },
+  {
+    "name": "new-browser",
+    "started": 1790706312.7326076,
+    "returncode": 0,
+    "seconds": 6.1
+  },
+  {
+    "name": "cloud-live",
+    "started": 1790706318.8287992,
+    "returncode": 0,
+    "seconds": 4.88
+  },
+  {
+    "name": "server-contracts",
+    "started": 1790706323.7136347,
+    "returncode": 0,
+    "seconds": 0.06
+  },
+  {
+    "name": "server-native-http",
+    "started": 1790706323.7782297,
+    "returncode": 0,
+    "seconds": 0.36
+  }
+]

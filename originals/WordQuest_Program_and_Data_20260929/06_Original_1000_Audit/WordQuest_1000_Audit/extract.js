@@ -1,0 +1,3 @@
+const fs=require('fs'),vm=require('vm');let b={};vm.createContext(b);vm.runInContext(fs.readFileSync(__dirname+'/source/maths_script_0.js','utf8'),b);fs.writeFileSync(__dirname+'/source/curriculum.json',JSON.stringify(b.WQMathData,null,2));fs.writeFileSync(__dirname+'/source/maths.css',b.WQMathCSS);console.log(Object.keys(b));console.log(JSON.stringify(b.WQMathData.meta));console.log('skills',b.WQMathData.skills.length,'templates',b.WQMathData.templates.length);
+for(let s of b.WQMathData.skills)console.log(s.id,s.grade,s.title_zh||s.name_zh||s.title,JSON.stringify(s.prerequisites),s.unit);
+for(let t of b.WQMathData.templates)console.log(t.id,t.type,t.difficulty,t.stem_zh,JSON.stringify(t.answer));

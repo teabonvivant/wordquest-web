@@ -1,0 +1,17 @@
+{
+  "version": "R3.1.0",
+  "baseSha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+  "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f",
+  "baseScripts": 39,
+  "scriptPatches": [
+    28,
+    29,
+    31,
+    32,
+    38
+  ],
+  "addedScripts": 1,
+  "mathCurriculumAndCoreUnchanged": true,
+  "artSource": "new six generated concept posters in current conversation",
+  "notRecoveredV33": true
+}

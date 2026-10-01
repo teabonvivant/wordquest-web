@@ -1,0 +1,143 @@
+{
+  "browser": "Chrome 143.0.7499.4",
+  "profile": "disposable synthetic family only",
+  "results": [
+    {
+      "name": "Normal HTTP navigation with original app bytes and native APIs",
+      "status": "pass",
+      "detail": {
+        "secure": true,
+        "locks": true,
+        "crypto": true,
+        "idb": true,
+        "version": "3.2.0"
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Family registration through actual form and native PBKDF2",
+      "status": "pass",
+      "detail": {
+        "created": true,
+        "writer": true
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Ten-question mathematics daily flow, stored records and one wallet reward",
+      "status": "pass",
+      "detail": {
+        "account": "u_1285c7a2-24de-4e5c-98dd-5ad9a2e37a52",
+        "child": "c_demo",
+        "balance": 1,
+        "english": 0,
+        "math": 10
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Native complete family backup download and independent digest verification",
+      "status": "pass",
+      "detail": {
+        "children": 1,
+        "mathAttempts": 10,
+        "media": 0
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Healthy same-family restore through file picker and confirmation",
+      "status": "pass",
+      "detail": {
+        "account": "u_1285c7a2-24de-4e5c-98dd-5ad9a2e37a52",
+        "child": "c_demo",
+        "balance": 1,
+        "english": 0,
+        "math": 10
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Real browser reload preserves learning and wallet",
+      "status": "pass",
+      "detail": {
+        "account": "u_1285c7a2-24de-4e5c-98dd-5ad9a2e37a52",
+        "child": "c_demo",
+        "balance": 1,
+        "english": 0,
+        "math": 10
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Close whole Chromium context and reopen the same persistent profile",
+      "status": "pass",
+      "detail": {
+        "account": "u_1285c7a2-24de-4e5c-98dd-5ad9a2e37a52",
+        "child": "c_demo",
+        "balance": 1,
+        "english": 0,
+        "math": 10
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Actual second tab is read-only for same family",
+      "status": "pass",
+      "detail": "One writer across actual native browser tabs",
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Desktop and 390px/320px home screens remain within viewport",
+      "status": "pass",
+      "detail": [
+        {
+          "width": 1280,
+          "scroll": 1280
+        },
+        {
+          "width": 390,
+          "scroll": 390
+        },
+        {
+          "width": 320,
+          "scroll": 320
+        }
+      ],
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Recovery fault: missing journal refuses replay without overwriting data",
+      "status": "pass",
+      "detail": "復原日誌遺失，不能安全恢復。請保留資料並從家庭備份還原。",
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Recovery fault: valid full backup has a usable restore route",
+      "status": "fail",
+      "detail": "Valid backup restore is refused although parent and writer are authenticated. Status: 請先完成家長驗證並取得編輯權",
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Recovery fault cleanup affects synthetic marker only",
+      "status": "pass",
+      "detail": "Removed only deliberately injected fault marker",
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "Stored child name markup renders as text, not executable HTML",
+      "status": "pass",
+      "detail": {
+        "executableMarkup": false
+      },
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    },
+    {
+      "name": "No uncaught browser exceptions in normal and recovery workflows",
+      "status": "pass",
+      "detail": [],
+      "scope": "native-Chromium-no-storage-or-crypto-adapters"
+    }
+  ],
+  "pageErrors": []
+}

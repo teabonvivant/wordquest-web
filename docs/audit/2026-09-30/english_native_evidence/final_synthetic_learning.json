@@ -1,0 +1,1135 @@
+{
+  "version": 12,
+  "activeChildId": "c_demo",
+  "children": [
+    {
+      "id": "c_demo",
+      "name": "TEST 英文學員",
+      "grade": 3,
+      "stars": 1,
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "activeRangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a"
+    }
+  ],
+  "ranges": [
+    {
+      "id": "r_demo",
+      "childId": "c_demo",
+      "title": "示範默書 Unit 3",
+      "dictationDate": "2026-10-04",
+      "createdAt": "2026-09-30T09:10:43.849Z"
+    },
+    {
+      "id": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "childId": "c_demo",
+      "title": "TEST 原稿核對",
+      "dictationDate": "",
+      "createdAt": "2026-09-30T09:10:44.798Z"
+    }
+  ],
+  "words": [
+    {
+      "id": "w_shoe",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "shoe",
+      "zh": "鞋",
+      "example": "There is a shoe under the chair.",
+      "emoji": "👟",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_book",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "book",
+      "zh": "書",
+      "example": "Please open your book.",
+      "emoji": "📘",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_apple",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "apple",
+      "zh": "蘋果",
+      "example": "I have a red apple.",
+      "emoji": "🍎",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_school",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "school",
+      "zh": "學校",
+      "example": "Our school has a library.",
+      "emoji": "🏫",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_teacher",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "teacher",
+      "zh": "老師",
+      "example": "The teacher reads us a story.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_friend",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "friend",
+      "zh": "朋友",
+      "example": "My friend helps me with my homework.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_pencil",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "pencil",
+      "zh": "鉛筆",
+      "example": "May I borrow a pencil?",
+      "emoji": "✏️",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_water",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "water",
+      "zh": "",
+      "example": "",
+      "emoji": "💧",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_thirsty",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "thirsty",
+      "zh": "口渴的",
+      "example": "I am thirsty after running.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_beautiful",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "beautiful",
+      "zh": "美麗的",
+      "example": "The garden is beautiful.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_favourite",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "favourite",
+      "zh": "最喜愛的",
+      "example": "Blue is my favourite colour.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_because",
+      "childId": "c_demo",
+      "rangeId": "r_demo",
+      "en": "because",
+      "zh": "因為",
+      "example": "We stayed inside because it was raining.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:43.849Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": null,
+      "kind": "word"
+    },
+    {
+      "id": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+      "childId": "c_demo",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "en": "shoe",
+      "zh": "鞋",
+      "kind": "word",
+      "example": "There is a shoe under the chair.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:44.798Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": "2026-09-30T09:10:47.580Z",
+      "importEvidence": {
+        "version": 1,
+        "mode": "list",
+        "checked": true,
+        "sources": [
+          {
+            "original": "shoe | 鞋",
+            "context": "shoe | 鞋",
+            "region": "text_a18d4d69-8889-408d-854f-2c03091e608d",
+            "boxes": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "childId": "c_demo",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "en": "book",
+      "zh": "書",
+      "kind": "word",
+      "example": "Please open your book.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:44.798Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": "2026-10-01T09:10:47.795Z",
+      "lastSeen": "2026-09-30T09:10:47.795Z",
+      "importEvidence": {
+        "version": 1,
+        "mode": "list",
+        "checked": true,
+        "sources": [
+          {
+            "original": "book | 書",
+            "context": "book | 書",
+            "region": "text_a18d4d69-8889-408d-854f-2c03091e608d",
+            "boxes": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+      "childId": "c_demo",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "en": "ice cream",
+      "zh": "雪糕",
+      "kind": "phrase",
+      "example": "The ice cream is cold.",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:44.798Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": "2026-09-30T09:10:47.482Z",
+      "importEvidence": {
+        "version": 1,
+        "mode": "list",
+        "checked": true,
+        "sources": [
+          {
+            "original": "ice cream | 雪糕",
+            "context": "ice cream | 雪糕",
+            "region": "text_a18d4d69-8889-408d-854f-2c03091e608d",
+            "boxes": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+      "childId": "c_demo",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "en": "TT",
+      "zh": "字母",
+      "kind": "word",
+      "example": "",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:44.798Z",
+      "studySeen": 0,
+      "reviewLevel": 0,
+      "reviewDue": null,
+      "lastSeen": "2026-09-30T09:10:47.167Z",
+      "importEvidence": {
+        "version": 1,
+        "mode": "list",
+        "checked": true,
+        "sources": [
+          {
+            "original": "TT | 字母",
+            "context": "TT | 字母",
+            "region": "text_a18d4d69-8889-408d-854f-2c03091e608d",
+            "boxes": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+      "childId": "c_demo",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "en": "1F",
+      "zh": "樓層",
+      "kind": "word",
+      "example": "",
+      "emoji": "",
+      "createdAt": "2026-09-30T09:10:44.798Z",
+      "studySeen": 0,
+      "reviewLevel": 1,
+      "reviewDue": "2026-10-01T09:10:46.449Z",
+      "lastSeen": "2026-09-30T09:10:47.266Z",
+      "importEvidence": {
+        "version": 1,
+        "mode": "list",
+        "checked": true,
+        "sources": [
+          {
+            "original": "1F | 樓層",
+            "context": "1F | 樓層",
+            "region": "text_a18d4d69-8889-408d-854f-2c03091e608d",
+            "boxes": []
+          }
+        ]
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "id": "a_600eac65-62f7-4e7a-b1d4-4c65be3b666b",
+      "childId": "c_demo",
+      "wordId": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "meaning",
+      "correct": true,
+      "assisted": true,
+      "answer": "TT",
+      "expected": "TT",
+      "time": "2026-09-30T09:10:45.147Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_be91cc2c-3e2e-49a0-9fb9-1685f01599b7",
+      "childId": "c_demo",
+      "wordId": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "meaning",
+      "correct": true,
+      "assisted": true,
+      "answer": "ice cream",
+      "expected": "ice cream",
+      "time": "2026-09-30T09:10:45.279Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_e20732c7-121c-41ca-b4b2-cc80a1a580ab",
+      "childId": "c_demo",
+      "wordId": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "meaning",
+      "correct": true,
+      "assisted": true,
+      "answer": "1F",
+      "expected": "1F",
+      "time": "2026-09-30T09:10:45.396Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_873b3f95-7975-4d94-91f8-cbc372f8e0d3",
+      "childId": "c_demo",
+      "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "meaning",
+      "correct": true,
+      "assisted": true,
+      "answer": "book",
+      "expected": "book",
+      "time": "2026-09-30T09:10:45.497Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_6a1b7f35-7c90-4c45-b7a6-c57b65ee9360",
+      "childId": "c_demo",
+      "wordId": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "meaning",
+      "correct": true,
+      "assisted": true,
+      "answer": "shoe",
+      "expected": "shoe",
+      "time": "2026-09-30T09:10:45.596Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_3a0380df-8a41-4431-a8c6-4909bd5ab548",
+      "childId": "c_demo",
+      "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "missing",
+      "correct": true,
+      "assisted": true,
+      "answer": "o",
+      "expected": "o",
+      "time": "2026-09-30T09:10:45.812Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_5742a27c-2eec-47a7-9648-7b14d8bd6cc6",
+      "childId": "c_demo",
+      "wordId": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "missing",
+      "correct": true,
+      "assisted": true,
+      "answer": "T",
+      "expected": "T",
+      "time": "2026-09-30T09:10:45.930Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_93e21397-ae22-4e7a-989c-df50fdbeed50",
+      "childId": "c_demo",
+      "wordId": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "missing",
+      "correct": true,
+      "assisted": true,
+      "answer": "F",
+      "expected": "F",
+      "time": "2026-09-30T09:10:46.028Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_8fcccbce-9b9a-4c42-810e-e9f823f3535b",
+      "childId": "c_demo",
+      "wordId": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "missing",
+      "correct": true,
+      "assisted": true,
+      "answer": "r",
+      "expected": "r",
+      "time": "2026-09-30T09:10:46.129Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_a01bdb40-af72-4e94-a453-db017d388b51",
+      "childId": "c_demo",
+      "wordId": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "missing",
+      "correct": true,
+      "assisted": true,
+      "answer": "o",
+      "expected": "o",
+      "time": "2026-09-30T09:10:46.228Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "scaffold"
+      }
+    },
+    {
+      "id": "a_10148254-7d7f-4652-933f-b17b70bc1713",
+      "childId": "c_demo",
+      "wordId": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": false,
+      "answer": "1F",
+      "expected": "1F",
+      "time": "2026-09-30T09:10:46.449Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "independent"
+      }
+    },
+    {
+      "id": "a_699667c5-a82e-4e54-bfe8-a5bb075a209e",
+      "childId": "c_demo",
+      "wordId": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": true,
+      "answer": "TT",
+      "expected": "TT",
+      "time": "2026-09-30T09:10:46.562Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_e8271564-1c96-4f76-8b35-eab28f598a47",
+      "childId": "c_demo",
+      "wordId": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": true,
+      "answer": "ice cream",
+      "expected": "ice cream",
+      "time": "2026-09-30T09:10:46.679Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_1f9dab54-a90c-4c1f-a562-17dd7cd9af68",
+      "childId": "c_demo",
+      "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": true,
+      "answer": "book",
+      "expected": "book",
+      "time": "2026-09-30T09:10:46.778Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_1530fc07-4910-4241-8361-5cc186a84844",
+      "childId": "c_demo",
+      "wordId": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": true,
+      "answer": "shoe",
+      "expected": "shoe",
+      "time": "2026-09-30T09:10:46.879Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_1a246b63-4551-4120-b161-82a7d416f10d",
+      "childId": "c_demo",
+      "wordId": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": true,
+      "answer": "TT",
+      "expected": "TT",
+      "time": "2026-09-30T09:10:47.167Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_2003816c-6dea-4111-a0d2-959cd17527ec",
+      "childId": "c_demo",
+      "wordId": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": true,
+      "assisted": false,
+      "answer": "1F",
+      "expected": "1F",
+      "time": "2026-09-30T09:10:47.266Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "independent"
+      }
+    },
+    {
+      "id": "a_0e2e1336-b915-465d-94b8-9536c4baeb95",
+      "childId": "c_demo",
+      "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "cloze",
+      "correct": true,
+      "assisted": true,
+      "answer": "book",
+      "expected": "book",
+      "time": "2026-09-30T09:10:47.363Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_560b5072-e403-42a1-a217-1598107b760e",
+      "childId": "c_demo",
+      "wordId": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "cloze",
+      "correct": true,
+      "assisted": true,
+      "answer": "ice cream",
+      "expected": "ice cream",
+      "time": "2026-09-30T09:10:47.482Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_7195491a-73a7-46ed-bd5c-60c07e525c4d",
+      "childId": "c_demo",
+      "wordId": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "cloze",
+      "correct": true,
+      "assisted": true,
+      "answer": "shoe",
+      "expected": "shoe",
+      "time": "2026-09-30T09:10:47.580Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": true,
+        "lexical": true,
+        "capitalization": true,
+        "punctuation": true,
+        "targetCorrect": true
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    },
+    {
+      "id": "a_f5cc7581-5680-48c1-87db-1875bff5b438",
+      "childId": "c_demo",
+      "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+      "rangeId": "r_73c0ab84-be0d-4495-b5ff-2dda3eba922a",
+      "type": "spell",
+      "correct": false,
+      "assisted": true,
+      "answer": "definitelyinvalidanswer",
+      "expected": "book",
+      "time": "2026-09-30T09:10:47.795Z",
+      "origin": "自選練習",
+      "detail": {
+        "correct": false,
+        "lexical": false,
+        "capitalization": false,
+        "punctuation": true,
+        "targetCorrect": false
+      },
+      "evidenceV24": {
+        "v": 24,
+        "grading": "strict",
+        "reason": "recent-answer"
+      }
+    }
+  ],
+  "settings": {
+    "dailyNew": 5,
+    "dailyMax": 12,
+    "gameMinutes": 2,
+    "sfxEnabled": true
+  },
+  "session": {
+    "id": "s_cb1dcb92-56d6-4b39-a7b1-563921250bd9",
+    "childId": "c_demo",
+    "queue": [
+      {
+        "id": "q_a8085252-bb0d-44ab-8c57-0ba7db2b96d2",
+        "wordId": "w_cdd957b9-2c43-4f91-8250-12311d63ddb5",
+        "type": "spell",
+        "origin": "自選練習"
+      },
+      {
+        "id": "q_88b2a651-65d7-4f38-b898-63c237fca79b",
+        "wordId": "w_264d244f-8ad6-4cff-9c89-04b0dc8abb18",
+        "type": "spell",
+        "origin": "自選練習"
+      },
+      {
+        "id": "q_c06235db-cc28-43fa-993b-d4cd449b9215",
+        "wordId": "w_6b69ed92-8297-468a-bd26-98c1f3753abf",
+        "type": "spell",
+        "origin": "自選練習"
+      },
+      {
+        "id": "q_b23cc65a-bac4-4189-a476-949c409e2d08",
+        "wordId": "w_c19a3861-d82e-40f2-9521-e46133d76259",
+        "type": "spell",
+        "origin": "自選練習"
+      },
+      {
+        "id": "q_b0424843-f8f5-48a4-b05e-7ac9f6a7ebbb",
+        "wordId": "w_112e2a77-5e80-4f8a-bc9e-7fe7691b310f",
+        "type": "spell",
+        "origin": "自選練習"
+      }
+    ],
+    "index": 1,
+    "mode": "practice",
+    "startedAt": "2026-09-30T09:10:47.715Z",
+    "answer": "unfinished draft",
+    "selected": null,
+    "feedback": null,
+    "scored": 1,
+    "played": false,
+    "audioStatus": "idle",
+    "audioItemId": null
+  },
+  "createdAt": "2026-09-30T09:10:43.849Z",
+  "playgroundV22": {
+    "v": 1,
+    "mode": "balanced",
+    "children": {
+      "c_demo": {
+        "limit": 15,
+        "difficulty": 1,
+        "override": {},
+        "evidence": {
+          "apple": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445093,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "tt": {
+            "meaning": true,
+            "first": 0,
+            "lastReveal": 1790759447167,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "teacher": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445093,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "book": {
+            "meaning": true,
+            "first": 0,
+            "lastReveal": 1790759447795,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "friend": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445233,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "thirsty": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445233,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "water": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445233,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "because": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445334,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "shoe": {
+            "meaning": true,
+            "first": 0,
+            "lastReveal": 1790759447580,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "favourite": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445549,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          },
+          "beautiful": {
+            "meaning": false,
+            "first": 0,
+            "lastReveal": 1790759445549,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          }
+        },
+        "phraseEvidence": {
+          "ice cream": {
+            "meaning": true,
+            "first": 0,
+            "lastReveal": 1790759447482,
+            "qualifiedAt": 0,
+            "lastCorrect": 0
+          }
+        },
+        "sentenceEvidence": {},
+        "days": {},
+        "sessions": [],
+        "ticket": null,
+        "saves": {},
+        "extras": {},
+        "bests": {},
+        "hints": [],
+        "pending": {},
+        "bonusSession": null
+      }
+    }
+  },
+  "dailyLedger": {
+    "c_demo": {
+      "2026-09-30": {
+        "done": [],
+        "newWords": [],
+        "rewardKeys": [],
+        "bonus": false
+      }
+    }
+  },
+  "savedSessions": {},
+  "arcadeV28": {
+    "v": 28,
+    "children": {
+      "c_demo": {
+        "batch": {
+          "number": 1,
+          "used": 0,
+          "lastSpentAt": 0
+        },
+        "days": {
+          "2026-09-30": {
+            "keys": [
+              "main:practice:[\"1f\",\"book\",\"ice cream\",\"shoe\",\"tt\"]"
+            ],
+            "blocks": 1,
+            "bonus": false,
+            "earned": 1
+          }
+        },
+        "ledger": [
+          {
+            "id": "learn_1790759445647_1",
+            "kind": "learn",
+            "amount": 1,
+            "at": 1790759445647,
+            "note": "完成學習任務"
+          }
+        ],
+        "run": null,
+        "paused": false,
+        "permissions": {},
+        "selectedSkin": "classic",
+        "bests": {},
+        "migration": {
+          "original": 0,
+          "returned": 0,
+          "due": 0,
+          "at": 1790759443855
+        }
+      }
+    }
+  },
+  "familyLearning": {
+    "version": 1,
+    "children": {
+      "c_demo": {
+        "seen": {},
+        "attempts": [],
+        "session": null
+      }
+    }
+  },
+  "phonicsLearning": {
+    "version": 1,
+    "children": {
+      "c_demo": {
+        "progress": {},
+        "runs": [],
+        "session": null
+      }
+    }
+  },
+  "writeRevision": 87,
+  "educationV24": {
+    "v": 1,
+    "grading": "strict",
+    "gradePacing": true,
+    "rangeLocks": {}
+  },
+  "learningV30": {
+    "version": 1,
+    "children": {
+      "c_demo": {
+        "sessions": [],
+        "attempts": [],
+        "exposures": {},
+        "summary": {},
+        "assignment": null,
+        "source": "school",
+        "onboarded": false
+      }
+    }
+  }
+}

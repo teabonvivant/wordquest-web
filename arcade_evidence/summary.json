@@ -1,0 +1,46 @@
+{
+  "version": "R2.0.0",
+  "base": "V32 + Maths 0.1.2 integrated R1",
+  "created_utc": "2026-09-29T12:28:47.165648+00:00",
+  "case_total": 555,
+  "case_pass": 555,
+  "case_fail": 0,
+  "syntax_total": 36,
+  "syntax_pass": 36,
+  "app_sha256": "4de1c712588f3ae1cb3b201138a336d347819cbf118a964f44ca7ad6e068c3ae",
+  "suites": [
+    {
+      "name": "引擎、舊局面相容、玩法及錢包規則",
+      "total": 292,
+      "pass": 292
+    },
+    {
+      "name": "五款街機、操作、暫停及畫面尺寸",
+      "total": 80,
+      "pass": 80
+    },
+    {
+      "name": "原生音訊、音量、觸控事件及儲存失敗",
+      "total": 26,
+      "pass": 26
+    },
+    {
+      "name": "由 R1 實際建立舊局，再交給 R2 續玩",
+      "total": 10,
+      "pass": 10
+    },
+    {
+      "name": "英文＋數學整合回歸",
+      "total": 147,
+      "pass": 147
+    }
+  ],
+  "limits": [
+    "Chromium DOM via set_content; file/HTTP navigation blocked in execution environment",
+    "Storage, Web Locks, WebCrypto API adapters are explicit test substitutes",
+    "AudioContext and analyser samples are native Chromium",
+    "No physical phone/Safari/Windows/native disk persistence certification",
+    "Synthetic accounts, balances and answers; no real student dataset supplied",
+    "V33 source ZIP inaccessible; reconstructed from history on R1, not literal V33 restore"
+  ]
+}

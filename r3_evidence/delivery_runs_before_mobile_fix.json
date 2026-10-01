@@ -1,0 +1,112 @@
+[
+  {
+    "command": [
+      "node",
+      "r3_tests/content_generate.cjs"
+    ],
+    "started_at_utc": "2026-09-29T14:56:08.027539+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:08.442956+00:00",
+    "log": "delivery_content_generate.cjs.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/independent_oracle.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:08.443000+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:09.213311+00:00",
+    "log": "delivery_independent_oracle.py.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/family_contracts.cjs"
+    ],
+    "started_at_utc": "2026-09-29T14:56:09.213393+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:09.331068+00:00",
+    "log": "delivery_family_contracts.cjs.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/server_contracts.mjs"
+    ],
+    "started_at_utc": "2026-09-29T14:56:09.331107+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:09.445493+00:00",
+    "log": "delivery_server_contracts.mjs.log"
+  },
+  {
+    "command": [
+      "node",
+      "r3_tests/arcade_regression.cjs"
+    ],
+    "started_at_utc": "2026-09-29T14:56:09.445532+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:11.269304+00:00",
+    "log": "delivery_arcade_regression.cjs.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/family_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:11.270315+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:18.605852+00:00",
+    "log": "delivery_family_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/new_features_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:11.270840+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:47.734079+00:00",
+    "log": "delivery_new_features_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/arcade_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:11.271406+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:56:52.711934+00:00",
+    "log": "delivery_arcade_browser.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/integration_regression.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:18.605919+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:59:18.131488+00:00",
+    "log": "delivery_integration_regression.py.log"
+  },
+  {
+    "command": [
+      "python",
+      "r3_tests/lesson_text_browser.py"
+    ],
+    "started_at_utc": "2026-09-29T14:56:47.734157+00:00",
+    "app_sha256": "d8353bdd16ee8815853957c93607354d3479d516cddb724fe352999feabe59cf",
+    "returncode": 0,
+    "finished_at_utc": "2026-09-29T14:57:31.012876+00:00",
+    "log": "delivery_lesson_text_browser.py.log"
+  }
+]

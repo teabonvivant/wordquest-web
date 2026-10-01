@@ -1,0 +1,139 @@
+[
+  {
+    "id": "SAFE-001",
+    "name": "Native AudioContext produces nonzero measured samples",
+    "pass": true,
+    "detail": [
+      0,
+      0.0067955078557133675,
+      0.0004562383983284235,
+      0.0002668318338692188,
+      2.313610093551688e-05,
+      3.4803090329660336e-06,
+      0,
+      0.00415315106511116,
+      0.0004467383841983974,
+      2.8956828828086145e-05,
+      3.114772425760748e-06,
+      0
+    ]
+  },
+  {
+    "id": "SAFE-002",
+    "name": "Both volume buses at zero output zero samples",
+    "pass": true,
+    "detail": {
+      "samples": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "buses": {
+        "sfx": 0,
+        "music": 0
+      }
+    }
+  },
+  {
+    "id": "SAFE-003",
+    "name": "Zero volume schedules no new sound nodes",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-004",
+    "name": "Independent SFX and music gain controls",
+    "pass": true,
+    "detail": {
+      "sfx": 0.4000000059604645,
+      "music": 0.20000000298023224
+    }
+  },
+  {
+    "id": "SAFE-005",
+    "name": "Volume settings survive serialization and new DOM",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-006",
+    "name": "Pointer-held control moves player",
+    "pass": true,
+    "detail": {
+      "before": 400,
+      "after": 445
+    }
+  },
+  {
+    "id": "SAFE-007",
+    "name": "Pointer release stops movement",
+    "pass": true,
+    "detail": {
+      "after": 445,
+      "later": 445
+    }
+  },
+  {
+    "id": "SAFE-008",
+    "name": "Global sound toggle mutes both buses",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-009",
+    "name": "Global mute does not stop gameplay",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-010",
+    "name": "Global toggle restores configured volumes",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-011",
+    "name": "Window blur releases input and pauses",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-012",
+    "name": "No native-audio/control JavaScript errors",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "SAFE-013",
+    "name": "Admission save failure does not debit in-memory coins",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-014",
+    "name": "Admission save failure does not debit stored coins",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-015",
+    "name": "Admission save failure has no playable charged run",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "SAFE-016",
+    "name": "Safety suite interrupted",
+    "pass": false,
+    "detail": "Traceback (most recent call last):\n  File \"/mnt/data/WordQuest_Arcade_R2_20260929/arcade_tests/browser_safety.py\", line 60, in <module>\n    ctx,p,err,_=harness.boot(browser,initial=fixture);buy(p,'cloud-island');play(p);p.wait_for_timeout(130);stored=p.evaluate('(k)=>localStorage.getItem(k)',key);p.evaluate('(k)=>window.__failSet=k',key);pause(p)\n                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/WordQuest_Arcade_R2_20260929/tests/harness.py\", line 38, in boot\n    page.set_content(HTML,wait_until='load');page.wait_for_timeout(150)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/sync_api/_generated.py\", line 8982, in set_content\n    self._sync(\n    ~~~~~~~~~~^\n        self._impl_obj.set_content(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            html=html, timeout=timeout, waitUntil=wait_until\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        )\n        ^\n    )\n    ^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ~~~~~~~~~~~^^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_page.py\", line 543, in set_content\n    return await self._main_frame.set_content(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_frame.py\", line 483, in set_content\n    await self._channel.send(\n        \"setContent\", self._navigation_timeout, locals_to_params(locals())\n    )\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/opt/pyvenv/lib/python3.13/site-packages/playwright/_impl/_connection.py\", line 559, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.set_content: Page crashed\nCall log:\n  - setting frame content, waiting until \"load\"\n\n"
+  }
+]

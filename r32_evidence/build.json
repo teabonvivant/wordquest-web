@@ -1,0 +1,15 @@
+{
+  "base": "R3.1.0",
+  "version": "R3.2.0",
+  "baseSHA256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f",
+  "appSHA256": "8657afc155e26f9206bfc7abc02b80b982ede397366988cb1d932e2a2aa157d7",
+  "scriptsBefore": 40,
+  "scriptsAfter": 40,
+  "modifiedScriptIndices": [
+    22,
+    32,
+    33
+  ],
+  "gamePhysicsUnchanged": true,
+  "namespacedDiagnosticsOnly": true
+}

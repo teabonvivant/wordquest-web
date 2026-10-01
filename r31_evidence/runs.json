@@ -1,0 +1,44 @@
+[
+  {
+    "suite": "characters_core",
+    "returncode": 0,
+    "seconds": 0.03,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "family_contracts",
+    "returncode": 0,
+    "seconds": 0.11,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "arcade_regression",
+    "returncode": 0,
+    "seconds": 1.72,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "characters_browser",
+    "returncode": 0,
+    "seconds": 11.33,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "family_browser",
+    "returncode": 0,
+    "seconds": 5.14,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "integration_regression",
+    "returncode": 0,
+    "seconds": 173.46,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  },
+  {
+    "suite": "arcade_browser",
+    "returncode": 0,
+    "seconds": 33.23,
+    "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+  }
+]

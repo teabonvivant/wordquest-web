@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Maths_0.1.2_Audit_Report",
+    "recovered_text_bytes": 334436,
+    "recorded_original_bytes": 334446,
+    "byte_identical_not_verified": true,
+    "missing_link_targets": [
+      "WordQuest_Maths_Try.html",
+      "evidence/hk/division-complete.png",
+      "evidence/hk/fraction-320.png",
+      "evidence/hk/hk-text-changes.json",
+      "evidence/hk/independent-oracle.json",
+      "evidence/hk/instances.jsonl.gz",
+      "evidence/hk/main-1000.json",
+      "evidence/hk/release-validation.json",
+      "evidence/hk/targeted.json",
+      "使用與開發說明.html"
+    ]
+  },
+  {
+    "name": "Maths_0.1.3_Character_Integration_Report",
+    "recovered_text_bytes": 184074,
+    "recorded_original_bytes": 184074,
+    "byte_identical_not_verified": true,
+    "missing_link_targets": [
+      "RELEASE_MANIFEST.json",
+      "START_HERE.html",
+      "WordQuest_Maths_Try.html",
+      "docs/Character_Integration_Notes.md",
+      "evidence/characters/browser-environment.json",
+      "evidence/characters/character-browser-results.json",
+      "evidence/characters/core-results.json",
+      "evidence/characters/gallery-mobile-top.png",
+      "evidence/characters/input-inventory.json",
+      "evidence/characters/lesson-fraction.png",
+      "evidence/characters/math-1000.json",
+      "evidence/characters/math-browser-results.json"
+    ]
+  }
+]

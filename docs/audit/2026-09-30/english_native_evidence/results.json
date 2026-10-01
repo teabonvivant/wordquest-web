@@ -1,0 +1,99 @@
+{
+  "results": [
+    {
+      "name": "Parent text import preserves exact words, phrase, uppercase and digit-letter item",
+      "status": "pass",
+      "detail": {
+        "exactItems": [
+          {
+            "en": "shoe",
+            "zh": "鞋",
+            "kind": "word"
+          },
+          {
+            "en": "book",
+            "zh": "書",
+            "kind": "word"
+          },
+          {
+            "en": "ice cream",
+            "zh": "雪糕",
+            "kind": "phrase"
+          },
+          {
+            "en": "TT",
+            "zh": "字母",
+            "kind": "word"
+          },
+          {
+            "en": "1F",
+            "zh": "樓層",
+            "kind": "word"
+          }
+        ],
+        "confirmationRequired": true
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "English meaning actual correct answer inputs and stored records",
+      "status": "pass",
+      "detail": {
+        "answered": 5,
+        "savedAttempts": 5
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "English missing actual correct answer inputs and stored records",
+      "status": "pass",
+      "detail": {
+        "answered": 5,
+        "savedAttempts": 10
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "English spell actual correct answer inputs and stored records",
+      "status": "pass",
+      "detail": {
+        "answered": 5,
+        "savedAttempts": 15
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "English cloze actual correct answer inputs and stored records",
+      "status": "pass",
+      "detail": {
+        "answered": 5,
+        "savedAttempts": 20
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "Wrong English spelling is saved as incorrect without a correct-answer award",
+      "status": "pass",
+      "detail": {
+        "incorrectRecorded": true
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "Unfinished English answer survives native page reload",
+      "status": "pass",
+      "detail": {
+        "draft": "unfinished draft",
+        "sameSession": true
+      },
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    },
+    {
+      "name": "All native English scenarios have no uncaught browser exceptions",
+      "status": "pass",
+      "detail": [],
+      "scope": "native Chromium UI and native storage; disposable synthetic family"
+    }
+  ],
+  "pageErrors": []
+}

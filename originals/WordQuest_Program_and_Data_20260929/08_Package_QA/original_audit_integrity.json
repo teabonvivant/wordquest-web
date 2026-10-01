@@ -1,0 +1,352 @@
+[
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/README_先看這份.md",
+    "matches_original_archive": true,
+    "sha256": "a2688e9fdcbcb3caf416781ae96b73c6fa5241186e5d0eb34aa0d33212fd739f"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/build_report.py",
+    "matches_original_archive": true,
+    "sha256": "32040cf01ae78cd9804466e437c19e6ab36181155c2a7602e54abc8c8d0dc3dc"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/00_initial_mobile.png",
+    "matches_original_archive": true,
+    "sha256": "30a32ee1207d9ff4579576b5eb16e2b185a681fa5567406d3573c18b2b14cf61"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-091_failure.png",
+    "matches_original_archive": true,
+    "sha256": "417ead24d31f08402a27ce28eb5c5d11777f46aaff52666463fa646fc44458f8"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-092_failure.png",
+    "matches_original_archive": true,
+    "sha256": "417ead24d31f08402a27ce28eb5c5d11777f46aaff52666463fa646fc44458f8"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-098_failure.png",
+    "matches_original_archive": true,
+    "sha256": "b58ffe87c6611167cb8f7f16e053feff5cb955c9d3b05bd1a4be6013d170eb9e"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-099_failure.png",
+    "matches_original_archive": true,
+    "sha256": "cd371a01b3b6b77946b95d8371c805bc0fb6cb96063c55caf7861afeed08e53a"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-100_failure.png",
+    "matches_original_archive": true,
+    "sha256": "b58ffe87c6611167cb8f7f16e053feff5cb955c9d3b05bd1a4be6013d170eb9e"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-126_failure.png",
+    "matches_original_archive": true,
+    "sha256": "558796bf1b3be7c9aeb0742a0f7ee7231515350b40cda2678c6a1fb532a51c7c"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-127_failure.png",
+    "matches_original_archive": true,
+    "sha256": "778bda3222ae7a717caeb03c3c350e3790c0f93cc5d750b689dc17c402f2a6a2"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-128_failure.png",
+    "matches_original_archive": true,
+    "sha256": "15f184ed482b6799b822fee0cc18ac80514a782f40f6b83df1714d2daf074d91"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-129_failure.png",
+    "matches_original_archive": true,
+    "sha256": "c10e18743e55b735c798e3589af9e6a9ffa0c2dfc8669bd9eb4ba3fd9a0b4bdf"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-140_failure.png",
+    "matches_original_archive": true,
+    "sha256": "3a5fc33f7886d5f2b85f71f849412f99aacad212106bd448accdf1dac512abad"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_1440_home.png",
+    "matches_original_archive": true,
+    "sha256": "7a3660fcf9256dd88f0bc87119e8edce442970990833286c793ac2b278700c47"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_320_home.png",
+    "matches_original_archive": true,
+    "sha256": "e2687025bb720b8d1ec905980ce6731cee597f934acc2d69e22dc7f193f33ee6"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_390_home.png",
+    "matches_original_archive": true,
+    "sha256": "42598dc36dc852144d910b4da160e7f9655b3629e36a1167afd15bc6e9214c42"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_640_parent.png",
+    "matches_original_archive": true,
+    "sha256": "95f98035eb9ee7a7a6347e2e4f2175de0c405857f05e062e55f30c990ba26af9"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_768_normal.png",
+    "matches_original_archive": true,
+    "sha256": "7120630c6561866e247561105291ec6e8b917ac67bc2526a4be8f2cf9cc15634"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_844_tools.png",
+    "matches_original_archive": true,
+    "sha256": "b99011ece686fb876696f1ce990b0f0dd11baa2832db74d32a3020817abb470b"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/normal_lesson_summary.png",
+    "matches_original_archive": true,
+    "sha256": "ab20d0fb0b413dd22ee58b3b8ae47a1eb4e7b8ebd40ab16149018a4b8e935ef4"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/olympiad_summary.png",
+    "matches_original_archive": true,
+    "sha256": "b79fa12bbefdb773fc647ef857fdf204bb29ad0162ead79c01cf52ebafe33429"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_after.png",
+    "matches_original_archive": true,
+    "sha256": "348cf54d5a8a016aa6e4bf115f766ab8dcbb318dc30b077f5a2e67a672acc419"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_before.png",
+    "matches_original_archive": true,
+    "sha256": "a05563906b3d650e9e983472db5d756f0113f4c1bd4313c44e5a45823b8f5e04"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_fraction_unicode_rejected.png",
+    "matches_original_archive": true,
+    "sha256": "fcb8eb94fcfaf500a8fdf80dafe43fe0c4460c5e4b7527504bf95576a3bfc6a9"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_missing_queue.png",
+    "matches_original_archive": true,
+    "sha256": "a6895a16cabd96809d22bc95c6bc413ff21d4a00456b510b8cfcf13fff9698dc"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_fraction_settled.png",
+    "matches_original_archive": true,
+    "sha256": "05122c98b65241ca2f48578842d060029ec386553d74841cb3d8b0face8591f9"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_home_settled.png",
+    "matches_original_archive": true,
+    "sha256": "30a32ee1207d9ff4579576b5eb16e2b185a681fa5567406d3573c18b2b14cf61"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_word_settled.png",
+    "matches_original_archive": true,
+    "sha256": "c80d4383aa4f0ca22d8b0e866d8fcb1a700c9abc6a2f7ccae75736aa1ff5cdb9"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_1N1_1-T1.png",
+    "matches_original_archive": true,
+    "sha256": "391f903e4ae070e1ab19b95cdcd4896c05be3efb1bf1e55c95a70a71c92caa7f"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N5_3-T2.png",
+    "matches_original_archive": true,
+    "sha256": "42598dc36dc852144d910b4da160e7f9655b3629e36a1167afd15bc6e9214c42"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N6_2-T2.png",
+    "matches_original_archive": true,
+    "sha256": "da114ff8abb3e4e20951241719c742bc487025f703850610f49b0423b991eff5"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_3N5_1-T2.png",
+    "matches_original_archive": true,
+    "sha256": "ba048fe4b937f8fc1b47fbd81ebc025138d64048fa3a2bab0ac95a0c9875d066"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_O-GEO-segments-T3.png",
+    "matches_original_archive": true,
+    "sha256": "2b3fc64dfce293a45ca6136f15d336456f53d181769208e95ca4f71d08ff6634"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/extract.js",
+    "matches_original_archive": true,
+    "sha256": "1158e2041c9716fcf0155f60d821aea84cba79819e8d6f87213c35e163a63571"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.html",
+    "matches_original_archive": true,
+    "sha256": "bfae12d5f42d55fe2c2bfb522bcbc96b33b6723fa17ac1001fed309bbfe41a2c"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.md",
+    "matches_original_archive": true,
+    "sha256": "6968af666885cfa5ae91a03fd10da187a5980f5ab97d737be8262874d3c2fa69"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/issues.json",
+    "matches_original_archive": true,
+    "sha256": "34d54a99b368991b7be1b086ed802b5366b0c43a7d01fa4fcc28d82b164bafe5"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/manifest.json",
+    "matches_original_archive": true,
+    "sha256": "cd94de0feaa1858afd34cccc6449baa87225b772c4e36200a9de17f088795bc1"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/report_desktop_preview.png",
+    "matches_original_archive": true,
+    "sha256": "126bfd439fb2a1bc045b7d52a026577b1fd31ddce93d27a2fa99728e2701d4da"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/report_mobile_preview.png",
+    "matches_original_archive": true,
+    "sha256": "0cb7d85f3c57a6cc690cdfcf130c46b8e114f13d68dd839e8753422499e49142"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/report/report_qa.json",
+    "matches_original_archive": true,
+    "sha256": "53c5d47f01a8256d6ce8f749b91872c5e35504022b187213d50d7fb3401e1447"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/all_1000_results.json",
+    "matches_original_archive": true,
+    "sha256": "9ef4f00cf90b3088f53b1420ecf4d60886716c86f95247cb23767cd1350a4af7"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_environment.json",
+    "matches_original_archive": true,
+    "sha256": "d14546009c98cfbe4eadb16c667376b2e7e08b504ba04adcb1c2755ec187b44b"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_0_14.json",
+    "matches_original_archive": true,
+    "sha256": "9f390061b408c74c0ce56cace5ac1ef53d29c9132b9c824942890ac97d30e9f4"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_14_28.json",
+    "matches_original_archive": true,
+    "sha256": "9ae988062f56e0b6fdfa6f56690b9f3e741948a953a4c822e6da4dcabfc34249"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_28_42.json",
+    "matches_original_archive": true,
+    "sha256": "470c9da12c4e713787e046f429cec5a37a779bc644a3088806e750eaa3122435"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_42_56.json",
+    "matches_original_archive": true,
+    "sha256": "5926abd2f51936d073f302be5e347660194d61efbbff806f9cf0990aa24f1fda"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_0_28.json",
+    "matches_original_archive": true,
+    "sha256": "a5d4169133533a742a177f049aad536022f63548e929d925842c554f4c0b709a"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_28_56.json",
+    "matches_original_archive": true,
+    "sha256": "1a2fc0185d2ed597c8acb2423728217721ed409d3b6745412d5a94e6aac55ed6"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_56_84.json",
+    "matches_original_archive": true,
+    "sha256": "9bee8ae824802d72b90378824bdc11d5f9eb719f81744c8d9d5282bc633dd674"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/core_results.json",
+    "matches_original_archive": true,
+    "sha256": "1394254b519d30c9e72403209bf6a55963e75bffb7cf872bd528e2eb7f9dbe6e"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/core_run.log",
+    "matches_original_archive": true,
+    "sha256": "7bb797fc5828792786a19f8f8f380555abb206412b76b840c777a8c8a3f35a6b"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/generated_fixtures.json",
+    "matches_original_archive": true,
+    "sha256": "cfd6594e80ec3aa4b427f948e6d633395612102482a9cd6bf72de1e7e0d22464"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/generation_results.json",
+    "matches_original_archive": true,
+    "sha256": "f2acaaba8df2d279c49371a081889924a97bd8b10e51e774d17cc5cddb1cb210"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/results/supplemental_evidence.json",
+    "matches_original_archive": true,
+    "sha256": "9f1a486ccb85cd760f6a2bfb76bbac5e9836c462bff64fa941cc10035647d5df"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/WordQuest_Maths_Try.html",
+    "matches_original_archive": true,
+    "sha256": "d40c974475ef1777877e82723283bbd12e1feddf13c16b369ed200e1d8c449f9"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/curriculum.json",
+    "matches_original_archive": true,
+    "sha256": "09815969caa90f99464ab3e587ae44efe6cb2f4e510257265418e17abdd7e5c4"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/maths.css",
+    "matches_original_archive": true,
+    "sha256": "bc68f3b88cd3b52c3679693a5db896fd98a1dd0c3368116c0cd0af85d2e5fe8f"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_0.js",
+    "matches_original_archive": true,
+    "sha256": "97b400024513df1a160c6b4a556a4dde2e8a7f1d1064945d5cb4fdfa88732859"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_1.js",
+    "matches_original_archive": true,
+    "sha256": "68d9b3119127bfe515cc5e02c969419ed2abed4ccbfda525e31623e564fbbbf5"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_2.js",
+    "matches_original_archive": true,
+    "sha256": "cd45496b8b5f47566c089ddf3b268f95c55802d4f739cabb7ee12d0bd6be8b21"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_3.js",
+    "matches_original_archive": true,
+    "sha256": "5dc7f41eea18d4d568ae59ffb1e2a85c5fc184ac93fc033a8c20ce790ec20628"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/browser_checks.py",
+    "matches_original_archive": true,
+    "sha256": "064d24604e9bfee76212d670b4f801a8b3cdbe58ae79c287e985e97ee8cd95cf"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/core_checks.cjs",
+    "matches_original_archive": true,
+    "sha256": "26b337190a690973d2ca801e428c68789f6c15a8ce5b13554e6ff810bd38b77a"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/generation_oracle.py",
+    "matches_original_archive": true,
+    "sha256": "5474e08a228dbc3006c9463dfdd6080e2149c1ff05bd53ccf4a003bc8b8316eb"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/prepare_source.py",
+    "matches_original_archive": true,
+    "sha256": "c0b0ffd2b96774466aba1744cba5a5432e79b9bb7c6d28d987e839f6c9fe4fcb"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/report_qa.py",
+    "matches_original_archive": true,
+    "sha256": "b84d543513f6847b97ec684b24929762022413565264c9d3ab830aa206241d2f"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/run_all.py",
+    "matches_original_archive": true,
+    "sha256": "8987202e14fe77788b7e5b0c1de20d612020f6489a167a5b599256eb81b76f0b"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/tests/supplemental_evidence.py",
+    "matches_original_archive": true,
+    "sha256": "e98a56ab85ffd861d15046da668f3a3965227f54161ca98eea7a210753ab2780"
+  },
+  {
+    "file": "06_Original_1000_Audit/WordQuest_1000_Audit/SHA256SUMS.txt",
+    "matches_original_archive": true,
+    "sha256": "9368ebe41bf8edbc5e9d02b5619dff6c79ad5216d54d3d2e847ab7fbdd0826cf"
+  }
+]

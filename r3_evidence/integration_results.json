@@ -1,0 +1,5271 @@
+[
+  {
+    "id": "R3-REG-001",
+    "group": "INTEGRATION",
+    "name": "Host bridge exposes correct version and no mutable database",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-002",
+    "group": "INTEGRATION",
+    "name": "Single homepage has both ordinary maths and Olympiad buttons",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.034
+  },
+  {
+    "id": "R3-REG-003",
+    "group": "INTEGRATION",
+    "name": "Maths resolves the real V32 bridge, not standalone profile adapter",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-004",
+    "group": "INTEGRATION",
+    "name": "Expanded bank contains 122 skills and 366 templates",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.015
+  },
+  {
+    "id": "R3-REG-005",
+    "group": "INTEGRATION",
+    "name": "Original V32 companion is decoded and visible in maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.045
+  },
+  {
+    "id": "R3-REG-006",
+    "group": "INTEGRATION",
+    "name": "Guest open does not create standalone child registry",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-007",
+    "group": "INTEGRATION",
+    "name": "Guest unfinished answer survives closing/reopening on same page",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.307
+  },
+  {
+    "id": "R3-REG-008",
+    "group": "INTEGRATION",
+    "name": "Real registration is shared by English and maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-009",
+    "group": "INTEGRATION",
+    "name": "Registered maths opens current English child, without second registry",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.01
+  },
+  {
+    "id": "R3-REG-010",
+    "group": "INTEGRATION",
+    "name": "Ten-question daily task completed by actual answer inputs",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 6.452
+  },
+  {
+    "id": "R3-REG-011",
+    "group": "INTEGRATION",
+    "name": "Daily task writes ten maths attempts to the shared child scope",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.006
+  },
+  {
+    "id": "R3-REG-012",
+    "group": "INTEGRATION",
+    "name": "Eligible maths completion credits the original English coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-013",
+    "group": "INTEGRATION",
+    "name": "Outbox settles once after English wallet success",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.021
+  },
+  {
+    "id": "R3-REG-014",
+    "group": "INTEGRATION",
+    "name": "Repeated flush does not award a second coin",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.014
+  },
+  {
+    "id": "R3-REG-015",
+    "group": "INTEGRATION",
+    "name": "Maths completion preserves existing English learning content",
+    "status": "PASS",
+    "detail": {
+      "unchanged_fields": [
+        "ranges",
+        "attempts",
+        "words"
+      ],
+      "all_equal": true
+    },
+    "seconds": 0.008
+  },
+  {
+    "id": "R3-REG-016",
+    "group": "INTEGRATION",
+    "name": "Completion-page progress button cannot bypass English parent guard",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.125
+  },
+  {
+    "id": "R3-REG-017",
+    "group": "INTEGRATION",
+    "name": "Maths parent entry redirects to existing English password gate",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.033
+  },
+  {
+    "id": "R3-REG-018",
+    "group": "INTEGRATION",
+    "name": "Incorrect password cannot unlock maths settings",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.364
+  },
+  {
+    "id": "R3-REG-019",
+    "group": "INTEGRATION",
+    "name": "Existing parent password unlocks without another account",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.219
+  },
+  {
+    "id": "R3-REG-020",
+    "group": "INTEGRATION",
+    "name": "English parent page displays separate maths activity count",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-021",
+    "group": "INTEGRATION",
+    "name": "Unlocked maths settings open in same program",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-022",
+    "group": "INTEGRATION",
+    "name": "Parent settings persist through guarded UI save",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.249
+  },
+  {
+    "id": "R3-REG-023",
+    "group": "INTEGRATION",
+    "name": "Actual browser run so far has no JavaScript exceptions",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-024",
+    "group": "INTEGRATION",
+    "name": "Serialized reload restores current child and maths attempts",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.021
+  },
+  {
+    "id": "R3-REG-025",
+    "group": "FAULT",
+    "name": "Uncommitted reward event cannot credit wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.007
+  },
+  {
+    "id": "R3-REG-026",
+    "group": "FAULT",
+    "name": "Reward for wrong child scope is rejected",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R3-REG-027",
+    "group": "FAULT",
+    "name": "Event payload must match saved outbox",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-028",
+    "group": "FAULT",
+    "name": "Wallet storage failure leaves original wallet unchanged",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.015
+  },
+  {
+    "id": "R3-REG-029",
+    "group": "FAULT",
+    "name": "Wallet-success/outbox-ack-failure retries without double payout",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.019
+  },
+  {
+    "id": "R3-REG-030",
+    "group": "FAULT",
+    "name": "Maths storage quota failure preserves previous serialized data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-031",
+    "group": "FAULT",
+    "name": "Stale maths revision cannot overwrite newer data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.007
+  },
+  {
+    "id": "R3-REG-032",
+    "group": "FAULT",
+    "name": "Stale English revision prevents cross-subject writing",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-033",
+    "group": "FAULT",
+    "name": "Corrupt maths data is read-only and raw bytes are preserved",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-034",
+    "group": "FAULT",
+    "name": "Backup owned by another child cannot replace current progress",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-035",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects an over-seven-day event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.017
+  },
+  {
+    "id": "R3-REG-036",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects a future-dated event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.022
+  },
+  {
+    "id": "R3-REG-037",
+    "group": "FAULT",
+    "name": "Maths uses existing four-task/five-coin daily cap",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.027
+  },
+  {
+    "id": "R3-REG-038",
+    "group": "FAULT",
+    "name": "Backup restore creates recovery copy without replaying coins",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.01
+  },
+  {
+    "id": "R3-REG-039",
+    "group": "INTEGRATION",
+    "name": "Existing English parent UI creates the shared second child",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.266
+  },
+  {
+    "id": "R3-REG-040",
+    "group": "INTEGRATION",
+    "name": "New child starts with isolated maths progress and wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.012
+  },
+  {
+    "id": "R3-REG-041",
+    "group": "INTEGRATION",
+    "name": "Switching back restores original child progress and coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.459
+  },
+  {
+    "id": "R3-REG-042",
+    "group": "INTEGRATION",
+    "name": "Switching child invalidates the previous parent unlock",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-043",
+    "group": "FAULT",
+    "name": "Sidecar deletion failure cancels persisted English child deletion",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.166
+  },
+  {
+    "id": "R3-REG-044",
+    "group": "INTEGRATION",
+    "name": "Deleting English child also removes maths progress and recovery copy",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.156
+  },
+  {
+    "id": "R3-REG-045",
+    "group": "INTEGRATION",
+    "name": "No uncaught JavaScript errors in fault and child-management scenarios",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-046",
+    "group": "INTEGRATION",
+    "name": "Full ordinary lesson completes all six teaching stages",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 6.556
+  },
+  {
+    "id": "R3-REG-047",
+    "group": "INTEGRATION",
+    "name": "Guided questions remain separate from independent mastery attempts",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.01
+  },
+  {
+    "id": "R3-REG-048",
+    "group": "INTEGRATION",
+    "name": "Full Olympiad lesson completes challenge, teaching and reflection",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 3.943
+  },
+  {
+    "id": "R3-REG-049",
+    "group": "INTEGRATION",
+    "name": "Correct Olympiad reflection earns the real strategy card",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R3-REG-050",
+    "group": "INTEGRATION",
+    "name": "Ordinary and Olympiad attempts coexist with separate track fields",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.017
+  },
+  {
+    "id": "R3-REG-051",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.785
+  },
+  {
+    "id": "R3-REG-052",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.119
+  },
+  {
+    "id": "R3-REG-053",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-054",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-055",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-056",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.5-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.5-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-057",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-058",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-059",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.347
+  },
+  {
+    "id": "R3-REG-060",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.312
+  },
+  {
+    "id": "R3-REG-061",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.307
+  },
+  {
+    "id": "R3-REG-062",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-063",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-064",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-065",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-066",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-067",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.293
+  },
+  {
+    "id": "R3-REG-068",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.4-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-069",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.317
+  },
+  {
+    "id": "R3-REG-070",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-071",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-072",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.002
+  },
+  {
+    "id": "R3-REG-073",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.8
+  },
+  {
+    "id": "R3-REG-074",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.811
+  },
+  {
+    "id": "R3-REG-075",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.094
+  },
+  {
+    "id": "R3-REG-076",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-077",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-078",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-079",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-080",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.314
+  },
+  {
+    "id": "R3-REG-081",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.313
+  },
+  {
+    "id": "R3-REG-082",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-083",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-084",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-085",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-086",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-087",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.293
+  },
+  {
+    "id": "R3-REG-088",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-089",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-090",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.3-T1",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.56
+  },
+  {
+    "id": "R3-REG-091",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.3-T2",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.361
+  },
+  {
+    "id": "R3-REG-092",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.3-T3",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.344
+  },
+  {
+    "id": "R3-REG-093",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T1",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.452
+  },
+  {
+    "id": "R3-REG-094",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T2",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.448
+  },
+  {
+    "id": "R3-REG-095",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.2-T3",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.351
+  },
+  {
+    "id": "R3-REG-096",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.09
+  },
+  {
+    "id": "R3-REG-097",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.292
+  },
+  {
+    "id": "R3-REG-098",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.2-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.2-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-099",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-100",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-101",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.1-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-102",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T1",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.573
+  },
+  {
+    "id": "R3-REG-103",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T2",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.459
+  },
+  {
+    "id": "R3-REG-104",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.1-T3",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.383
+  },
+  {
+    "id": "R3-REG-105",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.117
+  },
+  {
+    "id": "R3-REG-106",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-107",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-108",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T1",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.662
+  },
+  {
+    "id": "R3-REG-109",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T2",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.351
+  },
+  {
+    "id": "R3-REG-110",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.4-T3",
+      "type": "word",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.35
+  },
+  {
+    "id": "R3-REG-111",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.346
+  },
+  {
+    "id": "R3-REG-112",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.448
+  },
+  {
+    "id": "R3-REG-113",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.1-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.1-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.449
+  },
+  {
+    "id": "R3-REG-114",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.801
+  },
+  {
+    "id": "R3-REG-115",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.8
+  },
+  {
+    "id": "R3-REG-116",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.815
+  },
+  {
+    "id": "R3-REG-117",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.451
+  },
+  {
+    "id": "R3-REG-118",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.465
+  },
+  {
+    "id": "R3-REG-119",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.453
+  },
+  {
+    "id": "R3-REG-120",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.085
+  },
+  {
+    "id": "R3-REG-121",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.333
+  },
+  {
+    "id": "R3-REG-122",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-CAL-pattern-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-CAL-pattern-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-123",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.313
+  },
+  {
+    "id": "R3-REG-124",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.306
+  },
+  {
+    "id": "R3-REG-125",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-NUM-pairs-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-NUM-pairs-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-126",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-127",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-128",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-APP-queue-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-APP-queue-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-129",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-130",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.318
+  },
+  {
+    "id": "R3-REG-131",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-GEO-segments-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-GEO-segments-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-132",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.279
+  },
+  {
+    "id": "R3-REG-133",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-134",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-LOG-digits-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-LOG-digits-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-135",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-136",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-137",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.292
+  },
+  {
+    "id": "R3-REG-138",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-139",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.308
+  },
+  {
+    "id": "R3-REG-140",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-141",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.329
+  },
+  {
+    "id": "R3-REG-142",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-143",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-144",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.28
+  },
+  {
+    "id": "R3-REG-145",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-146",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-147",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-148",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-149",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-150",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.091
+  },
+  {
+    "id": "R3-REG-151",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.079
+  },
+  {
+    "id": "R3-REG-152",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-153",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-154",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-155",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.31
+  },
+  {
+    "id": "R3-REG-156",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-157",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-158",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-159",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.313
+  },
+  {
+    "id": "R3-REG-160",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-161",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N5.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-162",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-163",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-164",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N6.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N6.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-165",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-166",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-167",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.279
+  },
+  {
+    "id": "R3-REG-168",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.279
+  },
+  {
+    "id": "R3-REG-169",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-170",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-171",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.R3-T1",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.653
+  },
+  {
+    "id": "R3-REG-172",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.R3-T2",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.457
+  },
+  {
+    "id": "R3-REG-173",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N3.R3-T3",
+      "type": "remainder",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.443
+  },
+  {
+    "id": "R3-REG-174",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.095
+  },
+  {
+    "id": "R3-REG-175",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-176",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-177",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.R3-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.662
+  },
+  {
+    "id": "R3-REG-178",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.R3-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.453
+  },
+  {
+    "id": "R3-REG-179",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.R3-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.449
+  },
+  {
+    "id": "R3-REG-180",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.098
+  },
+  {
+    "id": "R3-REG-181",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-182",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R3-REG-183",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.081
+  },
+  {
+    "id": "R3-REG-184",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.09
+  },
+  {
+    "id": "R3-REG-185",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.305
+  },
+  {
+    "id": "R3-REG-186",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-187",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-188",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-189",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-190",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-191",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-192",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N5.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.314
+  },
+  {
+    "id": "R3-REG-193",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N5.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-194",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N5.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-195",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N6.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N6.R3-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.653
+  },
+  {
+    "id": "R3-REG-196",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N6.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N6.R3-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.448
+  },
+  {
+    "id": "R3-REG-197",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N6.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N6.R3-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.472
+  },
+  {
+    "id": "R3-REG-198",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N7.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N7.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.09
+  },
+  {
+    "id": "R3-REG-199",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N7.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N7.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-200",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N7.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N7.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-201",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N8.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N8.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.311
+  },
+  {
+    "id": "R3-REG-202",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N8.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N8.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R3-REG-203",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N8.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N8.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-204",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-205",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-206",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.282
+  },
+  {
+    "id": "R3-REG-207",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N2.R3-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.65
+  },
+  {
+    "id": "R3-REG-208",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N2.R3-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.448
+  },
+  {
+    "id": "R3-REG-209",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N2.R3-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.45
+  },
+  {
+    "id": "R3-REG-210",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N3.R3-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.449
+  },
+  {
+    "id": "R3-REG-211",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N3.R3-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.45
+  },
+  {
+    "id": "R3-REG-212",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N3.R3-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.451
+  },
+  {
+    "id": "R3-REG-213",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.078
+  },
+  {
+    "id": "R3-REG-214",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.278
+  },
+  {
+    "id": "R3-REG-215",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-216",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N5.R3-T1",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.665
+  },
+  {
+    "id": "R3-REG-217",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N5.R3-T2",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.461
+  },
+  {
+    "id": "R3-REG-218",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5N5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5N5.R3-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.458
+  },
+  {
+    "id": "R3-REG-219",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.072
+  },
+  {
+    "id": "R3-REG-220",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-221",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-222",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-223",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-224",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-225",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-226",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.281
+  },
+  {
+    "id": "R3-REG-227",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-228",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-229",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.313
+  },
+  {
+    "id": "R3-REG-230",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-231",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.316
+  },
+  {
+    "id": "R3-REG-232",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-233",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-234",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-235",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-236",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-237",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-238",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-239",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.282
+  },
+  {
+    "id": "R3-REG-240",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-241",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.31
+  },
+  {
+    "id": "R3-REG-242",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1M4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1M4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.292
+  },
+  {
+    "id": "R3-REG-243",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-244",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-245",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-246",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-247",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-248",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.292
+  },
+  {
+    "id": "R3-REG-249",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-250",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-251",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2M3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2M3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.307
+  },
+  {
+    "id": "R3-REG-252",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-253",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.293
+  },
+  {
+    "id": "R3-REG-254",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-255",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-256",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.314
+  },
+  {
+    "id": "R3-REG-257",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.308
+  },
+  {
+    "id": "R3-REG-258",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.292
+  },
+  {
+    "id": "R3-REG-259",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-260",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-261",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-262",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-263",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-264",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M5.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-265",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M5.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-266",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M5.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.283
+  },
+  {
+    "id": "R3-REG-267",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-268",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-269",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.312
+  },
+  {
+    "id": "R3-REG-270",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-271",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-272",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-273",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.311
+  },
+  {
+    "id": "R3-REG-274",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-275",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.305
+  },
+  {
+    "id": "R3-REG-276",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-277",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-278",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-279",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-280",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.293
+  },
+  {
+    "id": "R3-REG-281",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-282",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.282
+  },
+  {
+    "id": "R3-REG-283",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.281
+  },
+  {
+    "id": "R3-REG-284",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-285",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-286",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-287",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.309
+  },
+  {
+    "id": "R3-REG-288",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M4.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-289",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-290",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M4.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.305
+  },
+  {
+    "id": "R3-REG-291",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M5.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M5.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-292",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M5.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M5.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R3-REG-293",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M5.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M5.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R3-REG-294",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S1.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.06
+  },
+  {
+    "id": "R3-REG-295",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S1.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.847
+  },
+  {
+    "id": "R3-REG-296",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.833
+  },
+  {
+    "id": "R3-REG-297",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S2.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.816
+  },
+  {
+    "id": "R3-REG-298",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S2.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.846
+  },
+  {
+    "id": "R3-REG-299",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S2.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.743
+  },
+  {
+    "id": "R3-REG-300",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S3.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.797
+  },
+  {
+    "id": "R3-REG-301",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S3.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.812
+  },
+  {
+    "id": "R3-REG-302",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1S3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1S3.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.84
+  },
+  {
+    "id": "R3-REG-303",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S1.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.86
+  },
+  {
+    "id": "R3-REG-304",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S1.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.818
+  },
+  {
+    "id": "R3-REG-305",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.846
+  },
+  {
+    "id": "R3-REG-306",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S2.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.872
+  },
+  {
+    "id": "R3-REG-307",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S2.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.84
+  },
+  {
+    "id": "R3-REG-308",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S2.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.816
+  },
+  {
+    "id": "R3-REG-309",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S3.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.818
+  },
+  {
+    "id": "R3-REG-310",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S3.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.854
+  },
+  {
+    "id": "R3-REG-311",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S3.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.81
+  },
+  {
+    "id": "R3-REG-312",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S4.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.802
+  },
+  {
+    "id": "R3-REG-313",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S4.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.796
+  },
+  {
+    "id": "R3-REG-314",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2S4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2S4.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.803
+  },
+  {
+    "id": "R3-REG-315",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S1.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.835
+  },
+  {
+    "id": "R3-REG-316",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S1.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.811
+  },
+  {
+    "id": "R3-REG-317",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.797
+  },
+  {
+    "id": "R3-REG-318",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S2.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.798
+  },
+  {
+    "id": "R3-REG-319",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S2.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.815
+  },
+  {
+    "id": "R3-REG-320",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3S2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3S2.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.859
+  },
+  {
+    "id": "R3-REG-321",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S1.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.82
+  },
+  {
+    "id": "R3-REG-322",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S1.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.818
+  },
+  {
+    "id": "R3-REG-323",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.818
+  },
+  {
+    "id": "R3-REG-324",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.092
+  },
+  {
+    "id": "R3-REG-325",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.333
+  },
+  {
+    "id": "R3-REG-326",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.378
+  },
+  {
+    "id": "R3-REG-327",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S3.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.022
+  },
+  {
+    "id": "R3-REG-328",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S3.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.803
+  },
+  {
+    "id": "R3-REG-329",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S3.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.813
+  },
+  {
+    "id": "R3-REG-330",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.099
+  },
+  {
+    "id": "R3-REG-331",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-332",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-333",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-334",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-335",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5S2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5S2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.305
+  },
+  {
+    "id": "R3-REG-336",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6S1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6S1.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.026
+  },
+  {
+    "id": "R3-REG-337",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6S1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6S1.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.831
+  },
+  {
+    "id": "R3-REG-338",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.816
+  },
+  {
+    "id": "R3-REG-339",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2D1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2D1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.111
+  },
+  {
+    "id": "R3-REG-340",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2D1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2D1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.419
+  },
+  {
+    "id": "R3-REG-341",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2D1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2D1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R3-REG-342",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3D1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3D1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-343",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3D1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3D1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-344",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3D1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3D1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.314
+  },
+  {
+    "id": "R3-REG-345",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4D1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4D1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.098
+  },
+  {
+    "id": "R3-REG-346",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4D1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4D1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.317
+  },
+  {
+    "id": "R3-REG-347",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4D1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4D1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.31
+  },
+  {
+    "id": "R3-REG-348",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5D1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5D1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-349",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5D1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5D1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-350",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5D1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5D1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-351",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-352",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.301
+  },
+  {
+    "id": "R3-REG-353",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.105
+  },
+  {
+    "id": "R3-REG-354",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.328
+  },
+  {
+    "id": "R3-REG-355",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R3-REG-356",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.311
+  },
+  {
+    "id": "R3-REG-357",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-358",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-359",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D3.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D3.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.079
+  },
+  {
+    "id": "R3-REG-360",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D4.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D4.R3-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.813
+  },
+  {
+    "id": "R3-REG-361",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D4.R3-T2",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.807
+  },
+  {
+    "id": "R3-REG-362",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D4.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D4.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.806
+  },
+  {
+    "id": "R3-REG-363",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.081
+  },
+  {
+    "id": "R3-REG-364",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-365",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-366",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-367",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A2.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A2.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-368",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 5A2.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "5A2.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.3
+  },
+  {
+    "id": "R3-REG-369",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6A1.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6A1.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.329
+  },
+  {
+    "id": "R3-REG-370",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6A1.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6A1.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.302
+  },
+  {
+    "id": "R3-REG-371",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6A1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6A1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-372",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-inverse-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-inverse-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-373",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-inverse-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-inverse-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-374",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-inverse-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-inverse-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.324
+  },
+  {
+    "id": "R3-REG-375",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-count-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-count-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-376",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-count-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-count-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.293
+  },
+  {
+    "id": "R3-REG-377",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-count-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-count-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.303
+  },
+  {
+    "id": "R3-REG-378",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-geometry-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-geometry-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.304
+  },
+  {
+    "id": "R3-REG-379",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-geometry-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-geometry-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-380",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-geometry-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-geometry-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.29
+  },
+  {
+    "id": "R3-REG-381",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-logic-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-logic-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.286
+  },
+  {
+    "id": "R3-REG-382",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-logic-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-logic-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.309
+  },
+  {
+    "id": "R3-REG-383",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-logic-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-logic-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.287
+  },
+  {
+    "id": "R3-REG-384",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-applied-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-applied-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.281
+  },
+  {
+    "id": "R3-REG-385",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-applied-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-applied-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-386",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L2-applied-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L2-applied-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-387",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-inverse-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-inverse-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-388",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-inverse-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-inverse-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.319
+  },
+  {
+    "id": "R3-REG-389",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-inverse-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-inverse-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-390",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-count-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-count-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-391",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-count-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-count-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.313
+  },
+  {
+    "id": "R3-REG-392",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-count-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-count-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-393",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-geometry-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-geometry-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-394",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-geometry-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-geometry-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.296
+  },
+  {
+    "id": "R3-REG-395",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-geometry-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-geometry-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-396",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-logic-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-logic-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-397",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-logic-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-logic-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.279
+  },
+  {
+    "id": "R3-REG-398",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-logic-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-logic-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-399",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-applied-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-applied-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-400",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-applied-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-applied-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-401",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-applied-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-applied-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.284
+  },
+  {
+    "id": "R3-REG-402",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-inverse-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-inverse-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.278
+  },
+  {
+    "id": "R3-REG-403",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-inverse-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-inverse-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-404",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-inverse-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-inverse-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-405",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-count-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-count-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-406",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-count-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-count-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-407",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-count-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-count-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.309
+  },
+  {
+    "id": "R3-REG-408",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-geometry-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-geometry-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.294
+  },
+  {
+    "id": "R3-REG-409",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-geometry-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-geometry-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.325
+  },
+  {
+    "id": "R3-REG-410",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-geometry-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-geometry-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-411",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-logic-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-logic-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-412",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-logic-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-logic-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.291
+  },
+  {
+    "id": "R3-REG-413",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-logic-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-logic-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.288
+  },
+  {
+    "id": "R3-REG-414",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-applied-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-applied-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.275
+  },
+  {
+    "id": "R3-REG-415",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-applied-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-applied-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.297
+  },
+  {
+    "id": "R3-REG-416",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-applied-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-applied-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.289
+  },
+  {
+    "id": "R3-REG-417",
+    "group": "INTEGRATION",
+    "name": "No JavaScript errors across all template DOM operations",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-418",
+    "group": "VIEWPORT",
+    "name": "1280px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.027
+  },
+  {
+    "id": "R3-REG-419",
+    "group": "VIEWPORT",
+    "name": "1280px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.022
+  },
+  {
+    "id": "R3-REG-420",
+    "group": "VIEWPORT",
+    "name": "1280px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.011
+  },
+  {
+    "id": "R3-REG-421",
+    "group": "VIEWPORT",
+    "name": "768px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.018
+  },
+  {
+    "id": "R3-REG-422",
+    "group": "VIEWPORT",
+    "name": "768px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.028
+  },
+  {
+    "id": "R3-REG-423",
+    "group": "VIEWPORT",
+    "name": "768px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R3-REG-424",
+    "group": "VIEWPORT",
+    "name": "390px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.019
+  },
+  {
+    "id": "R3-REG-425",
+    "group": "VIEWPORT",
+    "name": "390px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.035
+  },
+  {
+    "id": "R3-REG-426",
+    "group": "VIEWPORT",
+    "name": "390px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.01
+  },
+  {
+    "id": "R3-REG-427",
+    "group": "VIEWPORT",
+    "name": "320px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.019
+  },
+  {
+    "id": "R3-REG-428",
+    "group": "VIEWPORT",
+    "name": "320px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.024
+  },
+  {
+    "id": "R3-REG-429",
+    "group": "VIEWPORT",
+    "name": "320px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.014
+  }
+]

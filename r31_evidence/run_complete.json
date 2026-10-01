@@ -1,0 +1,6 @@
+{
+  "runs": 7,
+  "allProcessExitZero": true,
+  "sameAppDuringTests": true,
+  "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f"
+}

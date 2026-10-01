@@ -1,0 +1,3527 @@
+[
+  {
+    "original_path": "README_先看這份.md",
+    "preserved_path": "originals/R1/README_先看這份.md",
+    "identical": true
+  },
+  {
+    "original_path": "START_HERE.html",
+    "preserved_path": "originals/R1/START_HERE.html",
+    "identical": true
+  },
+  {
+    "original_path": "START_WINDOWS.cmd",
+    "preserved_path": "START_WINDOWS.cmd",
+    "identical": true
+  },
+  {
+    "original_path": "app/WordQuest_Maths_Plugin_R1.html.txt",
+    "preserved_path": "app/WordQuest_Maths_Plugin_R1.html.txt",
+    "identical": true
+  },
+  {
+    "original_path": "app/index.html",
+    "preserved_path": "originals/R1/index.html",
+    "identical": true
+  },
+  {
+    "original_path": "docs/本輪套用及驗證報告.html",
+    "preserved_path": "docs/本輪套用及驗證報告.html",
+    "identical": true
+  },
+  {
+    "original_path": "docs/開發交接_R1.md",
+    "preserved_path": "docs/開發交接_R1.md",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/build.json",
+    "preserved_path": "evidence/build.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/daily-complete.png",
+    "preserved_path": "evidence/daily-complete.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/delivery_links.json",
+    "preserved_path": "evidence/delivery_links.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/development-first-integration-run.json",
+    "preserved_path": "evidence/development-first-integration-run.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/development-test-harness-fatal.txt",
+    "preserved_path": "evidence/development-test-harness-fatal.txt",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/english-home-1280.png",
+    "preserved_path": "evidence/english-home-1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/english-home-390.png",
+    "preserved_path": "evidence/english-home-390.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/environment.json",
+    "preserved_path": "evidence/environment.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/final_summary.json",
+    "preserved_path": "evidence/final_summary.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/first-math-smoke.png",
+    "preserved_path": "evidence/first-math-smoke.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/integration_results.json",
+    "preserved_path": "evidence/integration_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/integration_summary.json",
+    "preserved_path": "evidence/integration_summary.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/javascript_syntax.json",
+    "preserved_path": "evidence/javascript_syntax.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-1280.png",
+    "preserved_path": "evidence/maths-1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-320.png",
+    "preserved_path": "evidence/maths-320.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-390.png",
+    "preserved_path": "evidence/maths-390.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-answer-1280.png",
+    "preserved_path": "evidence/maths-answer-1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-answer-390.png",
+    "preserved_path": "evidence/maths-answer-390.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-feedback-1280.png",
+    "preserved_path": "evidence/maths-feedback-1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-feedback-390.png",
+    "preserved_path": "evidence/maths-feedback-390.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-home-1280.png",
+    "preserved_path": "evidence/maths-home-1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/maths-home-390.png",
+    "preserved_path": "evidence/maths-home-390.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/olympiad-complete.png",
+    "preserved_path": "evidence/olympiad-complete.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/originals_integrity.json",
+    "preserved_path": "evidence/originals_integrity.json",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/report-preview.png",
+    "preserved_path": "evidence/report-preview.png",
+    "identical": true
+  },
+  {
+    "original_path": "evidence/viewport_capture.json",
+    "preserved_path": "evidence/viewport_capture.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/WordQuest_V32_Integrated.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/WordQuest_V32_Integrated.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ30Data.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ30Data.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ31Data.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ31Data.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ32Art.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ32Art.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQStateFields.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQStateFields.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_FAMILY_DATA.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_FAMILY_DATA.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_PHONICS_DATA.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_PHONICS_DATA.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_SHARED_REFERENCE.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_SHARED_REFERENCE.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_TEACHER_PATCH.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_TEACHER_PATCH.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_00.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_00.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_01.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_01.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_02.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_02.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_03.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_03.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_04.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_04.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_05.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_05.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_06.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_06.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_07.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_07.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_08.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_08.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_09.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_09.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_10.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_10.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_11.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_11.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_12.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_12.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_13.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_13.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_14.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_14.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_15.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_15.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_16.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_16.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_17.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_17.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_18.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_18.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_19.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_19.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_20.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_20.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_21.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_21.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_22.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_22.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_23.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_23.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_24.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_24.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_25.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_25.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_26.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_26.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_27.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_27.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_28.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_28.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_29.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_29.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_30.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_30.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/styles.css",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/styles.css",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_0.1.2.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_0.1.2.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_Plugin_0.1.2.html.txt",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_Plugin_0.1.2.html.txt",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/curriculum.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/curriculum.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/maths.css",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/maths.css",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_00.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_00.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_01.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_01.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_02.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_02.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_03.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_03.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/03_Installer/WordQuest_Maths_0.1.2_Installer.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/03_Installer/WordQuest_Maths_0.1.2_Installer.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/03_Installer/相容性提醒.md",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/03_Installer/相容性提醒.md",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_001_ad1f26d1b6ff.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_001_ad1f26d1b6ff.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_002_a1b39922c12d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_002_a1b39922c12d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_003_9a67b3c1ef62.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_003_9a67b3c1ef62.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_004_3eb2cba20177.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_004_3eb2cba20177.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_005_736896c6fa3a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_005_736896c6fa3a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_006_9eced4ccc1d3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_006_9eced4ccc1d3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_007_fbebe961e006.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_007_fbebe961e006.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_008_4820755133f2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_008_4820755133f2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_009_f12f82a5ccaf.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_009_f12f82a5ccaf.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_010_860f3a3cfe38.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_010_860f3a3cfe38.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_011_09244ce044cb.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_011_09244ce044cb.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_012_57bfd47700a5.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_012_57bfd47700a5.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_013_dc203ad725b9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_013_dc203ad725b9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_014_7268f8381859.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_014_7268f8381859.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_015_7f412875fdc5.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_015_7f412875fdc5.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_016_1aca4b5f53e3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_016_1aca4b5f53e3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_017_656e5bd014ec.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_017_656e5bd014ec.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_018_fa782e1f9415.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_018_fa782e1f9415.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_019_ba3134b1c95f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_019_ba3134b1c95f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_020_9a8273839dcf.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_020_9a8273839dcf.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_021_b818ed8c1306.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_021_b818ed8c1306.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_022_19b44c451d8e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_022_19b44c451d8e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_023_764c63718b99.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_023_764c63718b99.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_024_9922f3243c2d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_024_9922f3243c2d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_025_6893e9e8f86b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_025_6893e9e8f86b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_026_de4c98eec99d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_026_de4c98eec99d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_027_92ddb5eb54f6.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_027_92ddb5eb54f6.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_028_3549bd299b22.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_028_3549bd299b22.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_029_9278c7b0aea8.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_029_9278c7b0aea8.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_030_b6b7c0ab2b9d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_030_b6b7c0ab2b9d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_031_30ed1eab1ac4.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_031_30ed1eab1ac4.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_032_2438e1187bed.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_032_2438e1187bed.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_033_5b1e2e4f7aa7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_033_5b1e2e4f7aa7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_034_fdec593a7243.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_034_fdec593a7243.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_035_ff171e6ad86e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_035_ff171e6ad86e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_036_a94311f58c6e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_036_a94311f58c6e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_037_3c253c827e0f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_037_3c253c827e0f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_038_8f893e458644.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_038_8f893e458644.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_039_2017c39f774f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_039_2017c39f774f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_040_308859ab2965.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_040_308859ab2965.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_041_8c150a1c3a43.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_041_8c150a1c3a43.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_042_2e42b4b883d4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_042_2e42b4b883d4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_043_4c7a5ee186a2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_043_4c7a5ee186a2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_044_c1e29899a0ad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_044_c1e29899a0ad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_045_443e3388e72d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_045_443e3388e72d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_046_4a437858dccd.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_046_4a437858dccd.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_047_bf4b27553adc.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_047_bf4b27553adc.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_048_c1bcab959293.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_048_c1bcab959293.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_049_747cadeadf6c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_049_747cadeadf6c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_050_f3a1d548bb2b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_050_f3a1d548bb2b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_051_3450e7f45b0c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_051_3450e7f45b0c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_052_9af9ea85cd75.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_052_9af9ea85cd75.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_053_db601e070f6c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_053_db601e070f6c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_054_7a5bce1feb6f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_054_7a5bce1feb6f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_055_4068a05cb62f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_055_4068a05cb62f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_056_7478f7e04251.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_056_7478f7e04251.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_057_eb771a444c3b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_057_eb771a444c3b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_058_9ea998ca54e9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_058_9ea998ca54e9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_059_5e0b12994076.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_059_5e0b12994076.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_060_0164a396dc6d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_060_0164a396dc6d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_061_8db669fb6371.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_061_8db669fb6371.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_062_5c84c4dd6386.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_062_5c84c4dd6386.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_063_74e0623df705.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_063_74e0623df705.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_064_23f60c7bd9ca.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_064_23f60c7bd9ca.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_065_9a0e1c8a711f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_065_9a0e1c8a711f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_066_8396cec2e4c0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_066_8396cec2e4c0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_067_36cbaf06833a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_067_36cbaf06833a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_068_3a0efc9fd4ab.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_068_3a0efc9fd4ab.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_069_afcb89d750a0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_069_afcb89d750a0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_070_c685fb66cc6e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_070_c685fb66cc6e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_071_b579bc241db9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_071_b579bc241db9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_072_5dab11f2b565.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_072_5dab11f2b565.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_073_71918e627c06.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_073_71918e627c06.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_074_d77fa5e4af84.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_074_d77fa5e4af84.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_075_9e06f6e1d14a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_075_9e06f6e1d14a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_076_12e832e02fee.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_076_12e832e02fee.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_077_65a5fa3ba6e8.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_077_65a5fa3ba6e8.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_078_7592f0b738d3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_078_7592f0b738d3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_079_954e0faf3a78.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_079_954e0faf3a78.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_080_500730b892a3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_080_500730b892a3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_081_28aea9a606ec.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_081_28aea9a606ec.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_082_65addb08025a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_082_65addb08025a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_083_f37e69c847bf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_083_f37e69c847bf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_084_6823f5dc8bbf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_084_6823f5dc8bbf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_085_24ed29cc04b9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_085_24ed29cc04b9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_086_f9a3f6ebfbfb.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_086_f9a3f6ebfbfb.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_087_efcbf888e808.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_087_efcbf888e808.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_088_2204cc26317a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_088_2204cc26317a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_089_c26409489a7c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_089_c26409489a7c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_090_6166559b9829.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_090_6166559b9829.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_091_6deab715f638.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_091_6deab715f638.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_092_3e4f752ffad4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_092_3e4f752ffad4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_093_0528dc827b9d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_093_0528dc827b9d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_094_938eaa7683ff.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_094_938eaa7683ff.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_095_1ce34eb96fd9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_095_1ce34eb96fd9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_096_9d12206dcad2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_096_9d12206dcad2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_097_c124d181ba75.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_097_c124d181ba75.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_098_14891b51f957.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_098_14891b51f957.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_099_d072cbf21ce5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_099_d072cbf21ce5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_100_fbb42c2bd90b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_100_fbb42c2bd90b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_101_d9ced7a46676.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_101_d9ced7a46676.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_102_8f48b243fd0e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_102_8f48b243fd0e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_103_b3882813f767.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_103_b3882813f767.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_104_28d1372dcd81.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_104_28d1372dcd81.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_105_cded82f60ac2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_105_cded82f60ac2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_106_d851af765b88.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_106_d851af765b88.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_107_f0dd8ac4ad9d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_107_f0dd8ac4ad9d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_108_fa82eafa9e86.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_108_fa82eafa9e86.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_109_e794801e2001.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_109_e794801e2001.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_110_d0db30bb87ef.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_110_d0db30bb87ef.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_111_ec207acff8ff.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_111_ec207acff8ff.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_112_33272feae3e0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_112_33272feae3e0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_113_5a5299a738fe.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_113_5a5299a738fe.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_114_8cc47fc9cd1c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_114_8cc47fc9cd1c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_115_a619941ede68.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_115_a619941ede68.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_116_8ff492731258.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_116_8ff492731258.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_117_8cca5ba2a85e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_117_8cca5ba2a85e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_118_fbfa7498f442.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_118_fbfa7498f442.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_119_1b44a8cd3c8d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_119_1b44a8cd3c8d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_120_eeca925ed467.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_120_eeca925ed467.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_121_5c2ddcfc8d32.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_121_5c2ddcfc8d32.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_122_9aa92edcb0a0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_122_9aa92edcb0a0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_123_0a280af8b0dc.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_123_0a280af8b0dc.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_124_623117b145d3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_124_623117b145d3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_125_0db9c08593e6.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_125_0db9c08593e6.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_126_971f999698ff.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_126_971f999698ff.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_127_a74e701f570f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_127_a74e701f570f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_128_cf0b8edebd4d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_128_cf0b8edebd4d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_129_7c3d1daef3ac.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_129_7c3d1daef3ac.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_130_deea104fd194.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_130_deea104fd194.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_131_12ab8bc11a09.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_131_12ab8bc11a09.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_132_911bf9decbca.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_132_911bf9decbca.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_133_c69ecc4b85d2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_133_c69ecc4b85d2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_134_c7ae794fee1c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_134_c7ae794fee1c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_135_71d6ac217d0e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_135_71d6ac217d0e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_136_3c0f6d0ab403.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_136_3c0f6d0ab403.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_137_58d19dd97214.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_137_58d19dd97214.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_138_362b9fec593e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_138_362b9fec593e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_139_32d1936f0264.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_139_32d1936f0264.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_140_9324a5f8df05.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_140_9324a5f8df05.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_141_dbf819e30b0e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_141_dbf819e30b0e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_142_3754678be1aa.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_142_3754678be1aa.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_143_aa0a720ffc9b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_143_aa0a720ffc9b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_144_6486fecf4622.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_144_6486fecf4622.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_145_99a5908eab4c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_145_99a5908eab4c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_146_f0c25fd8f831.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_146_f0c25fd8f831.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_147_655dd12659c5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_147_655dd12659c5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_148_75e07658aeaa.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_148_75e07658aeaa.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_149_75f1e6acc220.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_149_75f1e6acc220.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_150_46bcc83ea951.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_150_46bcc83ea951.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_151_73afee071d3d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_151_73afee071d3d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_152_2c569ca73641.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_152_2c569ca73641.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_153_cfa4785649a9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_153_cfa4785649a9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_154_f5724899c86c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_154_f5724899c86c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_155_7468d91235ec.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_155_7468d91235ec.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_156_2538b7df8cee.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_156_2538b7df8cee.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_157_a4d43040ddb5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_157_a4d43040ddb5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_158_c2d28185a1f7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_158_c2d28185a1f7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_159_48bc34bff1e6.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_159_48bc34bff1e6.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_160_fc8b01e0b814.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_160_fc8b01e0b814.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_161_323ec39f01f1.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_161_323ec39f01f1.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_162_6de726588b0a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_162_6de726588b0a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_163_5fbd5e612c86.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_163_5fbd5e612c86.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_164_c8d8fc8cc519.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_164_c8d8fc8cc519.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_165_30a2daff9ef6.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_165_30a2daff9ef6.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_166_25fece20e973.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_166_25fece20e973.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_167_9c0cb8ae566d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_167_9c0cb8ae566d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_168_42cfc7be4e66.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_168_42cfc7be4e66.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_169_69790f47c278.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_169_69790f47c278.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_170_3913cb7f7a4f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_170_3913cb7f7a4f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_171_68e5b2dd2bf2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_171_68e5b2dd2bf2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_172_401e638522d7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_172_401e638522d7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_173_637fd900e2da.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_173_637fd900e2da.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_174_1f16b381c698.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_174_1f16b381c698.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_175_5e0386bb826a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_175_5e0386bb826a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_176_5532ed161735.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_176_5532ed161735.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_177_0429712e95bd.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_177_0429712e95bd.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_178_febef24b1b4f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_178_febef24b1b4f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_179_4613d474c962.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_179_4613d474c962.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_180_e0d56d979051.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_180_e0d56d979051.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_181_689c2fee6ea8.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_181_689c2fee6ea8.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_182_2642d47667ed.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_182_2642d47667ed.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_183_0dd2e6426cf4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_183_0dd2e6426cf4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_184_40ec7befc02d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_184_40ec7befc02d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_185_2f1276891259.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_185_2f1276891259.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_186_33bfd3b02b9c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_186_33bfd3b02b9c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_187_ec67d5127561.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_187_ec67d5127561.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_188_6be3d1597207.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_188_6be3d1597207.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_189_a371d8aed06e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_189_a371d8aed06e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_190_f1cf914ddb48.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_190_f1cf914ddb48.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_191_fb5433b3702e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_191_fb5433b3702e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_192_704d0cd166b1.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_192_704d0cd166b1.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_193_04af8256781d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_193_04af8256781d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_194_2637ee092e33.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_194_2637ee092e33.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_195_25b7ea2d55ad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_195_25b7ea2d55ad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_196_8a66822d25d3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_196_8a66822d25d3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_197_1b9822ae31dc.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_197_1b9822ae31dc.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_198_2bfebb8ebcaa.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_198_2bfebb8ebcaa.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_199_b938c3b4167b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_199_b938c3b4167b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_200_bafbe56a0cfb.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_200_bafbe56a0cfb.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_201_741701daf83b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_201_741701daf83b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_202_445761e64e34.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_202_445761e64e34.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_203_07cddae1f001.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_203_07cddae1f001.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_204_6e9190cf54fc.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_204_6e9190cf54fc.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_205_01db6e424662.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_205_01db6e424662.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_206_bbf9e84ea30c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_206_bbf9e84ea30c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_207_37fe94c528e7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_207_37fe94c528e7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_208_110f9e22abed.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_208_110f9e22abed.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_209_bc21cf394c13.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_209_bc21cf394c13.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_210_f5b0722489fc.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_210_f5b0722489fc.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_211_b6f0e2e8f2fb.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_211_b6f0e2e8f2fb.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_212_a1d3fff4781d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_212_a1d3fff4781d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_213_65519207d204.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_213_65519207d204.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_214_b0ac6fe197c4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_214_b0ac6fe197c4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_215_de74ad1b2121.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_215_de74ad1b2121.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_216_56b7b4ef7e86.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_216_56b7b4ef7e86.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_217_4e5a2a75416f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_217_4e5a2a75416f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_218_aede957ea457.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_218_aede957ea457.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_219_0144257fe4e9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_219_0144257fe4e9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_220_817351bbe2da.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_220_817351bbe2da.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_221_1395ed04f8b3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_221_1395ed04f8b3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_222_e5228e353519.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_222_e5228e353519.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_223_f3de4ff0c172.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_223_f3de4ff0c172.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_224_074ae1ad3ae1.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_224_074ae1ad3ae1.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_225_27321774c09a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_225_27321774c09a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_226_ce8f0817fc86.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_226_ce8f0817fc86.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_227_31f881980cc2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_227_31f881980cc2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_228_8eca2a7b0684.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_228_8eca2a7b0684.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_229_246793693677.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_229_246793693677.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_230_b13064ac7290.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_230_b13064ac7290.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_231_25de0f217c43.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_231_25de0f217c43.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_232_3523581f91f2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_232_3523581f91f2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_233_d4c651247b64.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_233_d4c651247b64.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_234_cf4f6580429b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_234_cf4f6580429b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_235_8bd75701f3a1.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_235_8bd75701f3a1.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_236_0c9a3df7a87b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_236_0c9a3df7a87b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_237_3401f809da65.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_237_3401f809da65.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_238_987902d9c713.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_238_987902d9c713.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_239_e46641c274de.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_239_e46641c274de.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_240_8716ce1ee979.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_240_8716ce1ee979.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_241_be727b5fcb56.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_241_be727b5fcb56.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_242_8d0d2446b4f8.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_242_8d0d2446b4f8.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_243_bdd755bf74ad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_243_bdd755bf74ad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_244_b660fb6f81b6.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_244_b660fb6f81b6.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_245_75b921f77fab.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_245_75b921f77fab.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_246_4638e1d4f17c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_246_4638e1d4f17c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_247_93e1206ea477.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_247_93e1206ea477.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_248_2236d8d236a4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_248_2236d8d236a4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_249_662bcfc16d93.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_249_662bcfc16d93.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_250_654e86d878de.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_250_654e86d878de.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_251_cf9803c2264b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_251_cf9803c2264b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_252_383642b692ed.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_252_383642b692ed.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_253_b3bddd92dc0e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_253_b3bddd92dc0e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_254_825aa0bfcc60.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_254_825aa0bfcc60.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_255_504ffad018bf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_255_504ffad018bf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_256_8206ae741fad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_256_8206ae741fad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_257_309b102b04f5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_257_309b102b04f5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_258_6156711d6e83.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_258_6156711d6e83.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_259_8df408dae454.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_259_8df408dae454.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_260_03869aa70e24.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_260_03869aa70e24.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_261_24071b1732ef.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_261_24071b1732ef.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_262_749b516d6b3b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_262_749b516d6b3b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_263_2dc3d1066a72.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_263_2dc3d1066a72.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_264_3570bc23ef4e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_264_3570bc23ef4e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_265_d58ae9ef9a50.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_265_d58ae9ef9a50.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_266_38e511807a48.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_266_38e511807a48.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_267_201629c6aaad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_267_201629c6aaad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_268_bb202b8b2fa0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_268_bb202b8b2fa0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_269_82b74f8eec7c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_269_82b74f8eec7c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_270_6524ae393b33.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_270_6524ae393b33.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_271_d7f22f4d3e32.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_271_d7f22f4d3e32.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_272_c45787ac1635.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_272_c45787ac1635.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_273_1a1b5921cd17.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_273_1a1b5921cd17.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_274_d8749f4528bf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_274_d8749f4528bf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_275_11aa3435122c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_275_11aa3435122c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_276_c087414f3932.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_276_c087414f3932.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_277_39b62d6bc4aa.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_277_39b62d6bc4aa.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_278_f665fb24976d.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_278_f665fb24976d.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_279_d819a762539c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_279_d819a762539c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_280_8bd54f291f1e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_280_8bd54f291f1e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_281_7c7ac8575267.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_281_7c7ac8575267.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_282_ecbb77a83ac3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_282_ecbb77a83ac3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_283_0317653de56c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_283_0317653de56c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_284_2d16e1b7f728.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_284_2d16e1b7f728.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_285_58e289c2d112.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_285_58e289c2d112.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_286_e2cd6332dad0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_286_e2cd6332dad0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_287_db624db90d09.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_287_db624db90d09.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_288_54031fd34e78.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_288_54031fd34e78.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_289_64d98f610170.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_289_64d98f610170.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_290_20885cb501d3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_290_20885cb501d3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_291_f994417f2a7c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_291_f994417f2a7c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_292_bf2ce454a629.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_292_bf2ce454a629.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_293_c1152b780bae.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_293_c1152b780bae.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_294_de710c5fc352.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_294_de710c5fc352.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_295_8b60e8cf7f93.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_295_8b60e8cf7f93.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_296_b2253ce0ef16.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_296_b2253ce0ef16.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_297_1c8887016f68.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_297_1c8887016f68.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_298_431cc005ad7e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_298_431cc005ad7e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_299_3e6364f502de.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_299_3e6364f502de.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_300_adc67f66754f.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_300_adc67f66754f.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_301_8ee576f8f1a9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_301_8ee576f8f1a9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_302_ed6dd4b4b656.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_302_ed6dd4b4b656.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_303_7724b08f85bf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_303_7724b08f85bf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_304_5cf3ee2055ec.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_304_5cf3ee2055ec.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_305_f8abfb62d154.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_305_f8abfb62d154.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_306_77c6fda240bf.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_306_77c6fda240bf.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_307_d5e7cbf50a55.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_307_d5e7cbf50a55.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_308_24be0a66a4a3.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_308_24be0a66a4a3.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_309_cb11fe0a88e4.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_309_cb11fe0a88e4.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_310_9bb194b4df07.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_310_9bb194b4df07.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_311_b1f05988b593.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_311_b1f05988b593.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_312_2b1fbeef3e96.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_312_2b1fbeef3e96.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_313_deea872a54c7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_313_deea872a54c7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_314_69b3175f2443.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_314_69b3175f2443.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_315_710644cb1220.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_315_710644cb1220.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_316_0e222dece954.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_316_0e222dece954.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_317_d9caeaf415a5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_317_d9caeaf415a5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_318_2dcfb7db8244.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_318_2dcfb7db8244.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_319_fd4a2d2d1360.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_319_fd4a2d2d1360.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_320_656e49d3a995.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_320_656e49d3a995.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_321_07e451b90596.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_321_07e451b90596.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_322_0b9af5ceaed9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_322_0b9af5ceaed9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_323_6b79620a1212.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_323_6b79620a1212.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_324_98fbf05da971.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_324_98fbf05da971.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_325_712f74b523fb.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_325_712f74b523fb.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_326_0ec1f18b8812.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_326_0ec1f18b8812.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_327_183df91a54f2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_327_183df91a54f2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_328_16b1cb262e18.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_328_16b1cb262e18.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_329_7bf49009ec53.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_329_7bf49009ec53.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_330_97f4d2d6d160.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_330_97f4d2d6d160.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_331_b12f7710e945.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_331_b12f7710e945.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_332_7351ccc5e239.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_332_7351ccc5e239.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_333_86caf37b9588.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_333_86caf37b9588.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_334_55053eb01d2b.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_334_55053eb01d2b.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_335_ecda60b30161.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_335_ecda60b30161.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_336_125b58a8abd1.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_336_125b58a8abd1.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_337_3ed5dcd80224.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_337_3ed5dcd80224.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_338_2031cfdfdbd5.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_338_2031cfdfdbd5.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_339_4fc045ae37e9.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_339_4fc045ae37e9.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_340_566e64f1d1d2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_340_566e64f1d1d2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_341_307853853631.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_341_307853853631.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_342_6df68d72656a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_342_6df68d72656a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_343_2f08513472d7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_343_2f08513472d7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_344_3842dbb2e6ad.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_344_3842dbb2e6ad.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_345_05d4ce6ffcb2.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_345_05d4ce6ffcb2.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_346_f3b9b87aa3bd.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_346_f3b9b87aa3bd.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_347_01455676db24.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_347_01455676db24.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_348_948b341db740.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_348_948b341db740.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_349_28f05430c229.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_349_28f05430c229.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_350_a2c9edd466f0.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_350_a2c9edd466f0.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_351_44347e5ed614.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_351_44347e5ed614.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_352_21ebcd064759.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_352_21ebcd064759.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_353_d8f606b5c219.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_353_d8f606b5c219.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_354_eb7c76d6ca83.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_354_eb7c76d6ca83.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_355_6c59ea85a226.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_355_6c59ea85a226.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_356_b158fed11b4e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_356_b158fed11b4e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_357_f8f7b8ef45a7.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_357_f8f7b8ef45a7.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_358_ab9124931e3c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_358_ab9124931e3c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_359_d4bfd9d6197c.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_359_d4bfd9d6197c.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_360_c2ed4d57113a.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_360_c2ed4d57113a.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_361_7ff6f702f12e.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_361_7ff6f702f12e.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_362_0797676a7211.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_362_0797676a7211.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_363_d2ecb768d1cb.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_363_d2ecb768d1cb.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_364_d745b089ae13.webp",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_364_d745b089ae13.webp",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_365_8c9cdc9f7bf9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_365_8c9cdc9f7bf9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_366_37e94aa85be0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_366_37e94aa85be0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_367_91acc9f2e6be.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_367_91acc9f2e6be.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_368_a0fb57be18b9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_368_a0fb57be18b9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_369_46a41377882c.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_369_46a41377882c.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_370_100c6af99f40.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_370_100c6af99f40.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_371_d9a04350c99e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_371_d9a04350c99e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_372_b5f63361fdb9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_372_b5f63361fdb9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_373_5ab654f1b007.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_373_5ab654f1b007.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_374_ca505e374f55.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_374_ca505e374f55.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_375_9cebf552a1f0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_375_9cebf552a1f0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_376_d0556c39a2e5.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_376_d0556c39a2e5.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_377_4d4e1caa5a69.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_377_4d4e1caa5a69.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_378_0cc8e44db16b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_378_0cc8e44db16b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_379_ce523a8e1e64.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_379_ce523a8e1e64.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_380_a2c2aa72640b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_380_a2c2aa72640b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_381_55a571e49a20.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_381_55a571e49a20.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_382_4123516188a0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_382_4123516188a0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_383_3a76fbb0ce76.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_383_3a76fbb0ce76.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_384_de522ec128ec.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_384_de522ec128ec.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_385_e83b1759d9be.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_385_e83b1759d9be.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_386_3b52bdf27f61.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_386_3b52bdf27f61.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_387_cb57bc716879.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_387_cb57bc716879.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_388_0f42f09f321c.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_388_0f42f09f321c.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_389_6bdcfbd4fc95.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_389_6bdcfbd4fc95.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_390_ceba26a35d2a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_390_ceba26a35d2a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_391_1657c4f7a1e9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_391_1657c4f7a1e9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_392_ea58f01a5a6b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_392_ea58f01a5a6b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_393_43cbe69ab205.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_393_43cbe69ab205.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_394_2e9c8af8ce73.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_394_2e9c8af8ce73.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_395_0735d5cafd87.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_395_0735d5cafd87.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_396_d62d471c41c7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_396_d62d471c41c7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_397_d8841a7cfed8.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_397_d8841a7cfed8.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_398_77f2d177e789.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_398_77f2d177e789.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_399_38036c3d5f9a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_399_38036c3d5f9a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_400_59289f67aaa9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_400_59289f67aaa9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_401_45d1433f8e56.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_401_45d1433f8e56.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_402_4844bb89cdb9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_402_4844bb89cdb9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_403_1a5afe99ee4d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_403_1a5afe99ee4d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_404_c079c709da2f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_404_c079c709da2f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_405_c7b4e7f8083c.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_405_c7b4e7f8083c.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_406_7b2f665054ee.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_406_7b2f665054ee.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_407_c02257def9c7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_407_c02257def9c7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_408_e836c5d02132.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_408_e836c5d02132.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_409_2448b2bbde65.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_409_2448b2bbde65.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_410_20e35174bec3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_410_20e35174bec3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_411_11ceee06918f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_411_11ceee06918f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_412_59503a8ed3da.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_412_59503a8ed3da.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_413_309415d93ab1.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_413_309415d93ab1.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_414_a21d2a8c0266.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_414_a21d2a8c0266.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_415_faaebc7ef177.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_415_faaebc7ef177.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_416_0cdf6205ca2f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_416_0cdf6205ca2f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_417_69d95f32d7bc.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_417_69d95f32d7bc.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_418_bd98d9a5744e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_418_bd98d9a5744e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_419_90006c66ecfe.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_419_90006c66ecfe.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_420_945666a1b95f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_420_945666a1b95f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_421_f0bfa24f6fb0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_421_f0bfa24f6fb0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_422_6a490ef683b6.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_422_6a490ef683b6.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_423_c6cabf4ecdf7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_423_c6cabf4ecdf7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_424_fddf2304247a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_424_fddf2304247a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_425_138c7fde8cc1.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_425_138c7fde8cc1.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_426_30f6384be907.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_426_30f6384be907.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_427_1daba1d62aa4.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_427_1daba1d62aa4.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_428_fd5f758db4c6.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_428_fd5f758db4c6.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_429_181dc30bffa8.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_429_181dc30bffa8.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_430_cdac6ab8cd55.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_430_cdac6ab8cd55.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_431_c9e874bf4870.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_431_c9e874bf4870.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_432_e05caac9f1d2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_432_e05caac9f1d2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_433_a1a935b7038f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_433_a1a935b7038f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_434_d51867363089.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_434_d51867363089.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_435_8c745e0a2031.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_435_8c745e0a2031.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_436_843913b6dba3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_436_843913b6dba3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_437_f469684a2562.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_437_f469684a2562.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_438_bf364d1ff2e9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_438_bf364d1ff2e9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_439_d930d7fd649c.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_439_d930d7fd649c.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_440_757fe510a6ba.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_440_757fe510a6ba.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_441_cb210f28e519.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_441_cb210f28e519.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_442_f2cca4a4099e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_442_f2cca4a4099e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_443_9cc51858ca58.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_443_9cc51858ca58.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_444_4da2fbde1754.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_444_4da2fbde1754.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_445_220dba2ca1d0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_445_220dba2ca1d0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_446_b227987a351f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_446_b227987a351f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_447_40762977ee21.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_447_40762977ee21.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_448_892dc4dd5aa7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_448_892dc4dd5aa7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_449_390bf89e4743.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_449_390bf89e4743.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_450_baff1817ae6f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_450_baff1817ae6f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_451_69a76332dff2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_451_69a76332dff2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_452_66610c0967d7.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_452_66610c0967d7.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_453_7f236f289154.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_453_7f236f289154.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_454_b318c82606b6.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_454_b318c82606b6.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_455_9e9fd605f23d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_455_9e9fd605f23d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_456_c229e682b1ce.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_456_c229e682b1ce.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_457_452bfd87a65a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_457_452bfd87a65a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_458_74695acfc4c5.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_458_74695acfc4c5.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_459_aa788403c9f9.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_459_aa788403c9f9.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_460_4db9b2f797da.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_460_4db9b2f797da.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_461_5ace7b63542e.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_461_5ace7b63542e.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_462_a18377dbc93a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_462_a18377dbc93a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_463_7435de7529cd.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_463_7435de7529cd.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_464_a322b9987ed5.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_464_a322b9987ed5.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_465_d32d13fe2fea.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_465_d32d13fe2fea.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_466_dfba00ac42fb.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_466_dfba00ac42fb.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_467_e1ef31eaa10d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_467_e1ef31eaa10d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_468_2258d2b38b8d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_468_2258d2b38b8d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_469_370442d6428b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_469_370442d6428b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_470_01a2d9b370cb.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_470_01a2d9b370cb.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_471_6392a55f4cc0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_471_6392a55f4cc0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_472_913987f3e806.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_472_913987f3e806.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_473_4e4abc0f258b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_473_4e4abc0f258b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_474_833176d3bd81.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_474_833176d3bd81.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_475_b926f104fa80.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_475_b926f104fa80.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_476_947e94d32397.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_476_947e94d32397.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_477_b3dc9fb1720b.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_477_b3dc9fb1720b.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_478_975542254bc4.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_478_975542254bc4.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_479_e94206eb1395.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_479_e94206eb1395.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_480_eb9483201661.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_480_eb9483201661.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_481_4c689a80cd2a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_481_4c689a80cd2a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_482_8ded0c03f60d.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_482_8ded0c03f60d.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_483_59c27c2d9a40.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_483_59c27c2d9a40.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_484_303446a562de.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_484_303446a562de.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_485_60f9cfb95dc3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_485_60f9cfb95dc3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_486_d3b5aa2e300f.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_486_d3b5aa2e300f.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_487_97cfcd2ac457.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_487_97cfcd2ac457.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_488_bdc92e191590.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_488_bdc92e191590.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_489_75198aca0cb0.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_489_75198aca0cb0.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_490_c775e7ff0372.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_490_c775e7ff0372.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_491_55b564b8cd5a.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_491_55b564b8cd5a.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_492_4cebfe45f033.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_492_4cebfe45f033.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_493_b1f46cd0affb.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_493_b1f46cd0affb.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_494_b2716a210592.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_494_b2716a210592.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_495_9330d22855dd.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_495_9330d22855dd.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/asset_index.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/asset_index.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/素材索引.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/04_Assets/素材索引.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/data_inventory.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/data_inventory.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/script_map.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/script_map.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/使用說明.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/使用說明.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/開發交接.md",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/05_Documentation/開發交接.md",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/README_先看這份.md",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/README_先看這份.md",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/SHA256SUMS.txt",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/SHA256SUMS.txt",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/build_report.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/build_report.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/00_initial_mobile.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/00_initial_mobile.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-091_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-091_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-092_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-092_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-098_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-098_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-099_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-099_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-100_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-100_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-126_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-126_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-127_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-127_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-128_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-128_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-129_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-129_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-140_failure.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-140_failure.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_1440_home.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_1440_home.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_320_home.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_320_home.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_390_home.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_390_home.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_640_parent.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_640_parent.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_768_normal.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_768_normal.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_844_tools.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_844_tools.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/normal_lesson_summary.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/normal_lesson_summary.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/olympiad_summary.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/olympiad_summary.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_after.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_after.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_before.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_before.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_fraction_unicode_rejected.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_fraction_unicode_rejected.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_missing_queue.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_missing_queue.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_fraction_settled.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_fraction_settled.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_home_settled.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_home_settled.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_word_settled.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_word_settled.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_1N1_1-T1.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_1N1_1-T1.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N5_3-T2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N5_3-T2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N6_2-T2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N6_2-T2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_3N5_1-T2.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_3N5_1-T2.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_O-GEO-segments-T3.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_O-GEO-segments-T3.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/extract.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/extract.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.md",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.md",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/issues.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/issues.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/manifest.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/manifest.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_desktop_preview.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_desktop_preview.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_mobile_preview.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_mobile_preview.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_qa.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_qa.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/all_1000_results.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/all_1000_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_environment.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_environment.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_0_14.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_0_14.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_14_28.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_14_28.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_28_42.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_28_42.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_42_56.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_42_56.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_0_28.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_0_28.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_28_56.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_28_56.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_56_84.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_56_84.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_results.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_run.log",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_run.log",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generated_fixtures.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generated_fixtures.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generation_results.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generation_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/supplemental_evidence.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/supplemental_evidence.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/WordQuest_Maths_Try.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/WordQuest_Maths_Try.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/curriculum.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/curriculum.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths.css",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths.css",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_0.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_0.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_1.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_1.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_2.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_2.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_3.js",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_3.js",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/browser_checks.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/browser_checks.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/core_checks.cjs",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/core_checks.cjs",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/generation_oracle.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/generation_oracle.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/prepare_source.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/prepare_source.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/report_qa.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/report_qa.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/run_all.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/run_all.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/supplemental_evidence.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/supplemental_evidence.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.source.html.txt",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.source.html.txt",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.source.html.txt",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.source.html.txt",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/recovery_status.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/recovery_status.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_environment.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_environment.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_initial_results.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_initial_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_results.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_1280.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_390.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_390.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_desktop.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_desktop.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/extract_data.cjs",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/extract_data.cjs",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/image_integrity.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/image_integrity.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/javascript_syntax.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/javascript_syntax.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_1280.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_1280.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_390.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_390.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_answer.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_answer.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_desktop.png",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_desktop.png",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/mobile_image_initial_states.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/mobile_image_initial_states.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/navigation_links.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/navigation_links.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/original_audit_integrity.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/original_audit_integrity.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/package_browser_smoke.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/package_browser_smoke.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/verify_package.py",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/verify_package.py",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/打包驗證.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/打包驗證.html",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/PACKAGE_MANIFEST.json",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/PACKAGE_MANIFEST.json",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/README_先看這份.md",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/README_先看這份.md",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/SHA256SUMS.txt",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/SHA256SUMS.txt",
+    "identical": true
+  },
+  {
+    "original_path": "originals/WordQuest_Program_and_Data_20260929/START_HERE.html",
+    "preserved_path": "originals/WordQuest_Program_and_Data_20260929/START_HERE.html",
+    "identical": true
+  },
+  {
+    "original_path": "patches/host_bridge.js",
+    "preserved_path": "patches/host_bridge.js",
+    "identical": true
+  },
+  {
+    "original_path": "tests/capture_views.py",
+    "preserved_path": "tests/capture_views.py",
+    "identical": true
+  },
+  {
+    "original_path": "tests/harness.py",
+    "preserved_path": "tests/harness.py",
+    "identical": true
+  },
+  {
+    "original_path": "tests/integration_checks.py",
+    "preserved_path": "tests/integration_checks.py",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/results/core_results.json",
+    "preserved_path": "tests/legacy_rerun/results/core_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/results/generated_fixtures.json",
+    "preserved_path": "tests/legacy_rerun/results/generated_fixtures.json",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/results/generation_results.json",
+    "preserved_path": "tests/legacy_rerun/results/generation_results.json",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/source/curriculum.json",
+    "preserved_path": "tests/legacy_rerun/source/curriculum.json",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/source/maths_script_0.js",
+    "preserved_path": "tests/legacy_rerun/source/maths_script_0.js",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/source/maths_script_1.js",
+    "preserved_path": "tests/legacy_rerun/source/maths_script_1.js",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/source/maths_script_2.js",
+    "preserved_path": "tests/legacy_rerun/source/maths_script_2.js",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/source/maths_script_3.js",
+    "preserved_path": "tests/legacy_rerun/source/maths_script_3.js",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/tests/core_checks.cjs",
+    "preserved_path": "tests/legacy_rerun/tests/core_checks.cjs",
+    "identical": true
+  },
+  {
+    "original_path": "tests/legacy_rerun/tests/generation_oracle.py",
+    "preserved_path": "tests/legacy_rerun/tests/generation_oracle.py",
+    "identical": true
+  },
+  {
+    "original_path": "tests/smoke.py",
+    "preserved_path": "tests/smoke.py",
+    "identical": true
+  },
+  {
+    "original_path": "tools/build.py",
+    "preserved_path": "originals/R1/tools/build.py",
+    "identical": true
+  },
+  {
+    "original_path": "tools/make_delivery.py",
+    "preserved_path": "originals/R1/tools/make_delivery.py",
+    "identical": true
+  },
+  {
+    "original_path": "tools/package_release.py",
+    "preserved_path": "originals/R1/tools/package_release.py",
+    "identical": true
+  },
+  {
+    "original_path": "tools/patch_math.py",
+    "preserved_path": "tools/patch_math.py",
+    "identical": true
+  },
+  {
+    "original_path": "tools/serve.ps1",
+    "preserved_path": "tools/serve.ps1",
+    "identical": true
+  },
+  {
+    "original_path": "tools/verify_build.py",
+    "preserved_path": "originals/R1/tools/verify_build.py",
+    "identical": true
+  },
+  {
+    "original_path": "PACKAGE_MANIFEST.json",
+    "preserved_path": "originals/R1/PACKAGE_MANIFEST.json",
+    "identical": true
+  }
+]

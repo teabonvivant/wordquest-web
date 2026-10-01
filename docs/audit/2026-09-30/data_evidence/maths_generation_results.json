@@ -1,0 +1,28 @@
+{
+  "skills": 122,
+  "normal": 102,
+  "olympiad": 20,
+  "templates": 366,
+  "archiveTemplates": 84,
+  "generated": 6222,
+  "failures": [],
+  "englishLibrary": 6057,
+  "englishData": [
+    "version",
+    "contentVersion",
+    "editorialStatus",
+    "units",
+    "words",
+    "questions",
+    "ui",
+    "art"
+  ],
+  "characters": [
+    "owl",
+    "fox",
+    "panda",
+    "bee",
+    "star",
+    "rabbit"
+  ]
+}

@@ -1,0 +1,26 @@
+pass Family management and offline preparation controls visible
+pass Fresh family settings are valid and 45-minute total default
+pass Real button produces downloaded family JSON with maths and custom-media fixtures
+pass SHA256 payload checksum independently rechecked in Python
+pass Family backup includes per-child character preferences
+pass No account credential registry in family backup
+pass Family restore shows real preview and explicit replacement consent
+pass Restore button without consent cannot write
+pass Confirmed restore preserves full custom-media count and closes dialog
+pass Confirmed family restore retains character preferences
+pass Successful transaction leaves no journal/marker
+pass Transaction read-media fault keeps prior family intact
+pass Transaction journal-put fault keeps prior family intact
+pass Transaction write-media fault keeps prior family intact
+pass Committed transaction with cleanup failure completes through recovery
+pass Missing prepared journal is not silently treated as successful recovery
+pass Full-time guard blocks new activity after daily total
+pass Same-account restore cannot rewind accumulated cross-subject time
+pass Old learner name and target shown before merge
+pass Confirmed old maths merge adds record without awarding old currency
+duplicate detail {'attempts': 2, 'receipts': 1, 'notice': 'W\nWordQuest\n首頁\n練習\n街機\n家長\n👦\n整合測試學員\n🔊\n聲效\n🔐\n登出\n👨\u200d👩\u200d👧\n家長\nWordQuest R3 · 家庭整合升級\n家庭完整備份與跨科安排\n\n一次備份英文、數學、奧數、街機及自訂媒體，也可搬入舊數學學員紀錄。\n\n打開家庭管理\n\nWORDQUEST V28 · 金幣街機更新\n\n版本與備份檢查\n\n此分頁有編輯權\n\n安全環境：否；Web Locks：可用；密碼運算：可用。主資料 JSON 大小：4.8 KB（UTF-8，不代表瀏覽器配額）。本機功能可用不等於已驗收跨裝置或關閉重開。\n\n更新版本前，先匯出學習備份及離線教材包。\n\n匯出 V28 備份\n下載診斷摘要\n先檢查備份，不還原資料\n\n診斷摘要只包含版本、功能可用性、主資料大小及儲存狀態；不包含姓名、帳戶 ID、密碼雜湊、教材或答案。不會自動上傳。\n\n離線教材\n總覽\n默書範圍\n孩子\n學習報告\n設定／備份\n設定／備份\n每日學習\n每天最多新學項目\n3\n5\n7\n10\n每日安排上限（含學字）\n8\n10\n12\n15\n🔊 聲音特效已開啟\n答對、答錯、完成及小遊戲會播放短聲效；英文發音不受影響。\n關閉聲效\n儲存設定\n英式發音\n\n🇬🇧 僅使用 en-GB\n\n優先播放已存英式音檔；未準備音檔時才用裝置英式聲線。離線時只選本機英式聲線，播不到可跳過、不計錯。請到「離線教材」準備音檔。\n\n裝置沒有可用的英式聲線；請先準備音檔。\n\n資料備份\n\n以下備份是學習紀錄；圖片及音檔請另到「離線教材」匯出教材包。\n\n資料只存在這個瀏覽器，不會跨裝置同步。更換檔案或裝置前，請先匯出備份。\n\n⬇️ 匯出備份\n⬆️ 還原備份\n清除目前帳戶資料\n新版金幣街機\n\n26 部街機、全彩預覽、一幣一局與家長設定。\n\n管理金幣與街機\n更改家長密碼\n\n舊帳戶的 PIN 可以繼續登入，但四位數容易被猜中。請在這裏改為 8–128 字的密碼，不要與其他網站共用。\n\n新密碼\n再次輸入\n更改密碼\n首次搬移舊版資料\n\n只供尚未學習、賺星或遊玩的全新本機帳戶使用一次。可從舊版備份帶回孩子、金幣、已購時間及遊戲存檔。之後的一般還原不會回退錢包。\n\n選擇舊版 JSON 備份\n\n圖片、音檔仍須另行還原教材包。只匯入自己可信的備份；本機檔案不能證明金幣是真實取得。\n\n學習判定與指定範圍\n\n先分清看過答案、獨立答對和隔日複習，才計入遊戲解鎖。\n\n串字大小寫\n嚴格默書：大小寫必須正確\n寬鬆練習：提示大小寫，不算嚴格掌握\n按年級減少每輪負擔\n固定孩子目前的默書範圍\n\n小3：今日最多 12 題、新字最多 5 個，仍受原家長上限約束。低年級不會因此降低拼字正確標準。\n\n剛看答案後 10 分鐘內作答，標示「近期看過答案」；解鎖所需的延後複習仍要相隔至少 24 小時。這是本產品規則，不是永久記憶保證。\n\n儲存學習規則\n資料恢復保障\n\n正常還原會保留目前金幣及遊玩用時。若原資料損壞，會先檢查這部裝置的獨立錢包保障紀錄，再恢復教材。\n\n没有可核對保障時，會先徵求同意，才將金幣及未用時間重設為 0 並暫停當日遊戲。原損壞資料會保留。這不是雲端備份，也不能防止裝置擁有人改檔。\n\n額外恢復保障已更新。\n\n學習夥伴設定\n顯示角色陪伴\n播放短促動作\n使用精簡頭像\n查看全部角色\n\n只改角色顯示，不改教材、金幣、生命或學習紀錄。\n\n設定分帳戶、孩子及測試區保存於本機。角色偏好不在舊版學習備份中；圖片已內置，毋須另行下載。\n\nWordQuest V32 · 原創動物學習夥伴 · 本機儲存，沒有自動雲端同步。教材尚待真人教師逐題覆核。\n＋ 數學／奧數\n家庭備份已還原。所有孩子、數學及媒體均已處理；歷史數學獎勵不重派。'}
+pass Repeated old backup cannot duplicate submitted answers
+pass Account reset removes maths main and restoration copies plus custom media
+pass Account reset preserves unrelated family data
+pass No uncaught JavaScript browser errors
+TOTAL 24 PASS 24

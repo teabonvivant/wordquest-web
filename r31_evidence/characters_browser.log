@@ -1,0 +1,84 @@
+pass App opens without JavaScript exceptions
+pass Six named animals, never the previous owl/firefly/bee identities
+pass 42 inline artwork assets decode without network
+pass New account defaults disable animation and use automatic assignment
+pass Gallery owl: real click selects decoded front
+pass Gallery owl: real click selects decoded face0
+pass Gallery owl: real click selects decoded face1
+pass Gallery owl: real click selects decoded face2
+pass Gallery owl: real click selects decoded face3
+pass Gallery owl: real click selects decoded face4
+pass Gallery owl: real click selects decoded sheet
+pass Gallery fox: real click selects decoded front
+pass Gallery fox: real click selects decoded face0
+pass Gallery fox: real click selects decoded face1
+pass Gallery fox: real click selects decoded face2
+pass Gallery fox: real click selects decoded face3
+pass Gallery fox: real click selects decoded face4
+pass Gallery fox: real click selects decoded sheet
+pass Gallery panda: real click selects decoded front
+pass Gallery panda: real click selects decoded face0
+pass Gallery panda: real click selects decoded face1
+pass Gallery panda: real click selects decoded face2
+pass Gallery panda: real click selects decoded face3
+pass Gallery panda: real click selects decoded face4
+pass Gallery panda: real click selects decoded sheet
+pass Gallery bee: real click selects decoded front
+pass Gallery bee: real click selects decoded face0
+pass Gallery bee: real click selects decoded face1
+pass Gallery bee: real click selects decoded face2
+pass Gallery bee: real click selects decoded face3
+pass Gallery bee: real click selects decoded face4
+pass Gallery bee: real click selects decoded sheet
+pass Gallery star: real click selects decoded front
+pass Gallery star: real click selects decoded face0
+pass Gallery star: real click selects decoded face1
+pass Gallery star: real click selects decoded face2
+pass Gallery star: real click selects decoded face3
+pass Gallery star: real click selects decoded face4
+pass Gallery star: real click selects decoded sheet
+pass Gallery rabbit: real click selects decoded front
+pass Gallery rabbit: real click selects decoded face0
+pass Gallery rabbit: real click selects decoded face1
+pass Gallery rabbit: real click selects decoded face2
+pass Gallery rabbit: real click selects decoded face3
+pass Gallery rabbit: real click selects decoded face4
+pass Gallery rabbit: real click selects decoded sheet
+pass No invented side or back angles advertised as available
+pass Gallery no horizontal overflow at 320px
+pass Gallery no horizontal overflow at 390px
+pass Gallery no horizontal overflow at 768px
+pass Gallery no horizontal overflow at 1280px
+pass Gallery fixed selection keeps keyboard focus on the replacement selector
+pass Home character opens actual modal with focus on close control
+pass Escape closes gallery and returns focus to origin button
+pass Maths home automatically uses otter helper
+pass Tool workshop uses the red panda teacher
+pass Olympiad home uses the goat classmate
+pass Early number practice uses the otter
+pass Changing fixed maths helper preserves unsubmitted input
+pass Changing fixed helper does not write maths state or balance
+pass Fixed helper actually changes image and name
+pass Hide setting removes maths portrait without deleting draft
+pass Wrong answer shows supportive hedgehog, not reward or shame
+pass Enter submission retains keyboard focus on actual feedback
+pass Correct submission switches to success expression
+pass Companion never prints the answer or invokes scoring itself
+pass Geometry practice chooses fox teacher from skill context
+pass Maths guide and question no overflow at 320px
+pass Maths guide and question no overflow at 390px
+pass Maths guide and question no overflow at 844px
+pass Maths guide and question no overflow at 1280px
+pass Global hide makes decorative English portraits invisible and keeps character gallery access
+pass Reduced-motion preference suppresses maths entry animation
+pass Simulated app reopen restores per-child fixed preference
+pass Restored preference is used by actual maths image
+pass Storage failure reports session-only preferences and preserves stored JSON
+pass Family JSON exports new fixed-helper preference
+pass Family JSON checksum matches independent Python SHA256
+pass New family backup accurately identifies R3.1 application version
+pass Restore reloads backed-up preference in UI without extra rewards
+pass Old R3 family preferences without new field restore as automatic
+pass Malformed new preference is rejected before family replacement
+pass No uncaught JavaScript exceptions in complete UI run
+TOTAL 83 PASS 83 FAIL 0

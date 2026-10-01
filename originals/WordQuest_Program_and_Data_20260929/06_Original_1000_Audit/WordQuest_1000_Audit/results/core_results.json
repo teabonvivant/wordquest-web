@@ -1,0 +1,3988 @@
+[
+  {
+    "id": "GRADE-001",
+    "category": "GRADE",
+    "name": "1N1.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.1-T1",
+      "seed": 42,
+      "answer": "4",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-002",
+    "category": "GRADE",
+    "name": "1N1.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.1-T2",
+      "seed": 42,
+      "answer": "9",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-003",
+    "category": "GRADE",
+    "name": "1N1.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.1-T3",
+      "seed": 42,
+      "answer": "17",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-004",
+    "category": "GRADE",
+    "name": "1N1.5-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.5-T1",
+      "seed": 42,
+      "answer": "2",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-005",
+    "category": "GRADE",
+    "name": "1N1.5-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.5-T2",
+      "seed": 42,
+      "answer": "3",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-006",
+    "category": "GRADE",
+    "name": "1N1.5-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N1.5-T3",
+      "seed": 42,
+      "answer": "5",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-007",
+    "category": "GRADE",
+    "name": "1N2.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N2.2-T1",
+      "seed": 42,
+      "answer": "8",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-008",
+    "category": "GRADE",
+    "name": "1N2.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N2.2-T2",
+      "seed": 42,
+      "answer": "11",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-009",
+    "category": "GRADE",
+    "name": "1N2.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N2.2-T3",
+      "seed": 42,
+      "answer": "5",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-010",
+    "category": "GRADE",
+    "name": "1N3.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N3.2-T1",
+      "seed": 42,
+      "answer": "64",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-011",
+    "category": "GRADE",
+    "name": "1N3.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N3.2-T2",
+      "seed": 42,
+      "answer": "64",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-012",
+    "category": "GRADE",
+    "name": "1N3.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N3.2-T3",
+      "seed": 42,
+      "answer": "64",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-013",
+    "category": "GRADE",
+    "name": "1N4.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.1-T1",
+      "seed": 42,
+      "answer": "29",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-014",
+    "category": "GRADE",
+    "name": "1N4.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.1-T2",
+      "seed": 42,
+      "answer": "61",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-015",
+    "category": "GRADE",
+    "name": "1N4.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.1-T3",
+      "seed": 42,
+      "answer": "61",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-016",
+    "category": "GRADE",
+    "name": "1N4.4-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.4-T1",
+      "seed": 42,
+      "answer": "72",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-017",
+    "category": "GRADE",
+    "name": "1N4.4-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.4-T2",
+      "seed": 42,
+      "answer": "72",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-018",
+    "category": "GRADE",
+    "name": "1N4.4-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "1N4.4-T3",
+      "seed": 42,
+      "answer": "72",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-019",
+    "category": "GRADE",
+    "name": "2N1.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.2-T1",
+      "seed": 42,
+      "answer": "648",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-020",
+    "category": "GRADE",
+    "name": "2N1.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.2-T2",
+      "seed": 42,
+      "answer": "648",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-021",
+    "category": "GRADE",
+    "name": "2N1.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.2-T3",
+      "seed": 42,
+      "answer": "648",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-022",
+    "category": "GRADE",
+    "name": "2N1.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.3-T1",
+      "seed": 42,
+      "answer": "611",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-023",
+    "category": "GRADE",
+    "name": "2N1.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.3-T2",
+      "seed": 42,
+      "answer": "611",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-024",
+    "category": "GRADE",
+    "name": "2N1.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N1.3-T3",
+      "seed": 42,
+      "answer": "611",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-025",
+    "category": "GRADE",
+    "name": "2N2.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.1-T1",
+      "seed": 42,
+      "answer": "318",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-026",
+    "category": "GRADE",
+    "name": "2N2.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.1-T2",
+      "seed": 42,
+      "answer": "638",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-027",
+    "category": "GRADE",
+    "name": "2N2.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.1-T3",
+      "seed": 42,
+      "answer": "638",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-028",
+    "category": "GRADE",
+    "name": "2N2.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.3-T1",
+      "seed": 42,
+      "answer": "25",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-029",
+    "category": "GRADE",
+    "name": "2N2.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.3-T2",
+      "seed": 42,
+      "answer": "25",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-030",
+    "category": "GRADE",
+    "name": "2N2.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.3-T3",
+      "seed": 42,
+      "answer": "25",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-031",
+    "category": "GRADE",
+    "name": "2N3.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T1",
+      "seed": 42,
+      "answer": "6",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-032",
+    "category": "GRADE",
+    "name": "2N3.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T2",
+      "seed": 42,
+      "answer": "20",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-033",
+    "category": "GRADE",
+    "name": "2N3.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T3",
+      "seed": 42,
+      "answer": "24",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-034",
+    "category": "GRADE",
+    "name": "2N4.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T1",
+      "seed": 42,
+      "answer": "6486",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-035",
+    "category": "GRADE",
+    "name": "2N4.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T2",
+      "seed": 42,
+      "answer": "6486",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-036",
+    "category": "GRADE",
+    "name": "2N4.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T3",
+      "seed": 42,
+      "answer": "6486",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-037",
+    "category": "GRADE",
+    "name": "2N5.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T1",
+      "seed": 42,
+      "answer": "277",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-038",
+    "category": "GRADE",
+    "name": "2N5.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T2",
+      "seed": 42,
+      "answer": "277",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-039",
+    "category": "GRADE",
+    "name": "2N5.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T3",
+      "seed": 42,
+      "answer": "277",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-040",
+    "category": "GRADE",
+    "name": "2N5.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T1",
+      "seed": 42,
+      "answer": "36",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-041",
+    "category": "GRADE",
+    "name": "2N5.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T2",
+      "seed": 42,
+      "answer": "18",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-042",
+    "category": "GRADE",
+    "name": "2N5.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T3",
+      "seed": 42,
+      "answer": "23",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-043",
+    "category": "GRADE",
+    "name": "2N6.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T1",
+      "seed": 42,
+      "answer": "5",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-044",
+    "category": "GRADE",
+    "name": "2N6.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T2",
+      "seed": 42,
+      "answer": "2",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-045",
+    "category": "GRADE",
+    "name": "2N6.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T3",
+      "seed": 42,
+      "answer": "2",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-046",
+    "category": "GRADE",
+    "name": "3N1.2-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T1",
+      "seed": 42,
+      "answer": "64861",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-047",
+    "category": "GRADE",
+    "name": "3N1.2-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T2",
+      "seed": 42,
+      "answer": "64861",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-048",
+    "category": "GRADE",
+    "name": "3N1.2-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T3",
+      "seed": 42,
+      "answer": "64861",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-049",
+    "category": "GRADE",
+    "name": "3N2.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T1",
+      "seed": 42,
+      "answer": "66",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-050",
+    "category": "GRADE",
+    "name": "3N2.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T2",
+      "seed": 42,
+      "answer": "256",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-051",
+    "category": "GRADE",
+    "name": "3N2.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T3",
+      "seed": 42,
+      "answer": "3025",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-052",
+    "category": "GRADE",
+    "name": "3N3.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T1",
+      "seed": 42,
+      "answer": "12",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-053",
+    "category": "GRADE",
+    "name": "3N3.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T2",
+      "seed": 42,
+      "answer": "14",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-054",
+    "category": "GRADE",
+    "name": "3N3.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T3",
+      "seed": 42,
+      "answer": "25",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-055",
+    "category": "GRADE",
+    "name": "3N4.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.3-T1",
+      "seed": 42,
+      "answer": "38",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-056",
+    "category": "GRADE",
+    "name": "3N4.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.3-T2",
+      "seed": 42,
+      "answer": "48",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-057",
+    "category": "GRADE",
+    "name": "3N4.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.3-T3",
+      "seed": 42,
+      "answer": "98",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-058",
+    "category": "GRADE",
+    "name": "3N4.4-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.4-T1",
+      "seed": 42,
+      "answer": "84",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-059",
+    "category": "GRADE",
+    "name": "3N4.4-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.4-T2",
+      "seed": 42,
+      "answer": "70",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-060",
+    "category": "GRADE",
+    "name": "3N4.4-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.4-T3",
+      "seed": 42,
+      "answer": "61",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-061",
+    "category": "GRADE",
+    "name": "3N5.1-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "FAIL",
+    "actual": "等值分數 3⁄4 被拒絕：{\"valid\":false,\"correct\":false,\"credit\":0,\"message\":\"請用題目指定的數字格式作答。\",\"code\":\"FORMAT\"}",
+    "issue": "F-FRACTION-SLASH"
+  },
+  {
+    "id": "GRADE-062",
+    "category": "GRADE",
+    "name": "3N5.1-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "FAIL",
+    "actual": "等值分數 2⁄3 被拒絕：{\"valid\":false,\"correct\":false,\"credit\":0,\"message\":\"請用題目指定的數字格式作答。\",\"code\":\"FORMAT\"}",
+    "issue": "F-FRACTION-SLASH"
+  },
+  {
+    "id": "GRADE-063",
+    "category": "GRADE",
+    "name": "3N5.1-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "FAIL",
+    "actual": "等值分數 2⁄3 被拒絕：{\"valid\":false,\"correct\":false,\"credit\":0,\"message\":\"請用題目指定的數字格式作答。\",\"code\":\"FORMAT\"}",
+    "issue": "F-FRACTION-SLASH"
+  },
+  {
+    "id": "GRADE-064",
+    "category": "GRADE",
+    "name": "3N5.3-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.3-T1",
+      "seed": 42,
+      "answer": "1/5",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-065",
+    "category": "GRADE",
+    "name": "3N5.3-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.3-T2",
+      "seed": 42,
+      "answer": "1/5",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-066",
+    "category": "GRADE",
+    "name": "3N5.3-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.3-T3",
+      "seed": 42,
+      "answer": "2/5",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-067",
+    "category": "GRADE",
+    "name": "3N5.4-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.4-T1",
+      "seed": 42,
+      "answer": "1/2",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-068",
+    "category": "GRADE",
+    "name": "3N5.4-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.4-T2",
+      "seed": 42,
+      "answer": "1/2",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-069",
+    "category": "GRADE",
+    "name": "3N5.4-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "3N5.4-T3",
+      "seed": 42,
+      "answer": "1/2",
+      "variants": 5
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-070",
+    "category": "GRADE",
+    "name": "O-CAL-pattern-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-CAL-pattern-T1",
+      "seed": 42,
+      "answer": "16",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-071",
+    "category": "GRADE",
+    "name": "O-CAL-pattern-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-CAL-pattern-T2",
+      "seed": 42,
+      "answer": "19",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-072",
+    "category": "GRADE",
+    "name": "O-CAL-pattern-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-CAL-pattern-T3",
+      "seed": 42,
+      "answer": "25",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-073",
+    "category": "GRADE",
+    "name": "O-NUM-pairs-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-NUM-pairs-T1",
+      "seed": 42,
+      "answer": "3",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-074",
+    "category": "GRADE",
+    "name": "O-NUM-pairs-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-NUM-pairs-T2",
+      "seed": 42,
+      "answer": "5",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-075",
+    "category": "GRADE",
+    "name": "O-NUM-pairs-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-NUM-pairs-T3",
+      "seed": 42,
+      "answer": "6",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-076",
+    "category": "GRADE",
+    "name": "O-APP-queue-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-APP-queue-T1",
+      "seed": 42,
+      "answer": "5",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-077",
+    "category": "GRADE",
+    "name": "O-APP-queue-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-APP-queue-T2",
+      "seed": 42,
+      "answer": "8",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-078",
+    "category": "GRADE",
+    "name": "O-APP-queue-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-APP-queue-T3",
+      "seed": 42,
+      "answer": "13",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-079",
+    "category": "GRADE",
+    "name": "O-GEO-segments-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-GEO-segments-T1",
+      "seed": 42,
+      "answer": "3",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-080",
+    "category": "GRADE",
+    "name": "O-GEO-segments-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-GEO-segments-T2",
+      "seed": 42,
+      "answer": "10",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-081",
+    "category": "GRADE",
+    "name": "O-GEO-segments-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-GEO-segments-T3",
+      "seed": 42,
+      "answer": "21",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-082",
+    "category": "GRADE",
+    "name": "O-LOG-digits-T1：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-LOG-digits-T1",
+      "seed": 42,
+      "answer": "3",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-083",
+    "category": "GRADE",
+    "name": "O-LOG-digits-T2：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-LOG-digits-T2",
+      "seed": 42,
+      "answer": "6",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "GRADE-084",
+    "category": "GRADE",
+    "name": "O-LOG-digits-T3：完整答案、錯答及輸入正規化",
+    "expected": "正答全分；錯答不全分；空白不記分；全形／等值分數可判分",
+    "status": "PASS",
+    "actual": {
+      "template": "O-LOG-digits-T3",
+      "seed": 42,
+      "answer": "9",
+      "variants": 4
+    },
+    "issue": ""
+  },
+  {
+    "id": "PARSER-001",
+    "category": "PARSER",
+    "name": "有理數輸入 \"0\"",
+    "expected": "精確結果 0",
+    "status": "PASS",
+    "actual": "0",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-002",
+    "category": "PARSER",
+    "name": "有理數輸入 \"-0\"",
+    "expected": "精確結果 0",
+    "status": "PASS",
+    "actual": "0",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-003",
+    "category": "PARSER",
+    "name": "有理數輸入 \"+7\"",
+    "expected": "精確結果 7",
+    "status": "PASS",
+    "actual": "7",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-004",
+    "category": "PARSER",
+    "name": "有理數輸入 \"0009\"",
+    "expected": "精確結果 9",
+    "status": "PASS",
+    "actual": "9",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-005",
+    "category": "PARSER",
+    "name": "有理數輸入 \" 12 \"",
+    "expected": "精確結果 12",
+    "status": "PASS",
+    "actual": "12",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-006",
+    "category": "PARSER",
+    "name": "有理數輸入 \"１／２\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-007",
+    "category": "PARSER",
+    "name": "有理數輸入 \"1⁄2\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-008",
+    "category": "PARSER",
+    "name": "有理數輸入 \"½\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-009",
+    "category": "PARSER",
+    "name": "有理數輸入 \"−3\"",
+    "expected": "精確結果 -3",
+    "status": "PASS",
+    "actual": "-3",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-010",
+    "category": "PARSER",
+    "name": "有理數輸入 \".5\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-011",
+    "category": "PARSER",
+    "name": "有理數輸入 \"-.5\"",
+    "expected": "精確結果 -1/2",
+    "status": "PASS",
+    "actual": "-1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-012",
+    "category": "PARSER",
+    "name": "有理數輸入 \"2.\"",
+    "expected": "精確結果 2",
+    "status": "PASS",
+    "actual": "2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-013",
+    "category": "PARSER",
+    "name": "有理數輸入 \"0.125\"",
+    "expected": "精確結果 1/8",
+    "status": "PASS",
+    "actual": "1/8",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-014",
+    "category": "PARSER",
+    "name": "有理數輸入 \"-1.25\"",
+    "expected": "精確結果 -5/4",
+    "status": "PASS",
+    "actual": "-5/4",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-015",
+    "category": "PARSER",
+    "name": "有理數輸入 \"2/4\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-016",
+    "category": "PARSER",
+    "name": "有理數輸入 \"7/1\"",
+    "expected": "精確結果 7",
+    "status": "PASS",
+    "actual": "7",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-017",
+    "category": "PARSER",
+    "name": "有理數輸入 \"1 1/2\"",
+    "expected": "精確結果 3/2",
+    "status": "PASS",
+    "actual": "3/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-018",
+    "category": "PARSER",
+    "name": "有理數輸入 \"-1 1/2\"",
+    "expected": "精確結果 -3/2",
+    "status": "PASS",
+    "actual": "-3/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-019",
+    "category": "PARSER",
+    "name": "有理數輸入 \"-0 1/2\"",
+    "expected": "精確結果 -1/2",
+    "status": "PASS",
+    "actual": "-1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-020",
+    "category": "PARSER",
+    "name": "有理數輸入 \"99999999999999999999\"",
+    "expected": "精確結果 99999999999999999999",
+    "status": "PASS",
+    "actual": "99999999999999999999",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-021",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-022",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \" \"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-023",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"NaN\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-024",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"Infinity\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-025",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"-Infinity\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-026",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1e3\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-027",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"0x10\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-028",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1,000\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-029",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1/0\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-030",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"2/0\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-031",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1/-2\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-032",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1 2/2\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-033",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1 5/2\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-034",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1..2\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-035",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"--1\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-036",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1+1\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-037",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"abc\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-038",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"2/3/4\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-039",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"1%\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-040",
+    "category": "PARSER",
+    "name": "拒絕無效數字 \"9999999999999999999999999999999999999999999999999999999999999\"",
+    "expected": "丟出格式錯誤而非產生錯誤數值",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-041",
+    "category": "PARSER",
+    "name": "算式 \"1+2*3\"",
+    "expected": "精確結果 7",
+    "status": "PASS",
+    "actual": "7",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-042",
+    "category": "PARSER",
+    "name": "算式 \"(1+2)*3\"",
+    "expected": "精確結果 9",
+    "status": "PASS",
+    "actual": "9",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-043",
+    "category": "PARSER",
+    "name": "算式 \"8/4/2\"",
+    "expected": "精確結果 1",
+    "status": "PASS",
+    "actual": "1",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-044",
+    "category": "PARSER",
+    "name": "算式 \"8/(4/2)\"",
+    "expected": "精確結果 4",
+    "status": "PASS",
+    "actual": "4",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-045",
+    "category": "PARSER",
+    "name": "算式 \"-3*2\"",
+    "expected": "精確結果 -6",
+    "status": "PASS",
+    "actual": "-6",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-046",
+    "category": "PARSER",
+    "name": "算式 \"1--2\"",
+    "expected": "精確結果 3",
+    "status": "PASS",
+    "actual": "3",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-047",
+    "category": "PARSER",
+    "name": "算式 \"+5\"",
+    "expected": "精確結果 5",
+    "status": "PASS",
+    "actual": "5",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-048",
+    "category": "PARSER",
+    "name": "算式 \"0.1+0.2\"",
+    "expected": "精確結果 3/10",
+    "status": "PASS",
+    "actual": "3/10",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-049",
+    "category": "PARSER",
+    "name": "算式 \"1/3+1/6\"",
+    "expected": "精確結果 1/2",
+    "status": "PASS",
+    "actual": "1/2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-050",
+    "category": "PARSER",
+    "name": "算式 \"floor(7/3)\"",
+    "expected": "精確結果 2",
+    "status": "PASS",
+    "actual": "2",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-051",
+    "category": "PARSER",
+    "name": "算式 \"floor(-7/3)\"",
+    "expected": "精確結果 -3",
+    "status": "PASS",
+    "actual": "-3",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-052",
+    "category": "PARSER",
+    "name": "算式 \"7%3\"",
+    "expected": "精確結果 1",
+    "status": "PASS",
+    "actual": "1",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-053",
+    "category": "PARSER",
+    "name": "算式 \"-7%3\"",
+    "expected": "精確結果 -1",
+    "status": "PASS",
+    "actual": "-1",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-054",
+    "category": "PARSER",
+    "name": "算式 \"２ × ３\"",
+    "expected": "精確結果 6",
+    "status": "PASS",
+    "actual": "6",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-055",
+    "category": "PARSER",
+    "name": "算式 \"12÷4\"",
+    "expected": "精確結果 3",
+    "status": "PASS",
+    "actual": "3",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-056",
+    "category": "PARSER",
+    "name": "算式 \"2x3\"",
+    "expected": "精確結果 6",
+    "status": "PASS",
+    "actual": "6",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-057",
+    "category": "PARSER",
+    "name": "算式 \"(2+1)x4\"",
+    "expected": "精確結果 12",
+    "status": "PASS",
+    "actual": "12",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-058",
+    "category": "PARSER",
+    "name": "算式 \"a*2+1\"",
+    "expected": "精確結果 15",
+    "status": "PASS",
+    "actual": "15",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-059",
+    "category": "PARSER",
+    "name": "算式 \"-(3+2)\"",
+    "expected": "精確結果 -5",
+    "status": "PASS",
+    "actual": "-5",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-060",
+    "category": "PARSER",
+    "name": "算式 \"1+2+3+4\"",
+    "expected": "精確結果 10",
+    "status": "PASS",
+    "actual": "10",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-061",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-062",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1+\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-063",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"(1+2\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-064",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1+2)\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-065",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"window.alert(1)\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-066",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"globalThis\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-067",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"__proto__\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-068",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"constructor\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-069",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1;2\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-070",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"2**3\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-071",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1,2\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-072",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"floor()\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-073",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"foo(1)\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-074",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"0/0\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-075",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1/0\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-076",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"1%0\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-077",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"(1/2)%2\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-078",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"(((((((((((((((((((((((((1)))))))))))))))))))))))))\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-079",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "PARSER-080",
+    "category": "PARSER",
+    "name": "拒絕非支援算式 \"a.b\"",
+    "expected": "拒絕錯誤或非數學指令",
+    "status": "PASS",
+    "actual": "已拒絕",
+    "issue": ""
+  },
+  {
+    "id": "STATE-001",
+    "category": "STATE",
+    "name": "版本為 0",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "數學備份版本不支援"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-002",
+    "category": "STATE",
+    "name": "版本為字串",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "數學備份版本不支援"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-003",
+    "category": "STATE",
+    "name": "缺少版本",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "數學備份版本不支援"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-004",
+    "category": "STATE",
+    "name": "revision 非法值 -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-005",
+    "category": "STATE",
+    "name": "revision 非法值 0.5",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-006",
+    "category": "STATE",
+    "name": "revision 非法值 1000000001",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-007",
+    "category": "STATE",
+    "name": "revision 非法值 \"1\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-008",
+    "category": "STATE",
+    "name": "revision 非法值 null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-009",
+    "category": "STATE",
+    "name": "serial 非法值 -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-010",
+    "category": "STATE",
+    "name": "serial 非法值 0.5",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-011",
+    "category": "STATE",
+    "name": "serial 非法值 1000000001",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-012",
+    "category": "STATE",
+    "name": "serial 非法值 \"1\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-013",
+    "category": "STATE",
+    "name": "serial 非法值 null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-014",
+    "category": "STATE",
+    "name": "attempts 不是列表",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答紀錄無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-015",
+    "category": "STATE",
+    "name": "attempts 超過 5000 筆",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答紀錄無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-016",
+    "category": "STATE",
+    "name": "作答 ID 重複",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答紀錄重複"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-017",
+    "category": "STATE",
+    "name": "作答 id = \"\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答路線無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-018",
+    "category": "STATE",
+    "name": "作答 id = \"__proto__\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答路線無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-019",
+    "category": "STATE",
+    "name": "作答 skill = \"missing\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答路線無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-020",
+    "category": "STATE",
+    "name": "作答 track = \"olympiad\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答路線無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-021",
+    "category": "STATE",
+    "name": "作答 hint = -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-022",
+    "category": "STATE",
+    "name": "作答 hint = 6",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-023",
+    "category": "STATE",
+    "name": "作答 hint = 0.5",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-024",
+    "category": "STATE",
+    "name": "作答 time_ms = -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-025",
+    "category": "STATE",
+    "name": "作答 time_ms = 3600001",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-026",
+    "category": "STATE",
+    "name": "作答 time_ms = \"20\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-027",
+    "category": "STATE",
+    "name": "作答 at = 0",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答資料無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-028",
+    "category": "STATE",
+    "name": "作答 at = -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答資料無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-029",
+    "category": "STATE",
+    "name": "作答 at = null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答資料無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-030",
+    "category": "STATE",
+    "name": "作答 at = 100000000000000000000",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-031",
+    "category": "STATE",
+    "name": "作答 correct = \"true\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "作答資料無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-032",
+    "category": "STATE",
+    "name": "作答 template = \"missing\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-033",
+    "category": "STATE",
+    "name": "作答 template = null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-034",
+    "category": "STATE",
+    "name": "作答 seed = -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-035",
+    "category": "STATE",
+    "name": "作答 seed = 4294967296",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-036",
+    "category": "STATE",
+    "name": "作答 seed = 1.5",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-037",
+    "category": "STATE",
+    "name": "作答 seed = null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-038",
+    "category": "STATE",
+    "name": "作答 credit = -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-039",
+    "category": "STATE",
+    "name": "作答 credit = 2",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-040",
+    "category": "STATE",
+    "name": "作答 credit = null",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-041",
+    "category": "STATE",
+    "name": "作答 difficulty = 0",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-042",
+    "category": "STATE",
+    "name": "作答 difficulty = 4",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-043",
+    "category": "STATE",
+    "name": "作答 independent = \"true\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-044",
+    "category": "STATE",
+    "name": "作答 mode = \"not-a-mode\"",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-045",
+    "category": "STATE",
+    "name": "普通數學掌握度為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ARRAY-STATE"
+  },
+  {
+    "id": "STATE-046",
+    "category": "STATE",
+    "name": "奧數掌握度為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ARRAY-STATE"
+  },
+  {
+    "id": "STATE-047",
+    "category": "STATE",
+    "name": "掌握度跨路線",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度跨科混合"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-048",
+    "category": "STATE",
+    "name": "掌握度分數 -1",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-049",
+    "category": "STATE",
+    "name": "掌握度分數 101",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-050",
+    "category": "STATE",
+    "name": "掌握度分數 50",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-051",
+    "category": "STATE",
+    "name": "掌握度證據超過 5 筆",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度樣本無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-052",
+    "category": "STATE",
+    "name": "掌握度重溫日期不存在",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "重溫日期無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-053",
+    "category": "STATE",
+    "name": "掌握度獨立作答為字串",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "掌握度證據無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-054",
+    "category": "STATE",
+    "name": "學習語言錯誤",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "語言設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-055",
+    "category": "STATE",
+    "name": "語音設定錯誤",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "語言設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-056",
+    "category": "STATE",
+    "name": "每天時限 4",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-057",
+    "category": "STATE",
+    "name": "每天時限 91",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-058",
+    "category": "STATE",
+    "name": "每天時限 5.5",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-059",
+    "category": "STATE",
+    "name": "設定 sound 不是布林",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-060",
+    "category": "STATE",
+    "name": "設定 slow 不是布林",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-061",
+    "category": "STATE",
+    "name": "設定 olympiad 不是布林",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-062",
+    "category": "STATE",
+    "name": "設定 showScore 不是布林",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "設定無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-063",
+    "category": "STATE",
+    "name": "學校單元字串過長",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "學校進度無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-064",
+    "category": "STATE",
+    "name": "使用時間為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ARRAY-STATE"
+  },
+  {
+    "id": "STATE-065",
+    "category": "STATE",
+    "name": "使用時間負數",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-066",
+    "category": "STATE",
+    "name": "使用時間超過一天",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-067",
+    "category": "STATE",
+    "name": "使用日期不存在",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-USAGE-DATE"
+  },
+  {
+    "id": "STATE-068",
+    "category": "STATE",
+    "name": "錯題本為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料物件無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-069",
+    "category": "STATE",
+    "name": "課堂紀錄為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料物件無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-070",
+    "category": "STATE",
+    "name": "錢包日期為陣列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料物件無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-071",
+    "category": "STATE",
+    "name": "錢包負餘額",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-072",
+    "category": "STATE",
+    "name": "錢包超上限",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-073",
+    "category": "STATE",
+    "name": "不存在策略卡",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "策略卡不存在"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-074",
+    "category": "STATE",
+    "name": "策略卡數量超上限",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料格式無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-075",
+    "category": "STATE",
+    "name": "獎勵紀錄超 200 筆",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料格式無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-076",
+    "category": "STATE",
+    "name": "獎勵完成早於開始",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "獎勵時間無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-077",
+    "category": "STATE",
+    "name": "獎勵非有效事件",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "待結算紀錄無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-078",
+    "category": "STATE",
+    "name": "結算狀態為字串",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "待結算紀錄無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-079",
+    "category": "STATE",
+    "name": "獎勵分數超上限",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-080",
+    "category": "STATE",
+    "name": "獎勵日期不存在",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "待結算紀錄無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-081",
+    "category": "STATE",
+    "name": "課堂模式錯誤",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "課堂模式無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-082",
+    "category": "STATE",
+    "name": "課堂技能跨路線",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "課堂技能無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-083",
+    "category": "STATE",
+    "name": "課堂題目種子負值",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-084",
+    "category": "STATE",
+    "name": "課堂題號越界",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "課堂題目位置無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-085",
+    "category": "STATE",
+    "name": "練習階段缺少題目佇列",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-CURRENT-QUEUE"
+  },
+  {
+    "id": "STATE-086",
+    "category": "STATE",
+    "name": "課堂遊戲名稱錯誤",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "操作遊戲無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-087",
+    "category": "STATE",
+    "name": "原型污染欄位",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料含不安全欄位"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-088",
+    "category": "STATE",
+    "name": "巢狀 constructor 欄位",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料含不安全欄位"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-089",
+    "category": "STATE",
+    "name": "備份巢狀超深",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料層數太多"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-090",
+    "category": "STATE",
+    "name": "備份大於 2.5MB",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "數學資料過大"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-091",
+    "category": "STATE",
+    "name": "作答模板與技能不相符",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "FAIL",
+    "actual": "不合法資料被 validateState 接受",
+    "issue": "F-ATTEMPT-VALIDATION"
+  },
+  {
+    "id": "STATE-092",
+    "category": "STATE",
+    "name": "掌握度證據難度 0",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "整數超出範圍"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-093",
+    "category": "STATE",
+    "name": "錯題重溫日期不存在",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "錯題日期無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-094",
+    "category": "STATE",
+    "name": "題目報錯引用不存在模板",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "報錯模板無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-095",
+    "category": "STATE",
+    "name": "最近出題引用不存在技能",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "出題技能無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "STATE-096",
+    "category": "STATE",
+    "name": "課堂結果分數超上限",
+    "expected": "拒絕不符合資料模型的備份，保留原檔",
+    "status": "PASS",
+    "actual": {
+      "rejected": true,
+      "reason": "資料數值無效"
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-001",
+    "category": "LEARNING",
+    "name": "1N1.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-002",
+    "category": "LEARNING",
+    "name": "1N1.5 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-003",
+    "category": "LEARNING",
+    "name": "1N2.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-004",
+    "category": "LEARNING",
+    "name": "1N3.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-005",
+    "category": "LEARNING",
+    "name": "1N4.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-006",
+    "category": "LEARNING",
+    "name": "1N4.4 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-007",
+    "category": "LEARNING",
+    "name": "2N1.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-008",
+    "category": "LEARNING",
+    "name": "2N1.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-009",
+    "category": "LEARNING",
+    "name": "2N2.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-010",
+    "category": "LEARNING",
+    "name": "2N2.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-011",
+    "category": "LEARNING",
+    "name": "2N3.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-012",
+    "category": "LEARNING",
+    "name": "2N4.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-013",
+    "category": "LEARNING",
+    "name": "2N5.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-014",
+    "category": "LEARNING",
+    "name": "2N5.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-015",
+    "category": "LEARNING",
+    "name": "2N6.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-016",
+    "category": "LEARNING",
+    "name": "3N1.2 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-017",
+    "category": "LEARNING",
+    "name": "3N2.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-018",
+    "category": "LEARNING",
+    "name": "3N3.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-019",
+    "category": "LEARNING",
+    "name": "3N4.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-020",
+    "category": "LEARNING",
+    "name": "3N4.4 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-021",
+    "category": "LEARNING",
+    "name": "3N5.1 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-022",
+    "category": "LEARNING",
+    "name": "3N5.3 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-023",
+    "category": "LEARNING",
+    "name": "3N5.4 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "normal",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-024",
+    "category": "LEARNING",
+    "name": "O-CAL-pattern 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "olympiad",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-025",
+    "category": "LEARNING",
+    "name": "O-NUM-pairs 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "olympiad",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-026",
+    "category": "LEARNING",
+    "name": "O-APP-queue 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "olympiad",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-027",
+    "category": "LEARNING",
+    "name": "O-GEO-segments 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "olympiad",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-028",
+    "category": "LEARNING",
+    "name": "O-LOG-digits 作答只更新本路線",
+    "expected": "該技能有紀錄，另一條路線沒有變動",
+    "status": "PASS",
+    "actual": {
+      "track": "olympiad",
+      "score": 45.28236797019618
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-029",
+    "category": "LEARNING",
+    "name": "同一作答 ID 不重複計分",
+    "expected": "只保留一筆",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-030",
+    "category": "LEARNING",
+    "name": "空白答案不污染作答紀錄",
+    "expected": "0 筆",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-031",
+    "category": "LEARNING",
+    "name": "guided 不直接增加掌握度",
+    "expected": "作答有紀錄但掌握度空白",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-032",
+    "category": "LEARNING",
+    "name": "challenge-demo 不直接增加掌握度",
+    "expected": "作答有紀錄但掌握度空白",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-033",
+    "category": "LEARNING",
+    "name": "提示 4 不能達成獨立掌握",
+    "expected": "即使多次答對仍未掌握",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-034",
+    "category": "LEARNING",
+    "name": "提示 5 不能達成獨立掌握",
+    "expected": "即使多次答對仍未掌握",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-035",
+    "category": "LEARNING",
+    "name": "足夠獨立中階正答達成掌握",
+    "expected": "掌握及翌日重溫",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-036",
+    "category": "LEARNING",
+    "name": "錯題安排翌日重溫",
+    "expected": "翌日、三日、七日",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-037",
+    "category": "LEARNING",
+    "name": "同一題種子不能清除錯題",
+    "expected": "successes 保持 0",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-038",
+    "category": "LEARNING",
+    "name": "兩題不同種子答對清除錯題",
+    "expected": "cleared=true",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-039",
+    "category": "LEARNING",
+    "name": "下一題與上一題不同數字",
+    "expected": "題幹與答案簽章不同",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-040",
+    "category": "LEARNING",
+    "name": "每日練習數量與路線",
+    "expected": "10 個普通技能",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-041",
+    "category": "LEARNING",
+    "name": "奧數每日練習不混普通數學",
+    "expected": "10 個奧數技能",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-042",
+    "category": "LEARNING",
+    "name": "香港午夜前一毫秒",
+    "expected": "2026-09-28",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-043",
+    "category": "LEARNING",
+    "name": "香港午夜跨日",
+    "expected": "2026-09-29",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-044",
+    "category": "LEARNING",
+    "name": "跨月日期增加",
+    "expected": "2026-10-01",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-045",
+    "category": "LEARNING",
+    "name": "閏年日期增加",
+    "expected": "2028-02-29",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-046",
+    "category": "LEARNING",
+    "name": "無效任務不加入獎勵",
+    "expected": "outbox 為空",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-047",
+    "category": "LEARNING",
+    "name": "相同獎勵事件冪等",
+    "expected": "只加入一筆",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-048",
+    "category": "LEARNING",
+    "name": "每日完成 1 個任務",
+    "expected": "金幣總額 1",
+    "status": "PASS",
+    "actual": {
+      "balance": 1,
+      "days": {
+        "2026-09-28": {
+          "keys": [
+            "task0"
+          ],
+          "blocks": 1,
+          "bonus": false
+        }
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-049",
+    "category": "LEARNING",
+    "name": "每日完成 2 個任務",
+    "expected": "金幣總額 2",
+    "status": "PASS",
+    "actual": {
+      "balance": 2,
+      "days": {
+        "2026-09-28": {
+          "keys": [
+            "task0",
+            "task1"
+          ],
+          "blocks": 2,
+          "bonus": false
+        }
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-050",
+    "category": "LEARNING",
+    "name": "每日完成 3 個任務",
+    "expected": "金幣總額 4",
+    "status": "PASS",
+    "actual": {
+      "balance": 4,
+      "days": {
+        "2026-09-28": {
+          "keys": [
+            "task0",
+            "task1",
+            "task2"
+          ],
+          "blocks": 3,
+          "bonus": true
+        }
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-051",
+    "category": "LEARNING",
+    "name": "每日完成 4 個任務",
+    "expected": "金幣總額 5",
+    "status": "PASS",
+    "actual": {
+      "balance": 5,
+      "days": {
+        "2026-09-28": {
+          "keys": [
+            "task0",
+            "task1",
+            "task2",
+            "task3"
+          ],
+          "blocks": 4,
+          "bonus": true
+        }
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-052",
+    "category": "LEARNING",
+    "name": "每日完成 5 個任務",
+    "expected": "金幣總額 5",
+    "status": "PASS",
+    "actual": {
+      "balance": 5,
+      "days": {
+        "2026-09-28": {
+          "keys": [
+            "task0",
+            "task1",
+            "task2",
+            "task3",
+            "task4"
+          ],
+          "blocks": 4,
+          "bonus": true
+        }
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-053",
+    "category": "LEARNING",
+    "name": "同一任務重派不加錢",
+    "expected": "總額 1",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-054",
+    "category": "LEARNING",
+    "name": "新一天同技能可獎勵",
+    "expected": "兩天總額 2",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-055",
+    "category": "LEARNING",
+    "name": "錢包達最大值不溢出",
+    "expected": "不高於 1,000,000",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "LEARNING-056",
+    "category": "LEARNING",
+    "name": "200 筆已結算不應阻擋新獎勵",
+    "expected": "已結算事件可輪替／壓縮，新任務可完成",
+    "status": "FAIL",
+    "actual": "請先處理待同步獎勵",
+    "issue": "F-OUTBOX-CAPACITY"
+  },
+  {
+    "id": "STORAGE-001",
+    "category": "STORAGE",
+    "name": "訪客不落盤",
+    "expected": "沒有 state localStorage",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-002",
+    "category": "STORAGE",
+    "name": "新檔案初始化",
+    "expected": "持久化及孩子資料一致",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-003",
+    "category": "STORAGE",
+    "name": "變更後可重新讀取",
+    "expected": "serial=9",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-004",
+    "category": "STORAGE",
+    "name": "revision 隨寫入增加",
+    "expected": "revision=2",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-005",
+    "category": "STORAGE",
+    "name": "孩子 A/B 隔離",
+    "expected": "各自 serial=1/2",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-006",
+    "category": "STORAGE",
+    "name": "孩子切換後舊實例拒寫",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-007",
+    "category": "STORAGE",
+    "name": "順序分頁衝突不覆蓋",
+    "expected": "第二個實例拒寫",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-008",
+    "category": "STORAGE",
+    "name": "容量不足不改記憶體",
+    "expected": "原 serial 保留",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-009",
+    "category": "STORAGE",
+    "name": "無效交易不寫入",
+    "expected": "原資料保留",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-010",
+    "category": "STORAGE",
+    "name": "損壞 JSON 進入只讀",
+    "expected": "保留原始字串",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-011",
+    "category": "STORAGE",
+    "name": "損壞 schema 進入只讀",
+    "expected": "不覆蓋",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-012",
+    "category": "STORAGE",
+    "name": "只讀實例拒絕写入",
+    "expected": "原始字串不變",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-013",
+    "category": "STORAGE",
+    "name": "匯出格式及 owner",
+    "expected": "正確欄位",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-014",
+    "category": "STORAGE",
+    "name": "同一孩子匯入",
+    "expected": "serial 還原",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-015",
+    "category": "STORAGE",
+    "name": "另一孩子備份拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-016",
+    "category": "STORAGE",
+    "name": "非數學備份拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-017",
+    "category": "STORAGE",
+    "name": "錯誤備份版本拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-018",
+    "category": "STORAGE",
+    "name": "匯入之前保留復原快照",
+    "expected": "before-restore 存在",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-019",
+    "category": "STORAGE",
+    "name": "匯入不重派獎勵",
+    "expected": "outbox 已 settled",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-020",
+    "category": "STORAGE",
+    "name": "匯入清除執行中課堂",
+    "expected": "current=null",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-021",
+    "category": "STORAGE",
+    "name": "本機 flush 派發一次",
+    "expected": "重試不增加",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-022",
+    "category": "STORAGE",
+    "name": "訪客 flush 不派錢",
+    "expected": "0",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-023",
+    "category": "STORAGE",
+    "name": "五個本機任務每日上限",
+    "expected": "總額 5",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-024",
+    "category": "STORAGE",
+    "name": "重讀獎勵收據",
+    "expected": "不重派",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-025",
+    "category": "STORAGE",
+    "name": "空暱稱拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-026",
+    "category": "STORAGE",
+    "name": "過長暱稱拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-027",
+    "category": "STORAGE",
+    "name": "沒有家長同意拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-028",
+    "category": "STORAGE",
+    "name": "年級 0 拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-029",
+    "category": "STORAGE",
+    "name": "年級 7 拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-030",
+    "category": "STORAGE",
+    "name": "第 21 學員拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-031",
+    "category": "STORAGE",
+    "name": "切换不存在學員拒絕",
+    "expected": "throw",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-032",
+    "category": "STORAGE",
+    "name": "切換訪客",
+    "expected": "persistent=false",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-033",
+    "category": "STORAGE",
+    "name": "刪除學員主進度",
+    "expected": "原 key 不存在",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-034",
+    "category": "STORAGE",
+    "name": "刪除學員亦刪復原快照",
+    "expected": "主進度與 before-restore 均不存在",
+    "status": "FAIL",
+    "actual": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ '{\"schema\":1,\"revision\":1,\"serial\":5,\"attempts\":[],\"mastery\":{\"normal\":{},\"olympiad\":{}},\"mistakes\":{},\"cards\":[],\"lessons\":{},\"sessions\":[],\"outbox\":[],\"wallet\":{\"balance\":0,\"days\":{}},\"settings\":{\"language\":\"zh\",\"voice\":\"yue-HK\",\"sound\":true,\"slow\":false,\"olympiad\":true,\"limit\":20,\"schoolUnit\":\"\",\"showScore\":false},\"usage\":{},\"reports\":[],\"created\":1790641180555}'\n- null\n",
+    "issue": "F-DELETE-BACKUP"
+  },
+  {
+    "id": "STORAGE-035",
+    "category": "STORAGE",
+    "name": "損壞孩子名單可退回安全狀態",
+    "expected": "應可提供恢復介面／訪客，而非未處理例外",
+    "status": "FAIL",
+    "actual": "Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+    "issue": "F-REGISTRY-BOOT"
+  },
+  {
+    "id": "STORAGE-036",
+    "category": "STORAGE",
+    "name": "完整關閉 localStorage 可訪客試玩",
+    "expected": "訪客應可啟動",
+    "status": "FAIL",
+    "actual": "SecurityError",
+    "issue": "F-REGISTRY-BOOT"
+  },
+  {
+    "id": "STORAGE-037",
+    "category": "STORAGE",
+    "name": "normal=[] 不應靜默遺失掌握度",
+    "expected": "無效備份應拒絕；或寫入可保留掌握度",
+    "status": "FAIL",
+    "actual": "答案有保存但掌握度在重讀後遺失",
+    "issue": "F-ARRAY-STATE"
+  },
+  {
+    "id": "STORAGE-038",
+    "category": "STORAGE",
+    "name": "usage=[] 不應漏記時限",
+    "expected": "無效備份拒絕或保留時間",
+    "status": "FAIL",
+    "actual": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ undefined\n- 60000\n",
+    "issue": "F-ARRAY-STATE"
+  },
+  {
+    "id": "STORAGE-039",
+    "category": "STORAGE",
+    "name": "沒有英文橋接介面",
+    "expected": "返回 null 而不是改動未知帳戶",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": ""
+  },
+  {
+    "id": "STORAGE-040",
+    "category": "STORAGE",
+    "name": "已結算收據累積 200 筆後可繼續",
+    "expected": "新任務獎勵可寫入",
+    "status": "FAIL",
+    "actual": "請先處理待同步獎勵",
+    "issue": "F-OUTBOX-CAPACITY"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "name": "navigation",
+    "status": "blocked",
+    "detail": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:52365/app/index.html\nCall log:\n  - navigating to \"http://127.0.0.1:52365/app/index.html\", waiting until \"load\"\n",
+    "at": "2026-09-29T18:19:31.914224+00:00"
+  }
+]

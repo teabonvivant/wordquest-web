@@ -1,0 +1,2280 @@
+{
+  "version": "R3.0.0",
+  "status": "basic-selected-lessons-not-complete-syllabus",
+  "units": [
+    {
+      "id": "1N1",
+      "name": "20以內的數",
+      "grade": 1,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "1N1.1",
+        "1N1.5",
+        "1N1.R3"
+      ]
+    },
+    {
+      "id": "1N2",
+      "name": "基本加法和減法",
+      "grade": 1,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "1N2.2",
+        "1N2.R3"
+      ]
+    },
+    {
+      "id": "1N3",
+      "name": "100以內的數",
+      "grade": 1,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "1N3.2",
+        "1N3.R3"
+      ]
+    },
+    {
+      "id": "1N4",
+      "name": "加法和減法（一）",
+      "grade": 1,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "1N4.1",
+        "1N4.4",
+        "1N4.R3"
+      ]
+    },
+    {
+      "id": "1M1",
+      "name": "長度和距離（一）",
+      "grade": 1,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "1M1.R3"
+      ]
+    },
+    {
+      "id": "1M2",
+      "name": "貨幣（一）",
+      "grade": 1,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "1M2.R3"
+      ]
+    },
+    {
+      "id": "1M3",
+      "name": "長度和距離（二）",
+      "grade": 1,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "1M3.R3"
+      ]
+    },
+    {
+      "id": "1M4",
+      "name": "時間（一）",
+      "grade": 1,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "1M4.R3"
+      ]
+    },
+    {
+      "id": "1S1",
+      "name": "立體圖形（一）",
+      "grade": 1,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "1S1.R3"
+      ]
+    },
+    {
+      "id": "1S2",
+      "name": "平面圖形",
+      "grade": 1,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "1S2.R3"
+      ]
+    },
+    {
+      "id": "1S3",
+      "name": "方向和位置（一）",
+      "grade": 1,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "1S3.R3"
+      ]
+    },
+    {
+      "id": "2N1",
+      "name": "三位數",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N1.2",
+        "2N1.3",
+        "2N1.R3"
+      ]
+    },
+    {
+      "id": "2N2",
+      "name": "加法和減法（二）",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N2.1",
+        "2N2.3",
+        "2N2.R3"
+      ]
+    },
+    {
+      "id": "2N3",
+      "name": "基本乘法",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N3.3",
+        "2N3.R3"
+      ]
+    },
+    {
+      "id": "2N4",
+      "name": "四位數",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N4.2",
+        "2N4.R3"
+      ]
+    },
+    {
+      "id": "2N5",
+      "name": "加法和減法（三）",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N5.1",
+        "2N5.3",
+        "2N5.R3"
+      ]
+    },
+    {
+      "id": "2N6",
+      "name": "基本除法",
+      "grade": 2,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "2N6.2",
+        "2N6.R3"
+      ]
+    },
+    {
+      "id": "2M1",
+      "name": "長度和距離（三）",
+      "grade": 2,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "2M1.R3"
+      ]
+    },
+    {
+      "id": "2M2",
+      "name": "時間（二）",
+      "grade": 2,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "2M2.R3"
+      ]
+    },
+    {
+      "id": "2M3",
+      "name": "貨幣（二）",
+      "grade": 2,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "2M3.R3"
+      ]
+    },
+    {
+      "id": "2S1",
+      "name": "立體圖形（二）",
+      "grade": 2,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "2S1.R3"
+      ]
+    },
+    {
+      "id": "2S2",
+      "name": "角",
+      "grade": 2,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "2S2.R3"
+      ]
+    },
+    {
+      "id": "2S3",
+      "name": "方向和位置（二）",
+      "grade": 2,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "2S3.R3"
+      ]
+    },
+    {
+      "id": "2S4",
+      "name": "四邊形（一）",
+      "grade": 2,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "2S4.R3"
+      ]
+    },
+    {
+      "id": "2D1",
+      "name": "象形圖",
+      "grade": 2,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "2D1.R3"
+      ]
+    },
+    {
+      "id": "3N1",
+      "name": "五位數",
+      "grade": 3,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "3N1.2",
+        "3N1.R3"
+      ]
+    },
+    {
+      "id": "3N2",
+      "name": "乘法（一）",
+      "grade": 3,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "3N2.1",
+        "3N2.R3"
+      ]
+    },
+    {
+      "id": "3N3",
+      "name": "除法（一）",
+      "grade": 3,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "3N3.1",
+        "3N3.R3"
+      ]
+    },
+    {
+      "id": "3N4",
+      "name": "四則運算（一）",
+      "grade": 3,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "3N4.3",
+        "3N4.4",
+        "3N4.R3"
+      ]
+    },
+    {
+      "id": "3N5",
+      "name": "分數（一）",
+      "grade": 3,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "3N5.1",
+        "3N5.3",
+        "3N5.4",
+        "3N5.R3"
+      ]
+    },
+    {
+      "id": "3M1",
+      "name": "長度和距離（四）",
+      "grade": 3,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "3M1.R3"
+      ]
+    },
+    {
+      "id": "3M2",
+      "name": "時間（三）",
+      "grade": 3,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "3M2.R3"
+      ]
+    },
+    {
+      "id": "3M3",
+      "name": "容量",
+      "grade": 3,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "3M3.R3"
+      ]
+    },
+    {
+      "id": "3M4",
+      "name": "時間（四）",
+      "grade": 3,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "3M4.R3"
+      ]
+    },
+    {
+      "id": "3M5",
+      "name": "重量",
+      "grade": 3,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "3M5.R3"
+      ]
+    },
+    {
+      "id": "3S1",
+      "name": "四邊形（二）",
+      "grade": 3,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "3S1.R3"
+      ]
+    },
+    {
+      "id": "3S2",
+      "name": "三角形",
+      "grade": 3,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "3S2.R3"
+      ]
+    },
+    {
+      "id": "3D1",
+      "name": "棒形圖（一）",
+      "grade": 3,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "3D1.R3"
+      ]
+    },
+    {
+      "id": "4N1",
+      "name": "乘法（二）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N1.R3"
+      ]
+    },
+    {
+      "id": "4N2",
+      "name": "除法（二）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N2.R3"
+      ]
+    },
+    {
+      "id": "4N3",
+      "name": "倍數和因數",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N3.R3"
+      ]
+    },
+    {
+      "id": "4N4",
+      "name": "公倍數和公因數",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N4.R3"
+      ]
+    },
+    {
+      "id": "4N5",
+      "name": "四則運算（二）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N5.R3"
+      ]
+    },
+    {
+      "id": "4N6",
+      "name": "分數（二）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N6.R3"
+      ]
+    },
+    {
+      "id": "4N7",
+      "name": "小數（一）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N7.R3"
+      ]
+    },
+    {
+      "id": "4N8",
+      "name": "小數（二）",
+      "grade": 4,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "4N8.R3"
+      ]
+    },
+    {
+      "id": "4M1",
+      "name": "周界（一）",
+      "grade": 4,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "4M1.R3"
+      ]
+    },
+    {
+      "id": "4M2",
+      "name": "面積（一）",
+      "grade": 4,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "4M2.R3"
+      ]
+    },
+    {
+      "id": "4S1",
+      "name": "四邊形（三）",
+      "grade": 4,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "4S1.R3"
+      ]
+    },
+    {
+      "id": "4S2",
+      "name": "圖形分割和拼砌",
+      "grade": 4,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "4S2.R3"
+      ]
+    },
+    {
+      "id": "4S3",
+      "name": "方向和位置（三）",
+      "grade": 4,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "4S3.R3"
+      ]
+    },
+    {
+      "id": "4D1",
+      "name": "棒形圖（二）",
+      "grade": 4,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "4D1.R3"
+      ]
+    },
+    {
+      "id": "5N1",
+      "name": "多位數",
+      "grade": 5,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "5N1.R3"
+      ]
+    },
+    {
+      "id": "5N2",
+      "name": "分數（三）",
+      "grade": 5,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "5N2.R3"
+      ]
+    },
+    {
+      "id": "5N3",
+      "name": "分數（四）",
+      "grade": 5,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "5N3.R3"
+      ]
+    },
+    {
+      "id": "5N4",
+      "name": "小數（三）",
+      "grade": 5,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "5N4.R3"
+      ]
+    },
+    {
+      "id": "5N5",
+      "name": "分數（五）",
+      "grade": 5,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "5N5.R3"
+      ]
+    },
+    {
+      "id": "5A1",
+      "name": "代數的初步認識",
+      "grade": 5,
+      "strand": "A",
+      "status": "baseline-partial",
+      "skills": [
+        "5A1.R3"
+      ]
+    },
+    {
+      "id": "5A2",
+      "name": "簡易方程（一）",
+      "grade": 5,
+      "strand": "A",
+      "status": "baseline-partial",
+      "skills": [
+        "5A2.R3"
+      ]
+    },
+    {
+      "id": "5M1",
+      "name": "面積（二）",
+      "grade": 5,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "5M1.R3"
+      ]
+    },
+    {
+      "id": "5M2",
+      "name": "體積（一）",
+      "grade": 5,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "5M2.R3"
+      ]
+    },
+    {
+      "id": "5S1",
+      "name": "圓",
+      "grade": 5,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "5S1.R3"
+      ]
+    },
+    {
+      "id": "5S2",
+      "name": "立體圖形（三）",
+      "grade": 5,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "5S2.R3"
+      ]
+    },
+    {
+      "id": "5D1",
+      "name": "棒形圖（三）",
+      "grade": 5,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "5D1.R3"
+      ]
+    },
+    {
+      "id": "6N1",
+      "name": "小數（四）",
+      "grade": 6,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "6N1.R3"
+      ]
+    },
+    {
+      "id": "6N2",
+      "name": "小數（五）",
+      "grade": 6,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "6N2.R3"
+      ]
+    },
+    {
+      "id": "6N3",
+      "name": "百分數（一）",
+      "grade": 6,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "6N3.R3"
+      ]
+    },
+    {
+      "id": "6N4",
+      "name": "百分數（二）",
+      "grade": 6,
+      "strand": "N",
+      "status": "baseline-partial",
+      "skills": [
+        "6N4.R3"
+      ]
+    },
+    {
+      "id": "6A1",
+      "name": "簡易方程（二）",
+      "grade": 6,
+      "strand": "A",
+      "status": "baseline-partial",
+      "skills": [
+        "6A1.R3"
+      ]
+    },
+    {
+      "id": "6M1",
+      "name": "角（度）",
+      "grade": 6,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "6M1.R3"
+      ]
+    },
+    {
+      "id": "6M2",
+      "name": "體積（二）",
+      "grade": 6,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "6M2.R3"
+      ]
+    },
+    {
+      "id": "6M3",
+      "name": "周界（二）",
+      "grade": 6,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "6M3.R3"
+      ]
+    },
+    {
+      "id": "6M4",
+      "name": "速率",
+      "grade": 6,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "6M4.R3"
+      ]
+    },
+    {
+      "id": "6M5",
+      "name": "面積（三）",
+      "grade": 6,
+      "strand": "M",
+      "status": "baseline-partial",
+      "skills": [
+        "6M5.R3"
+      ]
+    },
+    {
+      "id": "6S1",
+      "name": "對稱",
+      "grade": 6,
+      "strand": "S",
+      "status": "baseline-partial",
+      "skills": [
+        "6S1.R3"
+      ]
+    },
+    {
+      "id": "6D1",
+      "name": "平均數",
+      "grade": 6,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "6D1.R3"
+      ]
+    },
+    {
+      "id": "6D2",
+      "name": "折線圖",
+      "grade": 6,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "6D2.R3"
+      ]
+    },
+    {
+      "id": "6D3",
+      "name": "圓形圖",
+      "grade": 6,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "6D3.R3"
+      ]
+    },
+    {
+      "id": "6D4",
+      "name": "統計的應用及誤用",
+      "grade": 6,
+      "strand": "D",
+      "status": "baseline-partial",
+      "skills": [
+        "6D4.R3"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "1N1.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "點數：一個也不漏",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N1.5",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "拆開一個數",
+      "prerequisites": [
+        "1N1.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N2.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "18 以內加減",
+      "prerequisites": [
+        "1N1.5"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N3.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "十位與個位",
+      "prerequisites": [
+        "1N1.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N4.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "兩位數加法",
+      "prerequisites": [
+        "1N3.2",
+        "1N2.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N4.4",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "不用退位的減法",
+      "prerequisites": [
+        "1N3.2",
+        "1N2.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N1.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "認識百位",
+      "prerequisites": [
+        "1N3.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N1.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "比較三位數",
+      "prerequisites": [
+        "2N1.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N2.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "三位數加法",
+      "prerequisites": [
+        "2N1.2",
+        "1N4.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N2.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "退位減法：拆一個十",
+      "prerequisites": [
+        "1N4.4"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N3.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "一樣多的幾組",
+      "prerequisites": [
+        "1N4.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N4.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "認識千位",
+      "prerequisites": [
+        "2N1.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N5.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "三位數減法與退位",
+      "prerequisites": [
+        "2N2.3",
+        "2N1.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N5.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "港式小店：找贖",
+      "prerequisites": [
+        "2N5.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "2N6.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "平均分與餘數",
+      "prerequisites": [
+        "2N3.3"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N1.2",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "認識萬位",
+      "prerequisites": [
+        "2N4.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N2.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "拆開大數做乘法",
+      "prerequisites": [
+        "2N3.3",
+        "2N1.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N3.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "大數平均分",
+      "prerequisites": [
+        "2N6.2",
+        "3N2.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N4.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "先乘後加減",
+      "prerequisites": [
+        "3N2.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N4.4",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "先計總價，再計找贖",
+      "prerequisites": [
+        "3N4.3",
+        "2N5.3"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N5.1",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "一個整體的幾份",
+      "prerequisites": [
+        "2N6.2"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N5.3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "比較分子相同的分數",
+      "prerequisites": [
+        "3N5.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "3N5.4",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "同分母分數相加",
+      "prerequisites": [
+        "3N5.1"
+      ],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "O-CAL-pattern",
+      "track": "olympiad",
+      "strand": "CAL",
+      "grade": 1,
+      "name_zh": "數列偵探",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "O-NUM-pairs",
+      "track": "olympiad",
+      "strand": "NUM",
+      "grade": 1,
+      "name_zh": "雙雙配對",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "O-APP-queue",
+      "track": "olympiad",
+      "strand": "APP",
+      "grade": 1,
+      "name_zh": "排隊中的自己",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "O-GEO-segments",
+      "track": "olympiad",
+      "strand": "GEO",
+      "grade": 1,
+      "name_zh": "不漏掉長線段",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "O-LOG-digits",
+      "track": "olympiad",
+      "strand": "LOG",
+      "grade": 1,
+      "name_zh": "有次序地找數字",
+      "prerequisites": [],
+      "status": "practice-preview",
+      "coverage": "此學習重點的入門選段，並非整個單元全部內容"
+    },
+    {
+      "id": "1N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "倒數與相鄰的數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "把剩下的數找出來",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "幾個十與幾個一",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 1,
+      "name_zh": "兩位數加法",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "百、十、一的數值",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "三位數減法",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "相同數量的多組",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "四位數的組成",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N5.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "四位數減法驗算",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2N6.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 2,
+      "name_zh": "平均分配與每份",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "五位數中的萬與千",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "整數乘一位數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "有餘數的平均分",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "先乘後加",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3N5.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 3,
+      "name_zh": "同分母分數相加",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "兩位數相乘",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "除以兩位數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "找指定的倍數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "共同響起的時間",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N5.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "括號先算",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N6.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "帶分數轉假分數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N7.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "十分位與百分位",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4N8.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 4,
+      "name_zh": "小數加法對齊",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 5,
+      "name_zh": "四捨五入至千位",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 5,
+      "name_zh": "異分母分數相加",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 5,
+      "name_zh": "分數乘法",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 5,
+      "name_zh": "小數乘整數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5N5.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 5,
+      "name_zh": "分數除法",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6N1.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 6,
+      "name_zh": "小數除法",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6N2.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 6,
+      "name_zh": "分數化小數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6N3.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 6,
+      "name_zh": "百分數的意義",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6N4.R3",
+      "track": "normal",
+      "strand": "N",
+      "grade": 6,
+      "name_zh": "折扣後的價錢",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 1,
+      "name_zh": "用同樣大小的單位量度",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 1,
+      "name_zh": "數一數硬幣總值",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1M3.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 1,
+      "name_zh": "由尺的刻度讀長度",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1M4.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 1,
+      "name_zh": "鐘面上的整點",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 2,
+      "name_zh": "米與厘米化聚",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 2,
+      "name_zh": "鐘面的分鐘",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2M3.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 2,
+      "name_zh": "付錢後找贖",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 3,
+      "name_zh": "厘米和毫米",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 3,
+      "name_zh": "時間間隔",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3M3.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 3,
+      "name_zh": "升與毫升",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3M4.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 3,
+      "name_zh": "下午時間與24小時制",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3M5.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 3,
+      "name_zh": "公斤與克",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 4,
+      "name_zh": "長方形周界",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 4,
+      "name_zh": "方格與面積",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 5,
+      "name_zh": "三角形面積",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 5,
+      "name_zh": "長方體體積",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6M1.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 6,
+      "name_zh": "平角與相鄰角",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6M2.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 6,
+      "name_zh": "立方厘米與毫升",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6M3.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 6,
+      "name_zh": "圓周與直徑",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6M4.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 6,
+      "name_zh": "路程、時間與速率",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6M5.R3",
+      "track": "normal",
+      "strand": "M",
+      "grade": 6,
+      "name_zh": "圓的面積",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 1,
+      "name_zh": "辨認立體外形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1S2.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 1,
+      "name_zh": "按邊數認圖形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "1S3.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 1,
+      "name_zh": "看清左右前後",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 2,
+      "name_zh": "立體的平面形狀",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2S2.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 2,
+      "name_zh": "分辨銳角、直角和鈍角",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2S3.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 2,
+      "name_zh": "東南西北的相反方向",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2S4.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 2,
+      "name_zh": "正方形和長方形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 3,
+      "name_zh": "平行與四邊形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3S2.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 3,
+      "name_zh": "依邊長分類三角形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 4,
+      "name_zh": "菱形與四邊形關係",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4S2.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 4,
+      "name_zh": "把長方形分割",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4S3.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 4,
+      "name_zh": "八個方向",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 5,
+      "name_zh": "半徑與直徑",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5S2.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 5,
+      "name_zh": "數稜與頂點",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6S1.R3",
+      "track": "normal",
+      "strand": "S",
+      "grade": 6,
+      "name_zh": "對稱軸",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "2D1.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 2,
+      "name_zh": "象形圖的每個圖案",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "3D1.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 3,
+      "name_zh": "棒形圖相差多少",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "4D1.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 4,
+      "name_zh": "棒形圖的刻度",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5D1.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 5,
+      "name_zh": "複合棒形圖",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6D1.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 6,
+      "name_zh": "平均數不是最大值",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6D2.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 6,
+      "name_zh": "折線圖的變化",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6D3.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 6,
+      "name_zh": "圓形圖的百分比",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6D4.R3",
+      "track": "normal",
+      "strand": "D",
+      "grade": 6,
+      "name_zh": "圖表表達是否恰當",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5A1.R3",
+      "track": "normal",
+      "strand": "A",
+      "grade": 5,
+      "name_zh": "把字母代入數值",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "5A2.R3",
+      "track": "normal",
+      "strand": "A",
+      "grade": 5,
+      "name_zh": "一步方程",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "6A1.R3",
+      "track": "normal",
+      "strand": "A",
+      "grade": 6,
+      "name_zh": "兩步方程",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 1,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L2-inverse",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 3,
+      "name_zh": "倒推：找原來的數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 2,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L2-count",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 3,
+      "name_zh": "有序計數：配搭",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 2,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L2-geometry",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 3,
+      "name_zh": "方格中的長方形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 2,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L2-logic",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 3,
+      "name_zh": "至少保證同色",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 2,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L2-applied",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 3,
+      "name_zh": "車輪問題：先假設",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 2,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L3-inverse",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 4,
+      "name_zh": "倒推：找原來的數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 3,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L3-count",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 4,
+      "name_zh": "有序計數：配搭",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 3,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L3-geometry",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 4,
+      "name_zh": "方格中的長方形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 3,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L3-logic",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 4,
+      "name_zh": "至少保證同色",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 3,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L3-applied",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 4,
+      "name_zh": "車輪問題：先假設",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 3,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L4-inverse",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 5,
+      "name_zh": "倒推：找原來的數",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 4,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L4-count",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 5,
+      "name_zh": "有序計數：配搭",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 4,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L4-geometry",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 5,
+      "name_zh": "方格中的長方形",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 4,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L4-logic",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 5,
+      "name_zh": "至少保證同色",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 4,
+      "r3_review": "not yet independently teacher reviewed"
+    },
+    {
+      "id": "O-R3-L4-applied",
+      "track": "olympiad",
+      "strand": "O",
+      "grade": 5,
+      "name_zh": "車輪問題：先假設",
+      "prerequisites": [],
+      "status": "baseline-preview",
+      "coverage": "原創基礎選段；不是本官方單元的全部學習重點。",
+      "level": 4,
+      "r3_review": "not yet independently teacher reviewed"
+    }
+  ]
+}

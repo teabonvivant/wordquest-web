@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "name": "Image upload through file control writes actual IndexedDB Blob",
+      "status": "pass",
+      "detail": {
+        "records": 2,
+        "imageBytes": 146806,
+        "fixture": "Existing project character picture; upload plumbing test only, not semantic matching"
+      },
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    },
+    {
+      "name": "Full-family media restore and native re-export preserve image bytes",
+      "status": "pass",
+      "detail": {
+        "byteIdentical": true
+      },
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    },
+    {
+      "name": "Delete child also removes child-specific media from later family backups",
+      "status": "fail",
+      "detail": "Deleted pupil remains in backup as image:image:w_shoe:shoe, note:note:w_shoe:shoe\n\n2 !== 0\n",
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    },
+    {
+      "name": "Native offline preparation button actually installs static app shell",
+      "status": "fail",
+      "detail": "Offline preparation is hard-disabled on native localhost. Notice: 此接入版請保留 HTML 檔案；完整學習網站的離線快取仍需另行部署。",
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    },
+    {
+      "name": "Corrupted family digest is rejected before any restore",
+      "status": "pass",
+      "detail": "備份校驗失敗：檔案可能不完整或曾被修改，沒有寫入資料",
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    },
+    {
+      "name": "Native media scenarios have no uncaught browser exceptions",
+      "status": "pass",
+      "detail": [],
+      "scope": "native-Chromium-real-UI-and-IndexedDB-synthetic-family"
+    }
+  ],
+  "pageErrors": []
+}

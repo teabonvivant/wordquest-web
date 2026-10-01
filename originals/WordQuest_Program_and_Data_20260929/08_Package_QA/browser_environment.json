@@ -1,0 +1,10 @@
+{
+  "browser": "144.0.7559.96",
+  "real_dom_inputs": true,
+  "storage": "isolated in-memory localStorage adapter",
+  "native_file_loading": "BLOCKED_BY_ADMINISTRATOR; not verified",
+  "native_indexeddb": "not verified",
+  "native_downloads": "not verified",
+  "real_device_or_voice_listening": "not performed",
+  "historical_1000_rerun": false
+}

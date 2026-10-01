@@ -1,0 +1,316 @@
+{
+  "auditDate": "2026-09-30",
+  "target": "WordQuest R3.2.0",
+  "confirmedFindings": [
+    {
+      "id": "WQ32-01",
+      "severity": "高",
+      "category": "資料復原／可用性",
+      "title": "復原日誌遺失時，有效家庭備份亦被阻止還原",
+      "trigger": "本機交易標記仍是 prepared，但對應 IndexedDB 復原日誌已遺失或不能通過驗證。",
+      "impact": "程式正確停止一般寫入，卻同時封鎖用有效完整備份救回資料的入口；家長已驗證且分頁持有編輯權，仍不能從正常家庭備份入口還原。這是復原流程死結，並非已證實原有資料全部刪除。",
+      "observed": "恢復中斷交易回報「復原日誌遺失，不能安全恢復。請保留資料並從家庭備份還原。」；隨後「還原家庭備份」回報「請先完成家長驗證並取得編輯權」。學習及金幣資料仍保留。",
+      "method": "在獨立測試家庭刻意注入 prepared 標記、沒有日誌；使用原生 localStorage、IndexedDB、Web Locks 和實際按鈕。未假稱曾發生真機斷電。",
+      "reproduce": [
+        "建立測試家庭，完成家長驗證，先匯出有效家庭備份。",
+        "僅在該測試家庭注入 wq-r3-recovery:<account> = prepared，保留日誌缺失狀態。",
+        "按「恢復中斷交易」，確認程式停止不安全回寫。",
+        "再按「還原家庭備份」：即使家長及編輯權有效，入口仍被拒絕。"
+      ],
+      "cause": "v24CanWrite 因中斷標記回傳 false；r3Parent 呼叫 v24RequireParent(true)，將救援還原一併當成普通寫入封鎖。r3Recover 的錯誤訊息指向一條不能使用的救援路徑。",
+      "fix": "建立獨立的救援還原授權：必須先核對家長、唯一編輯權、備份格式、SHA-256、資料摘要和取代同意；允許有效備份進入受保護的還原交易。保留現有原始資料及診斷，成功提交後才清除中斷標記，其他寫入繼續封鎖。不要只粗暴刪除標記。",
+      "acceptance": [
+        "日誌遺失及日誌損壞兩種情況，普通作答仍不可寫入。",
+        "有效完整備份可由家長救援入口還原英文、數學、金幣、媒體及角色偏好。",
+        "還原失敗或空間不足時，原始資料和標記仍保留；錯誤備份不可取代資料。"
+      ],
+      "sources": [
+        {
+          "file": "app/index.html",
+          "line": 3883,
+          "anchor": "function v24CanWrite()"
+        },
+        {
+          "file": "app/index.html",
+          "line": 5187,
+          "anchor": "function r3Parent()"
+        },
+        {
+          "file": "app/index.html",
+          "line": 5211,
+          "anchor": "async function r3Recover()"
+        }
+      ],
+      "evidence": [
+        "native_evidence/results.json",
+        "native_evidence/family_before_fault.json",
+        "native_evidence/recovery_restore_blocked.png"
+      ]
+    },
+    {
+      "id": "WQ32-02",
+      "severity": "中",
+      "category": "刪除語義／私隱及儲存",
+      "title": "刪除孩子後，其自訂圖片及核對筆記仍會出現在家庭備份",
+      "trigger": "為孩子的默書項目上傳圖片，新增另一位孩子，再從正常孩子管理頁刪除原孩子。",
+      "impact": "孩子及其生字、作答已移除，但該生字的自訂圖片和核對筆記仍留在家庭媒體庫，之後被完整家庭備份帶走。真實家庭若存有個人圖片，刪除後的保留範圍會超出用戶預期；本輪未見跨家庭外洩。",
+      "observed": "正常刪除 c_demo 後，備份仍含 kind=image、key=image:w_shoe:shoe，以及 kind=note、key=note:w_shoe:shoe，合共 2 筆。孩子和英文單字記錄確已刪除。",
+      "method": "透過實際圖片檔案控制上傳程式內既有角色圖片，寫入真正 IndexedDB Blob，再經真實刪除及匯出 UI 核對。圖片僅作測試素材，沒有真實學生照片。",
+      "reproduce": [
+        "建立測試孩子，為 w_shoe 上傳一張測試圖片並匯出家庭備份。",
+        "新增另一位孩子，以符合至少保留一名孩子的規則。",
+        "從孩子管理頁確認刪除原孩子及其學習資料。",
+        "重新匯出家庭備份，檢查 payload.media：原孩子的 image 與 note 仍在。"
+      ],
+      "cause": "deleteChild 及後續保存清理有移除英文、數學等孩子資料，但未清理對應 IndexedDB 媒體；r3Export 直接匯出該帳戶所有媒體。",
+      "fix": "在刪除前收集孩子的媒體鍵，將孩子資料與其專屬 image/note 一併納入可復原交易。共享音檔只在沒有其他孩子或範圍引用時移除；不得按英文文字粗略刪除其他孩子仍在使用的素材。",
+      "acceptance": [
+        "刪除後家庭備份不再包含被刪孩子的專屬 image/note。",
+        "其他孩子引用的共享音檔、圖片和學習紀錄不受影響。",
+        "媒體刪除或文字保存失敗時，完整回復刪除前狀態，不報假成功。"
+      ],
+      "sources": [
+        {
+          "file": "app/index.html",
+          "line": 2575,
+          "anchor": "function deleteChild(id)"
+        },
+        {
+          "file": "app/index.html",
+          "line": 5216,
+          "anchor": "async function r3Export()"
+        }
+      ],
+      "evidence": [
+        "media_evidence/results.json",
+        "media_evidence/after_child_deletion.json",
+        "media_evidence/family_with_media.json"
+      ]
+    },
+    {
+      "id": "WQ32-03",
+      "severity": "中",
+      "category": "選配語音服務／限流",
+      "title": "延後送出請求本文可繞過語音同時請求及頻率上限",
+      "trigger": "本機選配語音 API 已設定；多個合法本機請求先送標頭，再同時送出本文。",
+      "impact": "預設最多 2 個同時請求及每 10 分鐘 60 次的限制沒有在併發下生效，可能增加付費語音呼叫或本機資源負擔。服務預設只綁 127.0.0.1，並檢查 Host、Origin 和自訂標頭；本輪沒有重現任意外站或遠端匿名攻擊，也沒有使用真實金鑰或產生帳單。",
+      "observed": "4 個請求全部 HTTP 200，最大上游併發 4；65 個請求全部 HTTP 200，最大上游併發及上游呼叫均為 65。兩個失敗斷言屬同一個程式根因，只計一項問題。",
+      "method": "使用真正 localhost HTTP socket 及原 makeServer handler；付費語音上游以明示測試替身延後回應。",
+      "reproduce": [
+        "以 makeServer({key:測試值, region:eastasia, fetcher:測試上游}) 啟動隔離迴路服務。",
+        "建立 4 或 65 個具有效 Host、Origin、JSON 及 X-WordQuest-Speech 的 POST，先 flushHeaders。",
+        "讓各 handler 到達讀取本文的等待點，再同時 end(JSON本文)。",
+        "檢查實際上游呼叫數、最大同時呼叫數及回應碼。"
+      ],
+      "cause": "active/hits 上限檢查在 for await 讀取本文之前；active++ 及 hits.push 則在讀取完之後。等待本文期间，其他請求均看見尚未占用的名額。",
+      "fix": "本文及格式驗證完成後，在沒有 await 的連續區段再次檢查並保留同時請求及時間窗名額，成功保留後才呼叫上游。用 finally 釋放 active；對中止、無效本文及超大本文訂明是否計入頻率。",
+      "acceptance": [
+        "4 個延後本文的同時請求，實際上游併發永遠不超過 2；其餘應得到 429。",
+        "另以可釋放上游的分批請求獨立驗證 10 分鐘內不超過 60 次。",
+        "中止、錯誤 JSON、上游逾時及例外均不可留下 active 名額。"
+      ],
+      "sources": [
+        {
+          "file": "server/local_server.mjs",
+          "line": 12,
+          "anchor": "if(u.pathname==='/api/speech')"
+        }
+      ],
+      "evidence": [
+        "server_evidence/race_results.json",
+        "reproduction/server_race.mjs"
+      ]
+    },
+    {
+      "id": "WQ32-04",
+      "severity": "中",
+      "category": "離線功能缺口（已披露限制）",
+      "title": "「準備網頁」按鈕被硬編碼停用，無法準備離線重開",
+      "trigger": "使用完整套件的本機 HTTP 網址，在支援 Service Worker 的原生瀏覽器按「準備網頁」。",
+      "impact": "介面叫用戶先準備網頁以便斷網重開，但按鈕沒有建立 Service Worker 或快取。下載單一 HTML 本身可保留檔案，不等於已替完整網站準備离線開啟。這項功能未完成，原版說明亦已披露，不是新發現的秘密資安後門。",
+      "observed": "按鈕前後 Service Worker registration 均為 0，Cache Storage 均為 []；提示「此接入版請保留 HTML 檔案；完整學習網站的離線快取仍需另行部署。」",
+      "method": "原生 Chromium、127.0.0.1 安全環境、實際展開工具區及點擊按鈕；沒有替換 navigator.serviceWorker 或 caches。",
+      "reproduce": [
+        "用完整套件 node server/local_server.mjs 開啟 app/index.html。",
+        "家長頁 → 離線教材 → 下載來源及其他工具。",
+        "按「準備網頁」，核對訊息及 Service Worker / Cache Storage。"
+      ],
+      "cause": "prepareShell 一開始即執行 if(true){toast(...);return;}，使後面的部署邏輯永遠到達不了。",
+      "fix": "完整網站模式接回正確作用域的 app/sw.js，等待安裝及快取驗證後才顯示已準備；檔案模式則清楚顯示保存 HTML 的流程。同步修正「先按準備網頁」的文案，使其與真正可用的功能一致。",
+      "acceptance": [
+        "乾淨瀏覽器首次準備後，能在斷網及完整重開時載入首頁和既有教材。",
+        "安裝失敗或快取不足時不顯示已準備；升級不清除孩子紀錄。",
+        "file: 單檔與 localhost 完整網站兩種模式各有清楚且真實的狀態。"
+      ],
+      "sources": [
+        {
+          "file": "app/index.html",
+          "line": 2851,
+          "anchor": "async function prepareShell()"
+        }
+      ],
+      "evidence": [
+        "media_evidence/offline_button.json",
+        "media_evidence/offline_button_disabled.png",
+        "media_evidence/results.json"
+      ]
+    }
+  ],
+  "nativeBrowserChecks": [
+    {
+      "group": "native_evidence",
+      "checks": 14,
+      "passed": 13,
+      "failed": 1,
+      "pageErrors": []
+    },
+    {
+      "group": "media_evidence",
+      "checks": 6,
+      "passed": 4,
+      "failed": 2,
+      "pageErrors": []
+    },
+    {
+      "group": "arcade_native_evidence",
+      "checks": 28,
+      "passed": 28,
+      "failed": 0,
+      "pageErrors": []
+    },
+    {
+      "group": "english_native_evidence",
+      "checks": 8,
+      "passed": 8,
+      "failed": 0,
+      "pageErrors": []
+    },
+    {
+      "group": "builtin_wallet_evidence",
+      "checks": 7,
+      "passed": 7,
+      "failed": 0,
+      "pageErrors": []
+    }
+  ],
+  "localServerBurstChecks": [
+    {
+      "name": "Concurrency limit under simultaneous delayed request bodies",
+      "status": "fail",
+      "detail": {
+        "requests": 4,
+        "upstreamCalls": 4,
+        "maxActive": 4,
+        "statusCounts": {
+          "200": 4
+        }
+      },
+      "scope": "actual localhost sockets; native request handler; mocked paid speech upstream; no real key/network/billing"
+    },
+    {
+      "name": "60 per ten-minute rate cap under simultaneous delayed bodies",
+      "status": "fail",
+      "detail": {
+        "requests": 65,
+        "upstreamCalls": 65,
+        "maxActive": 65,
+        "statusCounts": {
+          "200": 65
+        }
+      },
+      "scope": "actual localhost sockets; native request handler; mocked paid speech upstream; no real key/network/billing"
+    }
+  ],
+  "regressionRerun": [
+    {
+      "name": "arcade_core_results.json",
+      "total": 292,
+      "passed": 292,
+      "failed": 0
+    },
+    {
+      "name": "family_contracts.json",
+      "total": 55,
+      "passed": 55,
+      "failed": 0
+    },
+    {
+      "name": "new_core_results.json",
+      "total": 64,
+      "passed": 64,
+      "failed": 0
+    },
+    {
+      "name": "server_contracts.json",
+      "total": 37,
+      "passed": 37,
+      "failed": 0
+    }
+  ],
+  "independentMath": {
+    "method": "Supplied independent Python Fraction/formula/enumeration oracle applied to newly generated exact CURRENT app cases; not historical fixtures or student outcomes",
+    "total": 6222,
+    "failed": 0
+  },
+  "englishData": {
+    "method": "Exact current app pure modules; structural and grading checks, not teacher validation",
+    "units": 80,
+    "words": 607,
+    "questions": 4923,
+    "dictionaryEntries": 6057,
+    "assemblyGroups": 15,
+    "assemblyRecipes": 92,
+    "phonicsLessons": 12,
+    "phonicsWordCards": 48,
+    "arcadeGames": 26,
+    "checked": [
+      "duplicate IDs",
+      "unit and word references",
+      "question target references",
+      "own-answer accepted",
+      "invalid answer rejected",
+      "choice canonical uniqueness and correct answer presence",
+      "shared dictionary ID uniqueness"
+    ],
+    "issues": []
+  },
+  "fileIntegrity": {
+    "files": 1199,
+    "json": 163,
+    "images": 695,
+    "originalSourceUnchanged": {
+      "checked": 1199,
+      "changed": []
+    }
+  },
+  "optionalOcrNpmAdvisories": {
+    "auditReportVersion": 2,
+    "vulnerabilities": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 15,
+        "dev": 0,
+        "optional": 0,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 14
+      }
+    }
+  },
+  "limitations": [
+    "Synthetic accounts only; no real student browser database provided",
+    "Chrome 143 on Linux only; viewport emulation is not physical iPhone/Android or Safari testing",
+    "Math cases sample 17 seeds per template; not exhaustive over every possible seed",
+    "Question structural/answer checks are not teacher validation or official curriculum completeness",
+    "Short arcade engine/control checks; not complete game campaigns or learning effectiveness",
+    "No real photos/OCR accuracy study, real paid speech request, Windows launcher execution, 140 MB memory pressure, OS reboot or power failure"
+  ]
+}

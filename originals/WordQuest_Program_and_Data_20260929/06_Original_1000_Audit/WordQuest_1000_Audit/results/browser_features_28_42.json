@@ -1,0 +1,300 @@
+[
+  {
+    "id": "UI-113",
+    "category": "UI",
+    "name": "數位表不出現負位數",
+    "expected": "最小 0，最大 9",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:place",
+      "click tool:digit:4:-1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1",
+      "click tool:digit:4:1"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-114",
+    "category": "UI",
+    "name": "數陣零乘法",
+    "expected": "0 行無數粒，結果為 0",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:array",
+      "select tool-rows=0"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-115",
+    "category": "UI",
+    "name": "線段 AB 與 BA 不重複",
+    "expected": "只計一條線段",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:segments",
+      "click tool:point:0",
+      "click tool:point:1",
+      "click tool:point:1",
+      "click tool:point:0"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-116",
+    "category": "UI",
+    "name": "兩位數列表不重複加入",
+    "expected": "相同數字僅一列",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:table",
+      "click tool:entry",
+      "click tool:entry"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-117",
+    "category": "UI",
+    "name": "到達每日時限不能繼續提交",
+    "expected": "不計分並提示時限",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=9",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-118",
+    "category": "UI",
+    "name": "關閉奧數後入口受限制",
+    "expected": "不提供奧數課堂",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent",
+      "click save-settings",
+      "click nav:olympiad"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-119",
+    "category": "UI",
+    "name": "每日練習 UI 建立十題",
+    "expected": "10 題且模式 daily",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click daily:normal"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-120",
+    "category": "UI",
+    "name": "起步診斷 UI 建立十五題",
+    "expected": "15 題且模式 diagnostic",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click diagnostic:normal"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-121",
+    "category": "UI",
+    "name": "港式小店遊戲只評金額",
+    "expected": "正確找贖不虛構算式分",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click game:money",
+      "click tool:coin:10",
+      "click tool:coin:2",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-122",
+    "category": "UI",
+    "name": "普通數學六階段課堂完成",
+    "expected": "三題一起做、五題自己做並可小結",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:normal",
+      "click grade:1",
+      "click lesson:1N2.2",
+      "click nextstage",
+      "click nextstage",
+      "click nextstage",
+      "fill answer=8",
+      "click submit",
+      "click nextq",
+      "fill answer=11",
+      "click submit",
+      "click nextq",
+      "fill answer=14",
+      "click submit",
+      "click nextq",
+      "fill answer=11",
+      "click submit",
+      "click nextq",
+      "fill answer=14",
+      "click submit",
+      "click nextq",
+      "fill answer=6",
+      "click submit",
+      "click nextq",
+      "fill answer=12",
+      "click submit",
+      "click nextq",
+      "fill answer=2",
+      "click submit",
+      "click nextq",
+      "click self:good"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-123",
+    "category": "UI",
+    "name": "奧數六階段及策略卡",
+    "expected": "三題變式、反思後取得策略卡",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:olympiad",
+      "click lesson:O-APP-queue",
+      "fill answer=8",
+      "click submit",
+      "click nextq",
+      "click nextstage",
+      "click nextstage",
+      "fill answer=9",
+      "click submit",
+      "click nextq",
+      "fill answer=11",
+      "click submit",
+      "click nextq",
+      "fill answer=13",
+      "click submit",
+      "click nextq",
+      "click nextstage",
+      "click reflect:0",
+      "click finish"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-124",
+    "category": "UI",
+    "name": "錯題 UI 兩條新題可清除",
+    "expected": "錯題 cleared=true",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent",
+      "click mistake:1N2.2",
+      "fill answer=9",
+      "click submit",
+      "click nextq",
+      "fill answer=11",
+      "click submit",
+      "click nextq"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-125",
+    "category": "UI",
+    "name": "重建瀏覽器畫面後保留已提交答案",
+    "expected": "從隔離儲存快照重建，回饋及紀錄不重複",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-126",
+    "category": "UI",
+    "name": "不存在模板的舊紀錄不能卡死新練習",
+    "expected": "讀取時安全拒絕，或仍可產生新題",
+    "status": "FAIL",
+    "actual": "沒有拒絕損壞資料，但新練習失敗：有課堂或題庫。\n 1N120以內的數入門選段1N1.1 · 約 8 分鐘點數：一個也不漏Count without missing any○ 未開始學這一課5 題練習1N1.5 · 約 8 分鐘拆開一個數Split a number into two parts○ 未開始學這一課5 題練習1N2基本加法和減法入門選段1N2.2 · 約 8 分鐘18 以內加減Add and subtract within 18○ 未開始學這一課5 題練習1N3100以內的數入門選段1N3.2 · 約 8 分鐘十位與個位Tens and ones○ 未開始學這一課5 題練習1N4加法和減法（一）入門選段1N4.1 · 約 8 分鐘兩位數加法Add two numbers below 100○ 未開始學這一課5 題練習1N4.4 · 約 8 分鐘不用退位的減法Subtract without regrouping○ 未開始學這一課5 題練習1M1長度和距離（一）待開發課程位置已預留；這裡不會用其他題目冒充本單元。1M2貨幣（一）待開發課程位置已預留；這裡不會用其他題目冒充本單元。1M3長度和距離（二）待開發課程位置已預留；這裡不會用其他題目冒充本單元。1M4時間（一）待開發課程位置已預留；這裡不會用其他題目冒充本單元。1S1立體圖形（一）待開發課程位置已預留；這裡不會用其他題目冒充本單元。1S2平面圖形待開發課程位置已預留；這裡不會用其他題目冒充本單元。1S3方向和位置（一）待開發課程位置已預留；這裡不會用其他題目冒充本單元。WordQuest Maths 0.1.0 · 本機功能試用版2017 課程框架／2026 建模修訂另作版本記錄 · 課程及粵語語音仍待獨立教師與真人試用審核。23 個普通數學入門技能 ＋ 5 個奧數主題；其餘課程未完成。離線答案可被檢視，不適合正式比賽判分。題目模板不存在",
+    "issue": "F-ATTEMPT-VALIDATION",
+    "evidence": "evidence/UI-126_failure.png",
+    "actions": [
+      "click nav:normal",
+      "click grade:1",
+      "click practice:1N2.2"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  }
+]

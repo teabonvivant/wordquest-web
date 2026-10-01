@@ -1,0 +1,11 @@
+{
+  "report_check_only_not_in_1000": true,
+  "default_failed_count": 40,
+  "all_cases_filter": 1000,
+  "generation_filter": 504,
+  "single_case_search": "GRADE-061",
+  "mobile_width": 390,
+  "mobile_horizontal_overflow": false,
+  "console_page_errors": [],
+  "embedded_evidence": true
+}

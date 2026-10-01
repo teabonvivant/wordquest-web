@@ -1,0 +1,452 @@
+[
+  {
+    "id": "FOREST-UI-001",
+    "name": "App opens without JavaScript exceptions",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-002",
+    "name": "Six named animals, never the previous owl/firefly/bee identities",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-003",
+    "name": "42 inline artwork assets decode without network",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-004",
+    "name": "New account defaults disable animation and use automatic assignment",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-005",
+    "name": "Gallery owl: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-006",
+    "name": "Gallery owl: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-007",
+    "name": "Gallery owl: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-008",
+    "name": "Gallery owl: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-009",
+    "name": "Gallery owl: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-010",
+    "name": "Gallery owl: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-011",
+    "name": "Gallery owl: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-012",
+    "name": "Gallery fox: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-013",
+    "name": "Gallery fox: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-014",
+    "name": "Gallery fox: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-015",
+    "name": "Gallery fox: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-016",
+    "name": "Gallery fox: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-017",
+    "name": "Gallery fox: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-018",
+    "name": "Gallery fox: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-019",
+    "name": "Gallery panda: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-020",
+    "name": "Gallery panda: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-021",
+    "name": "Gallery panda: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-022",
+    "name": "Gallery panda: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-023",
+    "name": "Gallery panda: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-024",
+    "name": "Gallery panda: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-025",
+    "name": "Gallery panda: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-026",
+    "name": "Gallery bee: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-027",
+    "name": "Gallery bee: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-028",
+    "name": "Gallery bee: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-029",
+    "name": "Gallery bee: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-030",
+    "name": "Gallery bee: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-031",
+    "name": "Gallery bee: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-032",
+    "name": "Gallery bee: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-033",
+    "name": "Gallery star: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-034",
+    "name": "Gallery star: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-035",
+    "name": "Gallery star: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-036",
+    "name": "Gallery star: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-037",
+    "name": "Gallery star: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-038",
+    "name": "Gallery star: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-039",
+    "name": "Gallery star: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-040",
+    "name": "Gallery rabbit: real click selects decoded front",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-041",
+    "name": "Gallery rabbit: real click selects decoded face0",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-042",
+    "name": "Gallery rabbit: real click selects decoded face1",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-043",
+    "name": "Gallery rabbit: real click selects decoded face2",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-044",
+    "name": "Gallery rabbit: real click selects decoded face3",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-045",
+    "name": "Gallery rabbit: real click selects decoded face4",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-046",
+    "name": "Gallery rabbit: real click selects decoded sheet",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-047",
+    "name": "No invented side or back angles advertised as available",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-048",
+    "name": "Gallery no horizontal overflow at 320px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-049",
+    "name": "Gallery no horizontal overflow at 390px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-050",
+    "name": "Gallery no horizontal overflow at 768px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-051",
+    "name": "Gallery no horizontal overflow at 1280px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-052",
+    "name": "Gallery fixed selection keeps keyboard focus on the replacement selector",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-053",
+    "name": "Home character opens actual modal with focus on close control",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-054",
+    "name": "Escape closes gallery and returns focus to origin button",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-055",
+    "name": "Maths home automatically uses otter helper",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-056",
+    "name": "Tool workshop uses the red panda teacher",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-057",
+    "name": "Olympiad home uses the goat classmate",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-058",
+    "name": "Early number practice uses the otter",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-059",
+    "name": "Changing fixed maths helper preserves unsubmitted input",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-060",
+    "name": "Changing fixed helper does not write maths state or balance",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-061",
+    "name": "Fixed helper actually changes image and name",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-062",
+    "name": "Hide setting removes maths portrait without deleting draft",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-063",
+    "name": "Wrong answer shows supportive hedgehog, not reward or shame",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-064",
+    "name": "Enter submission retains keyboard focus on actual feedback",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-065",
+    "name": "Correct submission switches to success expression",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-066",
+    "name": "Companion never prints the answer or invokes scoring itself",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-067",
+    "name": "Geometry practice chooses fox teacher from skill context",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-068",
+    "name": "Maths guide and question no overflow at 320px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-069",
+    "name": "Maths guide and question no overflow at 390px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-070",
+    "name": "Maths guide and question no overflow at 844px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-071",
+    "name": "Maths guide and question no overflow at 1280px",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-072",
+    "name": "Global hide removes decorative English portraits but keeps character gallery access",
+    "status": "fail",
+    "error": "assertion failed"
+  },
+  {
+    "id": "FOREST-UI-073",
+    "name": "Reduced-motion preference suppresses maths entry animation",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-074",
+    "name": "Simulated app reopen restores per-child fixed preference",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "id": "FOREST-UI-075",
+    "name": "Restored preference is used by actual maths image",
+    "status": "pass",
+    "detail": true
+  }
+]

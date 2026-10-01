@@ -1,0 +1,497 @@
+[
+  {
+    "id": "FOREST-CORE-001",
+    "name": "Legacy slot identifiers remain stable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-002",
+    "name": "New canonical character identity is explicit",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-003",
+    "name": "New account animation defaults off",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-004",
+    "name": "Old record resolves to automatic guide without mutation",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-005",
+    "name": "Malformed preference safe normalization: null",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-006",
+    "name": "Malformed preference safe normalization: 42",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-007",
+    "name": "Malformed preference safe normalization: \"fox\"",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-008",
+    "name": "Malformed preference safe normalization: []",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-009",
+    "name": "Malformed preference safe normalization: {\"guide\":\"hacker\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-010",
+    "name": "Malformed preference safe normalization: {\"show\":\"false\",\"compact\":1}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-011",
+    "name": "Malformed preference safe normalization: {\"guide\":\"__proto__\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-012",
+    "name": "Malformed preference safe normalization: {\"__proto__\":{\"show\":false}}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-013",
+    "name": "Fixed guide owl supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-014",
+    "name": "Fixed guide owl supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-015",
+    "name": "Valid expression mapping owl thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-016",
+    "name": "Valid expression mapping owl retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-017",
+    "name": "Valid expression mapping owl correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-018",
+    "name": "Valid expression mapping owl complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-019",
+    "name": "Valid expression mapping owl rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-020",
+    "name": "Valid expression mapping owl hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-021",
+    "name": "Valid expression mapping owl teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-022",
+    "name": "Character owl metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-023",
+    "name": "Fixed guide fox supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-024",
+    "name": "Fixed guide fox supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-025",
+    "name": "Valid expression mapping fox thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-026",
+    "name": "Valid expression mapping fox retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-027",
+    "name": "Valid expression mapping fox correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-028",
+    "name": "Valid expression mapping fox complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-029",
+    "name": "Valid expression mapping fox rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-030",
+    "name": "Valid expression mapping fox hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-031",
+    "name": "Valid expression mapping fox teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-032",
+    "name": "Character fox metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-033",
+    "name": "Fixed guide panda supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-034",
+    "name": "Fixed guide panda supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-035",
+    "name": "Valid expression mapping panda thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-036",
+    "name": "Valid expression mapping panda retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-037",
+    "name": "Valid expression mapping panda correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-038",
+    "name": "Valid expression mapping panda complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-039",
+    "name": "Valid expression mapping panda rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-040",
+    "name": "Valid expression mapping panda hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-041",
+    "name": "Valid expression mapping panda teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-042",
+    "name": "Character panda metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-043",
+    "name": "Fixed guide bee supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-044",
+    "name": "Fixed guide bee supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-045",
+    "name": "Valid expression mapping bee thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-046",
+    "name": "Valid expression mapping bee retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-047",
+    "name": "Valid expression mapping bee correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-048",
+    "name": "Valid expression mapping bee complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-049",
+    "name": "Valid expression mapping bee rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-050",
+    "name": "Valid expression mapping bee hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-051",
+    "name": "Valid expression mapping bee teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-052",
+    "name": "Character bee metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-053",
+    "name": "Fixed guide star supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-054",
+    "name": "Fixed guide star supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-055",
+    "name": "Valid expression mapping star thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-056",
+    "name": "Valid expression mapping star retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-057",
+    "name": "Valid expression mapping star correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-058",
+    "name": "Valid expression mapping star complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-059",
+    "name": "Valid expression mapping star rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-060",
+    "name": "Valid expression mapping star hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-061",
+    "name": "Valid expression mapping star teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-062",
+    "name": "Character star metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-063",
+    "name": "Fixed guide rabbit supported in math",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-064",
+    "name": "Fixed guide rabbit supported in English",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-065",
+    "name": "Valid expression mapping rabbit thinking",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-066",
+    "name": "Valid expression mapping rabbit retry",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-067",
+    "name": "Valid expression mapping rabbit correct",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-068",
+    "name": "Valid expression mapping rabbit complete",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-069",
+    "name": "Valid expression mapping rabbit rest",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-070",
+    "name": "Valid expression mapping rabbit hint",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-071",
+    "name": "Valid expression mapping rabbit teach",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-072",
+    "name": "Character rabbit metadata immutable",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-073",
+    "name": "Automatic state dispatch {\"view\":\"home\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-074",
+    "name": "Automatic state dispatch {\"view\":\"tools\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-075",
+    "name": "Automatic state dispatch {\"view\":\"cards\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-076",
+    "name": "Automatic state dispatch {\"view\":\"olympiad\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-077",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"track\":\"olympiad\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-078",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"earlyNumber\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-079",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"visual\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-080",
+    "name": "Automatic state dispatch {\"view\":\"lesson\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-081",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"feedback\":\"retry\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-082",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"visual\":true,\"hinted\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-083",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"exploring\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-084",
+    "name": "Automatic state dispatch {\"view\":\"resume\"}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-085",
+    "name": "Automatic state dispatch {\"view\":\"home\",\"rest\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-086",
+    "name": "Automatic state dispatch {\"view\":\"lesson\",\"completed\":true}",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-087",
+    "name": "Assessment mode mock has quiet guide regardless of fixed selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-088",
+    "name": "Assessment mode diagnostic has quiet guide regardless of fixed selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-089",
+    "name": "Assessment mode exam has quiet guide regardless of fixed selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-090",
+    "name": "Assessment mode assessment has quiet guide regardless of fixed selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-091",
+    "name": "Assessment mode dictation has quiet guide regardless of fixed selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-092",
+    "name": "Hidden guide returns no portrait data",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-093",
+    "name": "Upper-primary automatically compact",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-094",
+    "name": "Typing stage automatically compact",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-095",
+    "name": "Invalid backup role is refused, not silently accepted",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-096",
+    "name": "Existing backup without guide field stays valid",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-097",
+    "name": "Guide ignores answer, HTML and student input fields",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-098",
+    "name": "Guide never alters supplied context or preferences",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-CORE-099",
+    "name": "Neither normal guide nor fixed preference influences award value",
+    "status": "pass"
+  }
+]

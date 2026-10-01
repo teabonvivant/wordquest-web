@@ -1,0 +1,24 @@
+{
+  "build": "V32-M0.1.2-R1",
+  "created_hkt": "2026-09-29T19:20:04+08:00",
+  "core": {
+    "total": 356,
+    "pass": 356
+  },
+  "independent_oracle": {
+    "total": 504,
+    "pass": 504
+  },
+  "integration_DOM_fault_viewport": {
+    "total": 147,
+    "pass": 147
+  },
+  "total_cases": 1007,
+  "pass": 1007,
+  "fail": 0,
+  "js_syntax_scripts": 35,
+  "original_files_preserved_unchanged": 650,
+  "native_browser_persistence_verified": false,
+  "windows_launcher_verified": false,
+  "student_data": "No real student records; all new tests use isolated fixtures."
+}

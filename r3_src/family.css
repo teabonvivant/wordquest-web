@@ -1,0 +1,8 @@
+.r3-dialog{border:1px solid #dac9b8;border-radius:22px;max-width:980px;width:calc(100% - 28px);max-height:90dvh;padding:28px;background:#fffaf2;color:#3a3229;box-shadow:0 24px 100px #0004;overflow:auto;font:17px/1.65 system-ui,sans-serif}.r3-dialog::backdrop{background:#172421aa}.r3-dialog-head{display:flex;justify-content:space-between;gap:20px;align-items:start}.r3-dialog h1{font-size:27px}.r3-dialog h2{font-size:22px}.r3-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.r3-dialog section{padding:20px;border:1px solid #e6d9c8;border-radius:16px;margin:16px 0;background:#fff}.r3-dialog label{display:block;margin:13px 0}.r3-dialog input:not([type=checkbox]),.r3-dialog select{display:block;width:100%;padding:10px;font:inherit;min-height:44px;border:1px solid #927c63;border-radius:10px}.r3-dialog input[type=checkbox]{width:24px;height:24px;vertical-align:middle}.r3-dialog .btn{margin:5px 6px 5px 0}.r3-table{overflow:auto}.r3-table table{border-collapse:collapse;width:100%}.r3-table th,.r3-table td{padding:12px;border-bottom:1px solid #dfd8cd;text-align:left}@media(max-width:640px){.r3-grid{grid-template-columns:1fr}.r3-dialog{padding:17px;width:calc(100% - 12px)}.r3-dialog section{padding:15px}.r3-dialog h1{font-size:23px}}
+
+/* R3 seven-key shooter controls: do not let intrinsic flex width expand the fullscreen grid. */
+.a28-play,.a28-viewport,.a28-touch-controls{min-width:0}
+@media(max-width:420px){
+ .a28-touch-controls[data-r3-keys="7"]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;width:100%;max-width:100%}
+ .a28-touch-controls[data-r3-keys="7"] .a28-touch-key{min-width:44px;width:100%;max-width:none;min-height:49px;padding-left:4px;padding-right:4px}
+}

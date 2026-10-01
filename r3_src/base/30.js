@@ -1,0 +1,1 @@
+globalThis.WQ30Library=globalThis.WQ30Core.library(globalThis.WQ30Data);globalThis.WQ31Library=globalThis.WQ31Core.library(globalThis.WQ31Data);

@@ -1,0 +1,58 @@
+{
+  "format": "wordquest-native-device-check",
+  "version": "3.2.0",
+  "startedAt": "2026-09-29T18:25:16.870Z",
+  "results": [
+    {
+      "id": "crypto",
+      "name": "原生 SHA-256",
+      "status": "blocked",
+      "detail": "需要 HTTPS 或本機啟動網址，以及原生 WebCrypto。",
+      "at": "2026-09-29T18:25:16.871Z"
+    },
+    {
+      "id": "local",
+      "name": "原生 localStorage 寫入及讀回",
+      "status": "blocked",
+      "detail": "未能產生原生校驗測試記號。",
+      "at": "2026-09-29T18:25:16.871Z"
+    },
+    {
+      "id": "idb",
+      "name": "原生 IndexedDB Blob 交易",
+      "status": "blocked",
+      "detail": "沒有測試記號。",
+      "at": "2026-09-29T18:25:16.871Z"
+    },
+    {
+      "id": "locks",
+      "name": "原生 Web Locks 互斥及釋放",
+      "status": "blocked",
+      "detail": "需要支援 Web Locks 的安全網址環境。",
+      "at": "2026-09-29T18:25:16.871Z"
+    },
+    {
+      "id": "reload",
+      "name": "重新載入後資料核對",
+      "status": "pending",
+      "detail": "完成後按「重新載入驗證」，不等於完整關閉瀏覽器。",
+      "at": "2026-09-29T18:25:16.871Z"
+    },
+    {
+      "id": "reopen",
+      "name": "關閉瀏覽器後資料核對",
+      "status": "pending",
+      "detail": "先保留本頁網址，關閉整個瀏覽器，再開啟同一網址及按「核對上次記號」。是否完全關閉屬使用者確認。",
+      "at": "2026-09-29T18:25:16.871Z"
+    }
+  ],
+  "manual": [],
+  "limits": [
+    "API probe only: not a complete application migration/restore or commercial-readiness certification."
+  ],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/144.0.0.0 Safari/537.36",
+    "origin": "null",
+    "secureContext": false
+  }
+}

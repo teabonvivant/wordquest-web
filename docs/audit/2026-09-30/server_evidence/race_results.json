@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Concurrency limit under simultaneous delayed request bodies",
+    "status": "fail",
+    "detail": {
+      "requests": 4,
+      "upstreamCalls": 4,
+      "maxActive": 4,
+      "statusCounts": {
+        "200": 4
+      }
+    },
+    "scope": "actual localhost sockets; native request handler; mocked paid speech upstream; no real key/network/billing"
+  },
+  {
+    "name": "60 per ten-minute rate cap under simultaneous delayed bodies",
+    "status": "fail",
+    "detail": {
+      "requests": 65,
+      "upstreamCalls": 65,
+      "maxActive": 65,
+      "statusCounts": {
+        "200": 65
+      }
+    },
+    "scope": "actual localhost sockets; native request handler; mocked paid speech upstream; no real key/network/billing"
+  }
+]

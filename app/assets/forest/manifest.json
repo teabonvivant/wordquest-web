@@ -1,0 +1,649 @@
+{
+  "version": "R3.1.0",
+  "provenance": "Six newly generated PNG posters in this conversation; NOT recovered V33 or Maths 0.1.3 originals.",
+  "processing": "Measured raster crops and WebP encoding; oval framing on six portrait avatars; no AI redraw, invented angles or full-body background-removal claims.",
+  "characters": [
+    {
+      "slot": "owl",
+      "id": "lie-lie",
+      "name": "烈烈老師",
+      "source": "烈烈老師森林學園角色設定.png",
+      "original_sha256": "5fd9a3d0ed1295716c138aca9d56752f47115ad991aaa2d925386f65ca03bdc2",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            226,
+            212,
+            508,
+            506
+          ],
+          "width": 282,
+          "height": 294,
+          "path": "assets/forest/lie-lie/front.webp",
+          "bytes": 22400,
+          "sha256": "29dd607f1976b9ace9695ce31b71d9e9d5c1e8a5a044de263abb0f6874c1e7fe"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            544,
+            1147,
+            618,
+            1255
+          ],
+          "width": 74,
+          "height": 108,
+          "path": "assets/forest/lie-lie/face0.webp",
+          "bytes": 4366,
+          "sha256": "7d066b47ad7e535b5bd5e57589c6fedb6d1dc3391e3890283e96dae38b7c0d0c"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            632,
+            1147,
+            703,
+            1255
+          ],
+          "width": 71,
+          "height": 108,
+          "path": "assets/forest/lie-lie/face1.webp",
+          "bytes": 4428,
+          "sha256": "d12e800c007dca2228322afcdf659eb874e5dfd6a20a8283a360c575f0c7b445"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            718,
+            1147,
+            792,
+            1255
+          ],
+          "width": 74,
+          "height": 108,
+          "path": "assets/forest/lie-lie/face2.webp",
+          "bytes": 4432,
+          "sha256": "c1c55614f2186273f5d8c188131042d3dad95c4f3ef0710ceac10e4a908318db"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            805,
+            1147,
+            878,
+            1255
+          ],
+          "width": 73,
+          "height": 108,
+          "path": "assets/forest/lie-lie/face3.webp",
+          "bytes": 4528,
+          "sha256": "b3ba18c8c80928caf03d2e88aa8557d84946bc0ce423c57e28b48cad8594538a"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            892,
+            1147,
+            965,
+            1255
+          ],
+          "width": 73,
+          "height": 108,
+          "path": "assets/forest/lie-lie/face4.webp",
+          "bytes": 4030,
+          "sha256": "92d753d0eabfbccecd77df46e07476ac88c7c0973b4d7c4ec8f500416f75edda"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/lie-lie/sheet.webp",
+          "bytes": 285218,
+          "sha256": "906405b9b4388fd794da7329fe829a6373de008a6314e3a1a72fed518d1d3f56"
+        }
+      ]
+    },
+    {
+      "slot": "fox",
+      "id": "you-you",
+      "name": "柚柚老師",
+      "source": "柚柚老師的森林學園圖形課.png",
+      "original_sha256": "483a9ce59488b1c954c28c54de51b8d3349734237c8de2cf7bb615fb68b38c88",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            213,
+            206,
+            520,
+            526
+          ],
+          "width": 307,
+          "height": 320,
+          "path": "assets/forest/you-you/front.webp",
+          "bytes": 23290,
+          "sha256": "4a474f03ed9414e12fc696af3a33fcf86a60d2143728793399f5c3c646fa4c8c"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            540,
+            1144,
+            618,
+            1256
+          ],
+          "width": 78,
+          "height": 112,
+          "path": "assets/forest/you-you/face0.webp",
+          "bytes": 3950,
+          "sha256": "6eb3e72cdc3d7d05c518b10b08c87f8e38c700fc281bdb77b38a6da67da42951"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            629,
+            1144,
+            704,
+            1256
+          ],
+          "width": 75,
+          "height": 112,
+          "path": "assets/forest/you-you/face1.webp",
+          "bytes": 3764,
+          "sha256": "abd22d7d2d475c017f2b4f63a588ee782389b57900776a17873ebb190e8b74be"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            718,
+            1144,
+            790,
+            1256
+          ],
+          "width": 72,
+          "height": 112,
+          "path": "assets/forest/you-you/face2.webp",
+          "bytes": 3760,
+          "sha256": "3b342a5dcab07522644173749a1c51f357d7692fc26a19a33a7bc62882a3b946"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            805,
+            1144,
+            878,
+            1256
+          ],
+          "width": 73,
+          "height": 112,
+          "path": "assets/forest/you-you/face3.webp",
+          "bytes": 3978,
+          "sha256": "85d11d56ac96f6a4ecd1d69542e96c73e567795c131f06e6adb385eea33444ab"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            892,
+            1144,
+            966,
+            1256
+          ],
+          "width": 74,
+          "height": 112,
+          "path": "assets/forest/you-you/face4.webp",
+          "bytes": 3922,
+          "sha256": "0c73b0ae428ad989a9c6550554465c1b7d5a233644ea2020a852291cb933d920"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/you-you/sheet.webp",
+          "bytes": 288074,
+          "sha256": "48dade5080bcdda669b2427fea5aed3d84ef1f7548e56d29f5a8ba0e1a5c4519"
+        }
+      ]
+    },
+    {
+      "slot": "panda",
+      "id": "tang-li",
+      "name": "糖栗老師",
+      "source": "糖栗老師的創意探索學園.png",
+      "original_sha256": "78e77c482f5108a8e8624c1ff626bc6786d7b675478e471f96dea30e72bf2534",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            258,
+            242,
+            538,
+            549
+          ],
+          "width": 280,
+          "height": 307,
+          "path": "assets/forest/tang-li/front.webp",
+          "bytes": 24950,
+          "sha256": "5b921eba78c6ac41d640b3c4560b95fdd17d916ddd09f52f8803c969ff6cd65f"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            533,
+            1154,
+            609,
+            1263
+          ],
+          "width": 76,
+          "height": 109,
+          "path": "assets/forest/tang-li/face0.webp",
+          "bytes": 4384,
+          "sha256": "4920d86e612690a0c71dbe0082767f1f5576d600a5f1f80a794941adf901101c"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            621,
+            1154,
+            697,
+            1263
+          ],
+          "width": 76,
+          "height": 109,
+          "path": "assets/forest/tang-li/face1.webp",
+          "bytes": 4110,
+          "sha256": "31c98a6958e5d807ec87ea78241b2581e7d7caeccb5893b9fb0b473e4efd7ab5"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            713,
+            1154,
+            790,
+            1263
+          ],
+          "width": 77,
+          "height": 109,
+          "path": "assets/forest/tang-li/face2.webp",
+          "bytes": 4704,
+          "sha256": "9ce17b4ac1f1b182cb6d103c4b6b583941fc119cf64b658c0bed8ffbfc05291a"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            805,
+            1154,
+            878,
+            1263
+          ],
+          "width": 73,
+          "height": 109,
+          "path": "assets/forest/tang-li/face3.webp",
+          "bytes": 4246,
+          "sha256": "4af2a71a625c32c2d7725925a5a248ce630440cce3f72745529a6263d5417e57"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            892,
+            1154,
+            967,
+            1263
+          ],
+          "width": 75,
+          "height": 109,
+          "path": "assets/forest/tang-li/face4.webp",
+          "bytes": 4102,
+          "sha256": "f8b47c4c372d5b0cf4e1b86b45c540febf6137832a6a20a5e0fa7b5faf54fffe"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/tang-li/sheet.webp",
+          "bytes": 321710,
+          "sha256": "f35c3e367c5d2c9c38f9af3e4043379d6c5cbead7aac367508a43be523e0312b"
+        }
+      ]
+    },
+    {
+      "slot": "bee",
+      "id": "bo-bo",
+      "name": "波波",
+      "source": "波波水獺數字學習角色誌.png",
+      "original_sha256": "96e7d07fd0b63910ea844e463046b26d5af508e360c084381cde0df8618594a5",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            219,
+            318,
+            522,
+            617
+          ],
+          "width": 303,
+          "height": 299,
+          "path": "assets/forest/bo-bo/front.webp",
+          "bytes": 25862,
+          "sha256": "054070635509c9a0d149aba11689fe7d67ced5b57dbb01bc8e691697582a7c95"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            532,
+            1137,
+            609,
+            1236
+          ],
+          "width": 77,
+          "height": 99,
+          "path": "assets/forest/bo-bo/face0.webp",
+          "bytes": 3286,
+          "sha256": "ee9aea42afba0c6253da65b3f639516896f81a28462c6f1f77062acdad752447"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            622,
+            1137,
+            699,
+            1236
+          ],
+          "width": 77,
+          "height": 99,
+          "path": "assets/forest/bo-bo/face1.webp",
+          "bytes": 3242,
+          "sha256": "98d21286aa6ca0f60261579a94c62f4ddc5d23f0e4636d378d553393e8d57eb4"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            712,
+            1137,
+            790,
+            1236
+          ],
+          "width": 78,
+          "height": 99,
+          "path": "assets/forest/bo-bo/face2.webp",
+          "bytes": 3494,
+          "sha256": "0fb6959fdc5bf1332a2819b6259a2a76a710ff817791f40a38a270e5cec39404"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            805,
+            1137,
+            880,
+            1236
+          ],
+          "width": 75,
+          "height": 99,
+          "path": "assets/forest/bo-bo/face3.webp",
+          "bytes": 3074,
+          "sha256": "3e98c7e734d534165a7da2fb5f2bb2b47c4cd82cd070f16216bb21fbd3b1405d"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            895,
+            1137,
+            972,
+            1236
+          ],
+          "width": 77,
+          "height": 99,
+          "path": "assets/forest/bo-bo/face4.webp",
+          "bytes": 3176,
+          "sha256": "dbb3c0d32e7f43d87a825a2353998f8773a23ca147cc9ddfe3927a05aab7ffbe"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/bo-bo/sheet.webp",
+          "bytes": 303840,
+          "sha256": "c9f758592a6fd915ad2c5aa388387ade5b17c3607ee650e7ee60cf65485ee062"
+        }
+      ]
+    },
+    {
+      "slot": "star",
+      "id": "ci-ci",
+      "name": "刺刺",
+      "source": "刺刺的森林學園學習指南.png",
+      "original_sha256": "fb3cb6afb95e5f6771c6bf90a710ef3e94b2afd9979f26d8f22a3bdaccdb61bd",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            203,
+            294,
+            523,
+            614
+          ],
+          "width": 320,
+          "height": 320,
+          "path": "assets/forest/ci-ci/front.webp",
+          "bytes": 24502,
+          "sha256": "31b9808f87f9b3a9e43673a1da72adbaf7a98aeed658c93f6df27e6685e0fa7b"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            532,
+            1129,
+            608,
+            1248
+          ],
+          "width": 76,
+          "height": 119,
+          "path": "assets/forest/ci-ci/face0.webp",
+          "bytes": 4248,
+          "sha256": "c66e60080c35fb6b948e8e2433f926129914de9c45c694da0177d4d3af3c1e5e"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            622,
+            1129,
+            699,
+            1248
+          ],
+          "width": 77,
+          "height": 119,
+          "path": "assets/forest/ci-ci/face1.webp",
+          "bytes": 4216,
+          "sha256": "525d6b1f468e547dba2754436b44cd8c96a48f52a8a74477e7e820a03acae157"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            712,
+            1129,
+            789,
+            1248
+          ],
+          "width": 77,
+          "height": 119,
+          "path": "assets/forest/ci-ci/face2.webp",
+          "bytes": 4024,
+          "sha256": "db7fea9a6d9226d85b36f509a064f5b7bfa58463cb177c1e03e504d063cec430"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            803,
+            1129,
+            879,
+            1248
+          ],
+          "width": 76,
+          "height": 119,
+          "path": "assets/forest/ci-ci/face3.webp",
+          "bytes": 3854,
+          "sha256": "c9e957d9e6d294c10aba7ee126b21fedadfcf39e2f9d593906eb9b7e9d2620fb"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            894,
+            1129,
+            970,
+            1248
+          ],
+          "width": 76,
+          "height": 119,
+          "path": "assets/forest/ci-ci/face4.webp",
+          "bytes": 4018,
+          "sha256": "97ee55ccb68249302507c3176dedd6ec3f557dd0ff3462867f91ebd318ce3839"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/ci-ci/sheet.webp",
+          "bytes": 300314,
+          "sha256": "e3929ccc8c78582b7e51f46a91be57cd15721bf3034d5604d290a56ba01d3e02"
+        }
+      ]
+    },
+    {
+      "slot": "rabbit",
+      "id": "a-feng",
+      "name": "阿峰",
+      "source": "阿峰_山羊奧數同學角色設定.png",
+      "original_sha256": "8f417caa20b338ffd0fb5f7320f00de91b615316ad13dbf4edc14d5a8903f453",
+      "assets": [
+        {
+          "pose": "front",
+          "crop": [
+            219,
+            266,
+            535,
+            582
+          ],
+          "width": 316,
+          "height": 316,
+          "path": "assets/forest/a-feng/front.webp",
+          "bytes": 20392,
+          "sha256": "9ad261ae65a6f545236e1a13cee69691c13386281c80137572855ce6d6c24047"
+        },
+        {
+          "pose": "face0",
+          "crop": [
+            539,
+            1165,
+            616,
+            1238
+          ],
+          "width": 77,
+          "height": 73,
+          "path": "assets/forest/a-feng/face0.webp",
+          "bytes": 2766,
+          "sha256": "c758486bae35e86cc82fd491e60fb4d173d1299394990da0ee4442d8aa7c63d4"
+        },
+        {
+          "pose": "face1",
+          "crop": [
+            628,
+            1165,
+            704,
+            1238
+          ],
+          "width": 76,
+          "height": 73,
+          "path": "assets/forest/a-feng/face1.webp",
+          "bytes": 2370,
+          "sha256": "21367b6a4b1fb8145494777159d84cfa17b08697b223f926ebd12f10f9b12474"
+        },
+        {
+          "pose": "face2",
+          "crop": [
+            715,
+            1165,
+            790,
+            1238
+          ],
+          "width": 75,
+          "height": 73,
+          "path": "assets/forest/a-feng/face2.webp",
+          "bytes": 2452,
+          "sha256": "947d2386d1de225c6e40a43591dd91e1e4f47a4720709868ec199d7a05e3f398"
+        },
+        {
+          "pose": "face3",
+          "crop": [
+            803,
+            1165,
+            879,
+            1238
+          ],
+          "width": 76,
+          "height": 73,
+          "path": "assets/forest/a-feng/face3.webp",
+          "bytes": 2660,
+          "sha256": "409fb8f05a7be84cca3dc048fc42943b79efa64dfaf8b2553485f745eab47927"
+        },
+        {
+          "pose": "face4",
+          "crop": [
+            892,
+            1165,
+            966,
+            1238
+          ],
+          "width": 74,
+          "height": 73,
+          "path": "assets/forest/a-feng/face4.webp",
+          "bytes": 2678,
+          "sha256": "deb2e2f61881fc2b01500066cafa2e8a47ca4303255bf8fd196874946f0e158e"
+        },
+        {
+          "pose": "sheet",
+          "crop": [
+            0,
+            0,
+            1122,
+            1402
+          ],
+          "width": 960,
+          "height": 1200,
+          "path": "assets/forest/a-feng/sheet.webp",
+          "bytes": 274134,
+          "sha256": "2affc9720863c21d64193c028e956f406e22d360caa6420cba6fcbb47d2caa32"
+        }
+      ]
+    }
+  ]
+}

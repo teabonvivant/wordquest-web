@@ -1,0 +1,282 @@
+{
+  "results": [
+    {
+      "name": "All 26 cabinets have decoded previews in isolated admin mode",
+      "status": "pass",
+      "detail": {
+        "games": 26,
+        "allPreviewsDecoded": true,
+        "ordinaryLockedCabinetsTest": "See builtin_wallet_evidence/results.json for independently exercised ordinary-account locked cabinet previews"
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "sky-rescue real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "forest-dash real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "moon-bells real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "bounce-basket real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "number-garden real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "forest-band real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "drift-path real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "meadow-cricket real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "honey-delivery real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "color-workshop real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "forest-pong real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "juice-lines real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "honeycomb-puzzle real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "valley-race real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "rolling-block real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "block-studio real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "star-rhythm real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "color-orbit real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "garden-paths real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "little-engineer real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "sweet-studio real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "ruins-courier real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "cloud-island real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "star-patrol real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "lighthouse-well real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "harbor-volley real start / keyboard / pause / resume",
+      "status": "pass",
+      "detail": {
+        "pauseCanvasStable": true,
+        "audioStopped": true,
+        "keyboardExecuted": true
+      },
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    },
+    {
+      "name": "No uncaught exceptions while running all actual engines",
+      "status": "pass",
+      "detail": [],
+      "scope": "native-Chromium-actual-UI-keyboard-touch-canvas-audio; explicit isolated Admin test account"
+    }
+  ],
+  "pageErrors": [],
+  "limitation": "Short engine/control smoke tests, not an assessment of game fun or a full completion of all levels."
+}

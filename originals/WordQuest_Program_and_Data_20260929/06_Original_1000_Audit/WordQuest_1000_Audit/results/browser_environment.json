@@ -1,0 +1,5 @@
+{
+  "engine": "Chromium 144.0.7559.96",
+  "storage": "in-memory adapter",
+  "input": "Playwright real DOM click/fill/keyboard"
+}

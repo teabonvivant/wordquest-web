@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WordQuest R3使用說明</title><style>*{box-sizing:border-box}body{margin:0;color:#243c38;background:#f6f3eb;font:17px/1.8 system-ui,"Microsoft JhengHei",sans-serif}main{max-width:1060px;margin:auto;padding:48px 24px 80px}h1{font-size:clamp(29px,5vw,44px);line-height:1.3}h2{font-size:25px;margin-top:38px}h3{font-size:20px}.card{background:#fffdf6;border:1px solid #d9dfd4;border-radius:18px;padding:24px;margin:18px 0}.notice{background:#fff0ce;border-left:5px solid #ae7840;padding:18px 22px;border-radius:0 12px 12px 0}a{color:#24554b;overflow-wrap:anywhere}a.button{display:inline-block;padding:14px 23px;margin:7px 9px 7px 0;border-radius:12px;background:#28584f;color:#fff;text-decoration:none;font-weight:700}small,.muted{color:#566862}table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:12px 13px;text-align:left;vertical-align:top;border-bottom:1px solid #dfe4d9}th{background:#e8eee5}.scroll{overflow:auto}code{overflow-wrap:anywhere;white-space:pre-wrap}pre{padding:17px;background:#eceee6;white-space:pre-wrap;word-break:break-word;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stat{font-size:31px;font-weight:800}figure{margin:0}img{width:100%;object-fit:contain;border:1px solid #d6ddcf;border-radius:12px;background:#fff}figcaption{font-size:14px;color:#566862}details{background:#fffdf7;border:1px solid #d8dfd1;border-radius:12px;padding:18px;margin:12px 0}summary{cursor:pointer;font-weight:700}@media(max-width:650px){main{padding:27px 16px 55px}.grid{grid-template-columns:1fr}.card{padding:18px}table{font-size:14px}a.button{display:block;text-align:center;margin-right:0}}</style></head><body><main><h1>R3使用及交接說明</h1><p><a class="button" href="../START_HERE.html">返回入口</a><a href="R3_升級及驗證報告.html">本輪報告</a></p><pre># WordQuest R3.0.0｜英文、數學、奧數及26款街機
+
+版本基礎：V32 + Maths 0.1.2 整合 R2；本輪自主修正／擴充，不是取回原版 V33 或 Maths 0.1.3。日期：2026-09-29。
+
+## 先開始
+
+將整個 ZIP 解壓，開啟 START_HERE.html，按「開啟 R3」。一般學習及街機不需要安裝 Python。不要在壓縮檔預覽器內直接開 HTML。
+
+Windows 可雙擊 START_WINDOWS.cmd，啟動只接受本機連線的靜態伺服器，再使用顯示的固定網址。這個啟動器沒有在 Windows 真機執行驗收；沒有要求管理員或永久修改系統設定。端口固定8765；換端口或網址會變成不同的資料來源，先備份。
+
+## 本輪主要改動
+
+修正帳戶清除遺留數學與復原資料、完整家庭備份／確認還原、舊獨立數學學員對應與去重搬移、找贖答句、手機慢移入口。家庭備份包含英文、每個孩子的普通數學／奧數、街機狀態、跨科設定、使用紀錄、角色偏好與自訂媒體。備份未加密，不包含登入密碼及 API 金鑰。
+
+新增跨科每日安排、最近七天週報及全站時間上限；舊時段未記錄的使用時間不補估。預設全站45分鐘，英文10分鐘、普通數學10分鐘，奧數自願加入。
+
+普通數學由23個技能增加至102個；奧數由5個技能條目增加至20個，分4個層級。合共122個技能、366個題目模板；79個單元都有可作答的基礎選段，但不是完成所有官方學習重點。四層奧數不是完整競賽課程，較高層仍主要為既有方法的數字／步數變式。新增內容未由獨立教師及真實學生校準。
+
+新增可調鐘面、量角器、立體單位積木、量度尺及統計圖，合共15個教具入口。街機仍然26款；加入慢移控制及四款角色的分肢向量動作，不是新增原版0.1.3六角色原圖。
+
+## 先備份，再搬移
+
+第一次使用 R3 前，在舊英文程式匯出英文備份，舊數學按孩子逐一匯出數學 JSON，自訂圖片／音訊保留舊教材包。先建立測試孩子及還原一份副本，確認成功才處理正式資料。絕對不要只因下載了程式 ZIP 就刪除舊瀏覽器資料：ZIP 是程式，不含你電腦內的真實學員資料。
+
+R3：家長設定 → 家庭資料與跨科安排 → 匯出家庭完整備份。還原要先選檔、看孩子名單和數量、勾選確認。
+舊數學：R3選取目標孩子 → 數學家長頁 → 搬入舊學員紀錄 → 選舊數學 JSON → 核對舊名及目標 → 確認。舊未完成課堂不搬入，舊獎勵不重派；已提交作答保留原評分。
+
+## 非即插即用的部分
+
+離線OCR：只完成受控下載／完整性驗證／Service Worker接入；大型模型、WASM等11個第三方資源不在這個ZIP。首次要在HTTPS或localhost連線準備，完整下載及真正斷網識別未實測。照片核心輸入仍不支援手寫。
+固定雲端聲線：已加入可選同站伺服器介面，但沒有金鑰，不會自動扣費或代開雲端帳戶。預設繼續使用裝置聲線。使用外部服務時會傳送讀出的教材文字，需家長明示同意。Node服務操作見 docs/DEPLOYMENT_R3.md。
+原版V33、0.1.3角色完整包及六張已批准原圖：取回失敗，未虛構取回。未完成內容及驗收見 docs/REMAINING_R3.md。
+
+## 測試怎樣理解
+
+真實Chromium DOM點擊、鍵盤、下載、填答及音訊介面有執行；瀏覽器環境的持久儲存、跨分頁鎖及密碼運算使用明示替身，家庭媒體／復原日誌測試也用替身。原生localhost/file導覽被環境政策阻擋，沒有繞過。
+
+因此不能宣稱已驗證真實關閉／重開保存、原生多分頁同時操作、手機真機、Safari、Windows啟動器、線上OCR或付費語音。測試孩子、作答和資料是明示的合成夾具，不是真實用戶紀錄，不作學習成效宣傳。
+
+## 開發與完整原件
+
+app/index.html 是使用入口；r3_src 是本輪來源；tools/build_r3.py 可由 originals/R2/index.html 重建；r3_tests 可重新跑測試，依賴 Python、Playwright、Chromium、BeautifulSoup及Node，只供開發者。
+
+原R2檔案未更動者留原路徑，更動前原件置 originals/R2/；對應位置見 r3_evidence/R2_PRESERVATION.json。歷史報告的分數與版本不是R3驗收結果。最終R3報告在 docs/R3_升級及驗證報告.html。
+</pre></main></body></html>

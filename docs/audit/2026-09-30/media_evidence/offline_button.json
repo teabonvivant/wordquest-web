@@ -1,0 +1,11 @@
+{
+  "before": {
+    "workers": 0,
+    "caches": []
+  },
+  "after": {
+    "workers": 0,
+    "caches": []
+  },
+  "notice": "此接入版請保留 HTML 檔案；完整學習網站的離線快取仍需另行部署。"
+}

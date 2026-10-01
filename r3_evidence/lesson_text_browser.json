@@ -1,0 +1,1324 @@
+[
+  {
+    "name": "Concept/example 1N1.1",
+    "pass": true,
+    "detail": {
+      "template": "1N1.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N1.5",
+    "pass": true,
+    "detail": {
+      "template": "1N1.5-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N2.2",
+    "pass": true,
+    "detail": {
+      "template": "1N2.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N3.2",
+    "pass": true,
+    "detail": {
+      "template": "1N3.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N4.1",
+    "pass": true,
+    "detail": {
+      "template": "1N4.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N4.4",
+    "pass": true,
+    "detail": {
+      "template": "1N4.4-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N1.2",
+    "pass": true,
+    "detail": {
+      "template": "2N1.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N1.3",
+    "pass": true,
+    "detail": {
+      "template": "2N1.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N2.1",
+    "pass": true,
+    "detail": {
+      "template": "2N2.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N2.3",
+    "pass": true,
+    "detail": {
+      "template": "2N2.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N3.3",
+    "pass": true,
+    "detail": {
+      "template": "2N3.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N4.2",
+    "pass": true,
+    "detail": {
+      "template": "2N4.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N5.1",
+    "pass": true,
+    "detail": {
+      "template": "2N5.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N5.3",
+    "pass": true,
+    "detail": {
+      "template": "2N5.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N6.2",
+    "pass": true,
+    "detail": {
+      "template": "2N6.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N1.2",
+    "pass": true,
+    "detail": {
+      "template": "3N1.2-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N2.1",
+    "pass": true,
+    "detail": {
+      "template": "3N2.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N3.1",
+    "pass": true,
+    "detail": {
+      "template": "3N3.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N4.3",
+    "pass": true,
+    "detail": {
+      "template": "3N4.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N4.4",
+    "pass": true,
+    "detail": {
+      "template": "3N4.4-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N5.1",
+    "pass": true,
+    "detail": {
+      "template": "3N5.1-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N5.3",
+    "pass": true,
+    "detail": {
+      "template": "3N5.3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N5.4",
+    "pass": true,
+    "detail": {
+      "template": "3N5.4-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-CAL-pattern",
+    "pass": true,
+    "detail": {
+      "template": "O-CAL-pattern-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-CAL-pattern",
+    "pass": true,
+    "detail": {
+      "template": "O-CAL-pattern-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-NUM-pairs",
+    "pass": true,
+    "detail": {
+      "template": "O-NUM-pairs-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-NUM-pairs",
+    "pass": true,
+    "detail": {
+      "template": "O-NUM-pairs-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-APP-queue",
+    "pass": true,
+    "detail": {
+      "template": "O-APP-queue-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-APP-queue",
+    "pass": true,
+    "detail": {
+      "template": "O-APP-queue-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-GEO-segments",
+    "pass": true,
+    "detail": {
+      "template": "O-GEO-segments-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-GEO-segments",
+    "pass": true,
+    "detail": {
+      "template": "O-GEO-segments-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-LOG-digits",
+    "pass": true,
+    "detail": {
+      "template": "O-LOG-digits-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-LOG-digits",
+    "pass": true,
+    "detail": {
+      "template": "O-LOG-digits-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "1N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "1N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "1N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "1N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N5.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2N6.R3",
+    "pass": true,
+    "detail": {
+      "template": "2N6.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "3N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "3N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "3N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "3N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3N5.R3",
+    "pass": true,
+    "detail": {
+      "template": "3N5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N5.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N6.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N6.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N7.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N7.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4N8.R3",
+    "pass": true,
+    "detail": {
+      "template": "4N8.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "5N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "5N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "5N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "5N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5N5.R3",
+    "pass": true,
+    "detail": {
+      "template": "5N5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6N1.R3",
+    "pass": true,
+    "detail": {
+      "template": "6N1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6N2.R3",
+    "pass": true,
+    "detail": {
+      "template": "6N2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6N3.R3",
+    "pass": true,
+    "detail": {
+      "template": "6N3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6N4.R3",
+    "pass": true,
+    "detail": {
+      "template": "6N4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "1M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "1M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1M3.R3",
+    "pass": true,
+    "detail": {
+      "template": "1M3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1M4.R3",
+    "pass": true,
+    "detail": {
+      "template": "1M4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "2M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "2M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 2M3.R3",
+    "pass": true,
+    "detail": {
+      "template": "2M3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "3M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "3M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3M3.R3",
+    "pass": true,
+    "detail": {
+      "template": "3M3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3M4.R3",
+    "pass": true,
+    "detail": {
+      "template": "3M4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3M5.R3",
+    "pass": true,
+    "detail": {
+      "template": "3M5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "4M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "4M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "5M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "5M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6M1.R3",
+    "pass": true,
+    "detail": {
+      "template": "6M1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6M2.R3",
+    "pass": true,
+    "detail": {
+      "template": "6M2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6M3.R3",
+    "pass": true,
+    "detail": {
+      "template": "6M3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6M4.R3",
+    "pass": true,
+    "detail": {
+      "template": "6M4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6M5.R3",
+    "pass": true,
+    "detail": {
+      "template": "6M5.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 1S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "1S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "方塊形",
+        "en": "Cube"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 1S2.R3",
+    "pass": true,
+    "detail": {
+      "template": "1S2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "三角形",
+        "en": "Triangle"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 1S3.R3",
+    "pass": true,
+    "detail": {
+      "template": "1S3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "左邊",
+        "en": "Left"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 2S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "2S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "正方形",
+        "en": "Square"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 2S2.R3",
+    "pass": true,
+    "detail": {
+      "template": "2S2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "銳角",
+        "en": "Acute angle"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 2S3.R3",
+    "pass": true,
+    "detail": {
+      "template": "2S3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "南",
+        "en": "South"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 2S4.R3",
+    "pass": true,
+    "detail": {
+      "template": "2S4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "正方形",
+        "en": "Square"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 3S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "3S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "平行四邊形（非長方形）",
+        "en": "Parallelogram, not rectangle"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 3S2.R3",
+    "pass": true,
+    "detail": {
+      "template": "3S2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "等邊三角形",
+        "en": "Equilateral triangle"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 4S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "4S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "菱形（非正方形）",
+        "en": "Rhombus, not square"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 4S2.R3",
+    "pass": true,
+    "detail": {
+      "template": "4S2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4S3.R3",
+    "pass": true,
+    "detail": {
+      "template": "4S3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "東北",
+        "en": "Northeast"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 5S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "5S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5S2.R3",
+    "pass": true,
+    "detail": {
+      "template": "5S2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6S1.R3",
+    "pass": true,
+    "detail": {
+      "template": "6S1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "4條",
+        "en": "4"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 2D1.R3",
+    "pass": true,
+    "detail": {
+      "template": "2D1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 3D1.R3",
+    "pass": true,
+    "detail": {
+      "template": "3D1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 4D1.R3",
+    "pass": true,
+    "detail": {
+      "template": "4D1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5D1.R3",
+    "pass": true,
+    "detail": {
+      "template": "5D1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6D1.R3",
+    "pass": true,
+    "detail": {
+      "template": "6D1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6D2.R3",
+    "pass": true,
+    "detail": {
+      "template": "6D2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6D3.R3",
+    "pass": true,
+    "detail": {
+      "template": "6D3.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6D4.R3",
+    "pass": true,
+    "detail": {
+      "template": "6D4.R3-T1:7",
+      "stage": 2,
+      "answerLabel": {
+        "zh": "截斷縱軸誇大差異",
+        "en": "Truncated axis exaggerates differences"
+      }
+    }
+  },
+  {
+    "name": "Concept/example 5A1.R3",
+    "pass": true,
+    "detail": {
+      "template": "5A1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 5A2.R3",
+    "pass": true,
+    "detail": {
+      "template": "5A2.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example 6A1.R3",
+    "pass": true,
+    "detail": {
+      "template": "6A1.R3-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L2-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-inverse-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L2-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-inverse-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L2-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-count-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L2-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-count-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L2-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-geometry-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L2-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-geometry-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L2-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-logic-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L2-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-logic-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L2-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-applied-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L2-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L2-applied-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L3-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-inverse-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L3-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-inverse-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L3-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-count-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L3-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-count-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L3-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-geometry-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L3-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-geometry-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L3-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-logic-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L3-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-logic-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L3-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-applied-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L3-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L3-applied-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L4-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-inverse-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L4-inverse",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-inverse-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L4-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-count-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L4-count",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-count-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L4-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-geometry-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L4-geometry",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-geometry-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L4-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-logic-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L4-logic",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-logic-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Concept/example O-R3-L4-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-applied-T1:7",
+      "stage": 2,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "Alternative method O-R3-L4-applied",
+    "pass": true,
+    "detail": {
+      "template": "O-R3-L4-applied-T1:7",
+      "stage": 4,
+      "answerLabel": null
+    }
+  },
+  {
+    "name": "No uncaught errors in 142 seeded lesson views",
+    "pass": true,
+    "detail": true
+  }
+]

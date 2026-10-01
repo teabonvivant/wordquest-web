@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "name": "Builtin spelling unit completes through normal lesson UI and persists learningV30 records",
+      "status": "pass",
+      "detail": {
+        "answered": 2,
+        "completed": "completed"
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Builtin unavailable audio can be marked technical without counting a wrong answer",
+      "status": "pass",
+      "detail": {
+        "technical": true,
+        "correct": null,
+        "limitation": "Tests the explicit technical fallback; no human evaluation of pronunciation"
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Complete family backup restores into a new synthetic account with native owner remapping",
+      "status": "pass",
+      "detail": {
+        "newAccountPreserved": true,
+        "mathAttempts": 10,
+        "balance": 1
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Normal pupil sees decoded previews for all 26 cabinets including locked games",
+      "status": "pass",
+      "detail": {
+        "previews": 26,
+        "allDecoded": true,
+        "mode": "ordinary synthetic pupil, no admin"
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Ordinary game purchase deducts exactly one stored coin and saves a real checkpoint",
+      "status": "pass",
+      "detail": {
+        "coinDeducted": 1,
+        "checkpointSaved": true,
+        "phase": "paused"
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Native game reload and resume preserve run identity without a second coin deduction",
+      "status": "pass",
+      "detail": {
+        "sameRun": true,
+        "sameSeed": true,
+        "sameSnapshot": true,
+        "extraCharge": 0
+      },
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    },
+    {
+      "name": "Builtin and ordinary-wallet native scenarios have no uncaught browser exceptions",
+      "status": "pass",
+      "detail": [],
+      "scope": "native Chromium actual UI, native storage, new synthetic family; no admin discount"
+    }
+  ],
+  "pageErrors": []
+}

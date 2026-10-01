@@ -1,0 +1,240 @@
+[
+  {
+    "name": "Actual family-panel device report dialog opens",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Downloaded health report excludes synthetic pupil name and account data",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": {
+      "children": 1,
+      "noName": true,
+      "notRestartProof": true
+    }
+  },
+  {
+    "name": "Export holds writer guard while media snapshot is pending",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Export makes application UI inert until snapshot completes",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Concurrent ordinary save is refused while exporting",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Pending export refuses media store",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Pending export refuses media del",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Second export request is refused during first",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Successful export releases busy guard and inert state",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Real family backup download reports R3.2",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "External storage mutation during export rejects inconsistent snapshot",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Failed export restores usability",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "In-progress image/audio importer blocks family export",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Oversize fault path emits no unrecoverable download and releases guard",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Foreign-family recovery journal is refused before any replay",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Invalid recovery keeps evidence marker and blocks other writes",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Same-family corrupt main JSON journal cannot overwrite last valid main",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Blocked IndexedDB open rejects rather than hanging; late connection closes",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "No uncaught errors in new host safety scenarios",
+    "scope": "app-adapted-IO",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Native diagnostic page refuses unsupported insecure context instead of shimming",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Failed probe preparation is stated without false success message",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Restart attestation requires explicit user action",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Attestation without successful stored-data check cannot pass restart",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Unsupported native cross-tab test explicitly blocked",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Native diagnostic page has no uncaught exceptions in blocked environment",
+    "scope": "native-diagnostic-ui-only",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Canvas rig is painted and exposes eight selectable states",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives idle",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives run",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives jump",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives fall",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives land",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives dash",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives hit",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Action selector drives victory",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Pause freezes animation timeline",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Single-step advances one frame without resume",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "Reverse preserves selection and flips direction",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "320px action lab has no horizontal overflow",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  },
+  {
+    "name": "No uncaught canvas/control errors",
+    "scope": "animation-real-canvas",
+    "status": "pass",
+    "detail": true
+  }
+]

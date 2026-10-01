@@ -1,0 +1,5997 @@
+[
+  {
+    "path": "WordQuest_R3_2/PACKAGE_MANIFEST.json",
+    "size": 242015,
+    "zip_crc": 1966060505
+  },
+  {
+    "path": "WordQuest_R3_2/README_R3.md",
+    "size": 4410,
+    "zip_crc": 442749525
+  },
+  {
+    "path": "WordQuest_R3_2/README_R3_1.md",
+    "size": 3403,
+    "zip_crc": 2221626026
+  },
+  {
+    "path": "WordQuest_R3_2/README_R3_2.md",
+    "size": 7106,
+    "zip_crc": 1744548264
+  },
+  {
+    "path": "WordQuest_R3_2/README_先看這份.md",
+    "size": 487,
+    "zip_crc": 169998931
+  },
+  {
+    "path": "WordQuest_R3_2/SHA256SUMS.txt",
+    "size": 159339,
+    "zip_crc": 3989183963
+  },
+  {
+    "path": "WordQuest_R3_2/START_HERE.html",
+    "size": 3854,
+    "zip_crc": 1460087970
+  },
+  {
+    "path": "WordQuest_R3_2/START_WINDOWS.cmd",
+    "size": 129,
+    "zip_crc": 1533869661
+  },
+  {
+    "path": "WordQuest_R3_2/START_WITH_VOICE.cmd",
+    "size": 454,
+    "zip_crc": 372559338
+  },
+  {
+    "path": "WordQuest_R3_2/app/WordQuest_Maths_Plugin_R1.html.txt",
+    "size": 317351,
+    "zip_crc": 1923043206
+  },
+  {
+    "path": "WordQuest_R3_2/app/afeng-animation.html",
+    "size": 5460,
+    "zip_crc": 3868072977
+  },
+  {
+    "path": "WordQuest_R3_2/app/afeng-rig.js",
+    "size": 9118,
+    "zip_crc": 2061960400
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/concept-original.png",
+    "size": 2326995,
+    "zip_crc": 1146635520
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/face0.webp",
+    "size": 2766,
+    "zip_crc": 3501833729
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/face1.webp",
+    "size": 2370,
+    "zip_crc": 1374402559
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/face2.webp",
+    "size": 2452,
+    "zip_crc": 2252978556
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/face3.webp",
+    "size": 2660,
+    "zip_crc": 4273665762
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/face4.webp",
+    "size": 2678,
+    "zip_crc": 1030212801
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/front.webp",
+    "size": 20392,
+    "zip_crc": 156112928
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/a-feng/sheet.webp",
+    "size": 274134,
+    "zip_crc": 3743629602
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/concept-original.png",
+    "size": 2455623,
+    "zip_crc": 3586390506
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/face0.webp",
+    "size": 3286,
+    "zip_crc": 2033539081
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/face1.webp",
+    "size": 3242,
+    "zip_crc": 4149736044
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/face2.webp",
+    "size": 3494,
+    "zip_crc": 3935412448
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/face3.webp",
+    "size": 3074,
+    "zip_crc": 463682958
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/face4.webp",
+    "size": 3176,
+    "zip_crc": 2475421635
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/front.webp",
+    "size": 25862,
+    "zip_crc": 2666083048
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/bo-bo/sheet.webp",
+    "size": 303840,
+    "zip_crc": 1861454355
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/concept-original.png",
+    "size": 2408893,
+    "zip_crc": 517397069
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/face0.webp",
+    "size": 4248,
+    "zip_crc": 4089109328
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/face1.webp",
+    "size": 4216,
+    "zip_crc": 3307790833
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/face2.webp",
+    "size": 4024,
+    "zip_crc": 2212765744
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/face3.webp",
+    "size": 3854,
+    "zip_crc": 699105841
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/face4.webp",
+    "size": 4018,
+    "zip_crc": 4043793021
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/front.webp",
+    "size": 24502,
+    "zip_crc": 2583524157
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/ci-ci/sheet.webp",
+    "size": 300314,
+    "zip_crc": 146690287
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/concept-original.png",
+    "size": 2411976,
+    "zip_crc": 4063303012
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/face0.webp",
+    "size": 4366,
+    "zip_crc": 1434816614
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/face1.webp",
+    "size": 4428,
+    "zip_crc": 2878577220
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/face2.webp",
+    "size": 4432,
+    "zip_crc": 1216946664
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/face3.webp",
+    "size": 4528,
+    "zip_crc": 1221506705
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/face4.webp",
+    "size": 4030,
+    "zip_crc": 3409789785
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/front.webp",
+    "size": 22400,
+    "zip_crc": 2013912068
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/lie-lie/sheet.webp",
+    "size": 285218,
+    "zip_crc": 2833921463
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/manifest.json",
+    "size": 17140,
+    "zip_crc": 1199950783
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/concept-original.png",
+    "size": 2515436,
+    "zip_crc": 3324990225
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/face0.webp",
+    "size": 4384,
+    "zip_crc": 1131023555
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/face1.webp",
+    "size": 4110,
+    "zip_crc": 3399512949
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/face2.webp",
+    "size": 4704,
+    "zip_crc": 3337931682
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/face3.webp",
+    "size": 4246,
+    "zip_crc": 2084495348
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/face4.webp",
+    "size": 4102,
+    "zip_crc": 4173761995
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/front.webp",
+    "size": 24950,
+    "zip_crc": 3706085375
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/tang-li/sheet.webp",
+    "size": 321710,
+    "zip_crc": 2128255873
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/concept-original.png",
+    "size": 2373534,
+    "zip_crc": 1579284781
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/face0.webp",
+    "size": 3950,
+    "zip_crc": 1805657448
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/face1.webp",
+    "size": 3764,
+    "zip_crc": 2484940551
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/face2.webp",
+    "size": 3760,
+    "zip_crc": 1345185843
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/face3.webp",
+    "size": 3978,
+    "zip_crc": 1067064070
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/face4.webp",
+    "size": 3922,
+    "zip_crc": 1601565037
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/front.webp",
+    "size": 23290,
+    "zip_crc": 3549211500
+  },
+  {
+    "path": "WordQuest_R3_2/app/assets/forest/you-you/sheet.webp",
+    "size": 288074,
+    "zip_crc": 3987859211
+  },
+  {
+    "path": "WordQuest_R3_2/app/device-check.html",
+    "size": 3338,
+    "zip_crc": 702084092
+  },
+  {
+    "path": "WordQuest_R3_2/app/device-check.js",
+    "size": 12111,
+    "zip_crc": 3095265007
+  },
+  {
+    "path": "WordQuest_R3_2/app/index.html",
+    "size": 12176254,
+    "zip_crc": 534162251
+  },
+  {
+    "path": "WordQuest_R3_2/app/sw.js",
+    "size": 1592,
+    "zip_crc": 721999087
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/browser_results.json",
+    "size": 78420,
+    "zip_crc": 3767797543
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/build.json",
+    "size": 366,
+    "zip_crc": 204382256
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/cloud-island_paused.png",
+    "size": 220999,
+    "zip_crc": 319572478
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/compatibility_results.json",
+    "size": 1413,
+    "zip_crc": 3158237965
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/core_results.json",
+    "size": 57694,
+    "zip_crc": 2616799423
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/harbor-volley_paused.png",
+    "size": 206359,
+    "zip_crc": 723984846
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/lighthouse-well_paused.png",
+    "size": 192029,
+    "zip_crc": 3435052475
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/lobby_probe.png",
+    "size": 1076662,
+    "zip_crc": 3648300063
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/parallel_run_interruption.json",
+    "size": 4860,
+    "zip_crc": 2079106474
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_preservation.json",
+    "size": 185282,
+    "zip_crc": 3198791929
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/daily-complete.png",
+    "size": 463378,
+    "zip_crc": 244185048
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/integration_results.json",
+    "size": 38837,
+    "zip_crc": 3066245713
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/integration_summary.json",
+    "size": 320,
+    "zip_crc": 3015805540
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/maths-1280.png",
+    "size": 437811,
+    "zip_crc": 1206465703
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/maths-320.png",
+    "size": 355111,
+    "zip_crc": 1416077264
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/maths-390.png",
+    "size": 362203,
+    "zip_crc": 2909309499
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/r1_regression/olympiad-complete.png",
+    "size": 444385,
+    "zip_crc": 2160960620
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/release_verification.json",
+    "size": 1721,
+    "zip_crc": 2172377975
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/ruins-courier_320x568.png",
+    "size": 40748,
+    "zip_crc": 3365512825
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/ruins-courier_390x844.png",
+    "size": 50201,
+    "zip_crc": 2123806565
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/ruins-courier_844x390.png",
+    "size": 58397,
+    "zip_crc": 2178110635
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/ruins-courier_paused.png",
+    "size": 233291,
+    "zip_crc": 3807618728
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/safety_first_run.json",
+    "size": 3750,
+    "zip_crc": 2946660716
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/safety_results.json",
+    "size": 4032,
+    "zip_crc": 3100530214
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/source_comparison.json",
+    "size": 8491,
+    "zip_crc": 2703152560
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/star-patrol_320x568.png",
+    "size": 40348,
+    "zip_crc": 3958522875
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/star-patrol_390x844.png",
+    "size": 49283,
+    "zip_crc": 1658394163
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/star-patrol_844x390.png",
+    "size": 59918,
+    "zip_crc": 3021813909
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/star-patrol_paused.png",
+    "size": 219354,
+    "zip_crc": 4133443575
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/summary.json",
+    "size": 1388,
+    "zip_crc": 297851379
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/syntax.json",
+    "size": 2306,
+    "zip_crc": 1909671920
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_evidence/test_fixture_initial.json",
+    "size": 4616,
+    "zip_crc": 2928304814
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_src/arcade.css",
+    "size": 4647,
+    "zip_crc": 785459468
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_src/audio.js",
+    "size": 3297,
+    "zip_crc": 54402678
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_src/engines.js",
+    "size": 37510,
+    "zip_crc": 1750872167
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_src/host_extension.js",
+    "size": 4709,
+    "zip_crc": 4156214156
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/bots.cjs",
+    "size": 2367,
+    "zip_crc": 2897149108
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/browser_arcade.py",
+    "size": 6383,
+    "zip_crc": 2172941126
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/browser_compatibility.py",
+    "size": 3553,
+    "zip_crc": 2398108780
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/browser_probe.py",
+    "size": 1297,
+    "zip_crc": 585668273
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/browser_safety.py",
+    "size": 9450,
+    "zip_crc": 1865448559
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/core_tests.cjs",
+    "size": 10938,
+    "zip_crc": 635589002
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/engine_harness.cjs",
+    "size": 1800,
+    "zip_crc": 3387878931
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/explore.cjs",
+    "size": 899,
+    "zip_crc": 1276494649
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/r1_regression.py",
+    "size": 23969,
+    "zip_crc": 3810523725
+  },
+  {
+    "path": "WordQuest_R3_2/arcade_tests/syntax_check.py",
+    "size": 676,
+    "zip_crc": 2554949048
+  },
+  {
+    "path": "WordQuest_R3_2/docs/CURRICULUM_COVERAGE_R3.json",
+    "size": 58400,
+    "zip_crc": 968077219
+  },
+  {
+    "path": "WordQuest_R3_2/docs/DATA_MIGRATION_R3.html",
+    "size": 4793,
+    "zip_crc": 2799221661
+  },
+  {
+    "path": "WordQuest_R3_2/docs/DATA_MIGRATION_R3.md",
+    "size": 2842,
+    "zip_crc": 2297473524
+  },
+  {
+    "path": "WordQuest_R3_2/docs/DEPLOYMENT_R3.html",
+    "size": 5314,
+    "zip_crc": 1630711692
+  },
+  {
+    "path": "WordQuest_R3_2/docs/DEPLOYMENT_R3.md",
+    "size": 3357,
+    "zip_crc": 1563110580
+  },
+  {
+    "path": "WordQuest_R3_2/docs/GAP_STATUS_R3.json",
+    "size": 3365,
+    "zip_crc": 524807232
+  },
+  {
+    "path": "WordQuest_R3_2/docs/R3_1_角色接入報告.html",
+    "size": 8902,
+    "zip_crc": 1342539165
+  },
+  {
+    "path": "WordQuest_R3_2/docs/R3_2_原生驗收表.md",
+    "size": 2479,
+    "zip_crc": 2373908988
+  },
+  {
+    "path": "WordQuest_R3_2/docs/R3_2_驗收報告.html",
+    "size": 519321,
+    "zip_crc": 3329016130
+  },
+  {
+    "path": "WordQuest_R3_2/docs/R3_升級及驗證報告.html",
+    "size": 1077708,
+    "zip_crc": 2920104108
+  },
+  {
+    "path": "WordQuest_R3_2/docs/REMAINING_R3.html",
+    "size": 5373,
+    "zip_crc": 3537680160
+  },
+  {
+    "path": "WordQuest_R3_2/docs/REMAINING_R3.md",
+    "size": 3123,
+    "zip_crc": 2955587830
+  },
+  {
+    "path": "WordQuest_R3_2/docs/THIRD_PARTY_R3.html",
+    "size": 3478,
+    "zip_crc": 2208542438
+  },
+  {
+    "path": "WordQuest_R3_2/docs/THIRD_PARTY_R3.md",
+    "size": 1526,
+    "zip_crc": 3778023674
+  },
+  {
+    "path": "WordQuest_R3_2/docs/使用說明_R3.html",
+    "size": 6403,
+    "zip_crc": 1108076750
+  },
+  {
+    "path": "WordQuest_R3_2/docs/本輪套用及驗證報告.html",
+    "size": 108962,
+    "zip_crc": 2585795706
+  },
+  {
+    "path": "WordQuest_R3_2/docs/街機R2_升級及驗證報告.html",
+    "size": 73909,
+    "zip_crc": 2712764350
+  },
+  {
+    "path": "WordQuest_R3_2/docs/街機R2_開發交接.md",
+    "size": 5388,
+    "zip_crc": 4056428484
+  },
+  {
+    "path": "WordQuest_R3_2/docs/角色素材一覽_R3_1.html",
+    "size": 10183,
+    "zip_crc": 2106686187
+  },
+  {
+    "path": "WordQuest_R3_2/docs/課程覆蓋_R3.html",
+    "size": 11355,
+    "zip_crc": 4181170581
+  },
+  {
+    "path": "WordQuest_R3_2/docs/開發交接_R1.md",
+    "size": 4444,
+    "zip_crc": 2417472856
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/build.json",
+    "size": 500,
+    "zip_crc": 3957852411
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/daily-complete.png",
+    "size": 463148,
+    "zip_crc": 3819693663
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/delivery_links.json",
+    "size": 2476,
+    "zip_crc": 2461270773
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/development-first-integration-run.json",
+    "size": 36027,
+    "zip_crc": 2554340151
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/development-test-harness-fatal.txt",
+    "size": 2597,
+    "zip_crc": 2472585229
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/english-home-1280.png",
+    "size": 303292,
+    "zip_crc": 1715786650
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/english-home-390.png",
+    "size": 132389,
+    "zip_crc": 3593574272
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/environment.json",
+    "size": 790,
+    "zip_crc": 3519210029
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/final_summary.json",
+    "size": 562,
+    "zip_crc": 3273775382
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/first-math-smoke.png",
+    "size": 126892,
+    "zip_crc": 892377489
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/integration_results.json",
+    "size": 38836,
+    "zip_crc": 2177438536
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/integration_summary.json",
+    "size": 320,
+    "zip_crc": 3015805540
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/javascript_syntax.json",
+    "size": 2267,
+    "zip_crc": 3236604735
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-1280.png",
+    "size": 438734,
+    "zip_crc": 351735929
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-320.png",
+    "size": 354953,
+    "zip_crc": 3262807866
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-390.png",
+    "size": 363067,
+    "zip_crc": 1569010733
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-answer-1280.png",
+    "size": 57895,
+    "zip_crc": 3949545389
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-answer-390.png",
+    "size": 48446,
+    "zip_crc": 624978190
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-feedback-1280.png",
+    "size": 38509,
+    "zip_crc": 968004050
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-feedback-390.png",
+    "size": 43476,
+    "zip_crc": 3698900484
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-home-1280.png",
+    "size": 128395,
+    "zip_crc": 2712613140
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/maths-home-390.png",
+    "size": 79971,
+    "zip_crc": 879047285
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/olympiad-complete.png",
+    "size": 442654,
+    "zip_crc": 3149296445
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/originals_integrity.json",
+    "size": 170,
+    "zip_crc": 1182094289
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/report-preview.png",
+    "size": 128222,
+    "zip_crc": 2692625733
+  },
+  {
+    "path": "WordQuest_R3_2/evidence/viewport_capture.json",
+    "size": 864,
+    "zip_crc": 1979693347
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/PACKAGE_MANIFEST.json",
+    "size": 159982,
+    "zip_crc": 3667187507
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/README_先看這份.md",
+    "size": 5448,
+    "zip_crc": 906033799
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/SHA256SUMS.txt",
+    "size": 110920,
+    "zip_crc": 1562411892
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/START_HERE.html",
+    "size": 4289,
+    "zip_crc": 3714332370
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/index.html",
+    "size": 12765668,
+    "zip_crc": 3077835939
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/build.py",
+    "size": 6047,
+    "zip_crc": 743133694
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/make_delivery.py",
+    "size": 14959,
+    "zip_crc": 618246886
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/package_release.py",
+    "size": 3217,
+    "zip_crc": 221524673
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/patch_math.py",
+    "size": 3489,
+    "zip_crc": 1923276004
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/serve.ps1",
+    "size": 3385,
+    "zip_crc": 3154007015
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R1/tools/verify_build.py",
+    "size": 3716,
+    "zip_crc": 3451321532
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/PACKAGE_MANIFEST.json",
+    "size": 171382,
+    "zip_crc": 2343295863
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/README_先看這份.md",
+    "size": 3188,
+    "zip_crc": 3656570544
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/SHA256SUMS.txt",
+    "size": 117281,
+    "zip_crc": 2300575663
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/START_HERE.html",
+    "size": 6007,
+    "zip_crc": 388922952
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/START_WINDOWS.cmd",
+    "size": 139,
+    "zip_crc": 3195400224
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/index.html",
+    "size": 12815103,
+    "zip_crc": 4294208126
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2/tools/serve.ps1",
+    "size": 3385,
+    "zip_crc": 3154007015
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2_Gap_Audit/WordQuest_R2_Gap_Audit_20260929.html",
+    "size": 608610,
+    "zip_crc": 1364616326
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R2_Gap_Audit/WordQuest_R2_Gap_Audit_20260929.zip",
+    "size": 2738651,
+    "zip_crc": 2314416438
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/PACKAGE_MANIFEST.json",
+    "size": 198662,
+    "zip_crc": 2066493958
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/README_先看這份.md",
+    "size": 4410,
+    "zip_crc": 442749525
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/SHA256SUMS.txt",
+    "size": 133912,
+    "zip_crc": 136928167
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/START_HERE.html",
+    "size": 3971,
+    "zip_crc": 2989174263
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/index.html",
+    "size": 13303924,
+    "zip_crc": 4057416026
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3/sw.js",
+    "size": 1592,
+    "zip_crc": 4199994500
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/PACKAGE_MANIFEST.json",
+    "size": 224884,
+    "zip_crc": 3563836918
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/README_先看這份.md",
+    "size": 3403,
+    "zip_crc": 2221626026
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/SHA256SUMS.txt",
+    "size": 149219,
+    "zip_crc": 1976507264
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/START_HERE.html",
+    "size": 4897,
+    "zip_crc": 2898533624
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/app/index.html",
+    "size": 12160772,
+    "zip_crc": 4104370761
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/app/sw.js",
+    "size": 1592,
+    "zip_crc": 2134988689
+  },
+  {
+    "path": "WordQuest_R3_2/originals/R3_1/server/local_server.mjs",
+    "size": 5176,
+    "zip_crc": 285683050
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/WordQuest_V32_Integrated.html",
+    "size": 12441050,
+    "zip_crc": 3136448169
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ30Data.json",
+    "size": 5055601,
+    "zip_crc": 1592724332
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ31Data.json",
+    "size": 91478,
+    "zip_crc": 1979010748
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ32Art.json",
+    "size": 3859126,
+    "zip_crc": 3861961457
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQStateFields.json",
+    "size": 3458,
+    "zip_crc": 2339926982
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_FAMILY_DATA.json",
+    "size": 4268,
+    "zip_crc": 2807230786
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_PHONICS_DATA.json",
+    "size": 16306,
+    "zip_crc": 4007835570
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_SHARED_REFERENCE.json",
+    "size": 2566285,
+    "zip_crc": 2198789032
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/data/WQ_TEACHER_PATCH.json",
+    "size": 228928,
+    "zip_crc": 3286628181
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_00.js",
+    "size": 15983,
+    "zip_crc": 2741871980
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_01.js",
+    "size": 11369,
+    "zip_crc": 4180306399
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_02.js",
+    "size": 9400,
+    "zip_crc": 1183752598
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_03.js",
+    "size": 226037,
+    "zip_crc": 3445309156
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_04.js",
+    "size": 1717439,
+    "zip_crc": 2791601386
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_05.js",
+    "size": 16160,
+    "zip_crc": 2335070209
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_06.js",
+    "size": 3483,
+    "zip_crc": 2784636165
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_07.js",
+    "size": 3954,
+    "zip_crc": 588873351
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_08.js",
+    "size": 4872,
+    "zip_crc": 327863056
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_09.js",
+    "size": 9824,
+    "zip_crc": 3693970570
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_10.js",
+    "size": 2232,
+    "zip_crc": 1239562024
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_11.js",
+    "size": 16825,
+    "zip_crc": 2181029833
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_12.js",
+    "size": 6878,
+    "zip_crc": 3153176601
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_13.js",
+    "size": 6643,
+    "zip_crc": 2476561534
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_14.js",
+    "size": 22058,
+    "zip_crc": 2074636565
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_15.js",
+    "size": 19644,
+    "zip_crc": 3136341467
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_16.js",
+    "size": 19205,
+    "zip_crc": 1973472276
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_17.js",
+    "size": 15060,
+    "zip_crc": 1172325507
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_18.js",
+    "size": 90313,
+    "zip_crc": 3859999808
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_19.js",
+    "size": 13650,
+    "zip_crc": 207389590
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_20.js",
+    "size": 7082,
+    "zip_crc": 3300291865
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_21.js",
+    "size": 14207,
+    "zip_crc": 1006245363
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_22.js",
+    "size": 2073,
+    "zip_crc": 3906354123
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_23.js",
+    "size": 4505624,
+    "zip_crc": 3264168047
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_24.js",
+    "size": 16037,
+    "zip_crc": 3978741298
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_25.js",
+    "size": 61510,
+    "zip_crc": 532303444
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_26.js",
+    "size": 12893,
+    "zip_crc": 1788858802
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_27.js",
+    "size": 3859073,
+    "zip_crc": 2532977066
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_28.js",
+    "size": 5931,
+    "zip_crc": 1467865820
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_29.js",
+    "size": 144,
+    "zip_crc": 2857193789
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_30.js",
+    "size": 1581553,
+    "zip_crc": 2963386013
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/styles.css",
+    "size": 140904,
+    "zip_crc": 2261327592
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_0.1.2.html",
+    "size": 313817,
+    "zip_crc": 3676628149
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/WordQuest_Maths_Plugin_0.1.2.html.txt",
+    "size": 313601,
+    "zip_crc": 264622404
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/curriculum.json",
+    "size": 278444,
+    "zip_crc": 2827697949
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/maths.css",
+    "size": 15634,
+    "zip_crc": 810005986
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_00.js",
+    "size": 206388,
+    "zip_crc": 95977910
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_01.js",
+    "size": 32857,
+    "zip_crc": 351186192
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_02.js",
+    "size": 7335,
+    "zip_crc": 2069238756
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_03.js",
+    "size": 66886,
+    "zip_crc": 57277855
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/03_Installer/WordQuest_Maths_0.1.2_Installer.html",
+    "size": 424534,
+    "zip_crc": 4272010795
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/03_Installer/相容性提醒.md",
+    "size": 766,
+    "zip_crc": 2295176104
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_001_ad1f26d1b6ff.png",
+    "size": 4062,
+    "zip_crc": 1197478335
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_002_a1b39922c12d.png",
+    "size": 3987,
+    "zip_crc": 3201865304
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_003_9a67b3c1ef62.png",
+    "size": 2981,
+    "zip_crc": 2717197599
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_004_3eb2cba20177.png",
+    "size": 4365,
+    "zip_crc": 1889775346
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_005_736896c6fa3a.png",
+    "size": 3346,
+    "zip_crc": 1590891739
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_006_9eced4ccc1d3.png",
+    "size": 4076,
+    "zip_crc": 3066100839
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_007_fbebe961e006.png",
+    "size": 2978,
+    "zip_crc": 2218164220
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_008_4820755133f2.png",
+    "size": 3004,
+    "zip_crc": 3242180993
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_009_f12f82a5ccaf.png",
+    "size": 2879,
+    "zip_crc": 587779996
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_010_860f3a3cfe38.png",
+    "size": 3878,
+    "zip_crc": 659797242
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_011_09244ce044cb.png",
+    "size": 3192,
+    "zip_crc": 3020740308
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_012_57bfd47700a5.png",
+    "size": 4229,
+    "zip_crc": 2164024751
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_013_dc203ad725b9.png",
+    "size": 5482,
+    "zip_crc": 3479554539
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_014_7268f8381859.png",
+    "size": 5819,
+    "zip_crc": 1502029122
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_015_7f412875fdc5.png",
+    "size": 3455,
+    "zip_crc": 1778815574
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_016_1aca4b5f53e3.png",
+    "size": 3342,
+    "zip_crc": 393544586
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_017_656e5bd014ec.png",
+    "size": 3305,
+    "zip_crc": 1742146167
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_018_fa782e1f9415.png",
+    "size": 3612,
+    "zip_crc": 1414712483
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_019_ba3134b1c95f.png",
+    "size": 3335,
+    "zip_crc": 3924884765
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_020_9a8273839dcf.png",
+    "size": 5094,
+    "zip_crc": 2351905469
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_021_b818ed8c1306.png",
+    "size": 5988,
+    "zip_crc": 3605332562
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_022_19b44c451d8e.png",
+    "size": 3170,
+    "zip_crc": 4172701076
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_023_764c63718b99.png",
+    "size": 2534,
+    "zip_crc": 3546435216
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_024_9922f3243c2d.png",
+    "size": 4272,
+    "zip_crc": 1643717918
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_025_6893e9e8f86b.png",
+    "size": 3438,
+    "zip_crc": 3174479382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_026_de4c98eec99d.png",
+    "size": 3102,
+    "zip_crc": 2927884663
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_027_92ddb5eb54f6.png",
+    "size": 3691,
+    "zip_crc": 3025135437
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_028_3549bd299b22.png",
+    "size": 3731,
+    "zip_crc": 1160109469
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_029_9278c7b0aea8.png",
+    "size": 4891,
+    "zip_crc": 2362702930
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_030_b6b7c0ab2b9d.png",
+    "size": 4147,
+    "zip_crc": 2944193665
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_031_30ed1eab1ac4.png",
+    "size": 4994,
+    "zip_crc": 4292186737
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_032_2438e1187bed.png",
+    "size": 4585,
+    "zip_crc": 1870756702
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_033_5b1e2e4f7aa7.png",
+    "size": 4306,
+    "zip_crc": 1414267049
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_034_fdec593a7243.png",
+    "size": 3493,
+    "zip_crc": 636562503
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_035_ff171e6ad86e.png",
+    "size": 3995,
+    "zip_crc": 834103488
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_036_a94311f58c6e.png",
+    "size": 3324,
+    "zip_crc": 3294757174
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_037_3c253c827e0f.png",
+    "size": 4752,
+    "zip_crc": 644882945
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_038_8f893e458644.png",
+    "size": 5859,
+    "zip_crc": 3986358709
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_039_2017c39f774f.png",
+    "size": 2822,
+    "zip_crc": 2930218392
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_040_308859ab2965.webp",
+    "size": 67694,
+    "zip_crc": 1377589683
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_041_8c150a1c3a43.webp",
+    "size": 11072,
+    "zip_crc": 3144025278
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_042_2e42b4b883d4.webp",
+    "size": 9684,
+    "zip_crc": 1688856688
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_043_4c7a5ee186a2.webp",
+    "size": 9510,
+    "zip_crc": 1309697040
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_044_c1e29899a0ad.webp",
+    "size": 5724,
+    "zip_crc": 2157180059
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_045_443e3388e72d.webp",
+    "size": 8274,
+    "zip_crc": 2075059702
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_046_4a437858dccd.webp",
+    "size": 7978,
+    "zip_crc": 285131742
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_047_bf4b27553adc.webp",
+    "size": 7430,
+    "zip_crc": 3890833841
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_048_c1bcab959293.webp",
+    "size": 10848,
+    "zip_crc": 2986866723
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_049_747cadeadf6c.webp",
+    "size": 3626,
+    "zip_crc": 2262022672
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_050_f3a1d548bb2b.webp",
+    "size": 9572,
+    "zip_crc": 3158367228
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_051_3450e7f45b0c.webp",
+    "size": 8622,
+    "zip_crc": 1220168607
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_052_9af9ea85cd75.webp",
+    "size": 10130,
+    "zip_crc": 1219713156
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_053_db601e070f6c.webp",
+    "size": 2230,
+    "zip_crc": 1641201624
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_054_7a5bce1feb6f.webp",
+    "size": 20070,
+    "zip_crc": 324982686
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_055_4068a05cb62f.webp",
+    "size": 12800,
+    "zip_crc": 3679178314
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_056_7478f7e04251.webp",
+    "size": 24710,
+    "zip_crc": 3150396558
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_057_eb771a444c3b.webp",
+    "size": 10338,
+    "zip_crc": 2137730336
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_058_9ea998ca54e9.webp",
+    "size": 8840,
+    "zip_crc": 981849146
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_059_5e0b12994076.webp",
+    "size": 10382,
+    "zip_crc": 4128416590
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_060_0164a396dc6d.webp",
+    "size": 10316,
+    "zip_crc": 1219022058
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_061_8db669fb6371.webp",
+    "size": 14988,
+    "zip_crc": 2654828685
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_062_5c84c4dd6386.webp",
+    "size": 10086,
+    "zip_crc": 931883342
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_063_74e0623df705.webp",
+    "size": 9854,
+    "zip_crc": 4016203196
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_064_23f60c7bd9ca.webp",
+    "size": 9198,
+    "zip_crc": 1548447614
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_065_9a0e1c8a711f.webp",
+    "size": 10324,
+    "zip_crc": 3292215784
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_066_8396cec2e4c0.webp",
+    "size": 3366,
+    "zip_crc": 300751269
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_067_36cbaf06833a.webp",
+    "size": 7568,
+    "zip_crc": 1497004336
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_068_3a0efc9fd4ab.webp",
+    "size": 8574,
+    "zip_crc": 2996643030
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_069_afcb89d750a0.webp",
+    "size": 9388,
+    "zip_crc": 3091764035
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_070_c685fb66cc6e.webp",
+    "size": 10850,
+    "zip_crc": 775513169
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_071_b579bc241db9.webp",
+    "size": 6710,
+    "zip_crc": 139352338
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_072_5dab11f2b565.webp",
+    "size": 11244,
+    "zip_crc": 1401672024
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_073_71918e627c06.webp",
+    "size": 6626,
+    "zip_crc": 2513515722
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_074_d77fa5e4af84.webp",
+    "size": 2424,
+    "zip_crc": 8234421
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_075_9e06f6e1d14a.webp",
+    "size": 9666,
+    "zip_crc": 615396357
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_076_12e832e02fee.webp",
+    "size": 7382,
+    "zip_crc": 1881822694
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_077_65a5fa3ba6e8.webp",
+    "size": 7142,
+    "zip_crc": 103588061
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_078_7592f0b738d3.webp",
+    "size": 13962,
+    "zip_crc": 1808410042
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_079_954e0faf3a78.webp",
+    "size": 6860,
+    "zip_crc": 2599909365
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_080_500730b892a3.webp",
+    "size": 8372,
+    "zip_crc": 4062699463
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_081_28aea9a606ec.webp",
+    "size": 9888,
+    "zip_crc": 56593011
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_082_65addb08025a.webp",
+    "size": 5982,
+    "zip_crc": 2318476645
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_083_f37e69c847bf.webp",
+    "size": 8654,
+    "zip_crc": 2433336140
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_084_6823f5dc8bbf.webp",
+    "size": 4632,
+    "zip_crc": 3118009540
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_085_24ed29cc04b9.webp",
+    "size": 8552,
+    "zip_crc": 2631443775
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_086_f9a3f6ebfbfb.webp",
+    "size": 9558,
+    "zip_crc": 3973296886
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_087_efcbf888e808.webp",
+    "size": 9978,
+    "zip_crc": 692833562
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_088_2204cc26317a.webp",
+    "size": 7586,
+    "zip_crc": 1507522975
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_089_c26409489a7c.webp",
+    "size": 11754,
+    "zip_crc": 159090657
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_090_6166559b9829.webp",
+    "size": 2300,
+    "zip_crc": 2427204814
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_091_6deab715f638.webp",
+    "size": 9202,
+    "zip_crc": 4199483848
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_092_3e4f752ffad4.webp",
+    "size": 7870,
+    "zip_crc": 505213375
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_093_0528dc827b9d.webp",
+    "size": 7082,
+    "zip_crc": 151746840
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_094_938eaa7683ff.webp",
+    "size": 11016,
+    "zip_crc": 1746156534
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_095_1ce34eb96fd9.webp",
+    "size": 9320,
+    "zip_crc": 3547629016
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_096_9d12206dcad2.webp",
+    "size": 12244,
+    "zip_crc": 1333558371
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_097_c124d181ba75.webp",
+    "size": 8026,
+    "zip_crc": 1674920659
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_098_14891b51f957.webp",
+    "size": 10318,
+    "zip_crc": 1330395883
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_099_d072cbf21ce5.webp",
+    "size": 6834,
+    "zip_crc": 3591272587
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_100_fbb42c2bd90b.webp",
+    "size": 7784,
+    "zip_crc": 796043158
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_101_d9ced7a46676.webp",
+    "size": 11422,
+    "zip_crc": 1558044830
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_102_8f48b243fd0e.webp",
+    "size": 10480,
+    "zip_crc": 3011968956
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_103_b3882813f767.webp",
+    "size": 13018,
+    "zip_crc": 1880967561
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_104_28d1372dcd81.webp",
+    "size": 3446,
+    "zip_crc": 1373536502
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_105_cded82f60ac2.webp",
+    "size": 9232,
+    "zip_crc": 1520405372
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_106_d851af765b88.webp",
+    "size": 6284,
+    "zip_crc": 3117064559
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_107_f0dd8ac4ad9d.webp",
+    "size": 9370,
+    "zip_crc": 2580371376
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_108_fa82eafa9e86.webp",
+    "size": 10214,
+    "zip_crc": 1511475082
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_109_e794801e2001.webp",
+    "size": 17630,
+    "zip_crc": 1416140382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_110_d0db30bb87ef.webp",
+    "size": 13282,
+    "zip_crc": 559185206
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_111_ec207acff8ff.webp",
+    "size": 13490,
+    "zip_crc": 1041304179
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_112_33272feae3e0.webp",
+    "size": 5864,
+    "zip_crc": 3503513371
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_113_5a5299a738fe.webp",
+    "size": 7206,
+    "zip_crc": 2120506786
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_114_8cc47fc9cd1c.webp",
+    "size": 14872,
+    "zip_crc": 2830511910
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_115_a619941ede68.webp",
+    "size": 9120,
+    "zip_crc": 2982192119
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_116_8ff492731258.webp",
+    "size": 6162,
+    "zip_crc": 1675228533
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_117_8cca5ba2a85e.webp",
+    "size": 10010,
+    "zip_crc": 2350870883
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_118_fbfa7498f442.webp",
+    "size": 3856,
+    "zip_crc": 3346232199
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_119_1b44a8cd3c8d.webp",
+    "size": 8524,
+    "zip_crc": 301471359
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_120_eeca925ed467.webp",
+    "size": 15082,
+    "zip_crc": 2100668223
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_121_5c2ddcfc8d32.webp",
+    "size": 7982,
+    "zip_crc": 1248280043
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_122_9aa92edcb0a0.webp",
+    "size": 7414,
+    "zip_crc": 2725709340
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_123_0a280af8b0dc.webp",
+    "size": 7728,
+    "zip_crc": 4201359226
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_124_623117b145d3.webp",
+    "size": 6900,
+    "zip_crc": 3721516652
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_125_0db9c08593e6.webp",
+    "size": 11944,
+    "zip_crc": 96295226
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_126_971f999698ff.webp",
+    "size": 7666,
+    "zip_crc": 677733709
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_127_a74e701f570f.webp",
+    "size": 8676,
+    "zip_crc": 4228574540
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_128_cf0b8edebd4d.webp",
+    "size": 11984,
+    "zip_crc": 2625810083
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_129_7c3d1daef3ac.webp",
+    "size": 7582,
+    "zip_crc": 1420175227
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_130_deea104fd194.webp",
+    "size": 6712,
+    "zip_crc": 2066288204
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_131_12ab8bc11a09.webp",
+    "size": 10208,
+    "zip_crc": 316361195
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_132_911bf9decbca.webp",
+    "size": 20256,
+    "zip_crc": 3546862432
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_133_c69ecc4b85d2.webp",
+    "size": 14836,
+    "zip_crc": 4013858055
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_134_c7ae794fee1c.webp",
+    "size": 2440,
+    "zip_crc": 4072334340
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_135_71d6ac217d0e.webp",
+    "size": 2310,
+    "zip_crc": 1632910289
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_136_3c0f6d0ab403.webp",
+    "size": 8190,
+    "zip_crc": 1263433108
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_137_58d19dd97214.webp",
+    "size": 7954,
+    "zip_crc": 4136545477
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_138_362b9fec593e.webp",
+    "size": 7432,
+    "zip_crc": 1550686903
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_139_32d1936f0264.webp",
+    "size": 7398,
+    "zip_crc": 1297345281
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_140_9324a5f8df05.webp",
+    "size": 14510,
+    "zip_crc": 4000164609
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_141_dbf819e30b0e.webp",
+    "size": 10404,
+    "zip_crc": 2308058951
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_142_3754678be1aa.webp",
+    "size": 2880,
+    "zip_crc": 1327512377
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_143_aa0a720ffc9b.webp",
+    "size": 13974,
+    "zip_crc": 3582231504
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_144_6486fecf4622.webp",
+    "size": 15472,
+    "zip_crc": 1761708973
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_145_99a5908eab4c.webp",
+    "size": 8676,
+    "zip_crc": 747849774
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_146_f0c25fd8f831.webp",
+    "size": 10844,
+    "zip_crc": 809354272
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_147_655dd12659c5.webp",
+    "size": 8944,
+    "zip_crc": 3566756572
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_148_75e07658aeaa.webp",
+    "size": 10766,
+    "zip_crc": 1413108930
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_149_75f1e6acc220.webp",
+    "size": 6456,
+    "zip_crc": 3664943402
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_150_46bcc83ea951.webp",
+    "size": 15118,
+    "zip_crc": 1206334847
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_151_73afee071d3d.webp",
+    "size": 12698,
+    "zip_crc": 746628148
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_152_2c569ca73641.webp",
+    "size": 12334,
+    "zip_crc": 4063789164
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_153_cfa4785649a9.webp",
+    "size": 12180,
+    "zip_crc": 437612780
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_154_f5724899c86c.webp",
+    "size": 10670,
+    "zip_crc": 1515392667
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_155_7468d91235ec.webp",
+    "size": 9642,
+    "zip_crc": 2187697970
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_156_2538b7df8cee.webp",
+    "size": 10886,
+    "zip_crc": 2195041135
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_157_a4d43040ddb5.webp",
+    "size": 2710,
+    "zip_crc": 101018596
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_158_c2d28185a1f7.webp",
+    "size": 6018,
+    "zip_crc": 1246940993
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_159_48bc34bff1e6.webp",
+    "size": 8522,
+    "zip_crc": 4030847961
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_160_fc8b01e0b814.webp",
+    "size": 9030,
+    "zip_crc": 2400370521
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_161_323ec39f01f1.webp",
+    "size": 5314,
+    "zip_crc": 1913883809
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_162_6de726588b0a.webp",
+    "size": 8448,
+    "zip_crc": 2480670008
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_163_5fbd5e612c86.webp",
+    "size": 6902,
+    "zip_crc": 1877299296
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_164_c8d8fc8cc519.webp",
+    "size": 6540,
+    "zip_crc": 3265779183
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_165_30a2daff9ef6.webp",
+    "size": 1718,
+    "zip_crc": 1089063762
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_166_25fece20e973.webp",
+    "size": 8788,
+    "zip_crc": 1428199222
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_167_9c0cb8ae566d.webp",
+    "size": 11226,
+    "zip_crc": 14015247
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_168_42cfc7be4e66.webp",
+    "size": 9022,
+    "zip_crc": 3583997427
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_169_69790f47c278.webp",
+    "size": 9574,
+    "zip_crc": 4061957717
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_170_3913cb7f7a4f.webp",
+    "size": 11934,
+    "zip_crc": 1651387812
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_171_68e5b2dd2bf2.webp",
+    "size": 10154,
+    "zip_crc": 2529124833
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_172_401e638522d7.webp",
+    "size": 6770,
+    "zip_crc": 1431433629
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_173_637fd900e2da.webp",
+    "size": 6262,
+    "zip_crc": 697947017
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_174_1f16b381c698.webp",
+    "size": 6196,
+    "zip_crc": 1379925237
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_175_5e0386bb826a.webp",
+    "size": 13382,
+    "zip_crc": 786169351
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_176_5532ed161735.webp",
+    "size": 11758,
+    "zip_crc": 1509584239
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_177_0429712e95bd.webp",
+    "size": 10796,
+    "zip_crc": 4246876032
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_178_febef24b1b4f.webp",
+    "size": 9500,
+    "zip_crc": 798396623
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_179_4613d474c962.webp",
+    "size": 10562,
+    "zip_crc": 1455860455
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_180_e0d56d979051.webp",
+    "size": 8178,
+    "zip_crc": 1121638021
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_181_689c2fee6ea8.webp",
+    "size": 8284,
+    "zip_crc": 3745725457
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_182_2642d47667ed.webp",
+    "size": 7032,
+    "zip_crc": 486439192
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_183_0dd2e6426cf4.webp",
+    "size": 6546,
+    "zip_crc": 1491335846
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_184_40ec7befc02d.webp",
+    "size": 8296,
+    "zip_crc": 2265569010
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_185_2f1276891259.webp",
+    "size": 8644,
+    "zip_crc": 973148362
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_186_33bfd3b02b9c.webp",
+    "size": 7330,
+    "zip_crc": 4078251222
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_187_ec67d5127561.webp",
+    "size": 10902,
+    "zip_crc": 1032739909
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_188_6be3d1597207.webp",
+    "size": 12462,
+    "zip_crc": 2417969460
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_189_a371d8aed06e.webp",
+    "size": 8308,
+    "zip_crc": 502505603
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_190_f1cf914ddb48.webp",
+    "size": 8376,
+    "zip_crc": 1831632602
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_191_fb5433b3702e.webp",
+    "size": 7258,
+    "zip_crc": 2910046630
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_192_704d0cd166b1.webp",
+    "size": 8524,
+    "zip_crc": 2330449172
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_193_04af8256781d.webp",
+    "size": 1878,
+    "zip_crc": 4024458226
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_194_2637ee092e33.webp",
+    "size": 2220,
+    "zip_crc": 357186105
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_195_25b7ea2d55ad.webp",
+    "size": 9100,
+    "zip_crc": 2661731235
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_196_8a66822d25d3.webp",
+    "size": 11810,
+    "zip_crc": 637363338
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_197_1b9822ae31dc.webp",
+    "size": 9222,
+    "zip_crc": 2227320683
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_198_2bfebb8ebcaa.webp",
+    "size": 7074,
+    "zip_crc": 548771812
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_199_b938c3b4167b.webp",
+    "size": 10710,
+    "zip_crc": 1435833664
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_200_bafbe56a0cfb.webp",
+    "size": 9558,
+    "zip_crc": 3425021740
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_201_741701daf83b.webp",
+    "size": 8882,
+    "zip_crc": 3087179978
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_202_445761e64e34.webp",
+    "size": 8790,
+    "zip_crc": 2874152235
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_203_07cddae1f001.webp",
+    "size": 9674,
+    "zip_crc": 2714183821
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_204_6e9190cf54fc.webp",
+    "size": 9112,
+    "zip_crc": 1174614144
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_205_01db6e424662.webp",
+    "size": 11556,
+    "zip_crc": 287544024
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_206_bbf9e84ea30c.webp",
+    "size": 9288,
+    "zip_crc": 2617909444
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_207_37fe94c528e7.webp",
+    "size": 8110,
+    "zip_crc": 209021436
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_208_110f9e22abed.webp",
+    "size": 7948,
+    "zip_crc": 1398703609
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_209_bc21cf394c13.webp",
+    "size": 9022,
+    "zip_crc": 1720072742
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_210_f5b0722489fc.webp",
+    "size": 10600,
+    "zip_crc": 2933865639
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_211_b6f0e2e8f2fb.webp",
+    "size": 7784,
+    "zip_crc": 1633284085
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_212_a1d3fff4781d.webp",
+    "size": 9604,
+    "zip_crc": 2072686651
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_213_65519207d204.webp",
+    "size": 13060,
+    "zip_crc": 1527787512
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_214_b0ac6fe197c4.webp",
+    "size": 10260,
+    "zip_crc": 1330167763
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_215_de74ad1b2121.webp",
+    "size": 9804,
+    "zip_crc": 1500364388
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_216_56b7b4ef7e86.webp",
+    "size": 9940,
+    "zip_crc": 2254512791
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_217_4e5a2a75416f.webp",
+    "size": 8092,
+    "zip_crc": 3971833367
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_218_aede957ea457.webp",
+    "size": 6588,
+    "zip_crc": 3772302841
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_219_0144257fe4e9.webp",
+    "size": 8058,
+    "zip_crc": 686069298
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_220_817351bbe2da.webp",
+    "size": 6916,
+    "zip_crc": 2927528251
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_221_1395ed04f8b3.webp",
+    "size": 7870,
+    "zip_crc": 904942419
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_222_e5228e353519.webp",
+    "size": 7490,
+    "zip_crc": 1403689825
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_223_f3de4ff0c172.webp",
+    "size": 9232,
+    "zip_crc": 1533085833
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_224_074ae1ad3ae1.webp",
+    "size": 11584,
+    "zip_crc": 3402698270
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_225_27321774c09a.webp",
+    "size": 9692,
+    "zip_crc": 3033947554
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_226_ce8f0817fc86.webp",
+    "size": 7772,
+    "zip_crc": 1236904695
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_227_31f881980cc2.webp",
+    "size": 11728,
+    "zip_crc": 541086242
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_228_8eca2a7b0684.webp",
+    "size": 9532,
+    "zip_crc": 2941814532
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_229_246793693677.webp",
+    "size": 10920,
+    "zip_crc": 1824649479
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_230_b13064ac7290.webp",
+    "size": 11718,
+    "zip_crc": 1347705667
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_231_25de0f217c43.webp",
+    "size": 11574,
+    "zip_crc": 502752681
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_232_3523581f91f2.webp",
+    "size": 12960,
+    "zip_crc": 4275266730
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_233_d4c651247b64.webp",
+    "size": 14168,
+    "zip_crc": 1508664235
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_234_cf4f6580429b.webp",
+    "size": 8548,
+    "zip_crc": 3138176033
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_235_8bd75701f3a1.webp",
+    "size": 8424,
+    "zip_crc": 3498061364
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_236_0c9a3df7a87b.webp",
+    "size": 10286,
+    "zip_crc": 3245667210
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_237_3401f809da65.webp",
+    "size": 12800,
+    "zip_crc": 100994678
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_238_987902d9c713.webp",
+    "size": 10096,
+    "zip_crc": 99221623
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_239_e46641c274de.webp",
+    "size": 7436,
+    "zip_crc": 601880447
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_240_8716ce1ee979.webp",
+    "size": 10936,
+    "zip_crc": 2467763359
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_241_be727b5fcb56.webp",
+    "size": 14778,
+    "zip_crc": 2906373806
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_242_8d0d2446b4f8.webp",
+    "size": 8860,
+    "zip_crc": 1668666300
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_243_bdd755bf74ad.webp",
+    "size": 14220,
+    "zip_crc": 4023108679
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_244_b660fb6f81b6.webp",
+    "size": 11938,
+    "zip_crc": 1769712671
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_245_75b921f77fab.webp",
+    "size": 13548,
+    "zip_crc": 3261975382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_246_4638e1d4f17c.webp",
+    "size": 5214,
+    "zip_crc": 3071336470
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_247_93e1206ea477.webp",
+    "size": 8222,
+    "zip_crc": 2366456716
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_248_2236d8d236a4.webp",
+    "size": 11522,
+    "zip_crc": 874311581
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_249_662bcfc16d93.webp",
+    "size": 13448,
+    "zip_crc": 1438330649
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_250_654e86d878de.webp",
+    "size": 8308,
+    "zip_crc": 2965639078
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_251_cf9803c2264b.webp",
+    "size": 8166,
+    "zip_crc": 1922479492
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_252_383642b692ed.webp",
+    "size": 7346,
+    "zip_crc": 3312382007
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_253_b3bddd92dc0e.webp",
+    "size": 12370,
+    "zip_crc": 3988620801
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_254_825aa0bfcc60.webp",
+    "size": 2050,
+    "zip_crc": 2051250407
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_255_504ffad018bf.webp",
+    "size": 6082,
+    "zip_crc": 1161451293
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_256_8206ae741fad.webp",
+    "size": 4766,
+    "zip_crc": 4126157867
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_257_309b102b04f5.webp",
+    "size": 974,
+    "zip_crc": 1593171566
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_258_6156711d6e83.webp",
+    "size": 9402,
+    "zip_crc": 2778469136
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_259_8df408dae454.webp",
+    "size": 13490,
+    "zip_crc": 450615950
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_260_03869aa70e24.webp",
+    "size": 13468,
+    "zip_crc": 3480387512
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_261_24071b1732ef.webp",
+    "size": 12550,
+    "zip_crc": 3223302791
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_262_749b516d6b3b.webp",
+    "size": 9924,
+    "zip_crc": 4098291585
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_263_2dc3d1066a72.webp",
+    "size": 7836,
+    "zip_crc": 444822410
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_264_3570bc23ef4e.webp",
+    "size": 8012,
+    "zip_crc": 4202055191
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_265_d58ae9ef9a50.webp",
+    "size": 7436,
+    "zip_crc": 2103296495
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_266_38e511807a48.webp",
+    "size": 7868,
+    "zip_crc": 1613132778
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_267_201629c6aaad.webp",
+    "size": 14478,
+    "zip_crc": 1915335881
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_268_bb202b8b2fa0.webp",
+    "size": 11842,
+    "zip_crc": 2133947158
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_269_82b74f8eec7c.webp",
+    "size": 13840,
+    "zip_crc": 1250897551
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_270_6524ae393b33.webp",
+    "size": 10730,
+    "zip_crc": 4087351014
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_271_d7f22f4d3e32.webp",
+    "size": 14482,
+    "zip_crc": 3052168195
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_272_c45787ac1635.webp",
+    "size": 4106,
+    "zip_crc": 3565189719
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_273_1a1b5921cd17.webp",
+    "size": 7666,
+    "zip_crc": 1202759087
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_274_d8749f4528bf.webp",
+    "size": 6514,
+    "zip_crc": 2232337970
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_275_11aa3435122c.webp",
+    "size": 8060,
+    "zip_crc": 765982248
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_276_c087414f3932.webp",
+    "size": 9592,
+    "zip_crc": 1103558493
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_277_39b62d6bc4aa.webp",
+    "size": 6362,
+    "zip_crc": 3630280669
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_278_f665fb24976d.webp",
+    "size": 13686,
+    "zip_crc": 2485035381
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_279_d819a762539c.webp",
+    "size": 6900,
+    "zip_crc": 3716019479
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_280_8bd54f291f1e.webp",
+    "size": 8394,
+    "zip_crc": 3118775500
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_281_7c7ac8575267.webp",
+    "size": 7942,
+    "zip_crc": 339336709
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_282_ecbb77a83ac3.webp",
+    "size": 9258,
+    "zip_crc": 3158973044
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_283_0317653de56c.webp",
+    "size": 10368,
+    "zip_crc": 1552693740
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_284_2d16e1b7f728.webp",
+    "size": 10424,
+    "zip_crc": 4234489543
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_285_58e289c2d112.webp",
+    "size": 21302,
+    "zip_crc": 166150025
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_286_e2cd6332dad0.webp",
+    "size": 18940,
+    "zip_crc": 511582274
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_287_db624db90d09.webp",
+    "size": 10350,
+    "zip_crc": 2267266944
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_288_54031fd34e78.webp",
+    "size": 8986,
+    "zip_crc": 3066392524
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_289_64d98f610170.webp",
+    "size": 7470,
+    "zip_crc": 1371942953
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_290_20885cb501d3.webp",
+    "size": 7690,
+    "zip_crc": 1405667604
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_291_f994417f2a7c.webp",
+    "size": 11914,
+    "zip_crc": 343122546
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_292_bf2ce454a629.webp",
+    "size": 12138,
+    "zip_crc": 3230366626
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_293_c1152b780bae.webp",
+    "size": 11142,
+    "zip_crc": 1514512101
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_294_de710c5fc352.webp",
+    "size": 16308,
+    "zip_crc": 3688504246
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_295_8b60e8cf7f93.webp",
+    "size": 13834,
+    "zip_crc": 3585617697
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_296_b2253ce0ef16.webp",
+    "size": 10664,
+    "zip_crc": 3873574765
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_297_1c8887016f68.webp",
+    "size": 1712,
+    "zip_crc": 2466566906
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_298_431cc005ad7e.webp",
+    "size": 10774,
+    "zip_crc": 1644595137
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_299_3e6364f502de.webp",
+    "size": 4386,
+    "zip_crc": 529427226
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_300_adc67f66754f.webp",
+    "size": 10812,
+    "zip_crc": 234517670
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_301_8ee576f8f1a9.webp",
+    "size": 7630,
+    "zip_crc": 3327675711
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_302_ed6dd4b4b656.webp",
+    "size": 3764,
+    "zip_crc": 843660586
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_303_7724b08f85bf.webp",
+    "size": 9214,
+    "zip_crc": 1016618965
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_304_5cf3ee2055ec.webp",
+    "size": 9050,
+    "zip_crc": 3373845467
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_305_f8abfb62d154.webp",
+    "size": 9514,
+    "zip_crc": 666553120
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_306_77c6fda240bf.webp",
+    "size": 11676,
+    "zip_crc": 3774559558
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_307_d5e7cbf50a55.webp",
+    "size": 9628,
+    "zip_crc": 3334752095
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_308_24be0a66a4a3.webp",
+    "size": 12680,
+    "zip_crc": 3082763614
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_309_cb11fe0a88e4.webp",
+    "size": 8182,
+    "zip_crc": 2353501712
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_310_9bb194b4df07.webp",
+    "size": 18018,
+    "zip_crc": 3834233128
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_311_b1f05988b593.webp",
+    "size": 4510,
+    "zip_crc": 3717327854
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_312_2b1fbeef3e96.webp",
+    "size": 10154,
+    "zip_crc": 1790670772
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_313_deea872a54c7.webp",
+    "size": 10842,
+    "zip_crc": 790118074
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_314_69b3175f2443.webp",
+    "size": 11726,
+    "zip_crc": 446865185
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_315_710644cb1220.webp",
+    "size": 2706,
+    "zip_crc": 2108081282
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_316_0e222dece954.webp",
+    "size": 26430,
+    "zip_crc": 3903357285
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_317_d9caeaf415a5.webp",
+    "size": 8588,
+    "zip_crc": 2358178822
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_318_2dcfb7db8244.webp",
+    "size": 9264,
+    "zip_crc": 3836130702
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_319_fd4a2d2d1360.webp",
+    "size": 8122,
+    "zip_crc": 1602513475
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_320_656e49d3a995.webp",
+    "size": 7808,
+    "zip_crc": 3817444985
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_321_07e451b90596.webp",
+    "size": 35040,
+    "zip_crc": 1188324217
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_322_0b9af5ceaed9.webp",
+    "size": 299070,
+    "zip_crc": 2844365064
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_323_6b79620a1212.webp",
+    "size": 30078,
+    "zip_crc": 969602516
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_324_98fbf05da971.webp",
+    "size": 34200,
+    "zip_crc": 384920055
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_325_712f74b523fb.webp",
+    "size": 12242,
+    "zip_crc": 4082975585
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_326_0ec1f18b8812.webp",
+    "size": 11216,
+    "zip_crc": 2546759577
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_327_183df91a54f2.webp",
+    "size": 10806,
+    "zip_crc": 865939253
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_328_16b1cb262e18.webp",
+    "size": 10660,
+    "zip_crc": 295063306
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_329_7bf49009ec53.webp",
+    "size": 38692,
+    "zip_crc": 2888119626
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_330_97f4d2d6d160.webp",
+    "size": 328102,
+    "zip_crc": 1739574544
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_331_b12f7710e945.webp",
+    "size": 32468,
+    "zip_crc": 1354426175
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_332_7351ccc5e239.webp",
+    "size": 179392,
+    "zip_crc": 209407488
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_333_86caf37b9588.webp",
+    "size": 31450,
+    "zip_crc": 207953666
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_334_55053eb01d2b.webp",
+    "size": 10512,
+    "zip_crc": 2166669672
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_335_ecda60b30161.webp",
+    "size": 10908,
+    "zip_crc": 2177345150
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_336_125b58a8abd1.webp",
+    "size": 11172,
+    "zip_crc": 1498168622
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_337_3ed5dcd80224.webp",
+    "size": 11390,
+    "zip_crc": 3167114071
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_338_2031cfdfdbd5.webp",
+    "size": 40228,
+    "zip_crc": 1011282722
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_339_4fc045ae37e9.webp",
+    "size": 330448,
+    "zip_crc": 172412628
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_340_566e64f1d1d2.webp",
+    "size": 33812,
+    "zip_crc": 3358618574
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_341_307853853631.webp",
+    "size": 35298,
+    "zip_crc": 2218935279
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_342_6df68d72656a.webp",
+    "size": 8484,
+    "zip_crc": 1468460137
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_343_2f08513472d7.webp",
+    "size": 10186,
+    "zip_crc": 3951119212
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_344_3842dbb2e6ad.webp",
+    "size": 9700,
+    "zip_crc": 2206302307
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_345_05d4ce6ffcb2.webp",
+    "size": 9574,
+    "zip_crc": 2313127900
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_346_f3b9b87aa3bd.webp",
+    "size": 37324,
+    "zip_crc": 289104567
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_347_01455676db24.webp",
+    "size": 329134,
+    "zip_crc": 2833941966
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_348_948b341db740.webp",
+    "size": 36402,
+    "zip_crc": 9842062
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_349_28f05430c229.webp",
+    "size": 30386,
+    "zip_crc": 1512053742
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_350_a2c9edd466f0.webp",
+    "size": 10142,
+    "zip_crc": 3906802119
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_351_44347e5ed614.webp",
+    "size": 10560,
+    "zip_crc": 4005212799
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_352_21ebcd064759.webp",
+    "size": 11682,
+    "zip_crc": 439126086
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_353_d8f606b5c219.webp",
+    "size": 10252,
+    "zip_crc": 1543206144
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_354_eb7c76d6ca83.webp",
+    "size": 30178,
+    "zip_crc": 297988335
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_355_6c59ea85a226.webp",
+    "size": 303304,
+    "zip_crc": 3182484676
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_356_b158fed11b4e.webp",
+    "size": 21626,
+    "zip_crc": 380491447
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_357_f8f7b8ef45a7.webp",
+    "size": 34042,
+    "zip_crc": 331838409
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_358_ab9124931e3c.webp",
+    "size": 7728,
+    "zip_crc": 4105303527
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_359_d4bfd9d6197c.webp",
+    "size": 7608,
+    "zip_crc": 1138667130
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_360_c2ed4d57113a.webp",
+    "size": 7596,
+    "zip_crc": 2821521765
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_361_7ff6f702f12e.webp",
+    "size": 7238,
+    "zip_crc": 1131073071
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_362_0797676a7211.webp",
+    "size": 40724,
+    "zip_crc": 69841778
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_363_d2ecb768d1cb.webp",
+    "size": 284018,
+    "zip_crc": 738796209
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_364_d745b089ae13.webp",
+    "size": 37442,
+    "zip_crc": 421623427
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_365_8c9cdc9f7bf9.png",
+    "size": 7608,
+    "zip_crc": 360421419
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_366_37e94aa85be0.png",
+    "size": 1985,
+    "zip_crc": 450804973
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_367_91acc9f2e6be.png",
+    "size": 5771,
+    "zip_crc": 2732875936
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_368_a0fb57be18b9.png",
+    "size": 10630,
+    "zip_crc": 1056512983
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_369_46a41377882c.png",
+    "size": 6854,
+    "zip_crc": 260294873
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_370_100c6af99f40.png",
+    "size": 7685,
+    "zip_crc": 2119677319
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_371_d9a04350c99e.png",
+    "size": 3147,
+    "zip_crc": 392711731
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_372_b5f63361fdb9.png",
+    "size": 4994,
+    "zip_crc": 2942082413
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_373_5ab654f1b007.png",
+    "size": 3383,
+    "zip_crc": 3557597591
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_374_ca505e374f55.png",
+    "size": 5832,
+    "zip_crc": 1297700014
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_375_9cebf552a1f0.png",
+    "size": 3703,
+    "zip_crc": 1977700406
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_376_d0556c39a2e5.png",
+    "size": 3324,
+    "zip_crc": 470274252
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_377_4d4e1caa5a69.png",
+    "size": 8430,
+    "zip_crc": 2342305707
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_378_0cc8e44db16b.png",
+    "size": 4108,
+    "zip_crc": 1160640531
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_379_ce523a8e1e64.png",
+    "size": 4860,
+    "zip_crc": 106733965
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_380_a2c2aa72640b.png",
+    "size": 3406,
+    "zip_crc": 2238571030
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_381_55a571e49a20.png",
+    "size": 7603,
+    "zip_crc": 2282704989
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_382_4123516188a0.png",
+    "size": 5497,
+    "zip_crc": 4194338566
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_383_3a76fbb0ce76.png",
+    "size": 5946,
+    "zip_crc": 424684508
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_384_de522ec128ec.png",
+    "size": 5792,
+    "zip_crc": 2399759268
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_385_e83b1759d9be.png",
+    "size": 9289,
+    "zip_crc": 1725513091
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_386_3b52bdf27f61.png",
+    "size": 5359,
+    "zip_crc": 923497545
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_387_cb57bc716879.png",
+    "size": 4021,
+    "zip_crc": 1677715735
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_388_0f42f09f321c.png",
+    "size": 3721,
+    "zip_crc": 777189691
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_389_6bdcfbd4fc95.png",
+    "size": 4250,
+    "zip_crc": 3096596902
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_390_ceba26a35d2a.png",
+    "size": 7785,
+    "zip_crc": 3516264691
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_391_1657c4f7a1e9.png",
+    "size": 6379,
+    "zip_crc": 3425902866
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_392_ea58f01a5a6b.png",
+    "size": 5075,
+    "zip_crc": 3407066466
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_393_43cbe69ab205.png",
+    "size": 4117,
+    "zip_crc": 1718075771
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_394_2e9c8af8ce73.png",
+    "size": 3255,
+    "zip_crc": 2503526543
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_395_0735d5cafd87.png",
+    "size": 4152,
+    "zip_crc": 2486523446
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_396_d62d471c41c7.png",
+    "size": 3798,
+    "zip_crc": 1790241443
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_397_d8841a7cfed8.png",
+    "size": 5483,
+    "zip_crc": 1702275758
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_398_77f2d177e789.png",
+    "size": 9738,
+    "zip_crc": 60418591
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_399_38036c3d5f9a.png",
+    "size": 6712,
+    "zip_crc": 3803031612
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_400_59289f67aaa9.png",
+    "size": 10308,
+    "zip_crc": 3058038458
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_401_45d1433f8e56.png",
+    "size": 10210,
+    "zip_crc": 3704304187
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_402_4844bb89cdb9.png",
+    "size": 7173,
+    "zip_crc": 4108371045
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_403_1a5afe99ee4d.png",
+    "size": 4532,
+    "zip_crc": 924676451
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_404_c079c709da2f.png",
+    "size": 5607,
+    "zip_crc": 3763787925
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_405_c7b4e7f8083c.png",
+    "size": 5667,
+    "zip_crc": 1726192461
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_406_7b2f665054ee.png",
+    "size": 7458,
+    "zip_crc": 495297989
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_407_c02257def9c7.png",
+    "size": 6004,
+    "zip_crc": 2904053494
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_408_e836c5d02132.png",
+    "size": 4734,
+    "zip_crc": 2049240546
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_409_2448b2bbde65.png",
+    "size": 6827,
+    "zip_crc": 871805073
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_410_20e35174bec3.png",
+    "size": 5291,
+    "zip_crc": 534708520
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_411_11ceee06918f.png",
+    "size": 5092,
+    "zip_crc": 1745123447
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_412_59503a8ed3da.png",
+    "size": 6728,
+    "zip_crc": 3864122730
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_413_309415d93ab1.png",
+    "size": 9961,
+    "zip_crc": 2648219677
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_414_a21d2a8c0266.png",
+    "size": 5998,
+    "zip_crc": 2465496789
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_415_faaebc7ef177.png",
+    "size": 8127,
+    "zip_crc": 480792119
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_416_0cdf6205ca2f.png",
+    "size": 6803,
+    "zip_crc": 2278507491
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_417_69d95f32d7bc.png",
+    "size": 6474,
+    "zip_crc": 977544
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_418_bd98d9a5744e.png",
+    "size": 6272,
+    "zip_crc": 3654045509
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_419_90006c66ecfe.png",
+    "size": 5094,
+    "zip_crc": 4048570916
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_420_945666a1b95f.png",
+    "size": 5111,
+    "zip_crc": 1574302868
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_421_f0bfa24f6fb0.png",
+    "size": 5965,
+    "zip_crc": 4032592319
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_422_6a490ef683b6.png",
+    "size": 4761,
+    "zip_crc": 2758153628
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_423_c6cabf4ecdf7.png",
+    "size": 7679,
+    "zip_crc": 306678537
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_424_fddf2304247a.png",
+    "size": 4781,
+    "zip_crc": 2244615366
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_425_138c7fde8cc1.png",
+    "size": 4575,
+    "zip_crc": 3560759366
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_426_30f6384be907.png",
+    "size": 7062,
+    "zip_crc": 2086138490
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_427_1daba1d62aa4.png",
+    "size": 5348,
+    "zip_crc": 1092361766
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_428_fd5f758db4c6.png",
+    "size": 7773,
+    "zip_crc": 559117796
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_429_181dc30bffa8.png",
+    "size": 7833,
+    "zip_crc": 2686182805
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_430_cdac6ab8cd55.png",
+    "size": 5532,
+    "zip_crc": 876663893
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_431_c9e874bf4870.png",
+    "size": 5519,
+    "zip_crc": 1162843297
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_432_e05caac9f1d2.png",
+    "size": 6289,
+    "zip_crc": 1238891331
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_433_a1a935b7038f.png",
+    "size": 7237,
+    "zip_crc": 949415931
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_434_d51867363089.png",
+    "size": 6207,
+    "zip_crc": 2697218440
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_435_8c745e0a2031.png",
+    "size": 4626,
+    "zip_crc": 393698436
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_436_843913b6dba3.png",
+    "size": 4265,
+    "zip_crc": 4145248733
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_437_f469684a2562.png",
+    "size": 4549,
+    "zip_crc": 2518586535
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_438_bf364d1ff2e9.png",
+    "size": 5172,
+    "zip_crc": 1630175408
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_439_d930d7fd649c.png",
+    "size": 10625,
+    "zip_crc": 3638216327
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_440_757fe510a6ba.png",
+    "size": 8236,
+    "zip_crc": 1486811267
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_441_cb210f28e519.png",
+    "size": 5487,
+    "zip_crc": 2205581862
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_442_f2cca4a4099e.png",
+    "size": 7895,
+    "zip_crc": 3847958912
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_443_9cc51858ca58.png",
+    "size": 5012,
+    "zip_crc": 3805163101
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_444_4da2fbde1754.png",
+    "size": 4496,
+    "zip_crc": 2528067922
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_445_220dba2ca1d0.png",
+    "size": 4673,
+    "zip_crc": 227880707
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_446_b227987a351f.png",
+    "size": 4147,
+    "zip_crc": 501348100
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_447_40762977ee21.png",
+    "size": 3441,
+    "zip_crc": 2204240335
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_448_892dc4dd5aa7.png",
+    "size": 1820,
+    "zip_crc": 43394570
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_449_390bf89e4743.png",
+    "size": 3679,
+    "zip_crc": 434707902
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_450_baff1817ae6f.png",
+    "size": 2644,
+    "zip_crc": 550205930
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_451_69a76332dff2.png",
+    "size": 1773,
+    "zip_crc": 2180226436
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_452_66610c0967d7.png",
+    "size": 958,
+    "zip_crc": 636137328
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_453_7f236f289154.png",
+    "size": 4129,
+    "zip_crc": 413609439
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_454_b318c82606b6.png",
+    "size": 5950,
+    "zip_crc": 905578382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_455_9e9fd605f23d.png",
+    "size": 7799,
+    "zip_crc": 3299048969
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_456_c229e682b1ce.png",
+    "size": 4557,
+    "zip_crc": 251108923
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_457_452bfd87a65a.png",
+    "size": 3693,
+    "zip_crc": 3041346879
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_458_74695acfc4c5.png",
+    "size": 5156,
+    "zip_crc": 4185320084
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_459_aa788403c9f9.png",
+    "size": 3828,
+    "zip_crc": 3062571495
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_460_4db9b2f797da.png",
+    "size": 5093,
+    "zip_crc": 527608960
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_461_5ace7b63542e.png",
+    "size": 3105,
+    "zip_crc": 1728851816
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_462_a18377dbc93a.png",
+    "size": 10567,
+    "zip_crc": 3082107224
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_463_7435de7529cd.png",
+    "size": 8034,
+    "zip_crc": 1774398432
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_464_a322b9987ed5.png",
+    "size": 3634,
+    "zip_crc": 693771653
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_465_d32d13fe2fea.png",
+    "size": 8824,
+    "zip_crc": 2363521411
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_466_dfba00ac42fb.png",
+    "size": 3413,
+    "zip_crc": 3314261982
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_467_e1ef31eaa10d.png",
+    "size": 3084,
+    "zip_crc": 279652319
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_468_2258d2b38b8d.png",
+    "size": 4921,
+    "zip_crc": 3822263470
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_469_370442d6428b.png",
+    "size": 5511,
+    "zip_crc": 3385772089
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_470_01a2d9b370cb.png",
+    "size": 2637,
+    "zip_crc": 1661035585
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_471_6392a55f4cc0.png",
+    "size": 7016,
+    "zip_crc": 669189501
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_472_913987f3e806.png",
+    "size": 6394,
+    "zip_crc": 1695607384
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_473_4e4abc0f258b.png",
+    "size": 9489,
+    "zip_crc": 3668330786
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_474_833176d3bd81.png",
+    "size": 7513,
+    "zip_crc": 2776633710
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_475_b926f104fa80.png",
+    "size": 7859,
+    "zip_crc": 78808738
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_476_947e94d32397.png",
+    "size": 10345,
+    "zip_crc": 520020243
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_477_b3dc9fb1720b.png",
+    "size": 7463,
+    "zip_crc": 2441955531
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_478_975542254bc4.png",
+    "size": 4951,
+    "zip_crc": 1122734187
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_479_e94206eb1395.png",
+    "size": 4865,
+    "zip_crc": 22149999
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_480_eb9483201661.png",
+    "size": 3145,
+    "zip_crc": 2961476796
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_481_4c689a80cd2a.png",
+    "size": 3240,
+    "zip_crc": 1824937345
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_482_8ded0c03f60d.png",
+    "size": 2649,
+    "zip_crc": 2847105964
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_483_59c27c2d9a40.png",
+    "size": 3049,
+    "zip_crc": 2497587909
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_484_303446a562de.png",
+    "size": 4045,
+    "zip_crc": 1883452855
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_485_60f9cfb95dc3.png",
+    "size": 7872,
+    "zip_crc": 689494803
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_486_d3b5aa2e300f.png",
+    "size": 9801,
+    "zip_crc": 2239557919
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_487_97cfcd2ac457.png",
+    "size": 4780,
+    "zip_crc": 3329912569
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_488_bdc92e191590.png",
+    "size": 4352,
+    "zip_crc": 1528607375
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_489_75198aca0cb0.png",
+    "size": 5153,
+    "zip_crc": 1961356363
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_490_c775e7ff0372.png",
+    "size": 6267,
+    "zip_crc": 1643816367
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_491_55b564b8cd5a.png",
+    "size": 11009,
+    "zip_crc": 3301405517
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_492_4cebfe45f033.png",
+    "size": 6433,
+    "zip_crc": 308529184
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_493_b1f46cd0affb.png",
+    "size": 7109,
+    "zip_crc": 3023540664
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_494_b2716a210592.png",
+    "size": 2317,
+    "zip_crc": 4153696757
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/English_V32/image_495_9330d22855dd.png",
+    "size": 6718,
+    "zip_crc": 2539816362
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/asset_index.json",
+    "size": 130710,
+    "zip_crc": 547031545
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/04_Assets/素材索引.html",
+    "size": 117796,
+    "zip_crc": 4266533097
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/05_Documentation/data_inventory.json",
+    "size": 1250,
+    "zip_crc": 2861619094
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/05_Documentation/script_map.json",
+    "size": 7877,
+    "zip_crc": 3112652715
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/05_Documentation/使用說明.html",
+    "size": 4507,
+    "zip_crc": 4176430419
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/05_Documentation/開發交接.md",
+    "size": 2539,
+    "zip_crc": 1929789694
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/README_先看這份.md",
+    "size": 3162,
+    "zip_crc": 1271953892
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/SHA256SUMS.txt",
+    "size": 6600,
+    "zip_crc": 1713717813
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/build_report.py",
+    "size": 35949,
+    "zip_crc": 1689839731
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/00_initial_mobile.png",
+    "size": 187222,
+    "zip_crc": 1596611661
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-091_failure.png",
+    "size": 2739,
+    "zip_crc": 4046143900
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-092_failure.png",
+    "size": 2739,
+    "zip_crc": 4046143900
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-098_failure.png",
+    "size": 65899,
+    "zip_crc": 2782946048
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-099_failure.png",
+    "size": 93285,
+    "zip_crc": 3038599366
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-100_failure.png",
+    "size": 65899,
+    "zip_crc": 2782946048
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-126_failure.png",
+    "size": 270562,
+    "zip_crc": 3614857335
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-127_failure.png",
+    "size": 181669,
+    "zip_crc": 1338515491
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-128_failure.png",
+    "size": 81247,
+    "zip_crc": 1264411426
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-129_failure.png",
+    "size": 100574,
+    "zip_crc": 3095817897
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/UI-140_failure.png",
+    "size": 69508,
+    "zip_crc": 624614459
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_1440_home.png",
+    "size": 111448,
+    "zip_crc": 2877756152
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_320_home.png",
+    "size": 172900,
+    "zip_crc": 2797368915
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_390_home.png",
+    "size": 97940,
+    "zip_crc": 952362928
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_640_parent.png",
+    "size": 349946,
+    "zip_crc": 192928113
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_768_normal.png",
+    "size": 320924,
+    "zip_crc": 3283129410
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/layout_844_tools.png",
+    "size": 140445,
+    "zip_crc": 1107861367
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/normal_lesson_summary.png",
+    "size": 89421,
+    "zip_crc": 3060507863
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/olympiad_summary.png",
+    "size": 97283,
+    "zip_crc": 1251872645
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_after.png",
+    "size": 67760,
+    "zip_crc": 592930336
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_draft_before.png",
+    "size": 67338,
+    "zip_crc": 3132548575
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_fraction_unicode_rejected.png",
+    "size": 90524,
+    "zip_crc": 3223407813
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_missing_queue.png",
+    "size": 48722,
+    "zip_crc": 3980932175
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_fraction_settled.png",
+    "size": 88720,
+    "zip_crc": 914340895
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_home_settled.png",
+    "size": 187222,
+    "zip_crc": 1596611661
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/review_mobile_word_settled.png",
+    "size": 97708,
+    "zip_crc": 4126164718
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_1N1_1-T1.png",
+    "size": 76670,
+    "zip_crc": 3363097529
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N5_3-T2.png",
+    "size": 97940,
+    "zip_crc": 952362928
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_2N6_2-T2.png",
+    "size": 76819,
+    "zip_crc": 3255972677
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_3N5_1-T2.png",
+    "size": 88825,
+    "zip_crc": 2481161835
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/evidence/template_O-GEO-segments-T3.png",
+    "size": 82703,
+    "zip_crc": 1868382310
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/extract.js",
+    "size": 707,
+    "zip_crc": 4172070051
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.html",
+    "size": 5478262,
+    "zip_crc": 2880120568
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/WordQuest_1000_Checks_Report.md",
+    "size": 16798,
+    "zip_crc": 4083573973
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/issues.json",
+    "size": 12054,
+    "zip_crc": 301460265
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/manifest.json",
+    "size": 1646,
+    "zip_crc": 3452781311
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_desktop_preview.png",
+    "size": 120379,
+    "zip_crc": 1262614147
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_mobile_preview.png",
+    "size": 89103,
+    "zip_crc": 1523315355
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/report/report_qa.json",
+    "size": 286,
+    "zip_crc": 2279624284
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/all_1000_results.json",
+    "size": 452404,
+    "zip_crc": 712159767
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_environment.json",
+    "size": 128,
+    "zip_crc": 4206363753
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_0_14.json",
+    "size": 5873,
+    "zip_crc": 1008235370
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_14_28.json",
+    "size": 7007,
+    "zip_crc": 1452940803
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_28_42.json",
+    "size": 9187,
+    "zip_crc": 3902337412
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_features_42_56.json",
+    "size": 6014,
+    "zip_crc": 3840444230
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_0_28.json",
+    "size": 16412,
+    "zip_crc": 4253076644
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_28_56.json",
+    "size": 16781,
+    "zip_crc": 2043094855
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/browser_templates_56_84.json",
+    "size": 16805,
+    "zip_crc": 1721942207
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_results.json",
+    "size": 100639,
+    "zip_crc": 260595889
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/core_run.log",
+    "size": 304,
+    "zip_crc": 2041068650
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generated_fixtures.json",
+    "size": 1271745,
+    "zip_crc": 3960431030
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/generation_results.json",
+    "size": 216878,
+    "zip_crc": 1493887802
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/results/supplemental_evidence.json",
+    "size": 1727,
+    "zip_crc": 3178393128
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/WordQuest_Maths_Try.html",
+    "size": 208912,
+    "zip_crc": 3060987315
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/curriculum.json",
+    "size": 148473,
+    "zip_crc": 2766664001
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths.css",
+    "size": 15457,
+    "zip_crc": 1912793307
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_0.js",
+    "size": 117169,
+    "zip_crc": 2894284729
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_1.js",
+    "size": 24092,
+    "zip_crc": 4072162626
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_2.js",
+    "size": 6515,
+    "zip_crc": 3922136526
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_3.js",
+    "size": 60810,
+    "zip_crc": 3331613747
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/browser_checks.py",
+    "size": 27937,
+    "zip_crc": 3440514652
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/core_checks.cjs",
+    "size": 24147,
+    "zip_crc": 1237416478
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/generation_oracle.py",
+    "size": 4831,
+    "zip_crc": 2982859870
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/prepare_source.py",
+    "size": 666,
+    "zip_crc": 821974799
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/report_qa.py",
+    "size": 2020,
+    "zip_crc": 2903986768
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/run_all.py",
+    "size": 2196,
+    "zip_crc": 368352950
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/supplemental_evidence.py",
+    "size": 1951,
+    "zip_crc": 557442333
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.html",
+    "size": 335440,
+    "zip_crc": 4030623610
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.2_Audit_Report.source.html.txt",
+    "size": 334436,
+    "zip_crc": 640594035
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.html",
+    "size": 185269,
+    "zip_crc": 982208260
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/Maths_0.1.3_Character_Integration_Report.source.html.txt",
+    "size": 184074,
+    "zip_crc": 1052564068
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/07_Recovered_Reports/recovery_status.json",
+    "size": 1359,
+    "zip_crc": 2499921339
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_environment.json",
+    "size": 346,
+    "zip_crc": 4210103533
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_initial_results.json",
+    "size": 2015,
+    "zip_crc": 1664998122
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/browser_smoke_results.json",
+    "size": 2075,
+    "zip_crc": 2820295977
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_1280.png",
+    "size": 630667,
+    "zip_crc": 2321486703
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_390.png",
+    "size": 414739,
+    "zip_crc": 2846221233
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/english_desktop.png",
+    "size": 630667,
+    "zip_crc": 2321486703
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/extract_data.cjs",
+    "size": 1382,
+    "zip_crc": 3048612873
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/image_integrity.json",
+    "size": 84986,
+    "zip_crc": 3124831391
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/javascript_syntax.json",
+    "size": 3468,
+    "zip_crc": 2830592546
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_1280.png",
+    "size": 218694,
+    "zip_crc": 2312410873
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_390.png",
+    "size": 188218,
+    "zip_crc": 3181892382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_answer.png",
+    "size": 96529,
+    "zip_crc": 946022382
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/maths_desktop.png",
+    "size": 218694,
+    "zip_crc": 2312410873
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/mobile_image_initial_states.json",
+    "size": 1548,
+    "zip_crc": 3345487065
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/navigation_links.json",
+    "size": 129626,
+    "zip_crc": 249309776
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/original_audit_integrity.json",
+    "size": 15154,
+    "zip_crc": 1110226082
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/package_browser_smoke.py",
+    "size": 7086,
+    "zip_crc": 1958597504
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/verify_package.py",
+    "size": 546,
+    "zip_crc": 192357479
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/08_Package_QA/打包驗證.html",
+    "size": 5130,
+    "zip_crc": 3366606234
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/PACKAGE_MANIFEST.json",
+    "size": 3132,
+    "zip_crc": 1297292184
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/README_先看這份.md",
+    "size": 5264,
+    "zip_crc": 3945662169
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/SHA256SUMS.txt",
+    "size": 75644,
+    "zip_crc": 1344524316
+  },
+  {
+    "path": "WordQuest_R3_2/originals/WordQuest_Program_and_Data_20260929/START_HERE.html",
+    "size": 5756,
+    "zip_crc": 1260204480
+  },
+  {
+    "path": "WordQuest_R3_2/patches/host_bridge.js",
+    "size": 7238,
+    "zip_crc": 4060195534
+  },
+  {
+    "path": "WordQuest_R3_2/r31_crop_contact.jpg",
+    "size": 143418,
+    "zip_crc": 4069658094
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/R3_PRESERVATION.json",
+    "size": 298626,
+    "zip_crc": 642406006
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/REBUILD_VERIFICATION.json",
+    "size": 10228,
+    "zip_crc": 1860443984
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/SUMMARY.json",
+    "size": 1556,
+    "zip_crc": 3573337757
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/all_cases.json",
+    "size": 174587,
+    "zip_crc": 3768278512
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/arcade_browser.log",
+    "size": 26305,
+    "zip_crc": 32943176
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/arcade_browser_results.json",
+    "size": 78899,
+    "zip_crc": 1989984976
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/arcade_core.log",
+    "size": 26,
+    "zip_crc": 372920746
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/arcade_core_results.json",
+    "size": 57694,
+    "zip_crc": 2616799423
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/arcade_regression.log",
+    "size": 26,
+    "zip_crc": 372920746
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/build.json",
+    "size": 444,
+    "zip_crc": 3285427530
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/characters_browser.json",
+    "size": 11839,
+    "zip_crc": 448594352
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/characters_browser.log",
+    "size": 4640,
+    "zip_crc": 4269143459
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/characters_core.json",
+    "size": 11708,
+    "zip_crc": 2400779188
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/characters_core.log",
+    "size": 17,
+    "zip_crc": 3576419905
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/child_and_exam.json",
+    "size": 1359,
+    "zip_crc": 138055350
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/child_and_exam.log",
+    "size": 17,
+    "zip_crc": 3136662592
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/cloud-island_paused.png",
+    "size": 232271,
+    "zip_crc": 2226351995
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/daily-complete.png",
+    "size": 624149,
+    "zip_crc": 877078648
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/environment.json",
+    "size": 1263,
+    "zip_crc": 2813949693
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family.log",
+    "size": 5869,
+    "zip_crc": 1107470173
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_after_reset.png",
+    "size": 131678,
+    "zip_crc": 2883683285
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_browser.json",
+    "size": 3507,
+    "zip_crc": 1092224867
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_browser.log",
+    "size": 5869,
+    "zip_crc": 1107470173
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_contracts.json",
+    "size": 4450,
+    "zip_crc": 2234219749
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_contracts.log",
+    "size": 17,
+    "zip_crc": 1621234272
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_export_fixture.json",
+    "size": 8985,
+    "zip_crc": 3009887720
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/family_panel.png",
+    "size": 152825,
+    "zip_crc": 2612670767
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/final_english_home.png",
+    "size": 271699,
+    "zip_crc": 178431740
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/final_math_feedback.png",
+    "size": 112893,
+    "zip_crc": 504735348
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/final_math_home.png",
+    "size": 129398,
+    "zip_crc": 704595027
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/final_math_home_390.png",
+    "size": 78420,
+    "zip_crc": 177898872
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/final_start_390.png",
+    "size": 317124,
+    "zip_crc": 2635711000
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/arcade_browser.log",
+    "size": 6443,
+    "zip_crc": 1834229531
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/arcade_browser_results.json",
+    "size": 11986,
+    "zip_crc": 503387247
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/characters_browser.json",
+    "size": 10619,
+    "zip_crc": 1689533583
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/characters_browser.log",
+    "size": 6711,
+    "zip_crc": 1436198951
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/child_and_exam.log",
+    "size": 2107,
+    "zip_crc": 4253584008
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/gallery_initial.png",
+    "size": 550685,
+    "zip_crc": 1981735000
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/home_initial.png",
+    "size": 817814,
+    "zip_crc": 4268051971
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/first_run/math_initial.png",
+    "size": 131141,
+    "zip_crc": 1941524546
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/gallery_1280.png",
+    "size": 480660,
+    "zip_crc": 2513322548
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/gallery_320.png",
+    "size": 359509,
+    "zip_crc": 1763738373
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/harbor-volley_paused.png",
+    "size": 216422,
+    "zip_crc": 2987891501
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/hide_probe.json",
+    "size": 327,
+    "zip_crc": 1990479621
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/independent_assessment.png",
+    "size": 103807,
+    "zip_crc": 2602285192
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/integration.log",
+    "size": 26662,
+    "zip_crc": 452709673
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/integration_regression.log",
+    "size": 26662,
+    "zip_crc": 452709673
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/integration_results.json",
+    "size": 130999,
+    "zip_crc": 1677700206
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/integration_summary.json",
+    "size": 321,
+    "zip_crc": 1228557460
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/lighthouse-well_paused.png",
+    "size": 202462,
+    "zip_crc": 2204444301
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/math_correct_desktop.png",
+    "size": 28360,
+    "zip_crc": 285736661
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/math_geometry_320.png",
+    "size": 45772,
+    "zip_crc": 1454725089
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/maths-1280.png",
+    "size": 587824,
+    "zip_crc": 1151400068
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/maths-320.png",
+    "size": 472070,
+    "zip_crc": 1175973680
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/maths-390.png",
+    "size": 461126,
+    "zip_crc": 532325023
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/olympiad-complete.png",
+    "size": 601088,
+    "zip_crc": 2654519323
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/ruins-courier_320x568.png",
+    "size": 39875,
+    "zip_crc": 748640343
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/ruins-courier_390x844.png",
+    "size": 49542,
+    "zip_crc": 3405542597
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/ruins-courier_844x390.png",
+    "size": 57226,
+    "zip_crc": 963278144
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/ruins-courier_paused.png",
+    "size": 241572,
+    "zip_crc": 2693891214
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/run_all.log",
+    "size": 1023,
+    "zip_crc": 1804347983
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/run_complete.json",
+    "size": 158,
+    "zip_crc": 4282809577
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/runs.json",
+    "size": 1186,
+    "zip_crc": 2290700575
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/source_preservation.json",
+    "size": 3699,
+    "zip_crc": 1838146352
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/star-patrol_320x568.png",
+    "size": 42942,
+    "zip_crc": 1394364504
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/star-patrol_390x844.png",
+    "size": 51700,
+    "zip_crc": 3519686616
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/star-patrol_844x390.png",
+    "size": 61979,
+    "zip_crc": 1543000478
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/star-patrol_paused.png",
+    "size": 231721,
+    "zip_crc": 1447681972
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/syntax.json",
+    "size": 2703,
+    "zip_crc": 2606148313
+  },
+  {
+    "path": "WordQuest_R3_2/r31_evidence/visual_review.json",
+    "size": 5404,
+    "zip_crc": 2900370224
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/assets_data.js",
+    "size": 2704435,
+    "zip_crc": 2442259259
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/characters_core.js",
+    "size": 7958,
+    "zip_crc": 4036222907
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/family_core_compatible.js",
+    "size": 9629,
+    "zip_crc": 4183914029
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/forest.css",
+    "size": 2575,
+    "zip_crc": 3487286483
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/forest_math.css",
+    "size": 2324,
+    "zip_crc": 2406650366
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/math_companion.js",
+    "size": 1632,
+    "zip_crc": 3962716223
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/math_host_helpers.js",
+    "size": 1742,
+    "zip_crc": 165531886
+  },
+  {
+    "path": "WordQuest_R3_2/r31_src/probe.py",
+    "size": 1414,
+    "zip_crc": 1282291273
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/arcade_browser.py",
+    "size": 6381,
+    "zip_crc": 1186094520
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/arcade_regression.cjs",
+    "size": 10970,
+    "zip_crc": 3580346493
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/characters_browser.py",
+    "size": 13153,
+    "zip_crc": 4087897202
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/characters_core.cjs",
+    "size": 4539,
+    "zip_crc": 3142608851
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/child_and_exam.py",
+    "size": 3162,
+    "zip_crc": 3627978567
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/family_browser.py",
+    "size": 11769,
+    "zip_crc": 414374168
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/family_contracts.cjs",
+    "size": 6230,
+    "zip_crc": 691447408
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/final_visuals.py",
+    "size": 3624,
+    "zip_crc": 315539158
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/integration_regression.py",
+    "size": 24136,
+    "zip_crc": 562058710
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/probe_hide.py",
+    "size": 1011,
+    "zip_crc": 4266720256
+  },
+  {
+    "path": "WordQuest_R3_2/r31_tests/run_all.py",
+    "size": 1382,
+    "zip_crc": 138427382
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/RELEASE_RESULTS.json",
+    "size": 2567,
+    "zip_crc": 3814175319
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/afeng-cloud-live-desktop.png",
+    "size": 172401,
+    "zip_crc": 3124695563
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/afeng-cloud-live-mobile.png",
+    "size": 36352,
+    "zip_crc": 407836234
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/afeng-lab-desktop.png",
+    "size": 227225,
+    "zip_crc": 1233078851
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/afeng-lab-mobile.png",
+    "size": 167058,
+    "zip_crc": 3047685463
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/arcade-browser.log",
+    "size": 26192,
+    "zip_crc": 1395166481
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/arcade-core.log",
+    "size": 26,
+    "zip_crc": 372920746
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/arcade_browser_results.json",
+    "size": 78786,
+    "zip_crc": 2043059818
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/arcade_core_results.json",
+    "size": 57694,
+    "zip_crc": 2616799423
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/build.json",
+    "size": 383,
+    "zip_crc": 2384800246
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/cloud-island_paused.png",
+    "size": 232426,
+    "zip_crc": 3994937624
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/cloud-live.log",
+    "size": 1045,
+    "zip_crc": 3368289074
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/cloud_live.json",
+    "size": 1330,
+    "zip_crc": 677478858
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/daily-complete.png",
+    "size": 616412,
+    "zip_crc": 205226081
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/device_health_fixture.json",
+    "size": 899,
+    "zip_crc": 3537147156
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/device_page_native_about_blank.json",
+    "size": 1852,
+    "zip_crc": 481585888
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/document_check.json",
+    "size": 294,
+    "zip_crc": 368765600
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family-browser.log",
+    "size": 5869,
+    "zip_crc": 4175550253
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family-core.log",
+    "size": 17,
+    "zip_crc": 1621234272
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family_after_reset.png",
+    "size": 131753,
+    "zip_crc": 1438178729
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family_browser.json",
+    "size": 3507,
+    "zip_crc": 1092224867
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family_contracts.json",
+    "size": 4450,
+    "zip_crc": 2234219749
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family_export_fixture.json",
+    "size": 8987,
+    "zip_crc": 387798123
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/family_panel.png",
+    "size": 157414,
+    "zip_crc": 411284294
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/final_runner.json",
+    "size": 1143,
+    "zip_crc": 2658067586
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/harbor-volley_paused.png",
+    "size": 216285,
+    "zip_crc": 1129249124
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial-new-core.log",
+    "size": 7053,
+    "zip_crc": 2971223963
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_cloud-live.log",
+    "size": 1032,
+    "zip_crc": 1725356524
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_cloud_live.json",
+    "size": 1317,
+    "zip_crc": 173062135
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_document_check.json",
+    "size": 318,
+    "zip_crc": 253519364
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_integration_results.json",
+    "size": 13366,
+    "zip_crc": 3621975157
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_new_core_results.json",
+    "size": 14459,
+    "zip_crc": 850220173
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/initial_syntax.json",
+    "size": 2971,
+    "zip_crc": 1738950431
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/input_preservation.json",
+    "size": 308952,
+    "zip_crc": 744318530
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/integration-focused.log",
+    "size": 4677,
+    "zip_crc": 2825884800
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/integration.log",
+    "size": 3787,
+    "zip_crc": 3374930775
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/integration_results.json",
+    "size": 16214,
+    "zip_crc": 1270169139
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/integration_summary.json",
+    "size": 318,
+    "zip_crc": 1807680778
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/lighthouse-well_paused.png",
+    "size": 203197,
+    "zip_crc": 2671488407
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/maths-1280.png",
+    "size": 587887,
+    "zip_crc": 3037556165
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/maths-320.png",
+    "size": 472126,
+    "zip_crc": 3632027931
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/maths-390.png",
+    "size": 460392,
+    "zip_crc": 2165402696
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/native-acceptance.log",
+    "size": 309,
+    "zip_crc": 34000946
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/native-initial.json",
+    "size": 190,
+    "zip_crc": 2393271796
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/native-page-blocked.png",
+    "size": 220471,
+    "zip_crc": 4175468487
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/native_acceptance.json",
+    "size": 686,
+    "zip_crc": 2425097677
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/new-browser.log",
+    "size": 2133,
+    "zip_crc": 3538657111
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/new-core.log",
+    "size": 20,
+    "zip_crc": 642899723
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/new_browser_results.json",
+    "size": 5907,
+    "zip_crc": 742632177
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/new_core_results.json",
+    "size": 7009,
+    "zip_crc": 3754711661
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/olympiad-complete.png",
+    "size": 599946,
+    "zip_crc": 52551266
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/queue.json",
+    "size": 343,
+    "zip_crc": 3768074257
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/ruins-courier_320x568.png",
+    "size": 39878,
+    "zip_crc": 1644629104
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/ruins-courier_390x844.png",
+    "size": 49702,
+    "zip_crc": 1584602968
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/ruins-courier_844x390.png",
+    "size": 57281,
+    "zip_crc": 1580332814
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/ruins-courier_paused.png",
+    "size": 242334,
+    "zip_crc": 924696135
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/server-contracts.log",
+    "size": 17,
+    "zip_crc": 3126400558
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/server-native-http.log",
+    "size": 23,
+    "zip_crc": 920973801
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/server_contracts.json",
+    "size": 3087,
+    "zip_crc": 3507155243
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/server_native_http.json",
+    "size": 1629,
+    "zip_crc": 954785491
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/star-patrol_320x568.png",
+    "size": 43181,
+    "zip_crc": 3524812029
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/star-patrol_390x844.png",
+    "size": 51662,
+    "zip_crc": 651638175
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/star-patrol_844x390.png",
+    "size": 62191,
+    "zip_crc": 3314542985
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/star-patrol_paused.png",
+    "size": 231454,
+    "zip_crc": 879761047
+  },
+  {
+    "path": "WordQuest_R3_2/r32_evidence/syntax.json",
+    "size": 4035,
+    "zip_crc": 223635528
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/afeng_animation.html",
+    "size": 5460,
+    "zip_crc": 3868072977
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/afeng_rig.js",
+    "size": 9118,
+    "zip_crc": 2061960400
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/device_check.html",
+    "size": 3338,
+    "zip_crc": 702084092
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/device_check.js",
+    "size": 12111,
+    "zip_crc": 3095265007
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/host_additions.js",
+    "size": 3012,
+    "zip_crc": 3892570224
+  },
+  {
+    "path": "WordQuest_R3_2/r32_src/reliability_core.js",
+    "size": 2248,
+    "zip_crc": 1851693455
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/arcade_browser.py",
+    "size": 6381,
+    "zip_crc": 2114254428
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/arcade_regression.cjs",
+    "size": 10970,
+    "zip_crc": 3888971648
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/browser_new.py",
+    "size": 12356,
+    "zip_crc": 3900382901
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/characters_browser.py",
+    "size": 13153,
+    "zip_crc": 119568548
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/characters_core.cjs",
+    "size": 4539,
+    "zip_crc": 323541833
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/child_and_exam.py",
+    "size": 3162,
+    "zip_crc": 1995343051
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/cloud_live.py",
+    "size": 2827,
+    "zip_crc": 3428333131
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/family_browser.py",
+    "size": 11769,
+    "zip_crc": 2908517880
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/family_contracts.cjs",
+    "size": 6230,
+    "zip_crc": 1400905119
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/integration_full.py",
+    "size": 24136,
+    "zip_crc": 1589637714
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/integration_regression.py",
+    "size": 24347,
+    "zip_crc": 4015598414
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/native_acceptance.py",
+    "size": 7931,
+    "zip_crc": 3004170903
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/new_core.cjs",
+    "size": 5327,
+    "zip_crc": 151737307
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/run_release.py",
+    "size": 1421,
+    "zip_crc": 1278337575
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/server_contracts.mjs",
+    "size": 6582,
+    "zip_crc": 1615527790
+  },
+  {
+    "path": "WordQuest_R3_2/r32_tests/server_native_http.mjs",
+    "size": 2564,
+    "zip_crc": 453831844
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/DELIVERY_SUMMARY.json",
+    "size": 2643,
+    "zip_crc": 434983000
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/R2_PRESERVATION.json",
+    "size": 285506,
+    "zip_crc": 1396028160
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/arcade_browser_results.json",
+    "size": 78897,
+    "zip_crc": 2186412308
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/arcade_core_results.json",
+    "size": 57694,
+    "zip_crc": 2616799423
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/arcade_mobile_320_failure_before_fix.json",
+    "size": 79030,
+    "zip_crc": 1975820182
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/build.json",
+    "size": 284,
+    "zip_crc": 909317981
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/case_index.json",
+    "size": 737177,
+    "zip_crc": 3050214847
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/cloud-island_paused.png",
+    "size": 221473,
+    "zip_crc": 1561445276
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/curriculum_combined.json",
+    "size": 878679,
+    "zip_crc": 81734692
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/daily-complete.png",
+    "size": 523194,
+    "zip_crc": 2995898333
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_arcade_browser.py.log",
+    "size": 26303,
+    "zip_crc": 1736571746
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_arcade_regression.cjs.log",
+    "size": 26,
+    "zip_crc": 372920746
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_content_generate.cjs.log",
+    "size": 54,
+    "zip_crc": 1502752347
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_document_checks.json",
+    "size": 351,
+    "zip_crc": 1177579339
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_family_browser.py.log",
+    "size": 5737,
+    "zip_crc": 2238475399
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_family_contracts.cjs.log",
+    "size": 17,
+    "zip_crc": 1621234272
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_independent_oracle.py.log",
+    "size": 38,
+    "zip_crc": 2963476338
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_integration_regression.py.log",
+    "size": 26662,
+    "zip_crc": 452709673
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_lesson_text_browser.py.log",
+    "size": 4397,
+    "zip_crc": 2939227245
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_new_features_browser.py.log",
+    "size": 1774,
+    "zip_crc": 1236033915
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_run.log",
+    "size": 235,
+    "zip_crc": 3468934439
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_runs.json",
+    "size": 4283,
+    "zip_crc": 604002634
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_runs_before_mobile_fix.json",
+    "size": 3586,
+    "zip_crc": 1213443099
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/delivery_server_contracts.mjs.log",
+    "size": 17,
+    "zip_crc": 3126400558
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/environment.json",
+    "size": 463,
+    "zip_crc": 4279680111
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_after_reset.png",
+    "size": 132176,
+    "zip_crc": 622423664
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_browser.json",
+    "size": 3507,
+    "zip_crc": 1092224867
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_browser.log",
+    "size": 5617,
+    "zip_crc": 4076053670
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_browser_first_run.json",
+    "size": 3234,
+    "zip_crc": 3232758456
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_browser_pre_final.json",
+    "size": 3221,
+    "zip_crc": 632909883
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_contracts.json",
+    "size": 4450,
+    "zip_crc": 2234219749
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_export_fixture.json",
+    "size": 8985,
+    "zip_crc": 4143501866
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/family_panel.png",
+    "size": 153108,
+    "zip_crc": 1357147772
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/final_arcade_browser.log",
+    "size": 26436,
+    "zip_crc": 1983185793
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/final_arcade_regression.log",
+    "size": 26,
+    "zip_crc": 372920746
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/final_family_browser.log",
+    "size": 5617,
+    "zip_crc": 4076053670
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/first_new_features_browser.json",
+    "size": 3768,
+    "zip_crc": 1111557159
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/first_new_features_browser.log",
+    "size": 2289,
+    "zip_crc": 1383132191
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/generated_cases.json",
+    "size": 3834175,
+    "zip_crc": 2233144573
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/generation_failures.json",
+    "size": 2,
+    "zip_crc": 223132457
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/harbor-volley_paused.png",
+    "size": 205440,
+    "zip_crc": 521941983
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/independent_first_run.json",
+    "size": 466734,
+    "zip_crc": 1989881202
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/independent_results.json",
+    "size": 454617,
+    "zip_crc": 1388478642
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/integration_regression.log",
+    "size": 26662,
+    "zip_crc": 452709673
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/integration_results.json",
+    "size": 130987,
+    "zip_crc": 107617038
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/integration_results_pre_final.json",
+    "size": 130994,
+    "zip_crc": 1261470792
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/integration_summary.json",
+    "size": 321,
+    "zip_crc": 1228557460
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/integration_summary_pre_final.json",
+    "size": 321,
+    "zip_crc": 1228557460
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/lesson_text_browser.json",
+    "size": 24875,
+    "zip_crc": 3628375641
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/lesson_text_browser.log",
+    "size": 4397,
+    "zip_crc": 2939227245
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/lighthouse-well_paused.png",
+    "size": 192107,
+    "zip_crc": 751856993
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/maths-1280.png",
+    "size": 495398,
+    "zip_crc": 1102307623
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/maths-320.png",
+    "size": 378329,
+    "zip_crc": 4176760971
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/maths-390.png",
+    "size": 390118,
+    "zip_crc": 1962161928
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/mobile_fixed_arcade_check.log",
+    "size": 26304,
+    "zip_crc": 2909873170
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/money_sentence_fixed.png",
+    "size": 65970,
+    "zip_crc": 3121838183
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/native_browser_blocked.json",
+    "size": 655,
+    "zip_crc": 1494350702
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/new_features_browser.json",
+    "size": 4410,
+    "zip_crc": 1798174384
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/new_features_browser.log",
+    "size": 2863,
+    "zip_crc": 3559767633
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/new_features_browser_pre_final.json",
+    "size": 5519,
+    "zip_crc": 3335385648
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/new_solid_320.png",
+    "size": 33206,
+    "zip_crc": 366884305
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/olympiad-complete.png",
+    "size": 498668,
+    "zip_crc": 3240060299
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/olympiad_alternative.png",
+    "size": 101887,
+    "zip_crc": 2861489725
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/release_family_browser.py.log",
+    "size": 5737,
+    "zip_crc": 2238475399
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/release_integration_regression.py.log",
+    "size": 26662,
+    "zip_crc": 452709673
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/release_new_features_browser.py.log",
+    "size": 1774,
+    "zip_crc": 1236033915
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/report_mobile.png",
+    "size": 89530,
+    "zip_crc": 147163754
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/report_style.css",
+    "size": 1604,
+    "zip_crc": 968753152
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/reproducible_build.json",
+    "size": 230,
+    "zip_crc": 2963699841
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/ruins-courier_320x568.png",
+    "size": 39897,
+    "zip_crc": 657846725
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/ruins-courier_390x844.png",
+    "size": 50048,
+    "zip_crc": 84329811
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/ruins-courier_844x390.png",
+    "size": 57641,
+    "zip_crc": 870999387
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/ruins-courier_paused.png",
+    "size": 232681,
+    "zip_crc": 1082137530
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/server_contracts.json",
+    "size": 3087,
+    "zip_crc": 3507155243
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/slow_key_mobile.png",
+    "size": 97696,
+    "zip_crc": 3286228614
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/smoke.json",
+    "size": 209,
+    "zip_crc": 4263172673
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/smoke_family.png",
+    "size": 517861,
+    "zip_crc": 2364273895
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/star-patrol_320x568.png",
+    "size": 43027,
+    "zip_crc": 754670425
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/star-patrol_390x844.png",
+    "size": 51991,
+    "zip_crc": 3579831970
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/star-patrol_844x390.png",
+    "size": 61845,
+    "zip_crc": 1097702815
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/star-patrol_paused.png",
+    "size": 220667,
+    "zip_crc": 1727506129
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/start_mobile.png",
+    "size": 75201,
+    "zip_crc": 3319659452
+  },
+  {
+    "path": "WordQuest_R3_2/r3_evidence/syntax.json",
+    "size": 3089,
+    "zip_crc": 3185720269
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/arcade_pose.js",
+    "size": 2843,
+    "zip_crc": 3165665291
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/00.js",
+    "size": 15983,
+    "zip_crc": 2741871980
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/01.js",
+    "size": 11369,
+    "zip_crc": 4180306399
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/02.js",
+    "size": 9400,
+    "zip_crc": 1183752598
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/03.js",
+    "size": 226037,
+    "zip_crc": 3445309156
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/04.js",
+    "size": 1717439,
+    "zip_crc": 2791601386
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/05.js",
+    "size": 16160,
+    "zip_crc": 2335070209
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/06.js",
+    "size": 3483,
+    "zip_crc": 2784636165
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/07.js",
+    "size": 3954,
+    "zip_crc": 588873351
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/08.js",
+    "size": 4872,
+    "zip_crc": 327863056
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/09.js",
+    "size": 9967,
+    "zip_crc": 1300285337
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/10.js",
+    "size": 2232,
+    "zip_crc": 1239562024
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/11.js",
+    "size": 16825,
+    "zip_crc": 2181029833
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/12.js",
+    "size": 6878,
+    "zip_crc": 3153176601
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/13.js",
+    "size": 6643,
+    "zip_crc": 2476561534
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/14.js",
+    "size": 22058,
+    "zip_crc": 2074636565
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/15.js",
+    "size": 19644,
+    "zip_crc": 3136341467
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/16.js",
+    "size": 19205,
+    "zip_crc": 1973472276
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/17.js",
+    "size": 15060,
+    "zip_crc": 1172325507
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/18.js",
+    "size": 90313,
+    "zip_crc": 3859999808
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/19.js",
+    "size": 13759,
+    "zip_crc": 1578210775
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/20.js",
+    "size": 7082,
+    "zip_crc": 3300291865
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/21.js",
+    "size": 14207,
+    "zip_crc": 1006245363
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/22.js",
+    "size": 37512,
+    "zip_crc": 517270244
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/23.js",
+    "size": 2152,
+    "zip_crc": 77093600
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/24.js",
+    "size": 4505624,
+    "zip_crc": 3264168047
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/25.js",
+    "size": 16037,
+    "zip_crc": 3978741298
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/26.js",
+    "size": 61510,
+    "zip_crc": 532303444
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/27.js",
+    "size": 12893,
+    "zip_crc": 1788858802
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/28.js",
+    "size": 3859073,
+    "zip_crc": 2532977066
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/29.js",
+    "size": 5931,
+    "zip_crc": 1467865820
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/30.js",
+    "size": 144,
+    "zip_crc": 2857193789
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/31.js",
+    "size": 1595665,
+    "zip_crc": 4063971101
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/32.js",
+    "size": 206387,
+    "zip_crc": 4277789333
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/33.js",
+    "size": 33181,
+    "zip_crc": 3868052693
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/34.js",
+    "size": 7680,
+    "zip_crc": 1540366287
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/base/35.js",
+    "size": 69967,
+    "zip_crc": 1048232914
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/curriculum_extension.js",
+    "size": 408860,
+    "zip_crc": 3534430779
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/curriculum_extension.json",
+    "size": 598002,
+    "zip_crc": 4122835254
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/family.css",
+    "size": 1712,
+    "zip_crc": 3821926302
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/family_core.js",
+    "size": 9483,
+    "zip_crc": 3766514308
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/host_family.js",
+    "size": 28797,
+    "zip_crc": 3975980220
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/host_offline.js",
+    "size": 9376,
+    "zip_crc": 910808965
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/math_migration.js",
+    "size": 2786,
+    "zip_crc": 1993227633
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/math_ui_extra.js",
+    "size": 3313,
+    "zip_crc": 2125208880
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/math_visuals.js",
+    "size": 16023,
+    "zip_crc": 2332593440
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/olympiad_ui.js",
+    "size": 1268,
+    "zip_crc": 693639322
+  },
+  {
+    "path": "WordQuest_R3_2/r3_src/tool_binding.js",
+    "size": 2374,
+    "zip_crc": 3735294524
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/arcade_browser.py",
+    "size": 6378,
+    "zip_crc": 2540111453
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/arcade_regression.cjs",
+    "size": 10969,
+    "zip_crc": 313269393
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/content_generate.cjs",
+    "size": 1898,
+    "zip_crc": 3775009154
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/family_browser.py",
+    "size": 11765,
+    "zip_crc": 3717804419
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/family_contracts.cjs",
+    "size": 6217,
+    "zip_crc": 2858195975
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/independent_oracle.py",
+    "size": 5628,
+    "zip_crc": 786033506
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/integration_regression.py",
+    "size": 24130,
+    "zip_crc": 4253569496
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/lesson_text_browser.py",
+    "size": 2611,
+    "zip_crc": 2404813395
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/new_features_browser.py",
+    "size": 8393,
+    "zip_crc": 1533869975
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/run_release.py",
+    "size": 3092,
+    "zip_crc": 3533540691
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/server_contracts.mjs",
+    "size": 6581,
+    "zip_crc": 1805800800
+  },
+  {
+    "path": "WordQuest_R3_2/r3_tests/smoke.py",
+    "size": 1063,
+    "zip_crc": 2086859724
+  },
+  {
+    "path": "WordQuest_R3_2/requirements-r31-dev.txt",
+    "size": 57,
+    "zip_crc": 735292779
+  },
+  {
+    "path": "WordQuest_R3_2/requirements-test.txt",
+    "size": 104,
+    "zip_crc": 493479540
+  },
+  {
+    "path": "WordQuest_R3_2/server/local_server.mjs",
+    "size": 5278,
+    "zip_crc": 1610548202
+  },
+  {
+    "path": "WordQuest_R3_2/tests/capture_views.py",
+    "size": 1217,
+    "zip_crc": 2074967085
+  },
+  {
+    "path": "WordQuest_R3_2/tests/harness.py",
+    "size": 3568,
+    "zip_crc": 1218491513
+  },
+  {
+    "path": "WordQuest_R3_2/tests/integration_checks.py",
+    "size": 23775,
+    "zip_crc": 2787522286
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/results/core_results.json",
+    "size": 99861,
+    "zip_crc": 2973765090
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/results/generated_fixtures.json",
+    "size": 1472340,
+    "zip_crc": 504404378
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/results/generation_results.json",
+    "size": 217842,
+    "zip_crc": 2091078357
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/source/curriculum.json",
+    "size": 278444,
+    "zip_crc": 2827697949
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/source/maths_script_0.js",
+    "size": 206387,
+    "zip_crc": 4277789333
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/source/maths_script_1.js",
+    "size": 33181,
+    "zip_crc": 3868052693
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/source/maths_script_2.js",
+    "size": 7680,
+    "zip_crc": 1540366287
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/source/maths_script_3.js",
+    "size": 69967,
+    "zip_crc": 1048232914
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/tests/core_checks.cjs",
+    "size": 24147,
+    "zip_crc": 1237416478
+  },
+  {
+    "path": "WordQuest_R3_2/tests/legacy_rerun/tests/generation_oracle.py",
+    "size": 4831,
+    "zip_crc": 2982859870
+  },
+  {
+    "path": "WordQuest_R3_2/tests/smoke.py",
+    "size": 923,
+    "zip_crc": 2073045270
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build.py",
+    "size": 206,
+    "zip_crc": 1423737522
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_arcade_r2.py",
+    "size": 7666,
+    "zip_crc": 644785903
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_character_assets.py",
+    "size": 4492,
+    "zip_crc": 3020248625
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_characters_r31.py",
+    "size": 8833,
+    "zip_crc": 2666429187
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_curriculum_r3.py",
+    "size": 43858,
+    "zip_crc": 2189785899
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_r3.py",
+    "size": 14864,
+    "zip_crc": 1375278082
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_r32.py",
+    "size": 6658,
+    "zip_crc": 2378640359
+  },
+  {
+    "path": "WordQuest_R3_2/tools/build_r32_report.py",
+    "size": 14276,
+    "zip_crc": 1087623176
+  },
+  {
+    "path": "WordQuest_R3_2/tools/document_characters_r31.py",
+    "size": 14307,
+    "zip_crc": 929024779
+  },
+  {
+    "path": "WordQuest_R3_2/tools/make_delivery.py",
+    "size": 204,
+    "zip_crc": 2097519541
+  },
+  {
+    "path": "WordQuest_R3_2/tools/package_characters_r31.py",
+    "size": 4442,
+    "zip_crc": 3212568717
+  },
+  {
+    "path": "WordQuest_R3_2/tools/package_r2.py",
+    "size": 2098,
+    "zip_crc": 616348263
+  },
+  {
+    "path": "WordQuest_R3_2/tools/package_r3.py",
+    "size": 3718,
+    "zip_crc": 1079245748
+  },
+  {
+    "path": "WordQuest_R3_2/tools/package_release.py",
+    "size": 201,
+    "zip_crc": 2567418983
+  },
+  {
+    "path": "WordQuest_R3_2/tools/patch_math.py",
+    "size": 3489,
+    "zip_crc": 1923276004
+  },
+  {
+    "path": "WordQuest_R3_2/tools/report_r3.py",
+    "size": 14362,
+    "zip_crc": 2125410079
+  },
+  {
+    "path": "WordQuest_R3_2/tools/serve.ps1",
+    "size": 4908,
+    "zip_crc": 380880129
+  },
+  {
+    "path": "WordQuest_R3_2/tools/verify_build.py",
+    "size": 200,
+    "zip_crc": 826580095
+  },
+  {
+    "path": "WordQuest_R3_2/tools/verify_r2.py",
+    "size": 4256,
+    "zip_crc": 2243303661
+  },
+  {
+    "path": "WordQuest_R3_2/tools/write_r2_docs.py",
+    "size": 18975,
+    "zip_crc": 1135530631
+  }
+]

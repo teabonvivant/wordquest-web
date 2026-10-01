@@ -1,0 +1,153 @@
+{
+  "scope": "real request handler + real filesystem; mocked upstream speech/no network/no real audio",
+  "tests": [
+    {
+      "name": "reject empty",
+      "pass": true
+    },
+    {
+      "name": "reject empty text",
+      "pass": true
+    },
+    {
+      "name": "reject long",
+      "pass": true
+    },
+    {
+      "name": "reject voice injection",
+      "pass": true
+    },
+    {
+      "name": "reject language mismatch",
+      "pass": true
+    },
+    {
+      "name": "reject rate type",
+      "pass": true
+    },
+    {
+      "name": "reject unknown language",
+      "pass": true
+    },
+    {
+      "name": "SSML escapes text not markup",
+      "pass": true
+    },
+    {
+      "name": "English selected voice and language",
+      "pass": true
+    },
+    {
+      "name": "Slow option becomes controlled prosody not arbitrary SSML",
+      "pass": true
+    },
+    {
+      "name": "API unconfigured",
+      "pass": true
+    },
+    {
+      "name": "API invalid host",
+      "pass": true
+    },
+    {
+      "name": "API cross origin",
+      "pass": true
+    },
+    {
+      "name": "API missing request header",
+      "pass": true
+    },
+    {
+      "name": "API wrong content type",
+      "pass": true
+    },
+    {
+      "name": "API wrong method",
+      "pass": true
+    },
+    {
+      "name": "Malformed JSON returns 400",
+      "pass": true
+    },
+    {
+      "name": "Oversized request bounded to 10KB",
+      "pass": true
+    },
+    {
+      "name": "UTF8 multi-byte characters split across chunks remain intact",
+      "pass": true
+    },
+    {
+      "name": "Provider hostname built from validated region and HTTPS",
+      "pass": true
+    },
+    {
+      "name": "Audio response is no-store; provider key is not echoed",
+      "pass": true
+    },
+    {
+      "name": "Provider failure returns sanitized error",
+      "pass": true
+    },
+    {
+      "name": "Provider exception returns sanitized error",
+      "pass": true
+    },
+    {
+      "name": "Provider empty audio returns sanitized error",
+      "pass": true
+    },
+    {
+      "name": "Provider large audio returns sanitized error",
+      "pass": true
+    },
+    {
+      "name": "Bad region cannot choose arbitrary provider URL",
+      "pass": true
+    },
+    {
+      "name": "Static route /",
+      "pass": true
+    },
+    {
+      "name": "Static route /index.html",
+      "pass": true
+    },
+    {
+      "name": "Static route /unknown",
+      "pass": true
+    },
+    {
+      "name": "Static route /%2e%2e%2fserver/local_server.mjs",
+      "pass": true
+    },
+    {
+      "name": "Static route /%00",
+      "pass": true
+    },
+    {
+      "name": "Static route /%5csecret",
+      "pass": true
+    },
+    {
+      "name": "Static route /.env",
+      "pass": true
+    },
+    {
+      "name": "Static route /%GG",
+      "pass": true
+    },
+    {
+      "name": "WASM proper content type and HEAD no body",
+      "pass": true
+    },
+    {
+      "name": "Symlink cannot serve outside application directory",
+      "pass": true
+    },
+    {
+      "name": "Rate limit denies 61st local speech request",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,1006 @@
+{
+  "format": "wordquest-family",
+  "version": 1,
+  "createdAt": "2026-09-30T08:48:26.665Z",
+  "appVersion": "R3.2.0",
+  "warning": "含學員姓名及學習紀錄，未加密；不含帳戶密碼或API金鑰。",
+  "payload": {
+    "sourceOwner": "u_1285c7a2-24de-4e5c-98dd-5ad9a2e37a52",
+    "english": {
+      "version": 12,
+      "activeChildId": "c_demo",
+      "children": [
+        {
+          "id": "c_demo",
+          "name": "TEST 檢查學員",
+          "grade": 3,
+          "stars": 1,
+          "activeRangeId": null,
+          "createdAt": "2026-09-30T08:48:18.359Z"
+        }
+      ],
+      "ranges": [
+        {
+          "id": "r_demo",
+          "childId": "c_demo",
+          "title": "示範默書 Unit 3",
+          "dictationDate": "2026-10-04",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "isDemo": true
+        }
+      ],
+      "words": [
+        {
+          "id": "w_shoe",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "shoe",
+          "zh": "鞋",
+          "example": "There is a shoe under the chair.",
+          "emoji": "👟",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_book",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "book",
+          "zh": "書",
+          "example": "Please open your book.",
+          "emoji": "📘",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_apple",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "apple",
+          "zh": "蘋果",
+          "example": "I have a red apple.",
+          "emoji": "🍎",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_school",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "school",
+          "zh": "學校",
+          "example": "Our school has a library.",
+          "emoji": "🏫",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_teacher",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "teacher",
+          "zh": "老師",
+          "example": "The teacher reads us a story.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_friend",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "friend",
+          "zh": "朋友",
+          "example": "My friend helps me with my homework.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_pencil",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "pencil",
+          "zh": "鉛筆",
+          "example": "May I borrow a pencil?",
+          "emoji": "✏️",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_water",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "water",
+          "zh": "",
+          "example": "",
+          "emoji": "💧",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_thirsty",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "thirsty",
+          "zh": "口渴的",
+          "example": "I am thirsty after running.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_beautiful",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "beautiful",
+          "zh": "美麗的",
+          "example": "The garden is beautiful.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_favourite",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "favourite",
+          "zh": "最喜愛的",
+          "example": "Blue is my favourite colour.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        },
+        {
+          "id": "w_because",
+          "childId": "c_demo",
+          "rangeId": "r_demo",
+          "en": "because",
+          "zh": "因為",
+          "example": "We stayed inside because it was raining.",
+          "emoji": "",
+          "kind": "word",
+          "createdAt": "2026-09-30T08:48:18.359Z",
+          "studySeen": 0,
+          "reviewLevel": 0,
+          "reviewDue": null,
+          "lastSeen": null,
+          "firstStudiedDay": ""
+        }
+      ],
+      "attempts": [],
+      "settings": {
+        "dailyNew": 5,
+        "dailyMax": 12,
+        "gameMinutes": 2,
+        "sfxEnabled": true,
+        "arcadeSfxVolume": 60,
+        "arcadeMusicVolume": 35
+      },
+      "createdAt": "2026-09-30T08:48:18.359Z",
+      "session": null,
+      "savedSessions": {},
+      "dailyLedger": {},
+      "educationV24": {
+        "v": 1,
+        "grading": "strict",
+        "gradePacing": true,
+        "rangeLocks": {}
+      },
+      "familyLearning": {
+        "version": 1,
+        "children": {
+          "c_demo": {
+            "seen": {},
+            "attempts": [],
+            "session": null
+          }
+        }
+      },
+      "phonicsLearning": {
+        "version": 1,
+        "children": {
+          "c_demo": {
+            "progress": {},
+            "runs": [],
+            "session": null
+          }
+        }
+      },
+      "playgroundV22": {
+        "v": 1,
+        "mode": "balanced",
+        "children": {
+          "c_demo": {
+            "limit": 15,
+            "difficulty": 1,
+            "override": {},
+            "evidence": {},
+            "phraseEvidence": {},
+            "sentenceEvidence": {},
+            "days": {},
+            "sessions": [],
+            "ticket": null,
+            "saves": {},
+            "extras": {},
+            "bests": {},
+            "hints": [],
+            "pending": {},
+            "bonusSession": null,
+            "quarantine": {}
+          }
+        }
+      },
+      "workshopV31": {
+        "version": 1,
+        "children": {}
+      },
+      "learningV30": {
+        "version": 1,
+        "children": {}
+      },
+      "testAccount": false,
+      "arcade": {
+        "version": 1,
+        "active": {},
+        "best": {},
+        "preferences": {
+          "c_demo": {
+            "level": 1,
+            "shooter": true
+          }
+        },
+        "history": []
+      },
+      "writeRevision": 2,
+      "arcadeV28": {
+        "v": 28,
+        "children": {
+          "c_demo": {
+            "batch": {
+              "number": 1,
+              "used": 0,
+              "lastSpentAt": 0
+            },
+            "days": {
+              "2026-09-30": {
+                "keys": [
+                  "math:normal:daily"
+                ],
+                "blocks": 1,
+                "bonus": false,
+                "earned": 1
+              }
+            },
+            "ledger": [
+              {
+                "id": "learn_1790758106369_1",
+                "kind": "learn",
+                "amount": 1,
+                "at": 1790758106369,
+                "note": "完成學習任務"
+              }
+            ],
+            "run": null,
+            "paused": false,
+            "permissions": {},
+            "selectedSkin": "classic",
+            "bests": {},
+            "migration": {
+              "original": 0,
+              "returned": 0,
+              "due": 0,
+              "at": 1790758098366
+            }
+          }
+        }
+      }
+    },
+    "math": [
+      {
+        "childId": "c_demo",
+        "state": {
+          "schema": 1,
+          "contentRevision": 2,
+          "revision": 48,
+          "serial": 10,
+          "attempts": [
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:0",
+              "skill": "1N1.1",
+              "track": "normal",
+              "template": "1N1.1-T2",
+              "seed": 2654448106,
+              "answer": {
+                "value": "8",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 292,
+              "at": 1790758098805,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:1",
+              "skill": "1N1.5",
+              "track": "normal",
+              "template": "1N1.5-T2",
+              "seed": 1013916571,
+              "answer": {
+                "value": "1",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 389,
+              "at": 1790758099626,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:2",
+              "skill": "1N2.2",
+              "track": "normal",
+              "template": "1N2.2-T2",
+              "seed": 3668352332,
+              "answer": {
+                "value": "11",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 283,
+              "at": 1790758100286,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:3",
+              "skill": "1N3.2",
+              "track": "normal",
+              "template": "1N3.2-T2",
+              "seed": 2027820797,
+              "answer": {
+                "value": "95",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 399,
+              "at": 1790758101051,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:4",
+              "skill": "1N4.1",
+              "track": "normal",
+              "template": "1N4.1-T2",
+              "seed": 387289262,
+              "answer": {
+                "value": "55",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 385,
+              "at": 1790758101820,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:5",
+              "skill": "1N4.4",
+              "track": "normal",
+              "template": "1N4.4-T2",
+              "seed": 3041725023,
+              "answer": {
+                "value": "26",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 386,
+              "at": 1790758102587,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:6",
+              "skill": "2N1.2",
+              "track": "normal",
+              "template": "2N1.2-T2",
+              "seed": 1401193488,
+              "answer": {
+                "value": "447",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 380,
+              "at": 1790758103350,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:7",
+              "skill": "2N1.3",
+              "track": "normal",
+              "template": "2N1.3-T2",
+              "seed": 4055629249,
+              "answer": {
+                "value": "485"
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 766,
+              "at": 1790758104500,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:8",
+              "skill": "2N2.1",
+              "track": "normal",
+              "template": "2N2.1-T2",
+              "seed": 2415097714,
+              "answer": {
+                "value": "834",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 383,
+              "at": 1790758105250,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            },
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb:4:9",
+              "skill": "2N2.3",
+              "track": "normal",
+              "template": "2N2.3-T2",
+              "seed": 774566179,
+              "answer": {
+                "value": "47",
+                "expression": "",
+                "unit": "",
+                "remainder": ""
+              },
+              "correct": true,
+              "credit": 1,
+              "hint": 0,
+              "time_ms": 383,
+              "at": 1790758106000,
+              "mode": "daily",
+              "code": null,
+              "difficulty": 2,
+              "independent": true
+            }
+          ],
+          "mastery": {
+            "normal": {
+              "1N1.1": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758098805,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "1N1.5": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758099626,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "1N2.2": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758100286,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "1N3.2": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758101051,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "1N4.1": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758101820,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "1N4.4": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758102587,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "2N1.2": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758103350,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "2N1.3": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758104500,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "2N2.1": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758105250,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              },
+              "2N2.3": {
+                "score": 45.28236797019618,
+                "recent": [
+                  {
+                    "correct": true,
+                    "difficulty": 2,
+                    "hint": 0,
+                    "independent": true
+                  }
+                ],
+                "last": 1790758106000,
+                "achieved": 0,
+                "reviewBase": "",
+                "reviewIndex": 0,
+                "next": ""
+              }
+            },
+            "olympiad": {}
+          },
+          "mistakes": {},
+          "cards": [],
+          "lessons": {},
+          "sessions": [
+            {
+              "id": "m61319464f0dc46ce8064a6c2ddb396cb",
+              "skill": null,
+              "track": "normal",
+              "mode": "daily",
+              "at": 1790758106369,
+              "attempts": 10,
+              "correct": 10
+            }
+          ],
+          "outbox": [
+            {
+              "id": "reward:2026-09-30:normal:daily",
+              "key": "normal:daily",
+              "day": "2026-09-30",
+              "startedAt": 1790758098513,
+              "completedAt": 1790758106369,
+              "valid": true,
+              "settled": true,
+              "award": 1
+            }
+          ],
+          "wallet": {
+            "balance": 0,
+            "days": {}
+          },
+          "settings": {
+            "language": "zh",
+            "voice": "yue-HK",
+            "sound": true,
+            "slow": false,
+            "olympiad": true,
+            "limit": 20,
+            "schoolUnit": "",
+            "showScore": false
+          },
+          "usage": {
+            "2026-09-30": 7933
+          },
+          "reports": [],
+          "created": 1790758098419,
+          "lastGenerated": {
+            "1N1.1": "數一數，圖中有多少個圓點？|8",
+            "1N1.5": "7 可以分成 6 和多少？|1",
+            "1N2.2": "6 + 5 = ?|11",
+            "1N3.2": "9 個十和 5 個一，合起來是多少？|95",
+            "1N4.1": "29 + 26 = ?|55",
+            "1N4.4": "38 − 12 = ?|26",
+            "2N1.2": "4 個百、4 個十和 7 個一，是多少？|447",
+            "2N1.3": "402 和 485，哪個數較大？|485",
+            "2N2.1": "615 + 219 = ?|834",
+            "2N2.3": "70 − 23 = ?|47"
+          },
+          "current": {
+            "id": "m61319464f0dc46ce8064a6c2ddb396cb",
+            "skill": null,
+            "track": "normal",
+            "mode": "daily",
+            "game": null,
+            "stage": 5,
+            "index": 10,
+            "queues": {
+              "4": [
+                {
+                  "template": "1N1.1-T2",
+                  "seed": 2654448106
+                },
+                {
+                  "template": "1N1.5-T2",
+                  "seed": 1013916571
+                },
+                {
+                  "template": "1N2.2-T2",
+                  "seed": 3668352332
+                },
+                {
+                  "template": "1N3.2-T2",
+                  "seed": 2027820797
+                },
+                {
+                  "template": "1N4.1-T2",
+                  "seed": 387289262
+                },
+                {
+                  "template": "1N4.4-T2",
+                  "seed": 3041725023
+                },
+                {
+                  "template": "2N1.2-T2",
+                  "seed": 1401193488
+                },
+                {
+                  "template": "2N1.3-T2",
+                  "seed": 4055629249
+                },
+                {
+                  "template": "2N2.1-T2",
+                  "seed": 2415097714
+                },
+                {
+                  "template": "2N2.3-T2",
+                  "seed": 774566179
+                }
+              ]
+            },
+            "example": null,
+            "startedAt": 1790758098513,
+            "questionAt": 1790758106368,
+            "activeMs": 7859,
+            "hint": 0,
+            "feedback": null,
+            "results": [
+              {
+                "skill": "1N1.1",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 292,
+                "at": 1790758098805
+              },
+              {
+                "skill": "1N1.5",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 389,
+                "at": 1790758099626
+              },
+              {
+                "skill": "1N2.2",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 283,
+                "at": 1790758100286
+              },
+              {
+                "skill": "1N3.2",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 399,
+                "at": 1790758101051
+              },
+              {
+                "skill": "1N4.1",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 385,
+                "at": 1790758101822
+              },
+              {
+                "skill": "1N4.4",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 386,
+                "at": 1790758102587
+              },
+              {
+                "skill": "2N1.2",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 380,
+                "at": 1790758103350
+              },
+              {
+                "skill": "2N1.3",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 766,
+                "at": 1790758104500
+              },
+              {
+                "skill": "2N2.1",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 383,
+                "at": 1790758105251
+              },
+              {
+                "skill": "2N2.3",
+                "correct": true,
+                "credit": 1,
+                "hint": 0,
+                "mode": "daily",
+                "time_ms": 383,
+                "at": 1790758106000
+              }
+            ],
+            "replacements": [],
+            "completed": true,
+            "rewardDone": false,
+            "fast": 0,
+            "draft": "",
+            "picked": "",
+            "reflection": null,
+            "draftExpression": "",
+            "draftUnit": "",
+            "draftRemainder": "",
+            "elapsedQuestionMs": 0,
+            "questionPaused": false,
+            "finishedAt": 1790758106369,
+            "award": 1,
+            "rewardError": ""
+          }
+        },
+        "recovery": null
+      }
+    ],
+    "family": {
+      "schema": 1,
+      "revision": 7,
+      "limitMinutes": 45,
+      "englishMinutes": 10,
+      "mathMinutes": 10,
+      "olympiadMinutes": 0,
+      "usage": {
+        "c_demo": {
+          "2026-09-30": {
+            "english": 0,
+            "math": 6999,
+            "olympiad": 0,
+            "arcade": 0
+          }
+        }
+      },
+      "migrationReceipts": [],
+      "voice": {
+        "mode": "device",
+        "endpoint": "",
+        "voice": "zh-HK-HiuMaanNeural",
+        "consent": false
+      },
+      "createdAt": 1790758098509
+    },
+    "media": [],
+    "characterPreferences": []
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "digest": "e7f07126a11987eda3b98132b231dceb6addfc717b608c08feb0c5a25b1a381f"
+  }
+}

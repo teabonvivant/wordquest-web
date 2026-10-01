@@ -1,0 +1,247 @@
+[
+  {
+    "screenshot": "final_english_home.png",
+    "overflow": false
+  },
+  {
+    "screenshot": "final_math_home.png",
+    "overflow": false
+  },
+  {
+    "screenshot": "final_math_feedback.png",
+    "overflow": false
+  },
+  {
+    "feedbackStyle": {
+      "opacity": "1",
+      "display": "block",
+      "bodyOpacity": "1"
+    },
+    "errors": []
+  },
+  {
+    "screenshot": "final_math_home_390.png",
+    "overflow": false
+  },
+  {
+    "document": "START_HERE.html",
+    "width": 390,
+    "fits": true,
+    "images": [
+      {
+        "src": "app/assets/forest/lie-lie/front.webp",
+        "ok": true
+      },
+      {
+        "src": "app/assets/forest/you-you/front.webp",
+        "ok": true
+      },
+      {
+        "src": "app/assets/forest/tang-li/front.webp",
+        "ok": true
+      },
+      {
+        "src": "app/assets/forest/bo-bo/front.webp",
+        "ok": true
+      },
+      {
+        "src": "app/assets/forest/ci-ci/front.webp",
+        "ok": true
+      },
+      {
+        "src": "app/assets/forest/a-feng/front.webp",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "document": "docs/R3_1_角色接入報告.html",
+    "width": 390,
+    "fits": true,
+    "images": [
+      {
+        "src": "../app/assets/forest/lie-lie/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../r31_evidence/gallery_1280.png",
+        "ok": true
+      },
+      {
+        "src": "../r31_evidence/final_math_feedback.png",
+        "ok": true
+      }
+    ]
+  },
+  {
+    "document": "docs/角色素材一覽_R3_1.html",
+    "width": 390,
+    "fits": true,
+    "images": [
+      {
+        "src": "../app/assets/forest/lie-lie/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/lie-lie/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/lie-lie/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/lie-lie/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/lie-lie/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/lie-lie/face4.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/you-you/face4.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/tang-li/face4.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/bo-bo/face4.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/ci-ci/face4.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/front.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/face0.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/face1.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/face2.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/face3.webp",
+        "ok": true
+      },
+      {
+        "src": "../app/assets/forest/a-feng/face4.webp",
+        "ok": true
+      }
+    ]
+  }
+]

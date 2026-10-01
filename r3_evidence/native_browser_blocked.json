@@ -1,0 +1,12 @@
+[
+  {
+    "url": "http://127.0.0.1:8873/app/index.html",
+    "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:8873/app/index.html\nCall log:\n  - navigating to \"http://127.0.0.1:8873/app/index.html\", waiting until \"domcontentloaded\"\n",
+    "page_errors": []
+  },
+  {
+    "url": "file:///mnt/data/r3_work/WordQuest_Arcade_R2/app/index.html",
+    "error": "Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///mnt/data/r3_work/WordQuest_Arcade_R2/app/index.html\nCall log:\n  - navigating to \"file:///mnt/data/r3_work/WordQuest_Arcade_R2/app/index.html\", waiting until \"domcontentloaded\"\n",
+    "page_errors": []
+  }
+]

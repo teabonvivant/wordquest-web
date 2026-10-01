@@ -1,0 +1,282 @@
+[
+  {
+    "i": 0,
+    "attrs": "",
+    "len": 15346,
+    "html_line": 334,
+    "start": "/* WordQuest arcade physics. Original artwork and rules. No network, audio or DOM. */\n(function(root){'use strict';\nconst clamp=(v,a,b)=>Math.max(a,Math.min(b,v"
+  },
+  {
+    "i": 1,
+    "attrs": "",
+    "len": 11244,
+    "html_line": 403,
+    "start": "/* Original vector scenes. Render only: never advances or changes a game. */\n(function(root){'use strict';const C=root.WQArcadeCore;\nconst P={ink:'#352c38',oran"
+  },
+  {
+    "i": 2,
+    "attrs": "",
+    "len": 7895,
+    "html_line": 445,
+    "start": "window.WQ_PHONICS_DATA={\"schema\":\"wordquest-phonics-lessons\",\"version\":1,\"revision\":\"v18-r1\",\"locale\":\"en-GB\",\"lessonCount\":12,\"wordCardCount\":48,\"distinctWords"
+  },
+  {
+    "i": 3,
+    "attrs": "",
+    "len": 222850,
+    "html_line": 446,
+    "start": "\nwindow.WQ_TEACHER_PATCH={\"entryMeta\":{\"advice\":{\"teacherNote\":\"advice 通常作不可數名詞；常說 a piece of advice，不說 an advice。\"},\"information\":{\"teacherNote\":\"information 通"
+  },
+  {
+    "i": 4,
+    "attrs": "",
+    "len": 1664580,
+    "html_line": 450,
+    "start": "window.WQ_SHARED_REFERENCE=[{\"id\":\"wq-ca978112ca1bbdca\",\"key\":\"a\",\"en\":\"a\",\"senses\":[{\"headword\":\"a\",\"zhHK\":\"一個（用在輔音音素前）\",\"pos\":\"mixed\",\"category\":\"grammar\",\"so"
+  },
+  {
+    "i": 5,
+    "attrs": "",
+    "len": 15606,
+    "html_line": 451,
+    "start": "/* WordQuest V20 import selection. Pure, local functions; no network or user storage.\n * Recognition is evidence, not authority. Preserve originals; never auto-"
+  },
+  {
+    "i": 6,
+    "attrs": "",
+    "len": 3483,
+    "html_line": 529,
+    "start": "globalThis.WQStateFields={\n  \"cloud-run\": [\n    \"lane\",\n    \"rotation\",\n    \"distance\",\n    \"jump\",\n    \"tiles\",\n    \"score\",\n    \"stat\"\n  ],\n  \"valley-race\": ["
+  },
+  {
+    "i": 7,
+    "attrs": " data-wq22=\"reliability-core\"",
+    "len": 3604,
+    "html_line": 797,
+    "start": "\n/* V25 pure data boundaries. Checksums detect damage; they do not authenticate a backup. */\n(function(root,f){if(typeof module==='object'&&module.exports)modul"
+  },
+  {
+    "i": 8,
+    "attrs": " data-wq22=\"education\"",
+    "len": 4664,
+    "html_line": 856,
+    "start": "\n/* WordQuest V24 — pure, shared learning evidence and assessment rules.\n   Thresholds are product rules, not proof of permanent knowledge. */\n(function(root,f)"
+  },
+  {
+    "i": 9,
+    "attrs": " data-wq22=\"game-schema\"",
+    "len": 9639,
+    "html_line": 879,
+    "start": "\n/* V23: per-engine checkpoint contracts. This is validation, not anti-cheat.\n   A broken game is isolated; no callbacks, methods, prototypes, NaN or live audio"
+  },
+  {
+    "i": 10,
+    "attrs": " data-wq22=\"auth\"",
+    "len": 2168,
+    "html_line": 934,
+    "start": "\n/* Local-only credentials. Not server authentication and not encryption of learning data. */\n(function(root,f){if(typeof module==='object'&&module.exports)modu"
+  },
+  {
+    "i": 11,
+    "attrs": " data-wq22=\"rewards\"",
+    "len": 16815,
+    "html_line": 951,
+    "start": "\n/* WordQuest V22 — typed, bounded local data; one existing star wallet.\n   Browser storage is NOT a trusted server or an anti-cheat mechanism. */\n(function(roo"
+  },
+  {
+    "i": 12,
+    "attrs": " data-wq22=\"core\"",
+    "len": 6876,
+    "html_line": 1014,
+    "start": "\n/* WordQuest Playground — original game logic. No third-party runtime. */\n(function(root,factory){const v=factory();if(typeof module==='object'&&module.exports"
+  },
+  {
+    "i": 13,
+    "attrs": " data-wq22=\"draw\"",
+    "len": 6621,
+    "html_line": 1066,
+    "start": "\n'use strict';\nconst D={\n palette:['#eebf66','#76ab93','#df947d','#86afc6','#ac9ac4','#e2bb91'],\n round(c,x,y,w,h,r,fill,stroke){c.beginPath();c.roundRect(x,y,M"
+  },
+  {
+    "i": 14,
+    "attrs": " data-wq22=\"games-motion\"",
+    "len": 19528,
+    "html_line": 1110,
+    "start": "\n'use strict';\nclass CloudRun extends WQGame{\n constructor(a){super(a);this.lane=0;this.rotation=0;this.distance=0;this.jump=0;this.tiles=Array.from({length:18}"
+  },
+  {
+    "i": 15,
+    "attrs": " data-wq22=\"games-puzzles\"",
+    "len": 17261,
+    "html_line": 1186,
+    "start": "\n'use strict';\nclass HoneyDelivery extends WQGame{\n constructor(a){super(a);this.load();this.hint('點繩子剪斷，或按「剪左／右繩」。把蜜糖送進下方杯子。');}\n load(){this.phase=0;this.fail"
+  },
+  {
+    "i": 16,
+    "attrs": " data-wq22=\"games-strategy\"",
+    "len": 17095,
+    "html_line": 1247,
+    "start": "\n'use strict';\nclass NumberGarden extends WQGame{\n constructor(a){super(a);this.board=Array.from({length:4},()=>Array(4).fill(0));this.history=[];this.moves=0;t"
+  },
+  {
+    "i": 17,
+    "attrs": " data-wq22=\"games-creative\"",
+    "len": 13322,
+    "html_line": 1309,
+    "start": "\n'use strict';\nclass ForestFreezer extends WQGame{\n constructor(a){super(a);this.flavors=['香草','草莓','朱古力','抹茶'];this.cols=['#efe1b3','#dfa59a','#a58b75','#9eaf8"
+  },
+  {
+    "i": 18,
+    "attrs": " data-wq28=\"assets\"",
+    "len": 90313,
+    "html_line": 1350,
+    "start": "const WQ28Assets={\"hero\": \"data:image/webp;base64,UklGRmYIAQBXRUJQVlA4WAoAAAAQAAAA9wIAcQEAQUxQSLs1AAAJV6AQYCKo+WPFUhT3aERECJjfrwNPrgBJkmxL0qEAocZEEbqBWEL1U1KAYl"
+  },
+  {
+    "i": 19,
+    "attrs": " data-wq28=\"arcade-core\"",
+    "len": 12833,
+    "html_line": 1351,
+    "start": "\n/* WordQuest Arcade 28 — bounded, deterministic local transaction rules.\n * No random rewards, paid currencies, network calls, or wall-clock play limit.\n * Thi"
+  },
+  {
+    "i": 20,
+    "attrs": " data-wq28=\"arcade-art\"",
+    "len": 7082,
+    "html_line": 1541,
+    "start": "\n/* Original vector character/scenery drawing. Artwork is not a whole-screen mockup. */\n(function(){\n'use strict';\nconst art={};\nart.grad=(c,x,y,r,light,dark)=>"
+  },
+  {
+    "i": 21,
+    "attrs": " data-wq28=\"arcade-games\"",
+    "len": 12959,
+    "html_line": 1611,
+    "start": "\n/* Three original non-violent flagship engines, with keyboard and touch actions. */\n'use strict';\nconst A28=globalThis.WQArcadeArt;\nclass SkyRescue28 extends W"
+  },
+  {
+    "i": 22,
+    "attrs": " data-wq-r2=\"engines\"",
+    "len": 47246,
+    "html_line": 1681,
+    "start": "\n/* WordQuest Arcade R2. New implementation from recovered design notes, NOT V33 source.\n * Original code and vector artwork. No external assets, telemetry, pai"
+  },
+  {
+    "i": 23,
+    "attrs": " data-wq28=\"arcade-snapshot\"",
+    "len": 1980,
+    "html_line": 1940,
+    "start": "\n/* Engine snapshots preserve RNG and clear input. No image/audio nodes are serialised. */\n(function(){\n'use strict';\nconst skip=new Set(['api','c','r','meta','"
+  },
+  {
+    "i": 24,
+    "attrs": " data-wq30=\"data\"",
+    "len": 4436004,
+    "html_line": 1973,
+    "start": "\nglobalThis.WQ30Data={\"version\":\"30.0.0\",\"contentVersion\":\"2026-09-27.1\",\"editorialStatus\":\"AI-edited practice release; independent educator and audio review pe"
+  },
+  {
+    "i": 25,
+    "attrs": " data-wq30=\"core\"",
+    "len": 15239,
+    "html_line": 1977,
+    "start": "\n/* WordQuest V30 — deterministic content, strict local contracts, no UI or network. */\n(function(root,f){if(typeof module==='object'&&module.exports)module.exp"
+  },
+  {
+    "i": 26,
+    "attrs": " data-wq30=\"workshop-data\"",
+    "len": 48772,
+    "html_line": 2101,
+    "start": "\nglobalThis.WQ31Data={\"version\":\"31.0.0\",\"review\":\"AI-edited; not externally teacher-certified\",\"groups\":[{\"id\":\"air\",\"title\":\"air：用熟字塊變新詞\",\"kind\":\"chunk\",\"base"
+  },
+  {
+    "i": 27,
+    "attrs": " data-wq30=\"workshop-core\"",
+    "len": 12145,
+    "html_line": 2105,
+    "start": "\n/* V31: deterministic assembly learning, no network/UI. Do not treat client data as trusted. */\n(function(root,f){if(typeof module==='object'&&module.exports)m"
+  },
+  {
+    "i": 28,
+    "attrs": " data-wq32=\"characters-data\"",
+    "len": 2704435,
+    "html_line": 2215,
+    "start": "/* R3.1: measured crops from newly generated posters, not recovered historical original art. */\nglobalThis.WQ32Art=Object.freeze({\"owl-front\":\"data:image/webp;b"
+  },
+  {
+    "i": 29,
+    "attrs": " data-wq32=\"characters-core\"",
+    "len": 5708,
+    "html_line": 2218,
+    "start": "/* Forest Academy R3.1. Presentation-only. Slot keys retain V32 backup compatibility;\n * they are not the animals of the new team. Canonical IDs live in role.id"
+  },
+  {
+    "i": 30,
+    "attrs": " data-wq-forest=\"css\"",
+    "len": 2364,
+    "html_line": 2266,
+    "start": "globalThis.WQForestMathCSS=\"#forest-math-slot{margin:10px 0 16px}#forest-math-slot:empty{display:none}\\n.wqm-v32-companion.forest-math-guide{display:flex;align-"
+  },
+  {
+    "i": 31,
+    "attrs": " data-wq30=\"library\"",
+    "len": 144,
+    "html_line": 2267,
+    "start": "globalThis.WQ30Library=globalThis.WQ30Core.library(globalThis.WQ30Data);globalThis.WQ31Library=globalThis.WQ31Core.library(globalThis.WQ31Data);"
+  },
+  {
+    "i": 32,
+    "attrs": " data-wq-r3=\"family-core\"",
+    "len": 10910,
+    "html_line": 2268,
+    "start": "/* R3 family data contracts. Local backups are unencrypted; checksums detect damage, not authorship. */\n(function(root,factory){const api=factory();if(typeof mo"
+  },
+  {
+    "i": 33,
+    "attrs": " data-wq28=\"host\"",
+    "len": 1580930,
+    "html_line": 2313,
+    "start": "\n\n\n(()=>{'use strict';\nlet persistenceIssue='',loadBlocked=false,lastRoute='',idSequence=0,authBusy=false;\nlet speechEpoch=0,speechTimeout=null,voiceBusy=false,"
+  },
+  {
+    "i": 34,
+    "attrs": "",
+    "len": 157398,
+    "html_line": 5311,
+    "start": "globalThis.WQM_INTEGRATED=true;globalThis.WQMathCSS=\":host{display:block;color-scheme:light;font-family:system-ui,-apple-system,\\\"Noto Sans CJK TC\\\",\\\"Microsoft"
+  },
+  {
+    "i": 35,
+    "attrs": " data-wq-r3=\"curriculum_extension.js\"",
+    "len": 282202,
+    "html_line": 5312,
+    "start": "/* Original R3 baseline exercises. Not complete official-outcome or teacher certification. */\n(function(){const ext={\"skills\":[{\"id\":\"1N1.R3\",\"unit\":\"1N1\",\"trac"
+  },
+  {
+    "i": 36,
+    "attrs": " data-wq-r3=\"math_visuals.js\"",
+    "len": 14930,
+    "html_line": 5314,
+    "start": "/* Original vector teaching diagrams. Geometry/data, not screenshots or third-party art. */\n(function(root){'use strict';\nconst E=s=>String(s??'').replace(/[&<>"
+  },
+  {
+    "i": 37,
+    "attrs": "",
+    "len": 32563,
+    "html_line": 5365,
+    "start": "/* WordQuest Maths 0.1.2 — deterministic, dependency-free learning core.\n * This local practice engine is NOT a secure examination server.\n */\n(function (root, "
+  },
+  {
+    "i": 38,
+    "attrs": "",
+    "len": 9569,
+    "html_line": 5669,
+    "start": "/* Separate subject storage + existing WordQuest wallet bridge.\n   The math sidecar avoids data loss in the old whitelist-based validateDb(). */\n(function(root)"
+  },
+  {
+    "i": 39,
+    "attrs": "",
+    "len": 68438,
+    "html_line": 5767,
+    "start": "/* Accessible local UI; all lesson content comes from curriculum.json. */\n(function(root){'use strict';\n const C=root.WQMathCore,S=root.WQMathStorage,L=C.librar"
+  }
+]

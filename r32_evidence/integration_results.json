@@ -1,0 +1,669 @@
+[
+  {
+    "id": "R3-REG-001",
+    "group": "INTEGRATION",
+    "name": "Host bridge exposes correct version and no mutable database",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-002",
+    "group": "INTEGRATION",
+    "name": "Single homepage has both ordinary maths and Olympiad buttons",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.02
+  },
+  {
+    "id": "R3-REG-003",
+    "group": "INTEGRATION",
+    "name": "Maths resolves the real V32 bridge, not standalone profile adapter",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-004",
+    "group": "INTEGRATION",
+    "name": "Expanded bank contains 122 skills and 366 templates",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-005",
+    "group": "INTEGRATION",
+    "name": "Original V32 companion is decoded and visible in maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.024
+  },
+  {
+    "id": "R3-REG-006",
+    "group": "INTEGRATION",
+    "name": "Guest open does not create standalone child registry",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-007",
+    "group": "INTEGRATION",
+    "name": "Guest unfinished answer survives closing/reopening on same page",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.163
+  },
+  {
+    "id": "R3-REG-008",
+    "group": "INTEGRATION",
+    "name": "Real registration is shared by English and maths",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-009",
+    "group": "INTEGRATION",
+    "name": "Registered maths opens current English child, without second registry",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  },
+  {
+    "id": "R3-REG-010",
+    "group": "INTEGRATION",
+    "name": "Ten-question daily task completed by actual answer inputs",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 7.263
+  },
+  {
+    "id": "R3-REG-011",
+    "group": "INTEGRATION",
+    "name": "Daily task writes ten maths attempts to the shared child scope",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.006
+  },
+  {
+    "id": "R3-REG-012",
+    "group": "INTEGRATION",
+    "name": "Eligible maths completion credits the original English coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.001
+  },
+  {
+    "id": "R3-REG-013",
+    "group": "INTEGRATION",
+    "name": "Outbox settles once after English wallet success",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R3-REG-014",
+    "group": "INTEGRATION",
+    "name": "Repeated flush does not award a second coin",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-015",
+    "group": "INTEGRATION",
+    "name": "Maths completion preserves existing English learning content",
+    "status": "PASS",
+    "detail": {
+      "unchanged_fields": [
+        "ranges",
+        "attempts",
+        "words"
+      ],
+      "all_equal": true
+    },
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-016",
+    "group": "INTEGRATION",
+    "name": "Completion-page progress button cannot bypass English parent guard",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.065
+  },
+  {
+    "id": "R3-REG-017",
+    "group": "INTEGRATION",
+    "name": "Maths parent entry redirects to existing English password gate",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.013
+  },
+  {
+    "id": "R3-REG-018",
+    "group": "INTEGRATION",
+    "name": "Incorrect password cannot unlock maths settings",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.318
+  },
+  {
+    "id": "R3-REG-019",
+    "group": "INTEGRATION",
+    "name": "Existing parent password unlocks without another account",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.164
+  },
+  {
+    "id": "R3-REG-020",
+    "group": "INTEGRATION",
+    "name": "English parent page displays separate maths activity count",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-021",
+    "group": "INTEGRATION",
+    "name": "Unlocked maths settings open in same program",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R3-REG-022",
+    "group": "INTEGRATION",
+    "name": "Parent settings persist through guarded UI save",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.234
+  },
+  {
+    "id": "R3-REG-023",
+    "group": "INTEGRATION",
+    "name": "Actual browser run so far has no JavaScript exceptions",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-024",
+    "group": "INTEGRATION",
+    "name": "Serialized reload restores current child and maths attempts",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.011
+  },
+  {
+    "id": "R3-REG-025",
+    "group": "FAULT",
+    "name": "Uncommitted reward event cannot credit wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.004
+  },
+  {
+    "id": "R3-REG-026",
+    "group": "FAULT",
+    "name": "Reward for wrong child scope is rejected",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-027",
+    "group": "FAULT",
+    "name": "Event payload must match saved outbox",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-028",
+    "group": "FAULT",
+    "name": "Wallet storage failure leaves original wallet unchanged",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.012
+  },
+  {
+    "id": "R3-REG-029",
+    "group": "FAULT",
+    "name": "Wallet-success/outbox-ack-failure retries without double payout",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.013
+  },
+  {
+    "id": "R3-REG-030",
+    "group": "FAULT",
+    "name": "Maths storage quota failure preserves previous serialized data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.005
+  },
+  {
+    "id": "R3-REG-031",
+    "group": "FAULT",
+    "name": "Stale maths revision cannot overwrite newer data",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-032",
+    "group": "FAULT",
+    "name": "Stale English revision prevents cross-subject writing",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.002
+  },
+  {
+    "id": "R3-REG-033",
+    "group": "FAULT",
+    "name": "Corrupt maths data is read-only and raw bytes are preserved",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-034",
+    "group": "FAULT",
+    "name": "Backup owned by another child cannot replace current progress",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.003
+  },
+  {
+    "id": "R3-REG-035",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects an over-seven-day event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.014
+  },
+  {
+    "id": "R3-REG-036",
+    "group": "FAULT",
+    "name": "Automatic reward sync rejects a future-dated event",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.012
+  },
+  {
+    "id": "R3-REG-037",
+    "group": "FAULT",
+    "name": "Maths uses existing four-task/five-coin daily cap",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.025
+  },
+  {
+    "id": "R3-REG-038",
+    "group": "FAULT",
+    "name": "Backup restore creates recovery copy without replaying coins",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.006
+  },
+  {
+    "id": "R3-REG-039",
+    "group": "INTEGRATION",
+    "name": "Existing English parent UI creates the shared second child",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.177
+  },
+  {
+    "id": "R3-REG-040",
+    "group": "INTEGRATION",
+    "name": "New child starts with isolated maths progress and wallet",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.006
+  },
+  {
+    "id": "R3-REG-041",
+    "group": "INTEGRATION",
+    "name": "Switching back restores original child progress and coin balance",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.409
+  },
+  {
+    "id": "R3-REG-042",
+    "group": "INTEGRATION",
+    "name": "Switching child invalidates the previous parent unlock",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.001
+  },
+  {
+    "id": "R3-REG-043",
+    "group": "FAULT",
+    "name": "Sidecar deletion failure cancels persisted English child deletion",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.148
+  },
+  {
+    "id": "R3-REG-044",
+    "group": "INTEGRATION",
+    "name": "Deleting English child also removes maths progress and recovery copy",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.135
+  },
+  {
+    "id": "R3-REG-045",
+    "group": "INTEGRATION",
+    "name": "No uncaught JavaScript errors in fault and child-management scenarios",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-046",
+    "group": "INTEGRATION",
+    "name": "Full ordinary lesson completes all six teaching stages",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 7.011
+  },
+  {
+    "id": "R3-REG-047",
+    "group": "INTEGRATION",
+    "name": "Guided questions remain separate from independent mastery attempts",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.007
+  },
+  {
+    "id": "R3-REG-048",
+    "group": "INTEGRATION",
+    "name": "Full Olympiad lesson completes challenge, teaching and reflection",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 4.321
+  },
+  {
+    "id": "R3-REG-049",
+    "group": "INTEGRATION",
+    "name": "Correct Olympiad reflection earns the real strategy card",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  },
+  {
+    "id": "R3-REG-050",
+    "group": "INTEGRATION",
+    "name": "Ordinary and Olympiad attempts coexist with separate track fields",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.011
+  },
+  {
+    "id": "R3-REG-051",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 1N1.1-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "1N1.1-T1",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.864
+  },
+  {
+    "id": "R3-REG-052",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N4.2-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N4.2-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.101
+  },
+  {
+    "id": "R3-REG-053",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3N5.4-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3N5.4-T3",
+      "type": "fraction",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.659
+  },
+  {
+    "id": "R3-REG-054",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 2N3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "2N3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.082
+  },
+  {
+    "id": "R3-REG-055",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4N3.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4N3.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-056",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6N1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6N1.R3-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.285
+  },
+  {
+    "id": "R3-REG-057",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 3M2.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "3M2.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.299
+  },
+  {
+    "id": "R3-REG-058",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6M4.R3-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6M4.R3-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.298
+  },
+  {
+    "id": "R3-REG-059",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 4S1.R3-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "4S1.R3-T3",
+      "type": "choice",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 1.03
+  },
+  {
+    "id": "R3-REG-060",
+    "group": "TEMPLATE_DOM",
+    "name": "Template 6D3.R3-T1: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "6D3.R3-T1",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.089
+  },
+  {
+    "id": "R3-REG-061",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L3-count-T2: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L3-count-T2",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.319
+  },
+  {
+    "id": "R3-REG-062",
+    "group": "TEMPLATE_DOM",
+    "name": "Template O-R3-L4-applied-T3: render, input, mark, feedback focus",
+    "status": "PASS",
+    "detail": {
+      "template": "O-R3-L4-applied-T3",
+      "type": "number",
+      "marked_correct": true,
+      "keyboard_feedback_focus": true
+    },
+    "seconds": 0.295
+  },
+  {
+    "id": "R3-REG-063",
+    "group": "INTEGRATION",
+    "name": "No JavaScript errors across all template DOM operations",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.0
+  },
+  {
+    "id": "R3-REG-064",
+    "group": "VIEWPORT",
+    "name": "1280px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.018
+  },
+  {
+    "id": "R3-REG-065",
+    "group": "VIEWPORT",
+    "name": "1280px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.02
+  },
+  {
+    "id": "R3-REG-066",
+    "group": "VIEWPORT",
+    "name": "1280px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  },
+  {
+    "id": "R3-REG-067",
+    "group": "VIEWPORT",
+    "name": "768px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.019
+  },
+  {
+    "id": "R3-REG-068",
+    "group": "VIEWPORT",
+    "name": "768px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.021
+  },
+  {
+    "id": "R3-REG-069",
+    "group": "VIEWPORT",
+    "name": "768px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.007
+  },
+  {
+    "id": "R3-REG-070",
+    "group": "VIEWPORT",
+    "name": "390px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.02
+  },
+  {
+    "id": "R3-REG-071",
+    "group": "VIEWPORT",
+    "name": "390px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.027
+  },
+  {
+    "id": "R3-REG-072",
+    "group": "VIEWPORT",
+    "name": "390px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.009
+  },
+  {
+    "id": "R3-REG-073",
+    "group": "VIEWPORT",
+    "name": "320px English subject buttons are visible with no page overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.017
+  },
+  {
+    "id": "R3-REG-074",
+    "group": "VIEWPORT",
+    "name": "320px maths catalogue has no horizontal content overflow",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.02
+  },
+  {
+    "id": "R3-REG-075",
+    "group": "VIEWPORT",
+    "name": "320px question and submit button visible",
+    "status": "PASS",
+    "detail": true,
+    "seconds": 0.008
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "id": "UI-127",
+    "category": "UI",
+    "name": "異常時間戳不能令家長頁失效",
+    "expected": "讀取時安全拒絕，或家長頁可顯示",
+    "status": "FAIL",
+    "actual": "異常時間戳令家長設定畫面無法顯示",
+    "issue": "F-ATTEMPT-VALIDATION",
+    "evidence": "evidence/UI-127_failure.png",
+    "actions": [
+      "click nav:parent"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-128",
+    "category": "UI",
+    "name": "兩百筆已結算獎勵後仍能完成課堂",
+    "expected": "新課堂完成、不困在小結",
+    "status": "FAIL",
+    "actual": "按完成後仍未完成；已結算收據達上限",
+    "issue": "F-OUTBOX-CAPACITY",
+    "evidence": "evidence/UI-128_failure.png",
+    "actions": [
+      "click resume",
+      "click self:good"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-129",
+    "category": "UI",
+    "name": "刪除學員連復原備份也刪除",
+    "expected": "before-restore 不應殘留",
+    "status": "FAIL",
+    "actual": "刪除學員後完整復原備份仍保留",
+    "issue": "F-DELETE-BACKUP",
+    "evidence": "evidence/UI-129_failure.png",
+    "actions": [
+      "click nav:profiles",
+      "click delete-profile"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-130",
+    "category": "UI",
+    "name": "沒有粵語聲線有明確提示",
+    "expected": "不假裝已播音",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "click speak"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-131",
+    "category": "UI",
+    "name": "答對啟用音效時產生 WebAudio 音符",
+    "expected": "建立兩個 oscillator（非真人聽感驗收）",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=11",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-132",
+    "category": "UI",
+    "name": "關閉音效不產生音符",
+    "expected": "oscillator 數為 0",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=11",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-133",
+    "category": "UI",
+    "name": "離線 DOM 模式可完成答題",
+    "expected": "不依賴外部網絡请求",
+    "status": "PASS",
+    "actual": {
+      "resourceRequests": []
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=11",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-134",
+    "category": "UI",
+    "name": "320px 手機首頁排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 320,
+      "body": 320,
+      "main": 320
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-135",
+    "category": "UI",
+    "name": "390px 手機應用題排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 390,
+      "body": 390,
+      "main": 390
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-136",
+    "category": "UI",
+    "name": "768px 平板課程頁排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 768,
+      "body": 768,
+      "main": 768
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:normal"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-137",
+    "category": "UI",
+    "name": "1440px 桌面題目排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 1440,
+      "body": 1440,
+      "main": 1440
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-138",
+    "category": "UI",
+    "name": "844px 寬畫面教具排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 844,
+      "body": 844,
+      "main": 844
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:tools",
+      "click selecttool:segments"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-139",
+    "category": "UI",
+    "name": "640px 家長頁排版",
+    "expected": "沒有整頁水平溢出",
+    "status": "PASS",
+    "actual": {
+      "viewport": 640,
+      "body": 640,
+      "main": 640
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-140",
+    "category": "UI",
+    "name": "鍵盤提交後焦點不應掉回頁首",
+    "expected": "焦點移至回饋或下一步，保留操作連續性",
+    "status": "FAIL",
+    "actual": "提交重繪後焦點回到 {'inner': None, 'outer': 'BODY'}",
+    "issue": "F-FOCUS-LOSS",
+    "evidence": "evidence/UI-140_failure.png",
+    "actions": [
+      "click resume",
+      "fill answer=11"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  }
+]

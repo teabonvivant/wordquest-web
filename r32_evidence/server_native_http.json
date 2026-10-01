@@ -1,0 +1,65 @@
+{
+  "scope": "native Node HTTP loopback + real filesystem; NOT browser persistence",
+  "rows": [
+    {
+      "name": "Legacy /index.html returns current R3.2 app",
+      "status": "pass"
+    },
+    {
+      "name": "Canonical alias / is byte-identical to legacy app",
+      "status": "pass"
+    },
+    {
+      "name": "Canonical alias /app is byte-identical to legacy app",
+      "status": "pass"
+    },
+    {
+      "name": "Canonical alias /app/ is byte-identical to legacy app",
+      "status": "pass"
+    },
+    {
+      "name": "Canonical alias /app/index.html is byte-identical to legacy app",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/device-check.html",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/device-check.js",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/afeng-animation.html",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/afeng-rig.js",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/assets/forest/a-feng/front.webp",
+      "status": "pass"
+    },
+    {
+      "name": "Actual local resource /app/sw.js",
+      "status": "pass"
+    },
+    {
+      "name": "HEAD current app has length but no body",
+      "status": "pass"
+    },
+    {
+      "name": "POST to static app is refused",
+      "status": "pass"
+    },
+    {
+      "name": "Encoded path cannot expose package backup originals",
+      "status": "pass"
+    },
+    {
+      "name": "Unconfigured optional voice API fails closed without sending provider request",
+      "status": "pass"
+    }
+  ]
+}

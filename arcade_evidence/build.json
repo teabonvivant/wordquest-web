@@ -1,0 +1,8 @@
+{
+  "version": "R2.0.0",
+  "base": "V32-M0.1.2-R1",
+  "source_note": "new implementation from recovered design/history, not recovered V33 source",
+  "output_sha256": "4de1c712588f3ae1cb3b201138a336d347819cbf118a964f44ca7ad6e068c3ae",
+  "new_game_ids": "'ruins-courier','cloud-island','star-patrol','lighthouse-well','harbor-volley'",
+  "legacy_ids_unchanged": true
+}

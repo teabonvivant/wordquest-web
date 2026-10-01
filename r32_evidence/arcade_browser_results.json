@@ -1,0 +1,3720 @@
+[
+  {
+    "id": "UI-001",
+    "name": "ruins-courier one coin admission",
+    "pass": true,
+    "detail": {
+      "playing": true,
+      "reason": "",
+      "error": "",
+      "run": {
+        "id": "coin_mun0aawq_1_m0srzk1g91m",
+        "game": "ruins-courier",
+        "difficulty": 1,
+        "seed": 3123667685,
+        "phase": "playing",
+        "started": true,
+        "lives": 3,
+        "stage": 1,
+        "snapshot": {
+          "v": 28,
+          "id": "ruins-courier",
+          "d": 1,
+          "r": 2491832015,
+          "state": [
+            "o",
+            [
+              [
+                "d",
+                1
+              ],
+              [
+                "t",
+                0
+              ],
+              [
+                "score",
+                0
+              ],
+              [
+                "level",
+                1
+              ],
+              [
+                "done",
+                false
+              ],
+              [
+                "notice",
+                ""
+              ],
+              [
+                "noticeTime",
+                0
+              ],
+              [
+                "stat",
+                "第 1 關"
+              ],
+              [
+                "engineVersion",
+                1
+              ],
+              [
+                "health",
+                3
+              ],
+              [
+                "inv",
+                0
+              ],
+              [
+                "won",
+                false
+              ],
+              [
+                "skin",
+                "classic"
+              ],
+              [
+                "fx",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "musicClock",
+                0.1
+              ],
+              [
+                "musicStep",
+                0
+              ],
+              [
+                "distance",
+                0
+              ],
+              [
+                "lane",
+                1
+              ],
+              [
+                "visualLane",
+                1
+              ],
+              [
+                "jump",
+                0
+              ],
+              [
+                "jumpV",
+                0
+              ],
+              [
+                "slide",
+                0
+              ],
+              [
+                "gems",
+                0
+              ],
+              [
+                "combo",
+                0
+              ],
+              [
+                "obstacles",
+                [
+                  "a",
+                  [
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          0
+                        ],
+                        [
+                          "at",
+                          100
+                        ],
+                        [
+                          "kinds",
+                          [
+                            "a",
+                            [
+                              "log",
+                              "log",
+                              "log"
+                            ]
+                          ]
+                        ],
+                        [
+                          "checked",
+                          false
+                        ],
+                        [
+                          "kind",
+                          0
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "nextAt",
+                186.47454810375348
+              ],
+              [
+                "rowId",
+                1
+              ],
+              [
+                "lastPattern",
+                0
+              ],
+              [
+                "actions",
+                [
+                  "o",
+                  [
+                    [
+                      "jump",
+                      0
+                    ],
+                    [
+                      "slide",
+                      0
+                    ],
+                    [
+                      "dodge",
+                      0
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        },
+        "score": 0,
+        "elapsedMs": 187,
+        "createdAt": 1790706282938,
+        "error": "",
+        "result": "",
+        "success": false
+      },
+      "balance": 39,
+      "child": "c_demo"
+    }
+  },
+  {
+    "id": "UI-002",
+    "name": "ruins-courier registered ID and state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-003",
+    "name": "ruins-courier keyboard updates simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-004",
+    "name": "ruins-courier native audio running",
+    "pass": true,
+    "detail": {
+      "version": "R2.0.0",
+      "catalogue": 26,
+      "newGames": 5,
+      "audioContext": "running",
+      "audioError": "",
+      "globalMute": false,
+      "sfxVolume": 0.6,
+      "musicVolume": 0.35,
+      "liveAudioNodes": 1
+    }
+  },
+  {
+    "id": "UI-005",
+    "name": "ruins-courier pause freezes simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-006",
+    "name": "ruins-courier pause stops audio",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-007",
+    "name": "ruins-courier resume no second charge",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-008",
+    "name": "ruins-courier restore on independent DOM instance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-009",
+    "name": "ruins-courier old best retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-010",
+    "name": "ruins-courier 320x568 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 124.859375,
+        "w": 298,
+        "h": 208.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 304,
+        "h": 377.3125
+      },
+      "inner": [
+        320,
+        568
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 8
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 86
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 164
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 242
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-011",
+    "name": "ruins-courier 320x568 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 8
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 86
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 164
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 242
+      }
+    ]
+  },
+  {
+    "id": "UI-012",
+    "name": "ruins-courier 390x844 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 238.359375,
+        "w": 368,
+        "h": 257.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 374,
+        "h": 653.3125
+      },
+      "inner": [
+        390,
+        844
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 31
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 115
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 199
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 283
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-013",
+    "name": "ruins-courier 390x844 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 31
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 115
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 199
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 283
+      }
+    ]
+  },
+  {
+    "id": "UI-014",
+    "name": "ruins-courier 844x390 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 142.21875,
+        "y": 44,
+        "w": 408.5625,
+        "h": 286
+      },
+      "viewport": {
+        "x": 8,
+        "y": 41,
+        "w": 677,
+        "h": 292
+      },
+      "inner": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 767.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-015",
+    "name": "ruins-courier 844x390 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 767.5
+      }
+    ]
+  },
+  {
+    "id": "UI-016",
+    "name": "ruins-courier no browser exceptions",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "UI-017",
+    "name": "cloud-island one coin admission",
+    "pass": true,
+    "detail": {
+      "playing": true,
+      "reason": "",
+      "error": "",
+      "run": {
+        "id": "coin_mun0ag37_1_zdi7ogt76b",
+        "game": "cloud-island",
+        "difficulty": 1,
+        "seed": 1963944260,
+        "phase": "playing",
+        "started": true,
+        "lives": 3,
+        "stage": 1,
+        "snapshot": {
+          "v": 28,
+          "id": "cloud-island",
+          "d": 1,
+          "r": 3163674403,
+          "state": [
+            "o",
+            [
+              [
+                "d",
+                1
+              ],
+              [
+                "t",
+                0
+              ],
+              [
+                "score",
+                0
+              ],
+              [
+                "level",
+                1
+              ],
+              [
+                "done",
+                false
+              ],
+              [
+                "notice",
+                ""
+              ],
+              [
+                "noticeTime",
+                0
+              ],
+              [
+                "stat",
+                "第 1 關"
+              ],
+              [
+                "engineVersion",
+                1
+              ],
+              [
+                "health",
+                3
+              ],
+              [
+                "inv",
+                0
+              ],
+              [
+                "won",
+                false
+              ],
+              [
+                "skin",
+                "classic"
+              ],
+              [
+                "fx",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "musicClock",
+                0.1
+              ],
+              [
+                "musicStep",
+                0
+              ],
+              [
+                "p",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      90
+                    ],
+                    [
+                      "y",
+                      420
+                    ],
+                    [
+                      "vx",
+                      0
+                    ],
+                    [
+                      "vy",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "camera",
+                0
+              ],
+              [
+                "coyote",
+                0.1
+              ],
+              [
+                "jumpBuffer",
+                0
+              ],
+              [
+                "grounded",
+                true
+              ],
+              [
+                "jumpHeld",
+                false
+              ],
+              [
+                "dash",
+                0
+              ],
+              [
+                "dashCD",
+                0
+              ],
+              [
+                "platforms",
+                [
+                  "a",
+                  [
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          0
+                        ],
+                        [
+                          "x",
+                          0
+                        ],
+                        [
+                          "y",
+                          460
+                        ],
+                        [
+                          "baseY",
+                          460
+                        ],
+                        [
+                          "w",
+                          245
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          1
+                        ],
+                        [
+                          "x",
+                          310
+                        ],
+                        [
+                          "y",
+                          408
+                        ],
+                        [
+                          "baseY",
+                          408
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "spring"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          2
+                        ],
+                        [
+                          "x",
+                          563
+                        ],
+                        [
+                          "y",
+                          445
+                        ],
+                        [
+                          "baseY",
+                          445
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "normal"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          3
+                        ],
+                        [
+                          "x",
+                          824
+                        ],
+                        [
+                          "y",
+                          440
+                        ],
+                        [
+                          "baseY",
+                          440
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "moving"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          4
+                        ],
+                        [
+                          "x",
+                          1069
+                        ],
+                        [
+                          "y",
+                          460
+                        ],
+                        [
+                          "baseY",
+                          460
+                        ],
+                        [
+                          "w",
+                          245
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          5
+                        ],
+                        [
+                          "x",
+                          1387
+                        ],
+                        [
+                          "y",
+                          445
+                        ],
+                        [
+                          "baseY",
+                          445
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "normal"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          6
+                        ],
+                        [
+                          "x",
+                          1648
+                        ],
+                        [
+                          "y",
+                          440
+                        ],
+                        [
+                          "baseY",
+                          440
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "spring"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          7
+                        ],
+                        [
+                          "x",
+                          1893
+                        ],
+                        [
+                          "y",
+                          408
+                        ],
+                        [
+                          "baseY",
+                          408
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "normal"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          8
+                        ],
+                        [
+                          "x",
+                          2146
+                        ],
+                        [
+                          "y",
+                          460
+                        ],
+                        [
+                          "baseY",
+                          460
+                        ],
+                        [
+                          "w",
+                          245
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          9
+                        ],
+                        [
+                          "x",
+                          2472
+                        ],
+                        [
+                          "y",
+                          440
+                        ],
+                        [
+                          "baseY",
+                          440
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "normal"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          10
+                        ],
+                        [
+                          "x",
+                          2717
+                        ],
+                        [
+                          "y",
+                          408
+                        ],
+                        [
+                          "baseY",
+                          408
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "normal"
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          11
+                        ],
+                        [
+                          "x",
+                          2970
+                        ],
+                        [
+                          "y",
+                          445
+                        ],
+                        [
+                          "baseY",
+                          445
+                        ],
+                        [
+                          "w",
+                          180
+                        ],
+                        [
+                          "kind",
+                          "spring"
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "coins",
+                [
+                  "a",
+                  [
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          409
+                        ],
+                        [
+                          "y",
+                          348
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          662
+                        ],
+                        [
+                          "y",
+                          385
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          923
+                        ],
+                        [
+                          "y",
+                          380
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          1486
+                        ],
+                        [
+                          "y",
+                          385
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          1747
+                        ],
+                        [
+                          "y",
+                          380
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          1992
+                        ],
+                        [
+                          "y",
+                          348
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          2571
+                        ],
+                        [
+                          "y",
+                          380
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          2816
+                        ],
+                        [
+                          "y",
+                          348
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          3069
+                        ],
+                        [
+                          "y",
+                          385
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "enemies",
+                [
+                  "a",
+                  [
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          680
+                        ],
+                        [
+                          "y",
+                          423
+                        ],
+                        [
+                          "base",
+                          680
+                        ],
+                        [
+                          "vy",
+                          0
+                        ],
+                        [
+                          "phase",
+                          1.9766630013473332
+                        ],
+                        [
+                          "stunned",
+                          0
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          1765
+                        ],
+                        [
+                          "y",
+                          418
+                        ],
+                        [
+                          "base",
+                          1765
+                        ],
+                        [
+                          "vy",
+                          0
+                        ],
+                        [
+                          "phase",
+                          5.309367456939071
+                        ],
+                        [
+                          "stunned",
+                          0
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "x",
+                          2834
+                        ],
+                        [
+                          "y",
+                          386
+                        ],
+                        [
+                          "base",
+                          2834
+                        ],
+                        [
+                          "vy",
+                          0
+                        ],
+                        [
+                          "phase",
+                          0.6893083616159856
+                        ],
+                        [
+                          "stunned",
+                          0
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "checkpoint",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      90
+                    ],
+                    [
+                      "y",
+                      420
+                    ],
+                    [
+                      "index",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "collected",
+                0
+              ],
+              [
+                "mapEnd",
+                3166
+              ]
+            ]
+          ]
+        },
+        "score": 0,
+        "elapsedMs": 170,
+        "createdAt": 1790706289651,
+        "error": "",
+        "result": "",
+        "success": false
+      },
+      "balance": 39,
+      "child": "c_demo"
+    }
+  },
+  {
+    "id": "UI-018",
+    "name": "cloud-island registered ID and state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-019",
+    "name": "cloud-island keyboard updates simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-020",
+    "name": "cloud-island native audio running",
+    "pass": true,
+    "detail": {
+      "version": "R2.0.0",
+      "catalogue": 26,
+      "newGames": 5,
+      "audioContext": "running",
+      "audioError": "",
+      "globalMute": false,
+      "sfxVolume": 0.6,
+      "musicVolume": 0.35,
+      "liveAudioNodes": 1
+    }
+  },
+  {
+    "id": "UI-021",
+    "name": "cloud-island pause freezes simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-022",
+    "name": "cloud-island pause stops audio",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-023",
+    "name": "cloud-island resume no second charge",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-024",
+    "name": "cloud-island restore on independent DOM instance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-025",
+    "name": "cloud-island old best retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-026",
+    "name": "cloud-island 320x568 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 124.859375,
+        "w": 298,
+        "h": 208.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 304,
+        "h": 377.3125
+      },
+      "inner": [
+        320,
+        568
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 8
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 86
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 164
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 242
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-027",
+    "name": "cloud-island 320x568 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 8
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 86
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 164
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 242
+      }
+    ]
+  },
+  {
+    "id": "UI-028",
+    "name": "cloud-island 390x844 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 238.359375,
+        "w": 368,
+        "h": 257.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 374,
+        "h": 653.3125
+      },
+      "inner": [
+        390,
+        844
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 31
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 115
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 199
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 283
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-029",
+    "name": "cloud-island 390x844 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 31
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 115
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 199
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 283
+      }
+    ]
+  },
+  {
+    "id": "UI-030",
+    "name": "cloud-island 844x390 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 142.21875,
+        "y": 44,
+        "w": 408.5625,
+        "h": 286
+      },
+      "viewport": {
+        "x": 8,
+        "y": 41,
+        "w": 677,
+        "h": 292
+      },
+      "inner": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 767.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-031",
+    "name": "cloud-island 844x390 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 767.5
+      }
+    ]
+  },
+  {
+    "id": "UI-032",
+    "name": "cloud-island no browser exceptions",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "UI-033",
+    "name": "star-patrol one coin admission",
+    "pass": true,
+    "detail": {
+      "playing": true,
+      "reason": "",
+      "error": "",
+      "run": {
+        "id": "coin_mun0aknx_1_nwhe7eoroqt",
+        "game": "star-patrol",
+        "difficulty": 1,
+        "seed": 2291468779,
+        "phase": "playing",
+        "started": true,
+        "lives": 3,
+        "stage": 1,
+        "snapshot": {
+          "v": 28,
+          "id": "star-patrol",
+          "d": 1,
+          "r": 2291468779,
+          "state": [
+            "o",
+            [
+              [
+                "d",
+                1
+              ],
+              [
+                "t",
+                0
+              ],
+              [
+                "score",
+                0
+              ],
+              [
+                "level",
+                1
+              ],
+              [
+                "done",
+                false
+              ],
+              [
+                "notice",
+                ""
+              ],
+              [
+                "noticeTime",
+                0
+              ],
+              [
+                "stat",
+                "第 1 關"
+              ],
+              [
+                "engineVersion",
+                1
+              ],
+              [
+                "health",
+                3
+              ],
+              [
+                "inv",
+                0
+              ],
+              [
+                "won",
+                false
+              ],
+              [
+                "skin",
+                "classic"
+              ],
+              [
+                "fx",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "musicClock",
+                0.1
+              ],
+              [
+                "musicStep",
+                0
+              ],
+              [
+                "p",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      400
+                    ],
+                    [
+                      "y",
+                      452
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "shots",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "drones",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "orbs",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "drops",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "wave",
+                0
+              ],
+              [
+                "waveClock",
+                0.8
+              ],
+              [
+                "fireClock",
+                0
+              ],
+              [
+                "boss",
+                null
+              ],
+              [
+                "bosses",
+                0
+              ],
+              [
+                "shield",
+                0
+              ],
+              [
+                "shieldCD",
+                0
+              ],
+              [
+                "mode",
+                0
+              ],
+              [
+                "power",
+                1
+              ],
+              [
+                "chain",
+                0
+              ],
+              [
+                "nextId",
+                0
+              ]
+            ]
+          ]
+        },
+        "score": 0,
+        "elapsedMs": 163,
+        "createdAt": 1790706295581,
+        "error": "",
+        "result": "",
+        "success": false
+      },
+      "balance": 39,
+      "child": "c_demo"
+    }
+  },
+  {
+    "id": "UI-034",
+    "name": "star-patrol registered ID and state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-035",
+    "name": "star-patrol keyboard updates simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-036",
+    "name": "star-patrol native audio running",
+    "pass": true,
+    "detail": {
+      "version": "R2.0.0",
+      "catalogue": 26,
+      "newGames": 5,
+      "audioContext": "running",
+      "audioError": "",
+      "globalMute": false,
+      "sfxVolume": 0.6,
+      "musicVolume": 0.35,
+      "liveAudioNodes": 1
+    }
+  },
+  {
+    "id": "UI-037",
+    "name": "star-patrol pause freezes simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-038",
+    "name": "star-patrol pause stops audio",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-039",
+    "name": "star-patrol resume no second charge",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-040",
+    "name": "star-patrol restore on independent DOM instance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-041",
+    "name": "star-patrol old best retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-042",
+    "name": "star-patrol 320x568 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 97.359375,
+        "w": 298,
+        "h": 208.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 304,
+        "h": 322.3125
+      },
+      "inner": [
+        320,
+        568
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 376.8125,
+          "x": 8
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 376.8125,
+          "x": 85.5
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 376.8125,
+          "x": 163
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 376.8125,
+          "x": 240.5
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 431.8125,
+          "x": 8
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 431.8125,
+          "x": 85.5
+        },
+        {
+          "w": 71.5,
+          "h": 49,
+          "y": 431.8125,
+          "x": 163
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-043",
+    "name": "star-patrol 320x568 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 376.8125,
+        "x": 8
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 376.8125,
+        "x": 85.5
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 376.8125,
+        "x": 163
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 376.8125,
+        "x": 240.5
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 431.8125,
+        "x": 8
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 431.8125,
+        "x": 85.5
+      },
+      {
+        "w": 71.5,
+        "h": 49,
+        "y": 431.8125,
+        "x": 163
+      }
+    ]
+  },
+  {
+    "id": "UI-044",
+    "name": "star-patrol 390x844 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 210.859375,
+        "w": 368,
+        "h": 257.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 374,
+        "h": 598.3125
+      },
+      "inner": [
+        390,
+        844
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 89,
+          "h": 49,
+          "y": 652.8125,
+          "x": 8
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 652.8125,
+          "x": 103
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 652.8125,
+          "x": 198
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 652.8125,
+          "x": 293
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 707.8125,
+          "x": 8
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 707.8125,
+          "x": 103
+        },
+        {
+          "w": 89,
+          "h": 49,
+          "y": 707.8125,
+          "x": 198
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-045",
+    "name": "star-patrol 390x844 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 89,
+        "h": 49,
+        "y": 652.8125,
+        "x": 8
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 652.8125,
+        "x": 103
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 652.8125,
+        "x": 198
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 652.8125,
+        "x": 293
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 707.8125,
+        "x": 8
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 707.8125,
+        "x": 103
+      },
+      {
+        "w": 89,
+        "h": 49,
+        "y": 707.8125,
+        "x": 198
+      }
+    ]
+  },
+  {
+    "id": "UI-046",
+    "name": "star-patrol 844x390 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 142.21875,
+        "y": 44,
+        "w": 408.5625,
+        "h": 286
+      },
+      "viewport": {
+        "x": 8,
+        "y": 41,
+        "w": 677,
+        "h": 292
+      },
+      "inner": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 63.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 63.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 255.5,
+          "x": 690
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-047",
+    "name": "star-patrol 844x390 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 63.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 63.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 255.5,
+        "x": 690
+      }
+    ]
+  },
+  {
+    "id": "UI-048",
+    "name": "star-patrol no browser exceptions",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "UI-049",
+    "name": "lighthouse-well one coin admission",
+    "pass": true,
+    "detail": {
+      "playing": true,
+      "reason": "",
+      "error": "",
+      "run": {
+        "id": "coin_mun0aps6_1_p9eimhzfpnj",
+        "game": "lighthouse-well",
+        "difficulty": 1,
+        "seed": 3726495552,
+        "phase": "playing",
+        "started": true,
+        "lives": 3,
+        "stage": 1,
+        "snapshot": {
+          "v": 28,
+          "id": "lighthouse-well",
+          "d": 1,
+          "r": 567317202,
+          "state": [
+            "o",
+            [
+              [
+                "d",
+                1
+              ],
+              [
+                "t",
+                0
+              ],
+              [
+                "score",
+                0
+              ],
+              [
+                "level",
+                1
+              ],
+              [
+                "done",
+                false
+              ],
+              [
+                "notice",
+                ""
+              ],
+              [
+                "noticeTime",
+                0
+              ],
+              [
+                "stat",
+                "第 1 關"
+              ],
+              [
+                "engineVersion",
+                1
+              ],
+              [
+                "health",
+                3
+              ],
+              [
+                "inv",
+                0
+              ],
+              [
+                "won",
+                false
+              ],
+              [
+                "skin",
+                "classic"
+              ],
+              [
+                "fx",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "musicClock",
+                0.1
+              ],
+              [
+                "musicStep",
+                0
+              ],
+              [
+                "p",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      400
+                    ],
+                    [
+                      "y",
+                      172
+                    ],
+                    [
+                      "vx",
+                      0
+                    ],
+                    [
+                      "vy",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "camera",
+                0
+              ],
+              [
+                "platforms",
+                [
+                  "a",
+                  [
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          0
+                        ],
+                        [
+                          "x",
+                          400
+                        ],
+                        [
+                          "base",
+                          400
+                        ],
+                        [
+                          "y",
+                          220
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          1
+                        ],
+                        [
+                          "x",
+                          410.9192168561276
+                        ],
+                        [
+                          "base",
+                          410.9192168561276
+                        ],
+                        [
+                          "y",
+                          299
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          2
+                        ],
+                        [
+                          "x",
+                          428.3185062150005
+                        ],
+                        [
+                          "base",
+                          428.3185062150005
+                        ],
+                        [
+                          "y",
+                          378
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          3
+                        ],
+                        [
+                          "x",
+                          484.47210093261674
+                        ],
+                        [
+                          "base",
+                          484.47210093261674
+                        ],
+                        [
+                          "y",
+                          457
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          4
+                        ],
+                        [
+                          "x",
+                          548.9498264633585
+                        ],
+                        [
+                          "base",
+                          548.9498264633585
+                        ],
+                        [
+                          "y",
+                          536
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "spring"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          5
+                        ],
+                        [
+                          "x",
+                          532.0802676293533
+                        ],
+                        [
+                          "base",
+                          532.0802676293533
+                        ],
+                        [
+                          "y",
+                          615
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          6
+                        ],
+                        [
+                          "x",
+                          502.50565915135667
+                        ],
+                        [
+                          "base",
+                          502.50565915135667
+                        ],
+                        [
+                          "y",
+                          694
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "hazard"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          7
+                        ],
+                        [
+                          "x",
+                          565
+                        ],
+                        [
+                          "base",
+                          565
+                        ],
+                        [
+                          "y",
+                          773
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "safe"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          8
+                        ],
+                        [
+                          "x",
+                          565
+                        ],
+                        [
+                          "base",
+                          565
+                        ],
+                        [
+                          "y",
+                          852
+                        ],
+                        [
+                          "w",
+                          185
+                        ],
+                        [
+                          "kind",
+                          "moving"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          9
+                        ],
+                        [
+                          "x",
+                          565
+                        ],
+                        [
+                          "base",
+                          565
+                        ],
+                        [
+                          "y",
+                          931
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "belt"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ],
+                    [
+                      "o",
+                      [
+                        [
+                          "id",
+                          10
+                        ],
+                        [
+                          "x",
+                          565
+                        ],
+                        [
+                          "base",
+                          565
+                        ],
+                        [
+                          "y",
+                          1010
+                        ],
+                        [
+                          "w",
+                          175
+                        ],
+                        [
+                          "kind",
+                          "crumble"
+                        ],
+                        [
+                          "life",
+                          -1
+                        ],
+                        [
+                          "taken",
+                          false
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "nextY",
+                1089
+              ],
+              [
+                "nextId",
+                11
+              ],
+              [
+                "floor",
+                0
+              ],
+              [
+                "gems",
+                0
+              ],
+              [
+                "parachute",
+                0
+              ],
+              [
+                "chuteCD",
+                0
+              ],
+              [
+                "dropTime",
+                0
+              ],
+              [
+                "onPlatform",
+                -1
+              ],
+              [
+                "target",
+                60
+              ]
+            ]
+          ]
+        },
+        "score": 0,
+        "elapsedMs": 165,
+        "createdAt": 1790706302214,
+        "error": "",
+        "result": "",
+        "success": false
+      },
+      "balance": 39,
+      "child": "c_demo"
+    }
+  },
+  {
+    "id": "UI-050",
+    "name": "lighthouse-well registered ID and state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-051",
+    "name": "lighthouse-well keyboard updates simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-052",
+    "name": "lighthouse-well native audio running",
+    "pass": true,
+    "detail": {
+      "version": "R2.0.0",
+      "catalogue": 26,
+      "newGames": 5,
+      "audioContext": "running",
+      "audioError": "",
+      "globalMute": false,
+      "sfxVolume": 0.6,
+      "musicVolume": 0.35,
+      "liveAudioNodes": 1
+    }
+  },
+  {
+    "id": "UI-053",
+    "name": "lighthouse-well pause freezes simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-054",
+    "name": "lighthouse-well pause stops audio",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-055",
+    "name": "lighthouse-well resume no second charge",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-056",
+    "name": "lighthouse-well restore on independent DOM instance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-057",
+    "name": "lighthouse-well old best retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-058",
+    "name": "lighthouse-well 320x568 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 124.859375,
+        "w": 298,
+        "h": 208.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 304,
+        "h": 377.3125
+      },
+      "inner": [
+        320,
+        568
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 8
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 86
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 164
+        },
+        {
+          "w": 70,
+          "h": 49,
+          "y": 431.8125,
+          "x": 242
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-059",
+    "name": "lighthouse-well 320x568 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 8
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 86
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 164
+      },
+      {
+        "w": 70,
+        "h": 49,
+        "y": 431.8125,
+        "x": 242
+      }
+    ]
+  },
+  {
+    "id": "UI-060",
+    "name": "lighthouse-well 390x844 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 238.359375,
+        "w": 368,
+        "h": 257.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 374,
+        "h": 653.3125
+      },
+      "inner": [
+        390,
+        844
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 31
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 115
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 199
+        },
+        {
+          "w": 76,
+          "h": 49,
+          "y": 707.8125,
+          "x": 283
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-061",
+    "name": "lighthouse-well 390x844 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 31
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 115
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 199
+      },
+      {
+        "w": 76,
+        "h": 49,
+        "y": 707.8125,
+        "x": 283
+      }
+    ]
+  },
+  {
+    "id": "UI-062",
+    "name": "lighthouse-well 844x390 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 142.21875,
+        "y": 44,
+        "w": 408.5625,
+        "h": 286
+      },
+      "viewport": {
+        "x": 8,
+        "y": 41,
+        "w": 677,
+        "h": 292
+      },
+      "inner": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 127.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 191.5,
+          "x": 767.5
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-063",
+    "name": "lighthouse-well 844x390 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 127.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 191.5,
+        "x": 767.5
+      }
+    ]
+  },
+  {
+    "id": "UI-064",
+    "name": "lighthouse-well no browser exceptions",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "UI-065",
+    "name": "harbor-volley one coin admission",
+    "pass": true,
+    "detail": {
+      "playing": true,
+      "reason": "",
+      "error": "",
+      "run": {
+        "id": "coin_mun0auel_1_q215tcorei",
+        "game": "harbor-volley",
+        "difficulty": 1,
+        "seed": 2465925972,
+        "phase": "playing",
+        "started": true,
+        "lives": 3,
+        "stage": 1,
+        "snapshot": {
+          "v": 28,
+          "id": "harbor-volley",
+          "d": 1,
+          "r": 2465925972,
+          "state": [
+            "o",
+            [
+              [
+                "d",
+                1
+              ],
+              [
+                "t",
+                0
+              ],
+              [
+                "score",
+                0
+              ],
+              [
+                "level",
+                1
+              ],
+              [
+                "done",
+                false
+              ],
+              [
+                "notice",
+                ""
+              ],
+              [
+                "noticeTime",
+                0
+              ],
+              [
+                "stat",
+                "第 1 關"
+              ],
+              [
+                "engineVersion",
+                1
+              ],
+              [
+                "health",
+                3
+              ],
+              [
+                "inv",
+                0
+              ],
+              [
+                "won",
+                false
+              ],
+              [
+                "skin",
+                "classic"
+              ],
+              [
+                "fx",
+                [
+                  "a",
+                  []
+                ]
+              ],
+              [
+                "musicClock",
+                0.1
+              ],
+              [
+                "musicStep",
+                0
+              ],
+              [
+                "p",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      190
+                    ],
+                    [
+                      "y",
+                      453
+                    ],
+                    [
+                      "vx",
+                      0
+                    ],
+                    [
+                      "vy",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "ai",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      610
+                    ],
+                    [
+                      "y",
+                      453
+                    ],
+                    [
+                      "vx",
+                      0
+                    ],
+                    [
+                      "vy",
+                      0
+                    ],
+                    [
+                      "target",
+                      600
+                    ],
+                    [
+                      "react",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "ball",
+                [
+                  "o",
+                  [
+                    [
+                      "x",
+                      190
+                    ],
+                    [
+                      "y",
+                      357
+                    ],
+                    [
+                      "vx",
+                      0
+                    ],
+                    [
+                      "vy",
+                      0
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "points",
+                [
+                  "a",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ],
+              [
+                "server",
+                0
+              ],
+              [
+                "servePause",
+                1.2
+              ],
+              [
+                "serveClock",
+                0
+              ],
+              [
+                "cool",
+                [
+                  "a",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ],
+              [
+                "touches",
+                [
+                  "a",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ],
+              [
+                "side",
+                0
+              ],
+              [
+                "rally",
+                0
+              ],
+              [
+                "longest",
+                0
+              ],
+              [
+                "spike",
+                0
+              ],
+              [
+                "aim",
+                0
+              ],
+              [
+                "aiError",
+                0
+              ]
+            ]
+          ]
+        },
+        "score": 0,
+        "elapsedMs": 161,
+        "createdAt": 1790706308205,
+        "error": "",
+        "result": "",
+        "success": false
+      },
+      "balance": 39,
+      "child": "c_demo"
+    }
+  },
+  {
+    "id": "UI-066",
+    "name": "harbor-volley registered ID and state",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-067",
+    "name": "harbor-volley keyboard updates simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-068",
+    "name": "harbor-volley native audio running",
+    "pass": true,
+    "detail": {
+      "version": "R2.0.0",
+      "catalogue": 26,
+      "newGames": 5,
+      "audioContext": "running",
+      "audioError": "",
+      "globalMute": false,
+      "sfxVolume": 0.6,
+      "musicVolume": 0.35,
+      "liveAudioNodes": 1
+    }
+  },
+  {
+    "id": "UI-069",
+    "name": "harbor-volley pause freezes simulation",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-070",
+    "name": "harbor-volley pause stops audio",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-071",
+    "name": "harbor-volley resume no second charge",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-072",
+    "name": "harbor-volley restore on independent DOM instance",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-073",
+    "name": "harbor-volley old best retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "UI-074",
+    "name": "harbor-volley 320x568 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 124.859375,
+        "w": 298,
+        "h": 208.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 304,
+        "h": 377.3125
+      },
+      "inner": [
+        320,
+        568
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 54.40625,
+          "h": 49,
+          "y": 431.8125,
+          "x": 8
+        },
+        {
+          "w": 54.390625,
+          "h": 49,
+          "y": 431.8125,
+          "x": 70.40625
+        },
+        {
+          "w": 54.40625,
+          "h": 49,
+          "y": 431.8125,
+          "x": 132.796875
+        },
+        {
+          "w": 54.390625,
+          "h": 49,
+          "y": 431.8125,
+          "x": 195.203125
+        },
+        {
+          "w": 54.40625,
+          "h": 49,
+          "y": 431.8125,
+          "x": 257.59375
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-075",
+    "name": "harbor-volley 320x568 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 54.40625,
+        "h": 49,
+        "y": 431.8125,
+        "x": 8
+      },
+      {
+        "w": 54.390625,
+        "h": 49,
+        "y": 431.8125,
+        "x": 70.40625
+      },
+      {
+        "w": 54.40625,
+        "h": 49,
+        "y": 431.8125,
+        "x": 132.796875
+      },
+      {
+        "w": 54.390625,
+        "h": 49,
+        "y": 431.8125,
+        "x": 195.203125
+      },
+      {
+        "w": 54.40625,
+        "h": 49,
+        "y": 431.8125,
+        "x": 257.59375
+      }
+    ]
+  },
+  {
+    "id": "UI-076",
+    "name": "harbor-volley 390x844 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 11,
+        "y": 238.359375,
+        "w": 368,
+        "h": 257.59375
+      },
+      "viewport": {
+        "x": 8,
+        "y": 40.5,
+        "w": 374,
+        "h": 653.3125
+      },
+      "inner": [
+        390,
+        844
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.40625,
+          "h": 49,
+          "y": 707.8125,
+          "x": 8
+        },
+        {
+          "w": 68.390625,
+          "h": 49,
+          "y": 707.8125,
+          "x": 84.40625
+        },
+        {
+          "w": 68.40625,
+          "h": 49,
+          "y": 707.8125,
+          "x": 160.796875
+        },
+        {
+          "w": 68.390625,
+          "h": 49,
+          "y": 707.8125,
+          "x": 237.203125
+        },
+        {
+          "w": 68.40625,
+          "h": 49,
+          "y": 707.8125,
+          "x": 313.59375
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-077",
+    "name": "harbor-volley 390x844 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.40625,
+        "h": 49,
+        "y": 707.8125,
+        "x": 8
+      },
+      {
+        "w": 68.390625,
+        "h": 49,
+        "y": 707.8125,
+        "x": 84.40625
+      },
+      {
+        "w": 68.40625,
+        "h": 49,
+        "y": 707.8125,
+        "x": 160.796875
+      },
+      {
+        "w": 68.390625,
+        "h": 49,
+        "y": 707.8125,
+        "x": 237.203125
+      },
+      {
+        "w": 68.40625,
+        "h": 49,
+        "y": 707.8125,
+        "x": 313.59375
+      }
+    ]
+  },
+  {
+    "id": "UI-078",
+    "name": "harbor-volley 844x390 enlarged canvas",
+    "pass": true,
+    "detail": {
+      "canvas": {
+        "x": 142.21875,
+        "y": 44,
+        "w": 408.5625,
+        "h": 286
+      },
+      "viewport": {
+        "x": 8,
+        "y": 41,
+        "w": 677,
+        "h": 292
+      },
+      "inner": [
+        844,
+        390
+      ],
+      "overflow": false,
+      "keys": [
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 95.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 95.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 159.5,
+          "x": 690
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 159.5,
+          "x": 767.5
+        },
+        {
+          "w": 68.5,
+          "h": 55,
+          "y": 223.5,
+          "x": 690
+        }
+      ]
+    }
+  },
+  {
+    "id": "UI-079",
+    "name": "harbor-volley 844x390 touch targets",
+    "pass": true,
+    "detail": [
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 95.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 95.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 159.5,
+        "x": 690
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 159.5,
+        "x": 767.5
+      },
+      {
+        "w": 68.5,
+        "h": 55,
+        "y": 223.5,
+        "x": 690
+      }
+    ]
+  },
+  {
+    "id": "UI-080",
+    "name": "harbor-volley no browser exceptions",
+    "pass": true,
+    "detail": []
+  }
+]

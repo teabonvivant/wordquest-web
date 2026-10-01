@@ -1,0 +1,630 @@
+[
+  {
+    "id": "UI-029",
+    "category": "UI",
+    "name": "2N2.3-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.3-T2",
+      "type": "number",
+      "answer": "25",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=25",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-030",
+    "category": "UI",
+    "name": "2N2.3-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N2.3-T3",
+      "type": "number",
+      "answer": "25",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=25",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-031",
+    "category": "UI",
+    "name": "2N3.3-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T1",
+      "type": "number",
+      "answer": "6",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=6",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-032",
+    "category": "UI",
+    "name": "2N3.3-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T2",
+      "type": "number",
+      "answer": "20",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=20",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-033",
+    "category": "UI",
+    "name": "2N3.3-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N3.3-T3",
+      "type": "number",
+      "answer": "24",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=24",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-034",
+    "category": "UI",
+    "name": "2N4.2-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T1",
+      "type": "number",
+      "answer": "6486",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=6486",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-035",
+    "category": "UI",
+    "name": "2N4.2-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T2",
+      "type": "number",
+      "answer": "6486",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=6486",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-036",
+    "category": "UI",
+    "name": "2N4.2-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N4.2-T3",
+      "type": "number",
+      "answer": "6486",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=6486",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-037",
+    "category": "UI",
+    "name": "2N5.1-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T1",
+      "type": "number",
+      "answer": "277",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=277",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-038",
+    "category": "UI",
+    "name": "2N5.1-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T2",
+      "type": "number",
+      "answer": "277",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=277",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-039",
+    "category": "UI",
+    "name": "2N5.1-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.1-T3",
+      "type": "number",
+      "answer": "277",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=277",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-040",
+    "category": "UI",
+    "name": "2N5.3-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T1",
+      "type": "word",
+      "answer": "36",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=36",
+      "fill expression=50-14",
+      "select unit=元",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-041",
+    "category": "UI",
+    "name": "2N5.3-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T2",
+      "type": "word",
+      "answer": "18",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=18",
+      "fill expression=50-32",
+      "select unit=元",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-042",
+    "category": "UI",
+    "name": "2N5.3-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N5.3-T3",
+      "type": "word",
+      "answer": "23",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=23",
+      "fill expression=100-77",
+      "select unit=元",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-043",
+    "category": "UI",
+    "name": "2N6.2-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T1",
+      "type": "remainder",
+      "answer": "5",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=5",
+      "fill remainder=0",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-044",
+    "category": "UI",
+    "name": "2N6.2-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T2",
+      "type": "remainder",
+      "answer": "2",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=2",
+      "fill remainder=4",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-045",
+    "category": "UI",
+    "name": "2N6.2-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "2N6.2-T3",
+      "type": "remainder",
+      "answer": "2",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=2",
+      "fill remainder=4",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-046",
+    "category": "UI",
+    "name": "3N1.2-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T1",
+      "type": "number",
+      "answer": "64861",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=64861",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-047",
+    "category": "UI",
+    "name": "3N1.2-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T2",
+      "type": "number",
+      "answer": "64861",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=64861",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-048",
+    "category": "UI",
+    "name": "3N1.2-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N1.2-T3",
+      "type": "number",
+      "answer": "64861",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=64861",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-049",
+    "category": "UI",
+    "name": "3N2.1-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T1",
+      "type": "number",
+      "answer": "66",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=66",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-050",
+    "category": "UI",
+    "name": "3N2.1-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T2",
+      "type": "number",
+      "answer": "256",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=256",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-051",
+    "category": "UI",
+    "name": "3N2.1-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N2.1-T3",
+      "type": "number",
+      "answer": "3025",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=3025",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-052",
+    "category": "UI",
+    "name": "3N3.1-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T1",
+      "type": "remainder",
+      "answer": "12",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=12",
+      "fill remainder=0",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-053",
+    "category": "UI",
+    "name": "3N3.1-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T2",
+      "type": "remainder",
+      "answer": "14",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=14",
+      "fill remainder=4",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-054",
+    "category": "UI",
+    "name": "3N3.1-T3：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N3.1-T3",
+      "type": "remainder",
+      "answer": "25",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=25",
+      "fill remainder=4",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-055",
+    "category": "UI",
+    "name": "3N4.3-T1：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.3-T1",
+      "type": "number",
+      "answer": "38",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=38",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-056",
+    "category": "UI",
+    "name": "3N4.3-T2：畫面→填答→提交→存入紀錄",
+    "expected": "題目正確呈現、正答判對、只記錄一次",
+    "status": "PASS",
+    "actual": {
+      "template": "3N4.3-T2",
+      "type": "number",
+      "answer": "48",
+      "feedback": "完成咗！你用自己嘅方法搵到答案。"
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click resume",
+      "fill answer=48",
+      "click submit"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  }
+]

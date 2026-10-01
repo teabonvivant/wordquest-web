@@ -1,0 +1,19 @@
+{
+  "pref": {
+    "show": false,
+    "motion": false,
+    "compact": false,
+    "gameBuddy": "rabbit",
+    "guide": "auto"
+  },
+  "classes": "wq32-no-motion wq32-no-companions",
+  "roster": true,
+  "images": [
+    {
+      "src": "owl",
+      "visible": false,
+      "display": "block",
+      "visibility": "visible"
+    }
+  ]
+}

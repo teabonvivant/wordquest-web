@@ -1,0 +1,14 @@
+[
+  {
+    "name": "integration-focused",
+    "startedUTC": "2026-09-29T18:14:02.150599+00:00",
+    "returncode": 0,
+    "finishedUTC": "2026-09-29T18:14:44.750368+00:00"
+  },
+  {
+    "name": "arcade-browser",
+    "startedUTC": "2026-09-29T18:14:44.750646+00:00",
+    "returncode": 0,
+    "finishedUTC": "2026-09-29T18:15:17.600583+00:00"
+  }
+]

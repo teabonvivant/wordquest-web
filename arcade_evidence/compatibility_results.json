@@ -1,0 +1,62 @@
+[
+  {
+    "id": "COMPAT-001",
+    "name": "sky-rescue R1 actual UI produced a charged paused checkpoint",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-002",
+    "name": "sky-rescue R2 restores exact R1 run ID and engine snapshot",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-003",
+    "name": "sky-rescue R1 balance, English words and child records retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-004",
+    "name": "sky-rescue R1 run continues without buying again",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-005",
+    "name": "sky-rescue no R1 or R2 browser exceptions",
+    "pass": true,
+    "detail": []
+  },
+  {
+    "id": "COMPAT-006",
+    "name": "number-garden R1 actual UI produced a charged paused checkpoint",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-007",
+    "name": "number-garden R2 restores exact R1 run ID and engine snapshot",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-008",
+    "name": "number-garden R1 balance, English words and child records retained",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-009",
+    "name": "number-garden R1 run continues without buying again",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "id": "COMPAT-010",
+    "name": "number-garden no R1 or R2 browser exceptions",
+    "pass": true,
+    "detail": []
+  }
+]

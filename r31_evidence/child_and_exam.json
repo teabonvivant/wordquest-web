@@ -1,0 +1,57 @@
+[
+  {
+    "id": "FOREST-SCOPE-01",
+    "name": "First child uses chosen hedgehog helper",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-02",
+    "name": "Second child identity actually differs",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-03",
+    "name": "Second child defaults do not inherit first child selection",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-04",
+    "name": "Second child independent choice saved",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-05",
+    "name": "Switching back restores first child helper, not second child choice",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-06",
+    "name": "First child actual maths portrait is hedgehog",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-07",
+    "name": "Real mock button enters independent diagnostic mode",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-08",
+    "name": "Independent assessment hides fixed companion and its settings",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-09",
+    "name": "Independent assessment leaves original question and submit available",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-10",
+    "name": "Character actions have not added any coins",
+    "status": "pass"
+  },
+  {
+    "id": "FOREST-SCOPE-11",
+    "name": "No uncaught browser errors",
+    "status": "pass"
+  }
+]

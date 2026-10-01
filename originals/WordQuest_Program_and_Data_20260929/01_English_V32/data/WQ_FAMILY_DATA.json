@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "family": "air",
+  "label": "拼字家族",
+  "note": "這組字共用 air 的拼法及相近讀音；不是都由 air 的意思組成。",
+  "lessons": [
+    {
+      "id": "air",
+      "word": "air",
+      "meaning": "空氣",
+      "parts": [
+        "air"
+      ],
+      "hint": "先記住 a、i、r 的次序。",
+      "level": "基本字",
+      "symbol": "〰",
+      "example": "We need clean air.",
+      "note": "空氣看不見；波紋只用作提示，不是空氣的外形。"
+    },
+    {
+      "id": "hair",
+      "word": "hair",
+      "meaning": "頭髮",
+      "parts": [
+        "h",
+        "air"
+      ],
+      "hint": "前面加 h。",
+      "level": "加一個字母",
+      "symbol": "👩",
+      "example": "She has long hair.",
+      "note": "整體頭髮通常不可數；a hair 可以指一條頭髮。"
+    },
+    {
+      "id": "pair",
+      "word": "pair",
+      "meaning": "一雙／一對",
+      "parts": [
+        "p",
+        "air"
+      ],
+      "hint": "前面換成 p。",
+      "level": "加一個字母",
+      "image": "socks",
+      "symbol": "🧦",
+      "example": "This is a pair of socks.",
+      "note": "圖中是一對襪，用來示範一對；pair 不只用來說襪。"
+    },
+    {
+      "id": "fair-equal",
+      "word": "fair",
+      "meaning": "公平的",
+      "parts": [
+        "f",
+        "air"
+      ],
+      "hint": "前面換成 f。",
+      "level": "加一個字母",
+      "symbol": "⚖",
+      "example": "Everyone has a fair chance.",
+      "note": "今次只教「公平的」。不要跟「展覽會」混成同一個意思。"
+    },
+    {
+      "id": "fair-event",
+      "word": "fair",
+      "meaning": "展覽會",
+      "parts": [
+        "f",
+        "air"
+      ],
+      "hint": "拼法相同，今次意思是展覽會。",
+      "level": "另一個意思",
+      "symbol": "🎪",
+      "example": "We bought books at the book fair.",
+      "note": "book fair 是書展。圖示只用來提示活動場地，不是所有展覽會都有帳篷。"
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "meaning": "椅子",
+      "parts": [
+        "ch",
+        "air"
+      ],
+      "hint": "前面加一組 ch。",
+      "level": "加一組開頭",
+      "image": "chair",
+      "symbol": "🪑",
+      "example": "Sit on the chair.",
+      "note": "ch 與 air 是今次的拼讀組合。chair 的意思不是「空氣」。"
+    },
+    {
+      "id": "stairs",
+      "word": "stairs",
+      "meaning": "樓梯",
+      "parts": [
+        "st",
+        "air",
+        "s"
+      ],
+      "hint": "開頭是 st，最後還有 s。",
+      "level": "留意頭尾",
+      "symbol": "↗",
+      "example": "Please walk up the stairs.",
+      "note": "最後的 s 不可漏掉；這個字是 stairs，不是 stair。"
+    },
+    {
+      "id": "repair",
+      "word": "repair",
+      "meaning": "修理",
+      "parts": [
+        "rep",
+        "air"
+      ],
+      "hint": "找出熟悉的 air，連前面一起記。",
+      "level": "較長的字",
+      "symbol": "🔧",
+      "example": "He can repair the broken chair.",
+      "note": "rep | air 只標示熟悉的拼法，不是詞根或音節切分。聽完整 repair，留意後半部分的重音。"
+    }
+  ],
+  "mixed": [
+    {
+      "id": "mixed-book",
+      "word": "book",
+      "meaning": "書",
+      "image": "book",
+      "symbol": "📘"
+    },
+    {
+      "id": "mixed-shoe",
+      "word": "shoe",
+      "meaning": "鞋",
+      "image": "shoe",
+      "symbol": "👟"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Collins English Dictionary — air / hair / pair / fair / chair / stairs / repair",
+      "url": "https://www.collinsdictionary.com/dictionary/english/air",
+      "role": "詞義與整字發音參考；沒有複製或附送字典錄音。"
+    },
+    {
+      "title": "SpeechSynthesisVoice.localService",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice/localService",
+      "role": "離線備用聲線選擇。"
+    },
+    {
+      "title": "SpeechSynthesisUtterance end event",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/end_event",
+      "role": "播完才播放下一個整字。"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "version": "R3.0.0",
+  "base_sha256": "4de1c712588f3ae1cb3b201138a336d347819cbf118a964f44ca7ad6e068c3ae",
+  "app_sha256": "dc3c6387e9d5deb6c024599244175dcc650c421819bbe4057399f8f4269405de",
+  "scripts": 39,
+  "build": "source generated; this record is not functional validation"
+}

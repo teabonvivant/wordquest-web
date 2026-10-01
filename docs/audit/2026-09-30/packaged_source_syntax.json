@@ -1,0 +1,1138 @@
+[
+  {
+    "path": "app/afeng-rig.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "app/device-check.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "app/sw.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_src/audio.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_src/engines.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_src/host_extension.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_tests/bots.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_tests/browser_arcade.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "arcade_tests/browser_compatibility.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "arcade_tests/browser_probe.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "arcade_tests/browser_safety.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "arcade_tests/core_tests.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_tests/engine_harness.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_tests/explore.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "arcade_tests/r1_regression.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "arcade_tests/syntax_check.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R1/tools/build.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R1/tools/make_delivery.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R1/tools/package_release.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R1/tools/patch_math.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R1/tools/verify_build.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/R3/sw.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/R3_1/app/sw.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/R3_1/server/local_server.mjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_00.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_01.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_02.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_03.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_04.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_05.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_06.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_07.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_08.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_09.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_10.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_11.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_12.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_13.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_14.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_15.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_16.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_17.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_18.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_19.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_20.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_21.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_22.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_23.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_24.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_25.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_26.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_27.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_28.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_29.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/01_English_V32/source/script_30.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_00.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_01.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_02.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/02_Maths_0.1.2/source/script_03.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/build_report.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/extract.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_0.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_1.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_2.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/source/maths_script_3.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/browser_checks.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/core_checks.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/generation_oracle.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/prepare_source.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/report_qa.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/run_all.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/06_Original_1000_Audit/WordQuest_1000_Audit/tests/supplemental_evidence.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/extract_data.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/package_browser_smoke.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "originals/WordQuest_Program_and_Data_20260929/08_Package_QA/verify_package.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "patches/host_bridge.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/assets_data.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/characters_core.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/family_core_compatible.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/math_companion.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/math_host_helpers.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_src/probe.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/arcade_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/arcade_regression.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_tests/characters_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/characters_core.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_tests/child_and_exam.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/family_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/family_contracts.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r31_tests/final_visuals.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/integration_regression.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/probe_hide.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r31_tests/run_all.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_src/afeng_rig.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_src/device_check.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_src/host_additions.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_src/reliability_core.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/arcade_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/arcade_regression.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/browser_new.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/characters_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/characters_core.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/child_and_exam.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/cloud_live.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/family_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/family_contracts.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/integration_full.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/integration_regression.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/native_acceptance.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/new_core.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/run_release.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r32_tests/server_contracts.mjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r32_tests/server_native_http.mjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/arcade_pose.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/00.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/01.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/02.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/03.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/04.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/05.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/06.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/07.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/08.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/09.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/10.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/11.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/12.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/13.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/14.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/15.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/16.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/17.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/18.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/19.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/20.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/21.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/22.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/23.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/24.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/25.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/26.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/27.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/28.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/29.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/30.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/31.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/32.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/33.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/34.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/base/35.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/curriculum_extension.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/family_core.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/host_family.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/host_offline.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/math_migration.js",
+    "kind": "JavaScript class-method build fragment",
+    "status": "pass",
+    "note": "Inserted by tools/build_r3.py into Store class; tested within a class wrapper and in the actual app script. Standalone source is intentionally not a complete JavaScript program.",
+    "standalone_diagnostic": "/workspace/scratch/b8b43de87e22/audit_work/program/WordQuest_R3_2/r3_src/math_migration.js:1\n  migrate(v,digest){\n                   ^\n\nSyntaxError: Unexpected token '{'\n    at wrapSafe (node:internal/modules/cjs/loader:1804:18)\n    at checkSyntax (node:internal/main/check_syntax:76:3)\n\nNode.js v24.19.0\n"
+  },
+  {
+    "path": "r3_src/math_ui_extra.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/math_visuals.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/olympiad_ui.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_src/tool_binding.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_tests/arcade_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/arcade_regression.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_tests/content_generate.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_tests/family_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/family_contracts.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_tests/independent_oracle.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/integration_regression.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/lesson_text_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/new_features_browser.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/run_release.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "r3_tests/server_contracts.mjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "r3_tests/smoke.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "server/local_server.mjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/capture_views.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tests/harness.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tests/integration_checks.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tests/legacy_rerun/source/maths_script_0.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/legacy_rerun/source/maths_script_1.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/legacy_rerun/source/maths_script_2.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/legacy_rerun/source/maths_script_3.js",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/legacy_rerun/tests/core_checks.cjs",
+    "kind": "JavaScript syntax",
+    "status": "pass",
+    "error": ""
+  },
+  {
+    "path": "tests/legacy_rerun/tests/generation_oracle.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tests/smoke.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_arcade_r2.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_character_assets.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_characters_r31.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_curriculum_r3.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_r3.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_r32.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/build_r32_report.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/document_characters_r31.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/make_delivery.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/package_characters_r31.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/package_r2.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/package_r3.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/package_release.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/patch_math.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/report_r3.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/verify_build.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/verify_r2.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  },
+  {
+    "path": "tools/write_r2_docs.py",
+    "kind": "Python syntax",
+    "status": "pass"
+  }
+]

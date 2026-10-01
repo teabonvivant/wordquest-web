@@ -1,0 +1,224 @@
+[
+  {
+    "id": "UI-085",
+    "category": "UI",
+    "name": "訪客首頁啟動",
+    "expected": "可見主頁與主要學習入口",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-086",
+    "category": "UI",
+    "name": "家長建立學員",
+    "expected": "由實際表單建立持久化學員",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:profiles",
+      "fill nickname=樂樂",
+      "select new-grade=2",
+      "click create-profile"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-087",
+    "category": "UI",
+    "name": "未同意保存不能建立學員",
+    "expected": "沒有建立學員",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:profiles",
+      "fill nickname=樂樂",
+      "click create-profile"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-088",
+    "category": "UI",
+    "name": "暱稱 HTML 文字安全",
+    "expected": "不插入可執行 HTML",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:profiles",
+      "fill nickname=<img src=x onerror=1>",
+      "click create-profile"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-089",
+    "category": "UI",
+    "name": "UI 切換孩子後顯示各自資料",
+    "expected": "切換後读取 B 的 serial",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:profiles",
+      "click switch:child-b"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-090",
+    "category": "UI",
+    "name": "UI 刪除目前學員",
+    "expected": "主資料及名單移除",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:profiles",
+      "click delete-profile"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-091",
+    "category": "UI",
+    "name": "損壞孩子名單仍可恢復",
+    "expected": "顯示可操作的恢复／訪客入口，不白畫面",
+    "status": "FAIL",
+    "actual": "啟動後沒有任何按鈕；[\"Expected property name or '}' in JSON at position 1 (line 1 column 2)\"]",
+    "issue": "F-REGISTRY-BOOT",
+    "evidence": "evidence/UI-091_failure.png",
+    "actions": [],
+    "pageErrors": [
+      "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+    ],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-092",
+    "category": "UI",
+    "name": "儲存 API 被拒絕時仍有安全畫面",
+    "expected": "顯示錯誤說明或訪客模式，不白畫面",
+    "status": "FAIL",
+    "actual": "儲存 API 拒絕後白畫面；['Denied']",
+    "issue": "F-REGISTRY-BOOT",
+    "evidence": "evidence/UI-092_failure.png",
+    "actions": [],
+    "pageErrors": [
+      "Denied"
+    ],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-093",
+    "category": "UI",
+    "name": "損壞數學狀態保留原始資料",
+    "expected": "可見只讀提示且原文未被覆蓋",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-094",
+    "category": "UI",
+    "name": "匯出按鈕產生完整 JSON",
+    "expected": "建立目前孩子的備份 Blob（不聲稱原生下載驗收）",
+    "status": "PASS",
+    "actual": {
+      "owner": "local-family:audit-child",
+      "schema": 1
+    },
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent",
+      "click export"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-095",
+    "category": "UI",
+    "name": "UI 匯入另一孩子備份拒絕",
+    "expected": "不覆蓋目前進度",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent",
+      "click import"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-096",
+    "category": "UI",
+    "name": "UI 匯入同一孩子備份成功",
+    "expected": "serial 還原且有保護快照",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [
+      "click nav:parent",
+      "click import"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-097",
+    "category": "UI",
+    "name": "鍵盤 Enter 可啟動首頁入口",
+    "expected": "不需滑鼠可打開今日練習",
+    "status": "PASS",
+    "actual": "符合預期",
+    "issue": "",
+    "evidence": "",
+    "actions": [],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  },
+  {
+    "id": "UI-098",
+    "category": "UI",
+    "name": "暫停後保留數值草稿",
+    "expected": "返回後仍有未提交答案",
+    "status": "FAIL",
+    "actual": "暫停／繼續後未提交的 123 消失",
+    "issue": "F-DRAFT-LOSS",
+    "evidence": "evidence/UI-098_failure.png",
+    "actions": [
+      "click resume",
+      "fill answer=123",
+      "click pause",
+      "click resume"
+    ],
+    "pageErrors": [],
+    "method": "實際 Chromium DOM／模擬 localStorage"
+  }
+]

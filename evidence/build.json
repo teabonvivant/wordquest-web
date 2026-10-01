@@ -1,0 +1,15 @@
+{
+  "build": "V32-M0.1.2-R1",
+  "english_base_sha256": "7ab658a1e276964aca58984b8c2330ff9515b83cbfe79188305cf69e33108359",
+  "math_base_sha256": "972025218dbe1da2d433bee31988d7bcf9e0e1d4061c250fc53cd6b0f7861c94",
+  "output_sha256": "520641bfcb7cf913a544bcc3b35f8de62bd6eb3d4edd8bb79031b3c7f5cb912c",
+  "input_latest_retrievable": {
+    "english": "V32",
+    "maths": "0.1.2"
+  },
+  "not_recovered": [
+    "V33 Original Arcade",
+    "Maths 0.1.3 Character Features"
+  ],
+  "new_art_generated": false
+}

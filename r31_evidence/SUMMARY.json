@@ -1,0 +1,66 @@
+{
+  "version": "R3.1.0",
+  "appSha256": "ceb911e9a7fc56e873093470d9a76bdcff585649095ad1ff69ac11b22bbdcf8f",
+  "suites": [
+    {
+      "file": "characters_core.json",
+      "name": "角色分工、表情及輸入邊界",
+      "total": 99,
+      "passed": 99,
+      "failed": 0
+    },
+    {
+      "file": "characters_browser.json",
+      "name": "角色瀏覽器及備份流程",
+      "total": 83,
+      "passed": 83,
+      "failed": 0
+    },
+    {
+      "file": "child_and_exam.json",
+      "name": "孩子隔離及獨立作答介面",
+      "total": 11,
+      "passed": 11,
+      "failed": 0
+    },
+    {
+      "file": "family_contracts.json",
+      "name": "家庭資料驗證規則",
+      "total": 55,
+      "passed": 55,
+      "failed": 0
+    },
+    {
+      "file": "family_browser.json",
+      "name": "家庭備份、搬移及清除流程",
+      "total": 24,
+      "passed": 24,
+      "failed": 0
+    },
+    {
+      "file": "integration_results.json",
+      "name": "英文／數學整合回歸",
+      "total": 429,
+      "passed": 429,
+      "failed": 0
+    },
+    {
+      "file": "arcade_core_results.json",
+      "name": "街機引擎及局面相容",
+      "total": 292,
+      "passed": 292,
+      "failed": 0
+    },
+    {
+      "file": "arcade_browser_results.json",
+      "name": "街機實際操作及畫面",
+      "total": 80,
+      "passed": 80,
+      "failed": 0
+    }
+  ],
+  "total": 1073,
+  "passed": 1073,
+  "syntax": 41,
+  "observedScope": "real Chromium DOM; explicit native-I/O adapters; no human or physical-device validation"
+}

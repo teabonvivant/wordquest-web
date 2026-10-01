@@ -1,0 +1,7 @@
+ // Only display preferences are shared with the shadow-DOM mathematics interface.
+ function forestMathHTML(c={}){
+  readPrefs();const g=C.mathGuide(c,pref);
+  if(g?.quiet)return '<p class="forest-quiet">獨立作答中 · 學伴暫時安靜陪伴</p>';
+  let body='';if(g){const d=C.roles[g.role];body=`<aside class="wqm-v32-companion forest-math-guide ${g.compact?'forest-compact':''} ${pref.motion?'forest-motion':''}" data-forest-character="${d.id}" data-state="${g.state}"><img src="${A[g.role+'-'+g.pose]}" alt="${esc(d.name)}" width="72" height="80" decoding="async"><div><strong>${esc(d.name)}</strong><span class="forest-job">${esc(d.job)}</span><p>${esc(g.text)}</p></div></aside>`;}
+  return body+`<div class="forest-controlbar"><button type="button" data-forest-options aria-expanded="false" aria-controls="forest-math-options">學伴設定</button><span>${!pref.show?'已隱藏陪伴':pref.guide==='auto'?'按課堂自動安排':'固定學伴：'+esc(C.roles[pref.guide].name)}</span></div><div class="forest-options" id="forest-math-options" hidden><label>學伴安排<select data-forest-pref="guide" aria-label="學伴安排"><option value="auto" ${pref.guide==='auto'?'selected':''}>按課堂自動安排</option>${C.ids.map(id=>`<option value="${id}" ${pref.guide===id?'selected':''}>${esc(C.roles[id].name)}</option>`).join('')}</select></label>${[['show','顯示角色陪伴'],['compact','精簡頭像'],['motion','短暫進場動效']].map(([k,t])=>`<label class="forest-toggle"><input type="checkbox" data-forest-pref="${k}" ${pref[k]?'checked':''}>${t}</label>`).join('')}<p class="forest-note" role="status">${esc(issue||'只改角色顯示。草稿、提示級別、答案和金幣均不會改動。')}</p></div>`;
+ }

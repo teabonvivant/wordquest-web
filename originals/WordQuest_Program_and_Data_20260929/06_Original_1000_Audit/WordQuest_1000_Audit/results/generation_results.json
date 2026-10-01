@@ -1,0 +1,9470 @@
+[
+  {
+    "id": "GEN-001",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "n": 2
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-002",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 4
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-003",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 4
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-004",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 4
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-005",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "n": 2
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-006",
+    "category": "GEN",
+    "name": "1N1.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "n": 5
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-007",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "n": 7
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-008",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "n": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-009",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "n": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-010",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "n": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-011",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "n": 7
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-012",
+    "category": "GEN",
+    "name": "1N1.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "n": 10
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-013",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "n": 13
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-014",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "17",
+      "reference": "17",
+      "remainder": null,
+      "parameters": {
+        "n": 17
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-015",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "n": 18
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-016",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "17",
+      "reference": "17",
+      "remainder": null,
+      "parameters": {
+        "n": 17
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-017",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "14",
+      "reference": "14",
+      "remainder": null,
+      "parameters": {
+        "n": 14
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-018",
+    "category": "GEN",
+    "name": "1N1.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "19",
+      "reference": "19",
+      "remainder": null,
+      "parameters": {
+        "n": 19
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-019",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 1,
+        "b": 1,
+        "n": "2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-020",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 1,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-021",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-022",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 2,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-023",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 2,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-024",
+    "category": "GEN",
+    "name": "1N1.5-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-025",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 1,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-026",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 1,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-027",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 2,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-028",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 3,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-029",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 3,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-030",
+    "category": "GEN",
+    "name": "1N1.5-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 2,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-031",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-032",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 1,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-033",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "a": 7,
+        "b": 3,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-034",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 5,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-035",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-036",
+    "category": "GEN",
+    "name": "1N1.5-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 9,
+        "b": 2,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-037",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-038",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 1,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-039",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 2,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-040",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 3,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-041",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 2,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-042",
+    "category": "GEN",
+    "name": "1N2.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "a": 8,
+        "b": 1,
+        "n": "9"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-043",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-044",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 1,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-045",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "a": 7,
+        "b": 3,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-046",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 5,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-047",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-048",
+    "category": "GEN",
+    "name": "1N2.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": null,
+      "parameters": {
+        "a": 9,
+        "b": 2,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-049",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-050",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 1,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-051",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "a": 7,
+        "b": 3,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-052",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 5,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-053",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-054",
+    "category": "GEN",
+    "name": "1N2.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "a": 9,
+        "b": 2,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-055",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "40",
+      "reference": "40",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 0,
+        "n": "40"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-056",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "70",
+      "reference": "70",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 0,
+        "n": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-057",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73",
+      "reference": "73",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 3,
+        "n": "73"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-058",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64",
+      "reference": "64",
+      "remainder": null,
+      "parameters": {
+        "t": 6,
+        "o": 4,
+        "n": "64"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-059",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43",
+      "reference": "43",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 3,
+        "n": "43"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-060",
+    "category": "GEN",
+    "name": "1N3.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91",
+      "reference": "91",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "o": 1,
+        "n": "91"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-061",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "40",
+      "reference": "40",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 0,
+        "n": "40"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-062",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "70",
+      "reference": "70",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 0,
+        "n": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-063",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73",
+      "reference": "73",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 3,
+        "n": "73"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-064",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64",
+      "reference": "64",
+      "remainder": null,
+      "parameters": {
+        "t": 6,
+        "o": 4,
+        "n": "64"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-065",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43",
+      "reference": "43",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 3,
+        "n": "43"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-066",
+    "category": "GEN",
+    "name": "1N3.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91",
+      "reference": "91",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "o": 1,
+        "n": "91"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-067",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "40",
+      "reference": "40",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 0,
+        "n": "40"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-068",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "70",
+      "reference": "70",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 0,
+        "n": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-069",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73",
+      "reference": "73",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "o": 3,
+        "n": "73"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-070",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64",
+      "reference": "64",
+      "remainder": null,
+      "parameters": {
+        "t": 6,
+        "o": 4,
+        "n": "64"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-071",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43",
+      "reference": "43",
+      "remainder": null,
+      "parameters": {
+        "t": 4,
+        "o": 3,
+        "n": "43"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-072",
+    "category": "GEN",
+    "name": "1N3.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91",
+      "reference": "91",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "o": 1,
+        "n": "91"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-073",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "16",
+      "reference": "16",
+      "remainder": null,
+      "parameters": {
+        "a": 15,
+        "b": 1,
+        "n": "16"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-074",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "23",
+      "reference": "23",
+      "remainder": null,
+      "parameters": {
+        "a": 22,
+        "b": 1,
+        "n": "23"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-075",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 24,
+        "b": 5,
+        "n": "29"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-076",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 22,
+        "b": 7,
+        "n": "29"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-077",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "23",
+      "reference": "23",
+      "remainder": null,
+      "parameters": {
+        "a": 17,
+        "b": 6,
+        "n": "23"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-078",
+    "category": "GEN",
+    "name": "1N4.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "30",
+      "reference": "30",
+      "remainder": null,
+      "parameters": {
+        "a": 27,
+        "b": 3,
+        "n": "30"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-079",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 24,
+        "b": 1,
+        "n": "25"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-080",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "46",
+      "reference": "46",
+      "remainder": null,
+      "parameters": {
+        "a": 45,
+        "b": 1,
+        "n": "46"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-081",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64",
+      "reference": "64",
+      "remainder": null,
+      "parameters": {
+        "a": 51,
+        "b": 13,
+        "n": "64"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-082",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "61",
+      "reference": "61",
+      "remainder": null,
+      "parameters": {
+        "a": 43,
+        "b": 18,
+        "n": "61"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-083",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "45",
+      "reference": "45",
+      "remainder": null,
+      "parameters": {
+        "a": 30,
+        "b": 15,
+        "n": "45"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-084",
+    "category": "GEN",
+    "name": "1N4.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "68",
+      "reference": "68",
+      "remainder": null,
+      "parameters": {
+        "a": 60,
+        "b": 8,
+        "n": "68"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-085",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 24,
+        "b": 1,
+        "n": "25"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-086",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "46",
+      "reference": "46",
+      "remainder": null,
+      "parameters": {
+        "a": 45,
+        "b": 1,
+        "n": "46"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-087",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64",
+      "reference": "64",
+      "remainder": null,
+      "parameters": {
+        "a": 51,
+        "b": 13,
+        "n": "64"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-088",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "61",
+      "reference": "61",
+      "remainder": null,
+      "parameters": {
+        "a": 43,
+        "b": 18,
+        "n": "61"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-089",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "45",
+      "reference": "45",
+      "remainder": null,
+      "parameters": {
+        "a": 30,
+        "b": 15,
+        "n": "45"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-090",
+    "category": "GEN",
+    "name": "1N4.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "68",
+      "reference": "68",
+      "remainder": null,
+      "parameters": {
+        "a": 60,
+        "b": 8,
+        "n": "68"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-091",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "35",
+      "reference": "35",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 5,
+        "v": 2,
+        "w": 0,
+        "a": "55",
+        "b": "20",
+        "n": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-092",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 9,
+        "v": 4,
+        "w": 4,
+        "a": "59",
+        "b": "44",
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-093",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "53",
+      "reference": "53",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "u": 6,
+        "v": 4,
+        "w": 3,
+        "a": "96",
+        "b": "43",
+        "n": "53"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-094",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "72",
+      "reference": "72",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 6,
+        "v": 0,
+        "w": 4,
+        "a": "76",
+        "b": "4",
+        "n": "72"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-095",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 8,
+        "v": 6,
+        "w": 0,
+        "a": "78",
+        "b": "60",
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-096",
+    "category": "GEN",
+    "name": "1N4.4-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "t": 8,
+        "u": 5,
+        "v": 6,
+        "w": 4,
+        "a": "85",
+        "b": "64",
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-097",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "35",
+      "reference": "35",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 5,
+        "v": 2,
+        "w": 0,
+        "a": "55",
+        "b": "20",
+        "n": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-098",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 9,
+        "v": 4,
+        "w": 4,
+        "a": "59",
+        "b": "44",
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-099",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "53",
+      "reference": "53",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "u": 6,
+        "v": 4,
+        "w": 3,
+        "a": "96",
+        "b": "43",
+        "n": "53"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-100",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "72",
+      "reference": "72",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 6,
+        "v": 0,
+        "w": 4,
+        "a": "76",
+        "b": "4",
+        "n": "72"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-101",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 8,
+        "v": 6,
+        "w": 0,
+        "a": "78",
+        "b": "60",
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-102",
+    "category": "GEN",
+    "name": "1N4.4-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "t": 8,
+        "u": 5,
+        "v": 6,
+        "w": 4,
+        "a": "85",
+        "b": "64",
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-103",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "35",
+      "reference": "35",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 5,
+        "v": 2,
+        "w": 0,
+        "a": "55",
+        "b": "20",
+        "n": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-104",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "t": 5,
+        "u": 9,
+        "v": 4,
+        "w": 4,
+        "a": "59",
+        "b": "44",
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-105",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "53",
+      "reference": "53",
+      "remainder": null,
+      "parameters": {
+        "t": 9,
+        "u": 6,
+        "v": 4,
+        "w": 3,
+        "a": "96",
+        "b": "43",
+        "n": "53"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-106",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "72",
+      "reference": "72",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 6,
+        "v": 0,
+        "w": 4,
+        "a": "76",
+        "b": "4",
+        "n": "72"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-107",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "t": 7,
+        "u": 8,
+        "v": 6,
+        "w": 0,
+        "a": "78",
+        "b": "60",
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-108",
+    "category": "GEN",
+    "name": "1N4.4-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "t": 8,
+        "u": 5,
+        "v": 6,
+        "w": 4,
+        "a": "85",
+        "b": "64",
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-109",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "302",
+      "reference": "302",
+      "remainder": null,
+      "parameters": {
+        "h": 3,
+        "t": 0,
+        "o": 2,
+        "n": "302"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-110",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "605",
+      "reference": "605",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 0,
+        "o": 5,
+        "n": "605"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-111",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "732",
+      "reference": "732",
+      "remainder": null,
+      "parameters": {
+        "h": 7,
+        "t": 3,
+        "o": 2,
+        "n": "732"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-112",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "648",
+      "reference": "648",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 4,
+        "o": 8,
+        "n": "648"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-113",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "438",
+      "reference": "438",
+      "remainder": null,
+      "parameters": {
+        "h": 4,
+        "t": 3,
+        "o": 8,
+        "n": "438"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-114",
+    "category": "GEN",
+    "name": "2N1.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "917",
+      "reference": "917",
+      "remainder": null,
+      "parameters": {
+        "h": 9,
+        "t": 1,
+        "o": 7,
+        "n": "917"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-115",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "302",
+      "reference": "302",
+      "remainder": null,
+      "parameters": {
+        "h": 3,
+        "t": 0,
+        "o": 2,
+        "n": "302"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-116",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "605",
+      "reference": "605",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 0,
+        "o": 5,
+        "n": "605"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-117",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "732",
+      "reference": "732",
+      "remainder": null,
+      "parameters": {
+        "h": 7,
+        "t": 3,
+        "o": 2,
+        "n": "732"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-118",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "648",
+      "reference": "648",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 4,
+        "o": 8,
+        "n": "648"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-119",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "438",
+      "reference": "438",
+      "remainder": null,
+      "parameters": {
+        "h": 4,
+        "t": 3,
+        "o": 8,
+        "n": "438"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-120",
+    "category": "GEN",
+    "name": "2N1.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "917",
+      "reference": "917",
+      "remainder": null,
+      "parameters": {
+        "h": 9,
+        "t": 1,
+        "o": 7,
+        "n": "917"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-121",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "302",
+      "reference": "302",
+      "remainder": null,
+      "parameters": {
+        "h": 3,
+        "t": 0,
+        "o": 2,
+        "n": "302"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-122",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "605",
+      "reference": "605",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 0,
+        "o": 5,
+        "n": "605"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-123",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "732",
+      "reference": "732",
+      "remainder": null,
+      "parameters": {
+        "h": 7,
+        "t": 3,
+        "o": 2,
+        "n": "732"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-124",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "648",
+      "reference": "648",
+      "remainder": null,
+      "parameters": {
+        "h": 6,
+        "t": 4,
+        "o": 8,
+        "n": "648"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-125",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "438",
+      "reference": "438",
+      "remainder": null,
+      "parameters": {
+        "h": 4,
+        "t": 3,
+        "o": 8,
+        "n": "438"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-126",
+    "category": "GEN",
+    "name": "2N1.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "917",
+      "reference": "917",
+      "remainder": null,
+      "parameters": {
+        "h": 9,
+        "t": 1,
+        "o": 7,
+        "n": "917"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-127",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "326",
+      "reference": "326",
+      "remainder": null,
+      "parameters": {
+        "a": 326,
+        "b": 100,
+        "n": "326",
+        "flip": 0,
+        "left": "100",
+        "right": "326"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-128",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "633",
+      "reference": "633",
+      "remainder": null,
+      "parameters": {
+        "a": 633,
+        "b": 102,
+        "n": "633",
+        "flip": 1,
+        "left": "633",
+        "right": "102"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-129",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "724",
+      "reference": "724",
+      "remainder": null,
+      "parameters": {
+        "a": 724,
+        "b": 376,
+        "n": "724",
+        "flip": 0,
+        "left": "376",
+        "right": "724"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-130",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "611",
+      "reference": "611",
+      "remainder": null,
+      "parameters": {
+        "a": 611,
+        "b": 481,
+        "n": "611",
+        "flip": 1,
+        "left": "611",
+        "right": "481"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-131",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "418",
+      "reference": "418",
+      "remainder": null,
+      "parameters": {
+        "a": 418,
+        "b": 417,
+        "n": "418",
+        "flip": 1,
+        "left": "418",
+        "right": "417"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-132",
+    "category": "GEN",
+    "name": "2N1.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "862",
+      "reference": "862",
+      "remainder": null,
+      "parameters": {
+        "a": 862,
+        "b": 261,
+        "n": "862",
+        "flip": 1,
+        "left": "862",
+        "right": "261"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-133",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "326",
+      "reference": "326",
+      "remainder": null,
+      "parameters": {
+        "a": 326,
+        "b": 100,
+        "n": "326",
+        "flip": 0,
+        "left": "100",
+        "right": "326"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-134",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "633",
+      "reference": "633",
+      "remainder": null,
+      "parameters": {
+        "a": 633,
+        "b": 102,
+        "n": "633",
+        "flip": 1,
+        "left": "633",
+        "right": "102"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-135",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "724",
+      "reference": "724",
+      "remainder": null,
+      "parameters": {
+        "a": 724,
+        "b": 376,
+        "n": "724",
+        "flip": 0,
+        "left": "376",
+        "right": "724"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-136",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "611",
+      "reference": "611",
+      "remainder": null,
+      "parameters": {
+        "a": 611,
+        "b": 481,
+        "n": "611",
+        "flip": 1,
+        "left": "611",
+        "right": "481"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-137",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "418",
+      "reference": "418",
+      "remainder": null,
+      "parameters": {
+        "a": 418,
+        "b": 417,
+        "n": "418",
+        "flip": 1,
+        "left": "418",
+        "right": "417"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-138",
+    "category": "GEN",
+    "name": "2N1.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "862",
+      "reference": "862",
+      "remainder": null,
+      "parameters": {
+        "a": 862,
+        "b": 261,
+        "n": "862",
+        "flip": 1,
+        "left": "862",
+        "right": "261"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-139",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "326",
+      "reference": "326",
+      "remainder": null,
+      "parameters": {
+        "a": 326,
+        "b": 100,
+        "n": "326",
+        "flip": 0,
+        "left": "100",
+        "right": "326"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-140",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "633",
+      "reference": "633",
+      "remainder": null,
+      "parameters": {
+        "a": 633,
+        "b": 102,
+        "n": "633",
+        "flip": 1,
+        "left": "633",
+        "right": "102"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-141",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "724",
+      "reference": "724",
+      "remainder": null,
+      "parameters": {
+        "a": 724,
+        "b": 376,
+        "n": "724",
+        "flip": 0,
+        "left": "376",
+        "right": "724"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-142",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "611",
+      "reference": "611",
+      "remainder": null,
+      "parameters": {
+        "a": 611,
+        "b": 481,
+        "n": "611",
+        "flip": 1,
+        "left": "611",
+        "right": "481"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-143",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "418",
+      "reference": "418",
+      "remainder": null,
+      "parameters": {
+        "a": 418,
+        "b": 417,
+        "n": "418",
+        "flip": 1,
+        "left": "418",
+        "right": "417"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-144",
+    "category": "GEN",
+    "name": "2N1.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "862",
+      "reference": "862",
+      "remainder": null,
+      "parameters": {
+        "a": 862,
+        "b": 261,
+        "n": "862",
+        "flip": 1,
+        "left": "862",
+        "right": "261"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-145",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "176",
+      "reference": "176",
+      "remainder": null,
+      "parameters": {
+        "a": 166,
+        "b": 10,
+        "n": "176"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-146",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "267",
+      "reference": "267",
+      "remainder": null,
+      "parameters": {
+        "a": 257,
+        "b": 10,
+        "n": "267"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-147",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "336",
+      "reference": "336",
+      "remainder": null,
+      "parameters": {
+        "a": 284,
+        "b": 52,
+        "n": "336"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-148",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "318",
+      "reference": "318",
+      "remainder": null,
+      "parameters": {
+        "a": 250,
+        "b": 68,
+        "n": "318"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-149",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "252",
+      "reference": "252",
+      "remainder": null,
+      "parameters": {
+        "a": 194,
+        "b": 58,
+        "n": "252"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-150",
+    "category": "GEN",
+    "name": "2N2.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "359",
+      "reference": "359",
+      "remainder": null,
+      "parameters": {
+        "a": 325,
+        "b": 34,
+        "n": "359"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-151",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "256",
+      "reference": "256",
+      "remainder": null,
+      "parameters": {
+        "a": 246,
+        "b": 10,
+        "n": "256"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-152",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "456",
+      "reference": "456",
+      "remainder": null,
+      "parameters": {
+        "a": 445,
+        "b": 11,
+        "n": "456"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-153",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "657",
+      "reference": "657",
+      "remainder": null,
+      "parameters": {
+        "a": 504,
+        "b": 153,
+        "n": "657"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-154",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "638",
+      "reference": "638",
+      "remainder": null,
+      "parameters": {
+        "a": 431,
+        "b": 207,
+        "n": "638"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-155",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "480",
+      "reference": "480",
+      "remainder": null,
+      "parameters": {
+        "a": 306,
+        "b": 174,
+        "n": "480"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-156",
+    "category": "GEN",
+    "name": "2N2.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "686",
+      "reference": "686",
+      "remainder": null,
+      "parameters": {
+        "a": 593,
+        "b": 93,
+        "n": "686"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-157",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "256",
+      "reference": "256",
+      "remainder": null,
+      "parameters": {
+        "a": 246,
+        "b": 10,
+        "n": "256"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-158",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "456",
+      "reference": "456",
+      "remainder": null,
+      "parameters": {
+        "a": 445,
+        "b": 11,
+        "n": "456"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-159",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "657",
+      "reference": "657",
+      "remainder": null,
+      "parameters": {
+        "a": 504,
+        "b": 153,
+        "n": "657"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-160",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "638",
+      "reference": "638",
+      "remainder": null,
+      "parameters": {
+        "a": 431,
+        "b": 207,
+        "n": "638"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-161",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "480",
+      "reference": "480",
+      "remainder": null,
+      "parameters": {
+        "a": 306,
+        "b": 174,
+        "n": "480"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-162",
+    "category": "GEN",
+    "name": "2N2.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "686",
+      "reference": "686",
+      "remainder": null,
+      "parameters": {
+        "a": 593,
+        "b": 93,
+        "n": "686"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-163",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 12,
+        "n": "29",
+        "wrong": "31"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-164",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 40,
+        "b": 22,
+        "n": "18",
+        "wrong": "22"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-165",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "62",
+      "reference": "62",
+      "remainder": null,
+      "parameters": {
+        "a": 81,
+        "b": 19,
+        "n": "62",
+        "wrong": "78"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-166",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 16,
+        "n": "25",
+        "wrong": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-167",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 50,
+        "b": 37,
+        "n": "13",
+        "wrong": "27"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-168",
+    "category": "GEN",
+    "name": "2N2.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "66",
+      "reference": "66",
+      "remainder": null,
+      "parameters": {
+        "a": 90,
+        "b": 24,
+        "n": "66",
+        "wrong": "74"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-169",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 12,
+        "n": "29",
+        "wrong": "31"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-170",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 40,
+        "b": 22,
+        "n": "18",
+        "wrong": "22"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-171",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "62",
+      "reference": "62",
+      "remainder": null,
+      "parameters": {
+        "a": 81,
+        "b": 19,
+        "n": "62",
+        "wrong": "78"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-172",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 16,
+        "n": "25",
+        "wrong": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-173",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 50,
+        "b": 37,
+        "n": "13",
+        "wrong": "27"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-174",
+    "category": "GEN",
+    "name": "2N2.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "66",
+      "reference": "66",
+      "remainder": null,
+      "parameters": {
+        "a": 90,
+        "b": 24,
+        "n": "66",
+        "wrong": "74"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-175",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 12,
+        "n": "29",
+        "wrong": "31"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-176",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 40,
+        "b": 22,
+        "n": "18",
+        "wrong": "22"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-177",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "62",
+      "reference": "62",
+      "remainder": null,
+      "parameters": {
+        "a": 81,
+        "b": 19,
+        "n": "62",
+        "wrong": "78"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-178",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 41,
+        "b": 16,
+        "n": "25",
+        "wrong": "35"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-179",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 50,
+        "b": 37,
+        "n": "13",
+        "wrong": "27"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-180",
+    "category": "GEN",
+    "name": "2N2.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "66",
+      "reference": "66",
+      "remainder": null,
+      "parameters": {
+        "a": 90,
+        "b": 24,
+        "n": "66",
+        "wrong": "74"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-181",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 1,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-182",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-183",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 1,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-184",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 2,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-185",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 2,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-186",
+    "category": "GEN",
+    "name": "2N3.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 1,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-187",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-188",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-189",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "12",
+      "reference": "12",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 2,
+        "n": "12"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-190",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "20",
+      "reference": "20",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 4,
+        "n": "20"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-191",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 3,
+        "n": "9"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-192",
+    "category": "GEN",
+    "name": "2N3.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "a": 8,
+        "b": 1,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-193",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-194",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "0",
+      "reference": "0",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 0,
+        "n": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-195",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "24",
+      "reference": "24",
+      "remainder": null,
+      "parameters": {
+        "a": 8,
+        "b": 3,
+        "n": "24"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-196",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "24",
+      "reference": "24",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 4,
+        "n": "24"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-197",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "16",
+      "reference": "16",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "n": "16"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-198",
+    "category": "GEN",
+    "name": "2N3.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 9,
+        "b": 2,
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-199",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3021",
+      "reference": "3021",
+      "remainder": null,
+      "parameters": {
+        "k": 3,
+        "h": 0,
+        "t": 2,
+        "o": 1,
+        "n": "3021"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-200",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6059",
+      "reference": "6059",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 0,
+        "t": 5,
+        "o": 9,
+        "n": "6059"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-201",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7325",
+      "reference": "7325",
+      "remainder": null,
+      "parameters": {
+        "k": 7,
+        "h": 3,
+        "t": 2,
+        "o": 5,
+        "n": "7325"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-202",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6486",
+      "reference": "6486",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 4,
+        "t": 8,
+        "o": 6,
+        "n": "6486"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-203",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4386",
+      "reference": "4386",
+      "remainder": null,
+      "parameters": {
+        "k": 4,
+        "h": 3,
+        "t": 8,
+        "o": 6,
+        "n": "4386"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-204",
+    "category": "GEN",
+    "name": "2N4.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9179",
+      "reference": "9179",
+      "remainder": null,
+      "parameters": {
+        "k": 9,
+        "h": 1,
+        "t": 7,
+        "o": 9,
+        "n": "9179"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-205",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3021",
+      "reference": "3021",
+      "remainder": null,
+      "parameters": {
+        "k": 3,
+        "h": 0,
+        "t": 2,
+        "o": 1,
+        "n": "3021"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-206",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6059",
+      "reference": "6059",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 0,
+        "t": 5,
+        "o": 9,
+        "n": "6059"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-207",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7325",
+      "reference": "7325",
+      "remainder": null,
+      "parameters": {
+        "k": 7,
+        "h": 3,
+        "t": 2,
+        "o": 5,
+        "n": "7325"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-208",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6486",
+      "reference": "6486",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 4,
+        "t": 8,
+        "o": 6,
+        "n": "6486"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-209",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4386",
+      "reference": "4386",
+      "remainder": null,
+      "parameters": {
+        "k": 4,
+        "h": 3,
+        "t": 8,
+        "o": 6,
+        "n": "4386"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-210",
+    "category": "GEN",
+    "name": "2N4.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9179",
+      "reference": "9179",
+      "remainder": null,
+      "parameters": {
+        "k": 9,
+        "h": 1,
+        "t": 7,
+        "o": 9,
+        "n": "9179"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-211",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3021",
+      "reference": "3021",
+      "remainder": null,
+      "parameters": {
+        "k": 3,
+        "h": 0,
+        "t": 2,
+        "o": 1,
+        "n": "3021"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-212",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6059",
+      "reference": "6059",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 0,
+        "t": 5,
+        "o": 9,
+        "n": "6059"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-213",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7325",
+      "reference": "7325",
+      "remainder": null,
+      "parameters": {
+        "k": 7,
+        "h": 3,
+        "t": 2,
+        "o": 5,
+        "n": "7325"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-214",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6486",
+      "reference": "6486",
+      "remainder": null,
+      "parameters": {
+        "k": 6,
+        "h": 4,
+        "t": 8,
+        "o": 6,
+        "n": "6486"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-215",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4386",
+      "reference": "4386",
+      "remainder": null,
+      "parameters": {
+        "k": 4,
+        "h": 3,
+        "t": 8,
+        "o": 6,
+        "n": "4386"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-216",
+    "category": "GEN",
+    "name": "2N4.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9179",
+      "reference": "9179",
+      "remainder": null,
+      "parameters": {
+        "k": 9,
+        "h": 1,
+        "t": 7,
+        "o": 9,
+        "n": "9179"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-217",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "330",
+      "reference": "330",
+      "remainder": null,
+      "parameters": {
+        "a": 340,
+        "b": 10,
+        "n": "330"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-218",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "652",
+      "reference": "652",
+      "remainder": null,
+      "parameters": {
+        "a": 664,
+        "b": 12,
+        "n": "652"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-219",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "495",
+      "reference": "495",
+      "remainder": null,
+      "parameters": {
+        "a": 761,
+        "b": 266,
+        "n": "495"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-220",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "277",
+      "reference": "277",
+      "remainder": null,
+      "parameters": {
+        "a": 641,
+        "b": 364,
+        "n": "277"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-221",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "132",
+      "reference": "132",
+      "remainder": null,
+      "parameters": {
+        "a": 437,
+        "b": 305,
+        "n": "132"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-222",
+    "category": "GEN",
+    "name": "2N5.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "747",
+      "reference": "747",
+      "remainder": null,
+      "parameters": {
+        "a": 906,
+        "b": 159,
+        "n": "747"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-223",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "330",
+      "reference": "330",
+      "remainder": null,
+      "parameters": {
+        "a": 340,
+        "b": 10,
+        "n": "330"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-224",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "652",
+      "reference": "652",
+      "remainder": null,
+      "parameters": {
+        "a": 664,
+        "b": 12,
+        "n": "652"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-225",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "495",
+      "reference": "495",
+      "remainder": null,
+      "parameters": {
+        "a": 761,
+        "b": 266,
+        "n": "495"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-226",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "277",
+      "reference": "277",
+      "remainder": null,
+      "parameters": {
+        "a": 641,
+        "b": 364,
+        "n": "277"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-227",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "132",
+      "reference": "132",
+      "remainder": null,
+      "parameters": {
+        "a": 437,
+        "b": 305,
+        "n": "132"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-228",
+    "category": "GEN",
+    "name": "2N5.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "747",
+      "reference": "747",
+      "remainder": null,
+      "parameters": {
+        "a": 906,
+        "b": 159,
+        "n": "747"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-229",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "330",
+      "reference": "330",
+      "remainder": null,
+      "parameters": {
+        "a": 340,
+        "b": 10,
+        "n": "330"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-230",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "652",
+      "reference": "652",
+      "remainder": null,
+      "parameters": {
+        "a": 664,
+        "b": 12,
+        "n": "652"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-231",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "495",
+      "reference": "495",
+      "remainder": null,
+      "parameters": {
+        "a": 761,
+        "b": 266,
+        "n": "495"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-232",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "277",
+      "reference": "277",
+      "remainder": null,
+      "parameters": {
+        "a": 641,
+        "b": 364,
+        "n": "277"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-233",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "132",
+      "reference": "132",
+      "remainder": null,
+      "parameters": {
+        "a": 437,
+        "b": 305,
+        "n": "132"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-234",
+    "category": "GEN",
+    "name": "2N5.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "747",
+      "reference": "747",
+      "remainder": null,
+      "parameters": {
+        "a": 906,
+        "b": 159,
+        "n": "747"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-235",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": null,
+      "parameters": {
+        "price": 9,
+        "paid": 20,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-236",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "price": 14,
+        "paid": 20,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-237",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "price": 16,
+        "paid": 20,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-238",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "36",
+      "reference": "36",
+      "remainder": null,
+      "parameters": {
+        "price": 14,
+        "paid": 50,
+        "n": "36"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-239",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "39",
+      "reference": "39",
+      "remainder": null,
+      "parameters": {
+        "price": 11,
+        "paid": 50,
+        "n": "39"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-240",
+    "category": "GEN",
+    "name": "2N5.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "price": 18,
+        "paid": 20,
+        "n": "2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-241",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "price": 17,
+        "paid": 20,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-242",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "71",
+      "reference": "71",
+      "remainder": null,
+      "parameters": {
+        "price": 29,
+        "paid": 100,
+        "n": "71"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-243",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "32",
+      "reference": "32",
+      "remainder": null,
+      "parameters": {
+        "price": 18,
+        "paid": 50,
+        "n": "32"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-244",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "price": 32,
+        "paid": 50,
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-245",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "28",
+      "reference": "28",
+      "remainder": null,
+      "parameters": {
+        "price": 22,
+        "paid": 50,
+        "n": "28"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-246",
+    "category": "GEN",
+    "name": "2N5.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "63",
+      "reference": "63",
+      "remainder": null,
+      "parameters": {
+        "price": 37,
+        "paid": 100,
+        "n": "63"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-247",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "price": 45,
+        "paid": 50,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-248",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "50",
+      "reference": "50",
+      "remainder": null,
+      "parameters": {
+        "price": 50,
+        "paid": 100,
+        "n": "50"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-249",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "price": 29,
+        "paid": 50,
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-250",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "23",
+      "reference": "23",
+      "remainder": null,
+      "parameters": {
+        "price": 77,
+        "paid": 100,
+        "n": "23"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-251",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "price": 37,
+        "paid": 50,
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-252",
+    "category": "GEN",
+    "name": "2N5.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "34",
+      "reference": "34",
+      "remainder": null,
+      "parameters": {
+        "price": 66,
+        "paid": 100,
+        "n": "34"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-253",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "0",
+      "parameters": {
+        "b": 4,
+        "q": 1,
+        "r": 0,
+        "a": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-254",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "0",
+      "parameters": {
+        "b": 7,
+        "q": 1,
+        "r": 0,
+        "a": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-255",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": "0",
+      "parameters": {
+        "b": 7,
+        "q": 3,
+        "r": 0,
+        "a": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-256",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": "0",
+      "parameters": {
+        "b": 6,
+        "q": 5,
+        "r": 0,
+        "a": "30"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-257",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": "0",
+      "parameters": {
+        "b": 4,
+        "q": 4,
+        "r": 0,
+        "a": "16"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-258",
+    "category": "GEN",
+    "name": "2N6.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": "0",
+      "parameters": {
+        "b": 9,
+        "q": 2,
+        "r": 0,
+        "a": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-259",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "2",
+      "parameters": {
+        "b": 4,
+        "q": 1,
+        "r": 2,
+        "a": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-260",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 1,
+        "r": 4,
+        "a": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-261",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 3,
+        "r": 2,
+        "a": "23"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-262",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 2,
+        "r": 4,
+        "a": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-263",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 4,
+        "r": 2,
+        "a": "30"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-264",
+    "category": "GEN",
+    "name": "2N6.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": "6",
+      "parameters": {
+        "b": 9,
+        "q": 2,
+        "r": 6,
+        "a": "24"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-265",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "2",
+      "parameters": {
+        "b": 4,
+        "q": 1,
+        "r": 2,
+        "a": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-266",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1",
+      "reference": "1",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 1,
+        "r": 4,
+        "a": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-267",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 3,
+        "r": 2,
+        "a": "23"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-268",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 2,
+        "r": 4,
+        "a": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-269",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 4,
+        "r": 2,
+        "a": "30"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-270",
+    "category": "GEN",
+    "name": "2N6.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": "6",
+      "parameters": {
+        "b": 9,
+        "q": 2,
+        "r": 6,
+        "a": "24"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-271",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "30214",
+      "reference": "30214",
+      "remainder": null,
+      "parameters": {
+        "w": 3,
+        "k": 0,
+        "h": 2,
+        "t": 1,
+        "o": 4,
+        "n": "30214"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-272",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "60599",
+      "reference": "60599",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 0,
+        "h": 5,
+        "t": 9,
+        "o": 9,
+        "n": "60599"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-273",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73258",
+      "reference": "73258",
+      "remainder": null,
+      "parameters": {
+        "w": 7,
+        "k": 3,
+        "h": 2,
+        "t": 5,
+        "o": 8,
+        "n": "73258"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-274",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64861",
+      "reference": "64861",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 4,
+        "h": 8,
+        "t": 6,
+        "o": 1,
+        "n": "64861"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-275",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43864",
+      "reference": "43864",
+      "remainder": null,
+      "parameters": {
+        "w": 4,
+        "k": 3,
+        "h": 8,
+        "t": 6,
+        "o": 4,
+        "n": "43864"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-276",
+    "category": "GEN",
+    "name": "3N1.2-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91798",
+      "reference": "91798",
+      "remainder": null,
+      "parameters": {
+        "w": 9,
+        "k": 1,
+        "h": 7,
+        "t": 9,
+        "o": 8,
+        "n": "91798"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-277",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "30214",
+      "reference": "30214",
+      "remainder": null,
+      "parameters": {
+        "w": 3,
+        "k": 0,
+        "h": 2,
+        "t": 1,
+        "o": 4,
+        "n": "30214"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-278",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "60599",
+      "reference": "60599",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 0,
+        "h": 5,
+        "t": 9,
+        "o": 9,
+        "n": "60599"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-279",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73258",
+      "reference": "73258",
+      "remainder": null,
+      "parameters": {
+        "w": 7,
+        "k": 3,
+        "h": 2,
+        "t": 5,
+        "o": 8,
+        "n": "73258"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-280",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64861",
+      "reference": "64861",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 4,
+        "h": 8,
+        "t": 6,
+        "o": 1,
+        "n": "64861"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-281",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43864",
+      "reference": "43864",
+      "remainder": null,
+      "parameters": {
+        "w": 4,
+        "k": 3,
+        "h": 8,
+        "t": 6,
+        "o": 4,
+        "n": "43864"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-282",
+    "category": "GEN",
+    "name": "3N1.2-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91798",
+      "reference": "91798",
+      "remainder": null,
+      "parameters": {
+        "w": 9,
+        "k": 1,
+        "h": 7,
+        "t": 9,
+        "o": 8,
+        "n": "91798"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-283",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "30214",
+      "reference": "30214",
+      "remainder": null,
+      "parameters": {
+        "w": 3,
+        "k": 0,
+        "h": 2,
+        "t": 1,
+        "o": 4,
+        "n": "30214"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-284",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "60599",
+      "reference": "60599",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 0,
+        "h": 5,
+        "t": 9,
+        "o": 9,
+        "n": "60599"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-285",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "73258",
+      "reference": "73258",
+      "remainder": null,
+      "parameters": {
+        "w": 7,
+        "k": 3,
+        "h": 2,
+        "t": 5,
+        "o": 8,
+        "n": "73258"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-286",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "64861",
+      "reference": "64861",
+      "remainder": null,
+      "parameters": {
+        "w": 6,
+        "k": 4,
+        "h": 8,
+        "t": 6,
+        "o": 1,
+        "n": "64861"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-287",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "43864",
+      "reference": "43864",
+      "remainder": null,
+      "parameters": {
+        "w": 4,
+        "k": 3,
+        "h": 8,
+        "t": 6,
+        "o": 4,
+        "n": "43864"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-288",
+    "category": "GEN",
+    "name": "3N1.2-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "91798",
+      "reference": "91798",
+      "remainder": null,
+      "parameters": {
+        "w": 9,
+        "k": 1,
+        "h": 7,
+        "t": 9,
+        "o": 8,
+        "n": "91798"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-289",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "32",
+      "reference": "32",
+      "remainder": null,
+      "parameters": {
+        "a": 16,
+        "b": 2,
+        "n": "32"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-290",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "44",
+      "reference": "44",
+      "remainder": null,
+      "parameters": {
+        "a": 22,
+        "b": 2,
+        "n": "44"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-291",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "48",
+      "reference": "48",
+      "remainder": null,
+      "parameters": {
+        "a": 24,
+        "b": 2,
+        "n": "48"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-292",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "66",
+      "reference": "66",
+      "remainder": null,
+      "parameters": {
+        "a": 22,
+        "b": 3,
+        "n": "66"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-293",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "54",
+      "reference": "54",
+      "remainder": null,
+      "parameters": {
+        "a": 18,
+        "b": 3,
+        "n": "54"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-294",
+    "category": "GEN",
+    "name": "3N2.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "56",
+      "reference": "56",
+      "remainder": null,
+      "parameters": {
+        "a": 28,
+        "b": 2,
+        "n": "56"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-295",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "68",
+      "reference": "68",
+      "remainder": null,
+      "parameters": {
+        "a": 34,
+        "b": 2,
+        "n": "68"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-296",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "132",
+      "reference": "132",
+      "remainder": null,
+      "parameters": {
+        "a": 66,
+        "b": 2,
+        "n": "132"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-297",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "228",
+      "reference": "228",
+      "remainder": null,
+      "parameters": {
+        "a": 76,
+        "b": 3,
+        "n": "228"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-298",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "256",
+      "reference": "256",
+      "remainder": null,
+      "parameters": {
+        "a": 64,
+        "b": 4,
+        "n": "256"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-299",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "176",
+      "reference": "176",
+      "remainder": null,
+      "parameters": {
+        "a": 44,
+        "b": 4,
+        "n": "176"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-300",
+    "category": "GEN",
+    "name": "3N2.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "270",
+      "reference": "270",
+      "remainder": null,
+      "parameters": {
+        "a": 90,
+        "b": 3,
+        "n": "270"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-301",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "548",
+      "reference": "548",
+      "remainder": null,
+      "parameters": {
+        "a": 274,
+        "b": 2,
+        "n": "548"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-302",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1262",
+      "reference": "1262",
+      "remainder": null,
+      "parameters": {
+        "a": 631,
+        "b": 2,
+        "n": "1262"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-303",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2948",
+      "reference": "2948",
+      "remainder": null,
+      "parameters": {
+        "a": 737,
+        "b": 4,
+        "n": "2948"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-304",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3025",
+      "reference": "3025",
+      "remainder": null,
+      "parameters": {
+        "a": 605,
+        "b": 5,
+        "n": "3025"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-305",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1524",
+      "reference": "1524",
+      "remainder": null,
+      "parameters": {
+        "a": 381,
+        "b": 4,
+        "n": "1524"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-306",
+    "category": "GEN",
+    "name": "3N2.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2691",
+      "reference": "2691",
+      "remainder": null,
+      "parameters": {
+        "a": 897,
+        "b": 3,
+        "n": "2691"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-307",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "0",
+      "parameters": {
+        "b": 4,
+        "q": 10,
+        "r": 0,
+        "a": "40"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-308",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "0",
+      "parameters": {
+        "b": 7,
+        "q": 10,
+        "r": 0,
+        "a": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-309",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": "0",
+      "parameters": {
+        "b": 7,
+        "q": 11,
+        "r": 0,
+        "a": "77"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-310",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "12",
+      "reference": "12",
+      "remainder": "0",
+      "parameters": {
+        "b": 6,
+        "q": 12,
+        "r": 0,
+        "a": "72"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-311",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "12",
+      "reference": "12",
+      "remainder": "0",
+      "parameters": {
+        "b": 4,
+        "q": 12,
+        "r": 0,
+        "a": "48"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-312",
+    "category": "GEN",
+    "name": "3N3.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": "0",
+      "parameters": {
+        "b": 9,
+        "q": 11,
+        "r": 0,
+        "a": "99"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-313",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "2",
+      "parameters": {
+        "b": 4,
+        "q": 10,
+        "r": 2,
+        "a": "42"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-314",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 10,
+        "r": 4,
+        "a": "74"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-315",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 18,
+        "r": 2,
+        "a": "128"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-316",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "14",
+      "reference": "14",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 14,
+        "r": 4,
+        "a": "102"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-317",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "20",
+      "reference": "20",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 20,
+        "r": 2,
+        "a": "142"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-318",
+    "category": "GEN",
+    "name": "3N3.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "14",
+      "reference": "14",
+      "remainder": "6",
+      "parameters": {
+        "b": 9,
+        "q": 14,
+        "r": 6,
+        "a": "132"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-319",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "2",
+      "parameters": {
+        "b": 4,
+        "q": 10,
+        "r": 2,
+        "a": "42"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-320",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 10,
+        "r": 4,
+        "a": "74"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-321",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "39",
+      "reference": "39",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 39,
+        "r": 2,
+        "a": "275"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-322",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": "4",
+      "parameters": {
+        "b": 7,
+        "q": 25,
+        "r": 4,
+        "a": "179"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-323",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "46",
+      "reference": "46",
+      "remainder": "2",
+      "parameters": {
+        "b": 7,
+        "q": 46,
+        "r": 2,
+        "a": "324"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-324",
+    "category": "GEN",
+    "name": "3N3.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "27",
+      "reference": "27",
+      "remainder": "6",
+      "parameters": {
+        "b": 9,
+        "q": 27,
+        "r": 6,
+        "a": "249"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-325",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 2,
+        "c": 5,
+        "p": "6",
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-326",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "19",
+      "reference": "19",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 2,
+        "c": 11,
+        "p": "8",
+        "n": "19"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-327",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "22",
+      "reference": "22",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "c": 6,
+        "p": "16",
+        "n": "22"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-328",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "38",
+      "reference": "38",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 5,
+        "c": 18,
+        "p": "20",
+        "n": "38"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-329",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "29",
+      "reference": "29",
+      "remainder": null,
+      "parameters": {
+        "a": 3,
+        "b": 4,
+        "c": 17,
+        "p": "12",
+        "n": "29"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-330",
+    "category": "GEN",
+    "name": "3N4.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "30",
+      "reference": "30",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 3,
+        "c": 15,
+        "p": "15",
+        "n": "30"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-331",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 2,
+        "c": 5,
+        "p": "8",
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-332",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 7,
+        "b": 2,
+        "c": 11,
+        "p": "14",
+        "n": "25"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-333",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "34",
+      "reference": "34",
+      "remainder": null,
+      "parameters": {
+        "a": 7,
+        "b": 4,
+        "c": 6,
+        "p": "28",
+        "n": "34"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-334",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "48",
+      "reference": "48",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "b": 5,
+        "c": 18,
+        "p": "30",
+        "n": "48"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-335",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "33",
+      "reference": "33",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 4,
+        "c": 17,
+        "p": "16",
+        "n": "33"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-336",
+    "category": "GEN",
+    "name": "3N4.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "42",
+      "reference": "42",
+      "remainder": null,
+      "parameters": {
+        "a": 9,
+        "b": 3,
+        "c": 15,
+        "p": "27",
+        "n": "42"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-337",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "a": 8,
+        "b": 2,
+        "c": 5,
+        "p": "16",
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-338",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "45",
+      "reference": "45",
+      "remainder": null,
+      "parameters": {
+        "a": 17,
+        "b": 2,
+        "c": 11,
+        "p": "34",
+        "n": "45"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-339",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "82",
+      "reference": "82",
+      "remainder": null,
+      "parameters": {
+        "a": 19,
+        "b": 4,
+        "c": 6,
+        "p": "76",
+        "n": "82"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-340",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "98",
+      "reference": "98",
+      "remainder": null,
+      "parameters": {
+        "a": 16,
+        "b": 5,
+        "c": 18,
+        "p": "80",
+        "n": "98"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-341",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "57",
+      "reference": "57",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "b": 4,
+        "c": 17,
+        "p": "40",
+        "n": "57"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-342",
+    "category": "GEN",
+    "name": "3N4.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "84",
+      "reference": "84",
+      "remainder": null,
+      "parameters": {
+        "a": 23,
+        "b": 3,
+        "c": 15,
+        "p": "69",
+        "n": "84"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-343",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "36",
+      "reference": "36",
+      "remainder": null,
+      "parameters": {
+        "price": 7,
+        "qty": 2,
+        "paid": 50,
+        "cost": "14",
+        "n": "36"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-344",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "84",
+      "reference": "84",
+      "remainder": null,
+      "parameters": {
+        "price": 8,
+        "qty": 2,
+        "paid": 100,
+        "cost": "16",
+        "n": "84"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-345",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "34",
+      "reference": "34",
+      "remainder": null,
+      "parameters": {
+        "price": 8,
+        "qty": 2,
+        "paid": 50,
+        "cost": "16",
+        "n": "34"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-346",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "84",
+      "reference": "84",
+      "remainder": null,
+      "parameters": {
+        "price": 8,
+        "qty": 2,
+        "paid": 100,
+        "cost": "16",
+        "n": "84"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-347",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "86",
+      "reference": "86",
+      "remainder": null,
+      "parameters": {
+        "price": 7,
+        "qty": 2,
+        "paid": 100,
+        "cost": "14",
+        "n": "86"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-348",
+    "category": "GEN",
+    "name": "3N4.4-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "82",
+      "reference": "82",
+      "remainder": null,
+      "parameters": {
+        "price": 9,
+        "qty": 2,
+        "paid": 100,
+        "cost": "18",
+        "n": "82"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-349",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "36",
+      "reference": "36",
+      "remainder": null,
+      "parameters": {
+        "price": 7,
+        "qty": 2,
+        "paid": 50,
+        "cost": "14",
+        "n": "36"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-350",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "80",
+      "reference": "80",
+      "remainder": null,
+      "parameters": {
+        "price": 10,
+        "qty": 2,
+        "paid": 100,
+        "cost": "20",
+        "n": "80"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-351",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "28",
+      "reference": "28",
+      "remainder": null,
+      "parameters": {
+        "price": 11,
+        "qty": 2,
+        "paid": 50,
+        "cost": "22",
+        "n": "28"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-352",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "70",
+      "reference": "70",
+      "remainder": null,
+      "parameters": {
+        "price": 10,
+        "qty": 3,
+        "paid": 100,
+        "cost": "30",
+        "n": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-353",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "76",
+      "reference": "76",
+      "remainder": null,
+      "parameters": {
+        "price": 8,
+        "qty": 3,
+        "paid": 100,
+        "cost": "24",
+        "n": "76"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-354",
+    "category": "GEN",
+    "name": "3N4.4-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "76",
+      "reference": "76",
+      "remainder": null,
+      "parameters": {
+        "price": 12,
+        "qty": 2,
+        "paid": 100,
+        "cost": "24",
+        "n": "76"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-355",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "32",
+      "reference": "32",
+      "remainder": null,
+      "parameters": {
+        "price": 9,
+        "qty": 2,
+        "paid": 50,
+        "cost": "18",
+        "n": "32"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-356",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "72",
+      "reference": "72",
+      "remainder": null,
+      "parameters": {
+        "price": 14,
+        "qty": 2,
+        "paid": 100,
+        "cost": "28",
+        "n": "72"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-357",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "price": 15,
+        "qty": 3,
+        "paid": 50,
+        "cost": "45",
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-358",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "61",
+      "reference": "61",
+      "remainder": null,
+      "parameters": {
+        "price": 13,
+        "qty": 3,
+        "paid": 100,
+        "cost": "39",
+        "n": "61"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-359",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "70",
+      "reference": "70",
+      "remainder": null,
+      "parameters": {
+        "price": 10,
+        "qty": 3,
+        "paid": 100,
+        "cost": "30",
+        "n": "70"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-360",
+    "category": "GEN",
+    "name": "3N4.4-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "66",
+      "reference": "66",
+      "remainder": null,
+      "parameters": {
+        "price": 17,
+        "qty": 2,
+        "paid": 100,
+        "cost": "34",
+        "n": "66"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-361",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 2,
+        "num": 1,
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-362",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/3",
+      "reference": "1/3",
+      "remainder": null,
+      "parameters": {
+        "den": 3,
+        "num": 1,
+        "n": "1/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-363",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 3,
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-364",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 3,
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-365",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 2,
+        "num": 1,
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-366",
+    "category": "GEN",
+    "name": "3N5.1-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 2,
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-367",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 1,
+        "n": "1/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-368",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/6",
+      "reference": "1/6",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 1,
+        "n": "1/6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-369",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 3,
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-370",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/3",
+      "reference": "2/3",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 4,
+        "n": "2/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-371",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 3,
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-372",
+    "category": "GEN",
+    "name": "3N5.1-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "num": 2,
+        "n": "1/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-373",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 1,
+        "n": "1/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-374",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/6",
+      "reference": "1/6",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 1,
+        "n": "1/6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-375",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 3,
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-376",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/3",
+      "reference": "2/3",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "num": 4,
+        "n": "2/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-377",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "num": 3,
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-378",
+    "category": "GEN",
+    "name": "3N5.1-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "num": 2,
+        "n": "1/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-379",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 6,
+        "num": 1,
+        "flip": 1,
+        "left": "4",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-380",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 9,
+        "num": 1,
+        "flip": 0,
+        "left": "9",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-381",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 8,
+        "num": 1,
+        "flip": 0,
+        "left": "8",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-382",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/5",
+      "reference": "1/5",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 6,
+        "num": 1,
+        "flip": 1,
+        "left": "5",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-383",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 5,
+        "num": 1,
+        "flip": 1,
+        "left": "4",
+        "right": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-384",
+    "category": "GEN",
+    "name": "3N5.3-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 9,
+        "num": 1,
+        "flip": 0,
+        "left": "9",
+        "right": "2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-385",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 6,
+        "num": 1,
+        "flip": 1,
+        "left": "4",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-386",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 9,
+        "num": 1,
+        "flip": 0,
+        "left": "9",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-387",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 8,
+        "num": 1,
+        "flip": 0,
+        "left": "8",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-388",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/5",
+      "reference": "1/5",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 6,
+        "num": 1,
+        "flip": 1,
+        "left": "5",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-389",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 5,
+        "num": 1,
+        "flip": 1,
+        "left": "4",
+        "right": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-390",
+    "category": "GEN",
+    "name": "3N5.3-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "a": 2,
+        "b": 9,
+        "num": 1,
+        "flip": 0,
+        "left": "9",
+        "right": "2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-391",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 6,
+        "num": 2,
+        "flip": 1,
+        "left": "4",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-392",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 9,
+        "num": 1,
+        "flip": 0,
+        "left": "9",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-393",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 8,
+        "num": 2,
+        "flip": 0,
+        "left": "8",
+        "right": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-394",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/5",
+      "reference": "2/5",
+      "remainder": null,
+      "parameters": {
+        "a": 5,
+        "b": 6,
+        "num": 2,
+        "flip": 1,
+        "left": "5",
+        "right": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-395",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 5,
+        "num": 2,
+        "flip": 1,
+        "left": "4",
+        "right": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-396",
+    "category": "GEN",
+    "name": "3N5.3-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/4",
+      "reference": "1/4",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "b": 8,
+        "num": 1,
+        "flip": 1,
+        "left": "4",
+        "right": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-397",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "a": 1,
+        "b": 2,
+        "num": "3",
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-398",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/3",
+      "reference": "2/3",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "2/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-399",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 2,
+        "b": 2,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-400",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-401",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5/6",
+      "reference": "5/6",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 3,
+        "b": 2,
+        "num": "5",
+        "n": "5/6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-402",
+    "category": "GEN",
+    "name": "3N5.4-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 10,
+        "a": 1,
+        "b": 4,
+        "num": "5",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-403",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "a": 1,
+        "b": 2,
+        "num": "3",
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-404",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/3",
+      "reference": "2/3",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "2/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-405",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 2,
+        "b": 2,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-406",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-407",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5/6",
+      "reference": "5/6",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 3,
+        "b": 2,
+        "num": "5",
+        "n": "5/6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-408",
+    "category": "GEN",
+    "name": "3N5.4-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 10,
+        "a": 1,
+        "b": 4,
+        "num": "5",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-409",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3/4",
+      "reference": "3/4",
+      "remainder": null,
+      "parameters": {
+        "den": 4,
+        "a": 1,
+        "b": 2,
+        "num": "3",
+        "n": "3/4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-410",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2/3",
+      "reference": "2/3",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "2/3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-411",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 2,
+        "b": 2,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-412",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 8,
+        "a": 1,
+        "b": 3,
+        "num": "4",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-413",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5/6",
+      "reference": "5/6",
+      "remainder": null,
+      "parameters": {
+        "den": 6,
+        "a": 3,
+        "b": 2,
+        "num": "5",
+        "n": "5/6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-414",
+    "category": "GEN",
+    "name": "3N5.4-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "1/2",
+      "reference": "1/2",
+      "remainder": null,
+      "parameters": {
+        "den": 10,
+        "a": 1,
+        "b": 4,
+        "num": "5",
+        "n": "1/2"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-415",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "step": 1,
+        "b": "5",
+        "c": "6",
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-416",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 1,
+        "b": "11",
+        "c": "12",
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-417",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "a": 12,
+        "step": 1,
+        "b": "13",
+        "c": "14",
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-418",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "16",
+      "reference": "16",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 2,
+        "b": "12",
+        "c": "14",
+        "n": "16"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-419",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "12",
+      "reference": "12",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "step": 2,
+        "b": "8",
+        "c": "10",
+        "n": "12"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-420",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "17",
+      "reference": "17",
+      "remainder": null,
+      "parameters": {
+        "a": 14,
+        "step": 1,
+        "b": "15",
+        "c": "16",
+        "n": "17"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-421",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "step": 1,
+        "b": "5",
+        "c": "6",
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-422",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 1,
+        "b": "11",
+        "c": "12",
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-423",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 12,
+        "step": 2,
+        "b": "14",
+        "c": "16",
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-424",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "19",
+      "reference": "19",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 3,
+        "b": "13",
+        "c": "16",
+        "n": "19"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-425",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "12",
+      "reference": "12",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "step": 2,
+        "b": "8",
+        "c": "10",
+        "n": "12"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-426",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "17",
+      "reference": "17",
+      "remainder": null,
+      "parameters": {
+        "a": 14,
+        "step": 1,
+        "b": "15",
+        "c": "16",
+        "n": "17"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-427",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "a": 4,
+        "step": 1,
+        "b": "5",
+        "c": "6",
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-428",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 1,
+        "b": "11",
+        "c": "12",
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-429",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "a": 12,
+        "step": 3,
+        "b": "15",
+        "c": "18",
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-430",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "25",
+      "reference": "25",
+      "remainder": null,
+      "parameters": {
+        "a": 10,
+        "step": 5,
+        "b": "15",
+        "c": "20",
+        "n": "25"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-431",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "18",
+      "reference": "18",
+      "remainder": null,
+      "parameters": {
+        "a": 6,
+        "step": 4,
+        "b": "10",
+        "c": "14",
+        "n": "18"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-432",
+    "category": "GEN",
+    "name": "O-CAL-pattern-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "20",
+      "reference": "20",
+      "remainder": null,
+      "parameters": {
+        "a": 14,
+        "step": 2,
+        "b": "16",
+        "c": "18",
+        "n": "20"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-433",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "n": 4,
+        "pairs": "2",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-434",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "n": 7,
+        "pairs": "3",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-435",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 8,
+        "pairs": "4",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-436",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "n": 7,
+        "pairs": "3",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-437",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "n": 5,
+        "pairs": "2",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-438",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 9,
+        "pairs": "4",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-439",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "n": 6,
+        "pairs": "3",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-440",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "n": 11,
+        "pairs": "5",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-441",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "n": 12,
+        "pairs": "6",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-442",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "n": 10,
+        "pairs": "5",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-443",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "n": 7,
+        "pairs": "3",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-444",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "n": 14,
+        "pairs": "7",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-445",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "n": 7,
+        "pairs": "3",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-446",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "n": 13,
+        "pairs": "6",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-447",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "n": 15,
+        "pairs": "7",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-448",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "n": 13,
+        "pairs": "6",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-449",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "n": 9,
+        "pairs": "4",
+        "left": "1"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-450",
+    "category": "GEN",
+    "name": "O-NUM-pairs-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "n": 18,
+        "pairs": "9",
+        "left": "0"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-451",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "front": 2,
+        "back": 2,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-452",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "front": 3,
+        "back": 2,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-453",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "front": 4,
+        "back": 2,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-454",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "front": 3,
+        "back": 3,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-455",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "front": 3,
+        "back": 3,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-456",
+    "category": "GEN",
+    "name": "O-APP-queue-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "front": 4,
+        "back": 2,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-457",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "front": 3,
+        "back": 2,
+        "n": "4"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-458",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "front": 5,
+        "back": 2,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-459",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "front": 6,
+        "back": 3,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-460",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "front": 5,
+        "back": 4,
+        "n": "8"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-461",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "front": 4,
+        "back": 4,
+        "n": "7"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-462",
+    "category": "GEN",
+    "name": "O-APP-queue-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "front": 7,
+        "back": 3,
+        "n": "9"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-463",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "front": 4,
+        "back": 2,
+        "n": "5"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-464",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "front": 8,
+        "back": 2,
+        "n": "9"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-465",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "14",
+      "reference": "14",
+      "remainder": null,
+      "parameters": {
+        "front": 10,
+        "back": 5,
+        "n": "14"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-466",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "13",
+      "reference": "13",
+      "remainder": null,
+      "parameters": {
+        "front": 8,
+        "back": 6,
+        "n": "13"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-467",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "11",
+      "reference": "11",
+      "remainder": null,
+      "parameters": {
+        "front": 6,
+        "back": 6,
+        "n": "11"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-468",
+    "category": "GEN",
+    "name": "O-APP-queue-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "14",
+      "reference": "14",
+      "remainder": null,
+      "parameters": {
+        "front": 11,
+        "back": 4,
+        "n": "14"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-469",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-470",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-471",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-472",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-473",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-474",
+    "category": "GEN",
+    "name": "O-GEO-segments-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "points": 3,
+        "n": "3"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-475",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "points": 4,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-476",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "points": 5,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-477",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "points": 5,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-478",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "points": 5,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-479",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "points": 4,
+        "n": "6"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-480",
+    "category": "GEN",
+    "name": "O-GEO-segments-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "10",
+      "reference": "10",
+      "remainder": null,
+      "parameters": {
+        "points": 5,
+        "n": "10"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-481",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "points": 6,
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-482",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "points": 7,
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-483",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "points": 7,
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-484",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "points": 7,
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-485",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "15",
+      "reference": "15",
+      "remainder": null,
+      "parameters": {
+        "points": 6,
+        "n": "15"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-486",
+    "category": "GEN",
+    "name": "O-GEO-segments-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "21",
+      "reference": "21",
+      "remainder": null,
+      "parameters": {
+        "points": 7,
+        "n": "21"
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-487",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "2",
+      "reference": "2",
+      "remainder": null,
+      "parameters": {
+        "sum": 2
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-488",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "sum": 3
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-489",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "sum": 4
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-490",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "sum": 3
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-491",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "3",
+      "reference": "3",
+      "remainder": null,
+      "parameters": {
+        "sum": 3
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-492",
+    "category": "GEN",
+    "name": "O-LOG-digits-T1 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "4",
+      "reference": "4",
+      "remainder": null,
+      "parameters": {
+        "sum": 4
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-493",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "5",
+      "reference": "5",
+      "remainder": null,
+      "parameters": {
+        "sum": 5
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-494",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "sum": 6
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-495",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "sum": 7
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-496",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "sum": 6
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-497",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "6",
+      "reference": "6",
+      "remainder": null,
+      "parameters": {
+        "sum": 6
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-498",
+    "category": "GEN",
+    "name": "O-LOG-digits-T2 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "7",
+      "reference": "7",
+      "remainder": null,
+      "parameters": {
+        "sum": 7
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-499",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 0",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "sum": 8
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-500",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 1",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "sum": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-501",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 2",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "sum": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-502",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 42",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "sum": 9
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-503",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 65535",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "8",
+      "reference": "8",
+      "remainder": null,
+      "parameters": {
+        "sum": 8
+      }
+    },
+    "issue": ""
+  },
+  {
+    "id": "GEN-504",
+    "category": "GEN",
+    "name": "O-LOG-digits-T3 / seed 4294967295",
+    "expected": "獨立有理數／枚舉答案一致；參數及選項有效；題幹沒有未替換欄位",
+    "status": "PASS",
+    "actual": {
+      "answer": "9",
+      "reference": "9",
+      "remainder": null,
+      "parameters": {
+        "sum": 9
+      }
+    },
+    "issue": ""
+  }
+]

@@ -1,0 +1,61 @@
+PASS Host bridge exposes correct version and no mutable database
+PASS Single homepage has both ordinary maths and Olympiad buttons
+PASS Maths resolves the real V32 bridge, not standalone profile adapter
+PASS Expanded bank contains 122 skills and 366 templates
+PASS Original V32 companion is decoded and visible in maths
+PASS Guest open does not create standalone child registry
+PASS Guest unfinished answer survives closing/reopening on same page
+PASS Real registration is shared by English and maths
+PASS Registered maths opens current English child, without second registry
+PASS Ten-question daily task completed by actual answer inputs
+PASS Daily task writes ten maths attempts to the shared child scope
+PASS Eligible maths completion credits the original English coin balance
+PASS Outbox settles once after English wallet success
+PASS Repeated flush does not award a second coin
+PASS Maths completion preserves existing English learning content
+PASS Completion-page progress button cannot bypass English parent guard
+PASS Maths parent entry redirects to existing English password gate
+PASS Incorrect password cannot unlock maths settings
+PASS Existing parent password unlocks without another account
+PASS English parent page displays separate maths activity count
+PASS Unlocked maths settings open in same program
+PASS Parent settings persist through guarded UI save
+PASS Actual browser run so far has no JavaScript exceptions
+PASS Serialized reload restores current child and maths attempts
+PASS Uncommitted reward event cannot credit wallet
+PASS Reward for wrong child scope is rejected
+PASS Event payload must match saved outbox
+PASS Wallet storage failure leaves original wallet unchanged
+PASS Wallet-success/outbox-ack-failure retries without double payout
+PASS Maths storage quota failure preserves previous serialized data
+PASS Stale maths revision cannot overwrite newer data
+PASS Stale English revision prevents cross-subject writing
+PASS Corrupt maths data is read-only and raw bytes are preserved
+PASS Backup owned by another child cannot replace current progress
+PASS Automatic reward sync rejects an over-seven-day event
+PASS Automatic reward sync rejects a future-dated event
+PASS Maths uses existing four-task/five-coin daily cap
+PASS Backup restore creates recovery copy without replaying coins
+PASS Existing English parent UI creates the shared second child
+PASS New child starts with isolated maths progress and wallet
+PASS Switching back restores original child progress and coin balance
+PASS Switching child invalidates the previous parent unlock
+PASS Sidecar deletion failure cancels persisted English child deletion
+PASS Deleting English child also removes maths progress and recovery copy
+PASS No uncaught JavaScript errors in fault and child-management scenarios
+PASS Full ordinary lesson completes all six teaching stages
+PASS Guided questions remain separate from independent mastery attempts
+PASS Full Olympiad lesson completes challenge, teaching and reflection
+PASS Correct Olympiad reflection earns the real strategy card
+PASS Ordinary and Olympiad attempts coexist with separate track fields
+PASS Template 1N1.1-T1: render, input, mark, feedback focus
+PASS Template 1N1.1-T2: render, input, mark, feedback focus
+PASS Template 1N1.1-T3: render, input, mark, feedback focus
+PASS Template 1N1.5-T1: render, input, mark, feedback focus
+PASS Template 1N1.5-T2: render, input, mark, feedback focus
+PASS Template 1N1.5-T3: render, input, mark, feedback focus
+PASS Template 1N2.2-T1: render, input, mark, feedback focus
+PASS Template 1N2.2-T2: render, input, mark, feedback focus
+PASS Template 1N2.2-T3: render, input, mark, feedback focus
+PASS Template 1N3.2-T1: render, input, mark, feedback focus
+PASS Template 1N3.2-T2: render, input, mark, feedback focus
