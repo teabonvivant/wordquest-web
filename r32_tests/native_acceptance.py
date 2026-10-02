@@ -41,7 +41,7 @@ try:
    def open_profile():
     c=pw.chromium.launch_persistent_context(str(Path(work)/'profile'),**opts);p=c.pages[0] if c.pages else c.new_page();p.set_default_timeout(12000);p.on('dialog',lambda d:d.accept());p.goto(url,wait_until='load');return c,p
    ctx,p=open_profile();p.wait_for_function('!!window.WQR32');require(p.evaluate('isSecureContext&&!!navigator.locks&&!!crypto.subtle'),'Required native APIs unavailable');record(stage,'pass','Normal HTTP navigation, no page.set_content or injected adapters.')
-   stage='native registration and family writer lock';p.evaluate("location.hash='#login'");p.locator('#register-name').fill(username);p.locator('#register-child').fill('TEST 本機驗收');p.locator('#register-pin').fill(password);p.locator('[data-act="register-submit"]').click();p.wait_for_function('WQR32.inspect().current.writer');record(stage,'pass')
+   stage='native registration and family writer lock';p.evaluate("location.hash='#login'");p.locator('#register-name').fill(username);p.locator('#register-child').fill('TEST 本機驗收');p.locator('#register-pin').fill(password);p.locator('#register-grade').count() and p.locator('#register-grade').select_option('3');p.locator('[data-act="register-submit"]').click();p.wait_for_function('WQR32.inspect().current.writer');record(stage,'pass')
    stage='ten-question daily practice and one shared reward';p.evaluate('WQMathApp.open("home")');mc(p,'daily:normal');steps=0
    while not p.evaluate('WQMathApp.getState().current.completed'):
     steps+=1;require(steps<=30,'Unexpected daily-loop length');s=p.evaluate('WQMathApp.getState().current')

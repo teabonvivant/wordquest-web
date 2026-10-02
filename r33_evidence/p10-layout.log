@@ -1,0 +1,373 @@
+# app under test: /home/claude/teabonvivant/wordquest-web/app/index.html
+# --- n1 ---
+PASS N1 320x568 L30 自己串字 typed question reachable
+PASS N1 320x568 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 320x568 L30 自己串字 submit button does not move on focus / blur | idle=[12, 368, 308, 419] focused=[12, 368, 308, 419] blurred=[12, 368, 308, 419]
+PASS N1 320x568 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [160, 394] topmost=button.l30-btn.primary
+PASS N1 320x568 L30 自己串字 FIRST touch tap on submit sends the answer | tapped at [160, 394] topmost=button.l30-btn.primary
+PASS N1 320x568 L31 收起提示，自己串 typed question reachable
+PASS N1 320x568 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 320x568 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[12, 307, 308, 363] focused=[12, 307, 308, 363] blurred=[12, 307, 308, 363]
+PASS N1 320x568 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [160, 335] topmost=button.l30-btn.primary
+PASS N1 320x568 L31 收起提示，自己串 FIRST touch tap on submit sends the answer | tapped at [160, 335] topmost=button.l30-btn.primary
+PASS N1 320x568 legacy #learn 自己串字 typed question reachable
+PASS N1 320x568 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 320x568 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[142, 508, 310, 556] focused=[142, 508, 310, 556] blurred=[142, 508, 310, 556]
+PASS N1 320x568 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [226, 532] topmost=button#submit-answer.btn.primary
+PASS N1 320x568 legacy #learn 自己串字 FIRST touch tap on submit sends the answer | tapped at [226, 532] topmost=button#submit-answer.btn.primary
+PASS N1 320x568 no page errors | []
+PASS N1 360x640 L30 自己串字 typed question reachable
+PASS N1 360x640 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 360x640 L30 自己串字 submit button does not move on focus / blur | idle=[12, 506, 211, 557] focused=[12, 506, 211, 557] blurred=[12, 506, 211, 557]
+PASS N1 360x640 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [112, 531] topmost=button.l30-btn.primary
+PASS N1 360x640 L30 自己串字 FIRST touch tap on submit sends the answer | tapped at [112, 531] topmost=button.l30-btn.primary
+PASS N1 360x640 L31 收起提示，自己串 typed question reachable
+PASS N1 360x640 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 360x640 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[12, 435, 348, 491] focused=[12, 435, 348, 491] blurred=[12, 435, 348, 491]
+PASS N1 360x640 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [180, 463] topmost=button.l30-btn.primary
+PASS N1 360x640 L31 收起提示，自己串 FIRST touch tap on submit sends the answer | tapped at [180, 463] topmost=button.l30-btn.primary
+PASS N1 360x640 legacy #learn 自己串字 typed question reachable
+PASS N1 360x640 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 360x640 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[159, 580, 350, 628] focused=[159, 580, 350, 628] blurred=[159, 580, 350, 628]
+PASS N1 360x640 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [255, 604] topmost=button#submit-answer.btn.primary
+PASS N1 360x640 legacy #learn 自己串字 FIRST touch tap on submit sends the answer | tapped at [255, 604] topmost=button#submit-answer.btn.primary
+PASS N1 360x640 no page errors | []
+PASS N1 390x844 L30 自己串字 typed question reachable
+PASS N1 390x844 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 390x844 L30 自己串字 submit button does not move on focus / blur | idle=[12, 647, 241, 697] focused=[12, 647, 241, 697] blurred=[12, 647, 241, 697]
+PASS N1 390x844 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [126, 672] topmost=button.l30-btn.primary
+PASS N1 390x844 L30 自己串字 FIRST touch tap on submit sends the answer | tapped at [126, 672] topmost=button.l30-btn.primary
+PASS N1 390x844 L31 收起提示，自己串 typed question reachable
+PASS N1 390x844 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 390x844 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[12, 572, 378, 628] focused=[12, 572, 378, 628] blurred=[12, 572, 378, 628]
+PASS N1 390x844 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [195, 600] topmost=button.l30-btn.primary
+PASS N1 390x844 L31 收起提示，自己串 FIRST touch tap on submit sends the answer | tapped at [195, 600] topmost=button.l30-btn.primary
+PASS N1 390x844 legacy #learn 自己串字 typed question reachable
+PASS N1 390x844 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 390x844 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[172, 784, 380, 832] focused=[172, 784, 380, 832] blurred=[172, 784, 380, 832]
+PASS N1 390x844 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [276, 808] topmost=button#submit-answer.btn.primary
+PASS N1 390x844 legacy #learn 自己串字 FIRST touch tap on submit sends the answer | tapped at [276, 808] topmost=button#submit-answer.btn.primary
+PASS N1 390x844 no page errors | []
+PASS N1 412x915 L30 自己串字 typed question reachable
+PASS N1 412x915 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 412x915 L30 自己串字 submit button does not move on focus / blur | idle=[12, 673, 263, 723] focused=[12, 673, 263, 723] blurred=[12, 673, 263, 723]
+PASS N1 412x915 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [138, 698] topmost=button.l30-btn.primary
+PASS N1 412x915 L30 自己串字 FIRST touch tap on submit sends the answer | tapped at [138, 698] topmost=button.l30-btn.primary
+PASS N1 412x915 L31 收起提示，自己串 typed question reachable
+PASS N1 412x915 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 412x915 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[12, 584, 209, 640] focused=[12, 584, 209, 640] blurred=[12, 584, 209, 640]
+PASS N1 412x915 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [110, 612] topmost=button.l30-btn.primary
+PASS N1 412x915 L31 收起提示，自己串 FIRST touch tap on submit sends the answer | tapped at [110, 612] topmost=button.l30-btn.primary
+PASS N1 412x915 legacy #learn 自己串字 typed question reachable
+PASS N1 412x915 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 412x915 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[181, 855, 402, 903] focused=[181, 855, 402, 903] blurred=[181, 855, 402, 903]
+PASS N1 412x915 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [292, 879] topmost=button#submit-answer.btn.primary
+PASS N1 412x915 legacy #learn 自己串字 FIRST touch tap on submit sends the answer | tapped at [292, 879] topmost=button#submit-answer.btn.primary
+PASS N1 412x915 no page errors | []
+PASS N1 600x900 L30 自己串字 typed question reachable
+PASS N1 600x900 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 600x900 L30 自己串字 submit button does not move on focus / blur | idle=[12, 720, 192, 772] focused=[12, 720, 192, 772] blurred=[12, 720, 192, 772]
+PASS N1 600x900 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [102, 746] topmost=button.l30-btn.primary
+PASS N1 600x900 L30 自己串字 FIRST touch tap on submit sends the answer | tapped at [102, 746] topmost=button.l30-btn.primary
+PASS N1 600x900 L31 收起提示，自己串 typed question reachable
+PASS N1 600x900 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 600x900 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[12, 725, 202, 781] focused=[12, 725, 202, 781] blurred=[12, 725, 202, 781]
+PASS N1 600x900 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [107, 753] topmost=button.l30-btn.primary
+PASS N1 600x900 L31 收起提示，自己串 FIRST touch tap on submit sends the answer | tapped at [107, 753] topmost=button.l30-btn.primary
+PASS N1 600x900 legacy #learn 自己串字 typed question reachable
+PASS N1 600x900 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 600x900 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[261, 840, 590, 888] focused=[261, 840, 590, 888] blurred=[261, 840, 590, 888]
+PASS N1 600x900 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [426, 864] topmost=button#submit-answer.btn.primary
+PASS N1 600x900 legacy #learn 自己串字 FIRST touch tap on submit sends the answer | tapped at [426, 864] topmost=button#submit-answer.btn.primary
+PASS N1 600x900 no page errors | []
+PASS N1 1280x800 L30 自己串字 typed question reachable
+PASS N1 1280x800 L30 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 1280x800 L30 自己串字 submit button does not move on focus / blur | idle=[230, 600, 410, 653] focused=[230, 600, 410, 653] blurred=[230, 600, 410, 653]
+PASS N1 1280x800 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [320, 626] topmost=button.l30-btn.primary
+PASS N1 1280x800 L30 自己串字 FIRST mouse tap on submit sends the answer | tapped at [320, 626] topmost=button.l30-btn.primary
+PASS N1 1280x800 L31 收起提示，自己串 typed question reachable
+PASS N1 1280x800 L31 收起提示，自己串 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 1280x800 L31 收起提示，自己串 submit button does not move on focus / blur | idle=[180, 576, 370, 632] focused=[180, 576, 370, 632] blurred=[180, 576, 370, 632]
+PASS N1 1280x800 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [275, 604] topmost=button.l30-btn.primary
+PASS N1 1280x800 L31 收起提示，自己串 FIRST mouse tap on submit sends the answer | tapped at [275, 604] topmost=button.l30-btn.primary
+PASS N1 1280x800 legacy #learn 自己串字 typed question reachable
+PASS N1 1280x800 legacy #learn 自己串字 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N1 1280x800 legacy #learn 自己串字 submit button does not move on focus / blur | idle=[585, 740, 1040, 788] focused=[585, 740, 1040, 788] blurred=[585, 740, 1040, 788]
+PASS N1 1280x800 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [813, 764] topmost=button#submit-answer.btn.primary
+PASS N1 1280x800 legacy #learn 自己串字 FIRST mouse tap on submit sends the answer | tapped at [813, 764] topmost=button#submit-answer.btn.primary
+PASS N1 1280x800 no page errors | []
+# n1 done in 167s
+# --- n2 ---
+PASS N2 320x568 legacy study view opens | #learn
+PASS N2 320x568 開始試試 → fully tappable (grid) | 32/32 blocked by 
+PASS N2 320x568 study action bar clear of nav and floating button | actions=[10, 508, 310, 560] nav=None fab=None
+PASS N2 320x568 touch tap on 開始試試 → advances and stays in the lesson | hash=#learn
+PASS N2 320x568 mouse click on the left part of 開始試試 does not leave the lesson | hash=#learn
+PASS N2 320x568 legacy typed question opens | #learn
+PASS N2 320x568 交答案 fully tappable (grid) | 32/32 blocked by 
+PASS N2 320x568 看示範 fully tappable (grid) | 32/32 blocked by 
+PASS N2 320x568 答案輸入框 fully tappable (grid) | 32/32 blocked by 
+PASS N2 320x568 typed action bar clear of nav and floating button | actions=[10, 508, 310, 560] nav=None fab=None
+PASS N2 320x568 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N2 320x568 first touch tap on 交答案 sends the answer | topmost=button#submit-answer.btn.primary hash=#learn
+PASS N2 320x568 no page errors | []
+PASS N2 360x640 legacy study view opens | #learn
+PASS N2 360x640 開始試試 → fully tappable (grid) | 32/32 blocked by 
+PASS N2 360x640 study action bar clear of nav and floating button | actions=[10, 580, 350, 632] nav=None fab=None
+PASS N2 360x640 touch tap on 開始試試 → advances and stays in the lesson | hash=#learn
+PASS N2 360x640 mouse click on the left part of 開始試試 does not leave the lesson | hash=#learn
+PASS N2 360x640 legacy typed question opens | #learn
+PASS N2 360x640 交答案 fully tappable (grid) | 32/32 blocked by 
+PASS N2 360x640 看示範 fully tappable (grid) | 32/32 blocked by 
+PASS N2 360x640 答案輸入框 fully tappable (grid) | 32/32 blocked by 
+PASS N2 360x640 typed action bar clear of nav and floating button | actions=[10, 580, 350, 632] nav=None fab=None
+PASS N2 360x640 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N2 360x640 first touch tap on 交答案 sends the answer | topmost=button#submit-answer.btn.primary hash=#learn
+PASS N2 360x640 no page errors | []
+PASS N2 375x667 legacy study view opens | #learn
+PASS N2 375x667 開始試試 → fully tappable (grid) | 32/32 blocked by 
+PASS N2 375x667 study action bar clear of nav and floating button | actions=[10, 607, 365, 659] nav=None fab=None
+PASS N2 375x667 touch tap on 開始試試 → advances and stays in the lesson | hash=#learn
+PASS N2 375x667 mouse click on the left part of 開始試試 does not leave the lesson | hash=#learn
+PASS N2 375x667 legacy typed question opens | #learn
+PASS N2 375x667 交答案 fully tappable (grid) | 32/32 blocked by 
+PASS N2 375x667 看示範 fully tappable (grid) | 32/32 blocked by 
+PASS N2 375x667 答案輸入框 fully tappable (grid) | 32/32 blocked by 
+PASS N2 375x667 typed action bar clear of nav and floating button | actions=[10, 607, 365, 659] nav=None fab=None
+PASS N2 375x667 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N2 375x667 first touch tap on 交答案 sends the answer | topmost=button#submit-answer.btn.primary hash=#learn
+PASS N2 375x667 no page errors | []
+PASS N2 390x844 legacy study view opens | #learn
+PASS N2 390x844 開始試試 → fully tappable (grid) | 32/32 blocked by 
+PASS N2 390x844 study action bar clear of nav and floating button | actions=[10, 784, 380, 836] nav=None fab=None
+PASS N2 390x844 touch tap on 開始試試 → advances and stays in the lesson | hash=#learn
+PASS N2 390x844 mouse click on the left part of 開始試試 does not leave the lesson | hash=#learn
+PASS N2 390x844 legacy typed question opens | #learn
+PASS N2 390x844 交答案 fully tappable (grid) | 32/32 blocked by 
+PASS N2 390x844 看示範 fully tappable (grid) | 32/32 blocked by 
+PASS N2 390x844 答案輸入框 fully tappable (grid) | 32/32 blocked by 
+PASS N2 390x844 typed action bar clear of nav and floating button | actions=[10, 784, 380, 836] nav=None fab=None
+PASS N2 390x844 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N2 390x844 first touch tap on 交答案 sends the answer | topmost=button#submit-answer.btn.primary hash=#learn
+PASS N2 390x844 the 休息 exit is labelled for assistive tech (nav is hidden on phones in a lesson) | aria-label='休息（暫停並返回首頁）'
+PASS N2 390x844 休息 exit centre is tappable
+PASS N2 390x844 tapping 休息 leaves the lesson for #kid | hash=#kid
+PASS N2 390x844 no page errors | []
+PASS N2 414x896 legacy study view opens | #learn
+PASS N2 414x896 開始試試 → fully tappable (grid) | 32/32 blocked by 
+PASS N2 414x896 study action bar clear of nav and floating button | actions=[10, 836, 404, 888] nav=None fab=None
+PASS N2 414x896 touch tap on 開始試試 → advances and stays in the lesson | hash=#learn
+PASS N2 414x896 mouse click on the left part of 開始試試 does not leave the lesson | hash=#learn
+PASS N2 414x896 legacy typed question opens | #learn
+PASS N2 414x896 交答案 fully tappable (grid) | 32/32 blocked by 
+PASS N2 414x896 看示範 fully tappable (grid) | 32/32 blocked by 
+PASS N2 414x896 答案輸入框 fully tappable (grid) | 32/32 blocked by 
+PASS N2 414x896 typed action bar clear of nav and floating button | actions=[10, 836, 404, 888] nav=None fab=None
+PASS N2 414x896 tapping the answer box focuses it and the typed text arrives | focus_ok=True typed_ok=True
+PASS N2 414x896 first touch tap on 交答案 sends the answer | topmost=button#submit-answer.btn.primary hash=#learn
+PASS N2 414x896 no page errors | []
+# n2 done in 57s
+# --- n3 ---
+PASS N3 320x568 #kid floating button clear of every nav tab | fab=[160, 439, 302, 493] overlaps=[] covered_share={}
+PASS N3 320x568 #kid every nav tab centre hits its own tab
+PASS N3 320x568 #practice floating button clear of every nav tab | fab=[160, 439, 302, 493] overlaps=[] covered_share={}
+PASS N3 320x568 #practice every nav tab centre hits its own tab
+PASS N3 320x568 #game floating button clear of every nav tab | fab=[160, 439, 302, 493] overlaps=[] covered_share={}
+PASS N3 320x568 #game every nav tab centre hits its own tab
+PASS N3 320x568 #parent floating button clear of every nav tab | fab=[160, 439, 302, 493] overlaps=[] covered_share={}
+PASS N3 320x568 #parent every nav tab centre hits its own tab
+PASS N3 320x568 mouse tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 320x568 touch tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 320x568 mouse tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 320x568 touch tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 320x568 floating button still visible inside the viewport on #kid | fab=[160, 439, 302, 493]
+PASS N3 320x568 floating button centre hits itself
+PASS N3 320x568 tapping the floating button opens the maths dialog
+PASS N3 360x640 #kid floating button clear of every nav tab | fab=[200, 511, 342, 565] overlaps=[] covered_share={}
+PASS N3 360x640 #kid every nav tab centre hits its own tab
+PASS N3 360x640 #practice floating button clear of every nav tab | fab=[200, 511, 342, 565] overlaps=[] covered_share={}
+PASS N3 360x640 #practice every nav tab centre hits its own tab
+PASS N3 360x640 #game floating button clear of every nav tab | fab=[200, 511, 342, 565] overlaps=[] covered_share={}
+PASS N3 360x640 #game every nav tab centre hits its own tab
+PASS N3 360x640 #parent floating button clear of every nav tab | fab=[200, 511, 342, 565] overlaps=[] covered_share={}
+PASS N3 360x640 #parent every nav tab centre hits its own tab
+PASS N3 360x640 mouse tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 360x640 touch tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 360x640 mouse tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 360x640 touch tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 360x640 floating button still visible inside the viewport on #kid | fab=[200, 511, 342, 565]
+PASS N3 360x640 floating button centre hits itself
+PASS N3 360x640 tapping the floating button opens the maths dialog
+PASS N3 390x844 #kid floating button clear of every nav tab | fab=[230, 715, 372, 769] overlaps=[] covered_share={}
+PASS N3 390x844 #kid every nav tab centre hits its own tab
+PASS N3 390x844 #practice floating button clear of every nav tab | fab=[230, 715, 372, 769] overlaps=[] covered_share={}
+PASS N3 390x844 #practice every nav tab centre hits its own tab
+PASS N3 390x844 #game floating button clear of every nav tab | fab=[230, 715, 372, 769] overlaps=[] covered_share={}
+PASS N3 390x844 #game every nav tab centre hits its own tab
+PASS N3 390x844 #parent floating button clear of every nav tab | fab=[230, 715, 372, 769] overlaps=[] covered_share={}
+PASS N3 390x844 #parent every nav tab centre hits its own tab
+PASS N3 390x844 mouse tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 390x844 touch tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 390x844 mouse tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 390x844 touch tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 390x844 floating button still visible inside the viewport on #kid | fab=[230, 715, 372, 769]
+PASS N3 390x844 floating button centre hits itself
+PASS N3 390x844 tapping the floating button opens the maths dialog
+PASS N3 390x844 floating button hidden on focus route #learning | display=none
+PASS N3 390x844 floating button hidden on focus route #assembly-learn | display=none
+PASS N3 390x844 floating button hidden on focus route #learn | display=none
+PASS N3 390x844 floating button hidden on focus route #gameplay | display=none
+PASS N3 390x844 floating button hidden on focus route #arcade-play | display=none
+PASS N3 390x844 floating button hidden on focus route #playground | display=none
+PASS N3 390x844 floating button hidden on focus route #range-new | display=none
+PASS N3 390x844 floating button hidden on focus route #family-lesson | display=none
+PASS N3 390x844 floating button hidden on focus route #phonics-lesson | display=none
+PASS N3 390x844 floating button visible again back on #kid
+PASS N3 390x844 no page errors | []
+PASS N3 412x915 #kid floating button clear of every nav tab | fab=[252, 786, 394, 840] overlaps=[] covered_share={}
+PASS N3 412x915 #kid every nav tab centre hits its own tab
+PASS N3 412x915 #practice floating button clear of every nav tab | fab=[252, 786, 394, 840] overlaps=[] covered_share={}
+PASS N3 412x915 #practice every nav tab centre hits its own tab
+PASS N3 412x915 #game floating button clear of every nav tab | fab=[252, 786, 394, 840] overlaps=[] covered_share={}
+PASS N3 412x915 #game every nav tab centre hits its own tab
+PASS N3 412x915 #parent floating button clear of every nav tab | fab=[252, 786, 394, 840] overlaps=[] covered_share={}
+PASS N3 412x915 #parent every nav tab centre hits its own tab
+PASS N3 412x915 mouse tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 412x915 touch tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 412x915 mouse tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 412x915 touch tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 412x915 floating button still visible inside the viewport on #kid | fab=[252, 786, 394, 840]
+PASS N3 412x915 floating button centre hits itself
+PASS N3 412x915 tapping the floating button opens the maths dialog
+PASS N3 520x800 #kid floating button clear of every nav tab | fab=[360, 671, 502, 725] overlaps=[] covered_share={}
+PASS N3 520x800 #kid every nav tab centre hits its own tab
+PASS N3 520x800 #practice floating button clear of every nav tab | fab=[360, 671, 502, 725] overlaps=[] covered_share={}
+PASS N3 520x800 #practice every nav tab centre hits its own tab
+PASS N3 520x800 #game floating button clear of every nav tab | fab=[360, 671, 502, 725] overlaps=[] covered_share={}
+PASS N3 520x800 #game every nav tab centre hits its own tab
+PASS N3 520x800 #parent floating button clear of every nav tab | fab=[360, 671, 502, 725] overlaps=[] covered_share={}
+PASS N3 520x800 #parent every nav tab centre hits its own tab
+PASS N3 520x800 mouse tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 520x800 touch tap on nav tab 街機 goes to #game (maths dialog stays closed) | hash=#game mathOpen=False
+PASS N3 520x800 mouse tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 520x800 touch tap on nav tab 家長 goes to #parent (maths dialog stays closed) | hash=#parent mathOpen=False
+PASS N3 520x800 floating button still visible inside the viewport on #kid | fab=[360, 671, 502, 725]
+PASS N3 520x800 floating button centre hits itself
+PASS N3 520x800 tapping the floating button opens the maths dialog
+PASS N3 768x1024 #kid floating button clear of every nav tab | fab=[608, 952, 750, 1006] overlaps=[] covered_share={}
+PASS N3 768x1024 #kid every nav tab centre hits its own tab
+PASS N3 768x1024 #practice floating button clear of every nav tab | fab=[608, 952, 750, 1006] overlaps=[] covered_share={}
+PASS N3 768x1024 #practice every nav tab centre hits its own tab
+PASS N3 768x1024 #game floating button clear of every nav tab | fab=[608, 952, 750, 1006] overlaps=[] covered_share={}
+PASS N3 768x1024 #game every nav tab centre hits its own tab
+PASS N3 768x1024 #parent floating button clear of every nav tab | fab=[608, 952, 750, 1006] overlaps=[] covered_share={}
+PASS N3 768x1024 #parent every nav tab centre hits its own tab
+PASS N3 768x1024 floating button still visible inside the viewport on #kid | fab=[608, 952, 750, 1006]
+PASS N3 768x1024 floating button centre hits itself
+PASS N3 768x1024 tapping the floating button opens the maths dialog
+PASS N3 1280x800 #kid floating button clear of every nav tab | fab=[1120, 728, 1262, 782] overlaps=[] covered_share={}
+PASS N3 1280x800 #kid every nav tab centre hits its own tab
+PASS N3 1280x800 #practice floating button clear of every nav tab | fab=[1120, 728, 1262, 782] overlaps=[] covered_share={}
+PASS N3 1280x800 #practice every nav tab centre hits its own tab
+PASS N3 1280x800 #game floating button clear of every nav tab | fab=[1120, 728, 1262, 782] overlaps=[] covered_share={}
+PASS N3 1280x800 #game every nav tab centre hits its own tab
+PASS N3 1280x800 #parent floating button clear of every nav tab | fab=[1120, 728, 1262, 782] overlaps=[] covered_share={}
+PASS N3 1280x800 #parent every nav tab centre hits its own tab
+PASS N3 1280x800 floating button still visible inside the viewport on #kid | fab=[1120, 728, 1262, 782]
+PASS N3 1280x800 floating button centre hits itself
+PASS N3 1280x800 tapping the floating button opens the maths dialog
+# n3 done in 84s
+# --- n4 ---
+PASS N4 320x568 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 320x568 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 320x568 dock sits above the fixed bottom nav | dock=[0, 436, 320, 507] nav=[0, 507, 320, 568]
+PASS N4 320x568 dock clear of the floating button | dock=[0, 436, 320, 507] fab=None
+PASS N4 320x568 touch tap on 核對及加入 opens the summary dialog
+PASS N4 320x568 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 320x568 no page errors | []
+PASS N4 360x640 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 360x640 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 360x640 dock sits above the fixed bottom nav | dock=[0, 508, 360, 579] nav=[0, 579, 360, 640]
+PASS N4 360x640 dock clear of the floating button | dock=[0, 508, 360, 579] fab=None
+PASS N4 360x640 touch tap on 核對及加入 opens the summary dialog
+PASS N4 360x640 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 360x640 no page errors | []
+PASS N4 390x844 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 390x844 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 390x844 dock sits above the fixed bottom nav | dock=[0, 712, 390, 783] nav=[0, 783, 390, 844]
+PASS N4 390x844 dock clear of the floating button | dock=[0, 712, 390, 783] fab=None
+PASS N4 390x844 touch tap on 核對及加入 opens the summary dialog
+PASS N4 390x844 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 390x844 no page errors | []
+PASS N4 412x915 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 412x915 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 412x915 dock sits above the fixed bottom nav | dock=[0, 783, 412, 854] nav=[0, 854, 412, 915]
+PASS N4 412x915 dock clear of the floating button | dock=[0, 783, 412, 854] fab=None
+PASS N4 412x915 touch tap on 核對及加入 opens the summary dialog
+PASS N4 412x915 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 412x915 no page errors | []
+PASS N4 768x1024 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 768x1024 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 768x1024 dock clear of the floating button | dock=[0, 953, 768, 1024] fab=None
+PASS N4 768x1024 touch tap on 核對及加入 opens the summary dialog
+PASS N4 768x1024 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 768x1024 no page errors | []
+PASS N4 1280x800 import page armed (text pasted, words selected, dock enabled) | 已選 3 / 120 項
+PASS N4 1280x800 核對及加入 grid tappable (32/32) | blocked by 
+PASS N4 1280x800 dock clear of the floating button | dock=[0, 725, 1280, 800] fab=None
+PASS N4 1280x800 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 1280x800 mouse tap on 核對及加入 opens the summary dialog
+PASS N4 1280x800 no page errors | []
+# n4 done in 59s
+# --- n10 ---
+PASS N10 tower shows the four level buttons | ['啟蒙', '基礎', '進階', '競賽練習']
+PASS N10 tower button 啟蒙 (selected) contrast >= 4.5:1 | 6.20:1 fg=rgb(36, 57, 74) bg=rgb(215,183,113)
+PASS N10 tower button 基礎 contrast >= 4.5:1 | 7.46:1 fg=rgb(248, 243, 228) bg=rgb(53,81,106)
+PASS N10 tower button 進階 contrast >= 4.5:1 | 7.46:1 fg=rgb(248, 243, 228) bg=rgb(53,81,106)
+PASS N10 tower button 競賽練習 contrast >= 4.5:1 | 7.46:1 fg=rgb(248, 243, 228) bg=rgb(53,81,106)
+PASS N10 tower button 進階 (hover) contrast >= 4.5:1 | 6.13:1 fg=rgb(255, 255, 255) bg=rgb(70,101,127)
+PASS N10 selecting 進階 marks exactly that button selected, contrast >= 4.5:1 | [('啟蒙', False, 7.46), ('基礎', False, 7.46), ('進階', True, 7.03), ('競賽練習', False, 7.46)]
+PASS N10 no page errors | []
+# n10 done in 6s
+# --- n12 ---
+PASS N12 WQMathHost.apiVersion === 1 and the host object is frozen | ['object', 1, True]
+PASS N12 back-case: maths opens from the floating button
+PASS N12 Back closes the dialog | open=False
+PASS N12 Back leaves the hash behind the dialog unchanged | hash=#practice
+PASS N12 history position is back where it was before opening | 3 -> 3
+PASS N12 the SECOND Back goes to the previous page (no dead history entry) | hash=#kid open=False
+PASS N12 reopen: maths opens again after a Back close
+PASS N12 reopen: Back closes it again, hash unchanged | open=False hash=#practice
+PASS N12 Esc closes the dialog
+PASS N12 Esc: hash unchanged and no extra history position | hash=#practice index 5 -> 5
+PASS N12 Esc: ONE Back then reaches the previous page | hash=#kid
+PASS N12 close button closes the dialog
+PASS N12 close button: hash unchanged and no extra history position | hash=#practice index 5 -> 5
+PASS N12 close button: ONE Back then reaches the previous page | hash=#kid
+PASS N12 three open/Esc cycles then ONE Back reaches the previous page | hash=#kid open=False
+PASS N12 maths 家長 nav closes the dialog and lands on #parent with the password gate | open=False hash=#parent gate=True
+PASS N12 Back from the parent gate returns to the page before maths was opened | hash=#practice open=False
+PASS N12 same-tick close()+open(): dialog is open afterwards
+PASS N12 same-tick close()+open(): Back closes it, hash unchanged | open=False hash=#practice
+PASS N12 close() then navigation (a) same tick: hash is #arcade after 900ms and the dialog is closed | hash=#arcade open=False
+PASS N12 close() then navigation (a) same tick: still on #arcade 1.4s later (no late history rollback) | hash=#arcade
+PASS N12 close() then navigation (b) setTimeout 0: hash is #arcade after 900ms and the dialog is closed | hash=#arcade open=False
+PASS N12 close() then navigation (b) setTimeout 0: still on #arcade 1.4s later (no late history rollback) | hash=#arcade
+PASS N12 close() then navigation (c) two evaluate calls: hash is #arcade after 900ms and the dialog is closed | hash=#arcade open=False
+PASS N12 close() then navigation (c) two evaluate calls: still on #arcade 1.4s later (no late history rollback) | hash=#arcade
+PASS N12 forced race, navigation immediately after history.back() returns: ends on #arcade | hash=#arcade open=False
+PASS N12 forced race, navigation 2ms after history.back() returns: ends on #arcade | hash=#arcade open=False
+PASS N12 no page errors | []
+# n12 done in 51s
+# --- safe ---
+PASS safe: the emulated bottom inset is 34px | env=34
+PASS safe: floating button clear of every nav tab with a 34px inset | fab=[230, 681, 372, 735] nav=[[8, 756, 98, 804]]
+PASS safe: nav tab centres hit their own tab with a 34px inset
+PASS safe: nav bottom edge reaches the viewport bottom | [0, 749, 390, 844]
+PASS safe: L30 action bar clear of the nav with a 34px inset | actions=[12, 669, 378, 740] nav=[0, 749, 390, 844]
+PASS safe: L30 主按鈕 grid tappable with a 34px inset (32/32)
+PASS safe: import dock above the nav with a 34px inset | dock=[0, 678, 390, 749] nav=[0, 749, 390, 844]
+PASS safe: 核對及加入 grid tappable with a 34px inset (32/32)
+PASS safe: no page errors | []
+# safe done in 9s
+357 PASS / 0 FAIL

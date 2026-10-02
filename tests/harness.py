@@ -41,6 +41,7 @@ def boot(browser,width=1280,initial=None):
 def register(page,name='r1-test',child='整合測試學員'):
  page.evaluate("location.hash='#login'");page.wait_for_selector('#register-name')
  page.locator('#register-name').fill(name);page.locator('#register-child').fill(child);page.locator('#register-pin').fill('R1testPass99')
+ if page.locator('#register-grade').count():page.locator('#register-grade').select_option('3')  # R3.3: grade is required at registration
  page.locator('[data-act="register-submit"]').click()
  page.wait_for_function("!!sessionStorage.getItem('wordquest-v10-current-account')")
  page.wait_for_timeout(150)

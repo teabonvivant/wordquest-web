@@ -112,7 +112,7 @@ with sync_playwright() as pw:
  pack=json.loads(Path(dl.value.path()).read_text());char=pack['payload']['characterPreferences'];
  check('Family JSON exports new fixed-helper preference',lambda:req(any(r['preferences'].get('guide')=='star' for r in char)))
  check('Family JSON checksum matches independent Python SHA256',lambda:req(hashlib.sha256(json.dumps(pack['payload'],ensure_ascii=False,separators=(',',':')).encode()).hexdigest()==pack['integrity']['digest']))
- check('New family backup accurately identifies R3.1 application version',lambda:req(pack['appVersion']=='R3.1.0'))
+ check('New family backup accurately identifies the application version (R3.x)',lambda:req(__import__('re').fullmatch(r'R3\.\d+\.\d+',pack['appVersion'] or '') is not None))  # R3.3: was an exact R3.1.0 match
  prefs(p,'guide','panda');p.evaluate('(payload)=>__R3TEST.restore(payload)',pack['payload']);
  check('Restore reloads backed-up preference in UI without extra rewards',lambda:req(p.evaluate('WQ32.getPreferences().guide==="star"')))
  # Legacy R3 optional field absent stays importable, resolves to automatic assignment.

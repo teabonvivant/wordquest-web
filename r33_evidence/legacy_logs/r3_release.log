@@ -1,0 +1,6 @@
+r3_tests/family_browser.py 0
+r3_tests/new_features_browser.py 0
+r3_tests/arcade_browser.py 0
+r3_tests/integration_regression.py 0
+r3_tests/lesson_text_browser.py 0
+Completed 10 commands; inspect case result files, not just exit codes.

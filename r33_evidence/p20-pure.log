@@ -1,0 +1,27 @@
+PASS no marker -> mode none (nothing to rescue), any journal state
+PASS prepared + missing journal -> rescue (journal-missing)
+PASS prepared + invalid journal -> rescue (journal-invalid)
+PASS prepared + valid journal -> refuse, recover first
+PASS committed / rolled-back never rescue, whatever the journal says
+PASS unknown marker value -> rescue (marker-unknown) for any readable journal
+PASS unreadable journal store always refuses (any marker), with an explanation
+PASS unknown journal state is treated as unreadable (fail closed)
+PASS journalStatus: missing / ok / invalid
+PASS rescueGuide: texts per kind, empty for none
+PASS rescueExportCheck blocks empty, broken and child-less data, accepts a valid one
+PASS tombstone round trip keeps order and drops duplicates / junk
+PASS parseTombstone tolerates absent, damaged, wrong-version values
+PASS tombstone cap keeps the newest 8000 ids
+PASS mergeTombstone / subtractTombstone
+PASS tombKey is per owner
+PASS mediaKind: image/note only, audio and junk never
+PASS orphan detection: live id keeps the row, unknown id marks it orphan
+PASS orphan detection never touches audio, unknown formats or malformed keys
+PASS ids and text may contain colons: any prefix that is a live id counts
+PASS liveMediaRows filters orphans, keeps audio and unknown rows
+PASS gcMatch deletes only tombstoned ids and never a live one
+PASS needsParentGate: parent actions, admin, pg save-settings
+PASS needsParentGate: data-r3 / data-r32 only inside the family dialog, and not for close/family/daily
+PASS exports are frozen and the file declares the global WQP20 for the browser
+PASS pure file contains no storage, DOM or IndexedDB access
+# TOTAL 26 checks, 26 pass, 0 fail

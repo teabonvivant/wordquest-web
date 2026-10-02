@@ -1,0 +1,21 @@
+{
+  "base": "R3.2.0",
+  "version": "R3.3.0",
+  "baseSHA256": "8657afc155e26f9206bfc7abc02b80b982ede397366988cb1d932e2a2aa157d7",
+  "appSHA256": "e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2",
+  "swSHA256": "48829f2bea3672dfb9d259a4b93fbbe99802b3eaa48e87c12378e34ba08f2111",
+  "serverSHA256": "25b19c7933bebc1ee2767381321dd30b12805f4380943e16247087d1ed8117d6",
+  "modules": [
+    "p10_layout",
+    "p20_family_data",
+    "p30_server_pwa",
+    "p40_arcade_sound",
+    "p50_learning_account"
+  ],
+  "extraFiles": [
+    "app/icons/icon-192.png",
+    "app/icons/icon-512.png",
+    "app/manifest.webmanifest"
+  ],
+  "scripts": 40
+}

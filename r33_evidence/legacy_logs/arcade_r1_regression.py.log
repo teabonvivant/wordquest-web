@@ -1,0 +1,430 @@
+PASS Host bridge exposes correct version and no mutable database
+PASS Single homepage has both ordinary maths and Olympiad buttons
+PASS Maths resolves the real V32 bridge, not standalone profile adapter
+FAIL Retained bank contains 28 skills and 84 templates
+PASS Original V32 companion is decoded and visible in maths
+PASS Guest open does not create standalone child registry
+PASS Guest unfinished answer survives closing/reopening on same page
+PASS Real registration is shared by English and maths
+PASS Registered maths opens current English child, without second registry
+PASS Ten-question daily task completed by actual answer inputs
+PASS Daily task writes ten maths attempts to the shared child scope
+PASS Eligible maths completion credits the original English coin balance
+PASS Outbox settles once after English wallet success
+PASS Repeated flush does not award a second coin
+PASS Maths completion preserves existing English learning content
+PASS Completion-page progress button cannot bypass English parent guard
+PASS Maths parent entry redirects to existing English password gate
+PASS Incorrect password cannot unlock maths settings
+PASS Existing parent password unlocks without another account
+PASS English parent page displays separate maths activity count
+PASS Unlocked maths settings open in same program
+PASS Parent settings persist through guarded UI save
+PASS Actual browser run so far has no JavaScript exceptions
+PASS Serialized reload restores current child and maths attempts
+PASS Uncommitted reward event cannot credit wallet
+PASS Reward for wrong child scope is rejected
+PASS Event payload must match saved outbox
+PASS Wallet storage failure leaves original wallet unchanged
+PASS Wallet-success/outbox-ack-failure retries without double payout
+PASS Maths storage quota failure preserves previous serialized data
+PASS Stale maths revision cannot overwrite newer data
+PASS Stale English revision prevents cross-subject writing
+PASS Corrupt maths data is read-only and raw bytes are preserved
+PASS Backup owned by another child cannot replace current progress
+PASS Automatic reward sync rejects an over-seven-day event
+PASS Automatic reward sync rejects a future-dated event
+PASS Maths uses existing four-task/five-coin daily cap
+PASS Backup restore creates recovery copy without replaying coins
+PASS Existing English parent UI creates the shared second child
+PASS New child starts with isolated maths progress and wallet
+PASS Switching back restores original child progress and coin balance
+PASS Switching child invalidates the previous parent unlock
+PASS Sidecar deletion failure cancels persisted English child deletion
+PASS Deleting English child also removes maths progress and recovery copy
+PASS No uncaught JavaScript errors in fault and child-management scenarios
+PASS Full ordinary lesson completes all six teaching stages
+PASS Guided questions remain separate from independent mastery attempts
+PASS Full Olympiad lesson completes challenge, teaching and reflection
+PASS Correct Olympiad reflection earns the real strategy card
+PASS Ordinary and Olympiad attempts coexist with separate track fields
+PASS Template 1N1.1-T1: render, input, mark, feedback focus
+PASS Template 1N1.1-T2: render, input, mark, feedback focus
+PASS Template 1N1.1-T3: render, input, mark, feedback focus
+PASS Template 1N1.5-T1: render, input, mark, feedback focus
+PASS Template 1N1.5-T2: render, input, mark, feedback focus
+PASS Template 1N1.5-T3: render, input, mark, feedback focus
+PASS Template 1N2.2-T1: render, input, mark, feedback focus
+PASS Template 1N2.2-T2: render, input, mark, feedback focus
+PASS Template 1N2.2-T3: render, input, mark, feedback focus
+PASS Template 1N3.2-T1: render, input, mark, feedback focus
+PASS Template 1N3.2-T2: render, input, mark, feedback focus
+PASS Template 1N3.2-T3: render, input, mark, feedback focus
+PASS Template 1N4.1-T1: render, input, mark, feedback focus
+PASS Template 1N4.1-T2: render, input, mark, feedback focus
+PASS Template 1N4.1-T3: render, input, mark, feedback focus
+PASS Template 1N4.4-T1: render, input, mark, feedback focus
+PASS Template 1N4.4-T2: render, input, mark, feedback focus
+PASS Template 1N4.4-T3: render, input, mark, feedback focus
+PASS Template 2N1.2-T1: render, input, mark, feedback focus
+PASS Template 2N1.2-T2: render, input, mark, feedback focus
+PASS Template 2N1.2-T3: render, input, mark, feedback focus
+PASS Template 2N1.3-T1: render, input, mark, feedback focus
+PASS Template 2N1.3-T2: render, input, mark, feedback focus
+PASS Template 2N1.3-T3: render, input, mark, feedback focus
+PASS Template 2N2.1-T1: render, input, mark, feedback focus
+PASS Template 2N2.1-T2: render, input, mark, feedback focus
+PASS Template 2N2.1-T3: render, input, mark, feedback focus
+PASS Template 2N2.3-T1: render, input, mark, feedback focus
+PASS Template 2N2.3-T2: render, input, mark, feedback focus
+PASS Template 2N2.3-T3: render, input, mark, feedback focus
+PASS Template 2N3.3-T1: render, input, mark, feedback focus
+PASS Template 2N3.3-T2: render, input, mark, feedback focus
+PASS Template 2N3.3-T3: render, input, mark, feedback focus
+PASS Template 2N4.2-T1: render, input, mark, feedback focus
+PASS Template 2N4.2-T2: render, input, mark, feedback focus
+PASS Template 2N4.2-T3: render, input, mark, feedback focus
+PASS Template 2N5.1-T1: render, input, mark, feedback focus
+PASS Template 2N5.1-T2: render, input, mark, feedback focus
+PASS Template 2N5.1-T3: render, input, mark, feedback focus
+PASS Template 2N5.3-T1: render, input, mark, feedback focus
+PASS Template 2N5.3-T2: render, input, mark, feedback focus
+PASS Template 2N5.3-T3: render, input, mark, feedback focus
+PASS Template 2N6.2-T1: render, input, mark, feedback focus
+PASS Template 2N6.2-T2: render, input, mark, feedback focus
+PASS Template 2N6.2-T3: render, input, mark, feedback focus
+PASS Template 3N1.2-T1: render, input, mark, feedback focus
+PASS Template 3N1.2-T2: render, input, mark, feedback focus
+PASS Template 3N1.2-T3: render, input, mark, feedback focus
+PASS Template 3N2.1-T1: render, input, mark, feedback focus
+PASS Template 3N2.1-T2: render, input, mark, feedback focus
+PASS Template 3N2.1-T3: render, input, mark, feedback focus
+PASS Template 3N3.1-T1: render, input, mark, feedback focus
+PASS Template 3N3.1-T2: render, input, mark, feedback focus
+PASS Template 3N3.1-T3: render, input, mark, feedback focus
+PASS Template 3N4.3-T1: render, input, mark, feedback focus
+PASS Template 3N4.3-T2: render, input, mark, feedback focus
+PASS Template 3N4.3-T3: render, input, mark, feedback focus
+PASS Template 3N4.4-T1: render, input, mark, feedback focus
+PASS Template 3N4.4-T2: render, input, mark, feedback focus
+PASS Template 3N4.4-T3: render, input, mark, feedback focus
+PASS Template 3N5.1-T1: render, input, mark, feedback focus
+PASS Template 3N5.1-T2: render, input, mark, feedback focus
+PASS Template 3N5.1-T3: render, input, mark, feedback focus
+PASS Template 3N5.3-T1: render, input, mark, feedback focus
+PASS Template 3N5.3-T2: render, input, mark, feedback focus
+PASS Template 3N5.3-T3: render, input, mark, feedback focus
+PASS Template 3N5.4-T1: render, input, mark, feedback focus
+PASS Template 3N5.4-T2: render, input, mark, feedback focus
+PASS Template 3N5.4-T3: render, input, mark, feedback focus
+PASS Template O-CAL-pattern-T1: render, input, mark, feedback focus
+PASS Template O-CAL-pattern-T2: render, input, mark, feedback focus
+PASS Template O-CAL-pattern-T3: render, input, mark, feedback focus
+PASS Template O-NUM-pairs-T1: render, input, mark, feedback focus
+PASS Template O-NUM-pairs-T2: render, input, mark, feedback focus
+PASS Template O-NUM-pairs-T3: render, input, mark, feedback focus
+PASS Template O-APP-queue-T1: render, input, mark, feedback focus
+PASS Template O-APP-queue-T2: render, input, mark, feedback focus
+PASS Template O-APP-queue-T3: render, input, mark, feedback focus
+PASS Template O-GEO-segments-T1: render, input, mark, feedback focus
+PASS Template O-GEO-segments-T2: render, input, mark, feedback focus
+PASS Template O-GEO-segments-T3: render, input, mark, feedback focus
+PASS Template O-LOG-digits-T1: render, input, mark, feedback focus
+PASS Template O-LOG-digits-T2: render, input, mark, feedback focus
+PASS Template O-LOG-digits-T3: render, input, mark, feedback focus
+PASS Template 1N1.R3-T1: render, input, mark, feedback focus
+PASS Template 1N1.R3-T2: render, input, mark, feedback focus
+PASS Template 1N1.R3-T3: render, input, mark, feedback focus
+PASS Template 1N2.R3-T1: render, input, mark, feedback focus
+PASS Template 1N2.R3-T2: render, input, mark, feedback focus
+PASS Template 1N2.R3-T3: render, input, mark, feedback focus
+PASS Template 1N3.R3-T1: render, input, mark, feedback focus
+PASS Template 1N3.R3-T2: render, input, mark, feedback focus
+PASS Template 1N3.R3-T3: render, input, mark, feedback focus
+PASS Template 1N4.R3-T1: render, input, mark, feedback focus
+PASS Template 1N4.R3-T2: render, input, mark, feedback focus
+PASS Template 1N4.R3-T3: render, input, mark, feedback focus
+PASS Template 2N1.R3-T1: render, input, mark, feedback focus
+PASS Template 2N1.R3-T2: render, input, mark, feedback focus
+PASS Template 2N1.R3-T3: render, input, mark, feedback focus
+PASS Template 2N2.R3-T1: render, input, mark, feedback focus
+PASS Template 2N2.R3-T2: render, input, mark, feedback focus
+PASS Template 2N2.R3-T3: render, input, mark, feedback focus
+PASS Template 2N3.R3-T1: render, input, mark, feedback focus
+PASS Template 2N3.R3-T2: render, input, mark, feedback focus
+PASS Template 2N3.R3-T3: render, input, mark, feedback focus
+PASS Template 2N4.R3-T1: render, input, mark, feedback focus
+PASS Template 2N4.R3-T2: render, input, mark, feedback focus
+PASS Template 2N4.R3-T3: render, input, mark, feedback focus
+PASS Template 2N5.R3-T1: render, input, mark, feedback focus
+PASS Template 2N5.R3-T2: render, input, mark, feedback focus
+PASS Template 2N5.R3-T3: render, input, mark, feedback focus
+PASS Template 2N6.R3-T1: render, input, mark, feedback focus
+PASS Template 2N6.R3-T2: render, input, mark, feedback focus
+PASS Template 2N6.R3-T3: render, input, mark, feedback focus
+PASS Template 3N1.R3-T1: render, input, mark, feedback focus
+PASS Template 3N1.R3-T2: render, input, mark, feedback focus
+PASS Template 3N1.R3-T3: render, input, mark, feedback focus
+PASS Template 3N2.R3-T1: render, input, mark, feedback focus
+PASS Template 3N2.R3-T2: render, input, mark, feedback focus
+PASS Template 3N2.R3-T3: render, input, mark, feedback focus
+PASS Template 3N3.R3-T1: render, input, mark, feedback focus
+PASS Template 3N3.R3-T2: render, input, mark, feedback focus
+PASS Template 3N3.R3-T3: render, input, mark, feedback focus
+PASS Template 3N4.R3-T1: render, input, mark, feedback focus
+PASS Template 3N4.R3-T2: render, input, mark, feedback focus
+PASS Template 3N4.R3-T3: render, input, mark, feedback focus
+PASS Template 3N5.R3-T1: render, input, mark, feedback focus
+PASS Template 3N5.R3-T2: render, input, mark, feedback focus
+PASS Template 3N5.R3-T3: render, input, mark, feedback focus
+PASS Template 4N1.R3-T1: render, input, mark, feedback focus
+PASS Template 4N1.R3-T2: render, input, mark, feedback focus
+PASS Template 4N1.R3-T3: render, input, mark, feedback focus
+PASS Template 4N2.R3-T1: render, input, mark, feedback focus
+PASS Template 4N2.R3-T2: render, input, mark, feedback focus
+PASS Template 4N2.R3-T3: render, input, mark, feedback focus
+PASS Template 4N3.R3-T1: render, input, mark, feedback focus
+PASS Template 4N3.R3-T2: render, input, mark, feedback focus
+PASS Template 4N3.R3-T3: render, input, mark, feedback focus
+PASS Template 4N4.R3-T1: render, input, mark, feedback focus
+PASS Template 4N4.R3-T2: render, input, mark, feedback focus
+PASS Template 4N4.R3-T3: render, input, mark, feedback focus
+PASS Template 4N5.R3-T1: render, input, mark, feedback focus
+PASS Template 4N5.R3-T2: render, input, mark, feedback focus
+PASS Template 4N5.R3-T3: render, input, mark, feedback focus
+PASS Template 4N6.R3-T1: render, input, mark, feedback focus
+PASS Template 4N6.R3-T2: render, input, mark, feedback focus
+PASS Template 4N6.R3-T3: render, input, mark, feedback focus
+FAIL Template 4N7.R3-T1: render, input, mark, feedback focus
+FAIL Template 4N7.R3-T2: render, input, mark, feedback focus
+FAIL Template 4N7.R3-T3: render, input, mark, feedback focus
+PASS Template 4N8.R3-T1: render, input, mark, feedback focus
+PASS Template 4N8.R3-T2: render, input, mark, feedback focus
+PASS Template 4N8.R3-T3: render, input, mark, feedback focus
+PASS Template 5N1.R3-T1: render, input, mark, feedback focus
+PASS Template 5N1.R3-T2: render, input, mark, feedback focus
+PASS Template 5N1.R3-T3: render, input, mark, feedback focus
+PASS Template 5N2.R3-T1: render, input, mark, feedback focus
+PASS Template 5N2.R3-T2: render, input, mark, feedback focus
+PASS Template 5N2.R3-T3: render, input, mark, feedback focus
+PASS Template 5N3.R3-T1: render, input, mark, feedback focus
+PASS Template 5N3.R3-T2: render, input, mark, feedback focus
+PASS Template 5N3.R3-T3: render, input, mark, feedback focus
+PASS Template 5N4.R3-T1: render, input, mark, feedback focus
+PASS Template 5N4.R3-T2: render, input, mark, feedback focus
+PASS Template 5N4.R3-T3: render, input, mark, feedback focus
+PASS Template 5N5.R3-T1: render, input, mark, feedback focus
+PASS Template 5N5.R3-T2: render, input, mark, feedback focus
+PASS Template 5N5.R3-T3: render, input, mark, feedback focus
+PASS Template 6N1.R3-T1: render, input, mark, feedback focus
+PASS Template 6N1.R3-T2: render, input, mark, feedback focus
+PASS Template 6N1.R3-T3: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T1: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T2: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T3: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T1: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T2: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T3: render, input, mark, feedback focus
+PASS Template 6N4.R3-T1: render, input, mark, feedback focus
+PASS Template 6N4.R3-T2: render, input, mark, feedback focus
+PASS Template 6N4.R3-T3: render, input, mark, feedback focus
+PASS Template 1M1.R3-T1: render, input, mark, feedback focus
+PASS Template 1M1.R3-T2: render, input, mark, feedback focus
+PASS Template 1M1.R3-T3: render, input, mark, feedback focus
+PASS Template 1M2.R3-T1: render, input, mark, feedback focus
+PASS Template 1M2.R3-T2: render, input, mark, feedback focus
+PASS Template 1M2.R3-T3: render, input, mark, feedback focus
+PASS Template 1M3.R3-T1: render, input, mark, feedback focus
+PASS Template 1M3.R3-T2: render, input, mark, feedback focus
+PASS Template 1M3.R3-T3: render, input, mark, feedback focus
+PASS Template 1M4.R3-T1: render, input, mark, feedback focus
+PASS Template 1M4.R3-T2: render, input, mark, feedback focus
+PASS Template 1M4.R3-T3: render, input, mark, feedback focus
+PASS Template 2M1.R3-T1: render, input, mark, feedback focus
+PASS Template 2M1.R3-T2: render, input, mark, feedback focus
+PASS Template 2M1.R3-T3: render, input, mark, feedback focus
+PASS Template 2M2.R3-T1: render, input, mark, feedback focus
+PASS Template 2M2.R3-T2: render, input, mark, feedback focus
+PASS Template 2M2.R3-T3: render, input, mark, feedback focus
+PASS Template 2M3.R3-T1: render, input, mark, feedback focus
+PASS Template 2M3.R3-T2: render, input, mark, feedback focus
+PASS Template 2M3.R3-T3: render, input, mark, feedback focus
+PASS Template 3M1.R3-T1: render, input, mark, feedback focus
+PASS Template 3M1.R3-T2: render, input, mark, feedback focus
+PASS Template 3M1.R3-T3: render, input, mark, feedback focus
+PASS Template 3M2.R3-T1: render, input, mark, feedback focus
+PASS Template 3M2.R3-T2: render, input, mark, feedback focus
+PASS Template 3M2.R3-T3: render, input, mark, feedback focus
+PASS Template 3M3.R3-T1: render, input, mark, feedback focus
+PASS Template 3M3.R3-T2: render, input, mark, feedback focus
+PASS Template 3M3.R3-T3: render, input, mark, feedback focus
+PASS Template 3M4.R3-T1: render, input, mark, feedback focus
+PASS Template 3M4.R3-T2: render, input, mark, feedback focus
+PASS Template 3M4.R3-T3: render, input, mark, feedback focus
+PASS Template 3M5.R3-T1: render, input, mark, feedback focus
+PASS Template 3M5.R3-T2: render, input, mark, feedback focus
+PASS Template 3M5.R3-T3: render, input, mark, feedback focus
+PASS Template 4M1.R3-T1: render, input, mark, feedback focus
+PASS Template 4M1.R3-T2: render, input, mark, feedback focus
+PASS Template 4M1.R3-T3: render, input, mark, feedback focus
+PASS Template 4M2.R3-T1: render, input, mark, feedback focus
+PASS Template 4M2.R3-T2: render, input, mark, feedback focus
+PASS Template 4M2.R3-T3: render, input, mark, feedback focus
+PASS Template 5M1.R3-T1: render, input, mark, feedback focus
+PASS Template 5M1.R3-T2: render, input, mark, feedback focus
+PASS Template 5M1.R3-T3: render, input, mark, feedback focus
+PASS Template 5M2.R3-T1: render, input, mark, feedback focus
+PASS Template 5M2.R3-T2: render, input, mark, feedback focus
+PASS Template 5M2.R3-T3: render, input, mark, feedback focus
+PASS Template 6M1.R3-T1: render, input, mark, feedback focus
+PASS Template 6M1.R3-T2: render, input, mark, feedback focus
+PASS Template 6M1.R3-T3: render, input, mark, feedback focus
+PASS Template 6M2.R3-T1: render, input, mark, feedback focus
+PASS Template 6M2.R3-T2: render, input, mark, feedback focus
+PASS Template 6M2.R3-T3: render, input, mark, feedback focus
+PASS Template 6M3.R3-T1: render, input, mark, feedback focus
+PASS Template 6M3.R3-T2: render, input, mark, feedback focus
+PASS Template 6M3.R3-T3: render, input, mark, feedback focus
+PASS Template 6M4.R3-T1: render, input, mark, feedback focus
+PASS Template 6M4.R3-T2: render, input, mark, feedback focus
+PASS Template 6M4.R3-T3: render, input, mark, feedback focus
+PASS Template 6M5.R3-T1: render, input, mark, feedback focus
+PASS Template 6M5.R3-T2: render, input, mark, feedback focus
+PASS Template 6M5.R3-T3: render, input, mark, feedback focus
+PASS Template 1S1.R3-T1: render, input, mark, feedback focus
+PASS Template 1S1.R3-T2: render, input, mark, feedback focus
+PASS Template 1S1.R3-T3: render, input, mark, feedback focus
+PASS Template 1S2.R3-T1: render, input, mark, feedback focus
+PASS Template 1S2.R3-T2: render, input, mark, feedback focus
+PASS Template 1S2.R3-T3: render, input, mark, feedback focus
+PASS Template 1S3.R3-T1: render, input, mark, feedback focus
+PASS Template 1S3.R3-T2: render, input, mark, feedback focus
+PASS Template 1S3.R3-T3: render, input, mark, feedback focus
+PASS Template 2S1.R3-T1: render, input, mark, feedback focus
+PASS Template 2S1.R3-T2: render, input, mark, feedback focus
+PASS Template 2S1.R3-T3: render, input, mark, feedback focus
+PASS Template 2S2.R3-T1: render, input, mark, feedback focus
+PASS Template 2S2.R3-T2: render, input, mark, feedback focus
+PASS Template 2S2.R3-T3: render, input, mark, feedback focus
+PASS Template 2S3.R3-T1: render, input, mark, feedback focus
+PASS Template 2S3.R3-T2: render, input, mark, feedback focus
+PASS Template 2S3.R3-T3: render, input, mark, feedback focus
+PASS Template 2S4.R3-T1: render, input, mark, feedback focus
+PASS Template 2S4.R3-T2: render, input, mark, feedback focus
+PASS Template 2S4.R3-T3: render, input, mark, feedback focus
+PASS Template 3S1.R3-T1: render, input, mark, feedback focus
+PASS Template 3S1.R3-T2: render, input, mark, feedback focus
+PASS Template 3S1.R3-T3: render, input, mark, feedback focus
+PASS Template 3S2.R3-T1: render, input, mark, feedback focus
+PASS Template 3S2.R3-T2: render, input, mark, feedback focus
+PASS Template 3S2.R3-T3: render, input, mark, feedback focus
+PASS Template 4S1.R3-T1: render, input, mark, feedback focus
+PASS Template 4S1.R3-T2: render, input, mark, feedback focus
+PASS Template 4S1.R3-T3: render, input, mark, feedback focus
+PASS Template 4S2.R3-T1: render, input, mark, feedback focus
+PASS Template 4S2.R3-T2: render, input, mark, feedback focus
+PASS Template 4S2.R3-T3: render, input, mark, feedback focus
+PASS Template 4S3.R3-T1: render, input, mark, feedback focus
+PASS Template 4S3.R3-T2: render, input, mark, feedback focus
+PASS Template 4S3.R3-T3: render, input, mark, feedback focus
+PASS Template 5S1.R3-T1: render, input, mark, feedback focus
+PASS Template 5S1.R3-T2: render, input, mark, feedback focus
+PASS Template 5S1.R3-T3: render, input, mark, feedback focus
+PASS Template 5S2.R3-T1: render, input, mark, feedback focus
+PASS Template 5S2.R3-T2: render, input, mark, feedback focus
+PASS Template 5S2.R3-T3: render, input, mark, feedback focus
+PASS Template 6S1.R3-T1: render, input, mark, feedback focus
+PASS Template 6S1.R3-T2: render, input, mark, feedback focus
+PASS Template 6S1.R3-T3: render, input, mark, feedback focus
+PASS Template 2D1.R3-T1: render, input, mark, feedback focus
+PASS Template 2D1.R3-T2: render, input, mark, feedback focus
+PASS Template 2D1.R3-T3: render, input, mark, feedback focus
+PASS Template 3D1.R3-T1: render, input, mark, feedback focus
+PASS Template 3D1.R3-T2: render, input, mark, feedback focus
+PASS Template 3D1.R3-T3: render, input, mark, feedback focus
+PASS Template 4D1.R3-T1: render, input, mark, feedback focus
+PASS Template 4D1.R3-T2: render, input, mark, feedback focus
+PASS Template 4D1.R3-T3: render, input, mark, feedback focus
+PASS Template 5D1.R3-T1: render, input, mark, feedback focus
+PASS Template 5D1.R3-T2: render, input, mark, feedback focus
+PASS Template 5D1.R3-T3: render, input, mark, feedback focus
+PASS Template 6D1.R3-T1: render, input, mark, feedback focus
+PASS Template 6D1.R3-T2: render, input, mark, feedback focus
+PASS Template 6D1.R3-T3: render, input, mark, feedback focus
+PASS Template 6D2.R3-T1: render, input, mark, feedback focus
+PASS Template 6D2.R3-T2: render, input, mark, feedback focus
+PASS Template 6D2.R3-T3: render, input, mark, feedback focus
+PASS Template 6D3.R3-T1: render, input, mark, feedback focus
+PASS Template 6D3.R3-T2: render, input, mark, feedback focus
+PASS Template 6D3.R3-T3: render, input, mark, feedback focus
+PASS Template 6D4.R3-T1: render, input, mark, feedback focus
+PASS Template 6D4.R3-T2: render, input, mark, feedback focus
+PASS Template 6D4.R3-T3: render, input, mark, feedback focus
+PASS Template 5A1.R3-T1: render, input, mark, feedback focus
+PASS Template 5A1.R3-T2: render, input, mark, feedback focus
+PASS Template 5A1.R3-T3: render, input, mark, feedback focus
+PASS Template 5A2.R3-T1: render, input, mark, feedback focus
+PASS Template 5A2.R3-T2: render, input, mark, feedback focus
+PASS Template 5A2.R3-T3: render, input, mark, feedback focus
+PASS Template 6A1.R3-T1: render, input, mark, feedback focus
+PASS Template 6A1.R3-T2: render, input, mark, feedback focus
+PASS Template 6A1.R3-T3: render, input, mark, feedback focus
+PASS Template O-R3-L2-inverse-T1: render, input, mark, feedback focus
+PASS Template O-R3-L2-inverse-T2: render, input, mark, feedback focus
+PASS Template O-R3-L2-inverse-T3: render, input, mark, feedback focus
+PASS Template O-R3-L2-count-T1: render, input, mark, feedback focus
+PASS Template O-R3-L2-count-T2: render, input, mark, feedback focus
+PASS Template O-R3-L2-count-T3: render, input, mark, feedback focus
+PASS Template O-R3-L2-geometry-T1: render, input, mark, feedback focus
+PASS Template O-R3-L2-geometry-T2: render, input, mark, feedback focus
+PASS Template O-R3-L2-geometry-T3: render, input, mark, feedback focus
+PASS Template O-R3-L2-logic-T1: render, input, mark, feedback focus
+PASS Template O-R3-L2-logic-T2: render, input, mark, feedback focus
+PASS Template O-R3-L2-logic-T3: render, input, mark, feedback focus
+PASS Template O-R3-L2-applied-T1: render, input, mark, feedback focus
+PASS Template O-R3-L2-applied-T2: render, input, mark, feedback focus
+PASS Template O-R3-L2-applied-T3: render, input, mark, feedback focus
+PASS Template O-R3-L3-inverse-T1: render, input, mark, feedback focus
+PASS Template O-R3-L3-inverse-T2: render, input, mark, feedback focus
+PASS Template O-R3-L3-inverse-T3: render, input, mark, feedback focus
+PASS Template O-R3-L3-count-T1: render, input, mark, feedback focus
+PASS Template O-R3-L3-count-T2: render, input, mark, feedback focus
+PASS Template O-R3-L3-count-T3: render, input, mark, feedback focus
+PASS Template O-R3-L3-geometry-T1: render, input, mark, feedback focus
+PASS Template O-R3-L3-geometry-T2: render, input, mark, feedback focus
+PASS Template O-R3-L3-geometry-T3: render, input, mark, feedback focus
+PASS Template O-R3-L3-logic-T1: render, input, mark, feedback focus
+PASS Template O-R3-L3-logic-T2: render, input, mark, feedback focus
+PASS Template O-R3-L3-logic-T3: render, input, mark, feedback focus
+PASS Template O-R3-L3-applied-T1: render, input, mark, feedback focus
+PASS Template O-R3-L3-applied-T2: render, input, mark, feedback focus
+PASS Template O-R3-L3-applied-T3: render, input, mark, feedback focus
+PASS Template O-R3-L4-inverse-T1: render, input, mark, feedback focus
+PASS Template O-R3-L4-inverse-T2: render, input, mark, feedback focus
+PASS Template O-R3-L4-inverse-T3: render, input, mark, feedback focus
+PASS Template O-R3-L4-count-T1: render, input, mark, feedback focus
+PASS Template O-R3-L4-count-T2: render, input, mark, feedback focus
+PASS Template O-R3-L4-count-T3: render, input, mark, feedback focus
+PASS Template O-R3-L4-geometry-T1: render, input, mark, feedback focus
+PASS Template O-R3-L4-geometry-T2: render, input, mark, feedback focus
+PASS Template O-R3-L4-geometry-T3: render, input, mark, feedback focus
+PASS Template O-R3-L4-logic-T1: render, input, mark, feedback focus
+PASS Template O-R3-L4-logic-T2: render, input, mark, feedback focus
+PASS Template O-R3-L4-logic-T3: render, input, mark, feedback focus
+PASS Template O-R3-L4-applied-T1: render, input, mark, feedback focus
+PASS Template O-R3-L4-applied-T2: render, input, mark, feedback focus
+PASS Template O-R3-L4-applied-T3: render, input, mark, feedback focus
+PASS No JavaScript errors across all template DOM operations
+PASS 1280px English subject buttons are visible with no page overflow
+PASS 1280px maths catalogue has no horizontal content overflow
+PASS 1280px question and submit button visible
+PASS 768px English subject buttons are visible with no page overflow
+PASS 768px maths catalogue has no horizontal content overflow
+PASS 768px question and submit button visible
+PASS 390px English subject buttons are visible with no page overflow
+PASS 390px maths catalogue has no horizontal content overflow
+PASS 390px question and submit button visible
+PASS 320px English subject buttons are visible with no page overflow
+PASS 320px maths catalogue has no horizontal content overflow
+PASS 320px question and submit button visible
+TOTAL 429 {'PASS': 419, 'FAIL': 10}

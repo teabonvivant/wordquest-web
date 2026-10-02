@@ -1,0 +1,55 @@
+# p40 arcade overlay (N5)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS fixture: 60 coins, nothing used | {'stars': 60, 'used': 0, 'playing': False, 'reason': 'ready', 'game': '', 'phase': '', 'lives': None, 'run': '', 'done': False, 'route': 'kid', 'overlay': False, 'title': '', 'ledger': 0}
+PASS lobby: "確認投 1 幣開始" present, enabled and not locked | {'text': 'W 確認投 1 幣開始', 'disabled': False, 'locked': False}
+PASS lobby: confirm charges exactly one coin and opens the ready screen | {'stars': 59, 'used': 1, 'playing': False, 'reason': 'ready', 'game': 'ruins-courier', 'phase': 'ready', 'lives': 3, 'run': 'coin_e1180ae3-6056-4002-8dc5-f37da8d14187', 'done': False, 'route': 'playground', 'overlay': True, 'title': '準備好了？', 'ledger': 1}
+PASS ready screen: "開始遊戲" is never locked | {'text': '開始遊戲', 'disabled': False, 'locked': False}
+PASS playing: overlay hidden and no leftover lock
+PASS ruins-courier: the bot died by itself while mashing Space | 11.8s finished
+PASS [B] ruins-courier natural death: default focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] ruins-courier natural death: the next Space does not spend a coin | coins -0 used +0 title='這一局結束'
+PASS [B] ruins-courier natural death: the "這一局結束" result stays on screen | 這一局結束
+PASS [B] finished screen: default focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] finished screen: focus is not on a coin-spending button | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS finished screen: "再投 1 幣" text unchanged | {'text': '再投 1 幣', 'disabled': True, 'locked': True, 'barH': '5px', 'barAnim': 'a33-lock', 'cursor': 'progress'}
+PASS [B] lock: the coin button is natively disabled while locked | {'text': '再投 1 幣', 'disabled': True, 'locked': True, 'barH': '5px', 'barAnim': 'a33-lock', 'cursor': 'progress'}
+PASS [B] lock: a progress bar runs along the locked button | {'text': '再投 1 幣', 'disabled': True, 'locked': True, 'barH': '5px', 'barAnim': 'a33-lock', 'cursor': 'progress'}
+PASS game keys (arrows, WASD, Z, 1, Shift) on the finished screen never start a game or spend | {'stars': 59, 'used': 1, 'playing': False, 'reason': 'finished', 'game': 'ruins-courier', 'phase': 'finished', 'lives': 0, 'run': 'coin_0978e5ef-ca2f-4667-9b27-4bea1edd2d39', 'done': True, 'route': 'playground', 'overlay': True, 'title': '這一局結束', 'ledger': 3}
+PASS [B] lock: re-rendering the screen during the lock keeps the button locked | {'text': '再投 1 幣', 'disabled': True, 'locked': True, 'barH': '5px', 'barAnim': 'a33-lock', 'cursor': 'progress'}
+PASS lock: released after 700 ms (disabled and bar gone) | {'text': '再投 1 幣', 'disabled': False, 'locked': False, 'barH': 'auto', 'barAnim': 'none', 'cursor': 'pointer'}
+PASS lock: the same screen locks only once (a re-render after the release stays unlocked) | {'text': '再投 1 幣', 'disabled': False, 'locked': False, 'barH': 'auto', 'barAnim': 'none', 'cursor': 'pointer'}
+PASS [B] after the lock: focus is still 返回大堂 (nothing steals it back) | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS after the lock: an explicit click on "再投 1 幣" charges exactly one coin and opens a new run | {'stars': 58, 'used': 2, 'playing': False, 'reason': 'ready', 'game': 'ruins-courier', 'phase': 'ready', 'lives': 3, 'run': 'coin_99542cbf-b3c7-4577-8de5-21d16423d6bf', 'done': False, 'route': 'playground', 'overlay': True, 'title': '準備好了？', 'ledger': 4}
+PASS new run: ready screen reports 2/5 coins used and "開始遊戲" is free | 這輪已投 2/5 幣；不會自動續幣。
+PASS [B] lock: Space right after the end does not spend a coin | in_window=True coins -0 used +0
+PASS [B] lock: Space right after the end leaves the result on screen | 這一局結束
+PASS [B] lock: Enter right after the end does not spend a coin | in_window=True coins -0 used +0
+PASS [B] lock: Enter right after the end leaves the result on screen | 這一局結束
+PASS [B] lock: a mouse click on the locked button does nothing | in_window=True (0, 0)
+PASS [B] hold-through: Space held across the game end, then released, spends nothing | (0, 0) 這一局結束
+PASS [B] hold on screen: Space pressed and released inside the lock spends nothing | (0, 0)
+PASS [B] hold past the lock: Space pressed in the lock and released after it spends nothing | (0, 0)
+PASS [B] after the lock a fresh Enter on the focused 返回大堂 leaves to the lobby | game
+PASS [B] Enter held (auto-repeat) inside the lock spends nothing | (0, 0)
+PASS Tab path (Enter): the coin button can be focused with the keyboard after the lock | {'tag': 'BUTTON', 'act': 'buy', 'id': '', 'disabled': False, 'text': '再投 1 幣'}
+PASS Tab path (Enter): Enter on the focused coin button charges exactly one coin | (1, 1) 準備好了？
+PASS Tab path (Space): the coin button can be focused with the keyboard after the lock | {'tag': 'BUTTON', 'act': 'buy', 'id': '', 'disabled': False, 'text': '再投 1 幣'}
+PASS Tab path (Space): Space on the focused coin button charges exactly one coin | (1, 1) 準備好了？
+PASS [B] bounce-basket: finished screen focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] bounce-basket: Space right after the end does not spend a coin | (0, 0) 這一局結束
+PASS [B] meadow-cricket: finished screen focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] meadow-cricket: Space right after the end does not spend a coin | (0, 0) 這一局結束
+PASS [B] star-rhythm: finished screen focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] star-rhythm: Space right after the end does not spend a coin | (0, 0) 這一局結束
+PASS [B] sweet-studio: finished screen focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] sweet-studio: Space right after the end does not spend a coin | (0, 0) 這一局結束
+PASS drift-path retry screen: "再試一次" stays the focused default (it costs no coin) | {'tag': 'BUTTON', 'act': 'retry', 'id': '', 'disabled': False, 'text': '再試一次 · 不扣幣'}
+PASS [B] drift-path retry screen: Space right after the end does not skip the result | playing=False phase=retry
+PASS drift-path retry screen: after the lock the keyboard still starts the retry without a coin | {'stars': 59, 'used': 1, 'playing': True, 'reason': '', 'game': 'drift-path', 'phase': 'playing', 'lives': 2, 'run': 'coin_cb8f7ac3-52e8-4a70-b654-9779ee33c8f5', 'done': False, 'route': 'playground', 'overlay': False, 'title': '', 'ledger': 21}
+PASS [B] drift-path retry -> finished: default focus is 返回大堂 | {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] drift-path retry -> finished: Space right after the end does not spend a coin | (0, 0)
+PASS [B] drift-path retry -> finished: the second settlement screen is locked again (new screen, new lock) | {'text': '再投 1 幣', 'disabled': True, 'locked': True, 'barH': '5px', 'barAnim': 'a33-lock', 'cursor': 'progress'}
+PASS free-test screen: the button reads "重新測試" | {'text': '重新測試', 'disabled': True}
+PASS [B] free-test screen: locked like the coin button, focus on 返回大堂 | {'text': '重新測試', 'disabled': True} {'tag': 'BUTTON', 'act': 'leave', 'id': '', 'disabled': False, 'text': '返回大堂'}
+PASS [B] free-test screen: Space right after the end does not restart | 這一局結束
+PASS no page errors | []
+SUMMARY p40 arcade overlay (N5): 53/53 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 41s

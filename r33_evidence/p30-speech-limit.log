@@ -1,0 +1,17 @@
+PASS race: 8 requests that flush headers first and send the body after 200 ms -> 2 reach upstream, 6 get 429 :: 200x2 429x6 upstream calls=2 peak concurrency=2
+PASS 4 deferred-body requests: upstream concurrency never above 2, split 2x200 / 2x429 :: 200x2 429x2 peak=2
+PASS regression: immediate burst of 6 requests, slow upstream -> peak concurrency 2, 4 get 429 :: 200x2 429x4 peak=2
+PASS malformed JSON x5 leaves no slot behind (two valid requests still run together)
+PASS aborted connections (headers only / half a body) leave no slot behind
+PASS body never sent: 408 after the (shortened) body deadline, with Connection: close :: status 408 after 304 ms
+PASS slow trickle (1 byte / 80 ms) hits the total deadline, not an idle timer :: status 408 after 602 ms
+PASS after two stalled bodies time out (408), both slots are free again
+PASS client disconnect during the upstream call aborts it and frees the slot at once :: upstream aborted=2, follow-up status 200
+PASS upstream exception x5 (502) leaves no slot behind
+PASS upstream call receives a live AbortSignal (18 s cap kept)
+PASS over 10 KB body: 413 is delivered over a real socket and the slot is freed
+PASS quota: 60 requests / 10 minutes still enforced (61st is 429)
+PASS quota: requests that fail before upstream (bad JSON, 413, 408) do not use up the 60
+PASS upstream hung for 26 s is cut at ~18 s (502), the call is aborted and the slot is freed :: hung call -> 502 after 18016 ms, aborted=1, next request 200
+PASS default body deadline is 10 s (408 between 9 s and 12.5 s) :: status 408 after 10014 ms
+TOTAL 16 PASS 16 FAIL 0 (server: server/local_server.mjs)

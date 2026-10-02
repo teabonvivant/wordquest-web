@@ -1,0 +1,82 @@
+# p20 rescue (WQ32-01) | app under test: /home/claude/teabonvivant/wordquest-web/app/index.html
+PASS A0 normal state is writable before the marker
+PASS A1 journal really is missing (reproduction)
+PASS A2 ordinary writes stay blocked (canWrite false)
+PASS A3 ordinary save() stays blocked
+PASS A4 ordinary save() did not touch stored data
+PASS A5 family panel opens although the marker exists
+PASS A6 no parent gate is drawn (parent already verified)
+PASS A7 panel explains the situation (journal missing)
+PASS A8 panel gives the restore-from-backup guidance
+PASS A9 plan / voice / legacy-maths buttons are disabled during rescue
+PASS A10 "恢復中斷交易" still reports the missing journal and changes nothing
+PASS A11 restore preview shows the backup child and the rescue note
+PASS A12 valid backup restores: data is the backup (A原版)
+PASS A13 marker cleared and no journal left
+PASS A14 media of the backup is back
+PASS A15 writes work again after the restore
+PASS A16 restore dialog closed after success
+PASS B1 a journal row exists but is damaged (reproduction)
+PASS B2 ordinary writes stay blocked
+PASS B3 panel opens and says the journal is damaged
+PASS B4 valid backup restores through the damaged journal
+PASS B5 data is the backup, marker and damaged journal gone
+PASS B6 writes work again
+PASS C1 restore fails when the media write fails
+PASS C2 failed restore: marker still prepared, stored data identical
+PASS C3 failed restore: no leftover journal (there was none) and still blocked
+PASS C4 live data is unchanged in memory
+PASS C5 retrying after the failure succeeds
+PASS C6 restore AND rollback fail: error says the journal was kept
+PASS C7 double failure: marker kept, loadBlocked set
+PASS C8 double failure: a valid "rescue-before" journal holds the live data
+PASS C9 double failure: stored data identical to before
+PASS C10 the kept journal is usable by "恢復中斷交易"
+PASS C11 failed rescue with a damaged journal puts the original journal row back
+PASS C12 snapshot journal cannot be written: nothing is changed
+PASS C13 journal cleanup failure after replacement leaves marker "committed" and blocks
+PASS C14 recovery finishes the committed rescue: backup data kept, marker gone
+PASS D1 valid journal: restore is refused and points to "恢復中斷交易"
+PASS D2 valid journal: nothing changed, journal kept
+PASS D3 valid journal: clear-account is refused too
+PASS D4 panel says to recover first and disables "還原家庭備份"
+PASS D5 "恢復中斷交易" restores the pre-transaction state and clears the marker
+PASS D6 marker committed without journal: restore refused, recovery is the way
+PASS D7 marker committed: "恢復中斷交易" clears it without a journal
+PASS D6 marker rolled-back without journal: restore refused, recovery is the way
+PASS D7 marker rolled-back: "恢復中斷交易" clears it without a journal
+PASS E1 unreadable journal store: restore refused, nothing changed
+PASS E2 unreadable journal store: clear-account refused as well
+PASS F1 clear-account asks first, with the stronger rescue warning
+PASS F2 cancelling changes nothing
+PASS F3 confirmed clear-account succeeds during a rescue (success toast, no error)
+PASS F4 data cleared, marker removed, journal gone
+PASS F5 custom media cleared and writes work again
+PASS F6 the panel offers "清除目前帳戶資料" as the last resort and it works
+PASS G0 running normally: lease held, writable
+PASS G1 capability error no longer blames "another tab"
+PASS G2 tool-bar toast says the last family transaction is unfinished
+PASS H1 unknown marker: panel opens and says the marker content is unknown
+PASS H2 unknown marker: valid backup restores and clears it
+PASS I1 rescue export is allowed and contains the live children
+PASS I2 panel export warns that the backup may be incomplete
+PASS I3 rescue export refuses when the stored main data is missing
+PASS I4 rescue export refuses damaged stored main data
+PASS J1 device-health dialog opens while a marker exists
+PASS K1 startup message points to family management
+PASS K2 recovery banner has a family-management / restore button
+PASS K3 after reload ordinary writes are still blocked
+PASS K4 banner button opens the family panel after parent verification
+PASS L1 no marker: restore works as before
+PASS L2 no marker: failed restore rolls back through the journal (marker and journal gone, data unchanged)
+PASS L3 no marker: still writable after the rollback
+PASS L4 no marker: clear-account uses the original confirmation and works
+PASS M1 expired parent verification: rescue restore refused
+PASS M2 no write lease: rescue restore refused
+PASS M3 data transaction busy: rescue restore refused
+PASS M4 rescue never relaxed ordinary writes during any of the above
+PASS N1 damaged family settings: the panel still opens (minimal rescue panel)
+PASS N2 damaged family settings: a valid backup still restores
+PASS N3 after that the family settings are valid again and writes work
+PASS no uncaught page errors
+# TOTAL 80 checks, 80 pass, 0 fail

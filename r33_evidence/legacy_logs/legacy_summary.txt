@@ -1,0 +1,12 @@
+r3_release rc=0 secs=203
+r31_all rc=0 secs=246
+r32_release rc=0 secs=119
+arcade_core rc=0 secs=2
+arcade_browser_arcade.py rc=0 secs=44
+arcade_browser_compatibility.py rc=0 secs=18
+arcade_browser_probe.py rc=0 secs=5
+arcade_browser_safety.py rc=0 secs=22
+arcade_r1_regression.py rc=1 secs=179
+tests_smoke rc=0 secs=4
+tests_integration rc=1 secs=175
+DONE

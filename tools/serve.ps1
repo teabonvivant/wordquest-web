@@ -15,7 +15,7 @@ Write-Host "WordQuest R3: $url"
 Write-Host 'Keep this window open. Ctrl+C stops the server. Only this computer can connect.'
 Write-Host 'For fixed cloud voice use START_WITH_VOICE.cmd instead. Do not run both on the same port.'
 Start-Process $url
-$types = @{ '.html'='text/html; charset=utf-8'; '.js'='application/javascript; charset=utf-8'; '.css'='text/css; charset=utf-8'; '.json'='application/json'; '.wasm'='application/wasm'; '.gz'='application/gzip'; '.png'='image/png'; '.jpg'='image/jpeg'; '.webp'='image/webp'; '.svg'='image/svg+xml'; '.wav'='audio/wav'; '.mp3'='audio/mpeg'; '.ogg'='audio/ogg'; '.mp4'='audio/mp4'; '.txt'='text/plain; charset=utf-8' }
+$types = @{ '.html'='text/html; charset=utf-8'; '.js'='application/javascript; charset=utf-8'; '.css'='text/css; charset=utf-8'; '.json'='application/json'; '.webmanifest'='application/manifest+json'; '.wasm'='application/wasm'; '.gz'='application/gzip'; '.png'='image/png'; '.jpg'='image/jpeg'; '.webp'='image/webp'; '.svg'='image/svg+xml'; '.wav'='audio/wav'; '.mp3'='audio/mpeg'; '.ogg'='audio/ogg'; '.mp4'='audio/mp4'; '.txt'='text/plain; charset=utf-8' }
 try {
  while ($true) {
   $client = $listener.AcceptTcpClient()

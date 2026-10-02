@@ -1,0 +1,7 @@
+{'suite': 'characters_core', 'returncode': 0, 'seconds': 0.07, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'family_contracts', 'returncode': 0, 'seconds': 0.22, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'arcade_regression', 'returncode': 0, 'seconds': 2.03, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'characters_browser', 'returncode': 0, 'seconds': 13.9, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'family_browser', 'returncode': 0, 'seconds': 6.52, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'integration_regression', 'returncode': 0, 'seconds': 179.2, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}
+{'suite': 'arcade_browser', 'returncode': 0, 'seconds': 43.86, 'appSha256': 'e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2'}

@@ -1,8 +1,8 @@
-# WordQuest R3.2
+# WordQuest R3.3
 
 完整的英文學習、普通數學、奧數及森林學園街機程式。此倉庫保存 R3.2 完整包的全部程式、教材、角色素材、開發模組、歷史原件、文件及測試證據，並附上 2026-09-30 的完整漏洞審查。
 
-**R3.2 是驗收候選版。審查發現的四項問題尚未修復；上傳版本保留原始交付內容。**
+**R3.3 是止血版（驗收候選）：R3.2 審查找到的四項問題與手機版面問題已修復並各有回歸測試；沒有真機、真人兒童、教師審核及真實默書相片 OCR 驗證，也不是商用版。** 做了什麼、怎樣重建與測試、已知限制，見 [README_R3_3.md](README_R3_3.md)。R3.2 原件保存在 `originals/R3_2/`。
 
 ## 開啟程式
 
@@ -12,7 +12,7 @@
 node server/local_server.mjs
 ```
 
-然後開啟 `http://127.0.0.1:8765/app/index.html`。本機伺服器預設只監聽迴路位址。完整操作及升級說明見 [README_R3_2.md](README_R3_2.md)。
+然後開啟 `http://127.0.0.1:8765/app/index.html`。本機伺服器預設只監聽迴路位址。完整操作及升級說明見 [README_R3_3.md](README_R3_3.md)（R3.2 的原生裝置驗收流程見 [README_R3_2.md](README_R3_2.md)）。
 
 更換版本、瀏覽器或網址前，請先在家長頁匯出家庭完整備份。本倉庫不包含使用者裝置內的真實學員紀錄；測試證據使用人工測試資料。家庭備份包含姓名及學習紀錄，請自行妥善保管。
 
@@ -37,7 +37,7 @@ node server/local_server.mjs
 
 完整報告：[WordQuest_R3_2_Vulnerability_Audit_20260930.html](docs/audit/2026-09-30/WordQuest_R3_2_Vulnerability_Audit_20260930.html)。GitHub 的檔案頁顯示原始碼；下載後以瀏覽器開啟可閱讀報告。
 
-| 等級 | 尚未修復的問題 |
+| 等級 | R3.2 審查發現的問題（R3.3 已全部修復並有回歸測試） |
 | --- | --- |
 | 高 | 復原標記存在但復原日誌遺失時，合法家庭備份也無法還原 |
 | 中 | 刪除學員後，其自訂圖片與註記仍可能留在家庭匯出媒體內 |
@@ -51,10 +51,10 @@ node server/local_server.mjs
 正常使用不需要 Python 或測試套件。重建 R3.2：
 
 ```sh
-python tools/build_r32.py
+python3 tools/build_r33.py
 ```
 
-開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.2 回歸入口：
+開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.3 新測試入口為 `python3 r33_tests/run_release.py`；R3.2 回歸入口：
 
 ```sh
 python r32_tests/run_release.py
@@ -70,4 +70,4 @@ python r32_tests/run_release.py
 7acea2291f3a58116b1cebc1c1aea618a06288789fd1bfd5462ea8810ee9639b
 ```
 
-`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 保留原交付包的清單與校驗；新增的 GitHub 首頁、忽略規則及審查證據列於 `GITHUB_UPLOAD_MANIFEST.json`。原交付包檔案保持逐位元組一致。
+`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 已更新為 R3.3（`python3 tools/package_r33.py` 重新產生）。R3.2 的原交付包清單保存在 `originals/R3_2/`；`GITHUB_UPLOAD_MANIFEST.json` 記錄 R3.2 上傳時的內容，保留不動。

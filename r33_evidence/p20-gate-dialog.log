@@ -1,0 +1,49 @@
+# p20 dialog parent gate (N11) | app under test: /home/claude/teabonvivant/wordquest-web/app/index.html
+PASS phone 1 summary dialog reached through the real import flow
+PASS phone 2 expired: the dialog stays open
+PASS phone 3 expired: an explicit message is shown INSIDE the dialog
+PASS phone 4 expired: the password box is inside the dialog and reachable (top-most element)
+PASS phone 5 expired: no gate was drawn into #app behind the dialog
+PASS phone 6 expired: nothing was saved
+PASS phone 7 wrong password: error shown in the dialog, still locked
+PASS phone 8 correct password: back in the same dialog, told to press the button again
+PASS phone 9 draft survives: title, words and the ticked confirmation are intact
+PASS phone 10 nothing was written by the verification itself (no automatic replay)
+PASS phone 11 pressing 確認加入 again saves the range and closes the dialog
+PASS phone 12 the saved range has both words
+PASS phone 13 Enter in the password box verifies
+PASS phone 14 a second expiry in the same dialog shows the box again (single box)
+PASS phone 15 buttons that need no parent check still work while expired ("繼續選字" closes the dialog)
+PASS phone 16 draft is still there after closing the dialog
+PASS phone 17 real expiry (1.2 s) behaves the same
+PASS phone 18 after verification the save goes through and nothing is left over
+PASS phone 19 not expired: saves directly, no gate anywhere
+PASS phone 20 family dialog: expired -> message and password box inside that dialog
+PASS phone 21 family dialog: after verification the same button now exports a backup
+PASS phone 22 family dialog: still open with its content
+PASS phone 23 five wrong passwords lock the box for a while, even a correct one is refused
+PASS desktop 1 summary dialog reached through the real import flow
+PASS desktop 2 expired: the dialog stays open
+PASS desktop 3 expired: an explicit message is shown INSIDE the dialog
+PASS desktop 4 expired: the password box is inside the dialog and reachable (top-most element)
+PASS desktop 5 expired: no gate was drawn into #app behind the dialog
+PASS desktop 6 expired: nothing was saved
+PASS desktop 7 wrong password: error shown in the dialog, still locked
+PASS desktop 8 correct password: back in the same dialog, told to press the button again
+PASS desktop 9 draft survives: title, words and the ticked confirmation are intact
+PASS desktop 10 nothing was written by the verification itself (no automatic replay)
+PASS desktop 11 pressing 確認加入 again saves the range and closes the dialog
+PASS desktop 12 the saved range has both words
+PASS desktop 13 Enter in the password box verifies
+PASS desktop 14 a second expiry in the same dialog shows the box again (single box)
+PASS desktop 15 buttons that need no parent check still work while expired ("繼續選字" closes the dialog)
+PASS desktop 16 draft is still there after closing the dialog
+PASS desktop 17 real expiry (1.2 s) behaves the same
+PASS desktop 18 after verification the save goes through and nothing is left over
+PASS desktop 19 not expired: saves directly, no gate anywhere
+PASS desktop 20 family dialog: expired -> message and password box inside that dialog
+PASS desktop 21 family dialog: after verification the same button now exports a backup
+PASS desktop 22 family dialog: still open with its content
+PASS desktop 23 five wrong passwords lock the box for a while, even a correct one is refused
+PASS no uncaught page errors
+# TOTAL 47 checks, 47 pass, 0 fail

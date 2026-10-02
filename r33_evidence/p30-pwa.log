@@ -1,0 +1,20 @@
+PASS manifest.webmanifest is served as manifest+json and is valid (zh-HK, WordQuest, standalone, #fff8ed / #bf4d25) :: 619 bytes
+PASS manifest icons exist, are PNG and match their declared 192 / 512 sizes :: icons/icon-192.png 192x192, icons/icon-512.png 512x512
+PASS head has <link rel=manifest> and apple-touch-icon (both resolve), theme-color kept
+PASS Chromium first load of index.html transfers under 7 MB (compressed) :: index.html first load 6293146 bytes (br)
+PASS second load revalidates with If-None-Match and downloads no body (304) :: revalidated with If-None-Match, 0 body bytes
+PASS 按「準備網頁」: service worker is registered and active (scope /app/), old stub toast is gone :: registered + active in 0.3 s
+PASS the shell cache really contains index.html (200, > 1 MB) :: wordquest-r3-shell-%2Fapp%2F-3.3.0: index.html 12229139 bytes
+PASS UI shows 已準備 + success message only after the cache check
+PASS offline (set_offline) reload still shows the app, served by the service worker :: WordQuest R3.3 · 手機版穩定與資料安全
+PASS pressing 準備網頁 again keeps exactly 1 registration and 1 shell cache
+PASS with the server process really stopped, a reload still opens the app :: node server stopped; page still opens from the cache
+PASS failure: service worker registration rejected -> not 已準備, reason shown :: '未能準備離線網頁（blocked by test）。請用 HTTPS 或 loc…' after 0.3 s
+PASS failure: sw.js is missing (404) -> not 已準備, reason shown :: '未能準備離線網頁（Failed to register a ServiceWor…' after 0.3 s
+PASS failure: install fails -> not 已準備, decided within 15 s (does not wait for the 45 s limit) :: '未能準備離線網頁（離線元件安裝失敗）。請用 HTTPS 或 localhost …' after 0.3 s
+PASS failure: worker is active but index.html is not in the cache -> not 已準備, reason shown :: '未能準備離線網頁（快取內找不到網頁）。請用 HTTPS 或 localhost …' after 0.3 s
+PASS activate removes only OLD shell caches of this scope (OCR, config, other scopes and unrelated caches stay) :: left: ['unrelated-cache', 'wordquest-r3-config', 'wordquest-r3-ocr-%2Fapp%2F-1234', 'wordquest-r3-shell-%2Fapp%2F-3.3.0', 'wordquest-r3-shell-%2Fother%2F-3.2.0']
+PASS upgrade over an active R3.2 worker: still reports ready only with a cached index.html, no hang :: ready after 0.3 s; shell caches ['wordquest-r3-shell-%2Fapp%2F-3.2.0', 'wordquest-r3-shell-%2Fapp%2F-3.3.0']
+PASS file: mode keeps the "keep this HTML file" wording, registers nothing, no manifest errors :: 你正使用已下載的 HTML 檔案，請保留這個檔案；單檔不能註冊離線網頁。
+PASS no uncaught page errors during any of the flows :: 0 errors
+TOTAL 19 PASS 19 FAIL 0 (out: /home/claude/teabonvivant/wordquest-web)

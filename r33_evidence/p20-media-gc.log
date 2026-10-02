@@ -1,0 +1,34 @@
+# p20 media GC (WQ32-02) | app under test: /home/claude/teabonvivant/wordquest-web/app/index.html
+PASS G0 seed: 6 image/note rows + 1 shared audio row exist
+PASS G1 the child and its words are gone from the family data
+PASS G2 IndexedDB holds no image/note of the deleted child
+PASS G3 the other child's media is untouched
+PASS G4 account-shared audio is untouched
+PASS G5 the tombstone is cleared after a successful cleanup
+PASS E0 dirty data from an older version exists in IndexedDB (reproduction)
+PASS E1 export succeeds
+PASS E2 export contains no orphan image/note
+PASS E3 export keeps every live image/note and the shared audio
+PASS E4 restoring a backup that carries orphans succeeds
+PASS E5 after the restore IndexedDB has no orphan and all live media
+PASS F1 cleanup failed: the deletion itself still went through
+PASS F2 cleanup failed: media rows are still there (nothing half-deleted)
+PASS F3 cleanup failed: a tombstone lists the deleted word ids
+PASS F4 the other child's data and media are untouched
+PASS F5 export during the pending cleanup already hides the orphans
+PASS F6 the timer retry removes the rows once IndexedDB works again
+PASS F7 and then the tombstone is cleared
+PASS F8 pending tombstone survives until the page is reloaded
+PASS F9 after a reload the cleanup is retried and succeeds
+PASS H1 failed deletion (family save refused): child, words and media all stay
+PASS H2 failed deletion leaves no tombstone behind
+PASS H3 cancelled confirmation: nothing deleted, no tombstone
+PASS H4 cleanup of a tombstone that also lists live word ids runs
+PASS H5 media of words that still exist is never removed
+PASS H6 the really deleted word's media is removed and the tombstone emptied
+PASS M1 two quick deletions: both children's media removed, the third child keeps its media
+PASS M2 and the tombstone ends empty
+PASS M3 while a recovery marker exists the timer does not touch IndexedDB
+PASS M4 once the marker is gone the cleanup runs
+PASS no uncaught page errors
+# TOTAL 32 checks, 32 pass, 0 fail
