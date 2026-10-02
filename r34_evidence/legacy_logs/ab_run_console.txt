@@ -1,0 +1,7 @@
+PASS A/B engine: R3.4 46/46 pass; [B] checks failing on R3.3: 37/37; [B] passing on R3.3: 0; 21s
+PASS A/B validity: R3.4 1/1 pass; [B] checks failing on R3.3: 0/0; [B] passing on R3.3: 0; 135s
+PASS A/B rules: R3.4 8/8 pass; [B] checks failing on R3.3: 4/4; [B] passing on R3.3: 0; 174s
+PASS A/B feel: R3.4 12/12 pass; [B] checks failing on R3.3: 8/8; [B] passing on R3.3: 0; 30s
+PASS A/B touch: R3.4 59/59 pass; [B] checks failing on R3.3: 36/36; [B] passing on R3.3: 0; 250s
+PASS A/B overall: 5/5 suites
+rc=0

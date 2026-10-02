@@ -1,0 +1,10 @@
+# r34 host rules (browser)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS lobby lists 26 games | 26
+PASS all 26 games: play, pause, checkpoint and snapshot verify without any storage error
+PASS [B] drift-path: standing on the last stone counts as a win (not before) | False->True
+PASS [B] moon-bells: stepping on the last bell counts as a win (not before) | False->True
+PASS [B] colour workshop: first two wrong checks are free, the third costs a chance | lives 3->3->2
+PASS [B] FX switch (動感效果) turns the feel layer off and on | True,True,True
+PASS starting a game still costs exactly one coin | 50->49
+PASS no page errors
+SUMMARY r34 host rules (browser): 8/8 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 73s

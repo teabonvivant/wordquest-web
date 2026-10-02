@@ -1,0 +1,11 @@
+FAIL Retained bank contains 28 skills and 84 templates
+FAIL Template 4N7.R3-T1: render, input, mark, feedback focus
+FAIL Template 4N7.R3-T2: render, input, mark, feedback focus
+FAIL Template 4N7.R3-T3: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T1: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T2: render, input, mark, feedback focus
+FAIL Template 6N2.R3-T3: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T1: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T2: render, input, mark, feedback focus
+FAIL Template 6N3.R3-T3: render, input, mark, feedback focus
+TOTAL 429 {'PASS': 419, 'FAIL': 10}

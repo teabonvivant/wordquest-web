@@ -3,7 +3,7 @@ import {makeServer} from '../server/local_server.mjs';import {once} from 'node:e
 const server=makeServer();server.listen(0,'127.0.0.1');await once(server,'listening');const base='http://127.0.0.1:'+server.address().port,rows=[];
 async function test(name,f){try{await f();rows.push({name,status:'pass'});}catch(e){rows.push({name,status:'fail',error:String(e)});}}
 let original;
-await test('Legacy /index.html returns current R3.3 app',async()=>{let r=await fetch(base+'/index.html');assert.equal(r.status,200);original=await r.text();assert(original.includes('WordQuest R3.3'));});
+await test('Legacy /index.html returns current R3.4 app',async()=>{let r=await fetch(base+'/index.html');assert.equal(r.status,200);original=await r.text();assert(original.includes('WordQuest R3.4'));});
 for(const p of ['/','/app','/app/','/app/index.html'])await test('Canonical alias '+p+' is byte-identical to legacy app',async()=>{const r=await fetch(base+p);assert.equal(r.status,200);assert.equal(await r.text(),original);});
 for(const p of ['/app/device-check.html','/app/device-check.js','/app/afeng-animation.html','/app/afeng-rig.js','/app/assets/forest/a-feng/front.webp','/app/sw.js'])await test('Actual local resource '+p,async()=>{const r=await fetch(base+p);assert.equal(r.status,200);assert.equal(r.headers.get('x-content-type-options'),'nosniff');assert((await r.arrayBuffer()).byteLength>0);});
 await test('HEAD current app has length but no body',async()=>{const r=await fetch(base+'/app/index.html',{method:'HEAD'});assert.equal(r.status,200);assert(Number(r.headers.get('content-length'))>1000000);assert.equal(await r.text(),'');});

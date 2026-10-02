@@ -358,7 +358,7 @@ def main():
         stop_server(prfail)
 
         dnoidx = variant('swnoindex', sw=(
-            "const S='wordquest-r3-shell-'+encodeURIComponent(new URL('./',self.location.href).pathname)+'-3.3.0';"
+            "const S='wordquest-r3-shell-'+encodeURIComponent(new URL('./',self.location.href).pathname)+'-3.4.0';"
             "self.addEventListener('install',e=>e.waitUntil(caches.open(S).then(c=>c.put(new Request('/app/other.txt'),new Response('x')))));"
             "self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));"))
         pnoidx, prnoidx = start_server(dnoidx)

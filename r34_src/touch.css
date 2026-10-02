@@ -1,0 +1,76 @@
+/* R3.4 p30: phone play layer. Additive only; the R3.3 layout stays the fallback everywhere else. */
+
+/* ---- touch keys: arcade pad feel (all sizes) ------------------------------------------------------------------------------------ */
+@media(pointer:coarse){
+ .a28-touch-key{border-radius:17px;box-shadow:0 3px 8px #2a3d4a22;transition:transform .05s,background-color .08s,box-shadow .08s;-webkit-tap-highlight-color:transparent}
+ .a28-touch-key.held{background:linear-gradient(#bfe6c6,#9fd2aa);box-shadow:0 0 0 3px #7fc08f66,inset 0 2px 6px #3b6b4a33}
+ .a28-viewport #pg-canvas{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+}
+.wq34-kg{display:contents}
+
+/* ---- portrait: "turn your phone" hint -------------------------------------------------------------------------------------------- */
+.wq34-rotate{display:none;align-items:center;gap:9px;margin:0 0 9px;padding:7px 8px 7px 12px;border-radius:14px;background:#fff2d4;color:#6b4a12;font-size:13px;line-height:1.45;font-weight:700}
+.wq34-rotate .wq34-rot-icon{font-size:20px;line-height:1;flex:none;display:inline-block;animation:wq34rot 2.6s ease-in-out infinite}
+.wq34-rotate span.wq34-rot-text{flex:1;min-width:0}
+.wq34-rotate button{flex:none;min-width:40px;min-height:40px;border:0;border-radius:11px;background:#ffe3a1;color:#7a5314;font-size:15px;font-weight:800;cursor:pointer}
+@keyframes wq34rot{0%,25%{transform:rotate(0)}55%,80%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+@media(pointer:coarse) and (orientation:portrait){.wq34-rotate{display:flex}}
+.r2-immersive .wq34-rotate{display:none!important}
+@media(prefers-reduced-motion:reduce){.wq34-rotate .wq34-rot-icon{animation:none}}
+
+/* ---- landscape phones: both thumbs get a side dock, the screen gets the full height ----------------------------------------------
+ * Left dock : direction keys (a plus shaped pad) and, below it, the game's tool buttons.
+ * Right dock: score and clock, action keys, and the system buttons.
+ * Header title and footer row are folded into the docks, so the canvas can use the full phone height. */
+@media(orientation:landscape) and (max-height:550px){
+ .a28-play.r2-immersive{--wq34-side:clamp(98px,15.5vw,134px);display:grid;gap:6px;
+  grid-template-columns:var(--wq34-side) minmax(0,1fr) var(--wq34-side);
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  grid-template-areas:'dir screen stat' 'dir screen act' 'tools screen .' 'tools screen foot'}
+ .a28-play.r2-immersive .a28-viewport{grid-area:screen;min-height:0;height:100%}
+ /* header: only the numbers stay */
+ .a28-play.r2-immersive .a28-playhead{grid-area:stat;margin:0;display:block}
+ .a28-play.r2-immersive .a28-playhead>div:first-child{display:none}
+ .a28-play.r2-immersive .a28-playstats{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:4px;min-width:0;max-width:none}
+ .a28-play.r2-immersive .a28-playstats>*{font-size:11.5px;line-height:1.25;padding:4px 8px;white-space:nowrap}
+ /* keys */
+ .a28-play.r2-immersive .a28-touch-controls{display:contents}
+ .a28-play.r2-immersive .wq34-kg-dir{grid-area:dir;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-self:center;align-content:center}
+ .a28-play.r2-immersive .wq34-kg-act{grid-area:act;display:flex;flex-direction:column;gap:6px;align-self:start}
+ .a28-play.r2-immersive .wq34-kg .a28-touch-key{flex:none;width:100%;min-width:0;min-height:52px;padding:6px 4px;font-size:14px;line-height:1.25}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="up"],.a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="down"]{grid-column:1/-1}
+ .a28-play.r2-immersive .wq34-kg-dir:not(.has-ud) .a28-touch-key{min-height:86px;font-size:15px}
+ .a28-play.r2-immersive .wq34-kg:empty{display:none}
+ .a28-play.r2-immersive .wq34-kg-act .a28-touch-key{min-height:48px;font-size:15px}
+ .a28-play.r2-immersive .wq34-kg-act.many{display:grid;grid-template-columns:1fr 1fr}
+ .a28-play.r2-immersive .wq34-kg-act.many .a28-touch-key{min-height:50px;font-size:13px;padding:4px 2px}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="up"]{order:1}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="left"]{order:2}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="right"]{order:3}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="down"]{order:4}
+ /* Falling-block tools repeat the keys; keep the dock free for the pad. */
+ .a28-play.r2-immersive[data-wq34-game="block-studio"] .a28-tools{display:none}
+ /* tools: shown in landscape now (R3.3 hid them) */
+ .a28-play.r2-immersive .a28-tools{grid-area:tools;display:grid;grid-template-columns:1fr;gap:5px;align-content:start;min-height:0;overflow-y:auto;margin:0;padding-right:2px;-webkit-overflow-scrolling:touch}
+ .a28-play.r2-immersive .a28-tools:empty{display:none}
+ .a28-play.r2-immersive .a28-tools .btn{font-size:12px;line-height:1.25;min-height:40px;padding:6px 7px;border-radius:12px;white-space:normal}
+ .a28-play.r2-immersive .pg-readable{display:none}
+ /* footer: compact 2x2 icon-ish buttons */
+ .a28-play.r2-immersive .a28-game-footer{grid-area:foot;display:block;margin:0}
+ .a28-play.r2-immersive .a28-game-footer>span{display:block;font-size:10.5px;line-height:1.35;max-height:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0 0 4px;color:#f2e5bf}
+ .a28-play.r2-immersive .a28-game-footer>div{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+ .a28-play.r2-immersive .a28-game-footer .btn{font-size:0;min-height:38px;padding:4px 2px;border-radius:12px;text-align:center}
+ .a28-play.r2-immersive .a28-game-footer .btn::after{content:attr(data-wq34s);font-size:12px;font-weight:800;line-height:1.2}
+ .a28-play.r2-immersive .a28-game-footer .btn:not([data-wq34s]){font-size:12px}
+ .a28-play.r2-immersive .a28-game-footer .btn:not([data-wq34s])::after{content:none}
+ .a28-play.r2-immersive .a28-overlaycard{max-height:100%}
+ /* Games where the finger draws or picks directly: the virtual cursor pad only adds clutter on a touch screen. */
+ @media(pointer:coarse){
+  .a28-play.r2-immersive[data-wq34-game="juice-lines"] .wq34-kg,.a28-play.r2-immersive[data-wq34-game="little-engineer"] .wq34-kg,
+  .a28-play.r2-immersive[data-wq34-game="honeycomb-puzzle"] .wq34-kg,.a28-play.r2-immersive[data-wq34-game="forest-band"] .wq34-kg{display:none}
+ }
+}
+@media(orientation:landscape) and (max-height:550px) and (max-width:700px){
+ .a28-play.r2-immersive .a28-touch-key{font-size:13px}
+ .a28-play.r2-immersive .a28-playstats>*{font-size:11px;padding:4px 5px}
+}

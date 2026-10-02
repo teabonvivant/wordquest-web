@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="light" name="color-scheme"/>
-<title>WordQuest R3.3 · 手機版穩定與資料安全</title>
+<title>WordQuest R3.4 · 街機手感與手機玩法</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
@@ -356,6 +356,124 @@ body[data-wq33-route="phonics-lesson"] #wqm-launch{display:none!important}
 
 /* N4: the import dock sits above the fixed bottom nav (it used to be underneath it). */
 @media(max-width:520px){.v20-selected-footer{bottom:var(--wq33-nav-h);padding-bottom:10px}}
+</style>
+<style id="wq34-fx-css">
+/* R3.4 p10: arcade feel layer (overlay canvas) and ready / result cards. Additive only. */
+#wq34-fx{position:absolute;left:0;top:0;pointer-events:none;z-index:4;background:transparent}
+.a28-viewport .pg-overlay{z-index:3}
+.a28-overlaycard .wq34-goalbox{display:grid;gap:7px;margin:0 0 13px;text-align:left}
+.a28-overlaycard .wq34-goal{display:block;font-weight:850;font-size:15px;line-height:1.5;color:#2f4a45;background:#e6f0e1;border-radius:12px;padding:8px 11px}
+.a28-overlaycard .wq34-how{display:block;font-size:12px;line-height:1.6;color:#5c6a72;padding:0 3px}
+.wq34-result{margin:2px 0 12px}
+.wq34-stars{display:flex;justify-content:center;gap:6px;font-size:42px;line-height:1;margin-bottom:6px}
+.wq34-stars span{color:#d9d3c2;opacity:0;transform:scale(.3) rotate(-25deg);animation:wq34star .55s calc(var(--i)*.26s + .12s) forwards cubic-bezier(.3,1.7,.5,1)}
+.wq34-stars span.on{color:#f3b72f;text-shadow:0 3px 0 #c98a1a}
+@keyframes wq34star{to{opacity:1;transform:scale(1) rotate(0)}}
+.wq34-line{display:flex;align-items:baseline;justify-content:center;gap:6px;flex-wrap:wrap;font-variant-numeric:tabular-nums;color:#2b3a4a}
+.wq34-line b{font-size:34px;line-height:1.15}
+.wq34-line>span{font-size:14px;color:#5c6a72}
+.wq34-line.sub{margin-top:2px}
+.wq34-line .wq34-best{font-size:13px;color:#6a7580}
+.wq34-line .wq34-new{background:#ffe9a8;color:#80540a;border-radius:999px;padding:2px 11px;font-weight:850;font-size:13px;animation:wq34new .7s .5s both cubic-bezier(.3,1.7,.5,1)}
+@keyframes wq34new{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.a28-overlaycard .wq34-earn{font-size:13px;line-height:1.6;color:#6b5a2e;background:#fff2d4;border-radius:10px;padding:7px 10px;margin:0 0 12px}
+.wq34-fxopt{display:flex;gap:9px;align-items:center;font-size:14px;margin-top:10px;min-height:44px}
+.wq34-fxopt input{width:22px;height:22px}
+@media(max-width:520px){
+ .a28-overlaycard .wq32-overlay-face{width:40px!important;height:40px!important;margin-bottom:2px}
+ .a28-overlaycard:has(.wq34-result) .wq32-overlay-face{display:none}
+ .a28-viewport .a28-overlaycard{padding:9px 12px}
+ .a28-overlaycard h2{margin-bottom:5px}
+ .a28-overlaycard .wq34-how{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .a28-overlaycard .wq34-goal{font-size:12.5px;padding:6px 9px}
+ .a28-overlaycard .wq34-how{font-size:10.5px;line-height:1.5}
+ .a28-overlaycard .wq34-goalbox{gap:5px;margin-bottom:9px}
+ .wq34-stars{font-size:30px;margin-bottom:3px}
+ .wq34-line b{font-size:25px}
+ .wq34-line>span,.wq34-line .wq34-best{font-size:11px}
+ .wq34-line .wq34-new{font-size:11px;padding:1px 8px}
+ .a28-overlaycard .wq34-earn{font-size:10.5px;padding:5px 8px;margin-bottom:8px}
+ .wq34-result{margin-bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){.wq34-stars span,.wq34-line .wq34-new{animation:none;opacity:1;transform:none}}
+</style>
+<style id="wq34-touch-css">
+/* R3.4 p30: phone play layer. Additive only; the R3.3 layout stays the fallback everywhere else. */
+
+/* ---- touch keys: arcade pad feel (all sizes) ------------------------------------------------------------------------------------ */
+@media(pointer:coarse){
+ .a28-touch-key{border-radius:17px;box-shadow:0 3px 8px #2a3d4a22;transition:transform .05s,background-color .08s,box-shadow .08s;-webkit-tap-highlight-color:transparent}
+ .a28-touch-key.held{background:linear-gradient(#bfe6c6,#9fd2aa);box-shadow:0 0 0 3px #7fc08f66,inset 0 2px 6px #3b6b4a33}
+ .a28-viewport #pg-canvas{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+}
+.wq34-kg{display:contents}
+
+/* ---- portrait: "turn your phone" hint -------------------------------------------------------------------------------------------- */
+.wq34-rotate{display:none;align-items:center;gap:9px;margin:0 0 9px;padding:7px 8px 7px 12px;border-radius:14px;background:#fff2d4;color:#6b4a12;font-size:13px;line-height:1.45;font-weight:700}
+.wq34-rotate .wq34-rot-icon{font-size:20px;line-height:1;flex:none;display:inline-block;animation:wq34rot 2.6s ease-in-out infinite}
+.wq34-rotate span.wq34-rot-text{flex:1;min-width:0}
+.wq34-rotate button{flex:none;min-width:40px;min-height:40px;border:0;border-radius:11px;background:#ffe3a1;color:#7a5314;font-size:15px;font-weight:800;cursor:pointer}
+@keyframes wq34rot{0%,25%{transform:rotate(0)}55%,80%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+@media(pointer:coarse) and (orientation:portrait){.wq34-rotate{display:flex}}
+.r2-immersive .wq34-rotate{display:none!important}
+@media(prefers-reduced-motion:reduce){.wq34-rotate .wq34-rot-icon{animation:none}}
+
+/* ---- landscape phones: both thumbs get a side dock, the screen gets the full height ----------------------------------------------
+ * Left dock : direction keys (a plus shaped pad) and, below it, the game's tool buttons.
+ * Right dock: score and clock, action keys, and the system buttons.
+ * Header title and footer row are folded into the docks, so the canvas can use the full phone height. */
+@media(orientation:landscape) and (max-height:550px){
+ .a28-play.r2-immersive{--wq34-side:clamp(98px,15.5vw,134px);display:grid;gap:6px;
+  grid-template-columns:var(--wq34-side) minmax(0,1fr) var(--wq34-side);
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  grid-template-areas:'dir screen stat' 'dir screen act' 'tools screen .' 'tools screen foot'}
+ .a28-play.r2-immersive .a28-viewport{grid-area:screen;min-height:0;height:100%}
+ /* header: only the numbers stay */
+ .a28-play.r2-immersive .a28-playhead{grid-area:stat;margin:0;display:block}
+ .a28-play.r2-immersive .a28-playhead>div:first-child{display:none}
+ .a28-play.r2-immersive .a28-playstats{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:4px;min-width:0;max-width:none}
+ .a28-play.r2-immersive .a28-playstats>*{font-size:11.5px;line-height:1.25;padding:4px 8px;white-space:nowrap}
+ /* keys */
+ .a28-play.r2-immersive .a28-touch-controls{display:contents}
+ .a28-play.r2-immersive .wq34-kg-dir{grid-area:dir;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-self:center;align-content:center}
+ .a28-play.r2-immersive .wq34-kg-act{grid-area:act;display:flex;flex-direction:column;gap:6px;align-self:start}
+ .a28-play.r2-immersive .wq34-kg .a28-touch-key{flex:none;width:100%;min-width:0;min-height:52px;padding:6px 4px;font-size:14px;line-height:1.25}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="up"],.a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="down"]{grid-column:1/-1}
+ .a28-play.r2-immersive .wq34-kg-dir:not(.has-ud) .a28-touch-key{min-height:86px;font-size:15px}
+ .a28-play.r2-immersive .wq34-kg:empty{display:none}
+ .a28-play.r2-immersive .wq34-kg-act .a28-touch-key{min-height:48px;font-size:15px}
+ .a28-play.r2-immersive .wq34-kg-act.many{display:grid;grid-template-columns:1fr 1fr}
+ .a28-play.r2-immersive .wq34-kg-act.many .a28-touch-key{min-height:50px;font-size:13px;padding:4px 2px}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="up"]{order:1}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="left"]{order:2}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="right"]{order:3}
+ .a28-play.r2-immersive .wq34-kg-dir .a28-touch-key[data-a28key="down"]{order:4}
+ /* Falling-block tools repeat the keys; keep the dock free for the pad. */
+ .a28-play.r2-immersive[data-wq34-game="block-studio"] .a28-tools{display:none}
+ /* tools: shown in landscape now (R3.3 hid them) */
+ .a28-play.r2-immersive .a28-tools{grid-area:tools;display:grid;grid-template-columns:1fr;gap:5px;align-content:start;min-height:0;overflow-y:auto;margin:0;padding-right:2px;-webkit-overflow-scrolling:touch}
+ .a28-play.r2-immersive .a28-tools:empty{display:none}
+ .a28-play.r2-immersive .a28-tools .btn{font-size:12px;line-height:1.25;min-height:40px;padding:6px 7px;border-radius:12px;white-space:normal}
+ .a28-play.r2-immersive .pg-readable{display:none}
+ /* footer: compact 2x2 icon-ish buttons */
+ .a28-play.r2-immersive .a28-game-footer{grid-area:foot;display:block;margin:0}
+ .a28-play.r2-immersive .a28-game-footer>span{display:block;font-size:10.5px;line-height:1.35;max-height:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0 0 4px;color:#f2e5bf}
+ .a28-play.r2-immersive .a28-game-footer>div{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+ .a28-play.r2-immersive .a28-game-footer .btn{font-size:0;min-height:38px;padding:4px 2px;border-radius:12px;text-align:center}
+ .a28-play.r2-immersive .a28-game-footer .btn::after{content:attr(data-wq34s);font-size:12px;font-weight:800;line-height:1.2}
+ .a28-play.r2-immersive .a28-game-footer .btn:not([data-wq34s]){font-size:12px}
+ .a28-play.r2-immersive .a28-game-footer .btn:not([data-wq34s])::after{content:none}
+ .a28-play.r2-immersive .a28-overlaycard{max-height:100%}
+ /* Games where the finger draws or picks directly: the virtual cursor pad only adds clutter on a touch screen. */
+ @media(pointer:coarse){
+  .a28-play.r2-immersive[data-wq34-game="juice-lines"] .wq34-kg,.a28-play.r2-immersive[data-wq34-game="little-engineer"] .wq34-kg,
+  .a28-play.r2-immersive[data-wq34-game="honeycomb-puzzle"] .wq34-kg,.a28-play.r2-immersive[data-wq34-game="forest-band"] .wq34-kg{display:none}
+ }
+}
+@media(orientation:landscape) and (max-height:550px) and (max-width:700px){
+ .a28-play.r2-immersive .a28-touch-key{font-size:13px}
+ .a28-play.r2-immersive .a28-playstats>*{font-size:11px;padding:4px 5px}
+}
 </style>
 </head>
 <body>
@@ -951,7 +1069,7 @@ function validate(id,s,d){const template=templates[id];ok(template,'未登記遊
  case 'juice-lines':xy(s.emitter);xy(s.cup);arr(s.lines,0,2000).forEach(l=>arr(l,1,5000).forEach(xy));arr(s.particles,0,2000).forEach(p=>{velocity(p);optBool(p,'gone');});if(s.current)arr(s.current,0,5000).forEach(xy);num(s.budget,1,10000);num(s.required,1,1000);break;
  case 'color-workshop':arr(s.palette,5,5);arr(s.names,5,5);arr(s.colors,4,4).forEach(n=>integer(n,0,4));arr(s.target,4,4).forEach(n=>integer(n,0,4));ok(s.mask instanceof Set,'遮罩');for(const x of s.mask)ok(['left','right','top','bottom'].includes(x),'遮罩名稱');break;
  case 'little-engineer':arr(s.design,1,12).forEach(p=>{xy(p);num(p.r,1,100);optBool(p,'wheel');optBool(p,'cargo');});ok(s.design.filter(p=>p.cargo===true).length===1,'貨箱數目');arr(s.nodes,s.design.length,s.design.length).forEach(p=>{xy(p);num(p.r,1,100);num(p.px);num(p.py);optBool(p,'wheel');optBool(p,'cargo');});ok(s.nodes.filter(p=>p.cargo===true).length===1,'模擬貨箱');arr(s.rods,0,66).forEach(e=>num(e.len,0,1000));for(const list of [s.beams,s.rods])arr(list,0,66).forEach(e=>{integer(e.a,0,s.nodes.length-1);integer(e.b,0,s.nodes.length-1);ok(e.a!==e.b,'自連桿');});if(s.sel!==null)integer(s.sel,0,s.nodes.length-1);if(s.drag!=null)integer(s.drag,0,s.design.length-1);break;
- case 'number-garden':{const val=v=>v===0||(Number.isSafeInteger(v)&&v>=2&&Math.log2(v)%1===0);matrix(s.board,4,4,val);arr(s.history,0,50).forEach(h=>{matrix(h.board,4,4,val);integer(h.moves);num(h.score,0);if(h.rng!=null)integer(h.rng,0,0xffffffff);});ok([512,1024,2048].includes(s.target),'目標');break;}
+ case 'number-garden':{const val=v=>v===0||(Number.isSafeInteger(v)&&v>=2&&Math.log2(v)%1===0);matrix(s.board,4,4,val);arr(s.history,0,50).forEach(h=>{matrix(h.board,4,4,val);integer(h.moves);num(h.score,0);if(h.rng!=null)integer(h.rng,0,0xffffffff);});ok([256,512,1024,2048].includes(s.target),'目標');break;}
  case 'color-orbit':arr(s.stacks,6,6).forEach(a=>arr(a,0,20).forEach(n=>integer(n,0,5)));integer(s.rotation,0,5);obj(s.drop);integer(s.drop.side,0,5);integer(s.drop.color,0,5);num(s.drop.r);arr(s.colors,6,6);break;
  case 'honeycomb-puzzle':arr(s.cells,7,61);ok(s.valid instanceof Set&&s.valid.size===s.cells.length,'蜂巢');ok(s.occupied instanceof Map,'佔用');for(const k of s.occupied.keys())ok(s.valid.has(k),'棋盤外');arr(s.stock,3,3).forEach(p=>{if(p!==null){obj(p);arr(p.shape,1,6).forEach(a=>arr(a,2,2).forEach(n=>integer(n,-4,4)));}});integer(s.selected,-1,2);break;
  case 'garden-paths':arr(s.cells,7,61);ok(s.valid instanceof Set&&s.valid.size===s.cells.length,'花徑');ok(s.placed instanceof Map&&s.placed.size<=61,'路片');for(const[k,p]of s.placed){ok(s.valid.has(k),'路片位置');pairs(p);}pairs(s.tile);pairs(s.reserve);obj(s.pos);integer(s.pos.entry,0,5);integer(s.rot,0,5);arr(s.path,1,250).forEach(p=>{integer(p.entry,0,5);integer(p.out,0,5)});break;
@@ -1134,6 +1252,9 @@ class WQGame{
  noticeDraw(){if(this.noticeTime>0)D.message(this.c,this.notice);}
 }
 const WQGames=[];
+/* R3.4 helpers: per-instance side state (never serialised) and the stored touch-latency calibration. */
+globalThis.wq34S=(function(){const m=new WeakMap();return function(o){let v=m.get(o);if(!v){v={};m.set(o,v);}return v;};})();
+globalThis.wq34Lat=function(){try{const v=Number(localStorage.getItem('wq34.lat'));return Number.isFinite(v)?Math.max(0,Math.min(260,v)):0;}catch(_){return 0;}};
 function registerGame(meta,Class){
  WQGames.push({...meta,Class});
  if(typeof WQGameSchema!=='undefined'){
@@ -1161,16 +1282,16 @@ class ValleyRace extends WQGame{
  startCar(){const p=this.path[0],q=this.path[1];this.car={x:p.x,y:p.y,a:Math.atan2(q.y-p.y,q.x-p.x),v:0};this.nextGate=1;this.lapTime=0;this.samples=[];this.sampleInterval=.10;}
  tool(k){if(k==='track'){if(!this.edit){this.edit=true;this.editPoints=[];this.say('在畫面點至少 5 個路點，然後按完成。');}else{if(!WQCore.validTrack(this.editPoints)){this.say('請放至少 5 個不同路點；相鄰路點相隔 25 像素，圍出有面積的賽道。');return;}this.path=this.editPoints.slice();this.lap=0;this.score=0;this.edit=false;this.ghost=[];this.ghostBest=Infinity;this.startCar();}this.toolbar();}if(k==='default'){this.edit=false;this.ghost=[];this.ghostBest=Infinity;this.lap=0;this.score=0;this.buildTrack();this.startCar();this.toolbar();}}
  pointer(type,p){if(type==='down'&&this.edit&&this.editPoints.length<18){this.editPoints.push({x:WQCore.clamp(p.x,60,740),y:WQCore.clamp(p.y,90,480)});}}
- update(dt){if(this.edit){this.stat='賽道編輯';return;}this.lapTime+=dt;const a=this.car,brake=this.keys.has('down'),steer=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);let near={d:Infinity,t:0,i:0};for(let i=0;i<this.path.length;i++){const n=WQCore.nearest(a,this.path[i],this.path[(i+1)%this.path.length]);if(n.d<near.d)near={...n,i};}const roadWidth=[43,37,32][this.d],target=brake?30:near.d>roadWidth?52:[165,195,225][this.d];a.v+=(target-a.v)*Math.min(1,dt*1.8);a.a+=steer*dt*(.7+a.v/95);a.x=WQCore.clamp(a.x+Math.cos(a.a)*a.v*dt,18,782);a.y=WQCore.clamp(a.y+Math.sin(a.a)*a.v*dt,65,525);if(!this.samples.length||this.lapTime-this.samples.at(-1).t >= (this.sampleInterval||.10)){
+ update(dt){if(this.edit){this.stat='賽道編輯';return;}this.lapTime+=dt;const a=this.car,brake=this.keys.has('down'),steer=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);let near={d:Infinity,t:0,i:0};for(let i=0;i<this.path.length;i++){const n=WQCore.nearest(a,this.path[i],this.path[(i+1)%this.path.length]);if(n.d<near.d)near={...n,i};}const roadWidth=[43,37,32][this.d],target=brake?30:near.d>roadWidth?95:[165,195,225][this.d];a.v+=(target-a.v)*Math.min(1,dt*1.8);a.a+=steer*dt*(.7+a.v/95);a.x=WQCore.clamp(a.x+Math.cos(a.a)*a.v*dt,18,782);a.y=WQCore.clamp(a.y+Math.sin(a.a)*a.v*dt,65,525);if(!this.samples.length||this.lapTime-this.samples.at(-1).t >= (this.sampleInterval||.10)){
  this.samples.push({x:Math.round(a.x*10)/10,y:Math.round(a.y*10)/10,a:Math.round(a.a*1000)/1000,t:Math.round(this.lapTime*1000)/1000});
  if(this.samples.length>1200){this.samples=this.samples.filter((_,i)=>i%2===0);this.sampleInterval=(this.sampleInterval||.10)*2;}
- }const progress=(near.i+near.t)/this.path.length,gate=this.nextGate%4/4;const pd=Math.min(Math.abs(progress-gate),1-Math.abs(progress-gate));if(pd<.035&&near.d<roadWidth+10){this.nextGate++;this.sound(420+this.nextGate*70,.07);if(this.nextGate===5){this.lap++;const lapScore=Math.max(10,Math.round(3000-this.lapTime*70));this.score+=lapScore;if(this.lapTime<this.ghostBest){this.ghostBest=this.lapTime;this.ghost=this.samples.slice();}this.say(`完成第 ${this.lap} 圈 · ${this.lapTime.toFixed(2)} 秒`);this.lapTime=0;this.samples=[];this.sampleInterval=.10;this.nextGate=1;}}this.stat=`第 ${this.lap+1} 圈 · ${this.lapTime.toFixed(1)} 秒`;}
- draw(){const c=this.c;D.bg(c);D.hills(c,490);if(this.edit){D.badge(c,'點出你的賽道，至少 5 個路點');D.line(c,this.editPoints,'#c1c5a9',64);this.editPoints.forEach((p,i)=>{D.circle(c,p.x,p.y,13,'#477c64');D.text(c,i+1,p.x,p.y,14,'white');});return;}const closed=this.path.concat(this.path[0]);D.line(c,closed,'#a1b783',100);D.line(c,closed,'#f6eed7',88-this.d*9);D.line(c,closed,'#c7be9c',2,[12,12]);for(let i=0;i<4;i++){const p=this.path[Math.floor(i*this.path.length/4)];D.circle(c,p.x,p.y,16,(this.nextGate%4===i)?'#dbad59':'#faf6e5');D.text(c,i===0?'起':i,p.x,p.y,13,'#526f50');}if(this.ghost.length){const p=this.ghost.find(p=>p.t>=this.lapTime);if(p){c.globalAlpha=.28;D.car(c,p.x,p.y,p.a,.65,'#609487');c.globalAlpha=1;}}D.car(c,this.car.x,this.car.y,this.car.a,.65);D.animal(c,398,267,.62,'fox');D.badge(c,'風谷計時賽',400,36);D.text(c,'順時針經過 1 → 2 → 3 → 起點',400,340,14,'#658158');this.noticeDraw();}
+ }const progress=(near.i+near.t)/this.path.length,gate=this.nextGate%4/4;const pd=Math.min(Math.abs(progress-gate),1-Math.abs(progress-gate));if(pd<.035&&near.d<roadWidth+10){this.nextGate++;this.sound(420+this.nextGate*70,.07);this.score+=100;if(this.nextGate===5){this.lap++;const lapScore=Math.max(10,Math.round(3000-this.lapTime*70));this.score+=lapScore;if(this.lapTime<this.ghostBest){this.ghostBest=this.lapTime;this.ghost=this.samples.slice();}this.say(`完成第 ${this.lap} 圈 · ${this.lapTime.toFixed(2)} 秒`);this.lapTime=0;this.samples=[];this.sampleInterval=.10;this.nextGate=1;}}this.stat=`第 ${this.lap+1} 圈 · ${this.lapTime.toFixed(1)} 秒`;}
+ draw(){const c=this.c;D.bg(c);D.hills(c,490);if(this.edit){D.badge(c,'點出你的賽道，至少 5 個路點');D.line(c,this.editPoints,'#c1c5a9',64);this.editPoints.forEach((p,i)=>{D.circle(c,p.x,p.y,13,'#477c64');D.text(c,i+1,p.x,p.y,14,'white');});return;}const closed=this.path.concat(this.path[0]);D.line(c,closed,'#a1b783',100);D.line(c,closed,'#f6eed7',88-this.d*9);D.line(c,closed,'#c7be9c',2,[12,12]);for(let i=0;i<4;i++){const p=this.path[Math.floor(i*this.path.length/4)];D.circle(c,p.x,p.y,16,(this.nextGate%4===i)?'#dbad59':'#faf6e5');D.text(c,i===0?'起':i,p.x,p.y,13,'#526f50');}if(this.ghost.length){const p=this.ghost.find(p=>p.t>=this.lapTime);if(p){c.globalAlpha=.28;D.car(c,p.x,p.y,p.a,.65,'#609487');c.globalAlpha=1;}}D.car(c,this.car.x,this.car.y,this.car.a,.95);D.animal(c,398,267,.62,'fox');D.badge(c,'風谷計時賽',400,36);D.text(c,'順時針經過 1 → 2 → 3 → 起點',400,340,14,'#658158');this.noticeDraw();}
 }
 registerGame({id:'valley-race',name:'風谷賽道',en:'VALLEY RACE',category:'動作',desc:'跑出一條靚路線，挑戰上一圈。',tag:'計時賽車',guide:'車會自動加速，左右鍵轉向，下鍵煞車。留在米色道路內，順時針經過四個路標。三圈完成一局。圈速只用作紀錄，不是倒數；手機用轉向及煞車按鈕。',design:'俯視 2D 賽車，包含路面減速、圈數檢查、影子車及路點編輯器；不是原作的 3D 翻圈賽車。',keys:[['left','←'],['right','→'],['down','煞車']]},ValleyRace);
 
 class DriftPath extends WQGame{
- constructor(a){super(a);this.pos={x:0,y:0};this.dir=0;this.camera={x:0,y:0};this.nodes=[{x:-150,y:0},{x:145,y:0}];for(let i=0;i<22;i++){const p=this.nodes[this.nodes.length-1],len=120+this.r()*120;this.nodes.push({x:p.x+(i%2?len:0),y:p.y+(i%2?0:-len)});}this.trail=[];this.travel=0;this.tools([]);this.hint('按一次「轉彎」就改方向；在每個轉角中心再按。');}
+ constructor(a){super(a);this.pos={x:0,y:0};this.dir=0;this.camera={x:0,y:0};this.nodes=[{x:-150,y:0},{x:330,y:0}];for(let i=0;i<22;i++){const p=this.nodes[this.nodes.length-1],len=120+this.r()*120;this.nodes.push({x:p.x+(i%2?len:0),y:p.y+(i%2?0:-len)});}this.trail=[];this.travel=0;this.tools([]);this.hint('按一次「轉彎」就改方向；在每個轉角中心再按。');}
  act(k){if(k==='action'){this.dir=1-this.dir;this.sound(330+this.dir*80,.04);}}
  update(dt){const speed=[83,108,132][this.d];this.pos.x+=this.dir===0?speed*dt:0;this.pos.y-=this.dir===1?speed*dt:0;this.travel+=speed*dt;this.camera.x+=(this.pos.x-this.camera.x)*dt*4;this.camera.y+=(this.pos.y-this.camera.y)*dt*4;this.trail.push({...this.pos});if(this.trail.length>28)this.trail.shift();const d=Math.min(...this.nodes.slice(0,-1).map((p,i)=>WQCore.nearest(this.pos,p,this.nodes[i+1]).d));if(d>[39,34,30][this.d]){this.end(`完成 ${Math.floor(this.travel/10)} 米。到轉角中心才切換方向會更穩。`,'偏離小徑了');return;}this.score=Math.floor(this.travel);this.stat=`${Math.floor(this.travel/10)} 米`;if(WQCore.distance(this.pos,this.nodes[this.nodes.length-1])<50)this.end('你完成了整條漂移小徑！','路線完成');}
  draw(){const c=this.c;D.bg(c,'blue');D.cloud(c,100,110,1.5);D.cloud(c,690,70,.9);const tr=p=>({x:310+((p.x-this.camera.x)-(p.y-this.camera.y))*.7,y:365+((p.x-this.camera.x)+(p.y-this.camera.y))*.37});const pts=this.nodes.map(tr);D.line(c,pts.map(p=>({x:p.x,y:p.y+12})),'#789b94',63);D.line(c,pts,'#f5ead1',63);D.line(c,pts,'#cbbf97',2,[8,13]);this.nodes.forEach((p,i)=>{if(i>0&&i<this.nodes.length-1){const v=tr(p);D.circle(c,v.x,v.y,5,'#d7a75c');}});D.line(c,this.trail.map(tr),'#d5997544',11);const p=tr(this.pos);D.car(c,p.x,p.y,this.dir?-Math.atan(.37/.7):Math.atan(.37/.7),.65,'#d9896c');D.badge(c,'一下轉彎，一路前進');}
@@ -1180,18 +1301,20 @@ registerGame({id:'drift-path',name:'漂移小徑',en:'DRIFT PATH',category:'動�
 class MoonBells extends WQGame{
  constructor(a){super(a);this.p={x:400,y:440,vy:-470};this.camera=0;this.maxH=0;this.bells=[{x:400,y:495,id:0}];for(let i=1;i<75;i++){const last=this.bells[i-1];this.bells.push({x:WQCore.clamp(last.x+(this.r()-.5)*(260+this.d*40),100,700),y:495-i*(75+this.d*10),id:i});}this.target=null;this.tools([]);this.hint('拖動手指／滑鼠，或按 ← →，引導兔仔落到下一個鈴鐺。');}
  pointer(type,p){if(type==='move'||type==='down')this.target=p.x;}
- update(dt){const p=this.p;const old=p.y;let dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);if(dx){p.x+=dx*380*dt;this.target=null;}else if(this.target!==null)p.x+=WQCore.clamp(this.target-p.x,-430*dt,430*dt);p.x=WQCore.clamp(p.x,30,770);p.vy+=760*dt;p.y+=p.vy*dt;if(p.vy>0)for(const b of this.bells){if(old+27<=b.y&&p.y+27>=b.y&&Math.abs(p.x-b.x)<[54,46,38][this.d]){p.y=b.y-27;p.vy=-470;if(!b.used){b.used=true;this.score+=20;this.sound(600+(b.id%8)*60,.14);}break;}}this.maxH=Math.max(this.maxH,440-p.y);this.camera=Math.min(this.camera,p.y-225);this.stat=`高度 ${Math.floor(this.maxH/10)} 米`;if(p.y-this.camera>660)this.end(`跳到 ${Math.floor(this.maxH/10)} 米。看準下一個鈴鐺，慢慢移過去。`,'今次跳到這裏');}
+ update(dt){const p=this.p;const old=p.y;let dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);if(dx){p.x+=dx*380*dt;this.target=null;}else if(this.target!==null)p.x+=WQCore.clamp(this.target-p.x,-430*dt,430*dt);p.x=WQCore.clamp(p.x,30,770);p.vy+=760*dt;p.y+=p.vy*dt;if(p.vy>0)for(const b of this.bells){if(old+27<=b.y&&p.y+27>=b.y&&Math.abs(p.x-b.x)<[54,46,38][this.d]){p.y=b.y-27;p.vy=-470;if(!b.used){b.used=true;this.score+=20;this.sound(600+(b.id%8)*60,.14);if(b.id===this.bells.length-1){this.score+=300;this.end('登上月亮了！高度 '+Math.floor(this.maxH/10)+' 米。','登上月亮');}}break;}}this.maxH=Math.max(this.maxH,440-p.y);this.camera=Math.min(this.camera,p.y-225);this.stat=`高度 ${Math.floor(this.maxH/10)} 米`;if(p.y-this.camera>660)this.end(`跳到 ${Math.floor(this.maxH/10)} 米。看準下一個鈴鐺，慢慢移過去。`,'今次跳到這裏');}
  draw(){const c=this.c;D.bg(c,'night');D.circle(c,650,88,39,'#f4deb1');D.circle(c,635,76,39,'#2a474e');for(let i=0;i<55;i++)D.star(c,(i*137+17)%800,((i*73-this.camera*.15)%580+580)%580,2+(i%2),'#e4e8cf66');for(const b of this.bells){const y=b.y-this.camera;if(y<-40||y>590)continue;D.ellipse(c,b.x,y+8,31,7,'#0b262844');D.round(c,b.x-20,y-14,40,28,12,b.used?'#a9bca7':'#eed18c');D.circle(c,b.x,y-16,7,b.used?'#a9bca7':'#f6d98e');D.line(c,[{x:b.x-22,y:y+11},{x:b.x+22,y:y+11}],'#f4e6b7',3);D.circle(c,b.x,y+15,4,'#bb9864');}D.animal(c,this.p.x,this.p.y-this.camera,.66,'rabbit','#92bda3');D.badge(c,'跟着鈴聲，跳近月亮',400,34,'#f3eedccc');}
 }
+{const U=MoonBells.prototype.update;MoonBells.prototype.update=function(dt){const p=this.p,S=wq34S(this);if(!this.done&&p.vy>0&&p.y-this.camera>590&&!S.saved){S.saved=true;p.vy=-650;this.say('月亮泡泡接住你了！');this.sound(880,.2,'triangle',.12);}return U.call(this,dt);};}
 registerGame({id:'moon-bells',name:'月光跳鈴',en:'MOON BELLS',category:'動作',desc:'引導兔仔，踏着鈴鐺向上跳。',tag:'垂直跳躍',guide:'兔仔會自動跳起。用左右方向鍵或 A、D 移動，手機用下方方向按鈕。讓兔仔下降時踏到鈴鐺，就會再次彈起。',design:'連續跳躍、上捲鏡頭、程序路線與合成鈴聲；不含傷害動畫。',keys:[['left','←'],['right','→']]},MoonBells);
 
 class ForestPong extends WQGame{
  constructor(a){super(a);this.px=400;this.ax=400;this.hits=0;this.us=0;this.ai=0;this.serve(1);this.tools([]);this.hint('左右拖動球拍；擊球位置會改變回球角度。先得 5 分取勝。');}
- serve(dir){this.ball={x:400,y:280,vx:90*(this.r()>.5?1:-1),vy:dir*[240,300,360][this.d]};this.wait=.8;}
+ serve(dir){this.ball={x:400,y:280,vx:(90+this.r()*110)*(this.r()>.5?1:-1),vy:dir*[240,300,360][this.d]};this.wait=.8;}
  pointer(type,p){if(type==='move'||type==='down')this.px=WQCore.clamp(p.x,152,648);}
- update(dt){this.px=WQCore.clamp(this.px+((this.keys.has('right')?1:0)-(this.keys.has('left')?1:0))*430*dt,152,648);if(this.wait>0){this.wait-=dt;return;}const b=this.ball,oldy=b.y;b.x+=b.vx*dt;b.y+=b.vy*dt;this.ax+=WQCore.clamp(b.x-this.ax,-[150,235,335][this.d]*dt,[150,235,335][this.d]*dt);this.ax=WQCore.clamp(this.ax,145,655);if(b.x<108){b.x=108;b.vx=Math.abs(b.vx);}if(b.x>692){b.x=692;b.vx=-Math.abs(b.vx);}if(b.vy>0&&oldy<=473&&b.y>=473&&Math.abs(b.x-this.px)<[77,65,55][this.d]){const offset=(b.x-this.px)/[77,65,55][this.d];const speed=Math.min(600,Math.hypot(b.vx,b.vy)*1.04);b.y=472;b.vx=offset*speed*.82;b.vy=-Math.sqrt(speed*speed-b.vx*b.vx);this.hits++;this.score+=10;this.sound(520,.05);}if(b.vy<0&&oldy>=87&&b.y<=87&&Math.abs(b.x-this.ax)<61){const speed=Math.min(590,Math.hypot(b.vx,b.vy)*1.03),off=(b.x-this.ax)/65;b.y=88;b.vx=off*speed*.78;b.vy=Math.sqrt(speed*speed-b.vx*b.vx);this.sound(370,.04);}if(b.y>555){this.ai++;this.serve(-1);}if(b.y<5){this.us++;this.score+=100;this.serve(1);}this.stat=`你 ${this.us} : ${this.ai} 森林隊`;if(this.us>=5||this.ai>=5)this.end(`你 ${this.us} : ${this.ai} 森林隊 · 共回球 ${this.hits} 次。`,this.us>=5?'這場贏了！':'友誼賽完成');}
+ update(dt){this.px=WQCore.clamp(this.px+((this.keys.has('right')?1:0)-(this.keys.has('left')?1:0))*430*dt,152,648);if(this.wait>0){this.wait-=dt;return;}const b=this.ball,oldy=b.y;b.x+=b.vx*dt;b.y+=b.vy*dt;this.ax+=WQCore.clamp(b.x+Math.sin(this.t*1.9)*[70,50,34][this.d]*(1+Math.min(3,(this.hits-(wq34S(this).base||0))/8))-this.ax,-[150,235,335][this.d]*dt,[150,235,335][this.d]*dt);this.ax=WQCore.clamp(this.ax,145,655);if(b.x<108){b.x=108;b.vx=Math.abs(b.vx);}if(b.x>692){b.x=692;b.vx=-Math.abs(b.vx);}if(b.vy>0&&oldy<=473&&b.y>=473&&Math.abs(b.x-this.px)<[77,65,55][this.d]){const offset=(b.x-this.px)/[77,65,55][this.d];const speed=Math.min(600,Math.hypot(b.vx,b.vy)*1.04);b.y=472;b.vx=offset*speed*.82;b.vy=-Math.sqrt(speed*speed-b.vx*b.vx);this.hits++;this.score+=10;this.sound(520,.05);}if(b.vy<0&&oldy>=87&&b.y<=87&&Math.abs(b.x-this.ax)<61){const speed=Math.min(590,Math.hypot(b.vx,b.vy)*1.03),off=(b.x-this.ax)/65;b.y=88;b.vx=off*speed*.78;b.vy=Math.sqrt(speed*speed-b.vx*b.vx);this.sound(370,.04);}if(b.y>555){this.ai++;this.serve(-1);}if(b.y<5){this.us++;this.score+=100;this.serve(1);}this.stat=`你 ${this.us} : ${this.ai} 森林隊`;if(this.us>=5||this.ai>=5)this.end(`你 ${this.us} : ${this.ai} 森林隊 · 共回球 ${this.hits} 次。`,this.us>=5?'這場贏了！':'友誼賽完成');}
  draw(){const c=this.c;D.bg(c);D.round(c,81,34,638,492,30,'#a8bd92');D.round(c,100,48,600,466,18,'#467b6a');D.round(c,116,64,568,432,8,null,'#dcebc7');D.line(c,[{x:400,y:66},{x:400,y:494}],'#dcebc777',2);D.line(c,[{x:105,y:280},{x:695,y:280}],'#e8edcd',4,[8,7]);D.round(c,this.ax-52,69,104,17,8,'#e7b06f');D.round(c,this.px-[65,53,43][this.d],475,[130,106,86][this.d],18,9,'#e6ebbc');D.ellipse(c,this.ball.x+5,this.ball.y+8,10,5,'#183a3044');D.circle(c,this.ball.x,this.ball.y,9,'#fff6da');D.text(c,'森林隊',51,85,12,'#58714d');D.text(c,'你',51,484,14,'#456c53');D.text(c,`${this.us} : ${this.ai}`,400,242,44,'#e2e6c440',700);if(this.wait>0)D.badge(c,'準備開球',400,328);}
 }
+{const S0=ForestPong.prototype.serve;ForestPong.prototype.serve=function(dir){wq34S(this).base=this.hits||0;return S0.call(this,dir);};}
 registerGame({id:'forest-pong',name:'森林乒乓',en:'FOREST PONG',category:'運動',desc:'控制落點，與森林隊來回對打。',tag:'反應球賽',guide:'用左右鍵或 A、D 控制下方球拍，手機用左右按鈕。球碰到球拍邊緣會斜飛。先取得 5 分獲勝，失 3 分則結束這局。',design:'有角度的回球物理、分級電腦對手與完整一場計分。',keys:[['left','←'],['right','→']]},ForestPong);
 
 class BounceBasket extends WQGame{
@@ -1200,21 +1323,22 @@ class BounceBasket extends WQGame{
  resetBall(){this.ball={x:170,y:397,vx:0,vy:0};this.flying=false;this.flight=0;this.scored=false;this.charge=0;}
  tool(k){if(k==='mode'){this.two=!this.two;this.player=0;this.shots=0;this.turnScores=[0,0];this.score=0;this.resetBall();this.toolbar();}if(k==='ball'&&this.flying)this.finishShot();}
  key(k,on){if(k==='action'){if(on&&!this.flying){this.charging=true;this.charge=0;}if(!on&&this.charging){this.charging=false;const v=350+this.charge*290;this.launch(v*.82,-v*.86);}}else super.key(k,on);}
- pointer(type,p){if(type==='down'&&!this.flying&&Math.hypot(p.x-this.ball.x,p.y-this.ball.y)<95){this.drag=p;this.pull=p;}if(type==='move'&&this.drag)this.pull=p;if((type==='up'||type==='cancel')&&this.drag){if(type==='up'){const dx=this.drag.x-p.x,dy=this.drag.y-p.y;this.launch(WQCore.clamp(dx*4,-550,650),WQCore.clamp(dy*4,-780,450));}this.drag=null;}}
+ pointer(type,p){if(type==='down'&&!this.flying&&Math.hypot(p.x-this.ball.x,p.y-this.ball.y)<95){this.drag=p;this.pull=p;}if(type==='move'&&this.drag)this.pull=p;if((type==='up'||type==='cancel')&&this.drag){if(type==='up'){const dx=this.drag.x-p.x,dy=this.drag.y-p.y;if(Math.hypot(dx,dy)>28)this.launch(WQCore.clamp(dx*4,-550,650),WQCore.clamp(dy*4,-780,450));}this.drag=null;}}
  launch(vx,vy){if(this.flying)return;this.ball.vx=vx;this.ball.vy=vy;this.flying=true;this.sound(280,.04);}
  finishShot(){this.shots++;this.player=this.two?1-this.player:0;this.resetBall();if(this.shots>=(this.two?10:7))this.end(this.two?`甲方 ${this.turnScores[0]} 分，乙方 ${this.turnScores[1]} 分。`:`7 球共取得 ${this.score} 分。`,'投籃練習完成');}
- update(dt){if(this.charging)this.charge=Math.min(1,this.charge+dt*.75);this.hoop.x=590+(this.d===2?Math.sin(this.t*.6)*50:0);this.hoop.y=225+(this.d===1?Math.sin(this.t*.5)*25:0);if(this.flying){const b=this.ball,oldy=b.y;b.vy+=570*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;this.flight+=dt;if(b.vy>0&&oldy<this.hoop.y&&b.y>=this.hoop.y&&Math.abs(b.x-this.hoop.x)<[39,33,28][this.d]&&!this.scored){this.scored=true;this.score+=3;this.turnScores[this.player]+=3;this.sound(850,.15);this.say('入球！+3 分');}for(const sx of [this.hoop.x-45,this.hoop.x+45]){const n=WQCore.nearest(b,{x:sx,y:this.hoop.y-2},{x:sx,y:this.hoop.y+2});if(n.d<12){const nx=(b.x-n.x)/(n.d||1),ny=(b.y-n.y)/(n.d||1),dot=b.vx*nx+b.vy*ny;if(dot<0){b.vx-=1.6*dot*nx;b.vy-=1.6*dot*ny;}}}if(b.x>662&&b.x<680&&b.y>145&&b.y<254&&b.vx>0){b.x=661;b.vx*=-.7;}if(b.y>475){b.y=475;b.vy=-Math.abs(b.vy)*.52;b.vx*=.73;}if(this.flight>5||(this.flight>1.3&&Math.abs(b.vx)<18&&Math.abs(b.vy)<35)||b.x<-40||b.x>850)this.finishShot();}this.stat=this.two?`${this.player?'乙方':'甲方'}投籃 · ${this.shots+1}/10`:`第 ${Math.min(7,this.shots+1)} / 7 球`;}
- draw(){const c=this.c;D.bg(c,'cream');D.hills(c,520);D.round(c,68,462,664,48,13,'#cba874');D.line(c,[{x:70,y:484},{x:733,y:484}],'#eee0b7',2);D.round(c,663,131,10,351,3,'#8a9f83');D.round(c,632,145,43,112,6,'#f9f3df','#849e83');D.round(c,638,181,27,50,3,null,'#c4a170');D.line(c,[{x:this.hoop.x+45,y:this.hoop.y},{x:660,y:this.hoop.y}],'#db9271',5);const left=this.hoop.x-45,right=this.hoop.x+45;D.line(c,[{x:left,y:this.hoop.y},{x:right,y:this.hoop.y}],'#d89069',6);D.poly(c,[{x:left,y:this.hoop.y+4},{x:right,y:this.hoop.y+4},{x:right-15,y:this.hoop.y+64},{x:left+15,y:this.hoop.y+64}], '#fffef03d','#a5b5a4',2);for(let i=1;i<5;i++)D.line(c,[{x:left+18*i,y:this.hoop.y+5},{x:left+15+12*i,y:this.hoop.y+61}],'#a5b5a4',1);D.animal(c,125,429,.86,this.player?'fox':'rabbit');const b=this.ball;D.circle(c,b.x,b.y,14,'#dca168','#9e795a');D.line(c,[{x:b.x-13,y:b.y},{x:b.x+13,y:b.y}],'#a87950',1.5);D.line(c,[{x:b.x,y:b.y-13},{x:b.x,y:b.y+13}],'#a87950',1.5);if(this.drag){const vx=(this.drag.x-this.pull.x)*4,vy=(this.drag.y-this.pull.y)*4;const ps=[];for(let i=0;i<13;i++){const t=i*.07;ps.push({x:b.x+vx*t,y:b.y+vy*t+285*t*t});}D.line(c,ps,'#829b72',3,[4,9]);D.line(c,[this.drag,this.pull],'#d39d64',3);}if(this.charging){D.round(c,92,320,175,16,8,'#d8d8bd');D.round(c,92,320,175*this.charge,16,8,'#72976b');}D.badge(c,this.two?`甲 ${this.turnScores[0]}　·　乙 ${this.turnScores[1]}`:'按住 Space 蓄力，放開投籃');this.noticeDraw();}
+ update(dt){if(this.charging)this.charge=Math.min(1,this.charge+dt*.5);this.hoop.x=590+(this.d===2?Math.sin(this.t*.6)*50:0);this.hoop.y=225+(this.d===1?Math.sin(this.t*.5)*25:0);if(this.flying){const b=this.ball,oldy=b.y;b.vy+=570*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;this.flight+=dt;if(b.vy>0&&oldy<this.hoop.y&&b.y>=this.hoop.y&&Math.abs(b.x-this.hoop.x)<[46,40,34][this.d]&&!this.scored){this.scored=true;this.score+=3;this.turnScores[this.player]+=3;this.sound(850,.15);this.say('入球！+3 分');}for(const sx of [this.hoop.x-45,this.hoop.x+45]){const n=WQCore.nearest(b,{x:sx,y:this.hoop.y-2},{x:sx,y:this.hoop.y+2});if(n.d<12){const nx=(b.x-n.x)/(n.d||1),ny=(b.y-n.y)/(n.d||1),dot=b.vx*nx+b.vy*ny;if(dot<0){b.vx-=1.6*dot*nx;b.vy-=1.6*dot*ny;}}}if(b.x>662&&b.x<680&&b.y>145&&b.y<254&&b.vx>0){b.x=661;b.vx*=-.7;}if(b.y>475){b.y=475;b.vy=-Math.abs(b.vy)*.52;b.vx*=.73;}if(this.flight>5||(this.flight>1.3&&Math.abs(b.vx)<18&&Math.abs(b.vy)<35)||b.x<-40||b.x>850)this.finishShot();}this.stat=this.two?`${this.player?'乙方':'甲方'}投籃 · ${this.shots+1}/10`:`第 ${Math.min(7,this.shots+1)} / 7 球`;}
+ draw(){const c=this.c;D.bg(c,'cream');D.hills(c,520);D.round(c,68,462,664,48,13,'#cba874');D.line(c,[{x:70,y:484},{x:733,y:484}],'#eee0b7',2);D.round(c,663,131,10,351,3,'#8a9f83');D.round(c,632,145,43,112,6,'#f9f3df','#849e83');D.round(c,638,181,27,50,3,null,'#c4a170');D.line(c,[{x:this.hoop.x+45,y:this.hoop.y},{x:660,y:this.hoop.y}],'#db9271',5);const left=this.hoop.x-45,right=this.hoop.x+45;D.line(c,[{x:left,y:this.hoop.y},{x:right,y:this.hoop.y}],'#d89069',6);D.poly(c,[{x:left,y:this.hoop.y+4},{x:right,y:this.hoop.y+4},{x:right-15,y:this.hoop.y+64},{x:left+15,y:this.hoop.y+64}], '#fffef03d','#a5b5a4',2);for(let i=1;i<5;i++)D.line(c,[{x:left+18*i,y:this.hoop.y+5},{x:left+15+12*i,y:this.hoop.y+61}],'#a5b5a4',1);D.animal(c,125,429,.86,this.player?'fox':'rabbit');const b=this.ball;D.circle(c,b.x,b.y,14,'#dca168','#9e795a');D.line(c,[{x:b.x-13,y:b.y},{x:b.x+13,y:b.y}],'#a87950',1.5);D.line(c,[{x:b.x,y:b.y-13},{x:b.x,y:b.y+13}],'#a87950',1.5);if(this.drag){const vx=(this.drag.x-this.pull.x)*4,vy=(this.drag.y-this.pull.y)*4;const ps=[];for(let i=0;i<13;i++){const t=i*.07;ps.push({x:b.x+vx*t,y:b.y+vy*t+285*t*t});}D.line(c,ps,'#829b72',3,[4,9]);D.line(c,[this.drag,this.pull],'#d39d64',3);}if(this.charging){D.round(c,92,320,175,16,8,'#d8d8bd');D.round(c,92,320,175*this.charge,16,8,'#72976b');}D.badge(c,this.two?`甲 ${this.turnScores[0]}　·　乙 ${this.turnScores[1]}`:'按住蓄力放手，或拖拉小球彈射');this.noticeDraw();}
 }
+{const Dr=BounceBasket.prototype.draw;BounceBasket.prototype.draw=function(){Dr.call(this);if(this.charging&&!this.flying){const v=350+this.charge*290,vx=v*.82,vy=-v*.86,b=this.ball,ps=[];for(let i=0;i<18;i++){const t=i*.06;ps.push({x:b.x+vx*t,y:b.y+vy*t+285*t*t});}D.line(this.c,ps,'#829b72',3,[4,9]);}};}
 registerGame({id:'bounce-basket',name:'跳跳投籃',en:'BOUNCE BASKET',category:'運動',desc:'按住蓄力、放手投籃，掌握恰好的力度。',tag:'物理投籃',guide:'按住 Space 蓄力，再放開投籃；手機按住「蓄力投籃」再放開。力度條幫你掌握距離。球從籃框上方落入得分；最多 7 球，或失 3 球後結算。',design:'拋物線、籃框碰撞、移動籃框及雙人輪流計分；不是多人即時搶球。',keys:[['action','蓄力投籃']]},BounceBasket);
 
 class MeadowCricket extends WQGame{
  constructor(a){super(a);this.round=0;this.hit=0;this.wait=.8;this.swing=0;this.launchBall();this.tools([]);this.hint('球到金色擊球圈時，按一下「揮棒」。共 10 球。');}
- launchBall(){this.ball={x:710,y:385,mode:'pitch',vx:-[235,305,375][this.d],vy:0};this.wait=.8;this.didSwing=false;}
- act(k){if(k!=='action'||this.didSwing||this.wait>0||this.ball.mode!=='pitch')return;this.didSwing=true;this.swing=.3;const err=Math.abs(this.ball.x-210),window=[70,55,42][this.d];if(err<window){const points=err<window*.3?6:err<window*.65?4:1;this.score+=points;this.hit++;this.ball.mode='hit';this.ball.vx=380+points*20;this.ball.vy=-370-points*30;this.sound(650+points*45,.1);this.say(points===6?'正中甜區！6 分':`${points} 分，好球！`);}else{this.say('揮早了，看準金色圈再按。');}}
+ launchBall(){this.ball={x:710,y:385,mode:'pitch',vx:-[235,305,375][this.d]*(.88+.24*this.r()),vy:0};this.wait=.8;this.didSwing=false;}
+ act(k){if(k!=='action'||this.didSwing||this.wait>0||this.ball.mode!=='pitch')return;this.didSwing=true;this.swing=.3;const err=Math.abs(this.ball.x-210),window=[70,55,42][this.d];if(err<window){const points=err<window*.3?6:err<window*.65?4:1;this.score+=points;this.hit++;this.ball.mode='hit';this.ball.vx=380+points*20;this.ball.vy=-370-points*30;this.sound(650+points*45,.1);this.say(points===6?'正中甜區！6 分':`${points} 分，好球！`);}else{this.say(this.ball.x>210?'揮早了，球還沒到金色圈。':'揮慢了，球已經過了金色圈。');}}
  pointer(type){if(type==='down')this.act('action');}
  update(dt){this.swing=Math.max(0,this.swing-dt);if(this.wait>0){this.wait-=dt;return;}const b=this.ball;b.x+=b.vx*dt;if(b.mode==='pitch')b.y=392-Math.abs(Math.sin((710-b.x)/140))*35;else{b.vy+=530*dt;b.y+=b.vy*dt;}if(b.x<95||b.x>865||b.y>580){this.round++;if(this.round>=10){this.end(`總分 ${this.score}，成功擊中 ${this.hit} / 10 球。`,'草地球賽完成');return;}this.launchBall();}this.stat=`第 ${this.round+1} / 10 球`;}
- draw(){const c=this.c;D.bg(c);D.cloud(c,143,95,1);D.cloud(c,620,120,1.4);D.hills(c,405);D.round(c,135,381,600,94,30,'#dbc79b');D.line(c,[{x:205,y:396},{x:670,y:396}],'#f7ebc8',2,[12,15]);D.circle(c,210,385,[45,38,32][this.d],'#f7e3a54d','#ebc36c');D.line(c,[{x:180,y:382},{x:180,y:439}],'#b88b60',5);D.line(c,[{x:193,y:382},{x:193,y:439}],'#b88b60',5);D.animal(c,150,396,.82,'rabbit','#ba9461');c.save();c.translate(170,385);c.rotate(this.swing>0?-1.1:.4);D.round(c,-5,-3,13,75,5,'#a98356');D.round(c,-9,24,22,61,6,'#f2d499');c.restore();D.animal(c,725,372,.67,'fox');D.circle(c,this.ball.x,this.ball.y,10,'#fff7df','#c8b080');D.badge(c,'看準時機，只需一下');this.noticeDraw();}
+ draw(){const c=this.c;D.bg(c);D.cloud(c,143,95,1);D.cloud(c,620,120,1.4);D.hills(c,405);D.round(c,135,381,600,94,30,'#dbc79b');D.line(c,[{x:205,y:396},{x:670,y:396}],'#f7ebc8',2,[12,15]);D.circle(c,210,385,[45,38,32][this.d],'#f7e3a54d','#ebc36c');D.line(c,[{x:180,y:382},{x:180,y:439}],'#b88b60',5);D.line(c,[{x:193,y:382},{x:193,y:439}],'#b88b60',5);D.animal(c,150,396,.82,'rabbit','#ba9461');c.save();c.translate(170,385);c.rotate(this.swing>0?-1.1:.4);D.round(c,-5,-3,13,75,5,'#a98356');D.round(c,-9,24,22,61,6,'#f2d499');c.restore();D.animal(c,725,372,.67,'fox');D.circle(c,this.ball.x,this.ball.y,13,'#fffdf2','#8f7a4a');D.badge(c,'看準時機，只需一下');this.noticeDraw();}
 }
 registerGame({id:'meadow-cricket',name:'草地擊球',en:'MEADOW CRICKET',category:'運動',desc:'球到甜區才出手，揮出漂亮一球。',tag:'時機挑戰',guide:'球由右方過來，到達左邊金色圈時按「揮棒」或空白鍵。越接近中心，得分越高。每球只能揮一次，共 10 球。',design:'依實際擊球時機判定 1、4、6 分，難度改變球速與有效範圍。',keys:[['action','揮棒']]},MeadowCricket);
 
@@ -1222,46 +1346,48 @@ registerGame({id:'meadow-cricket',name:'草地擊球',en:'MEADOW CRICKET',catego
 <script data-wq22="games-puzzles">
 'use strict';
 class HoneyDelivery extends WQGame{
- constructor(a){super(a);this.load();this.hint('點繩子剪斷，或按「剪左／右繩」。把蜜糖送進下方杯子。');}
- load(){this.phase=0;this.failed=false;const dx=(this.level%3-1)*85;this.candy={x:400+dx,y:225,vx:0,vy:0};this.target={x:this.candy.x,y:458};this.ropes=[{x:280+dx,y:85,len:Math.hypot(120,140),cut:false}];if(this.d>0||this.level>2)this.ropes.push({x:520+dx,y:85,len:Math.hypot(120,140),cut:false});this.stars=[{x:this.target.x,y:310,taken:false},{x:this.target.x+(this.d?45:0),y:375,taken:false}];this.tools([{id:'left',label:'剪左繩'},{id:'right',label:'剪右繩',disabled:this.ropes.length<2},{id:'reset',label:'重設本關'}]);this.stat=`第 ${this.level} / 8 關`;}
+ constructor(a){super(a);this.load();this.hint('虛線是「現在剪斷」的落點，變綠色就剪！兩條繩要先剪一條，等蜜糖擺到好位置再剪另一條。');}
+ load(){this.phase=0;this.failed=false;const dx=(this.level%3-1)*85;this.candy={x:400+dx,y:225,vx:0,vy:0};this.target={x:this.candy.x+((this.d>0||this.level>2)?[-150,150][this.level%2]:-110),y:458};this.ropes=[{x:280+dx,y:85,len:Math.hypot(120,140),cut:false}];if(this.d>0||this.level>2)this.ropes.push({x:520+dx,y:85,len:Math.hypot(120,140),cut:false});this.stars=[{x:this.target.x,y:372,taken:false},{x:this.target.x+(this.d?45:0),y:418,taken:false}];this.tools([{id:'left',label:'剪左繩'},{id:'right',label:'剪右繩',disabled:this.ropes.length<2},{id:'reset',label:'重設本關'}]);this.stat=`第 ${this.level} / 8 關`;}
  cut(i){if(this.ropes[i]&&!this.ropes[i].cut){this.ropes[i].cut=true;this.sound(500+i*100,.06);}}
  tool(k){if(k==='left')this.cut(0);if(k==='right')this.cut(1);if(k==='reset'){this.done=false;this.load();}}
  act(k){if(k==='action'){const i=this.ropes.findIndex(r=>!r.cut);if(i>=0)this.cut(i);}}
  pointer(type,p){if(type==='down'){this.last=p;for(let i=0;i<this.ropes.length;i++)if(WQCore.nearest(p,this.ropes[i],this.candy).d<28)this.cut(i);}if(type==='move'&&this.last){for(let i=0;i<this.ropes.length;i++)if(WQCore.segmentCross(this.last,p,this.ropes[i],this.candy))this.cut(i);this.last=p;}if(type==='up'||type==='cancel')this.last=null;}
  update(dt){if(this.failed)return;for(let n=0;n<3;n++){const h=dt/3,p=this.candy,oldy=p.y;p.vy+=470*h;p.vx*=Math.pow(.999,h*60);p.x+=p.vx*h;p.y+=p.vy*h;for(let k=0;k<5;k++)for(const r of this.ropes){if(r.cut)continue;const dx=p.x-r.x,dy=p.y-r.y,dist=Math.hypot(dx,dy),nx=dx/(dist||1),ny=dy/(dist||1);if(dist>r.len){p.x=r.x+nx*r.len;p.y=r.y+ny*r.len;const vel=p.vx*nx+p.vy*ny;if(vel>0){p.vx-=vel*nx;p.vy-=vel*ny;}}}for(const s of this.stars)if(!s.taken&&Math.hypot(s.x-p.x,s.y-p.y)<29){s.taken=true;this.sound(920,.09);}if(p.vy>0&&oldy<=this.target.y&&p.y>=this.target.y&&Math.abs(p.x-this.target.x)<[74,63,51][this.d]){const stars=this.stars.filter(s=>s.taken).length;this.score+=100+stars*50;this.sound(780,.15);if(this.level>=8)this.end(`8 杯蜜糖全部送達，得分 ${this.score}。`,'蜜糖快遞完成');else this.next(`蜜糖送達，收集了 ${stars} 顆花星。`,()=>{this.level++;this.load();});return;}if(p.y>570||p.x<-30||p.x>830){this.failed=true;this.say('蜜糖偏離了，按「重設本關」再試。');this.stat='可重設本關';return;}}}
- draw(){const c=this.c;D.bg(c,'cream');D.cloud(c,700,90,.7);D.round(c,56,491,688,22,9,'#c4b58d');this.ropes.forEach((r,i)=>{D.circle(c,r.x,r.y,11,'#789b7b');if(!r.cut)D.line(c,[r,this.candy],'#b79d73',4);D.text(c,i?'右':'左',r.x,r.y-26,13,'#728260');});for(const s of this.stars)if(!s.taken)D.star(c,s.x,s.y,18,'#e4b857');D.cup(c,this.target.x,this.target.y,[166,144,122][this.d],55,0);D.animal(c,660,447,.65,'cat');D.circle(c,this.candy.x,this.candy.y,21,'#e8b954','#cc9340');D.line(c,[{x:this.candy.x-8,y:this.candy.y-8},{x:this.candy.x+8,y:this.candy.y+8}],'#f8e0a0',5);D.badge(c,'剪斷繩子，送蜜糖回家');if(this.failed)D.message(c,'按「重設本關」，再試另一個時機。');this.noticeDraw();}
+ draw(){const c=this.c;D.bg(c,'cream');D.cloud(c,700,90,.7);D.round(c,56,491,688,22,9,'#c4b58d');this.ropes.forEach((r,i)=>{D.circle(c,r.x,r.y,11,'#789b7b');if(!r.cut)D.line(c,[r,this.candy],'#b79d73',4);D.text(c,i?'右':'左',r.x,r.y-26,13,'#728260');});for(const s of this.stars)if(!s.taken)D.star(c,s.x,s.y,18,'#e4b857');D.cup(c,this.target.x,this.target.y,[166,144,122][this.d],55,0);D.animal(c,this.target.x<500?700:100,447,.65,'cat');D.circle(c,this.candy.x,this.candy.y,21,'#e8b954','#cc9340');D.line(c,[{x:this.candy.x-8,y:this.candy.y-8},{x:this.candy.x+8,y:this.candy.y+8}],'#f8e0a0',5);D.badge(c,'剪斷繩子，送蜜糖回家');if(this.failed)D.message(c,'按「重設本關」，再試另一個時機。');this.noticeDraw();}
 }
+{const Dr=HoneyDelivery.prototype.draw;HoneyDelivery.prototype.draw=function(){Dr.call(this);if(this.failed||this.d>1||this.done||this.ropes.filter(r=>!r.cut).length>1)return;const c=this.c,p=this.candy;let x=p.x,y=p.y,vx=p.vx,vy=p.vy;const ps=[{x,y}];for(let i=0;i<540&&y<this.target.y;i++){vy+=470/180;vx*=Math.pow(.999,1/3);x+=vx/180;y+=vy/180;if(i%9===8)ps.push({x,y});}const ok=Math.abs(x-this.target.x)<[74,63,51][this.d],col=ok?'#4f9a68':'#c98466';D.line(c,ps,col,3,[3,9]);D.circle(c,x,this.target.y,7,col);};}
 registerGame({id:'honey-delivery',name:'蜜糖快遞',en:'HONEY DELIVERY',category:'解謎',desc:'剪斷繩子，讓蜜糖穩穩落入杯中。',tag:'繩索物理',guide:'點繩子，或用下方按鈕剪斷指定繩子。蜜糖會隨重力擺動，剪繩次序和時機會改變落點。送進杯中就過關，途中可收集花星。',design:'8 個位置變化關卡、單／雙繩約束與實際落點判斷。',keys:[['action','剪下一條']]},HoneyDelivery);
 
 class RollingBlock extends WQGame{
- constructor(a){super(a);this.load();this.tools([{id:'undo',label:'退一步'},{id:'hint',label:'下一步提示'},{id:'reset',label:'重設本關'}]);this.hint('用方向鍵翻滾長方體，直立落在金色目標格才過關。');}
- load(){this.board=WQCore.blockLevel(338+this.level*79+this.d*1721,this.d);this.p={...this.board.start};this.history=[];this.moves=0;this.showHint=null;this.stat=`第 ${this.level} / 10 關`;}
+ pointer(type,p){const S=wq34S(this);if(type==='down')S.s=p;else if(type==='move'&&S.s){const dx=p.x-S.s.x,dy=p.y-S.s.y;if(Math.max(Math.abs(dx),Math.abs(dy))>40){this.act(Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up'));S.s=p;}}else if(type==='up'&&S.s){const dx=p.x-S.s.x,dy=p.y-S.s.y;if(Math.max(Math.abs(dx),Math.abs(dy))>28)this.act(Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up'));S.s=null;}else if(type==='cancel')S.s=null;}
+ constructor(a){super(a);this.load();this.tools([{id:'undo',label:'退一步'},{id:'hint',label:'下一步提示'},{id:'reset',label:'重設本關'}]);this.hint('用方向鍵或在畫面上滑動，翻滾長方體；直立落在金色目標格才過關。');}
+ load(){{let sd=338+this.level*79+this.d*1721,bd=null;const lo=Math.min(12,3+this.level+this.d);for(let k=0;k<80;k++){bd=WQCore.blockLevel(sd+k*7,this.d);if(bd.solution&&bd.solution.length>=lo&&bd.solution.length<=lo+3)break;}this.board=bd;}this.p={...this.board.start};this.history=[];this.moves=0;this.showHint=null;this.stat=`第 ${this.level} / 10 關`;}
  act(k){if(!['left','right','up','down'].includes(k)||this.done)return;const p=WQCore.blockMove(this.p,k);if(!WQCore.blockCells(p).every(([x,y])=>this.board.tiles.has(`${x},${y}`))){this.say('那邊沒有平台，換個方向試試。');this.sound(200,.06);return;}this.history.push({...this.p});this.p=p;this.moves++;this.showHint=null;this.sound(250+this.p.o*70,.05);if(p.o===0&&p.x===this.board.goal.x&&p.y===this.board.goal.y){this.score+=Math.max(100,500-this.moves*5);if(this.level>=10)this.end('十座方塊小島都完成了。','全部通關');else this.next(`用了 ${this.moves} 步，成功直立到達目標。`,()=>{this.level++;this.load();});}}
  tool(k){if(k==='undo'&&this.history.length){this.p=this.history.pop();this.moves=Math.max(0,this.moves-1);this.showHint=null;}if(k==='reset')this.load();if(k==='hint'){const sol=WQCore.blockSolve(this.board.tiles,this.p,this.board.goal);this.showHint=sol&&sol[0];this.say(sol&&sol.length?`可以先向${{left:'左',right:'右',up:'上',down:'下'}[sol[0]]}，餘下最短 ${sol.length} 步。`:'目前已在目標格。');}}
- draw(){const c=this.c;D.bg(c,'blue');D.cloud(c,80,450,1);D.cloud(c,725,118,.9);const size=55,ox=153,oy=99;for(const k of this.board.tiles){const[x,y]=k.split(',').map(Number),xx=ox+x*size,yy=oy+y*size;D.round(c,xx,yy+9,size-4,size-4,7,'#87a6a0');D.round(c,xx,yy,size-4,size-4,7,x===this.board.goal.x&&y===this.board.goal.y?'#e9bf6b':'#f6f4de');if(x===this.board.goal.x&&y===this.board.goal.y){D.circle(c,xx+25,yy+25,12,'#426b60');D.text(c,'◎',xx+25,yy+25,21,'#f5e1a6');}}const cells=WQCore.blockCells(this.p);for(const[x,y]of cells){const xx=ox+x*size+3,yy=oy+y*size-10;D.round(c,xx,yy+6,size-10,size-4,7,'#b58b59');D.round(c,xx,yy,size-10,size-9,7,'#efc785');D.line(c,[{x:xx+10,y:yy+11},{x:xx+31,y:yy+11}],'#fae1a5',3);}if(this.p.o===0){const xx=ox+this.p.x*size+3,yy=oy+this.p.y*size-28;D.round(c,xx,yy,size-10,size-9,7,'#f5d398');D.text(c,'▦',xx+23,yy+25,22,'#b48b52');}D.badge(c,`翻滾 ${this.moves} 步 · 目標要直立`,400,37);if(this.showHint)D.badge(c,'提示 '+{left:'←',right:'→',up:'↑',down:'↓'}[this.showHint],400,520);this.noticeDraw();}
+ draw(){const c=this.c;D.bg(c,'blue');D.cloud(c,80,450,1);D.cloud(c,725,118,.9);const size=55,ox=153,oy=99;for(const k of this.board.tiles){const[x,y]=k.split(',').map(Number),xx=ox+x*size,yy=oy+y*size;D.round(c,xx,yy+9,size-4,size-4,7,'#87a6a0');D.round(c,xx,yy,size-4,size-4,7,x===this.board.goal.x&&y===this.board.goal.y?'#e9bf6b':'#f6f4de');if(x===this.board.goal.x&&y===this.board.goal.y){D.circle(c,xx+25,yy+25,12,'#426b60');D.text(c,'◎',xx+25,yy+25,21,'#f5e1a6');}}const cells=WQCore.blockCells(this.p);for(const[x,y]of cells){const xx=ox+x*size+3,yy=oy+y*size-10;D.round(c,xx,yy+6,size-10,size-4,7,'#b58b59');D.round(c,xx,yy,size-10,size-9,7,'#efc785');D.line(c,[{x:xx+10,y:yy+11},{x:xx+31,y:yy+11}],'#fae1a5',3);}if(this.p.o===0){const xx=ox+this.p.x*size+3,yy=oy+this.p.y*size-28;D.round(c,xx,yy,size-10,size-9,7,'#f5d398');D.text(c,'▦',xx+23,yy+25,22,'#b48b52');}D.badge(c,`翻滾 ${this.moves} 步 · 目標要直立`,400,37);if(this.showHint)D.badge(c,'提示 '+{left:'←',right:'→',up:'↑',down:'↓'}[this.showHint],650,37);this.noticeDraw();}
 }
 registerGame({id:'rolling-block',name:'翻滾方塊',en:'ROLLING ISLANDS',category:'解謎',desc:'預想下一步，把長方體送到目標。',tag:'空間推理',guide:'按方向鍵翻滾長方體。橫躺時會佔兩格，直立時佔一格；所有接觸平台的格子都要有地面。最後必須直立在金色格。可退一步或看下一步提示。',design:'10 關可解的程序地圖，使用搜尋演算法驗證解法；有撤銷。',keys:[['left','←'],['up','↑'],['down','↓'],['right','→']]},RollingBlock);
 
 class JuiceLines extends WQGame{
  constructor(a){super(a);this.load();this.hint('先畫一條向杯子傾斜的線，再按「開水」。拖動可連續畫線。');}
- load(){this.lines=[];this.current=null;this.particles=[];this.pouring=false;this.emit=0;this.caught=0;this.emitter={x:this.level%2?180:620,y:85};this.cup={x:this.level%2?595:205,y:450};this.ink=0;this.budget=[1500,1150,900][this.d];this.required=[20,28,36][this.d];this.stat=`第 ${this.level} / 8 杯`;this.toolbar();}
- toolbar(){this.tools([{id:'pour',label:this.pouring?'暫停出水':'開水'},{id:'undo',label:'撤銷線條'},{id:'clear',label:'清除線條'},{id:'reset',label:'重新裝水'}]);}
- tool(k){if(k==='pour'){this.pouring=!this.pouring;this.toolbar();}if(k==='undo'){this.lines.pop();this.recalc();}if(k==='clear'){this.lines=[];this.current=null;this.ink=0;}if(k==='reset'){this.particles=[];this.caught=0;this.emit=0;}}
+ load(){this.lines=[];this.current=null;this.particles=[];this.pouring=false;this.emit=0;this.caught=0;{const L=(this.level-1)%8;this.emitter={x:[180,620,400,140,660,300,520,100][L],y:85};this.cup={x:[595,205,560,640,160,520,260,700][L],y:450};wq34S(this).spawned=0;}this.ink=0;this.budget=[1500,1150,900][this.d];this.required=[20,28,36][this.d];this.stat=`第 ${this.level} / 8 杯`;this.toolbar();}
+ toolbar(){this.tools([{id:'pour',label:this.pouring?'暫停出水':'開水'},{id:'undo',label:'撤銷線條'},{id:'clear',label:'清除線條'},{id:'refill',label:'重新裝水'}]);}
+ tool(k){if(k==='pour'){this.pouring=!this.pouring;this.toolbar();}if(k==='undo'){this.lines.pop();this.recalc();}if(k==='clear'){this.lines=[];this.current=null;this.ink=0;}if(k==='refill'){this.particles=[];this.caught=0;this.emit=0;wq34S(this).spawned=0;}}
  act(k){if(k==='action')this.tool('pour');if(k==='undo')this.tool('undo');}
  recalc(){this.ink=this.lines.reduce((s,l)=>s+l.slice(1).reduce((t,p,i)=>t+WQCore.distance(p,l[i]),0),0);}
  pointer(type,p){p={x:WQCore.clamp(p.x,12,788),y:WQCore.clamp(p.y,55,500)};if(type==='down'&&this.ink<this.budget){this.current=[p];this.lines.push(this.current);}if(type==='move'&&this.current){const last=this.current[this.current.length-1],dist=WQCore.distance(p,last);if(dist>6&&this.ink+dist<=this.budget&&this.current.length<250){this.current.push(p);this.ink+=dist;}}if(type==='up'||type==='cancel'){if(this.current&&this.current.length<2)this.lines.pop();this.current=null;}}
- update(dt){if(this.pouring){this.emit+=dt*12;while(this.emit>=1&&this.particles.length<180){this.emit--;this.particles.push({x:this.emitter.x+(this.r()-.5)*9,y:this.emitter.y,vx:(this.r()-.5)*12,vy:0});}}for(let step=0;step<3;step++){const h=dt/3;for(const p of this.particles){if(p.gone)continue;const oldy=p.y;p.vy+=430*h;p.x+=p.vx*h;p.y+=p.vy*h;for(const l of this.lines)for(let i=1;i<l.length;i++){const n=WQCore.nearest(p,l[i-1],l[i]);if(n.d<6.5){let nx=(p.x-n.x)/(n.d||1),ny=(p.y-n.y)/(n.d||1);if(n.d<.001){nx=0;ny=-1;}p.x=n.x+nx*6.6;p.y=n.y+ny*6.6;const dot=p.vx*nx+p.vy*ny;if(dot<0){p.vx-=dot*nx*1.04;p.vy-=dot*ny*1.04;p.vx*=.994;p.vy*=.994;}}}if(oldy<=this.cup.y&&p.y>=this.cup.y&&Math.abs(p.x-this.cup.x)<[58,50,43][this.d]){this.caught++;p.gone=true;if(this.caught%5===0)this.sound(650+this.caught*5,.045);}if(p.y>580||p.x<-20||p.x>820)p.gone=true;}this.particles=this.particles.filter(p=>!p.gone);}this.stat=`接到 ${this.caught} / ${this.required} 滴`;if(this.caught>=this.required){this.score+=200+Math.max(0,Math.round((this.budget-this.ink)/10));if(this.level>=8)this.end('八杯果汁都裝好了！','果汁工作完成');else this.next('線條成功引導果汁，這杯裝滿了。',()=>{this.level++;this.load();});}}
- draw(){const c=this.c;D.bg(c,'cream');D.round(c,50,499,700,16,8,'#c1af84');D.round(c,this.emitter.x-25,55,50,32,8,'#8db196');D.round(c,this.emitter.x-9,78,18,21,4,'#72977d');D.cup(c,this.cup.x,this.cup.y,[134,118,104][this.d],64,this.caught/this.required,'#e7b65c');for(const l of this.lines)D.line(c,l,'#7a9c88',7);for(const p of this.particles)D.circle(c,p.x,p.y,4.3,'#dfa957');D.animal(c,this.level%2?705:95,444,.67,'fox','#83a080');D.badge(c,`畫線餘量 ${Math.max(0,Math.round(this.budget-this.ink))}`,400,33);if(!this.lines.length&&!this.pouring){D.text(c,'畫一條斜坡，把果汁帶到杯中',400,258,24,'#657859');D.line(c,[{x:this.emitter.x-35,y:140},{x:this.cup.x+(this.level%2?-45:45),y:420}],'#b9c6a9',3,[7,12]);}this.noticeDraw();}
+ update(dt){{const S=wq34S(this);if(this.pouring&&(S.spawned||0)>=this.required*3){this.pouring=false;this.emit=0;this.toolbar();this.say('水用完了。改一改線條，再按「重新裝水」。');}}if(this.pouring){this.emit+=dt*12;while(this.emit>=1&&this.particles.length<180){this.emit--;wq34S(this).spawned=(wq34S(this).spawned||0)+1;this.particles.push({x:this.emitter.x+(this.r()-.5)*9,y:this.emitter.y,vx:(this.r()-.5)*12,vy:0});}}for(let step=0;step<3;step++){const h=dt/3;for(const p of this.particles){if(p.gone)continue;const oldy=p.y;p.vy+=430*h;p.x+=p.vx*h;p.y+=p.vy*h;for(const l of this.lines)for(let i=1;i<l.length;i++){const n=WQCore.nearest(p,l[i-1],l[i]);if(n.d<6.5){let nx=(p.x-n.x)/(n.d||1),ny=(p.y-n.y)/(n.d||1);if(n.d<.001){nx=0;ny=-1;}p.x=n.x+nx*6.6;p.y=n.y+ny*6.6;const dot=p.vx*nx+p.vy*ny;if(dot<0){p.vx-=dot*nx*1.04;p.vy-=dot*ny*1.04;p.vx*=.994;p.vy*=.994;}}}if(oldy<=this.cup.y&&p.y>=this.cup.y&&Math.abs(p.x-this.cup.x)<[58,50,43][this.d]){this.caught++;p.gone=true;this.sound(560+Math.min(this.caught,40)*14,.035,'sine',.06);}if(p.y>580||p.x<-20||p.x>820)p.gone=true;}this.particles=this.particles.filter(p=>!p.gone);}this.stat=`接到 ${this.caught} / ${this.required} 滴`;if(this.caught>=this.required){this.score+=200+Math.max(0,Math.round((this.budget-this.ink)/10));if(this.level>=8)this.end('八杯果汁都裝好了！','果汁工作完成');else this.next('線條成功引導果汁，這杯裝滿了。',()=>{this.level++;this.load();});}}
+ draw(){const c=this.c;D.bg(c,'cream');D.round(c,50,499,700,16,8,'#c1af84');D.round(c,this.emitter.x-25,55,50,32,8,'#8db196');D.round(c,this.emitter.x-9,78,18,21,4,'#72977d');D.cup(c,this.cup.x,this.cup.y,[134,118,104][this.d],64,this.caught/this.required,'#e7b65c');for(const l of this.lines)D.line(c,l,'#7a9c88',7);for(const p of this.particles)D.circle(c,p.x,p.y,6,'#e6b25e','#f3d79b');D.animal(c,this.level%2?705:95,444,.67,'fox','#83a080');D.badge(c,`畫線餘量 ${Math.max(0,Math.round(this.budget-this.ink))} · 水量 ${Math.max(0,this.required*3-(wq34S(this).spawned||0))}`,400,33);if(!this.lines.length&&!this.pouring){D.text(c,'畫一條斜坡，把果汁帶到杯中',400,258,24,'#657859');if(this.level<=2){const sg=this.cup.x<this.emitter.x?1:-1;D.line(c,[{x:this.emitter.x+sg*35,y:140},{x:this.cup.x+sg*45,y:420}],'#b9c6a9',3,[7,12]);}}this.noticeDraw();}
 }
 registerGame({id:'juice-lines',name:'果汁畫線',en:'JUICE LINES',category:'解謎',desc:'畫出自己的斜坡，把果汁引進杯子。',tag:'畫線物理',guide:'在畫面拖動畫線，再按「開水」。水滴會沿斜線滑落；平線容易讓水滴停住。把指定數量引進杯子便過關。可撤銷、清除線條，或重新裝水。',design:'連續粒子與線段碰撞、畫線長度限制及 8 杯關卡。',keys:[['action','開／關水']]},JuiceLines);
 
 class ColorWorkshop extends WQGame{
  constructor(a){super(a);this.palette=['#f5edd9','#dc947d','#81aabf','#e9c06a','#8eac89'];this.names=['白','珊瑚','天藍','金黃','草綠'];this.load();this.hint('遮住不想上色的部分，再染色。除去所有遮罩後按「驗收」。');}
  load(){this.colors=[0,0,0,0];this.mask=new Set();this.moves=0;this.target=Array.from({length:4},(_,i)=>this.level===1?1:this.level===2?(i<2?1:2):1+Math.floor(this.r()*(this.d===0?3:4)));this.stat=`第 ${this.level} / 10 件`;this.toolbar();}
- toolbar(){this.tools([{id:'top',label:'遮上半',active:this.mask.has('top')},{id:'bottom',label:'遮下半',active:this.mask.has('bottom')},{id:'left',label:'遮左半',active:this.mask.has('left')},{id:'right',label:'遮右半',active:this.mask.has('right')},...this.names.slice(1).map((n,i)=>({id:'paint'+(i+1),label:'染'+n})),{id:'unmask',label:'除去遮罩'},{id:'check',label:'驗收'},{id:'reset',label:'還原白球'}]);}
+ toolbar(){this.tools([{id:'top',label:'遮上半',active:this.mask.has('top')},{id:'bottom',label:'遮下半',active:this.mask.has('bottom')},{id:'left',label:'遮左半',active:this.mask.has('left')},{id:'right',label:'遮右半',active:this.mask.has('right')},...this.names.slice(1).map((n,i)=>({id:'paint'+(i+1),label:'染'+n+' '+['coral','sky','gold','green'][i]})),{id:'unmask',label:'除去遮罩'},{id:'check',label:'驗收'},{id:'whiten',label:'還原白球'}]);}
  blocked(i){return(this.mask.has('top')&&i<2)||(this.mask.has('bottom')&&i>=2)||(this.mask.has('left')&&(i===0||i===2))||(this.mask.has('right')&&(i===1||i===3));}
- tool(k){if(['top','bottom','left','right'].includes(k)){if(this.mask.has(k))this.mask.delete(k);else this.mask.add(k);}if(k.startsWith('paint')){const n=Number(k.slice(5));for(let i=0;i<4;i++)if(!this.blocked(i))this.colors[i]=n;this.moves++;this.sound(350+n*80,.08);}if(k==='unmask')this.mask.clear();if(k==='reset'){this.colors=[0,0,0,0];this.mask.clear();this.moves=0;}if(k==='check'){if(this.mask.size){this.say('先除去遮罩，才看得清楚完整圖案。');return;}if(this.colors.every((v,i)=>v===this.target[i])){this.score+=Math.max(80,400-this.moves*12);if(this.level>=10)this.end('十件彩球作品都完成了！','工房挑戰完成');else this.next(`圖案完全相同！用了 ${this.moves} 次染色。`,()=>{this.level++;this.load();});return;}this.say('還有部分顏色不同，對照右方目標再試。');}this.toolbar();}
- drawBall(x,y,r,colors,mask=false){const c=this.c;D.ellipse(c,x,y+r+25,r*.8,13,'#6c734022');for(let i=0;i<4;i++){const angles=[[Math.PI,Math.PI*1.5],[-Math.PI/2,0],[Math.PI/2,Math.PI],[0,Math.PI/2]][i];c.beginPath();c.moveTo(x,y);c.arc(x,y,r,angles[0],angles[1]);c.closePath();c.fillStyle=mask&&this.blocked(i)?'#c0cbb9':this.palette[colors[i]];c.fill();c.strokeStyle='#fffaf088';c.lineWidth=2;c.stroke();const dx=(i===0||i===2)?-1:1,dy=i<2?-1:1;if(mask&&this.blocked(i)){D.text(c,'遮',x+dx*r*.46,y+dy*r*.45,17,'#5b7259');}else D.text(c,this.names[colors[i]],x+dx*r*.43,y+dy*r*.46,r>100?15:12,'#4a5c4d');}D.circle(c,x,y,r,null,'#76876855');D.ellipse(c,x-r*.28,y-r*.35,r*.18,r*.08,'#ffffff4a');}
+ tool(k){if(['top','bottom','left','right'].includes(k)){if(this.mask.has(k))this.mask.delete(k);else this.mask.add(k);}if(k.startsWith('paint')){const n=Number(k.slice(5));for(let i=0;i<4;i++)if(!this.blocked(i))this.colors[i]=n;this.moves++;this.sound(350+n*80,.08);}if(k==='unmask')this.mask.clear();if(k==='whiten'){this.colors=[0,0,0,0];this.mask.clear();this.moves=0;}if(k==='check'){if(this.mask.size){this.say('先除去遮罩，才看得清楚完整圖案。');return;}if(this.colors.every((v,i)=>v===this.target[i])){this.score+=Math.max(80,400-this.moves*12);if(this.level>=10)this.end('十件彩球作品都完成了！','工房挑戰完成');else this.next(`圖案完全相同！用了 ${this.moves} 次染色。`,()=>{this.level++;this.load();});return;}this.say('還有部分顏色不同，對照右方目標再試。');}this.toolbar();}
+ drawBall(x,y,r,colors,mask=false){const c=this.c;D.ellipse(c,x,y+r+25,r*.8,13,'#6c734022');for(let i=0;i<4;i++){const angles=[[Math.PI,Math.PI*1.5],[-Math.PI/2,0],[Math.PI/2,Math.PI],[0,Math.PI/2]][i];c.beginPath();c.moveTo(x,y);c.arc(x,y,r,angles[0],angles[1]);c.closePath();c.fillStyle=mask&&this.blocked(i)?'#c0cbb9':this.palette[colors[i]];c.fill();c.strokeStyle='#fffaf088';c.lineWidth=2;c.stroke();const dx=(i===0||i===2)?-1:1,dy=i<2?-1:1;if(mask&&this.blocked(i)){D.text(c,'遮',x+dx*r*.46,y+dy*r*.45,17,'#5b7259');}else D.text(c,this.names[colors[i]],x+dx*r*.43,y+dy*r*.46,r>100?21:16,'#4a5c4d');}D.circle(c,x,y,r,null,'#76876855');D.ellipse(c,x-r*.28,y-r*.35,r*.18,r*.08,'#ffffff4a');}
  draw(){const c=this.c;D.bg(c,'cream');D.round(c,90,412,620,50,15,'#d4c5a2');this.drawBall(255,267,128,this.colors,true);this.drawBall(600,267,89,this.target);D.text(c,'你的作品',255,93,23,'#4d6e57');D.text(c,'目標圖案',600,125,19,'#648065');D.line(c,[{x:425,y:266},{x:471,y:266}],'#99af8a',3);D.poly(c,[{x:474,y:266},{x:461,y:259},{x:461,y:273}],'#99af8a');D.badge(c,`染色 ${this.moves} 次`,400,500);this.noticeDraw();}
 }
 registerGame({id:'color-workshop',name:'彩球工房',en:'COLOR WORKSHOP',category:'解謎',desc:'先遮一半，再染一層，做出目標彩球。',tag:'次序推理',guide:'點「遮上半／下半／左半／右半」覆蓋部分球面，可同時用兩個遮罩。染色只改變沒被遮住的地方。完成後除去遮罩再驗收；不同遮罩次序可以做出不同圖案。',design:'實際四區域遮罩與染色運算，10 件作品；所有目標均能用遮罩完成。',keys:[]},ColorWorkshop);
@@ -1269,12 +1395,12 @@ registerGame({id:'color-workshop',name:'彩球工房',en:'COLOR WORKSHOP',catego
 class LittleEngineer extends WQGame{
  constructor(a){super(a);this.design=[{x:130,y:367,r:26,wheel:true},{x:255,y:367,r:26,wheel:true},{x:191,y:287,r:20,cargo:true}];this.beams=[{a:0,b:2},{a:1,b:2}];this.mode='beam';this.running=false;this.sel=null;this.drag=null;this.nodes=[];this.loadSim();this.toolbar();this.hint('用「連桿」連起車輪與貨箱；按「試行」。可用基本車架學習。');}
  terrain(x){return 458-([32,50,68][this.d])*Math.exp(-(((x-425)/125)**2))+15*Math.sin(x/92);}
- loadSim(){this.nodes=this.design.map(n=>({...n,px:n.x,py:n.y}));this.rods=this.beams.map(b=>({...b,len:WQCore.distance(this.design[b.a],this.design[b.b])}));this.simT=0;}
- toolbar(){this.tools([{id:'beam',label:'連桿',active:this.mode==='beam'},{id:'wheel',label:'加車輪',active:this.mode==='wheel'},{id:'move',label:'移動零件',active:this.mode==='move'},{id:'preset',label:'基本車架'},{id:'undo',label:'移除最後連桿'},{id:'run',label:this.running?'返回設計':'試行'}]);}
- tool(k){if(k==='run'){this.running=!this.running;this.loadSim();this.sel=null;}else if(this.running){this.say('先按「返回設計」，才可修改車架。');return;}if(['beam','wheel','move'].includes(k)){this.mode=k;this.sel=null;}if(k==='preset'){this.design=[{x:135,y:366,r:28,wheel:true},{x:260,y:366,r:28,wheel:true},{x:195,y:291,r:20,cargo:true}];this.beams=[{a:0,b:1},{a:0,b:2},{a:1,b:2}];this.loadSim();}if(k==='undo'){this.beams.pop();this.loadSim();}this.toolbar();}
+ loadSim(){this.nodes=this.design.map(n=>({...n,px:n.x,py:n.y}));this.rods=this.beams.map(b=>({...b,len:WQCore.distance(this.design[b.a],this.design[b.b])}));this.simT=0;{const S=wq34S(this);S.bx=0;S.bt=0;S.ff=1;}}
+ toolbar(){this.tools([{id:'beam',label:'連桿',active:this.mode==='beam'},{id:'wheel',label:'加車輪',active:this.mode==='wheel'},{id:'move',label:'移動零件',active:this.mode==='move'},{id:'preset',label:'基本車架'},{id:'undo',label:'移除最後連桿'},{id:'run',label:this.running?'返回設計':'試行'},{id:'ff',label:wq34S(this).ff>1?'快轉 ×3 開':'快轉 ×3',active:wq34S(this).ff>1,disabled:!this.running}]);}
+ tool(k){if(k==='ff'){const S=wq34S(this);S.ff=S.ff===3?1:3;this.toolbar();return;}if(k==='run'){this.running=!this.running;this.loadSim();this.sel=null;}else if(this.running){this.say('先按「返回設計」，才可修改車架。');return;}if(['beam','wheel','move'].includes(k)){this.mode=k;this.sel=null;}if(k==='preset'){this.design=[{x:135,y:366,r:28,wheel:true},{x:260,y:366,r:28,wheel:true},{x:195,y:291,r:20,cargo:true}];this.beams=[{a:0,b:1},{a:0,b:2},{a:1,b:2}];this.loadSim();}if(k==='undo'){this.beams.pop();this.loadSim();}this.toolbar();}
  act(k){if(k==='action')this.tool('run');}
  pointer(type,p){if(this.running)return;if(type==='down'){const idx=this.design.findIndex(n=>WQCore.distance(n,p)<36);if(this.mode==='wheel'){if(this.design.length>=7){this.say('每部車最多七個零件。');return;}this.design.push({x:WQCore.clamp(p.x,70,320),y:WQCore.clamp(p.y,140,400),r:24,wheel:true});this.loadSim();}else if(this.mode==='beam'&&idx>=0){if(this.sel===null)this.sel=idx;else{if(this.sel!==idx&&!this.beams.some(b=>(b.a===this.sel&&b.b===idx)||(b.b===this.sel&&b.a===idx)))this.beams.push({a:this.sel,b:idx});this.sel=null;this.loadSim();}}else if(this.mode==='move'&&idx>=0)this.drag=idx;}if(type==='move'&&this.drag!==null){this.design[this.drag].x=WQCore.clamp(p.x,50,325);this.design[this.drag].y=WQCore.clamp(p.y,130,405);this.loadSim();}if(type==='up'||type==='cancel')this.drag=null;}
- update(dt){if(!this.running){this.stat=`設計中 · ${this.beams.length} 根連桿`;return;}const h=1/120;this.acc=(this.acc||0)+dt;let count=0;while(this.acc>=h&&count++<8){this.acc-=h;this.simT+=h;for(const n of this.nodes){let vx=(n.x-n.px)*.999,vy=(n.y-n.py)*.999;n.px=n.x;n.py=n.y;if(n.wheel&&n.y+n.r>=this.terrain(n.x)-2)vx+=120*h*h;n.x+=vx;n.y+=vy+650*h*h;}for(let j=0;j<9;j++){for(const rod of this.rods){const a=this.nodes[rod.a],b=this.nodes[rod.b],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||.01,k=(dist-rod.len)/dist*.5;a.x+=dx*k;a.y+=dy*k;b.x-=dx*k;b.y-=dy*k;}for(const n of this.nodes){const ground=this.terrain(n.x)-n.r;if(n.y>ground){const vx=n.x-n.px;n.y=ground;n.py=n.y;n.px=n.x-vx*(n.wheel?.996:.89);}if(n.x<25)n.x=25;}}const cargo=this.nodes.find(n=>n.cargo);this.score=Math.max(this.score,Math.floor(Math.max(0,cargo.x-190)));if(cargo.x>700&&cargo.y<500){this.score+=300;this.running=false;this.next(`貨箱成功越過小丘！用了 ${this.design.length} 個零件、${this.beams.length} 根連桿。`,()=>{this.level++;this.loadSim();this.toolbar();});return;}}this.stat=`試行 ${this.simT.toFixed(1)} 秒`;}
+ update(dt){if(!this.running){this.stat=`設計中 · ${this.beams.length} 根連桿`;return;}const h=1/120;this.acc=(this.acc||0)+dt*(wq34S(this).ff||1);let count=0;while(this.acc>=h&&count++<8){this.acc-=h;this.simT+=h;for(const n of this.nodes){let vx=(n.x-n.px)*.999,vy=(n.y-n.py)*.999;n.px=n.x;n.py=n.y;if(n.wheel&&n.y+n.r>=this.terrain(n.x)-2)vx+=120*h*h;n.x+=vx;n.y+=vy+650*h*h;}for(let j=0;j<9;j++){for(const rod of this.rods){const a=this.nodes[rod.a],b=this.nodes[rod.b],dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy)||.01,k=(dist-rod.len)/dist*.5;a.x+=dx*k;a.y+=dy*k;b.x-=dx*k;b.y-=dy*k;}for(const n of this.nodes){const ground=this.terrain(n.x)-n.r;if(n.y>ground){const vx=n.x-n.px;n.y=ground;n.py=n.y;n.px=n.x-vx*(n.wheel?.996:.89);}if(n.x<25)n.x=25;}}const cargo=this.nodes.find(n=>n.cargo);this.score=Math.max(this.score,Math.floor(Math.max(0,cargo.x-190)));{const S=wq34S(this);if(this.simT-(S.bt||0)>=6){if(cargo.x-(S.bx||0)<30){this.running=false;this.loadSim();this.toolbar();this.say('車架卡住了，已返回設計；保留車架，再調整一下。');this.sound(260,.18,'triangle',.1);return;}S.bx=cargo.x;S.bt=this.simT;}}if(cargo.x>700&&cargo.y<500){this.score+=300+Math.max(0,7-this.design.length)*40;this.running=false;this.next(`貨箱成功越過小丘！用了 ${this.design.length} 個零件、${this.beams.length} 根連桿。`,()=>{this.level++;this.loadSim();this.toolbar();});return;}}this.stat=`試行 ${this.simT.toFixed(1)} 秒`;}
  draw(){const c=this.c;D.bg(c,'blue');D.cloud(c,620,93,1);D.round(c,35,107,300,354,19,'#fbf6e350');D.text(c,'組裝區',185,135,16,'#7d9279');const terrain=Array.from({length:81},(_,i)=>({x:i*10,y:this.terrain(i*10)}));D.poly(c,[{x:0,y:560},...terrain,{x:800,y:560}],'#b4c68c');D.line(c,terrain,'#7e9e74',7);D.line(c,[{x:710,y:310},{x:710,y:this.terrain(710)}],'#748f71',5);D.poly(c,[{x:710,y:310},{x:754,y:327},{x:710,y:345}],'#dca06d');const ns=this.running?this.nodes:this.design;for(const b of this.beams)D.line(c,[ns[b.a],ns[b.b]],'#879d80',9);ns.forEach((n,i)=>{if(n.wheel){D.circle(c,n.x,n.y,n.r,'#63786a');D.circle(c,n.x,n.y,n.r*.68,'#f0d18f');D.circle(c,n.x,n.y,5,'#697e67');for(let j=0;j<4;j++){const ang=j*Math.PI/2+n.x/25;D.line(c,[{x:n.x,y:n.y},{x:n.x+Math.cos(ang)*n.r*.5,y:n.y+Math.sin(ang)*n.r*.5}],'#8b956f',3);}}else{D.round(c,n.x-23,n.y-22,46,44,7,'#dba775');D.line(c,[{x:n.x,y:n.y-20},{x:n.x,y:n.y+20}],'#f7d99b',5);D.star(c,n.x,n.y,10,'#977b52');}if(i===this.sel)D.circle(c,n.x,n.y,n.r+9,null,'#c39a47');});D.badge(c,this.running?'運送中 · 貨箱要到終點旗':'先連好車架，再出發');this.noticeDraw();}
 }
 registerGame({id:'little-engineer',name:'小小工程師',en:'LITTLE ENGINEER',category:'解謎',desc:'裝輪子、連車架，把貨箱送過小丘。',tag:'機械建造',guide:'在設計區用「連桿」點兩個零件把它們連起來。可加車輪、移動零件。按「試行」讓有動力的車輪前進；貨箱到達旗幟才算成功。用「基本車架」可載入可行範例。',design:'質點、剛性連桿約束、輪子驅動與坡面碰撞；簡化工程沙盒。',keys:[['action','設計／試行']]},LittleEngineer);
@@ -1283,20 +1409,21 @@ registerGame({id:'little-engineer',name:'小小工程師',en:'LITTLE ENGINEER',c
 <script data-wq22="games-strategy">
 'use strict';
 class NumberGarden extends WQGame{
- constructor(a){super(a);this.board=Array.from({length:4},()=>Array(4).fill(0));this.history=[];this.moves=0;this.won=false;this.target=[512,1024,2048][this.d];this.spawn();this.spawn();this.tools([{id:'undo',label:'退一步'}]);this.hint('滑動整個棋盤，或用方向鍵。相同數字相遇就會合併。');}
+ constructor(a){super(a);this.board=Array.from({length:4},()=>Array(4).fill(0));this.history=[];this.moves=0;this.won=false;this.target=[256,512,1024][this.d];this.spawn();this.spawn();this.tools([{id:'undo',label:'退一步'}]);this.hint('滑動整個棋盤，或用方向鍵。相同數字相遇就會合併。');}
  spawn(){const free=[];this.board.forEach((row,y)=>row.forEach((v,x)=>{if(!v)free.push([x,y]);}));if(!free.length)return;const[x,y]=free[Math.floor(this.r()*free.length)];this.board[y][x]=this.r()<[.97,.9,.78][this.d]?2:4;}
- act(k){if(!['left','right','up','down'].includes(k)||this.done)return;const next=WQCore.mergeBoard(this.board,k);if(!next.changed)return;this.history.push({board:this.board.map(r=>r.slice()),score:this.score,moves:this.moves,rng:this.r.state(),won:this.won});if(this.history.length>50)this.history.shift();this.board=next.board;this.score+=next.score;this.moves++;this.spawn();if(next.score)this.sound(320+Math.min(700,next.score*3),.08);this.stat=`${this.moves} 步 · 目標 ${this.target}`;if(!this.won&&this.board.flat().some(v=>v>=this.target)){this.won=true;this.next(`你砌出了 ${this.target}！可以繼續挑戰更大數字。`,()=>{});}else if(!WQCore.hasMerge(this.board))this.end(`取得 ${this.score} 分，最大數字 ${Math.max(...this.board.flat())}。`,'棋盤填滿了');}
+ act(k){if(!['left','right','up','down'].includes(k)||this.done)return;const next=WQCore.mergeBoard(this.board,k);if(!next.changed)return;this.history.push({board:this.board.map(r=>r.slice()),score:this.score,moves:this.moves,rng:this.r.state(),won:this.won});if(this.history.length>50)this.history.shift();this.board=next.board;this.score+=next.score;this.moves++;this.spawn();if(next.score)this.sound(320+Math.min(700,next.score*3),.08);{const mx=Math.max(...this.board.flat()),S=wq34S(this);if(mx>(S.mx||0)){S.mx=mx;if(mx>=64){const W={64:'sixty-four',128:'one hundred twenty-eight',256:'two hundred fifty-six',512:'five hundred twelve',1024:'one thousand twenty-four',2048:'two thousand forty-eight'};this.say(mx+' = '+(mx/2)+' + '+(mx/2)+(W[mx]?' · '+W[mx]:''));this.sound(880,.2,'triangle',.12);}}}this.stat=`${this.moves} 步 · 目標 ${this.target}`;if(!this.won&&this.board.flat().some(v=>v>=this.target)){this.won=true;this.next(`你砌出了 ${this.target}！做得好！`,()=>{});}else if(!WQCore.hasMerge(this.board))this.end(`取得 ${this.score} 分，最大數字 ${Math.max(...this.board.flat())}。`,'棋盤填滿了');}
  tool(k){if(k==='undo'&&this.history.length){const s=this.history.pop();this.board=s.board;this.score=s.score;this.moves=s.moves;if(Number.isInteger(s.rng))this.r=WQCore.rng(s.rng);this.won=s.won===true;this.done=false;this._wqNext=false;this.stat=`${this.moves} 步 · 目標 ${this.target}`;}}
- pointer(type,p){if(type==='down')this.start=p;if(type==='up'&&this.start){const dx=p.x-this.start.x,dy=p.y-this.start.y;if(Math.max(Math.abs(dx),Math.abs(dy))>20)this.act(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');this.start=null;}if(type==='cancel')this.start=null;}
+ pointer(type,p){if(type==='down')this.start=p;if(type==='up'&&this.start){const dx=p.x-this.start.x,dy=p.y-this.start.y;if(Math.max(Math.abs(dx),Math.abs(dy))>34)this.act(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');this.start=null;}if(type==='cancel')this.start=null;}
  draw(){const c=this.c;D.bg(c,'cream');D.round(c,179,69,442,442,23,'#c9c4a6');for(let y=0;y<4;y++)for(let x=0;x<4;x++){const v=this.board[y][x],n=v?Math.log2(v):0,col=['#dad6bd','#f4ecd7','#eddfb6','#e8c688','#deb276','#d49a6d','#bc986a','#9aab78','#7e9d72','#638b6d','#4f775f','#3d6857'][Math.min(11,n)];D.round(c,192+x*106,82+y*106,96,96,13,col);if(v)D.text(c,v,240+x*106,130+y*106,v>=1024?29:36,n>7?'#fff6dd':'#5b654b');}D.badge(c,`數字花園 · 砌出 ${this.target}`,400,31);D.animal(c,98,413,.63,'owl');D.star(c,701,175,20,'#e4c36d');D.star(c,725,215,9,'#d6b36a');this.noticeDraw();}
 }
 registerGame({id:'number-garden',name:'數字花園',en:'NUMBER GARDEN',category:'策略',desc:'相同數字相遇，慢慢砌出大數字。',tag:'數字合併',guide:'上下左右滑動，或按方向鍵。相同數字相撞便合併，一次移動每塊最多合併一次。每次有效移動後會加入新數字。保留空間，不要把自己封住。',design:'完整合併及無路判斷，可撤銷；三種目標與新方塊機率。',keys:[['left','←'],['up','↑'],['down','↓'],['right','→']]},NumberGarden);
 
 class ColorOrbit extends WQGame{
+ pointer(type,p){if(type==='down')this.act(p.x<400?'left':'right');}
  constructor(a){super(a);this.stacks=Array.from({length:6},()=>[]);this.rotation=0;this.visualRot=0;this.chain=0;this.colors=[...D.palette];this.drop=this.newDrop();this.tools([]);this.hint('旋轉六角形，讓同色方塊落在一起；同一面連續三塊同色便消除。');}
  newDrop(){return{side:Math.floor(this.r()*6),color:Math.floor(this.r()*(3+this.d)),r:300};}
  act(k){if(k==='left')this.rotation=(this.rotation+5)%6;if(k==='right'||k==='action')this.rotation=(this.rotation+1)%6;}
- update(dt){this.visualRot=this.rotation;const s=(this.drop.side-this.rotation+6)%6;this.drop.r-=[56,81,111][this.d]*dt;if(this.drop.r<79+this.stacks[s].length*23){this.stacks[s].push(this.drop.color);let n=this.stacks[s].length,count=0;while(count<n&&this.stacks[s][n-1-count]===this.drop.color)count++;if(count>=3){this.stacks[s].splice(n-count,count);this.score+=count*100;this.chain++;this.sound(660+this.chain%4*90,.15);this.say(`連成 ${count} 塊，消除了！`);}else this.score+=5;if(this.stacks[s].length>=8){this.end(`得分 ${this.score}，成功消除 ${this.chain} 組。`,'這一面疊滿了');return;}this.drop=this.newDrop();}this.stat=`消除 ${this.chain} 組`;}
+ update(dt){{const dd=((this.rotation-this.visualRot+9)%6)-3;this.visualRot=Math.abs(dd)<.01?this.rotation:(this.visualRot+dd*Math.min(1,dt*16)+6)%6;}const s=(this.drop.side-this.rotation+6)%6;this.drop.r-=[56,81,111][this.d]*(1+Math.min(1.5,this.chain*.035))*dt;if(this.drop.r<79+this.stacks[s].length*23){this.stacks[s].push(this.drop.color);let n=this.stacks[s].length,count=0;while(count<n&&this.stacks[s][n-1-count]===this.drop.color)count++;if(count>=3){this.stacks[s].splice(n-count,count);this.score+=count*100;this.chain++;this.sound(660+this.chain%4*90,.15);this.say(`連成 ${count} 塊，消除了！`);}else this.score+=5;if(this.stacks[s].length>=8){this.end(`得分 ${this.score}，成功消除 ${this.chain} 組。`,'這一面疊滿了');return;}this.drop=this.newDrop();}this.stat=`消除 ${this.chain} 組`;}
  slab(c,side,r,color,alpha=1){const a=side*Math.PI/3;c.save();c.translate(400,280);c.rotate(a);c.globalAlpha=alpha;const half=43+(r-70)*.43;D.poly(c,[{x:r-10,y:-half},{x:r+10,y:-half-11},{x:r+10,y:half+11},{x:r-10,y:half}],color,'#fff8dc80',2);c.restore();}
  draw(){const c=this.c;D.bg(c,'night');D.circle(c,400,280,257,null,'#bdd2b62b');for(let s=0;s<6;s++){for(let i=0;i<this.stacks[s].length;i++)this.slab(c,(s+this.visualRot)%6,80+i*23,this.colors[this.stacks[s][i]]);const a=s*Math.PI/3;D.circle(c,400+Math.cos(a)*252,280+Math.sin(a)*252,4,'#cfdbc653');}this.slab(c,this.drop.side,this.drop.r,this.colors[this.drop.color]);D.hex(c,400,280,76,'#dce7ba','#dbe3bd',3);D.text(c,'同色 × 3',400,280,20,'#49765e');D.badge(c,'六面都要照顧，別只看一邊',400,28,'#f0eed9dc');this.noticeDraw();}
 }
@@ -1308,21 +1435,24 @@ class HoneycombPuzzle extends WQGame{
  tool(k){if(k==='rotate'&&this.stock[this.selected])this.stock[this.selected].shape=WQCore.hexRotate(this.stock[this.selected].shape);if(/^p[0-2]$/.test(k)&&this.stock[Number(k[1])])this.selected=Number(k[1]);}
  act(k){if(k==='action'||k==='up')this.tool('rotate');if(k==='left')this.selected=(this.selected+2)%3;if(k==='right')this.selected=(this.selected+1)%3;}
  closest(p){let best=null,dist=Infinity;for(const cell of this.cells){const xy=WQCore.hexXY(cell.q,cell.r,37,400,238),d=WQCore.distance(xy,p);if(d<dist){dist=d;best=cell;}}return dist<41?best:null;}
- pointer(type,p){if(type==='move')this.hover=this.closest(p);if(type==='down'){if(p.y>425){const i=Math.floor((p.x-80)/215);if(i>=0&&i<3&&this.stock[i])this.selected=i;return;}const cell=this.closest(p);if(cell)this.place(cell.q,cell.r);}}
- place(q,r){const piece=this.stock[this.selected];if(!piece)return;if(!WQCore.hexFit(piece.shape,q,r,this.valid,this.occupied)){this.say('這裏放不下，可以轉一轉積木。');return;}piece.shape.forEach(([a,b])=>this.occupied.set(WQCore.hexKey(q+a,r+b),piece.color));this.score+=piece.shape.length*10;this.stock[this.selected]=null;const clear=WQCore.hexLines(this.cells,this.occupied);if(clear.size){clear.forEach(k=>this.occupied.delete(k));this.lines++;this.score+=clear.size*30;this.sound(750,.13);}else this.sound(430,.05);if(this.stock.every(p=>p===null))this.refill();else this.selected=this.stock.findIndex(Boolean);let any=false;for(const p of this.stock){if(!p)continue;let shape=p.shape;for(let turn=0;turn<6;turn++){if(this.cells.some(cell=>WQCore.hexFit(shape,cell.q,cell.r,this.valid,this.occupied)))any=true;shape=WQCore.hexRotate(shape);}}this.stat=`已消除 ${this.lines} 次`;if(!any)this.end(`得分 ${this.score}。預留不同形狀的空位，下一局會更好。`,'蜂巢放滿了');}
+ pointer(type,p){if(type==='move')this.hover=this.closest(p);if(type==='down'&&p.y<=425&&matchMedia('(pointer:coarse)').matches){const c0=this.closest(p),S=wq34S(this);if(c0&&!(S.armed&&this.hover&&this.hover.q===c0.q&&this.hover.r===c0.r)){this.hover=c0;S.armed=true;return;}S.armed=false;}if(type==='down'){if(p.y>425){const i=Math.floor((p.x-80)/215);if(i>=0&&i<3&&this.stock[i])this.selected=i;return;}const cell=this.closest(p);if(cell)this.place(cell.q,cell.r);}}
+ place(q,r){const piece=this.stock[this.selected];if(!piece)return;if(!WQCore.hexFit(piece.shape,q,r,this.valid,this.occupied)){this.say('這裏放不下，可以轉一轉積木。');return;}piece.shape.forEach(([a,b])=>this.occupied.set(WQCore.hexKey(q+a,r+b),piece.color));this.score+=piece.shape.length*10;this.stock[this.selected]=null;this.hover=null;const clear=WQCore.hexLines(this.cells,this.occupied);if(clear.size){clear.forEach(k=>this.occupied.delete(k));this.lines++;this.score+=clear.size*30;this.sound(750,.13);}else this.sound(430,.05);if(this.stock.every(p=>p===null))this.refill();else this.selected=this.stock.findIndex(Boolean);let any=false;for(const p of this.stock){if(!p)continue;let shape=p.shape;for(let turn=0;turn<6;turn++){if(this.cells.some(cell=>WQCore.hexFit(shape,cell.q,cell.r,this.valid,this.occupied)))any=true;shape=WQCore.hexRotate(shape);}}this.stat=`已消除 ${this.lines} 次`;if(!any)this.end(`得分 ${this.score}。預留不同形狀的空位，下一局會更好。`,'蜂巢放滿了');}
  draw(){const c=this.c;D.bg(c);const piece=this.stock[this.selected];let preview=new Set(),fits=false;if(this.hover&&piece){fits=WQCore.hexFit(piece.shape,this.hover.q,this.hover.r,this.valid,this.occupied);preview=new Set(piece.shape.map(([q,r])=>WQCore.hexKey(this.hover.q+q,this.hover.r+r)));}for(const cell of this.cells){const xy=WQCore.hexXY(cell.q,cell.r,37,400,238),key=WQCore.hexKey(cell.q,cell.r);D.hex(c,xy.x,xy.y,35,this.occupied.get(key)||(preview.has(key)?fits?'#b0c689':'#e5b6a2':'#fff8e5'),'#cfdbc4',2);}for(let i=0;i<3;i++){const p=this.stock[i];D.round(c,78+i*215,435,200,96,15,this.selected===i?'#d6e4bb':'#ffffff77',this.selected===i?'#72975e':null);D.text(c,`${i+1}`,94+i*215,451,12,'#789069','left');if(p){const pts=p.shape.map(([q,r])=>WQCore.hexXY(q,r,18,0,0));const cx=(Math.min(...pts.map(p=>p.x))+Math.max(...pts.map(p=>p.x)))/2,cy=(Math.min(...pts.map(p=>p.y))+Math.max(...pts.map(p=>p.y)))/2;for(const pt of pts)D.hex(c,178+i*215+pt.x-cx,483+pt.y-cy,17,p.color,'#ffffffa0');}else D.text(c,'已放置',178+i*215,484,16,'#91a07d');}D.badge(c,'每條完整直線，都值得留意',400,27);this.noticeDraw();}
 }
+{const R0=HoneycombPuzzle.prototype.refill;HoneycombPuzzle.prototype.refill=function(){for(let k=0;k<8;k++){R0.call(this);let fit=0;for(const p of this.stock){if(!p)continue;let sh=p.shape,f=false;for(let t=0;t<6&&!f;t++){f=this.cells.some(cell=>WQCore.hexFit(sh,cell.q,cell.r,this.valid,this.occupied));sh=WQCore.hexRotate(sh);}if(f)fit++;}if(fit>=2)break;}};}
 registerGame({id:'honeycomb-puzzle',name:'蜂巢拼拼',en:'HONEYCOMB PUZZLE',category:'策略',desc:'轉一轉小積木，填滿蜂巢三個方向。',tag:'六角拼板',guide:'先選下方一組積木，可按「旋轉積木」改方向，再點棋盤放置。蜂巢沿三個方向，任何完整一行都會消除。三組用完才補新積木。',design:'真正六角座標、三軸清行、旋轉與所有可行擺放檢查。',keys:[]},HoneycombPuzzle);
 
 class GardenPaths extends WQGame{
- constructor(a){super(a);this.cells=WQCore.hexCells([2,3,3][this.d]);this.valid=new Set(this.cells.map(c=>WQCore.hexKey(c.q,c.r)));this.placed=new Map([['0,0',[[3,0],[1,2],[4,5]]]]);this.path=[{q:0,r:0,entry:3,out:0}];this.used=new Set(['0,0:0-3']);this.pos={q:1,r:0,entry:3};this.tile=WQCore.pairs(this.r);this.reserve=WQCore.pairs(this.r);this.rot=0;this.swapped=false;this.tools([{id:'swap',label:'交換備用路片'}]);this.hint('左右旋轉路片，按「放置」。延長金色路線，避免太早走出邊界。');}
- tool(k){if(k==='swap'){if(this.swapped){this.say('每一塊路片只可交換一次。');return;}[this.tile,this.reserve]=[this.reserve,this.tile];this.swapped=true;this.rot=0;}}
+ constructor(a){super(a);this.cells=WQCore.hexCells([2,3,3][this.d]);this.valid=new Set(this.cells.map(c=>WQCore.hexKey(c.q,c.r)));this.placed=new Map([['0,0',[[3,0],[1,2],[4,5]]]]);this.path=[{q:0,r:0,entry:3,out:0}];this.used=new Set(['0,0:0-3']);this.pos={q:1,r:0,entry:3};this.tile=WQCore.pairs(this.r);this.reserve=WQCore.pairs(this.r);this.rot=0;this.swapped=this.d===2;this.tools([{id:'swap',label:'交換備用路片'}]);this.hint('左右旋轉路片，按「放置」。延長金色路線，避免太早走出邊界。');}
+ tool(k){if(k==='swap'){if(this.swapped){this.say(this.d===2?'挑戰級沒有備用路片可以交換。':'每一塊路片只可交換一次。');return;}[this.tile,this.reserve]=[this.reserve,this.tile];this.swapped=true;this.rot=0;}}
  act(k){if(k==='left')this.rot=(this.rot+5)%6;if(k==='right')this.rot=(this.rot+1)%6;if(k==='action')this.place();}
  pointer(type,p){if(type==='down'){const xy=WQCore.hexXY(this.pos.q,this.pos.r,37,400,279);if(WQCore.distance(p,xy)<50)this.act('right');}}
- place(){if(this.done)return;this.placed.set(WQCore.hexKey(this.pos.q,this.pos.r),WQCore.rotatePairs(this.tile,this.rot));let p={...this.pos};for(let count=0;count<250;count++){const key=WQCore.hexKey(p.q,p.r),tile=this.placed.get(key);if(!tile){this.pos=p;this.tile=this.reserve;this.reserve=WQCore.pairs(this.r);this.rot=0;this.swapped=false;return;}const out=WQCore.pairExit(tile,p.entry),edge=key+':'+[p.entry,out].sort().join('-');if(this.used.has(edge)){this.end(`花徑連接了 ${this.path.length} 段，形成一個完整花環。`,'花環合上了');return;}this.used.add(edge);this.path.push({...p,out});this.score+=10;this.sound(400+this.path.length%8*55,.04);const dir=WQCore.HEX_DIRS[out];p={q:p.q+dir[0],r:p.r+dir[1],entry:(out+3)%6};this.stat=`花徑 ${this.path.length} 段`;if(!this.valid.has(WQCore.hexKey(p.q,p.r))){this.end(`金色花徑連接了 ${this.path.length} 段。下次試試把路轉回中間。`,'花徑到達邊界');return;}}this.end('這次花徑已完成。');}
+ place(){if(this.done)return;this.placed.set(WQCore.hexKey(this.pos.q,this.pos.r),WQCore.rotatePairs(this.tile,this.rot));let p={...this.pos};for(let count=0;count<250;count++){const key=WQCore.hexKey(p.q,p.r),tile=this.placed.get(key);if(!tile){this.pos=p;this.tile=this.reserve;this.reserve=WQCore.pairs(this.r);this.rot=0;this.swapped=this.d===2;return;}const out=WQCore.pairExit(tile,p.entry),edge=key+':'+[p.entry,out].sort().join('-');if(this.used.has(edge)){this.end(`花徑連接了 ${this.path.length} 段，形成一個完整花環。`,'花環合上了');return;}this.used.add(edge);this.path.push({...p,out});this.score+=10;this.sound(400+this.path.length%8*55,.04);const dir=WQCore.HEX_DIRS[out];p={q:p.q+dir[0],r:p.r+dir[1],entry:(out+3)%6};this.stat=`花徑 ${this.path.length} 段`;if(!this.valid.has(WQCore.hexKey(p.q,p.r))){this.end(`金色花徑連接了 ${this.path.length} 段。下次試試把路轉回中間。`,'花徑到達邊界');return;}}this.end('這次花徑已完成。');}
  curve(q,r,a,b,color,width=4){const c=this.c,xy=WQCore.hexXY(q,r,37,400,279),port=n=>({x:xy.x+Math.cos(n*Math.PI/3)*32,y:xy.y+Math.sin(n*Math.PI/3)*32}),p=port(a),z=port(b);c.beginPath();c.moveTo(p.x,p.y);c.quadraticCurveTo(xy.x,xy.y,z.x,z.y);c.strokeStyle=color;c.lineWidth=width;c.lineCap='round';c.stroke();}
- draw(){const c=this.c;D.bg(c,'cream');for(const cell of this.cells){const key=WQCore.hexKey(cell.q,cell.r),xy=WQCore.hexXY(cell.q,cell.r,37,400,279);D.hex(c,xy.x,xy.y,35,this.placed.has(key)?'#d4dfbe':'#eee9d4','#d4d7bd');if(this.placed.has(key))for(const[a,b]of this.placed.get(key))this.curve(cell.q,cell.r,a,b,'#95ad81',4);}for(const p of this.path)this.curve(p.q,p.r,p.entry,p.out,'#d4a24e',7);const xy=WQCore.hexXY(this.pos.q,this.pos.r,37,400,279);D.hex(c,xy.x,xy.y,35,'#f9df9e','#b8934b',3);const tile=WQCore.rotatePairs(this.tile,this.rot);for(const[a,b]of tile)this.curve(this.pos.q,this.pos.r,a,b,'#6b9276',4);const exit=WQCore.pairExit(tile,this.pos.entry);this.curve(this.pos.q,this.pos.r,this.pos.entry,exit,'#cc8c3b',7);D.circle(c,xy.x+Math.cos(this.pos.entry*Math.PI/3)*33,xy.y+Math.sin(this.pos.entry*Math.PI/3)*33,5,'#856538');D.badge(c,'讓路線多繞一點，再多繞一點',400,38);D.animal(c,114,408,.67,'owl');D.text(c,'金色格 = 下一塊',400,515,15,'#849073');this.noticeDraw();}
+ draw(){const c=this.c;D.bg(c,'cream');for(const cell of this.cells){const key=WQCore.hexKey(cell.q,cell.r),xy=WQCore.hexXY(cell.q,cell.r,37,400,279);D.hex(c,xy.x,xy.y,35,this.placed.has(key)?'#d4dfbe':'#eee9d4','#d4d7bd');if(this.placed.has(key))for(const[a,b]of this.placed.get(key))this.curve(cell.q,cell.r,a,b,'#95ad81',4);}for(const p of this.path)this.curve(p.q,p.r,p.entry,p.out,'#d4a24e',7);const xy=WQCore.hexXY(this.pos.q,this.pos.r,37,400,279);D.hex(c,xy.x,xy.y,35,'#f9df9e','#b8934b',3);const tile=WQCore.rotatePairs(this.tile,this.rot);for(const[a,b]of tile)this.curve(this.pos.q,this.pos.r,a,b,'#6b9276',4);const exit=WQCore.pairExit(tile,this.pos.entry);this.curve(this.pos.q,this.pos.r,this.pos.entry,exit,'#cc8c3b',7);D.circle(c,xy.x+Math.cos(this.pos.entry*Math.PI/3)*33,xy.y+Math.sin(this.pos.entry*Math.PI/3)*33,5,'#856538');D.badge(c,'金線越長越好，別走出邊界',400,38);D.animal(c,114,408,.67,'owl');D.text(c,'金色格 = 下一塊',400,515,15,'#849073');this.noticeDraw();}
 }
+{const D0=GardenPaths.prototype.draw;const look=g=>{const placed=new Map(g.placed);placed.set(WQCore.hexKey(g.pos.q,g.pos.r),WQCore.rotatePairs(g.tile,g.rot));const used=new Set(g.used),segs=[];let p={...g.pos},res='open';for(let n=0;n<250;n++){const key=WQCore.hexKey(p.q,p.r),tile=placed.get(key);if(!tile)break;const out=WQCore.pairExit(tile,p.entry),edge=key+':'+[p.entry,out].sort().join('-');if(used.has(edge)){res='loop';break;}used.add(edge);segs.push({q:p.q,r:p.r,entry:p.entry,out});const dir=WQCore.HEX_DIRS[out];p={q:p.q+dir[0],r:p.r+dir[1],entry:(out+3)%6};if(!g.valid.has(WQCore.hexKey(p.q,p.r))){res='exit';break;}}return{segs,res};};
+GardenPaths.prototype.draw=function(){D0.call(this);if(this.done)return;const c=this.c,r=look(this),col=r.res==='open'?'#58a06f':'#d0604c';c.save();c.setLineDash([5,8]);for(const s of r.segs)this.curve(s.q,s.r,s.entry,s.out,col,4);c.restore();D.text(c,r.res==='exit'?'這樣放，金線會走出邊界':r.res==='loop'?'這樣放，金線會合成花環並結束':'這樣放，金線會繼續延長（綠色虛線）',400,540,15,col);};}
 registerGame({id:'garden-paths',name:'纏繞花園',en:'GARDEN PATHS',category:'策略',desc:'旋轉彎曲路片，把金色花徑延伸。',tag:'路徑規劃',guide:'金色格是下一塊路片。左右旋轉，再按「放置」。金線會沿路片自動前進；走回舊路片也會繼續穿過。路走出邊界或合成花環時結算。每片可交換一次備用片。',design:'六端口配對路線、路片旋轉、舊片穿越及循環偵測。',keys:[['left','↶'],['right','↷'],['action','放置']]},GardenPaths);
 
 class BlockStudio extends WQGame{
@@ -1334,7 +1464,7 @@ class BlockStudio extends WQGame{
  tool(k){if(k==='hold'&&!this.holdUsed){const prev=this.hold;this.hold=this.id;this.nextPiece(prev);this.holdUsed=true;}if(k==='rotate')this.rotate();if(k==='drop')this.act('action');}
  act(k){if(this.done)return;if(k==='left')this.move(-1);if(k==='right')this.move(1);if(k==='up')this.rotate();if(k==='action'){let dy=0;while(dy<24&&WQCore.tetrisFits(this.board,this.p,this.x,this.y+1)){this.y++;dy++;}this.score+=dy*2;this.lockPiece();}if(k==='hold')this.tool('hold');}
  lockPiece(){if(!WQCore.tetrisFits(this.board,this.p,this.x,this.y)){this.end('方塊資料不完整，請重新開始。');return;}let above=false;this.p.forEach((row,dy)=>row.forEach((v,dx)=>{if(v){if(this.y+dy<0)above=true;else this.board[this.y+dy][this.x+dx]=this.id+1;}}));if(above){this.end('方塊堆到了上方，下一局再試。');return;}const cleared=WQCore.clearRows(this.board);this.board=cleared.board;this.lines+=cleared.count;this.score+=[0,100,300,500,800][cleared.count]*(1+Math.floor(this.lines/10));if(cleared.count)this.sound(620+cleared.count*90,.14);this.holdUsed=false;this.nextPiece();this.stat=`已消除 ${this.lines} 行`;}
- update(dt){const dir=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);if(dir){if(dir!==this.lastDir){this.repeats=-.18;this.lastDir=dir;}this.repeats+=dt;if(this.repeats>.08){this.move(dir);this.repeats=0;}}else{this.lastDir=0;this.repeats=0;}const interval=this.keys.has('down')?.06:Math.max(.1,[1,.65,.37][this.d]-this.lines*.006);this.fall+=dt;while(this.fall>=interval&&!this.done){this.fall-=interval;if(WQCore.tetrisFits(this.board,this.p,this.x,this.y+1)){this.y++;if(this.keys.has('down'))this.score++;}else break;}if(!WQCore.tetrisFits(this.board,this.p,this.x,this.y+1)){this.lock+=dt;if(this.lock>=.38)this.lockPiece();}else this.lock=0;}
+ update(dt){const dir=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);if(dir){if(dir!==this.lastDir){this.repeats=-.18;this.lastDir=dir;}this.repeats+=dt;if(this.repeats>.08){this.move(dir);this.repeats=0;}}else{this.lastDir=0;this.repeats=0;}const interval=this.keys.has('down')?.06:Math.max(.1,[1,.65,.37][this.d]-this.lines*.015);this.fall+=dt;while(this.fall>=interval&&!this.done){this.fall-=interval;if(WQCore.tetrisFits(this.board,this.p,this.x,this.y+1)){this.y++;if(this.keys.has('down'))this.score++;}else break;}if(!WQCore.tetrisFits(this.board,this.p,this.x,this.y+1)){this.lock+=dt;if(this.lock>=.38)this.lockPiece();}else this.lock=0;}
  pointer(type,p){if(type==='down')this.touch=p;if(type==='up'&&this.touch){const dx=p.x-this.touch.x,dy=p.y-this.touch.y;if(Math.abs(dx)<20&&Math.abs(dy)<20)this.rotate();else if(Math.abs(dx)>Math.abs(dy)){const n=Math.min(5,Math.max(1,Math.floor(Math.abs(dx)/35)));for(let i=0;i<n;i++)this.move(dx>0?1:-1);}else if(dy>0)this.act('action');else this.rotate();this.touch=null;}if(type==='cancel')this.touch=null;}
  drawShape(p,x,y,size,col,ghost=false){const c=this.c;p.forEach((row,dy)=>row.forEach((v,dx)=>{if(v){D.round(c,x+dx*size,y+dy*size,size-2,size-2,4,ghost?'#aac18b30':col,ghost?'#aac18b':null);if(!ghost)D.line(c,[{x:x+dx*size+5,y:y+dy*size+4},{x:x+dx*size+size-8,y:y+dy*size+4}],'#ffffff45',2);}}));}
  draw(){const c=this.c;D.bg(c,'night');const ox=255,oy=38,sz=24;D.round(c,ox-9,oy-9,258,500,15,'#1e3537');for(let y=0;y<20;y++)for(let x=0;x<10;x++){const v=this.board[y][x];D.round(c,ox+x*sz,oy+y*sz,22,22,4,v?D.palette[(v-1)%6]:'#3a53532b');}let gy=this.y;for(let guard=0;guard<24&&WQCore.tetrisFits(this.board,this.p,this.x,gy+1);guard++)gy++;this.drawShape(this.p,ox+this.x*sz,oy+gy*sz,sz,D.palette[this.id%6],true);this.drawShape(this.p,ox+this.x*sz,oy+this.y*sz,sz,D.palette[this.id%6]);D.text(c,'下一個',590,78,17,'#d4dfbe');for(let i=0;i<3;i++)this.drawShape(this.shapes[this.queue[i]],553,105+i*75,20,D.palette[this.queue[i]%6]);D.text(c,'收藏',145,78,16,'#d4dfbe');if(this.hold!==null)this.drawShape(this.shapes[this.hold],106,106,19,D.palette[this.hold%6]);D.animal(c,590,435,.7,'owl','#95a988');D.text(c,`${this.lines} 行`,145,325,21,'#cbdab5');this.noticeDraw();}
@@ -1359,7 +1489,7 @@ class ForestFreezer extends WQGame{
 registerGame({id:'forest-freezer',name:'森林雪糕店',en:'FOREST FREEZER',category:'創作',desc:'接單、做雪糕，照顧每位小客人。',tag:'店舖經營',guide:'先看上方已選客人的訂單，依次按口味加球，再選配料。按「開始攪拌」，指針到綠色區域時按停止，最後交給客人。點其他客人的訂單可切换服務對象。',design:'實際訂單比對、多客排隊、等待時間、攪拌品質與完整結算。',keys:[]},ForestFreezer);
 
 class ForestBand extends WQGame{
- constructor(a){super(a);this.names=['大鼓','手拍','沙鈴','低音','旋律'];this.bpm=[90,112,132][this.d];this.patterns=Array.from({length:5},()=>Array(16).fill(false));this.active=Array(5).fill(true);this.edit=0;this.playing=false;this.stepIndex=0;this.nextAudio=0;this.lastStep=-1;this.bars=0;this.preset(0);const saved=this.api.getData?.('band');if(this.valid(saved)){this.patterns=saved.patterns.map(r=>r.slice());this.bpm=saved.bpm;this.active=saved.active.slice();}this.toolbar();this.hint('按播放，開關每一拍；先選樂器，再點下方 1–16 拍。作品可保存及匯出。');}
+ constructor(a){super(a);this.names=['大鼓','手拍','沙鈴','低音','旋律'];this.bpm=[90,112,132][this.d];this.patterns=Array.from({length:5},()=>Array(16).fill(false));this.active=Array(5).fill(true);this.edit=0;this.playing=!this.preview;this.stepIndex=0;this.nextAudio=0;this.lastStep=-1;this.bars=0;this.preset(0);const saved=this.api.getData?.('band');if(this.valid(saved)){this.patterns=saved.patterns.map(r=>r.slice());this.bpm=saved.bpm;this.active=saved.active.slice();}this.toolbar();this.hint('合奏已自動播放。先選樂器，再點下方 1–16 拍加減節奏；作品可保存及匯出。');}
  valid(v){return v&&Number.isFinite(v.bpm)&&v.bpm>=65&&v.bpm<=155&&Array.isArray(v.patterns)&&v.patterns.length===5&&v.patterns.every(r=>Array.isArray(r)&&r.length===16&&r.every(b=>typeof b==='boolean'))&&Array.isArray(v.active)&&v.active.length===5&&v.active.every(b=>typeof b==='boolean');}
  preset(n){this.patterns=Array.from({length:5},()=>Array(16).fill(false));const seqs=[[[0,8],[4,12],[0,2,4,6,8,10,12,14],[0,6,8,14],[2,7,10,15]],[[0,6,10],[4,12],[2,6,10,14],[0,4,8,12],[0,3,6,8,11,14]],[[0,3,8,11],[4,12],[0,2,4,6,8,10,12,14],[0,7,8,15],[1,4,7,10,13,15]]][n%3];seqs.forEach((row,i)=>row.forEach(j=>this.patterns[i][j]=true));this.active=Array(5).fill(true);}
  toolbar(){this.tools([{id:'play',label:this.playing?'停止合奏':'播放合奏'},{id:'slower',label:'慢一點'},{id:'faster',label:'快一點'},{id:'preset',label:'換個節奏'},{id:'save',label:'保存作品'},{id:'export',label:'匯出作品 JSON'},{id:'import',label:'匯入作品'},...this.names.map((n,i)=>({id:'track'+i,label:n,active:this.edit===i})),...Array.from({length:16},(_,i)=>({id:'step'+i,label:String(i+1),active:this.patterns[this.edit][i],ariaLabel:`${this.names[this.edit]}第 ${i+1} 拍${this.patterns[this.edit][i]?'開啟':'關閉'}`}))]);}
@@ -1371,15 +1501,27 @@ class ForestBand extends WQGame{
  update(){if(this.playing){const now=this.api.clock();if(!this.nextAudio||this.nextAudio<now-.2)this.nextAudio=now+.035;let safety=0;while(this.nextAudio<now+.075&&safety++<4){const i=this.stepIndex;for(let track=0;track<5;track++)if(this.active[track]&&this.patterns[track][i])this.api.instrument(track,i,this.nextAudio);this.lastStep=i;this.stepIndex=(i+1)%16;if(this.stepIndex===0){this.bars++;this.score=this.bars;}this.nextAudio+=60/this.bpm/4;}}this.stat=`${this.bpm} BPM · ${this.playing?'合奏中':'編曲中'}`;}
  draw(){const c=this.c;D.bg(c,'cream');D.round(c,63,182,674,57,16,'#c4d0ad');for(let i=0;i<5;i++){const x=130+i*134,on=this.active[i],pulse=this.playing&&this.lastStep>=0&&this.patterns[i][this.lastStep];c.globalAlpha=on?1:.4;D.animal(c,x,153,pulse?.83:.78,['rabbit','fox','cat','owl','rabbit'][i],D.palette[i]);D.round(c,x-36,200,72,28,9,on?'#fff3d2':'#d6d9c5');D.text(c,this.names[i],x,214,14,'#586f52');c.globalAlpha=1;}D.badge(c,`森林節奏社 · ${this.bpm} BPM`,400,32);for(let row=0;row<5;row++){D.round(c,90,278+row*43,100,34,9,this.edit===row?'#d1dfb2':'#f1ead7');D.text(c,this.names[row],140,295+row*43,14,'#5b7d5a');for(let col=0;col<16;col++){const on=this.patterns[row][col],x=210+col*31,y=278+row*43;D.round(c,x,y,27,34,6,on?D.palette[row]:(col%4===0?'#dedcc3':'#e9e6d5'),this.lastStep===col&&this.playing?'#4d7657':null);if(col%4===0)D.circle(c,x+13,y+17,2,on?'#ffffffaa':'#b3b996');}}D.text(c,`正在編輯：${this.names[this.edit]}　·　樂句 ${this.bars}`,400,521,14,'#73865e');this.noticeDraw();}
 }
+{const Dr=ForestBand.prototype.draw;ForestBand.prototype.draw=function(){Dr.call(this);if(!this.playing||this.lastStep<0)return;const c=this.c,x=210+this.lastStep*31;c.save();c.globalAlpha=.3;D.round(c,x-2,276,31,5*43-6,8,'#ffffff');c.restore();D.round(c,x,266,27,6,3,'#4d7657');for(let row=0;row<5;row++)if(this.active[row]&&this.patterns[row][this.lastStep])D.circle(c,x+13.5,278+row*43+17,19,null,'#ffffffd0');};}
 registerGame({id:'forest-band',name:'森林節奏社',en:'FOREST BAND',category:'創作',desc:'替五位動物編曲，合奏自己的節奏。',tag:'音樂創作',guide:'按「播放合奏」。每一列是一件樂器，每一格是一拍。點格子開關聲音，或選樂器後用下方 1–16 拍按鈕編曲。可調速度、保存作品，匯出或匯入 JSON 節奏檔。',design:'五聲部 16 步 sequencer、實際合成音訊與音訊時鐘排程。計數是樂句，不評藝術分數。',scoreLabel:'已奏樂句',keys:[['action','播放／停止']]},ForestBand);
 
 class StarRhythm extends WQGame{
  constructor(a){super(a);this.period=60/[90,112,136][this.d];this.window=[.2,.145,.105][this.d];this.total=32;this.index=0;this.hits=0;this.perfect=0;this.combo=0;this.maxCombo=0;this.nextDue=this.period*5;this.hitCurrent=false;this.cue=this.period;this.mark='先聽四拍';this.markTime=2;this.points=Array.from({length:36},(_,i)=>({x:i*88,y:Math.sin(i*.85)*68+Math.cos(i*.45)*25}));this.tools([]);this.hint('先聽 4 拍預備。金球轉到下一個光圈時，按一下空白鍵／拍子。');}
  act(k){if(k!=='action'||this.done)return;const offset=(this.api.latency||0)/1000,err=this.t-this.nextDue-offset;if(this.hitCurrent)return;if(Math.abs(err)>this.window){this.combo=0;this.mark=err<0?'再等一點':'跟下一拍';this.markTime=.45;return;}const grade=WQCore.rhythmGrade(err,this.window);this.hitCurrent=true;this.hits++;this.combo++;this.maxCombo=Math.max(this.maxCombo,this.combo);if(grade==='perfect'){this.perfect++;this.score+=100+Math.min(this.combo,20)*2;this.mark='準拍！';}else{this.score+=65;this.mark='跟上了';}this.sound(grade==='perfect'?880:660,.08,'triangle',.07);this.markTime=.55;}
  pointer(type){if(type==='down')this.act('action');}
- update(dt){this.markTime=Math.max(0,this.markTime-dt);while(this.t>=this.cue){this.sound(this.cue<this.period*4.5?470:330,.045,'sine',.07);this.cue+=this.period;}if((this.hitCurrent&&this.t>=this.nextDue+(this.api.latency||0)/1000)||this.t>this.nextDue+(this.api.latency||0)/1000+this.window){if(!this.hitCurrent){this.combo=0;this.mark='下一拍再來';this.markTime=.5;}this.index++;this.hitCurrent=false;this.nextDue+=this.period;if(this.index>=this.total){this.end(`跟上 ${this.hits} / ${this.total} 拍，其中 ${this.perfect} 拍準拍；最長連續 ${this.maxCombo} 拍。`,'這段旋律完成');return;}}this.stat=`第 ${this.index+1} / ${this.total} 拍 · 連續 ${this.combo}`;}
- draw(){const c=this.c;D.bg(c,'night');for(let i=0;i<38;i++)D.circle(c,(i*137)%800,(i*79)%540,1.4,'#dfebc044');const pivot=this.points[this.index],map=p=>({x:345+p.x-pivot.x,y:288+p.y-pivot.y});const pts=this.points.slice(Math.max(0,this.index-5),this.index+7).map(map);D.line(c,pts,'#92b7a133',5);for(let i=Math.max(0,this.index-4);i<Math.min(this.points.length,this.index+6);i++){const p=map(this.points[i]);D.circle(c,p.x,p.y,14,i<=this.index?'#8cad98':'#355951','#789e86');}const next=map(this.points[this.index+1]),center=map(pivot),dx=next.x-center.x,dy=next.y-center.y,r=Math.hypot(dx,dy),targetA=Math.atan2(dy,dx),phase=(this.t-this.nextDue)/this.period,angle=targetA+phase*Math.PI*2;const orb={x:center.x+Math.cos(angle)*r,y:center.y+Math.sin(angle)*r};D.circle(c,center.x,center.y,r,null,'#a3c1a431');D.line(c,[center,orb],'#e2c07d55',3);D.circle(c,center.x,center.y,18,'#a5c3a1');D.circle(c,orb.x,orb.y,16,'#edc881');D.circle(c,orb.x-4,orb.y-5,5,'#fff4bf');const remaining=this.nextDue-this.t;if(remaining<this.period&&remaining>0)D.circle(c,next.x,next.y,16+remaining/this.period*40,null,'#f3d291');D.badge(c,this.t<this.period*4.2?'跟着預備拍，準備出發':'把光圈，接成一段旋律',400,45,'#f5efdce0');if(this.markTime>0)D.text(c,this.mark,400,435,26,'#f1d599');for(let i=0;i<this.total;i++)D.round(c,105+i*18.5,493,13,9,4,i<this.index?'#abc193':'#48665d');D.text(c,`${this.hits} / ${this.total} 拍`,400,533,14,'#b9cba6');}
+ update(dt){this.markTime=Math.max(0,this.markTime-dt);while(this.t>=this.cue){this.sound(this.cue<this.period*4.5?470:330,.045,'sine',.07);this.cue+=this.period;}if((this.hitCurrent&&this.t>=this.nextDue+(this.api.latency||0)/1000)||this.t>this.nextDue+(this.api.latency||0)/1000+this.window){if(!this.hitCurrent){this.combo=0;this.mark='下一拍再來';this.markTime=.5;if(this.index<3)this.hits++;}this.index++;this.hitCurrent=false;this.nextDue+=this.period;if(this.index>=this.total){this.end(`跟上 ${this.hits} / ${this.total} 拍，其中 ${this.perfect} 拍準拍；最長連續 ${this.maxCombo} 拍。`,'這段旋律完成');return;}}this.stat=`第 ${this.index+1} / ${this.total} 拍 · 連續 ${this.combo}`;}
+ draw(){const c=this.c;D.bg(c,'night');for(let i=0;i<38;i++)D.circle(c,(i*137)%800,(i*79)%540,1.4,'#dfebc044');const pivot=this.points[this.index],map=p=>({x:345+p.x-pivot.x,y:288+p.y-pivot.y});const pts=this.points.slice(Math.max(0,this.index-5),this.index+7).map(map);D.line(c,pts,'#92b7a133',5);for(let i=Math.max(0,this.index-4);i<Math.min(this.points.length,this.index+6);i++){const p=map(this.points[i]);D.circle(c,p.x,p.y,14,i<=this.index?'#8cad98':'#355951','#789e86');}const next=map(this.points[this.index+1]),center=map(pivot),dx=next.x-center.x,dy=next.y-center.y,r=Math.hypot(dx,dy),targetA=Math.atan2(dy,dx),phase=(this.t-this.nextDue)/this.period,angle=targetA+phase*Math.PI*2;const orb={x:center.x+Math.cos(angle)*r,y:center.y+Math.sin(angle)*r};D.circle(c,center.x,center.y,r,null,'#a3c1a431');D.line(c,[center,orb],'#e2c07d55',3);D.circle(c,center.x,center.y,18,'#a5c3a1');D.circle(c,orb.x,orb.y,16,'#edc881');D.circle(c,orb.x-4,orb.y-5,5,'#fff4bf');const remaining=this.nextDue-this.t;if(remaining<this.period&&remaining>0)D.circle(c,next.x,next.y,16+remaining/this.period*40,null,'#f3d291');D.badge(c,this.t<this.period*4.2?'跟着預備拍輕拍，幫你校準節拍':'把光圈，接成一段旋律',400,45,'#f5efdce0');if(this.markTime>0)D.text(c,this.mark,400,435,26,'#f1d599');for(let i=0;i<this.total;i++)D.round(c,105+i*18.5,493,13,9,4,i<this.index?'#abc193':'#48665d');D.text(c,`${this.hits} / ${this.total} 拍`,400,533,14,'#b9cba6');}
 }
+{const A=StarRhythm.prototype.act;StarRhythm.prototype.act=function(k){
+ if(k==='action'&&!this.done){
+  const S=wq34S(this),p=this.period;
+  if(this.t<p*4.6){ /* count-in: taps measure the device latency instead of being judged */
+   if(this.t>p*.6&&!S.cal3){const m=this.t%p,off=(m<p/2?m:m-p)*1000;if(Math.abs(off)<p*450){(S.cal=S.cal||[]).push(off);if(S.cal.length>=3){S.cal3=true;const a=S.cal.slice().sort((x,y)=>x-y),med=a[a.length>>1],lat=med>55?Math.max(0,Math.min(260,Math.round(med*.9))):0;this.api.latency=lat;try{localStorage.setItem('wq34.lat',String(lat));}catch(_){}this.mark=lat?'已校準節拍':'節拍很準';this.markTime=1;}}}
+   return;}
+  const q=(S.taps=S.taps||[]);q.push(this.t);while(q.length&&q[0]<this.t-p*1.5)q.shift();
+  if(S.lock&&this.t<S.lock)return;
+  if(q.length>=3){S.lock=this.t+p*1.2;this.combo=0;this.mark='一拍只按一下';this.markTime=.7;q.length=0;return;}
+ }
+ return A.call(this,k);};}
 registerGame({id:'star-rhythm',name:'星軌節拍',en:'STAR RHYTHM',category:'創作',desc:'跟光圈、聽節拍，沿星軌前進。',tag:'一鍵節奏',guide:'先聽四拍預備。金球沿圓軌轉動，當它到下一個光圈時按一下。越接近正拍得分越高；漏拍不會出現傷害動畫。共 32 拍，有三種速度。',design:'實際時間差判分、準拍／一般／漏拍、連續拍數及本機延遲微調。',keys:[['action','拍子']]},StarRhythm);
 
 </script>
@@ -1649,17 +1791,17 @@ globalThis.WQArcadeArt=art;
 'use strict';
 const A28=globalThis.WQArcadeArt;
 class SkyRescue28 extends WQGame {
- constructor(api){super(api);this.p={x:180,y:290};this.health=3;this.invincible=0;this.shield=0;this.energy=0;this.distance=0;this.rescued=0;this.combo=0;this.spawn=1;this.items=[];this.sparks=[];this.scene=0;this.skin='classic';this.tools([]);this.hint('方向鍵／WASD 飛行，Space 展開護盾。接近小鳥完成救援；寶石只計分，不會增加入場金幣。');}
+ constructor(api){super(api);this.p={x:180,y:290};this.health=3;this.invincible=0;this.shield=0;this.energy=0;this.distance=0;this.rescued=0;this.combo=0;this.spawn=.9;this.items=[{x:400,y:229,kind:'bird',hit:false},{x:470,y:427,kind:'cloud',hit:false},{x:500,y:229,kind:'gem',hit:false}];this.sparks=[];this.scene=0;this.skin='classic';this.tools([]);this.hint('方向鍵／WASD 飛行，Space 展開護盾。接近小鳥完成救援；寶石只計分，不會增加入場金幣。');}
  act(k){if(k==='action'&&this.energy>=5){this.energy=0;this.shield=3;this.sound(780,.18,'triangle');this.say('護盾展開！');}}
- update(dt){const v=[245,275,300][this.d];this.p.x=WQCore.clamp(this.p.x+((this.keys.has('right')?1:0)-(this.keys.has('left')?1:0))*v*dt,74,660);this.p.y=WQCore.clamp(this.p.y+((this.keys.has('down')?1:0)-(this.keys.has('up')?1:0))*v*dt,104,491);
+ update(dt){const v=[245,275,300][this.d];this.p.x=WQCore.clamp(this.p.x+((this.keys.has('right')?1:0)-(this.keys.has('left')?1:0))*v*dt,74,660);this.p.y=WQCore.clamp(this.p.y+((this.keys.has('down')?1:0)-(this.keys.has('up')?1:0))*v*dt,104,440);
  this.invincible=Math.max(0,this.invincible-dt);this.shield=Math.max(0,this.shield-dt);this.distance+=dt*33;this.scene=Math.floor(this.rescued/4)%3;this.spawn-=dt;
  if(this.spawn<=0){this.spawn=[1.7,1.45,1.25][this.d];const lane=130+Math.floor(this.r()*4)*99;this.items.push({x:860,y:lane,kind:'bird',hit:false});this.items.push({x:940,y:130+((Math.round((lane-130)/99)+2)%4)*99,kind:'cloud',hit:false});this.items.push({x:960,y:lane,kind:'gem',hit:false});}
  for(const o of this.items){o.x-=([148,174,194][this.d]+Math.min(44,this.rescued*2))*dt;
  if(o.hit||Math.hypot((o.x-this.p.x)*.9,o.y-this.p.y)> (o.kind==='cloud'?49:45))continue;
  o.hit=true;
  if(o.kind==='cloud'){if(this.shield>0){this.score+=10;this.sound(330,.08);}else if(this.invincible<=0){this.health--;this.invincible=1.8;this.combo=0;this.sound(190,.12,'sine');if(this.health<=0){this.end(`救援 ${this.rescued} 隻小鳥；下次留意前方風雲。`,'飛行任務結束');return;}}}
- else{this.combo++;this.energy=Math.min(5,this.energy+1);this.score+=o.kind==='bird'?100+Math.min(this.combo,10)*5:20;if(o.kind==='bird')this.rescued++;this.sound(o.kind==='bird'?840:1080,.07,'triangle');for(let i=0;i<5;i++)this.sparks.push({x:o.x,y:o.y,vx:(this.r()-.5)*100,vy:(this.r()-.5)*100,life:.55});if(this.rescued>=12){this.end('12 隻小鳥都回到安全的雲海小島。','救援任務完成');return;}}}
- this.items=this.items.filter(o=>o.x>-90&&!o.hit);this.sparks=this.sparks.filter(o=>(o.life-=dt)>0);for(const s of this.sparks){s.x+=s.vx*dt;s.y+=s.vy*dt;}this.stat=`救援 ${this.rescued} / 12 · 護盾能量 ${this.energy}/5`;
+ else{this.combo++;this.energy=Math.min(5,this.energy+1);this.score+=o.kind==='bird'?100+Math.min(this.combo,10)*5:20;if(o.kind==='bird')this.rescued++;this.sound((o.kind==='bird'?840:1080)*Math.pow(1.0595,Math.min(this.combo,12)),.07,'triangle');for(let i=0;i<5;i++)this.sparks.push({x:o.x,y:o.y,vx:(this.r()-.5)*100,vy:(this.r()-.5)*100,life:.55});if(this.rescued>=12){this.end('12 隻小鳥都回到安全的雲海小島。','救援任務完成');return;}}}
+ for(const o of this.items)if(o.kind==='bird'&&!o.hit&&o.x<=-90)this.combo=0;this.items=this.items.filter(o=>o.x>-90&&!o.hit);this.sparks=this.sparks.filter(o=>(o.life-=dt)>0);for(const s of this.sparks){s.x+=s.vx*dt;s.y+=s.vy*dt;}this.stat=`救援 ${this.rescued} / 12 · 護盾能量 ${this.energy}/5`;
  }
  draw(){const c=this.c;A28.sky(c,this.t,this.scene===2);for(let i=0;i<3;i++){const x=((i*325-this.t*47)%1100+1100)%1100-140;A28.cloud(c,x,526,1.9);}
  for(const o of this.items){if(o.kind==='cloud'){c.save();c.translate(o.x,o.y);D.ellipse(c,0,16,45,15,'#66709b');D.circle(c,-20,0,26,'#8f9bb7');D.circle(c,9,-9,34,'#9ca6bb');D.circle(c,33,5,24,'#8490ac');D.line(c,[{x:-24,y:31},{x:6,y:33},{x:30,y:27}],'#b9c6d5',4);c.restore();}else if(o.kind==='bird'){c.save();c.translate(o.x,o.y);D.ellipse(c,0,18,19,5,'#33537723');D.ellipse(c,0,0,19,14,'#ffe68e');D.circle(c,13,-7,11,'#fff0b0');D.ellipse(c,-6,-7+Math.sin(this.t*13)*6,16,8,'#edb267');D.poly(c,[{x:23,y:-7},{x:34,y:-4},{x:23,y:0}],'#e4a371');D.circle(c,15,-10,2.6,'#44455e');c.restore();}else A28.gem(c,o.x,o.y,1.3);}
@@ -1673,9 +1815,9 @@ class ForestDash28 extends WQGame {
  constructor(api){super(api);this.lane=1;this.visualLane=1;this.jump=0;this.jumpV=0;this.slide=0;this.health=3;this.invincible=0;this.rows=[];this.spawn=.8;this.distance=0;this.gems=0;this.combo=0;this.skin='classic';this.tools([]);this.hint('← →／A D 換路，↑／W／Space 跳躍，↓／S 滑行。木樁要跳過，花拱要滑過；三格生命，沒有倒數。');}
  act(k){if(k==='left')this.lane=Math.max(0,this.lane-1);if(k==='right')this.lane=Math.min(2,this.lane+1);if((k==='up'||k==='action')&&this.jump===0){this.jumpV=460;this.slide=0;this.sound(420,.05);}if(k==='down'&&this.jump===0)this.slide=.7;}
  update(dt){this.visualLane+=(this.lane-this.visualLane)*Math.min(1,dt*16);this.invincible=Math.max(0,this.invincible-dt);this.slide=Math.max(0,this.slide-dt);if(this.jump>0||this.jumpV>0){this.jumpV-=1100*dt;this.jump=Math.max(0,this.jump+this.jumpV*dt);if(this.jump===0)this.jumpV=0;}
- this.distance+=dt*[26,32,37][this.d];this.spawn-=dt;
- if(this.spawn<=0){this.spawn=[1.6,1.35,1.18][this.d];const lane=Math.floor(this.r()*3);this.rows.push({z:1.15,lane,kind:this.r()<.5?'stump':'arch',checked:false});this.rows.push({z:1.15,lane:(lane+1)%3,kind:'gem',checked:false});}
- for(const o of this.rows){o.z-=dt*([.27,.31,.35][this.d]+Math.min(.04,this.distance/14000));if(!o.checked&&o.z<.075){o.checked=true;if(o.lane===this.lane){if(o.kind==='gem'){this.gems++;this.combo++;this.score+=30+Math.min(10,this.combo)*2;this.sound(820,.05);}else if((o.kind==='stump'&&this.jump<36||o.kind==='arch'&&(this.slide===0||this.jump>0))&&this.invincible===0){this.health--;this.invincible=1.8;this.combo=0;this.sound(185,.09);if(this.health<=0){this.end(`走過 ${Math.floor(this.distance)} 米；收集 ${this.gems} 顆露珠。`,'森林旅程結束');return;}}}}}
+ this.distance+=dt*[26,32,37][this.d];this.score+=dt*[13,16,18.5][this.d];this.spawn-=dt;
+ if(this.spawn<=0){this.spawn=[1.6,1.35,1.18][this.d];const lane=Math.floor(this.r()*3);{const k=this.r()<.5?'stump':'arch';if(this.distance>350&&this.r()<.4){for(let l=0;l<3;l++)this.rows.push({z:1.15,lane:l,kind:k,checked:false});this.rows.push({z:1.6,lane:1,kind:'gem',checked:false});}else{this.rows.push({z:1.15,lane,kind:k,checked:false});this.rows.push({z:1.15,lane:(lane+1)%3,kind:'gem',checked:false});}}}
+ for(const o of this.rows){o.z-=dt*([.27,.31,.35][this.d]+Math.min(.04,this.distance/14000));if(!o.checked&&o.z<.075){o.checked=true;if(o.lane===this.lane){if(o.kind==='gem'){this.gems++;this.combo++;this.score+=30+Math.min(10,this.combo)*2;this.sound(820*Math.pow(1.0595,Math.min(this.combo,12)),.05);}else if((o.kind==='stump'&&this.jump<36||o.kind==='arch'&&(this.slide===0||this.jump>0))&&this.invincible===0){this.health--;this.invincible=1.8;this.combo=0;this.sound(185,.09);if(this.health<=0){this.end(`走過 ${Math.floor(this.distance)} 米；收集 ${this.gems} 顆露珠。`,'森林旅程結束');return;}}}}}
  this.rows=this.rows.filter(o=>o.z>-.12);if(this.distance>=1500){this.end('已穿過三個森林路段，送達樹屋驛站。','森林郵差完成');return;}this.stat=`${Math.floor(this.distance)} / 1500 米 · 露珠 ${this.gems}`;
  }
  point(lane,z){const f=Math.max(0,1-z);return{x:400+(lane-1)*224*f,y:176+f*f*315,s:.15+f*.95};}
@@ -1689,12 +1831,12 @@ class ForestDash28 extends WQGame {
  }
 }
 class SweetStudio28 extends WQGame {
- constructor(api){super(api);this.flavors=['雲呢拿','草莓','抹茶','朱古力'];this.cols=['#ffe4a2','#f69fa9','#a7cc91','#c5987f'];this.tops=['彩糖','藍莓','餅乾'];this.names=['月月','棉棉','飛飛'];this.orders=[];this.cup=[];this.topping=0;this.selected=0;this.served=0;this.health=3;this.combo=0;this.skin='classic';this.makeOrders();this.toolbar();this.hint('1–4 加雪糕；Q／E 切換配料；← → 選客人；Backspace 退一步；Space 交杯。做錯才扣生命，客人不會因時間離開。');}
+ constructor(api){super(api);this.flavors=['雲呢拿 vanilla','草莓 strawberry','抹茶 matcha','朱古力 chocolate'];this.cols=['#ffe4a2','#f69fa9','#a7cc91','#c5987f'];this.tops=['彩糖','藍莓','餅乾'];this.names=['月月','棉棉','飛飛'];this.orders=[];this.cup=[];this.topping=0;this.selected=0;this.served=0;this.health=3;this.combo=0;this.skin='classic';this.makeOrders();this.toolbar();this.hint('1–4 加雪糕；Q／E 切換配料；← → 選客人；Backspace 退一步；Space 交杯。做錯才扣生命，客人不會因時間離開。');}
  makeOrders(){while(this.orders.length<3){const n=this.d===2?3:2;this.orders.push({recipe:Array.from({length:n},()=>Math.floor(this.r()*4)),top:Math.floor(this.r()*3),animal:['rabbit','panda','fox'][Math.floor(this.r()*3)]});}}
  toolbar(){this.tools([...this.flavors.map((f,i)=>({id:'flavor'+i,label:(i+1)+' '+f})),...this.tops.map((t,i)=>({id:'topping'+i,label:t,active:this.topping===i})),{id:'undo',label:'退一步'},{id:'clear',label:'清空杯子'},{id:'serve',label:'交給客人'}]);}
  act(k){if(k==='left'){this.selected=(this.selected+2)%3;this.toolbar();}if(k==='right'){this.selected=(this.selected+1)%3;this.toolbar();}if(k==='action')this.tool('serve');if(k==='undo')this.tool('undo');if(/^digit[1-4]$/.test(k))this.tool('flavor'+(Number(k.slice(-1))-1));if(k==='q')this.tool('topping'+((this.topping+2)%3));if(k==='e')this.tool('topping'+((this.topping+1)%3));}
- tool(k){if(this.done)return;if(/^flavor[0-3]$/.test(k)){if(this.cup.length<3){this.cup.push(Number(k.at(-1)));this.sound(480+this.cup.length*120,.04);}}else if(/^topping[0-2]$/.test(k))this.topping=Number(k.at(-1));else if(k==='undo')this.cup.pop();else if(k==='clear')this.cup=[];else if(k==='serve'){const o=this.orders[this.selected];if(this.cup.length===o.recipe.length&&this.cup.every((n,i)=>n===o.recipe[i])&&this.topping===o.top){this.served++;this.combo++;this.score+=100+this.combo*10;this.say(`第 ${this.served} 杯完成！`);this.sound(880,.1,'triangle');this.orders.splice(this.selected,1);this.makeOrders();this.cup=[];if(this.served>=6+this.d*2){this.end(`${this.served} 杯甜點完成，謝謝你的細心。`,'甜點工場收工');return;}}else{this.health--;this.combo=0;this.say('這杯與訂單不同，留意由下至上的口味。');this.sound(230,.08);if(this.health<=0){this.end(`完成 ${this.served} 杯；下次先看訂單，再交給客人。`,'這次營業結束');return;}}}this.toolbar();}
- pointer(type,p){if(type==='down'&&p.y>82&&p.y<278){const i=Math.floor((p.x-44)/240);if(i>=0&&i<3){this.selected=i;this.toolbar();}}}
+ tool(k){if(this.done)return;if(/^flavor[0-3]$/.test(k)){if(this.cup.length<3){this.cup.push(Number(k.at(-1)));this.sound(480+this.cup.length*120,.04);}}else if(/^topping[0-2]$/.test(k))this.topping=Number(k.at(-1));else if(k==='undo')this.cup.pop();else if(k==='clear')this.cup=[];else if(k==='serve'){if(!this.cup.length){this.say('先加雪糕，再交給客人。');this.toolbar();return;}const o=this.orders[this.selected];if(this.cup.length===o.recipe.length&&this.cup.every((n,i)=>n===o.recipe[i])&&this.topping===o.top){this.served++;this.combo++;this.score+=100+this.combo*10;this.say(`第 ${this.served} 杯完成！`);this.sound(880,.1,'triangle');this.orders.splice(this.selected,1);this.makeOrders();this.cup=[];if(this.served>=6+this.d*2){this.end(`${this.served} 杯甜點完成，謝謝你的細心。`,'甜點工場收工');return;}}else{this.health--;this.combo=0;this.say('這杯與訂單不同，留意由下至上的口味。');this.sound(230,.08);if(this.health<=0){this.end(`完成 ${this.served} 杯；下次先看訂單，再交給客人。`,'這次營業結束');return;}}}this.toolbar();}
+ pointer(type,p){if(type==='down'){for(let i=0;i<4;i++)if(Math.hypot(p.x-(77+i*52),p.y-453)<30){this.tool('flavor'+i);return;}if(p.x>350&&p.x<455&&p.y>415&&p.y<525){this.tool('undo');return;}if(p.x>600&&p.x<710&&p.y>370&&p.y<510){this.tool('serve');return;}}if(type==='down'&&p.y>82&&p.y<278){const i=Math.floor((p.x-44)/240);if(i>=0&&i<3){this.selected=i;this.toolbar();}}}
  update(){this.stat=`完成 ${this.served} / ${6+this.d*2} 杯 · 連續 ${this.combo} 杯`;}
  draw(){const c=this.c;D.bg(c,this.skin==='moonlight'?'night':this.skin==='sunset'?'rose':'cream');D.round(c,28,64,744,297,21,'#fff1dce5');for(let i=0;i<11;i++){D.round(c,28+i*68,64,68,37,8,i%2?'#ffddbd':this.skin==='moonlight'?'#b4afd6':this.skin==='sunset'?'#eaa2a5':'#a2c9b9');D.ellipse(c,62+i*68,99,34,13,i%2?'#ffddbd':this.skin==='moonlight'?'#b4afd6':this.skin==='sunset'?'#eaa2a5':'#a2c9b9');}
  for(let i=0;i<3;i++){const x=49+i*240,o=this.orders[i];A28.panel(c,x,130,221,115,i===this.selected?'#fffbef':'#ffffffb8');D.round(c,x,130,221,115,18,null,i===this.selected?'#d09251':'#edd0cb');D.text(c,'客人 '+(i+1)+(i===this.selected?' · 正在製作':''),x+110,152,16,'#77526b');o.recipe.forEach((f,j)=>{A28.scoop(c,x+57+j*48,192,18,this.cols[f]);D.text(c,j+1,x+57+j*48,221,12,'#754e63');});D.text(c,this.tops[o.top],x+181,197,15,'#78516b');D.animal(c,x+112,308,.72,o.animal,['#ad9bcb','#729fa8','#e8ac73'][i],Math.sin(this.t*2+i)*2);}
@@ -1735,7 +1877,7 @@ const R2={
  fx(g,dt){for(const p of g.fx){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=200*dt;p.life-=dt;}g.fx=g.fx.filter(p=>p.life>0);},
  drawFx(g){for(const p of g.fx){g.c.save();g.c.globalAlpha=Math.min(1,p.life*2);D.circle(g.c,p.x,p.y,3,p.col);g.c.restore();}},
  finish(g,won,text){if(g.done)return;g.won=won;g.end(text,won?'任務完成':'這一局結束');},
- beat(g,dt,theme=0){g.musicClock-=dt;if(g.musicClock<=0){g.musicClock+=.29;const scales=[[220,277.18,329.63,440,369.99,329.63,277.18,329.63],[261.63,329.63,392,523.25,440,392,329.63,293.66],[164.81,220,246.94,329.63,293.66,246.94,220,185]];const n=g.musicStep++%16;g.api.music?.(scales[theme%3][n%8]*(n%4===0?.5:1),.19,'triangle',.035);}},
+ beat(g,dt,theme=0){g.musicClock-=dt;if(g.musicClock<=0){g.musicClock+=.29;const scales=[[220,277.18,329.63,440,369.99,329.63,277.18,329.63],[261.63,329.63,392,523.25,440,392,329.63,293.66],[164.81,220,246.94,329.63,293.66,246.94,220,185]];const n=g.musicStep++%16;g.api.music?.(scales[theme%3][n%8]*(n%4===0?.5:1),.19,'triangle',.07);}},
  setup(g){g.engineVersion=1;g.health=3;g.inv=0;g.won=false;g.skin='classic';g.fx=[];g.musicClock=.1;g.musicStep=0;}
 };
 
@@ -1766,9 +1908,9 @@ R2.pose=function(c,x,y,s,type,accent,action='idle',time=0,face=1){
 
 class RuinsCourierR2 extends WQGame{
  constructor(a){super(a);R2.setup(this);this.distance=0;this.lane=1;this.visualLane=1;this.jump=0;this.jumpV=0;this.slide=0;this.gems=0;this.combo=0;this.obstacles=[];this.nextAt=100;this.rowId=0;this.lastPattern=-1;this.actions={jump:0,slide:0,dodge:0};this.hint('← → 換線；↑／Space 跳躍；↓ 滑行。橫跨三線的木欄必須跳，拱門必須滑。閃光箭嘴會預告下一組障礙。');this.spawn();}
- spawn(){const id=this.rowId++,pattern=id%6,lane=Math.floor(this.r()*3),at=this.nextAt;let kinds=['gem','gem','gem'];
+ spawn(){const id=this.rowId++,pattern=id<2?9:id%6,lane=Math.floor(this.r()*3),at=this.nextAt;let kinds=['gem','gem','gem'];
   if(pattern===0)kinds=['log','log','log'];else if(pattern===1)kinds=['arch','arch','arch'];else if(pattern===2)kinds=[0,1,2].map(l=>l===lane?'gem':'wall');else if(pattern===3)kinds=[0,1,2].map(l=>l===lane?'pit':'gem');else if(pattern===4)kinds=[0,1,2].map(l=>l===lane?'wall':'log');else kinds=[0,1,2].map(l=>l===lane?'gem':'arch');
-  this.obstacles.push({id,at,kinds,checked:false,kind:pattern});this.nextAt+=82+this.r()*15;this.lastPattern=pattern;
+  this.obstacles.push({id,at,kinds,checked:false,kind:pattern});this.nextAt+=70+this.r()*14;this.lastPattern=pattern;
  }
  act(k){if(this.done)return;if(k==='left'||k==='right'){const n=R2.clamp(this.lane+(k==='right'?1:-1),0,2);if(n!==this.lane){this.lane=n;this.actions.dodge++;}}if((k==='up'||k==='action')&&this.jump===0&&this.slide===0){this.jumpV=420;this.jump=.01;this.actions.jump++;this.sound(510,.07,'triangle');}if(k==='down'&&this.jump===0){this.slide=.72;this.actions.slide++;this.sound(230,.04,'triangle');}}
  update(dt){this.inv=Math.max(0,this.inv-dt);this.slide=Math.max(0,this.slide-dt);const speed=[35,40,46][this.d]+(this.level-1)*3;this.distance+=speed*dt;this.level=Math.min(3,1+Math.floor(this.distance/500));this.visualLane+=(this.lane-this.visualLane)*Math.min(1,dt*17);if(this.jump>0){this.jumpV-=1050*dt;this.jump=Math.max(0,this.jump+this.jumpV*dt);if(this.jump===0)this.jumpV=0;}
@@ -1779,23 +1921,23 @@ class RuinsCourierR2 extends WQGame{
   for(let i=0;i<6;i++){const z=((i/6+this.distance/460)%1);for(const side of [-1,1]){const x=400+side*(95+z*z*330),y=175+z*z*390,w=12+z*27;R2.rect(c,x-w/2,y-w*3,w,w*3.2,'#315c6680',3);R2.rect(c,x-w*.8,y-w*3.4,w*1.6,w*.4,'#467787',3);}}
   const project=(lane,at)=>{const f=R2.clamp(1-(at-this.distance)/240,0,1.1);return{x:400+(lane-1)*225*f,y:167+f*f*323,s:.1+f*.96};};
   for(const o of [...this.obstacles].sort((a,b)=>b.at-a.at))for(let lane=0;lane<3;lane++){const p=project(lane,o.at),k=o.kinds[lane];c.save();c.translate(p.x,p.y);c.scale(p.s,p.s);if(k==='gem'){R2.gem(c,0,-25,17);}if(k==='log'){R2.rect(c,-64,-39,128,39,'#865943',8);D.ellipse(c,-57,-18,9,21,'#f2c28b');D.line(c,[{x:-40,y:-27},{x:52,y:-27}],'#c49467',5);}if(k==='arch'){R2.rect(c,-69,-132,18,134,'#486c78',5);R2.rect(c,51,-132,18,134,'#486c78',5);R2.rect(c,-77,-116,154,61,'#e5bb79',8);R2.text(c,'↓',0,-84,44,'#3b566a');}if(k==='wall'){R2.rect(c,-60,-150,120,150,'#677e87',8);for(let j=1;j<4;j++)D.line(c,[{x:-54,y:-j*37},{x:54,y:-j*37}],'#8ea0a1',3);R2.text(c,'↔',0,-78,34,'#f5d383');}if(k==='pit')D.ellipse(c,0,0,91,19,'#182c42');c.restore();}
-  const x=400+(this.visualLane-1)*225;D.ellipse(c,x,505,37,9,'#172c4244');c.save();c.globalAlpha=this.inv&&Math.floor(this.t*12)%2?.42:1;c.translate(x,462-this.jump);if(this.slide)c.translate(0,10);R2.pose(c,0,0,1.05,'fox',this.skin==='moonlight'?'#939edb':'#458c98',this.done&&this.won?'victory':this.slide?'slide':this.jump>0?'jump':this.inv>0?'hit':'run',this.t);c.restore();const next=this.obstacles.find(o=>!o.checked);if(next&&next.at-this.distance<95){R2.rect(c,267,91,266,42,'#17364bdb',12);R2.text(c,next.kind===0?'↑ 跳過橫欄':next.kind===1?'↓ 低身滑行':next.kind===2?'↔ 找到缺口':'留意前方路線',400,112,21,'#ffe3a4');}R2.hud(this,['遺跡郵差 · 石林','遺跡郵差 · 峽谷','遺跡郵差 · 月廟'][this.level-1],`${Math.floor(this.distance)} / 1500 m`);R2.badge(this);}
+  const x=400+(this.visualLane-1)*225;D.ellipse(c,x,505,37,9,'#172c4244');c.save();c.globalAlpha=this.inv&&Math.floor(this.t*12)%2?.42:1;c.translate(x,462-this.jump);if(this.slide)c.translate(0,10);R2.pose(c,0,0,1.05,'fox',this.skin==='moonlight'?'#939edb':'#458c98',this.done&&this.won?'victory':this.slide?'slide':this.jump>0?'jump':this.inv>0?'hit':'run',this.t);c.restore();const next=this.obstacles.find(o=>!o.checked);if(next&&next.at-this.distance<95){R2.rect(c,267,91,266,42,'#17364bdb',12);R2.text(c,next.kind===0?'↑ 跳過橫欄':next.kind===1?'↓ 低身滑行':next.kind===2?'↔ 找到缺口':next.kind===3?'↑ 跳過裂縫，或換線':next.kind===4?'↔ 避開石牆，再跳過橫欄':next.kind===5?'↔ 走有露珠的一線，或↓滑過':'留意前方路線',400,112,21,'#ffe3a4');}R2.hud(this,['遺跡郵差 · 石林','遺跡郵差 · 峽谷','遺跡郵差 · 月廟'][this.level-1],`${Math.floor(this.distance)} / 1500 m`);R2.badge(this);}
 }
 
 class CloudIslandR2 extends WQGame{
  constructor(a){super(a);R2.setup(this);this.p={x:90,y:420,vx:0,vy:0};this.camera=0;this.coyote=.1;this.jumpBuffer=0;this.grounded=true;this.jumpHeld=false;this.dash=0;this.dashCD=0;this.platforms=[];this.coins=[];this.enemies=[];this.checkpoint={x:90,y:420,index:0};this.collected=0;this.mapEnd=2850;this.build();this.hint('← → 移動；↑／Space 跳躍，短按低跳、按住高跳；X 短衝。旗幟是安全存檔點；掉下去在最近旗幟重生，不會連續扣命。');}
- build(){this.platforms=[];this.coins=[];this.enemies=[];let x=0;for(let i=0;i<12;i++){const y=i%4===0?460:[440,408,445][i%3],w=i%4===0?245:180;const kind=i%4===0?'safe':(i+this.level-1)%5===3?'moving':(i+this.level-1)%5===1?'spring':'normal';this.platforms.push({id:i,x,y,baseY:y,w,kind});if(i%4!==0)this.coins.push({x:x+w*.55,y:y-60,taken:false});if(i%4===2)this.enemies.push({x:x+w*.65,y:y-22,base:x+w*.65,vy:0,phase:this.r()*6,stunned:0});x+=w+65+((i+this.level-1)%3)*8;}this.mapEnd=x-65;this.p={x:90,y:420,vx:0,vy:0};this.camera=0;this.checkpoint={x:90,y:420,index:0};this.grounded=true;this.coyote=.1;this.jumpBuffer=0;this.dash=0;this.dashCD=0;}
+ build(){this.platforms=[];this.coins=[];this.enemies=[];let x=0;for(let i=0;i<12;i++){const y=i%4===0?460:[420,385,425][i%3],w=i%4===0?245:180;const kind=i%4===0?'safe':(i+this.level-1)%5===3?'moving':(i+this.level-1)%5===1?'spring':'normal';this.platforms.push({id:i,x,y,baseY:y,w,kind});if(i%4!==0)this.coins.push({x:x+w*.55,y:y-60,taken:false});if(i%4===2)this.enemies.push({x:x+w*.65,y:y-22,base:x+w*.65,vy:0,phase:this.r()*6,stunned:0});x+=w+65+((i+this.level-1)%3)*8;}this.mapEnd=x-65;this.p={x:90,y:420,vx:0,vy:0};this.camera=0;this.checkpoint={x:90,y:420,index:0};this.grounded=true;this.coyote=.1;this.jumpBuffer=0;this.dash=0;this.dashCD=0;}
  act(k){if(k==='up'||k==='action'){this.jumpBuffer=.14;this.jumpHeld=true;}if(k==='x'&&this.dashCD===0){this.dash=.17;this.dashCD=1.4;this.sound(260,.07,'triangle');}}
  key(k,on){super.key(k,on);if(k==='up'||k==='action')this.jumpHeld=this.keys.has('up')||this.keys.has('action');}
  damage(reason){if(this.inv>0)return;this.health--;this.sound(165,.14,'triangle');if(this.health<=0)return R2.finish(this,false,`第 ${this.level} 區，收集 ${this.collected} 顆光石。`);this.respawn();this.say(reason+' 已回到安全旗幟。');}
- respawn(){this.p={x:this.checkpoint.x,y:this.checkpoint.y,vx:0,vy:0};this.inv=2.2;this.grounded=true;this.coyote=.1;this.jumpBuffer=0;this.dash=0;this.jumpHeld=false;this.keys.clear();this.camera=R2.clamp(this.p.x-180,0,this.mapEnd-760);}
+ respawn(){this.p={x:this.checkpoint.x,y:this.checkpoint.y,vx:0,vy:0};this.inv=2.2;this.grounded=true;this.coyote=.1;this.jumpBuffer=0;this.dash=0;this.jumpHeld=this.keys.has('up')||this.keys.has('action');this.camera=R2.clamp(this.p.x-180,0,this.mapEnd-760);}
  update(dt){this.inv=Math.max(0,this.inv-dt);this.dash=Math.max(0,this.dash-dt);this.dashCD=Math.max(0,this.dashCD-dt);this.jumpBuffer=Math.max(0,this.jumpBuffer-dt);this.coyote=this.grounded?.11:Math.max(0,this.coyote-dt);if(this.jumpBuffer>0&&this.coyote>0){this.p.vy=-[500,500,485][this.d];this.grounded=false;this.coyote=0;this.jumpBuffer=0;this.sound(490,.07,'triangle');}
   const dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0),target=dx*(this.dash?430:245);this.p.vx=R2.approach(this.p.vx,target,dt*(this.grounded?1700:1000));if(!this.jumpHeld&&this.p.vy< -180)this.p.vy=Math.min(0,this.p.vy+1500*dt);this.p.vy=Math.min(750,this.p.vy+1150*dt);const oldY=this.p.y;this.p.x=R2.clamp(this.p.x+this.p.vx*dt,16,this.mapEnd-20);this.p.y+=this.p.vy*dt;this.grounded=false;
   for(const f of this.platforms){f.y=f.baseY+(f.kind==='moving'?Math.sin(this.t*1.7+f.id)*20:0);if(this.p.vy>=0&&this.p.x+16>f.x&&this.p.x-16<f.x+f.w&&oldY+22<=f.y+6&&this.p.y+22>=f.y){this.p.y=f.y-22;this.p.vy=0;this.grounded=true;if(f.kind==='spring'&&this.jumpHeld){this.p.vy=-580;this.grounded=false;this.sound(620,.08);}if(f.kind==='safe'&&f.id>this.checkpoint.index){this.checkpoint={x:f.x+75,y:f.y-22,index:f.id};this.score+=150;this.say('旗幟已亮起：安全重生點。');this.sound(730,.1);}}}
   for(const item of this.coins)if(!item.taken&&R2.hit(this.p,item,36)){item.taken=true;this.collected++;this.score+=100;this.sound(880,.07);}
   for(const e of this.enemies){e.stunned=Math.max(0,e.stunned-dt);e.phase+=dt;e.x=e.base+Math.sin(e.phase*(1+this.d*.2+(this.level-1)*.1))*45;if(!e.stunned&&R2.hit(this.p,e,34)){if(this.p.vy>90&&this.p.y<e.y-12){e.stunned=3;this.p.vy=-370;this.score+=60;this.sound(650,.06);}else this.damage('碰到巡遊風球。');}}
   if(this.p.y>620){if(this.inv>0){const remaining=this.inv;this.respawn();this.inv=remaining;}else this.damage('這次未踏上平台。');}if(this.done)return;
-  const last=this.platforms.at(-1);if(this.p.x>last.x+last.w-55&&this.grounded){this.score+=500;if(this.level===3)return R2.finish(this,true,`三座雲島完成，找到 ${this.collected} 顆光石。`);this.level++;this.build();this.inv=1.2;this.say('下一座雲島；生命不重置。');}
+  const last=this.platforms.at(-1);if(this.p.x>last.x+last.w-55&&this.grounded){this.score+=500;if(this.level===3)return R2.finish(this,true,`三座雲島完成，找到 ${this.collected} 顆光石。`);this.level++;this.build();this.inv=1.2;this.health=Math.min(3,this.health+1);this.say('下一座雲島；回復一顆心。');}
   this.camera+= (R2.clamp(this.p.x-250,0,this.mapEnd-760)-this.camera)*Math.min(1,dt*7);this.stat=`第 ${this.level}/3 島 · 旗幟 ${Math.floor(this.checkpoint.index/4)+1}/3 · 光石 ${this.collected}`;R2.beat(this,dt,1);
  }
  draw(){const c=this.c;R2.sky(c,this.level,this.camera/7);c.save();c.translate(-this.camera,0);for(const f of this.platforms){R2.rect(c,f.x,f.y,f.w,120,'#365d7277',18);R2.rect(c,f.x,f.y,f.w,21,f.kind==='spring'?'#e9b377':f.kind==='moving'?'#91a7dd':'#609a94',8);D.poly(c,[{x:f.x+12,y:f.y+30},{x:f.x+f.w*.48,y:f.y+166},{x:f.x+f.w-10,y:f.y+30}],'#477389');if(f.kind==='safe'){D.line(c,[{x:f.x+75,y:f.y},{x:f.x+75,y:f.y-93}],'#f3d49e',4);D.poly(c,[{x:f.x+76,y:f.y-93},{x:f.x+127,y:f.y-80},{x:f.x+76,y:f.y-64}],f.id<=this.checkpoint.index?'#fae08b':'#edf6ee');}if(f.kind==='spring'){for(let i=0;i<3;i++)R2.text(c,'↑',f.x+45+i*45,f.y+11,20,'#463d60');}}
@@ -1809,12 +1951,12 @@ class StarPatrolR2 extends WQGame{
  act(k){if(k==='action'&&this.shieldCD===0){this.shield=1.45;this.shieldCD=7;this.orbs=[];this.sound(330,.18,'triangle');}if(k==='x'){this.mode=1-this.mode;this.sound(660,.05);}}
  spawnWave(){this.wave++;const n=4+this.d,kind=(this.wave-1)%3;for(let i=0;i<n;i++)this.drones.push({id:this.nextId++,x:100+i*(600/(n-1)),y:-30-i*19,base:100+i*(600/(n-1)),kind,age:0,hp:2+this.level,fire:.6+i*.16});this.waveClock=4.4-this.d*.25;}
  damage(){if(this.inv||this.shield)return;this.health--;this.inv=1.8;this.power=Math.max(1,this.power-1);this.chain=0;this.orbs=this.orbs.filter(o=>!R2.hit(o,this.p,90));this.sound(150,.16,'triangle');if(this.health===0)R2.finish(this,false,`完成 ${this.bosses} 區守關機，得分 ${Math.floor(this.score)}。`);}
- update(dt){this.inv=Math.max(0,this.inv-dt);this.shield=Math.max(0,this.shield-dt);this.shieldCD=Math.max(0,this.shieldCD-dt);const speed=this.keys.has('hold')?120:300,dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0),dy=(this.keys.has('down')?1:0)-(this.keys.has('up')?1:0),norm=Math.hypot(dx,dy)||1;this.p.x=R2.clamp(this.p.x+dx/norm*speed*dt,38,762);this.p.y=R2.clamp(this.p.y+dy/norm*speed*dt,100,505);this.fireClock-=dt;
+ update(dt){this.inv=Math.max(0,this.inv-dt);this.shield=Math.max(0,this.shield-dt);this.shieldCD=Math.max(0,this.shieldCD-dt);const speed=this.keys.has('hold')||this.orbs.some(o=>Math.abs(o.x-this.p.x)<90&&Math.abs(o.y-this.p.y)<140)?150:300,dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0),dy=(this.keys.has('down')?1:0)-(this.keys.has('up')?1:0),norm=Math.hypot(dx,dy)||1;this.p.x=R2.clamp(this.p.x+dx/norm*speed*dt,38,762);this.p.y=R2.clamp(this.p.y+dy/norm*speed*dt,100,505);this.fireClock-=dt;
   if(this.fireClock<=0){this.fireClock+=this.mode===0?.15:.11;for(let i=-1;i<=1;i++){if(this.mode===1&&i!==0)continue;this.shots.push({x:this.p.x+i*12,y:this.p.y-24,vx:i*(this.mode===0?65:0),vy:-610,power:(this.mode===1?2:1)+(this.power-1)*.5});}if(Math.floor(this.t*4)%3===0)this.sound(960,.027,'sine',.015);}
   this.waveClock-=dt;if(!this.boss&&this.wave<6&&this.waveClock<=0)this.spawnWave();if(!this.boss&&this.wave===6&&this.waveClock<=0&&this.drones.length===0)this.boss={x:400,y:115,hp:130+this.d*25+this.level*20,max:130+this.d*25+this.level*20,age:0,fire:1};
   for(const e of this.drones){e.age+=dt;e.y+=(65+this.level*7+this.d*8)*dt;e.x=e.base+Math.sin(e.age*(e.kind+1))*[55,105,38][e.kind];e.fire-=dt;if(e.fire<=0){e.fire=1.6-this.d*.15;const a=Math.atan2(this.p.y-e.y,this.p.x-e.x);for(let k=0;k<(e.kind===2?3:1);k++){const b=a+(k-(e.kind===2?1:0))*.22;this.orbs.push({x:e.x,y:e.y,vx:Math.cos(b)*(145+this.d*20),vy:Math.sin(b)*(145+this.d*20)});}}if(R2.hit(this.p,e,27))this.damage();}
-  if(this.boss){const b=this.boss;b.age+=dt;b.x=400+Math.sin(b.age*.75)*240;b.fire-=dt;if(b.fire<=0){b.fire=b.hp<b.max*.5?.58:.83;const aim=Math.atan2(this.p.y-b.y,this.p.x-b.x),n=b.hp<b.max*.5?7:5;for(let i=0;i<n;i++){const a=aim+(i-(n-1)/2)*.20;this.orbs.push({x:b.x,y:b.y+22,vx:Math.cos(a)*(175+this.d*15),vy:Math.sin(a)*(175+this.d*15)});}this.sound(210,.04,'triangle',.025);}}
-  for(const s of this.shots){s.x+=s.vx*dt;s.y+=s.vy*dt;let hit=this.drones.find(e=>e.hp>0&&R2.hit(s,e,25));if(hit){hit.hp-=s.power;s.y=-100;if(hit.hp<=0){this.chain++;this.score+=80+Math.min(this.chain,30)*5;R2.particles(this,hit.x,hit.y,'#8eedda');if(this.chain%5===0)this.drops.push({x:hit.x,y:hit.y});}}else if(this.boss&&Math.abs(s.x-this.boss.x)<59&&Math.abs(s.y-this.boss.y)<36){this.boss.hp=Math.max(0,this.boss.hp-s.power);s.y=-100;this.score+=5;}}
+  if(this.boss){const b=this.boss;b.age+=dt;b.x=400+Math.sin(b.age*.75)*240;b.fire-=dt;if(b.fire<=0){b.fire=b.hp<b.max*.5?.58:.83;const aim=Math.atan2(this.p.y-b.y,this.p.x-b.x),n=(b.hp<b.max*.5?7:5)-(this.d===0?2:0);for(let i=0;i<n;i++){const a=aim+(i-(n-1)/2)*.20;this.orbs.push({x:b.x,y:b.y+22,vx:Math.cos(a)*(175+this.d*15),vy:Math.sin(a)*(175+this.d*15)});}this.sound(210,.04,'triangle',.025);}}
+  for(const s of this.shots){s.x+=s.vx*dt;s.y+=s.vy*dt;let hit=this.drones.find(e=>e.hp>0&&R2.hit(s,e,25));if(hit){hit.hp-=s.power;s.y=-100;if(hit.hp<=0){this.chain++;this.score+=80+Math.min(this.chain,30)*5;R2.particles(this,hit.x,hit.y,'#8eedda');this.sound(520+Math.min(this.chain||0,20)*18,.06,'triangle',.06);if(this.chain%5===0)this.drops.push({x:hit.x,y:hit.y});}}else if(this.boss&&Math.abs(s.x-this.boss.x)<59&&Math.abs(s.y-this.boss.y)<36){this.boss.hp=Math.max(0,this.boss.hp-s.power);s.y=-100;this.score+=5;}}
   this.shots=this.shots.filter(s=>s.y>65&&s.x>0&&s.x<800).slice(-90);this.drones=this.drones.filter(e=>e.y<590&&e.hp>0).slice(-32);for(const o of this.orbs){o.x+=o.vx*dt;o.y+=o.vy*dt;if(R2.hit(o,this.p,this.shield?52:12)){o.y=900;if(!this.shield)this.damage();}}this.orbs=this.orbs.filter(o=>o.x>0&&o.x<800&&o.y>55&&o.y<555).slice(-180);
   for(const p of this.drops){p.y+=90*dt;if(R2.hit(p,this.p,30)){this.power=Math.min(3,this.power+1);this.score+=150;p.y=900;this.shieldCD=Math.max(0,this.shieldCD-2);this.sound(880,.1);}}this.drops=this.drops.filter(p=>p.y<550).slice(-12);
   if(this.boss&&this.boss.hp<=0){this.score+=2000;this.bosses++;this.boss=null;this.orbs=[];this.shots=[];this.wave=0;this.waveClock=2;this.inv=2;this.sound(780,.2,'triangle');if(this.bosses>=3)return R2.finish(this,true,`三段星環航線完成，最高連擊 ${this.chain}。`);this.level++;this.say('守關機解除，前往下一段星環。');}
@@ -1829,7 +1971,7 @@ class StarPatrolR2 extends WQGame{
 
 class LighthouseWellR2 extends WQGame{
  constructor(a){super(a);R2.setup(this);this.p={x:400,y:172,vx:0,vy:0};this.camera=0;this.platforms=[];this.nextY=220;this.nextId=0;this.floor=0;this.gems=0;this.parachute=0;this.chuteCD=0;this.dropTime=0;this.onPlatform=-1;this.target=60;for(let i=0;i<11;i++)this.addPlatform();this.hint('← →／A D 移動；↓ 穿過腳下平台；Space 緊急降落傘。移動、輸送帶、彈簧、脆裂平台各有節奏。頂部警戒線會追近，目標深入 60 層。');}
- addPlatform(){const id=this.nextId++,prev=this.platforms.at(-1),x=id===0?400:R2.clamp((prev?.base||400)+(this.r()-.5)*145,235,565);let kind=id<4?'safe':['safe','moving','belt','crumble','spring','safe','hazard'][id%7];this.platforms.push({id,x,base:x,y:this.nextY,w:kind==='moving'?185:175,kind,life:-1,taken:false});this.nextY+=79;}
+ addPlatform(){const id=this.nextId++,prev=this.platforms.at(-1),x=id===0?400:R2.clamp((prev?.base||400)+(this.r()-.5)*145,235,565);let kind=id<4?'safe':(id<12&&id%7===6?'safe':['safe','moving','belt','crumble','spring','safe','hazard'][id%7]);this.platforms.push({id,x,base:x,y:this.nextY,w:kind==='moving'?185:175,kind,life:-1,taken:false});this.nextY+=79;}
  act(k){if(k==='down'){this.dropTime=.24;this.p.y+=5;this.p.vy=100;this.onPlatform=-1;}if(k==='action'&&this.chuteCD===0){this.parachute=1.3;this.chuteCD=6;this.sound(390,.09,'triangle');}}
  damage(){if(this.inv>0)return;this.health--;this.sound(155,.13,'triangle');if(!this.health){this.inv=2.3;return R2.finish(this,false,`深入 ${this.floor} 層，收集 ${this.gems} 顆燈芯。`);}this.respawn();}
  respawn(grace=2.3){let f=this.platforms.find(f=>f.y>this.camera+225&&f.y<this.camera+450&&f.kind!=='hazard'&&f.life!==0);if(!f){f={id:this.nextId++,x:400,base:400,y:this.camera+300,w:220,kind:'safe',life:-1,taken:false};this.platforms.push(f);}this.p={x:f.x,y:f.y-20,vx:0,vy:0};this.onPlatform=f.id;this.inv=grace;this.dropTime=0;this.parachute=0;this.say('安全平台重生，先看下一個落點。');}
@@ -1839,7 +1981,7 @@ class LighthouseWellR2 extends WQGame{
  }
  draw(){const c=this.c;R2.sky(c,this.level,this.camera/22,true);R2.rect(c,167,65,466,495,'#183442f0',4);for(const x of [169,613]){R2.rect(c,x,65,18,495,'#789097',2);for(let i=0;i<9;i++)R2.rect(c,x-5,75+((i*72-this.camera*.6)%590+590)%590,28,12,'#d5bd91',2);}for(let i=0;i<6;i++){const y=((i*110-this.camera*.5)%660+660)%660;R2.rect(c,205,y,390,3,'#a9cfda17',0);}
   for(const f of this.platforms){const y=f.y-this.camera;if(y<60||y>580||f.life===0)continue;const col={safe:'#b6cfcb',moving:'#93b2d8',belt:'#87c7b4',crumble:'#d8bd8f',spring:'#b3a0df',hazard:'#de9979'}[f.kind];R2.rect(c,f.x-f.w/2,y,f.w,15,col,5);if(f.kind==='hazard')for(let i=0;i<6;i++)D.poly(c,[{x:f.x-70+i*25,y},{x:f.x-60+i*25,y:y-13},{x:f.x-50+i*25,y}],'#f0bf84');if(f.kind==='belt')R2.text(c,f.id%2?'› › › ›':'‹ ‹ ‹ ‹',f.x,y+7,18,'#28455a');if(f.kind==='moving')R2.text(c,'↔',f.x,y+7,19,'#2c485c');if(f.kind==='spring')R2.text(c,'⇡ ⇡ ⇡',f.x,y+7,19,'#403758');if(f.kind==='crumble')for(let i=0;i<4;i++)D.line(c,[{x:f.x-55+i*35,y:y+2},{x:f.x-42+i*35,y:y+13}],'#926846',2);if(!f.taken&&f.id%4===1)R2.gem(c,f.x,y-33,10,'#ffe6a6');}
-  const y=this.p.y-this.camera;c.save();c.globalAlpha=this.inv&&Math.floor(this.t*11)%2?.4:1;if(this.parachute){D.ellipse(c,this.p.x,y-59,42,22,'#8fd6d5');D.line(c,[{x:this.p.x-40,y:y-54},{x:this.p.x,y:y-12},{x:this.p.x+40,y:y-54}],'#e9ead5',2);}R2.pose(c,this.p.x,y-9,.61,'panda','#cf9c70',this.done&&this.won?'victory':this.parachute?'jump':this.p.vy>20?'fall':Math.abs(this.p.vx||0)>10?'run':'idle',this.t,this.p.vx<0?-1:1);c.restore();R2.rect(c,187,72,426,7,'#e09b7e',2);R2.text(c,'頂部警戒線',400,94,12,'#f1bea2');R2.hud(this,'燈塔深井',`深度 ${this.floor} / 60`);R2.badge(this);}
+  const y=this.p.y-this.camera;c.save();c.globalAlpha=this.inv&&Math.floor(this.t*11)%2?.4:1;if(this.parachute){D.ellipse(c,this.p.x,y-59,42,22,'#8fd6d5');D.line(c,[{x:this.p.x-40,y:y-54},{x:this.p.x,y:y-12},{x:this.p.x+40,y:y-54}],'#e9ead5',2);}R2.pose(c,this.p.x,y-9,.78,'panda','#cf9c70',this.done&&this.won?'victory':this.parachute?'jump':this.p.vy>20?'fall':Math.abs(this.p.vx||0)>10?'run':'idle',this.t,this.p.vx<0?-1:1);c.restore();R2.rect(c,187,72,426,7,'#e09b7e',2);R2.text(c,'頂部警戒線',400,94,16,'#f1bea2');R2.hud(this,'燈塔深井',`深度 ${this.floor} / 60`);R2.badge(this);}
 }
 
 class HarborVolleyR2 extends WQGame{
@@ -1851,7 +1993,7 @@ class HarborVolleyR2 extends WQGame{
   if(manual&&air&&b.y<actor.y){b.vx=dir*(330+this.d*16);b.vy=actor.y<320?150:-80;this.sound(630,.08,'triangle');}else if(manual&&short){b.vx=dir*115;b.vy=-365;this.sound(540,.06);}else{b.vx=dir*(190+Math.abs(actor.x-400)*.10)+actor.vx*.16;b.vy=-445-this.d*8;this.sound(500,.045);}b.x=actor.x+(dx/(d||1))*48;b.y=Math.min(actor.y-42,b.y);this.rally++;this.longest=Math.max(this.longest,this.rally);return true;}
  update(dt){this.spike=Math.max(0,this.spike-dt);for(let i=0;i<2;i++)this.cool[i]=Math.max(0,this.cool[i]-dt);const dx=(this.keys.has('right')?1:0)-(this.keys.has('left')?1:0);this.p.vx=R2.approach(this.p.vx,dx*290,1800*dt);this.p.x=R2.clamp(this.p.x+this.p.vx*dt,44,357);for(const a of [this.p,this.ai]){a.vy+=880*dt;a.y=Math.min(453,a.y+a.vy*dt);if(a.y===453)a.vy=0;}
   if(this.servePause>0){this.servePause=Math.max(0,this.servePause-dt);this.ball.x=this.server?this.ai.x:this.p.x;this.ball.y=357;if(this.servePause===0)this.serve();this.stat=`${this.points[0]} : ${this.points[1]} · ${this.server?'對手':'你'}發球`;R2.beat(this,dt,1);return;}
-  const b=this.ball;this.ai.react-=dt;if(this.ai.react<=0){this.ai.react=[.30,.22,.15][this.d];const disc=b.vy*b.vy+2*530*Math.max(0,430-b.y),t=R2.clamp((-b.vy+Math.sqrt(disc))/530,0,1.4);let predicted=b.x+b.vx*t;for(let i=0;i<3;i++){if(predicted<30)predicted=60-predicted;if(predicted>770)predicted=1540-predicted;}this.aiError=(this.r()-.5)*[65,35,15][this.d];this.ai.target=b.x<385&&b.vx<0?610:R2.clamp(predicted+this.aiError,448,756);}
+  const b=this.ball;this.ai.react-=dt;if(this.ai.react<=0){this.ai.react=[.30,.22,.15][this.d];const disc=b.vy*b.vy+2*530*Math.max(0,430-b.y),t=R2.clamp((-b.vy+Math.sqrt(disc))/530,0,1.4);let predicted=b.x+b.vx*t;for(let i=0;i<3;i++){if(predicted<30)predicted=60-predicted;if(predicted>770)predicted=1540-predicted;}this.aiError=(this.r()-.5)*[65,35,15][this.d]*(1+Math.min(3,Math.max(0,this.rally-6)/6));this.ai.target=b.x<385&&b.vx<0?610:R2.clamp(predicted+this.aiError,448,756);}
   this.ai.vx=R2.clamp((this.ai.target-this.ai.x)*4,-[208,246,280][this.d],[208,246,280][this.d]);this.ai.x=R2.clamp(this.ai.x+this.ai.vx*dt,443,756);if(this.ai.y>=452&&b.x>430&&Math.abs(b.x-this.ai.x)<75&&b.y<365&&b.y>250&&b.vy>0)this.ai.vy=-390;
   const oldX=b.x;b.vy=Math.min(680,b.vy+530*dt);b.x+=b.vx*dt;b.y+=b.vy*dt;if(b.x<18){b.x=18;b.vx=Math.abs(b.vx);}if(b.x>782){b.x=782;b.vx=-Math.abs(b.vx);}if(b.y<80){b.y=80;b.vy=Math.abs(b.vy)*.7;}
   // Swept side test prevents a fast ball passing through the net in one frame.
@@ -1862,7 +2004,7 @@ class HarborVolleyR2 extends WQGame{
  }
  draw(){const c=this.c;R2.sky(c,this.level,this.t*.1);R2.rect(c,0,226,800,212,'#549ca9',0);for(let i=0;i<8;i++){const y=245+i*24;D.line(c,[{x:0,y},{x:800,y}],'#d3eddf50',2);}for(let i=0;i<4;i++){const x=80+i*215;D.poly(c,[{x,y:272},{x:x+59,y:272},{x:x+42,y:287},{x:x+10,y:287}],'#3b6073');D.poly(c,[{x:x+25,y:220},{x:x+25,y:271},{x:x+52,y:266}],'#f6e3b7');}R2.rect(c,0,441,800,119,'#ddbc8c',0);D.line(c,[{x:28,y:498},{x:772,y:498}],'#fff4d7',4);D.line(c,[{x:400,y:330},{x:400,y:510}],'#577685',8);for(let y=337;y<478;y+=15)D.line(c,[{x:389,y},{x:411,y}],'#fff2d0',2);
   for(const [a,who]of [[this.p,0],[this.ai,1]]){D.ellipse(c,a.x,486,39,8,'#6f63523a');R2.pose(c,a.x,a.y-6,.96,who?'fox':'rabbit',who?'#d19278':'#5c8cac',this.done&&this.won&&!who?'victory':this.servePause>0&&this.server===who?'serve':!who&&this.spike>0?'spike':a.y<440?'jump':Math.abs(a.vx)>12?'run':'idle',this.t,who?-1:1);if(who===0&&this.spike>0){c.save();c.strokeStyle='#ffde87';c.lineWidth=3;c.beginPath();c.arc(a.x,a.y,53,3.5,6);c.stroke();c.restore();}}
-  const b=this.ball;D.ellipse(c,b.x,486,12+Math.max(0,500-b.y)*.025,4,'#65564733');D.circle(c,b.x,b.y,15,'#fff0b6','#567c91');D.line(c,[{x:b.x-13,y:b.y-5},{x:b.x+12,y:b.y+6}],'#6a9db3',5);D.line(c,[{x:b.x+5,y:b.y-13},{x:b.x-6,y:b.y+13}],'#dc947b',4);R2.hud(this,'海港排球',`你 ${this.points[0]}  :  ${this.points[1]} 對手`);R2.text(c,'先得5分 · 領先2分 · 最多7分',400,87,15,'#294d61');if(this.servePause>0){R2.rect(c,275,164,250,45,'#173b51dc',13);R2.text(c,this.server?'對手準備發球':'按 Space 發球',400,187,20,'#ffe5a9');}R2.badge(this);}
+  const b=this.ball;D.ellipse(c,b.x,486,12+Math.max(0,500-b.y)*.025,4,'#65564733');D.circle(c,b.x,b.y,15,'#fff0b6','#567c91');D.line(c,[{x:b.x-13,y:b.y-5},{x:b.x+12,y:b.y+6}],'#6a9db3',5);D.line(c,[{x:b.x+5,y:b.y-13},{x:b.x-6,y:b.y+13}],'#dc947b',4);R2.hud(this,'海港排球',`你 ${this.points[0]}  :  ${this.points[1]} 對手`);R2.text(c,'先得5分 · 領先2分 · 最多7分',400,87,15,'#294d61');if(this.servePause>0){R2.rect(c,275,164,250,45,'#173b51dc',13);R2.text(c,this.server?'對手準備發球':'按「擊球」發球',400,187,20,'#ffe5a9');}R2.badge(this);}
 }
 
 const WQR2Games=[
@@ -1964,7 +2106,7 @@ globalThis.WQR2Validate=function(id,s){
   state.set(g,{facing:prev.facing,action,timer,grounded:g.grounded,health:g.health,x:g.p.x});
  }
  function describe(g){const s=state.get(g);return {character:'a-feng',action:g.done&&g.won?'victory':s?.action||(!g.grounded?(g.p.vy<0?'jump':'fall'):'idle'),face:s?.facing||1,time:Number.isFinite(g.t)?g.t:0};}
- function renderGame(c,g){const d=describe(g),reduced=!!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;draw(c,g.p.x,g.p.y-3,.62,pose(d.action,d.time,d.face,reduced));}
+ function renderGame(c,g){const d=describe(g),reduced=!!globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches;draw(c,g.p.x,g.p.y-3,.78,pose(d.action,d.time,d.face,reduced));}
  return Object.freeze({version:'3.2.0',states:STATES,palette:PALETTE,pose,draw,observe,describe,renderGame});
 });
 // Visual-state tracking is outside all saved gameplay objects.
@@ -4112,8 +4254,8 @@ let a28Busy=false,a28Epoch=0,a28PreviewFrame=0,a28PreviewToken=0,a28Filter='新�
 let a28StartIntent=0;
 let a28Cursor={x:400,y:250},a28CursorMode=false,a28DrawHeld=false,a28Preview=null;
 const a28Sources=new Map();
-const a28Motion=new Set(['sky-rescue','forest-dash','moon-bells','valley-race','drift-path','forest-pong','bounce-basket','meadow-cricket','star-rhythm','color-orbit','block-studio','ruins-courier','cloud-island','star-patrol','lighthouse-well','harbor-volley']);
-const a28PointerGames=new Set(['juice-lines','little-engineer','honeycomb-puzzle','color-workshop','forest-band']);
+const a28Motion=new Set(['sky-rescue','forest-dash','valley-race','drift-path','ruins-courier','cloud-island','star-patrol','lighthouse-well','harbor-volley']);
+const a28PointerGames=new Set(['juice-lines','little-engineer','honeycomb-puzzle','forest-band']);
 const a28Skins=[{id:'classic',title:'晴空原色',words:0,type:'fox'},{id:'sunset',title:'日落塗裝',words:15,type:'rabbit'},{id:'moonlight',title:'月夜塗裝',words:30,type:'cat'}];
 const a28Themes=['#678fb6','#6ba08d','#837caf','#d79b77','#9f9674','#9684b5'];
 function a28Root(){if(!db.arcadeV28)COIN28.migrate(db);for(const c of db.children)if(!db.arcadeV28.children[c.id])db.arcadeV28.children[c.id]=COIN28.child();return db.arcadeV28;}
@@ -4176,7 +4318,7 @@ pgIntro=function(id){
  const cv=$('#a28-preview-canvas');a28Preview=new m.Class(a28Api(m,cv.getContext('2d'),true,0,1247,1));a28Preview.draw();const token=++a28PreviewToken;a28PreviewLoop(token);
 };
 function a28Api(meta,ctx,preview=false,epoch=a28Epoch,seed=1247,difficulty=pgChild().difficulty){
- const a={ctx,meta,preview,seed,difficulty,latency:0,_tools:[],_hint:'',
+ const a={ctx,meta,preview,seed,difficulty,latency:wq34Lat(),_tools:[],_hint:'',
  tools(items){a._tools=items;if(!preview&&epoch===a28Epoch){pgTools=items;pgRenderTools();}},
  hint(t){a._hint=t;if(!preview&&epoch===a28Epoch){pgHint=t;if($('#pg-hint'))$('#pg-hint').textContent=t;}},
  announce(t){if(!preview&&epoch===a28Epoch&&$('#pg-status'))$('#pg-status').textContent=t;},
@@ -4188,7 +4330,7 @@ function a28Api(meta,ctx,preview=false,epoch=a28Epoch,seed=1247,difficulty=pgChi
  importJSON:fn=>{if(!preview&&epoch===a28Epoch)pgImport(fn);}};
  return a;
 }
-function a28Winning(g){if(WQR2.ids.includes(g.meta.id))return g.won===true;switch(g.meta.id){case 'sky-rescue':return g.rescued>=12;case 'forest-dash':return g.distance>=1500;case 'sweet-studio':return g.served>=6+g.d*2;case 'honey-delivery':return g.level>=8&&!g.failed;case 'rolling-block':return g.level>=10&&g.p.o===0&&g.p.x===g.board.goal.x&&g.p.y===g.board.goal.y;case 'juice-lines':return g.level>=8&&g.caught>=g.required;case 'color-workshop':return g.level>=10&&g.colors.every((c,i)=>c===g.target[i]);case 'little-engineer':return g.level>=3&&g._wqNext;case 'number-garden':return g.won;case 'valley-race':return g.lap>=3;case 'forest-pong':return g.us>=5;case 'bounce-basket':return g.shots>=7&&g.shots-g.score/3<3;case 'meadow-cricket':return g.round>=10&&g.round-g.hit<3;case 'star-rhythm':return g.index>=g.total&&g.index-g.hits<3;case 'forest-band':return true;default:return false;}}
+function a28Winning(g){if(WQR2.ids.includes(g.meta.id))return g.won===true;switch(g.meta.id){case 'sky-rescue':return g.rescued>=12;case 'forest-dash':return g.distance>=1500;case 'sweet-studio':return g.served>=6+g.d*2;case 'honey-delivery':return g.level>=8&&!g.failed;case 'rolling-block':return g.level>=10&&g.p.o===0&&g.p.x===g.board.goal.x&&g.p.y===g.board.goal.y;case 'juice-lines':return g.level>=8&&g.caught>=g.required;case 'color-workshop':return g.level>=10&&g.colors.every((c,i)=>c===g.target[i]);case 'little-engineer':return g.level>=3&&g._wqNext;case 'number-garden':return g.won;case 'valley-race':return g.lap>=3;case 'forest-pong':return g.us>=5;case 'bounce-basket':return g.shots>=7&&g.shots-g.score/3<3;case 'meadow-cricket':return g.round>=10&&g.round-g.hit<3;case 'star-rhythm':return g.index>=g.total&&g.index-g.hits<3;case 'forest-band':return true;case 'drift-path':return WQCore.distance(g.pos,g.nodes[g.nodes.length-1])<50;case 'moon-bells':return g.bells[g.bells.length-1].used===true;default:return false;}}
 function a28Complete(result){
  if(!pgGame||!pgPlaying)return;const r=a28Run();if(!pgFree&&(!r||r.game!==pgMeta.id||r.phase!=='playing'))return;
  pgPlaying=false;cancelAnimationFrame(pgFrame);a28ReleaseInputs(false);pgAudio.pause();pgResult=result;
@@ -4276,7 +4418,7 @@ pgTick=function(now){
  try{
   let left=elapsed;while(left>.001&&pgPlaying){const ms=Math.min(left,1000/60);pgGame.tick(ms/1000);a28RulesTick(ms/1000);left-=ms;}
   if(!pgFree&&a28Run())a28Run().elapsedMs+=Math.round(elapsed);
-  pgGame.draw();a28DrawCursor();a28HUD();pgAcc+=elapsed;
+  pgGame.draw();a28DrawCursor();a28HUD();try{WQFX.frame(elapsed/1000);}catch(_){}pgAcc+=elapsed;
   if(pgAcc>=1500){pgAcc=0;if(!pgCheckpoint())return;}
   if(pgPlaying)pgFrame=requestAnimationFrame(pgTick);
  }catch(e){pgPlaying=false;cancelAnimationFrame(pgFrame);a28ReleaseInputs(false);pgAudio.pause();pgError=e.message;pgReason='error';v23Dirty=true;pgOverlay();}
@@ -4335,8 +4477,8 @@ function a28Tool(id){
  if(!pgPlaying||!pgGame||!pgTools.some(t=>t.id===id&&!t.disabled))return;
  if(id==='reset'){if(!confirm('重開本關會用去一次機會。繼續？'))return;return a28Fail('已重開本關，使用一次機會。');}
  if(pgMeta.id==='bounce-basket'&&id==='mode'||pgMeta.id==='valley-race')return;
- if(pgMeta.id==='little-engineer'&&id==='run'&&pgGame.running){return a28Fail('試行已結束，使用一次機會；保留車架再調整。');}
- if(pgMeta.id==='color-workshop'&&id==='check'&&!pgGame.mask.size&&!pgGame.colors.every((v,i)=>v===pgGame.target[i])){return a28Fail('彩球驗收未通過，使用一次機會。');}
+ 
+ if(pgMeta.id==='color-workshop'&&id==='check'&&!pgGame.mask.size&&!pgGame.colors.every((v,i)=>v===pgGame.target[i])){const S=wq34S(pgGame);if(S.lv!==pgGame.level){S.lv=pgGame.level;S.wrong=0;}S.wrong++;if(S.wrong<=2){const n=pgGame.colors.reduce((a,v,i)=>a+(v!==pgGame.target[i]?1:0),0);pgGame.say('有 '+n+' 格顏色不同。'+(S.wrong===1?'免費再驗收一次。':'下次驗收不通過，會用去一次機會。'));pgGame.toolbar();if(!pgCheckpoint())pgOverlay();return;}return a28Fail('彩球驗收三次未通過，使用一次機會。');}
  pgGame.tool(id);if(!pgCheckpoint())pgOverlay();
 }
 function a28DrawCursor(){if(!pgGame||!a28CursorMode||!a28PointerGames.has(pgMeta.id))return;const c=pgGame.c;D.circle(c,a28Cursor.x,a28Cursor.y,11,'#fff9','purple');D.line(c,[{x:a28Cursor.x-16,y:a28Cursor.y},{x:a28Cursor.x+16,y:a28Cursor.y}],'#71538f',2);D.line(c,[{x:a28Cursor.x,y:a28Cursor.y-16},{x:a28Cursor.x,y:a28Cursor.y+16}],'#71538f',2);}
@@ -4373,7 +4515,7 @@ async function a28Advance(next){
  try{
   oldSnap=SNAP28.capture(old);let g;
   if(next){g=old;g.done=false;g._wqNext=false;g.level++;if(g.load)g.load();else if(pgMeta.id==='little-engineer'){g.loadSim();g.toolbar();}else throw Error('這款遊戲沒有下一關');}
-  else {const cv=$('#pg-canvas'),seed=(!pgFree?r.seed:123)+(!pgFree?(3-r.lives):1)*9301;g=new pgMeta.Class(a28Api(pgMeta,cv.getContext('2d'),false,a28Epoch,seed>>>0,old.d));if(['honey-delivery','rolling-block','juice-lines','color-workshop','little-engineer'].includes(pgMeta.id)){g.level=old.level;g.load?.();if(pgMeta.id==='little-engineer'){g.design=structuredClone(old.design);g.beams=structuredClone(old.beams);g.loadSim();g.toolbar();}}}
+  else {const cv=$('#pg-canvas'),seed=(!pgFree?r.seed:123)+(!pgFree?(3-r.lives):1)*9301;g=new pgMeta.Class(a28Api(pgMeta,cv.getContext('2d'),false,a28Epoch,seed>>>0,old.d));if(['honey-delivery','rolling-block','juice-lines','color-workshop','little-engineer'].includes(pgMeta.id)){g.level=old.level;g.load?.();g.score=old.score;if(pgMeta.id==='little-engineer'){g.design=structuredClone(old.design);g.beams=structuredClone(old.beams);g.loadSim();g.toolbar();}}}
   const snap=SNAP28.capture(g);pgGame=g;pgTools=g.api._tools;pgHint=g.api._hint;
   if(!pgFree){r.phase='paused';r.snapshot=snap;if(!save())throw Error('未能儲存，未開始新生命。');}
   committed=true;pgResult=null;pgReason='paused';pgGame.draw();pgOverlay();prepared=true;
@@ -5072,7 +5214,7 @@ let l32CompanionsView;
  }
  // Replace mascot-only aliases, not word meaning illustrations (which use image IDs).
  const oldArt=l30Art;l30Art=function(id,cls='',alt=''){if(['owl','fox','panda','rabbit'].includes(id))return htmlImage(id,cls,alt);return oldArt(id,cls,alt);};
- const oldRender=render;render=function(){const result=oldRender.apply(this,arguments);try{refresh();const chip=Q('#v25-build-badge');if(chip)chip.textContent=WQ_TEST_MODE?'R3.1 · 獨立測試':'R3.3 · 森林學園';const footer=Q('.footer');if(footer)footer.textContent='WordQuest R3.3 · 森林學園六角色 · 本機儲存，沒有自動雲端同步。教材尚待真人教師逐題覆核。';}catch(e){console.error('V32 characters:',e);if(!Q('#wq32-error')){const p=elem('p','notice','角色未能正常顯示。請重新開啟 R3.1 完整版本；原有學習功能仍保留。');p.id='wq32-error';Q('#app')?.prepend(p);}}return result;};
+ const oldRender=render;render=function(){const result=oldRender.apply(this,arguments);try{refresh();const chip=Q('#v25-build-badge');if(chip)chip.textContent=WQ_TEST_MODE?'R3.1 · 獨立測試':'R3.4 · 森林學園';const footer=Q('.footer');if(footer)footer.textContent='WordQuest R3.4 · 森林學園六角色 · 本機儲存，沒有自動雲端同步。教材尚待真人教師逐題覆核。';}catch(e){console.error('V32 characters:',e);if(!Q('#wq32-error')){const p=elem('p','notice','角色未能正常顯示。請重新開啟 R3.1 完整版本；原有學習功能仍保留。');p.id='wq32-error';Q('#app')?.prepend(p);}}return result;};
  const oldIntro=pgIntro;pgIntro=function(){const r=oldIntro.apply(this,arguments);if(pref.show){const d=Q('#pg-dialog .a28-dialog-content');if(d&&!Q('.wq32-guide',d)){const c=staticGuide(pref.gameBuddy,'這是真實玩法預覽，未開始不扣幣。看清楚按鍵再選擇。');d.prepend(c);}}return r;};
  const oldOverlay=pgOverlay;pgOverlay=function(){const r=oldOverlay.apply(this,arguments);gameBar();gameOverlay();return r;};
  // No extra hint, award, score, unlock or session writes exist in this extension.
@@ -5277,7 +5419,7 @@ async function r3Recover(){
  try{const marker=localStorage.getItem(r3Marker(owner)),j=await r3Journal('get',owner);if(!['prepared','committed','rolled-back'].includes(marker))throw Error('未知交易狀態，沒有修改資料');if(marker==='prepared'){if(!j)throw Error('復原日誌遺失，不能安全恢復。請保留資料並從家庭備份還原。');WQR32Safety.validateJournal(j,owner,DBKEY_PREFIX+owner);validateDb(JSON.parse(j.before[DBKEY_PREFIX+owner]));r3ReplaceKV(owner,j.before);await r3ReplaceMedia(owner,j.beforeMedia);localStorage.setItem(r3Marker(owner),'rolled-back');}if(j)await r3Journal('delete',owner);localStorage.removeItem(r3Marker(owner));loadBlocked=false;persistenceIssue='';db=load();r3ReloadSettings();await syncMediaOwner(true);window.dispatchEvent(new Event('wq-r3-data-replaced'));toast(marker==='committed'?'已完成已提交交易的收尾。':'已恢復交易前資料。');return true;
  }finally{r3Busy=false;document.body.inert=inert;render();}
 }
-async function r3Export(){const wq20R=wq20Marked();r3Parent(wq20R);r3PauseWork({rescue:wq20R});if(wq20R)wq20RescueExportCheck();const exportInert=document.body.inert;r3Busy=true;document.body.inert=true;try{const owner=accountId(),intent=v23Owner(),raw=localStorage.getItem(dbKey()),familyRaw=localStorage.getItem(r3FamilyKey()),MC=window.WQMathCore,lib=MC.library(window.WQMathData);const english=validateDb(r3Clone(db));const math=english.children.map(c=>{const a=localStorage.getItem(r3MathKey(c.id)),b=localStorage.getItem(r3MathKey(c.id)+':before-restore');return {childId:c.id,state:a?MC.validateState(JSON.parse(a),lib):null,recovery:b?MC.validateState(JSON.parse(b),lib):null};});const allKeys=r3ReadKV();const rows=await wq20ExportMediaRows(owner),media=[];for(const row of rows){const {blob,id,owner:ignored,key,kind,...meta}=row;const entry={key,kind,meta};if(blob instanceof Blob){entry.mime=blob.type;entry.data=await r3BlobURL(blob);}media.push(entry);}if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||raw!==localStorage.getItem(dbKey())||familyRaw!==localStorage.getItem(r3FamilyKey())||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出期間資料有變動，請暫停學習後重試；沒有產生不一致備份');const family=r3Clone(r3Settings());const characterPreferences=[];for(const c of english.children)for(const mode of ['normal','sandbox']){const raw=localStorage.getItem('wordquest-v32-characters:'+mode+':'+owner+':'+c.id);if(raw)characterPreferences.push({childId:c.id,mode,preferences:JSON.parse(raw)});}const payload={sourceOwner:owner,english,math,family,media,characterPreferences};F3.validatePayload(payload,validateDb,MC,lib);const pack={format:'wordquest-family',version:1,createdAt:new Date().toISOString(),appVersion:'R3.3.0',warning:'含學員姓名及學習紀錄，未加密；不含帳戶密碼或API金鑰。',payload,integrity:{algorithm:'SHA-256',digest:await r3Digest(payload)}};if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||!v23HasLease()||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出校驗期間資料或身份改變，沒有產生備份');const serial=JSON.stringify(pack,null,2);if(!WQR32Safety.canExport(new TextEncoder().encode(serial).length))throw Error('家庭備份超過140 MB，未產生無法還原的檔案');r3Download('WordQuest_Family_R32_'+F3.day()+'.json',serial);return pack;}finally{r3Busy=false;document.body.inert=exportInert;}}
+async function r3Export(){const wq20R=wq20Marked();r3Parent(wq20R);r3PauseWork({rescue:wq20R});if(wq20R)wq20RescueExportCheck();const exportInert=document.body.inert;r3Busy=true;document.body.inert=true;try{const owner=accountId(),intent=v23Owner(),raw=localStorage.getItem(dbKey()),familyRaw=localStorage.getItem(r3FamilyKey()),MC=window.WQMathCore,lib=MC.library(window.WQMathData);const english=validateDb(r3Clone(db));const math=english.children.map(c=>{const a=localStorage.getItem(r3MathKey(c.id)),b=localStorage.getItem(r3MathKey(c.id)+':before-restore');return {childId:c.id,state:a?MC.validateState(JSON.parse(a),lib):null,recovery:b?MC.validateState(JSON.parse(b),lib):null};});const allKeys=r3ReadKV();const rows=await wq20ExportMediaRows(owner),media=[];for(const row of rows){const {blob,id,owner:ignored,key,kind,...meta}=row;const entry={key,kind,meta};if(blob instanceof Blob){entry.mime=blob.type;entry.data=await r3BlobURL(blob);}media.push(entry);}if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||raw!==localStorage.getItem(dbKey())||familyRaw!==localStorage.getItem(r3FamilyKey())||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出期間資料有變動，請暫停學習後重試；沒有產生不一致備份');const family=r3Clone(r3Settings());const characterPreferences=[];for(const c of english.children)for(const mode of ['normal','sandbox']){const raw=localStorage.getItem('wordquest-v32-characters:'+mode+':'+owner+':'+c.id);if(raw)characterPreferences.push({childId:c.id,mode,preferences:JSON.parse(raw)});}const payload={sourceOwner:owner,english,math,family,media,characterPreferences};F3.validatePayload(payload,validateDb,MC,lib);const pack={format:'wordquest-family',version:1,createdAt:new Date().toISOString(),appVersion:'R3.4.0',warning:'含學員姓名及學習紀錄，未加密；不含帳戶密碼或API金鑰。',payload,integrity:{algorithm:'SHA-256',digest:await r3Digest(payload)}};if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||!v23HasLease()||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出校驗期間資料或身份改變，沒有產生備份');const serial=JSON.stringify(pack,null,2);if(!WQR32Safety.canExport(new TextEncoder().encode(serial).length))throw Error('家庭備份超過140 MB，未產生無法還原的檔案');r3Download('WordQuest_Family_R32_'+F3.day()+'.json',serial);return pack;}finally{r3Busy=false;document.body.inert=exportInert;}}
 async function r3ValidatePack(file){if(!file||file.size>140000000)throw Error('家庭備份超過140 MB或未選檔案');const pack=F3.envelope(JSON.parse(await file.text()));if(await r3Digest(pack.payload)!==pack.integrity.digest)throw Error('備份校驗失敗：檔案可能不完整或曾被修改，沒有寫入資料');return F3.validatePayload(pack.payload,validateDb,window.WQMathCore,window.WQMathCore.library(window.WQMathData));}
 async function r3Restore(payload){const wq20R=wq20Marked();r3Parent(wq20R);const MC=window.WQMathCore,owner=accountId();const clean=F3.validatePayload(payload,validateDb,MC,MC.library(window.WQMathData));const english=clean.english;
  if(clean.sourceOwner===owner){
@@ -5295,7 +5437,7 @@ function r3ReportHTML(){const r=r3Weekly(),set=r3Settings(),c=activeChild(),labe
 function r3Dialog(title,html){document.getElementById('r3-dialog')?.remove();const d=document.createElement('dialog');d.id='r3-dialog';d.className='r3-dialog';d.innerHTML=`<div class="r3-dialog-head"><h1>${esc(title)}</h1><button class="btn quiet" data-r3="close">關閉</button></div><div id="r3-dialog-body">${html}</div><p id="r3-status" role="status" aria-live="polite"></p>`;document.body.append(d);d.showModal();d.querySelector('button')?.focus();return d;}
 function r3Panel(){r3Parent(wq20Marked());const s=r3Settings();r3Dialog('家庭備份與跨科安排',`<div class="notice">備份包括全部孩子的英文、普通數學、奧數、街機、跨科設定及自訂媒體。不包含登入密碼；請把檔案當成私人資料保管。</div><div class="r3-grid"><section><h2>一次備份整個家庭</h2><button class="btn soft" data-r32="health">裝置與保存檢查</button><button class="btn primary" data-r3="export-family">匯出家庭完整備份</button><button class="btn secondary" data-r3="choose-family">還原家庭備份</button><input id="r3-family-file" type="file" accept=".json,application/json" hidden><p>還原前先顯示所有孩子及紀錄數，確認後才取代目前家庭資料。</p><button class="btn soft" data-r3="recover">恢復中斷交易</button><button class="btn soft" data-r3="legacy-math">搬入舊數學紀錄</button></section><section><h2>每天的安排</h2><label>全站總時限（包括街機，分鐘）<input id="r3-limit" type="number" min="5" max="180" value="${s.limitMinutes}"></label><label>英文建議分鐘<input id="r3-english" type="number" min="0" max="60" value="${s.englishMinutes}"></label><label>普通數學建議分鐘<input id="r3-math" type="number" min="0" max="60" value="${s.mathMinutes}"></label><label>奧數建議分鐘（0即不安排）<input id="r3-olympiad" type="number" min="0" max="60" value="${s.olympiadMinutes}"></label><button class="btn primary" data-r3="save-plan">儲存安排</button><p>這是同一瀏覽器的家長時限，不是伺服器防作弊或系統級螢幕管理。</p></section></div><section>${r3ReportHTML()}</section><section><h2>讀題聲線</h2><label>模式<select id="r3-voice-mode"><option value="device" ${s.voice.mode==='device'?'selected':''}>裝置聲線（離線可用性按裝置）</option><option value="server" ${s.voice.mode==='server'?'selected':''}>自設語音服務</option></select></label><label>同網站服務路徑<input id="r3-voice-endpoint" value="${esc(s.voice.endpoint||'/api/speech')}" maxlength="240"></label><label>聲線代號<input id="r3-voice-id" value="${esc(s.voice.voice)}" maxlength="32"></label><label><input id="r3-voice-consent" type="checkbox" ${s.voice.consent?'checked':''}>同意把讀題及英文教材文字傳到設定的語音服務（不傳孩子姓名）</label><button class="btn secondary" data-r3="save-voice">儲存聲線設定</button><p>未部署服務或未設定伺服器金鑰時，不會聲稱固定聲線已可用；API金鑰不得貼在此處。</p></section>`);}
 function r3Plan(){const s=r3Settings(),c=activeChild(),r=r3Weekly();r3Dialog('今天的跨科學習',`<p>${esc(c.name)}，按以下次序完成今天的小目標。每個入口沿用原有作答及獎勵規則。</p><div class="r3-grid">${[['english','英文',s.englishMinutes,'溫習到期及較弱的英文項目'],['math','普通數學',s.mathMinutes,'先重溫弱項，再按學校單元練習'],['olympiad','奧數思維',s.olympiadMinutes,'自願加入，進度不與普通數學混合']].filter(x=>x[2]>0).map(([key,n,min,description])=>`<section><h2>${n}</h2><p>建議 ${min} 分鐘</p><p>${description}</p><button class="btn primary" data-r3="study-${key}">開始${n}</button></section>`).join('')}</div><p>今天全站已用 ${Math.ceil(F3.usageTotal(s,c.id)/60000)}／${s.limitMinutes} 分鐘。</p>`);}
-function r3Decorate(){if(isLoggedIn()&&localStorage.getItem(r3Marker())&&!document.getElementById('r3-recovery-banner')){const b=document.createElement('aside');b.id='r3-recovery-banner';b.className='dangerbox';b.innerHTML='<strong>上次家庭資料交易尚未完成，已暫停寫入。</strong> <button class=\"btn secondary\" data-r3=\"recover\">恢復中斷交易</button> <button class=\"btn soft\" data-r3=\"family\">家庭管理／還原備份</button>';document.getElementById('app')?.prepend(b);} const route=(location.hash||'#kid').slice(1).split('?')[0];if(route==='kid'&&!document.getElementById('r3-daily')){const box=document.createElement('section');box.id='r3-daily';box.className='card pad';box.innerHTML='<h2>英文、數學與思維，一次安排</h2><p>保留每科的獨立進度，用同一個每日時間安排。</p><button class="btn primary" data-r3="daily">今天的跨科任務</button>';document.getElementById('app')?.prepend(box);}if(['settings','parent','report'].includes(route)&&v23ParentAllowed()&&!document.getElementById('r3-family-entry')){const box=document.createElement('section');box.id='r3-family-entry';box.className='card pad';box.innerHTML='<h2>家庭完整備份與跨科安排</h2><p>一次備份英文、數學、奧數、街機及自訂媒體，也可搬入舊數學學員紀錄。</p><button class="btn primary" data-r3="family">打開家庭管理</button>';document.getElementById('app')?.prepend(box);}const badge=document.getElementById('v25-build-badge');if(badge)badge.textContent='WordQuest R3.3 · 森林學園';}
+function r3Decorate(){if(isLoggedIn()&&localStorage.getItem(r3Marker())&&!document.getElementById('r3-recovery-banner')){const b=document.createElement('aside');b.id='r3-recovery-banner';b.className='dangerbox';b.innerHTML='<strong>上次家庭資料交易尚未完成，已暫停寫入。</strong> <button class=\"btn secondary\" data-r3=\"recover\">恢復中斷交易</button> <button class=\"btn soft\" data-r3=\"family\">家庭管理／還原備份</button>';document.getElementById('app')?.prepend(b);} const route=(location.hash||'#kid').slice(1).split('?')[0];if(route==='kid'&&!document.getElementById('r3-daily')){const box=document.createElement('section');box.id='r3-daily';box.className='card pad';box.innerHTML='<h2>英文、數學與思維，一次安排</h2><p>保留每科的獨立進度，用同一個每日時間安排。</p><button class="btn primary" data-r3="daily">今天的跨科任務</button>';document.getElementById('app')?.prepend(box);}if(['settings','parent','report'].includes(route)&&v23ParentAllowed()&&!document.getElementById('r3-family-entry')){const box=document.createElement('section');box.id='r3-family-entry';box.className='card pad';box.innerHTML='<h2>家庭完整備份與跨科安排</h2><p>一次備份英文、數學、奧數、街機及自訂媒體，也可搬入舊數學學員紀錄。</p><button class="btn primary" data-r3="family">打開家庭管理</button>';document.getElementById('app')?.prepend(box);}const badge=document.getElementById('v25-build-badge');if(badge)badge.textContent='WordQuest R3.4 · 森林學園';}
 const r3Render=render;render=function(){const out=r3Render.apply(this,arguments);r3Decorate();return out;};
 let r3PendingRestore=null,r3PendingOwner='';
 document.addEventListener('change',async e=>{if(e.target.id!=='r3-family-file')return;try{const wq20R=wq20Marked();r3Parent(wq20R);r3PauseWork({rescue:wq20R});if(wq20R)await wq20RescueCheck();const targetOwner=accountId();r3PendingRestore=await r3ValidatePack(e.target.files[0]);if(targetOwner!==accountId())throw Error('帳戶已改變，請重新選取備份');r3PendingOwner=targetOwner;const p=r3PendingRestore;r3Dialog('確認還原家庭',`<div class="dangerbox">${wq20RestoreNote()}會取代目前家庭的孩子、教材、進度及媒體，不是合併。登入密碼不變。同一家庭還原會保留目前金幣、街機局面及較高使用時間，避免重複免費入場。建議先匯出目前家庭備份。</div><ul>${p.english.children.map(c=>`<li>${esc(c.name)}（小${c.grade}） · 數學 ${(p.math.find(m=>m.childId===c.id)?.state?.attempts||[]).length} 次作答</li>`).join('')}</ul><p>英文 ${p.english.attempts.length} 筆紀錄；自訂媒體 ${p.media.length} 項。</p><label><input id="r3-restore-consent" type="checkbox">我已核對，確定取代目前家庭</label><button class="btn primary" data-r3="confirm-restore">確認還原</button>`);}catch(err){r3Status(err.message,true);}finally{e.target.value='';}});
@@ -5305,7 +5447,7 @@ document.addEventListener('click',async e=>{const b=e.target.closest?.('[data-r3
 function r3CurrentSubject(){if(document.getElementById('wqm-dialog')?.open){const v=window.WQMathApp?.getView();if(['parent','profiles','resume'].includes(v))return null;return window.WQMathApp?.getState()?.current?.track==='olympiad'||v==='olympiad'?'olympiad':'math';}const rt=(location.hash||'#kid').slice(1).split('?')[0];if(pgPlaying||arEngine&&!arEngine.paused||miniGame&&!miniGame.ended)return 'arcade';if(['learn','learning','assembly-learn','family-lesson','phonics-lesson','practice','quiz','test'].includes(rt))return 'english';return null;}
 function r3Tick(){const now=performance.now(),dt=Math.min(2500,Math.max(0,now-r3LastTick));r3LastTick=now;const sc=(accountId()||'guest')+':'+activeChild()?.id;if(r3LastScope!==sc){r3LastScope=sc;return;}if(document.hidden||!document.hasFocus()||r3Busy||document.getElementById('r3-dialog')?.open||!isLoggedIn()||!v24CanWrite())return;const subject=r3CurrentSubject();if(!subject)return;try{const n=r3Clone(r3Settings());F3.addUsage(n,activeChild().id,subject,dt);r3SaveSettings(n);if(F3.usageTotal(n,activeChild().id)>=n.limitMinutes*60000)r3Block();}catch(e){persistenceIssue='全站計時未能儲存，已暫停學習：'+e.message;showSaveIssue();r3Block(true);}}
 function r3Block(storageFailure=false){pgPause();if(arEngine&&!arEngine.paused)arPause();stopSpeech();window.WQMathApp?.pauseForLimit?.();if(document.getElementById('r3-time-limit')?.open)return;const d=document.createElement('dialog');d.id='r3-time-limit';d.className='r3-dialog';d.innerHTML=`<h1>${storageFailure?'資料暫時未能保存':'今天先到這裏'}</h1><p>${storageFailure?'請保留本頁，檢查儲存或匯出備份。':'已達家庭設定的全站時限。英文、數學與街機共用同一時限，家長可驗證後調整。'}</p><button class="btn primary" id="r3-limit-home">返回主頁</button>`;document.body.append(d);d.showModal();d.addEventListener('cancel',e=>e.preventDefault());d.querySelector('button').onclick=()=>{d.close();d.remove();window.WQMathApp?.close();go('kid');render();};}
-window.WQR3=Object.freeze({version:'R3.3.0',dataBusy:()=>r3Busy,assertStudy(){if(r3Busy||isLoggedIn()&&localStorage.getItem(r3Marker()))throw Error('家庭資料交易未完成，請先在家長頁恢復');if(isLoggedIn()){const s=r3Settings();if(F3.usageTotal(s,activeChild().id)>=s.limitMinutes*60000)throw Error('已達今天的全站時限，請休息或由家長調整。');}},voice:()=>r3Clone(r3Settings().voice),canPlay:()=>{try{window.WQR3.assertStudy();return true;}catch(e){toast(e.message,'bad');return false;}},recordMigration(digest,target){const n=r3Clone(r3Settings());if(n.migrationReceipts.some(r=>r.digest===digest&&r.target===target))throw Error('這份舊備份已搬入目前孩子，沒有重複搬入');n.migrationReceipts.push({digest,target,at:Date.now()});n.migrationReceipts=n.migrationReceipts.slice(-300);r3SaveSettings(n);},hasMigration:(digest,target)=>r3Settings().migrationReceipts.some(r=>r.digest===digest&&r.target===target),remaining:()=>Math.max(0,r3Settings().limitMinutes*60000-F3.usageTotal(r3Settings(),activeChild()?.id)),openFamily:()=>r3Panel()});
+window.WQR3=Object.freeze({version:'R3.4.0',dataBusy:()=>r3Busy,assertStudy(){if(r3Busy||isLoggedIn()&&localStorage.getItem(r3Marker()))throw Error('家庭資料交易未完成，請先在家長頁恢復');if(isLoggedIn()){const s=r3Settings();if(F3.usageTotal(s,activeChild().id)>=s.limitMinutes*60000)throw Error('已達今天的全站時限，請休息或由家長調整。');}},voice:()=>r3Clone(r3Settings().voice),canPlay:()=>{try{window.WQR3.assertStudy();return true;}catch(e){toast(e.message,'bad');return false;}},recordMigration(digest,target){const n=r3Clone(r3Settings());if(n.migrationReceipts.some(r=>r.digest===digest&&r.target===target))throw Error('這份舊備份已搬入目前孩子，沒有重複搬入');n.migrationReceipts.push({digest,target,at:Date.now()});n.migrationReceipts=n.migrationReceipts.slice(-300);r3SaveSettings(n);},hasMigration:(digest,target)=>r3Settings().migrationReceipts.some(r=>r.digest===digest&&r.target===target),remaining:()=>Math.max(0,r3Settings().limitMinutes*60000-F3.usageTotal(r3Settings(),activeChild()?.id)),openFamily:()=>r3Panel()});
 setInterval(r3Tick,1000);document.addEventListener('visibilitychange',()=>r3LastTick=performance.now());window.addEventListener('blur',()=>r3LastTick=performance.now());window.addEventListener('focus',()=>r3LastTick=performance.now());window.addEventListener('storage',e=>{if(e.key===r3FamilyKey()){r3SettingsOwner='';try{r3Settings();}catch(err){r3Status(err.message,true);}}});
 
 document.addEventListener('click',e=>{if(r3Busy&&!e.target.closest?.('#r3-dialog')){e.preventDefault();e.stopImmediatePropagation();}},true);
@@ -5998,6 +6140,423 @@ a28Grant=function(){
   render();
  });
 })();
+
+/* R3.4 p10 host code: the shared arcade "feel" layer (WQFX), the ready/result cards and the result jingles.
+ * It runs inside the main script scope (just before installMediaEvents();render();), so pgGame, pgMeta, pgPlaying, pgFree,
+ * a28Run, a28Child, a28Objective, a28Winning, pgAudio ... are all in scope.
+ *
+ * Design rules (they come from the audit, see README_R3_4.md):
+ *  - WQFX never adds a property to a game instance. Snapshot validation (WQGameSchema / WQR2Validate) rejects unknown own
+ *    fields, so every bit of state lives in the closure below.
+ *  - WQFX only reads score / health / level / lives and a per-game "focus point"; it never changes game rules.
+ *  - Everything is drawn on its own overlay canvas (#wq34-fx), never on the game canvas, so engine transforms cannot clash.
+ *  - Shake and flash are single short pulses (<= 0.4 s, no repeats faster than the games' own invulnerability), and are off
+ *    for prefers-reduced-motion or when the player switched "動感效果" off.
+ */
+const WQFX=(()=>{
+ 'use strict';
+ const KEY='wq34.fx';
+ const S={game:null,id:'',score:0,lives:null,level:1,combo:0,lastAt:0,trickle:0,bestBefore:0,runKey:'',frames:0,popGap:0};
+ const parts=[],pops=[],rings=[];let banner=null;
+ let cv=null,cx=null,raf=0,last=0,shakeAmp=0,shakeT=0,flashA=0,flashC='255,70,70';
+ const stats={pops:0,hits:0,bursts:0,banners:0,confetti:0,jingles:0,shakes:0,haptics:0,combos:0};
+ const GOOD=['#ffd45e','#ffe9a3','#9be3b0','#8fd3ff','#ffb3c7'];
+ const CONFETTI=['#ff6b6b','#ffd45e','#6bd49a','#6bb8ff','#c28bff','#ff9ed2'];
+ function on(){try{return localStorage.getItem(KEY)!=='off';}catch(_){return true;}}
+ function calm(){try{return !!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);}catch(_){return false;}}
+ function setOn(v){try{localStorage.setItem(KEY,v?'on':'off');}catch(_){}}
+ // Where the action is, in 800x560 canvas coordinates. Only reads engine fields; falls back to the middle of the field.
+ const FOCUS={
+  'sky-rescue':g=>g.p,'star-patrol':g=>g.p,'harbor-volley':g=>g.p,
+  'forest-pong':g=>g.ball,'meadow-cricket':g=>g.ball,'bounce-basket':g=>g.hoop,
+  'moon-bells':g=>({x:g.p.x,y:g.p.y-g.camera}),
+  'cloud-island':g=>({x:g.p.x-g.camera,y:g.p.y-20}),
+  'lighthouse-well':g=>({x:g.p.x,y:g.p.y-g.camera-10}),
+  'ruins-courier':g=>({x:400+(g.visualLane-1)*225,y:430}),
+  'forest-dash':g=>({x:400+(g.visualLane-1)*224,y:430}),
+  'valley-race':g=>g.car,'drift-path':g=>({x:400,y:280})
+ };
+ function focus(){
+  let p=null;try{p=FOCUS[S.id]?.(S.game);}catch(_){p=null;}
+  const ok=p&&Number.isFinite(p.x)&&Number.isFinite(p.y);
+  return ok?{x:Math.max(40,Math.min(760,p.x)),y:Math.max(70,Math.min(520,p.y))}:{x:400,y:250};
+ }
+ function livesNow(g){
+  try{if(!pgFree){const r=a28Run();if(r&&Number.isFinite(r.lives)&&r.game===pgMeta?.id)return r.lives;}}catch(_){}
+  return Number.isFinite(g.health)?g.health:null;
+ }
+ function ensure(){
+  const vp=document.querySelector('.a28-viewport'),game=document.getElementById('pg-canvas');
+  if(!vp||!game)return false;
+  if(!cv||cv.parentNode!==vp){
+   cv=document.getElementById('wq34-fx');
+   if(!cv||cv.parentNode!==vp){cv=document.createElement('canvas');cv.id='wq34-fx';cv.width=800;cv.height=560;cv.setAttribute('aria-hidden','true');vp.appendChild(cv);}
+   cx=cv.getContext('2d');
+  }
+  const l=game.offsetLeft+'px',t=game.offsetTop+'px',w=game.offsetWidth+'px',h=game.offsetHeight+'px';
+  if(cv.style.left!==l)cv.style.left=l;if(cv.style.top!==t)cv.style.top=t;if(cv.style.width!==w)cv.style.width=w;if(cv.style.height!==h)cv.style.height=h;
+  return true;
+ }
+ function scale(){const g=document.getElementById('pg-canvas');return g&&g.offsetWidth?g.offsetWidth/800:.5;}
+ function kick(){if(!raf){last=performance.now();raf=requestAnimationFrame(loop);}}
+ // ---- emitters -------------------------------------------------------------------------------------------------
+ function burst(x,y,colors,n,speed=190,life=.7,size=4){
+  if(!on())return;n=calm()?Math.ceil(n/3):n;n=Math.min(n,60);stats.bursts++;
+  for(let i=0;i<n&&parts.length<260;i++){const a=Math.random()*Math.PI*2,v=speed*(.35+Math.random()*.75);
+   parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-40,g:380,life:life*(.7+Math.random()*.6),age:0,c:colors[i%colors.length],s:size*(.7+Math.random()*.9),kind:'dot'});}
+  kick();
+ }
+ function confetti(n=110,fromTop=true){
+  if(!on())return;n=calm()?Math.ceil(n/4):n;stats.confetti++;
+  for(let i=0;i<n&&parts.length<260;i++){
+   parts.push({x:fromTop?Math.random()*800:400,y:fromTop?-20-Math.random()*60:260,vx:(Math.random()-.5)*(fromTop?160:520),vy:fromTop?60+Math.random()*120:-260-Math.random()*220,g:300,
+    life:2.1+Math.random()*1.1,age:0,c:CONFETTI[i%CONFETTI.length],s:6+Math.random()*6,rot:Math.random()*6,vr:(Math.random()-.5)*9,kind:'conf'});
+  }
+  kick();
+ }
+ function pop(text,x,y,color='#ffe27a',size=34){
+  if(!on())return;stats.pops++;pops.push({t:String(text),x,y,c:color,s:size,age:0,life:.95});if(pops.length>8)pops.shift();kick();
+ }
+ function ring(x,y,color='#fff3b0'){if(!on()||calm())return;rings.push({x,y,c:color,age:0,life:.45});kick();}
+ function say(text,color='#ffe27a',ms=1100){
+  if(!on())return;stats.banners++;banner={t:text,c:color,age:0,life:ms/1000};kick();
+ }
+ function shake(amp=8,t=.32){
+  if(!on()||calm())return;stats.shakes++;shakeAmp=Math.max(shakeAmp,amp);shakeT=Math.max(shakeT,t);kick();
+ }
+ function flash(rgb='255,70,70',a=.28){if(!on()||calm())return;flashC=rgb;flashA=Math.max(flashA,a);kick();}
+ function haptic(p){try{if(on()&&navigator.vibrate&&!calm()){navigator.vibrate(p);stats.haptics++;}}catch(_){}}
+ // ---- drawing loop (only runs while something is animating) ----------------------------------------------------------------
+ function loop(now){
+  raf=0;const dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;
+  if(!ensure()){parts.length=pops.length=rings.length=0;banner=null;return;}
+  const c=cx;c.clearRect(0,0,800,560);let alive=false;
+  // vignette flash
+  if(flashA>0){const g=c.createRadialGradient(400,280,170,400,280,520);g.addColorStop(0,`rgba(${flashC},0)`);g.addColorStop(1,`rgba(${flashC},${flashA.toFixed(3)})`);c.fillStyle=g;c.fillRect(0,0,800,560);flashA=Math.max(0,flashA-dt*.9);alive=true;}
+  // rings
+  for(let i=rings.length-1;i>=0;i--){const r=rings[i];r.age+=dt;if(r.age>=r.life){rings.splice(i,1);continue;}const k=r.age/r.life;c.globalAlpha=1-k;c.strokeStyle=r.c;c.lineWidth=5*(1-k)+1;c.beginPath();c.arc(r.x,r.y,16+k*58,0,Math.PI*2);c.stroke();alive=true;}
+  // particles
+  for(let i=parts.length-1;i>=0;i--){const p=parts[i];p.age+=dt;if(p.age>=p.life){parts.splice(i,1);continue;}
+   p.vy+=p.g*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.kind==='conf'){p.vx*=1-dt*.6;p.rot+=p.vr*dt;}
+   const k=p.age/p.life;c.globalAlpha=Math.min(1,(1-k)*1.6);c.fillStyle=p.c;
+   if(p.kind==='conf'){c.save();c.translate(p.x,p.y);c.rotate(p.rot);c.fillRect(-p.s/2,-p.s/3,p.s,p.s*.6);c.restore();}
+   else{c.beginPath();c.arc(p.x,p.y,Math.max(.8,p.s*(1-k*.6)),0,Math.PI*2);c.fill();}
+   alive=true;}
+  // pop-ups
+  c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';
+  for(let i=pops.length-1;i>=0;i--){const p=pops[i];p.age+=dt;if(p.age>=p.life){pops.splice(i,1);continue;}
+   const k=p.age/p.life,ease=1-Math.pow(1-Math.min(1,k*2.2),3),sc=k<.12?.6+k/.12*.6:1.2-Math.min(.2,(k-.12)*.8);
+   c.save();c.globalAlpha=k>.65?1-(k-.65)/.35:1;c.translate(p.x,p.y-ease*46);c.scale(sc,sc);c.font=`900 ${p.s}px "Noto Sans TC","PingFang HK",system-ui,sans-serif`;
+   c.lineWidth=7;c.strokeStyle='#1f2d3d';c.strokeText(p.t,0,0);c.fillStyle=p.c;c.fillText(p.t,0,0);c.restore();alive=true;}
+  // banner
+  if(banner){banner.age+=dt;const b=banner;if(b.age>=b.life)banner=null;else{
+   const k=b.age/b.life,sc=k<.14?.5+(k/.14)*.62:k<.24?1.12-(k-.14)/.1*.12:1,a=k>.75?1-(k-.75)/.25:1;
+   c.save();c.globalAlpha=a;c.translate(400,118);c.scale(sc,sc);c.font='900 46px "Noto Sans TC","PingFang HK",system-ui,sans-serif';c.lineWidth=9;c.strokeStyle='#1f2d3d';c.strokeText(b.t,0,0);c.fillStyle=b.c;c.fillText(b.t,0,0);c.restore();alive=true;}}
+  c.globalAlpha=1;
+  // shake (CSS transform on both canvases, in CSS pixels so it is visible at phone scale)
+  const gc=document.getElementById('pg-canvas');
+  if(shakeT>0){shakeT=Math.max(0,shakeT-dt);const k=shakeT/.32,a=Math.max(2,shakeAmp*scale())*k*k;const t=`translate(${((Math.random()*2-1)*a).toFixed(1)}px,${((Math.random()*2-1)*a).toFixed(1)}px)`;if(gc)gc.style.transform=t;cv.style.transform=t;alive=true;if(shakeT===0)shakeAmp=0;}
+  else if(gc&&gc.style.transform){gc.style.transform='';cv.style.transform='';}
+  if(alive)raf=requestAnimationFrame(loop);else{c.clearRect(0,0,800,560);if(gc)gc.style.transform='';cv.style.transform='';}
+ }
+ // ---- run bookkeeping ---------------------------------------------------------------------------------------------------
+ function begin(g){
+  S.game=g;S.id=pgMeta?.id||'';S.score=Number(g.score)||0;S.lives=livesNow(g);S.level=g.level||1;S.combo=0;S.lastAt=0;S.trickle=0;S.frames=0;S.popGap=0;
+  S.bestBefore=0;S.runKey='';
+  try{if(!pgFree){const c=a28Child(),r=c.run,key=pgMeta.id+'|'+g.d;S.runKey=(r&&r.id?String(r.id):'')+':'+key;
+   let saved=null;try{saved=sessionStorage.getItem('wq34.best.'+S.runKey);}catch(_){}
+   if(saved!==null)S.bestBefore=Number(saved)||0;else{S.bestBefore=Number(c.bests?.[key])||0;try{sessionStorage.setItem('wq34.best.'+S.runKey,String(S.bestBefore));}catch(_){}}}}catch(_){}
+  parts.length=pops.length=rings.length=0;banner=null;shakeAmp=shakeT=flashA=0;
+ }
+ const COMBO_SAY={3:['好棒！','#ffe27a'],5:['連擊 ×5','#ffb86b'],8:['太強了！','#ff8fb1'],12:['連擊 ×12','#8fe3ff'],20:['傳說級！','#d6a6ff']};
+ const STING=[523.25,659.25,783.99,1046.5,1318.5];
+ function sting(n){try{if(!on()||!pgPlaying)return;const t=pgAudio.ctx?.currentTime;if(t===undefined)return;
+   const lvl=Math.min(STING.length-2,Math.floor(n/4));pgAudio.tone(STING[lvl],.09,'triangle',.07,t+.01);pgAudio.tone(STING[lvl+1],.12,'triangle',.07,t+.09);}catch(_){}}
+ function onScore(d){
+  const now=performance.now(),f=focus();
+  S.combo=now-S.lastAt<1800?S.combo+1:1;S.lastAt=now;
+  const big=d>=60;
+  burst(f.x,f.y,GOOD,Math.min(16,6+Math.floor(d/12)),big?250:190,.75,big?5.2:4);
+  if(S.popGap<=0||big){pop('+'+Math.round(d),f.x,f.y-34,S.combo>=5?'#ffb86b':'#ffe27a',S.combo>=8?42:34);S.popGap=.12;}
+  if(big)ring(f.x,f.y);
+  const m=COMBO_SAY[S.combo];if(m){say(m[0],m[1],1000);stats.combos++;sting(S.combo);}
+  haptic(8);
+ }
+ function onHit(){
+  stats.hits++;const f=focus();
+  S.combo=0;
+  burst(f.x,f.y,['#ff9a8c','#ffd0c8','#ffffff'],12,220,.55,4.5);
+  shake(9,.32);flash('255,70,70',.28);haptic(38);
+ }
+ function frame(dt){
+  const g=pgGame;if(!g||!pgMeta||g.preview||!pgPlaying)return;
+  if(S.game!==g){begin(g);ensure();say('出發！','#9be3b0',900);return;}
+  S.frames++;S.popGap-=dt;ensure();
+  const sc=Number(g.score)||0,lv=livesNow(g),level=g.level||1;
+  const d=sc-S.score;
+  if(d>=3)onScore(d);
+  else if(d>0){S.trickle+=d;if(S.trickle>=50){const f=focus();pop('+'+Math.round(S.trickle),f.x,f.y-34,'#cfeaff',28);S.trickle=0;}}
+  S.score=sc;
+  if(lv!==null&&S.lives!==null&&lv<S.lives)onHit();
+  S.lives=lv;
+  if(level>S.level){S.level=level;const f=focus();say('第 '+level+' 關','#8fe3ff',1200);confetti(36);burst(f.x,f.y,CONFETTI,18,260,.9,5);sting(8);}
+  if(S.combo&&performance.now()-S.lastAt>1800)S.combo=0;
+ }
+ // ---- results --------------------------------------------------------------------------------------------------------------------
+ function jingle(kind){
+  try{
+   const A=pgAudio;if(!A.ctx||!sfxEnabled()||A.volume('sfx')===0)return;stats.jingles++;
+   const seq=kind==='win'?[[523.25,0],[659.25,.12],[783.99,.24],[1046.5,.36],[1318.5,.52]]:kind==='next'?[[587.33,0],[739.99,.11],[880,.22]]:[[392,0],[349.23,.16],[293.66,.32]];
+   const dur=kind==='win'?.22:.16,vol=kind==='fail'?.08:.12;
+   A.sample=true;
+   A.ctx.resume().then(()=>{const ep=A.epoch,t=A.ctx.currentTime;seq.forEach(([f,o])=>A.tone(f,dur,'triangle',vol,t+.02+o));
+    setTimeout(()=>{if(A.epoch!==ep||pgPlaying)return;A.sample=false;A.pause();},kind==='win'?1300:900);}).catch(()=>{A.sample=false;});
+  }catch(_){}
+ }
+ function ended(result){
+  try{
+   if(!pgGame||!pgMeta)return;
+   const win=a28Winning(pgGame),next=pgGame._wqNext&&!win;
+   jingle(win?'win':next?'next':'fail');
+   if(win){confetti(150);haptic([25,50,25,50,40]);}
+   else if(next){confetti(60);haptic(20);}
+   else haptic(60);
+  }catch(_){}
+ }
+ // ---- ready / result card decoration ----------------------------------------------------------------------------------------
+ const nf=n=>Math.max(0,Math.floor(Number(n)||0)).toLocaleString('en-US');
+ function decorate(){
+  try{
+   if(pgPlaying||!pgGame||!pgMeta)return;
+   const card=document.querySelector('#pg-overlay .a28-overlaycard');if(!card||card.dataset.wq34)return;
+   card.dataset.wq34='1';
+   const h2=card.querySelector('h2')?.textContent||'',p=card.querySelector(':scope > p'),row=card.querySelector('.row');
+   const neverPlayed=S.game!==pgGame;
+   const r=pgFree?null:a28Run(),phase=pgFree?pgReason:r?.phase;
+   if((h2==='準備好了？'||(neverPlayed&&h2==='已保存，稍休一下'))&&p){
+    let goal='';try{goal=a28Objective(pgMeta.id);}catch(_){}
+    let how=String(pgMeta.guide||'').trim();
+    try{if(matchMedia('(pointer: coarse)').matches){const gh=window.WQ34G&&window.WQ34G[pgMeta.id]&&window.WQ34G[pgMeta.id].hint;
+      const keys=[...document.querySelectorAll('.a28-touch-key')].map(b=>b.textContent.trim()).filter(Boolean);
+      if(gh)how=gh;else if(keys.length)how='用畫面兩旁或下方按鈕操作：'+keys.join('、')+'。';else if(pgMeta.touchGuide)how=pgMeta.touchGuide;}}catch(_){}
+    p.className='wq34-goalbox';
+    p.innerHTML=`<span class="wq34-goal">${esc(goal||'完成這款遊戲的目標')}</span>${how?`<span class="wq34-how">${esc(how)}</span>`:''}`;
+    return;
+   }
+   const finished=(phase==='finished'||(pgFree&&pgGame.done))&&pgReason!=='error';
+   if(!finished&&phase!=='retry'&&phase!=='next')return;
+   const score=Math.floor(Number(pgGame.score)||0),win=finished&&(r?r.success:a28Winning(pgGame));
+   let bestHtml='',tag='';
+   if(!pgFree){try{const key=pgMeta.id+'|'+pgGame.d,best=Math.max(Number(a28Child().bests?.[key])||0,score);
+     bestHtml=`<span class="wq34-best">最高 ${nf(best)}</span>`;
+     if(finished&&score>0&&S.bestBefore>0&&score>S.bestBefore)tag=`<span class="wq34-new">新紀錄！</span>`;
+     else if(finished&&score>0&&S.bestBefore===0&&S.game===pgGame)tag=`<span class="wq34-new">首次紀錄</span>`;}catch(_){}}
+   let stars='';
+   if(win){const left=Math.max(1,Math.min(3,Math.round(Number(r?r.lives:pgGame.health)||1)));
+    stars=`<div class="wq34-stars" role="img" aria-label="${left} 粒星">${[1,2,3].map(i=>`<span class="${i<=left?'on':''}" style="--i:${i}">★</span>`).join('')}</div>`;}
+   const block=document.createElement('div');block.className='wq34-result';
+   block.innerHTML=`${stars}<div class="wq34-line"><b>${nf(score)}</b><span>分</span>${tag}</div>${bestHtml?`<div class="wq34-line sub">${bestHtml}</div>`:''}`;
+   if(row)card.insertBefore(block,row);else card.appendChild(block);
+   if(finished&&!pgFree&&row&&!row.querySelector('[data-a28="buy"]')){
+    const used=a28Child().batch?.used||0,msg=used>=5?'今輪 5 個金幣已用完，休息一下，或者去學習。':'金幣用完了，完成一段學習就有新金幣！';
+    const n=document.createElement('p');n.className='wq34-earn';n.textContent=msg;card.insertBefore(n,row);}
+  }catch(e){try{console.error('WQFX card:',e);}catch(_){}}
+ }
+ return {frame,ended,decorate,burst,confetti,pop,say,shake,flash,ring,jingle,haptic,on,setOn,stats,
+  _state:S,_focus:focus,
+  // Read-only peek for tests / diagnostics (the host state lives in a closure, not on window).
+  _peek(){return{reason:pgReason,playing:pgPlaying,free:pgFree,id:pgMeta?.id||null,score:pgGame?Number(pgGame.score)||0:null,health:pgGame?.health??null,level:pgGame?.level??null,done:pgGame?!!pgGame.done:null,error:pgError||''};},
+  _game(){return pgGame;},_emit(kind,d){if(kind==='score')onScore(d||50);else if(kind==='hit')onHit();}};
+})();
+window.WQFX=WQFX;
+{
+ // Hook the result card.
+ const wq34PriorOverlay=pgOverlay;
+ pgOverlay=function(){const out=wq34PriorOverlay.apply(this,arguments);WQFX.decorate();return out;};
+ // Result sounds + confetti (a28Complete stops all audio on the same frame, so the jingle is scheduled after that).
+ const wq34PriorComplete=a28Complete;
+ a28Complete=function(result){const was=pgPlaying,out=wq34PriorComplete.apply(this,arguments);if(was&&!pgPlaying)WQFX.ended(result);return out;};
+ // Settings: the "動感效果" switch lives next to the volume sliders.
+ const wq34PriorPanel=r2AudioPanel;
+ r2AudioPanel=function(){return wq34PriorPanel().replace('</div><p class="small muted">所有街機沿用',`<label class="wq34-fxopt"><input type="checkbox" id="wq34-fx-toggle" ${WQFX.on()?'checked':''}> 動感效果（震動、閃光、彩帶、手機震動）</label></div><p class="small muted">所有街機沿用`);};
+ document.addEventListener('change',e=>{if(e.target&&e.target.id==='wq34-fx-toggle')WQFX.setOn(e.target.checked);});
+}
+
+/* R3.4 p30: phone play layer.
+ *   1. Canvas gestures (drag to steer, tap, swipe) for the action games whose engines have no pointer handling of their own.
+ *      Gestures only call a28Input(), exactly like the on-screen keys, so pause / checkpoint / result rules are unchanged.
+ *   2. Split key docks (direction keys left, action keys right) for the landscape layout in touch.css.
+ *   3. Orientation helper: portrait hint chip, automatic enlarged mode in landscape phones.
+ * Runs inside the host closure (pgAttach, a28Input, a28Sources, r2Immersive ... are in scope). Never touches game instances. */
+const WQ34G=Object.freeze({
+ // mode: steer (hold left / right while dragging), lanes (one left / right step per stretch of drag, for lane games), stick (drag in 4 directions),
+ // hold (whole screen is the action key). Only games in a28Motion get gestures (the host drops their canvas pointer events, so nothing is doubled);
+ // games whose engines read the finger themselves (rolling-block, color-orbit, moon-bells, juice-lines ...) only get a hint.
+ // tap: key pulsed by a tap; up / down: key used by a swipe up / down ({key, ms} pulse, or {key, hold:true} while the finger stays down)
+ 'valley-race':{mode:'steer',down:{key:'down',hold:true},hint:'左右拖動轉向，手指向下拖就煞車。'},
+ 'drift-path':{mode:'hold',hint:'輕按畫面任何位置轉彎。'},
+ 'rolling-block':{hint:'向上、下、左、右滑動畫面，滾動方塊。'},
+ 'color-orbit':{hint:'輕按畫面左邊或右邊轉動。'},
+ 'sky-rescue':{mode:'stick',tap:'action',hint:'手指拖動飛行，輕按畫面開護盾。'},
+ 'forest-dash':{mode:'lanes',tap:'up',up:{key:'up',ms:240},down:{key:'down',ms:360},hint:'向左或向右滑動換跑道，輕按跳躍，向下滑動滑行。'},
+ 'ruins-courier':{mode:'lanes',tap:'up',up:{key:'up',ms:240},down:{key:'down',ms:360},hint:'向左或向右滑動換跑道，輕按跳躍，向下滑動滑行。'},
+ 'cloud-island':{mode:'steer',tap:'up',up:{key:'up',ms:240},hint:'左右拖動移動，輕按畫面跳躍；短衝用右邊按鈕。'},
+ 'star-patrol':{mode:'stick',tap:'action',hint:'手指拖動飛行，輕按畫面開護盾。'},
+ 'lighthouse-well':{mode:'steer',tap:'action',down:{key:'down',hold:true},hint:'左右拖動移動，輕按開降落傘，向下滑動加速落下。'},
+ 'harbor-volley':{mode:'steer',tap:'action',up:{key:'up',ms:200},down:{key:'down',ms:120},hint:'左右拖動移動，輕按擊球，向上滑跳躍，向下滑打短球。'},
+ // Engines that already read the finger themselves: hint text only.
+ 'moon-bells':{hint:'用手指左右拖動兔仔。'},
+ 'forest-pong':{hint:'用手指左右拖動球拍。'},
+ 'bounce-basket':{hint:'拖住皮球向後拉，放開就投出；或按住「蓄力投籃」再放開。'},
+ 'meadow-cricket':{hint:'輕按畫面任何位置揮棒。'},
+ 'star-rhythm':{hint:'輕按畫面任何位置打拍子。'},
+ 'honey-delivery':{hint:'用手指劃過繩子就剪斷；也可用按鈕選繩。'},
+ 'number-garden':{hint:'上下左右滑動畫面，移動數字。'},
+ 'juice-lines':{hint:'用手指在畫面上畫斜線，再按「開水」。'},
+ 'little-engineer':{hint:'用手指點選零件來連接，再按「試行」。'},
+ 'honeycomb-puzzle':{hint:'先選下方積木，再輕按棋盤：第一下預覽，第二下放置。'},
+ 'forest-band':{hint:'輕按格子開關聲音，再按「播放合奏」。'},
+ 'block-studio':{hint:'輕按畫面旋轉，左右滑動移動，向下滑直接落下。'}
+});
+window.WQ34G=WQ34G;
+const WQ34T=(function(){
+ const LAND=matchMedia('(orientation: landscape) and (max-height: 550px)');
+ const S={dismissed:false,auto:false,land:null,ptr:new Map(),taps:0,swipes:0,steers:0,autoEnter:0,heavy:false};
+ const coarse=()=>{try{return matchMedia('(pointer: coarse)').matches;}catch(_){return false;}};
+ const cfg=()=>{try{const c=WQ34G[pgMeta&&pgMeta.id];return c&&c.mode&&a28Motion.has(pgMeta.id)?c:null;}catch(_){return null;}};
+ const has=(st,k)=>{const s=a28Sources.get(k);return !!(s&&s.has('g'+st.id));};
+ const press=(st,k)=>{if(!has(st,k))a28Input(k,true,'g'+st.id);};
+ const release=(st,k)=>{if(has(st,k))a28Input(k,false,'g'+st.id);};
+ const set=(st,k,on)=>{if(on)press(st,k);else release(st,k);};
+ function pulse(k,ms){
+  const src='gp'+k+Math.round(performance.now());
+  try{a28Input(k,true,src);}catch(_){return;}
+  setTimeout(()=>{try{a28Input(k,false,src);}catch(_){}},ms||100);
+ }
+ function feedback(cv,e,strong){
+  try{const r=cv.getBoundingClientRect();if(window.WQFX){WQFX.ring((e.clientX-r.left)*800/r.width,(e.clientY-r.top)*560/r.height,strong?'#fff3b0':'#cfeaff');WQFX.haptic(strong?14:8);}}catch(_){}
+ }
+ // ---- gestures --------------------------------------------------------------------------------------------------------------------
+ function gestures(cv){
+  if(cv.dataset.wq34g)return;cv.dataset.wq34g='1';
+  cv.addEventListener('contextmenu',e=>{if(cfg())e.preventDefault();});
+  cv.addEventListener('pointerdown',e=>{
+   const c=cfg();if(!c||!pgPlaying||e.pointerType==='mouse')return;
+   e.preventDefault();try{cv.setPointerCapture(e.pointerId);}catch(_){}
+   const st={id:e.pointerId,x0:e.clientX,y0:e.clientY,ax:e.clientX,ay:e.clientY,t0:performance.now(),moved:false,swiped:false,fired:false,btn:false};
+   // A second finger is an instant button (thumb steers, other thumb taps): held while it stays down.
+   if(S.ptr.size>0&&c.tap){st.btn=true;S.ptr.set(st.id,st);press(st,c.tap);feedback(cv,e,true);S.taps++;return;}
+   S.ptr.set(st.id,st);
+   if(c.mode==='hold'){press(st,'action');feedback(cv,e,true);S.taps++;}
+  });
+  cv.addEventListener('pointermove',e=>{
+   const st=S.ptr.get(e.pointerId),c=cfg();if(!st||!c||!pgPlaying||st.btn)return;
+   const dx0=e.clientX-st.x0,dy0=e.clientY-st.y0,dt=performance.now()-st.t0;
+   if(!st.moved&&Math.hypot(dx0,dy0)>14)st.moved=true;
+   const r=cv.getBoundingClientRect(),thr=Math.max(9,r.width*.022),lead=thr*3.2;
+   if(c.mode==='steer'||c.mode==='lanes'||c.mode==='stick'){
+    const dx=e.clientX-st.ax;
+    if(c.mode==='stick'){
+     if(dx>lead)st.ax=e.clientX-lead;else if(dx<-lead)st.ax=e.clientX+lead;   // re-anchor: turning back reacts at once
+     const dy=e.clientY-st.ay;if(dy>lead)st.ay=e.clientY-lead;else if(dy<-lead)st.ay=e.clientY+lead;
+     const ddx=e.clientX-st.ax,ddy=e.clientY-st.ay;
+     set(st,'left',ddx<-thr);set(st,'right',ddx>thr);set(st,'up',ddy<-thr);set(st,'down',ddy>thr);return;
+    }
+    // A quick, mostly vertical flick is a swipe, not a steer.
+    if(!st.swiped&&dt<420&&Math.abs(dy0)>Math.max(30,r.height*.07)&&Math.abs(dy0)>1.5*Math.abs(dx0)){
+     const s=dy0<0?c.up:c.down;
+     if(s){st.swiped=true;S.swipes++;feedback(cv,e,false);release(st,'left');release(st,'right');
+      if(s.hold)press(st,s.key);else pulse(s.key,s.ms||120);}
+    }
+    if(st.swiped)return;
+    if(c.mode==='lanes'){
+     const step=Math.max(26,r.width*.11);
+     if(Math.abs(dx)>=step){S.steers++;st.ax=e.clientX;pulse(dx>0?'right':'left',70);feedback(cv,e,false);}
+     return;
+    }
+    if(dx>lead)st.ax=e.clientX-lead;else if(dx<-lead)st.ax=e.clientX+lead;
+    const ddx=e.clientX-st.ax;set(st,'left',ddx<-thr);set(st,'right',ddx>thr);if(ddx<-thr||ddx>thr)S.steers++;
+   }
+  });
+  const end=e=>{
+   const st=S.ptr.get(e.pointerId);if(!st)return;S.ptr.delete(st.id);
+   const c=cfg();
+   for(const k of ['left','right','up','down','action'])release(st,k);
+   if(st.btn&&c&&c.tap)release(st,c.tap);
+   if(!st.btn&&c&&c.tap&&c.mode!=='hold'&&e.type==='pointerup'&&pgPlaying&&!st.moved&&!st.swiped&&performance.now()-st.t0<320){
+    S.taps++;feedback(cv,e,true);pulse(c.tap,c.tap==='up'?150:110);
+   }
+  };
+  for(const t of ['pointerup','pointercancel','lostpointercapture'])cv.addEventListener(t,end);
+ }
+ // ---- key docks -------------------------------------------------------------------------------------------------------------------
+ function docks(){
+  const box=document.querySelector('.a28-touch-controls');if(!box||box.dataset.wq34)return;box.dataset.wq34='1';
+  const play=document.querySelector('.a28-play');if(play&&pgMeta)play.dataset.wq34Game=pgMeta.id;
+  // Footer buttons: short captions for the narrow landscape dock (the real text and aria-label stay).
+  const SHORT={pause:'暫停',leave:'離開',help:'說明','r2-full':'還原','finish-art':'完成'};
+  for(const b of document.querySelectorAll('.a28-game-footer .btn')){
+   const s=SHORT[b.dataset.a28];if(!s)continue;
+   if(!b.getAttribute('aria-label'))b.setAttribute('aria-label',b.textContent.trim());b.dataset.wq34s=s;
+  }
+  const btns=[...box.querySelectorAll('.a28-touch-key')];if(!btns.length)return;
+  const key=b=>b.dataset.a28key,label=b=>b.textContent.trim();
+  const hasLR=btns.some(b=>key(b)==='left')&&btns.some(b=>key(b)==='right');
+  const plain=b=>/^[↑↓]$|^[上下]$/.test(label(b));
+  const isDir=b=>key(b)==='left'||key(b)==='right'||((key(b)==='up'||key(b)==='down')&&(!hasLR||plain(b)));
+  const dir=btns.filter(isDir),act=btns.filter(b=>!isDir(b));
+  const gd=document.createElement('div'),ga=document.createElement('div');
+  gd.className='wq34-kg wq34-kg-dir'+(dir.some(b=>key(b)==='up'||key(b)==='down')?' has-ud':'');ga.className='wq34-kg wq34-kg-act';
+  if(act.length>=4)ga.classList.add('many');
+  gd.append(...dir);ga.append(...act);box.append(gd,ga);
+ }
+ // ---- orientation -----------------------------------------------------------------------------------------------------------------
+ const heavy=()=>document.querySelectorAll('#pg-tools [data-a28tool]').length>5;
+ function chip(){
+  try{
+   if(document.querySelector('.wq34-rotate')||!coarse()||S.heavy)return;
+   if(sessionStorage.getItem('wq34.rot')==='1')return;
+  }catch(_){if(document.querySelector('.wq34-rotate')||!coarse()||S.heavy)return;}
+  const v=document.querySelector('.a28-viewport');if(!v)return;
+  const d=document.createElement('div');d.className='wq34-rotate';d.setAttribute('role','note');
+  d.innerHTML='<span class="wq34-rot-icon" aria-hidden="true">📱</span><span class="wq34-rot-text">橫放手機，畫面更大、更好玩。</span><button type="button" aria-label="關閉提示">✕</button>';
+  d.querySelector('button').addEventListener('click',()=>{try{sessionStorage.setItem('wq34.rot','1');}catch(_){}d.remove();});
+  v.parentNode.insertBefore(d,v);
+ }
+ function enter(){
+  const el=document.querySelector('.a28-play');if(!el)return;
+  if(r2Immersive&&!r2Immersive.isConnected)r2Immersive=null;
+  if(r2Immersive)return;
+  r2Immersive=el;el.classList.add('r2-immersive');document.body.classList.add('r2-fullscreen');S.autoEnter++;r2Fit();
+ }
+ function sync(){
+  try{
+   const el=document.querySelector('.a28-play');if(!el||!pgGame)return;
+   if(r2Immersive&&!r2Immersive.isConnected)r2Immersive=null;
+   const land=LAND.matches;
+   if(S.land!==land){S.land=land;S.dismissed=false;}
+   if(land&&coarse()&&!S.dismissed&&!r2Immersive){enter();S.auto=true;}
+   else if(!land&&S.auto&&r2Immersive){S.auto=false;r2ExitFullscreen();}
+  }catch(e){try{console.error('WQ34T sync:',e);}catch(_){}}
+ }
+ function attach(){
+  const cv=document.querySelector('#pg-canvas');if(!cv||!pgGame)return;
+  S.ptr.clear();S.dismissed=false;S.auto=false;S.heavy=heavy();S.land=LAND.matches;
+  docks();gestures(cv);chip();sync();
+ }
+ try{LAND.addEventListener('change',()=>{S.dismissed=false;sync();});}catch(_){try{LAND.addListener(()=>{S.dismissed=false;sync();});}catch(__){}}
+ window.addEventListener('orientationchange',()=>setTimeout(sync,200));
+ // A person who leaves the enlarged view by hand (button, Esc, system back) keeps the normal view until the phone is turned again.
+ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)S.dismissed=true;});
+ return {attach,sync,state:S,gestures,docks};
+})();
+window.WQ34T=WQ34T;
+{
+ const wq34PriorAttach=pgAttach;
+ pgAttach=function(){const out=wq34PriorAttach.apply(this,arguments);try{WQ34T.attach();}catch(e){try{console.error('WQ34T attach:',e);}catch(_){}}return out;};
+ const wq34PriorFull=r2Fullscreen;
+ r2Fullscreen=function(){const wasOn=!!r2Immersive||!!document.fullscreenElement;WQ34T.state.dismissed=wasOn;WQ34T.state.auto=false;return wq34PriorFull.apply(this,arguments);};
+}
 
 installMediaEvents();
 render();

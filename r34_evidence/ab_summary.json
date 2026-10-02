@@ -1,0 +1,62 @@
+[
+  {
+    "suite": "engine",
+    "newChecks": 46,
+    "newFailed": [],
+    "bChecks": 37,
+    "bFailOnR33": 37,
+    "bPassOnR33": [],
+    "guardsBrokenOnR33": [],
+    "seconds": 21
+  },
+  {
+    "suite": "validity",
+    "newChecks": 1,
+    "newFailed": [],
+    "bChecks": 0,
+    "bFailOnR33": 0,
+    "bPassOnR33": [],
+    "guardsBrokenOnR33": [],
+    "seconds": 135
+  },
+  {
+    "suite": "rules",
+    "newChecks": 8,
+    "newFailed": [],
+    "bChecks": 4,
+    "bFailOnR33": 4,
+    "bPassOnR33": [],
+    "guardsBrokenOnR33": [
+      "rules suite ran to the end"
+    ],
+    "seconds": 174
+  },
+  {
+    "suite": "feel",
+    "newChecks": 12,
+    "newFailed": [],
+    "bChecks": 8,
+    "bFailOnR33": 8,
+    "bPassOnR33": [],
+    "guardsBrokenOnR33": [
+      "result is finished (not an error state)",
+      "feel suite ran to the end"
+    ],
+    "seconds": 30
+  },
+  {
+    "suite": "touch",
+    "newChecks": 59,
+    "newFailed": [],
+    "bChecks": 36,
+    "bFailOnR33": 36,
+    "bPassOnR33": [],
+    "guardsBrokenOnR33": [
+      "orientation suite ran to the end",
+      "color-orbit: right half turns right once, left half turns left once (no doubled input)",
+      "rolling-block: the engine's own swipe works and the gesture layer adds no keys",
+      "moon-bells: native finger follow still works and adds no keys"
+    ],
+    "seconds": 250
+  }
+]

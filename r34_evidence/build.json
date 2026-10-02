@@ -1,0 +1,19 @@
+{
+  "base": "R3.3.0",
+  "version": "R3.4.0",
+  "baseSHA256": "e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2",
+  "appSHA256": "e62e8c00a0be3652c796d987a90909b48ca1a43ad43c612212643465e5d7e12d",
+  "swSHA256": "c761839f140199cd6f8ae6c6fd53c0fa738289007fadff9753863d1425207632",
+  "serverSHA256": "25b19c7933bebc1ee2767381321dd30b12805f4380943e16247087d1ed8117d6",
+  "modules": [
+    "p10_feel",
+    "p20_engines",
+    "p30_touch"
+  ],
+  "extraFiles": [
+    "app/icons/icon-192.png",
+    "app/icons/icon-512.png",
+    "app/manifest.webmanifest"
+  ],
+  "scripts": 40
+}

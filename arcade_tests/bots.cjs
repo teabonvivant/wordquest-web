@@ -5,10 +5,11 @@ function runner(g,n){const o=g.obstacles.find(o=>!o.checked);if(!o)return;const 
  if(delta>25&&g.lane!==lane)g.act(g.lane<lane?'right':'left');
  const k=o.kinds[g.lane];if(delta<speed*.30&&delta>speed*.05){if(['log','pit'].includes(k))g.act('up');if(k==='arch')g.act('down');}}
 const cloudPlan=new WeakMap();
+// R3.4: aim the landing away from an enemy patrolling the next island (a player would); behaviour is unchanged when none is there.
 function cloud(g,n){const f=g.platforms.find(f=>g.p.x>=f.x-16&&g.p.x<=f.x+f.w+8&&Math.abs(g.p.y+22-f.y)<12);let plan=cloudPlan.get(g);
  if(g.inv>2.1)plan=null;
  if(g.grounded&&f){plan=null;const e=g.enemies.find(e=>!e.stunned&&e.x-g.p.x>0&&e.x-g.p.x<90);
-  if(f.x+f.w-g.p.x<48){const next=g.platforms[f.id+1];if(next){plan={target:next.x+Math.min(95,next.w/2)};g.key('up',true);}}
+  if(f.x+f.w-g.p.x<48){const next=g.platforms[f.id+1];if(next){const en=g.enemies.find(e=>e.x>=next.x-30&&e.x<=next.x+next.w+30);plan={target:en?(en.x>next.x+next.w/2?next.x+28:next.x+next.w-28):next.x+Math.min(95,next.w/2)};g.key('up',true);}}
   else if(e){plan={target:f.x+f.w-42};g.key('up',true);}
  }
  if(plan){const delta=plan.target-g.p.x,brake=Math.abs(g.p.vx)*.055+5;direction(g,Math.abs(delta)<brake?0:Math.sign(delta));}else direction(g,1);

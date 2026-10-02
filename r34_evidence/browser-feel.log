@@ -1,0 +1,14 @@
+# r34 feel layer (browser)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] ready card shows the goal and how to play | '3 格生命 · 森林路線 1500 米' / '← →／A D 換路，↑／W／Space 跳躍，↓／S 滑行。三格生命，完成一千五百米路線即完成一局；露珠只加分，沒有倒數。'
+PASS [B] a lost run plays the 3-note fail jingle (3 triangle tones) | [{'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}]
+PASS [B] result card shows the score and the best | '1,234分首次紀錄最高 1,234'
+PASS [B] a lost run shows no stars
+PASS [B] a won run plays the 5-note win jingle (5 triangle tones) | [{'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}, {'f': [], 'type': 'triangle'}]
+PASS [B] a won run shows 1-3 stars | 3
+PASS [B] the first score of a game is tagged as a record | '首次紀錄'
+PASS result is finished (not an error state) | {'stars': 199, 'used': 1, 'playing': False, 'reason': 'finished', 'game': 'drift-path', 'phase': 'finished', 'lives': 3, 'run': 'coin_bb74d8ce-3b8c-492e-8e84-4c494378143d', 'done': True, 'route': 'playground', 'overlay': True, 'title': '任務完成！', 'ledger': 2}
+PASS [B] FX switched off: no pops, confetti, shakes or haptics | {'pops': 1, 'hits': 0, 'bursts': 1, 'banners': 2, 'confetti': 1, 'jingles': 2, 'shakes': 0, 'haptics': 3, 'combos': 0} -> {'pops': 1, 'hits': 0, 'bursts': 1, 'banners': 2, 'confetti': 1, 'jingles': 3, 'shakes': 0, 'haptics': 3, 'combos': 0}
+PASS [B] FX on: a score jump pops a number | 1 -> 2
+PASS prefers-reduced-motion: stars do not animate | none
+PASS no page errors
+SUMMARY r34 feel layer (browser): 12/12 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 17s

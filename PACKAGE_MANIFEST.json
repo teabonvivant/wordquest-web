@@ -1,95 +1,47 @@
 {
   "product": "WordQuest",
-  "version": "R3.3.0",
-  "releaseStatus": "stop-gap candidate (fixes for the R3.2 audit findings; not a commercial release)",
-  "createdAtUTC": "2026-10-02T15:47:15.234612+00:00",
-  "base": "WordQuest R3.2 (originals/R3_2, SHA-256 checked by tools/build_r33.py)",
+  "version": "R3.4.0",
+  "releaseStatus": "arcade feel and phone play candidate on top of the R3.3 stop-gap (not a commercial release)",
+  "createdAtUTC": "2026-10-02T19:25:47.551218+00:00",
+  "base": "WordQuest R3.3 (rebuilt from originals/R3_2 by tools/build_r33.py, then r34_src/patches by tools/build_r34.py)",
   "entry": "START_HERE.html",
   "app": "app/index.html",
-  "rebuild": "python3 tools/build_r33.py",
-  "nativeValidation": "not completed; no real-device, Safari, Windows-launcher, photo-OCR or listening verification",
-  "newSuites": [
+  "rebuild": "python3 tools/build_r34.py",
+  "nativeValidation": "not completed; no real-device, iOS Safari, child, listening or Windows-launcher verification (phone tests are Chromium touch emulation)",
+  "suites": [
     {
-      "name": "p20-pure",
+      "name": "engine-behaviour",
       "returncode": 0,
-      "pass_lines": 26,
+      "pass_lines": 46,
       "fail_lines": 0
     },
     {
-      "name": "p30-speech-limit",
+      "name": "engine-validity",
       "returncode": 0,
-      "pass_lines": 16,
+      "pass_lines": 1,
       "fail_lines": 0
     },
     {
-      "name": "p30-static-cache",
+      "name": "browser-rules",
       "returncode": 0,
-      "pass_lines": 30,
+      "pass_lines": 8,
       "fail_lines": 0
     },
     {
-      "name": "p30-pwa",
+      "name": "browser-feel",
       "returncode": 0,
-      "pass_lines": 19,
+      "pass_lines": 12,
       "fail_lines": 0
     },
     {
-      "name": "p20-rescue",
+      "name": "browser-touch",
       "returncode": 0,
-      "pass_lines": 80,
-      "fail_lines": 0
-    },
-    {
-      "name": "p20-media-gc",
-      "returncode": 0,
-      "pass_lines": 32,
-      "fail_lines": 0
-    },
-    {
-      "name": "p20-gate-dialog",
-      "returncode": 0,
-      "pass_lines": 47,
-      "fail_lines": 0
-    },
-    {
-      "name": "p40-arcade-overlay",
-      "returncode": 0,
-      "pass_lines": 53,
-      "fail_lines": 0
-    },
-    {
-      "name": "p40-sfx",
-      "returncode": 0,
-      "pass_lines": 59,
-      "fail_lines": 0
-    },
-    {
-      "name": "p40-library-checkbox",
-      "returncode": 0,
-      "pass_lines": 45,
-      "fail_lines": 0
-    },
-    {
-      "name": "p10-layout",
-      "returncode": 0,
-      "pass_lines": 357,
-      "fail_lines": 0
-    },
-    {
-      "name": "p10-hit-test",
-      "returncode": 0,
-      "pass_lines": 260,
-      "fail_lines": 0
-    },
-    {
-      "name": "p50-learning-account",
-      "returncode": 0,
-      "pass_lines": 150,
+      "pass_lines": 60,
       "fail_lines": 0
     }
   ],
-  "totalFiles": 1343,
-  "hashedFiles": 1341,
+  "totalFiles": 1379,
+  "hashedFiles": 1377,
   "excludes": [
     "PACKAGE_MANIFEST.json",
     "SHA256SUMS.txt"
@@ -107,8 +59,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4683,
-      "sha256": "b074f3f232ec7f2221bb75f0052384c35113710bb0f3820f6bc7311d812dc74c"
+      "bytes": 5168,
+      "sha256": "7ec959b8440d2fb5daa9a337422affce7c2119b62d16b3f4315234d5a6369d80"
     },
     {
       "path": "README_R3.md",
@@ -131,14 +83,19 @@
       "sha256": "2e34f480ec3703a5864da24f832335799b67ab36012e1a360a545ceb911d1179"
     },
     {
+      "path": "README_R3_4.md",
+      "bytes": 11415,
+      "sha256": "b362d26d80d8742838ceab6eaa1d865a48e96e2cb0467c368441b74fc9738785"
+    },
+    {
       "path": "README_先看這份.md",
-      "bytes": 502,
-      "sha256": "9a3b14361123afc991ab81b0ad2505983867ee7194ae4cce5c4dcd68b00f62ee"
+      "bytes": 755,
+      "sha256": "fd83227a8f43fddf435a44609ba4d2d7308e56e494a7493f7f9be8e0cc14a30f"
     },
     {
       "path": "START_HERE.html",
-      "bytes": 3993,
-      "sha256": "c597deb41fa2140e8865375c3678bb1a4924e8f28f8336c63beea1e7ccf35f26"
+      "bytes": 4252,
+      "sha256": "23eeda74bb73ebe8c95b2f3be80d16d2ba030470fd7890b79bddcbc615a1ea9f"
     },
     {
       "path": "START_WINDOWS.cmd",
@@ -432,8 +389,8 @@
     },
     {
       "path": "app/index.html",
-      "bytes": 12229139,
-      "sha256": "e20896defbcbbe47d26e3f16f1ba823efcfd181c1209e265f91d8abfc87910f2"
+      "bytes": 12277170,
+      "sha256": "e62e8c00a0be3652c796d987a90909b48ca1a43ad43c612212643465e5d7e12d"
     },
     {
       "path": "app/manifest.webmanifest",
@@ -443,7 +400,7 @@
     {
       "path": "app/sw.js",
       "bytes": 1899,
-      "sha256": "48829f2bea3672dfb9d259a4b93fbbe99802b3eaa48e87c12378e34ba08f2111"
+      "sha256": "c761839f140199cd6f8ae6c6fd53c0fa738289007fadff9753863d1425207632"
     },
     {
       "path": "arcade_evidence/browser_results.json",
@@ -627,8 +584,8 @@
     },
     {
       "path": "arcade_tests/bots.cjs",
-      "bytes": 2367,
-      "sha256": "87575c2a9e248f27e98c0e6904f331f5bef0083a7bf5c132833b6f0d2d51ee98"
+      "bytes": 2618,
+      "sha256": "1739e5c6bc56c4eecfd45ca6134edaaaca5036e1d8cfcb426acf077c026868ff"
     },
     {
       "path": "arcade_tests/browser_arcade.py",
@@ -719,6 +676,11 @@
       "path": "docs/R3_2_驗收報告.html",
       "bytes": 519321,
       "sha256": "1ef6a1780ce2b44f08d22e679cdfdbbd9b20edbb2a54a0a16cae201d2c14f0d2"
+    },
+    {
+      "path": "docs/R3_4_商用差距與遊戲評測.md",
+      "bytes": 8946,
+      "sha256": "adcb293520431f5784dd920245bcb035280da7a895cedd37530af52ab32bc738"
     },
     {
       "path": "docs/R3_升級及驗證報告.html",
@@ -5563,7 +5525,7 @@
     {
       "path": "r32_tests/browser_new.py",
       "bytes": 12378,
-      "sha256": "d8a1a63d85b091efbc9d274f9f162cda6895590b4208779e3545870c2d857fa4"
+      "sha256": "859a9413a30c6569da65d17723c2e24a1ae1d1977066724c51f8e8ea857f60f6"
     },
     {
       "path": "r32_tests/characters_browser.py",
@@ -5628,7 +5590,7 @@
     {
       "path": "r32_tests/server_native_http.mjs",
       "bytes": 2564,
-      "sha256": "ceb6076a343d2dd67035066560c39d942f371b756aa317b8610ee08a0c69ee43"
+      "sha256": "800fd25a1fba2b80565aa70b1903b58cfeff480d8fb0d6992c0087c9b9310988"
     },
     {
       "path": "r33_evidence/build.json",
@@ -5838,7 +5800,7 @@
     {
       "path": "r33_tests/p30_pwa_browser.py",
       "bytes": 23383,
-      "sha256": "b596d155b9e2247ffd0d0b5f555483506095fa0d2ef9d48cddce3b46ae009faf"
+      "sha256": "9bf29b7fbd0ee25cd7c5daf44f174fa6b8302414246d1442862c8cb36cda0825"
     },
     {
       "path": "r33_tests/p30_speech_limit.mjs",
@@ -5889,6 +5851,166 @@
       "path": "r33_tests/wq33.py",
       "bytes": 2579,
       "sha256": "0a9477049ec86c69945c57b4891f2f2d849ddb711c3dc582c0c49a9f81ecce5f"
+    },
+    {
+      "path": "r34_evidence/ab_summary.json",
+      "bytes": 1344,
+      "sha256": "bf8cb5b02c5179777dc0481ade06f586af5714c5438d097a71d7295cc8b5be9c"
+    },
+    {
+      "path": "r34_evidence/browser-feel.log",
+      "bytes": 1825,
+      "sha256": "0e78a18d4f571bf4db464174af0ab881b463cbc6286cdd026cf53a54bbefdb39"
+    },
+    {
+      "path": "r34_evidence/browser-rules.log",
+      "bytes": 758,
+      "sha256": "1144984d9d0229965446c1d905d19f3626ab1192de182d7fcf9d4a17a75f2a87"
+    },
+    {
+      "path": "r34_evidence/browser-touch.log",
+      "bytes": 5547,
+      "sha256": "276b7c96d3bd7c019165caa9cfa3d2c6f1fa24f0d014ed171d2e263b095c81e8"
+    },
+    {
+      "path": "r34_evidence/build.json",
+      "bytes": 582,
+      "sha256": "97ff7f28486e111b2e28d061cab6a77a91dba43f85ee55c75f8fabb7c70d9aa6"
+    },
+    {
+      "path": "r34_evidence/engine-behaviour.log",
+      "bytes": 4579,
+      "sha256": "3c70c901e325bb43ae7f19cada7c91d3ef94c69019d705cc84831d3bdf3df42e"
+    },
+    {
+      "path": "r34_evidence/engine-validity.log",
+      "bytes": 97,
+      "sha256": "401ebb211413ff092c42627a59836f2dfbd025898d7d547e9334443376cbe359"
+    },
+    {
+      "path": "r34_evidence/final_runner.json",
+      "bytes": 956,
+      "sha256": "2c7987ac6d87f166a4017d9f4cc0c89f3bfc85a3c1ceabb98a816d5a04ede92c"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/README.txt",
+      "bytes": 848,
+      "sha256": "f3a634c8a1abfa09e6c354ed453d27a086b884d1c4fbaf42ad0fc77a832e550e"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/ab_run_console.txt",
+      "bytes": 510,
+      "sha256": "872a8d6645782450a5b8bac39aaf85442effa02e6eac0de1b5aead1a57f01203"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/arcade_r1_regression_failures.txt",
+      "bytes": 640,
+      "sha256": "ab68f2c73592380a68d8df4a129cc9a702094755861bcc0ebbaba3597cee9ba2"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/first_pass_summary.txt",
+      "bytes": 353,
+      "sha256": "ce4d00f2dfc6e5808ebaa220368886cde695c315eec2b16418eaa751c268f672"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/r33_release_on_r34.txt",
+      "bytes": 668,
+      "sha256": "1c07bdb9242d20cf2e8d9ac9ba5133c919136bf6acf0b6229e7699c11b60167b"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/r33_subset_on_final.txt",
+      "bytes": 257,
+      "sha256": "24af0fcde649d347aa427e6b3d9899753117f8f66b0510be0a8510fda271f316"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/second_pass_summary.txt",
+      "bytes": 77,
+      "sha256": "c0bf0a666e8ea1bb722189bb593edf2a9decaf671970221c6be39b3edf6b2ac9"
+    },
+    {
+      "path": "r34_evidence/legacy_logs/tests_integration_failures.txt",
+      "bytes": 640,
+      "sha256": "ab68f2c73592380a68d8df4a129cc9a702094755861bcc0ebbaba3597cee9ba2"
+    },
+    {
+      "path": "r34_src/fx.css",
+      "bytes": 2865,
+      "sha256": "08722388891f4866219968d5051971d59ead53d49c2fd38fab423eeec24c1151"
+    },
+    {
+      "path": "r34_src/fx.js",
+      "bytes": 17159,
+      "sha256": "f3eb235ccdd8aae04213cc7b4135a671f1409cd4e3e9a17d0f8cfcb58ecdb032"
+    },
+    {
+      "path": "r34_src/patches/p10_feel.py",
+      "bytes": 1023,
+      "sha256": "8f0c6de1ab3a738f400b6725ab44dc6b87a48afe88b39deac653c693b5e862b6"
+    },
+    {
+      "path": "r34_src/patches/p20_engines.py",
+      "bytes": 28906,
+      "sha256": "a2934a724cec32b818682a49dbc5360e5ac765c551186a5dbcc612ade37b42f0"
+    },
+    {
+      "path": "r34_src/patches/p30_touch.py",
+      "bytes": 784,
+      "sha256": "5234158f33e4d5b05552005b211797f7bf2aba40fe9112aae867fc0077a0f979"
+    },
+    {
+      "path": "r34_src/touch.css",
+      "bytes": 6552,
+      "sha256": "ecc5adafefe293a7aa5a1a1f9f24602eb07986a4e69f7d112fdfe04e682764f1"
+    },
+    {
+      "path": "r34_src/touch.js",
+      "bytes": 12192,
+      "sha256": "c033848dee6191bc90f038947f51ca991d4b80204f272d7b6360f1e6981e44f7"
+    },
+    {
+      "path": "r34_tests/browser_feel.py",
+      "bytes": 6184,
+      "sha256": "2b2dffff6556c8941c58f628e9d0e52c94cdce442d3fce055b92ee5c5d772a0d"
+    },
+    {
+      "path": "r34_tests/browser_rules.py",
+      "bytes": 6280,
+      "sha256": "358a95d89f634ae5de11e0d2014c69ff576d9d5444f2c2d909b5b46d2d29c053"
+    },
+    {
+      "path": "r34_tests/browser_touch.py",
+      "bytes": 21228,
+      "sha256": "74ed8ce509cab98ccdf9432ea15c9ec6d92e8b2740f0496d1371e3ec0c894e84"
+    },
+    {
+      "path": "r34_tests/engine_behaviour.cjs",
+      "bytes": 23622,
+      "sha256": "d249deb531ab41c8411f575432806e29c1fc17848ba9092dc1e48348f35f7fa9"
+    },
+    {
+      "path": "r34_tests/engine_lib.cjs",
+      "bytes": 2782,
+      "sha256": "c156176ebc484a8e1b9aca2226fc1851e24169fac970a82b4a6122a084e41936"
+    },
+    {
+      "path": "r34_tests/engine_validity.cjs",
+      "bytes": 1772,
+      "sha256": "742ac495ebaa0d7dd7337c950e894df8637a35b494c1f501d72d66ac7bceee8a"
+    },
+    {
+      "path": "r34_tests/run_behaviour.py",
+      "bytes": 4325,
+      "sha256": "a2d5033d6267cbbe08081b88e45d81f887d44ff5b43962adbb870a9c3f9faebc"
+    },
+    {
+      "path": "r34_tests/run_release.py",
+      "bytes": 2110,
+      "sha256": "5ef94482d7a0b2e88618f721d80838eac87b158952f419095dd17f39a5dc472f"
+    },
+    {
+      "path": "r34_tests/wq34_lib.py",
+      "bytes": 6100,
+      "sha256": "c37e1ffea2e3be8600109492037be2b4826fc02301ac233b20b2e87eeea8ab43"
     },
     {
       "path": "r3_evidence/DELIVERY_SUMMARY.json",
@@ -6736,6 +6858,11 @@
       "sha256": "8bdda8f383b4c124198a2e58ec5425f01392240164bb2f63d02ace6337c5991d"
     },
     {
+      "path": "tools/build_r34.py",
+      "bytes": 5500,
+      "sha256": "3f3bcaf190ac24e36defd23fb751508926fc8327942bb9afe94281f6432e5186"
+    },
+    {
       "path": "tools/document_characters_r31.py",
       "bytes": 14307,
       "sha256": "6622bcc06f2bc4b97343d9a3f66d2de07bc5f011d842c5b9e258f425a7544745"
@@ -6764,6 +6891,11 @@
       "path": "tools/package_r33.py",
       "bytes": 2555,
       "sha256": "f91eb254075261b10c68c4ac4f7a28a3c60de31b697729239d58254f278a338c"
+    },
+    {
+      "path": "tools/package_r34.py",
+      "bytes": 2646,
+      "sha256": "c270586f3926d1cc4e8996fe7208b4150a35e51a5dae5b3e5ab0f28ed3e621e6"
     },
     {
       "path": "tools/package_release.py",

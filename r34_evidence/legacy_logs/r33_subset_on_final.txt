@@ -1,0 +1,5 @@
+p20-gate-dialog          rc=0 pass=47 fail=0 55.5s
+p40-arcade-overlay       rc=0 pass=53 fail=0 39.4s
+p40-sfx                  rc=0 pass=59 fail=0 24.3s
+p40-library-checkbox     rc=0 pass=45 fail=0 19.0s
+p10-hit-test             rc=0 pass=260 fail=0 131.6s

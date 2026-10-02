@@ -1,0 +1,38 @@
+/* R3.4 p10: arcade feel layer (overlay canvas) and ready / result cards. Additive only. */
+#wq34-fx{position:absolute;left:0;top:0;pointer-events:none;z-index:4;background:transparent}
+.a28-viewport .pg-overlay{z-index:3}
+.a28-overlaycard .wq34-goalbox{display:grid;gap:7px;margin:0 0 13px;text-align:left}
+.a28-overlaycard .wq34-goal{display:block;font-weight:850;font-size:15px;line-height:1.5;color:#2f4a45;background:#e6f0e1;border-radius:12px;padding:8px 11px}
+.a28-overlaycard .wq34-how{display:block;font-size:12px;line-height:1.6;color:#5c6a72;padding:0 3px}
+.wq34-result{margin:2px 0 12px}
+.wq34-stars{display:flex;justify-content:center;gap:6px;font-size:42px;line-height:1;margin-bottom:6px}
+.wq34-stars span{color:#d9d3c2;opacity:0;transform:scale(.3) rotate(-25deg);animation:wq34star .55s calc(var(--i)*.26s + .12s) forwards cubic-bezier(.3,1.7,.5,1)}
+.wq34-stars span.on{color:#f3b72f;text-shadow:0 3px 0 #c98a1a}
+@keyframes wq34star{to{opacity:1;transform:scale(1) rotate(0)}}
+.wq34-line{display:flex;align-items:baseline;justify-content:center;gap:6px;flex-wrap:wrap;font-variant-numeric:tabular-nums;color:#2b3a4a}
+.wq34-line b{font-size:34px;line-height:1.15}
+.wq34-line>span{font-size:14px;color:#5c6a72}
+.wq34-line.sub{margin-top:2px}
+.wq34-line .wq34-best{font-size:13px;color:#6a7580}
+.wq34-line .wq34-new{background:#ffe9a8;color:#80540a;border-radius:999px;padding:2px 11px;font-weight:850;font-size:13px;animation:wq34new .7s .5s both cubic-bezier(.3,1.7,.5,1)}
+@keyframes wq34new{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.a28-overlaycard .wq34-earn{font-size:13px;line-height:1.6;color:#6b5a2e;background:#fff2d4;border-radius:10px;padding:7px 10px;margin:0 0 12px}
+.wq34-fxopt{display:flex;gap:9px;align-items:center;font-size:14px;margin-top:10px;min-height:44px}
+.wq34-fxopt input{width:22px;height:22px}
+@media(max-width:520px){
+ .a28-overlaycard .wq32-overlay-face{width:40px!important;height:40px!important;margin-bottom:2px}
+ .a28-overlaycard:has(.wq34-result) .wq32-overlay-face{display:none}
+ .a28-viewport .a28-overlaycard{padding:9px 12px}
+ .a28-overlaycard h2{margin-bottom:5px}
+ .a28-overlaycard .wq34-how{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .a28-overlaycard .wq34-goal{font-size:12.5px;padding:6px 9px}
+ .a28-overlaycard .wq34-how{font-size:10.5px;line-height:1.5}
+ .a28-overlaycard .wq34-goalbox{gap:5px;margin-bottom:9px}
+ .wq34-stars{font-size:30px;margin-bottom:3px}
+ .wq34-line b{font-size:25px}
+ .wq34-line>span,.wq34-line .wq34-best{font-size:11px}
+ .wq34-line .wq34-new{font-size:11px;padding:1px 8px}
+ .a28-overlaycard .wq34-earn{font-size:10.5px;padding:5px 8px;margin-bottom:8px}
+ .wq34-result{margin-bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){.wq34-stars span,.wq34-line .wq34-new{animation:none;opacity:1;transform:none}}

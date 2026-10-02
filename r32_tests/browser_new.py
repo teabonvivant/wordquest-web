@@ -44,7 +44,7 @@ with sync_playwright() as pw:
  check('Second export request is refused during first',lambda:need(p.evaluate('async()=>{try{await __R3TEST.export();return false}catch(e){return true}}')))
  p.evaluate('__R32TEST.release()');p.wait_for_function('__R32TEST.result()!==null')
  check('Successful export releases busy guard and inert state',lambda:need(p.evaluate('__R32TEST.result().ok&&!WQR3.dataBusy()&&!document.body.inert')))
- check('Real family backup download reports the current release (R3.3)',lambda:need(p.evaluate('__R32TEST.result().version==="R3.3.0"') and len(downloads)==1))
+ check('Real family backup download reports the current release (R3.4)',lambda:need(p.evaluate('__R32TEST.result().version==="R3.4.0"') and len(downloads)==1))
  n=len(downloads);p.evaluate('__R32TEST.beginExport()');p.wait_for_function('WQR3.dataBusy()');p.evaluate('__R32TEST.mutate();__R32TEST.release()');p.wait_for_function('__R32TEST.result()!==null')
  check('External storage mutation during export rejects inconsistent snapshot',lambda:need(not p.evaluate('__R32TEST.result().ok') and len(downloads)==n))
  p.evaluate('__R32TEST.unmutate()')
