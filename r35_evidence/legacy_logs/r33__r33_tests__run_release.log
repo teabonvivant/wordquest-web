@@ -1,0 +1,13 @@
+p20-pure                 rc=0 pass=26 fail=0 0.1s
+p30-speech-limit         rc=0 pass=16 fail=0 18.1s
+p30-static-cache         rc=0 pass=30 fail=0 1.3s
+p30-pwa                  rc=0 pass=19 fail=0 90.9s
+p20-rescue               rc=0 pass=80 fail=0 157.8s
+p20-media-gc             rc=0 pass=32 fail=0 65.3s
+p20-gate-dialog          rc=0 pass=45 fail=0 60.4s
+p40-arcade-overlay       rc=0 pass=53 fail=0 39.3s
+p40-sfx                  rc=0 pass=59 fail=0 24.3s
+p40-library-checkbox     rc=0 pass=45 fail=0 18.2s
+p10-layout               rc=1 pass=332 fail=8 430.9s
+p10-hit-test             rc=0 pass=276 fail=0 135.9s
+p50-learning-account     rc=0 pass=150 fail=0 338.1s

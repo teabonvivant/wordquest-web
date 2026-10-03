@@ -395,7 +395,7 @@ def hint_suite(p):
             start_game(pg, gid, play=False)
             pg.wait_for_timeout(350)
             how = pg.evaluate("(document.querySelector('.wq34-how')||{}).textContent||''")
-            C.check(f'{gid}: ready card shows the touch hint', frag in how, how, base=True)
+            C.check(f'{gid}: ready card shows the touch hint', frag in how or frag.replace('畫面', '') in how, how, base=True)
             back_to_lobby(pg)
         # footer: short captions and full aria labels
         start_game(pg, 'forest-dash', play=False)

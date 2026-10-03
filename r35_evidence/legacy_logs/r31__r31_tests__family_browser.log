@@ -1,0 +1,26 @@
+pass Family management and offline preparation controls visible
+pass Fresh family settings are valid and 45-minute total default
+pass Real button produces downloaded family JSON with maths and custom-media fixtures
+pass SHA256 payload checksum independently rechecked in Python
+pass Family backup includes per-child character preferences
+pass No account credential registry in family backup
+pass Family restore shows real preview and explicit replacement consent
+pass Restore button without consent cannot write
+pass Confirmed restore preserves full custom-media count and closes dialog
+pass Confirmed family restore retains character preferences
+pass Successful transaction leaves no journal/marker
+pass Transaction read-media fault keeps prior family intact
+pass Transaction journal-put fault keeps prior family intact
+pass Transaction write-media fault keeps prior family intact
+pass Committed transaction with cleanup failure completes through recovery
+pass Missing prepared journal is not silently treated as successful recovery
+pass Full-time guard blocks new activity after daily total
+pass Same-account restore cannot rewind accumulated cross-subject time
+pass Old learner name and target shown before merge
+pass Confirmed old maths merge adds record without awarding old currency
+duplicate detail {'attempts': 2, 'receipts': 1, 'notice': 'W\nWordQuest\n首頁\n練習\n數學\n遊戲\n家長\n👦\n整合測試學員\n🔊\n聲音：開\n👨\u200d👩\u200d👧\n家長\n家庭完整備份與跨科安排\n\n一次備份英文、數學、奧數、遊戲和自訂的圖片音檔，也可轉入舊數學紀錄。\n\n打開家庭管理\n備份與儲存狀態\n\n這個頁面不是安全連線，部分功能可能不能用。已儲存的資料約 5 KB。\n\n更新版本前，先匯出學習備份及離線教材包。\n\n匯出學習備份\n下載檢查摘要\n先檢查備份，不還原資料\n\n檢查摘要只有版本、功能是否可用、主要資料大小和儲存狀態。不包含姓名、帳戶編號、密碼、教材和答案。不會自動上傳。\n\n離線教材\n總覽\n默書範圍\n孩子\n學習報告\n設定／備份\n設定／備份\n每日學習\n每天最多新學項目\n3\n5\n7\n10\n每日安排上限（含學字）\n8\n10\n12\n15\n🔊 聲音特效已開啟\n答對、答錯、完成及小遊戲會播放短聲效；英文發音不受影響。\n關閉聲效\n儲存設定\n英式發音\n\n🇬🇧 只用英式發音\n\n會先播放已存的英式音檔。沒有音檔時，才用裝置的英式聲音。沒有網絡時只用裝置內的英式聲音。播不到的題目可以跳過，不計錯。請到「離線教材」準備音檔。\n\n這部裝置沒有英式聲音。請先準備音檔。\n\n資料備份\n\n以下備份是學習紀錄；圖片及音檔請另到「離線教材」匯出教材包。\n\n資料只存在這個瀏覽器，不會自動傳到其他裝置。換裝置或換檔案前，請先匯出備份。\n\n⬇️ 匯出備份\n⬆️ 還原備份\n清除目前帳戶資料\n遊戲街機\n\n26 款遊戲、全彩預覽、每局 1 枚金幣，和家長設定。\n\n管理金幣與遊戲\n更改家長密碼\n\n舊帳戶的 PIN 仍可登入，但四位數很容易被猜中。請在這裏改成 8 至 128 個字的密碼，不要和其他網站用同一個。\n\n新密碼\n再次輸入\n更改密碼\n首次轉移舊版資料\n\n只限還沒學習、賺金幣或玩過遊戲的全新帳戶，使用一次。可以從舊版備份帶回孩子、金幣、已換的時間和遊戲存檔。之後一般還原，不會減少金幣。\n\n選擇舊版備份檔\n\n圖片和音檔要另外還原教材包。只匯入你信任的備份。這個檔案不能證明金幣是真的賺來的。\n\n練習設定\n\n默書在這裏是練習，不是考試。你可以選大小寫要不要完全一樣。\n\n串字的大小寫\n大小寫不同也算對（預設）\n大小寫要完全一樣\n按年級減少每次的題數\n固定孩子目前練習的範圍\n\n小3：今日最多 12 題、新字最多 5 個。\n\n選「大小寫要完全一樣」時，大小寫不對會當作寫錯，孩子可以再試。\n\n儲存練習設定\n資料備用紀錄\n\n一般還原會保留現在的金幣和遊戲用時。如果原有資料損壞，會先檢查這部裝置上的金幣備用紀錄，再還原教材。\n\n沒有可核對的備用紀錄時，會先問你是否同意，才把金幣和沒用完的時間歸零，並暫停當天的遊戲。損壞的資料會保留。這不是雲端備份，也不能防止裝置擁有人改動檔案。\n\n備用紀錄已更新。\n\n學習夥伴設定\n顯示角色陪伴\n角色出場時有簡單的動畫效果（不是完整動畫）\n使用精簡頭像\n學伴安排\n按課堂自動安排\n烈烈老師\n柚柚老師\n糖栗老師\n波波\n刺刺\n阿峰\n查看全部角色\n\n只改角色顯示，不改教材、金幣、生命或學習紀錄。\n\n設定會分開儲存在每個帳戶和每位孩子名下。家庭完整備份包含角色設定，舊的英文單科備份不包含。六位角色的圖片已內置在程式裏。\n\n帳戶\n\n登出後，要用家長密碼才能再登入。\n\n登出\n關於這個程式\n\nWordQuest R3.5.0 · 內容尚未經老師逐題審核。\n\n資料只存在這部裝置，不會自動同步到其他裝置。\n家庭備份已還原。所有孩子、數學紀錄、圖片和音檔都已處理。舊的數學獎勵不會再給一次。'}
+pass Repeated old backup cannot duplicate submitted answers
+pass Account reset removes maths main and restoration copies plus custom media
+pass Account reset preserves unrelated family data
+pass No uncaught JavaScript browser errors
+TOTAL 24 PASS 24

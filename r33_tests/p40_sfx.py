@@ -206,6 +206,7 @@ with sync_playwright() as p:
         # R3.2 quirk (not touched here): "結束這組" cannot save while a tile is placed (validation '字塊範圍'), so clear first.
         pg.locator('[data-l30="clear-tiles"]').click()
         pg.evaluate('__p40.sfx(true)')
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l30="abandon"]').click()
         pg.wait_for_timeout(300)
         C.check('L30: abandoning a group leaves no open session', pg.evaluate('__p40.l30()') is None,
@@ -313,6 +314,7 @@ with sync_playwright() as p:
             act(pg, lambda i=i: pg.locator(f'[data-l31="cut"][data-index="{i}"][data-value="{r["sources"][i]["take"]}"]').click())
         rows = act(pg, lambda: pg.locator(f'[data-l31="cut"][data-index="{n - 1}"][data-value="{r["sources"][n - 1]["take"]}"]').click())
         expect('L31 blend: the last cut completes the word and plays a match', rows, MATCH)
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l31="abandon"]').click()
         pg.wait_for_timeout(300)
 

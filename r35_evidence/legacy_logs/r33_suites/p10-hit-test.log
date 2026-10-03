@@ -1,0 +1,279 @@
+# app under test: /home/claude/teabonvivant/wordquest-web/app/index.html
+PASS hit 320x568 #kid bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 320x568 #kid nav tab 首頁 centre hits itself
+PASS hit 320x568 #kid nav tab 練習 centre hits itself
+PASS hit 320x568 #kid nav tab 數學 centre hits itself
+PASS hit 320x568 #kid nav tab 遊戲 centre hits itself
+PASS hit 320x568 #kid nav tab 家長 centre hits itself
+PASS hit 320x568 #kid floating button clear of every nav tab
+PASS hit 320x568 #kid floating button clear of 開始今天的小課 | fab=None button=[25, 153, 295, 212]
+PASS hit 320x568 #practice bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 320x568 #practice nav tab 首頁 centre hits itself
+PASS hit 320x568 #practice nav tab 練習 centre hits itself
+PASS hit 320x568 #practice nav tab 數學 centre hits itself
+PASS hit 320x568 #practice nav tab 遊戲 centre hits itself
+PASS hit 320x568 #practice nav tab 家長 centre hits itself
+PASS hit 320x568 #practice floating button clear of every nav tab
+PASS hit 320x568 #practice floating button clear of 第一張練習卡 | fab=None button=[12, 448, 155, 683]
+PASS hit 320x568 #game bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 320x568 #game nav tab 首頁 centre hits itself
+PASS hit 320x568 #game nav tab 練習 centre hits itself
+PASS hit 320x568 #game nav tab 數學 centre hits itself
+PASS hit 320x568 #game nav tab 遊戲 centre hits itself
+PASS hit 320x568 #game nav tab 家長 centre hits itself
+PASS hit 320x568 #game floating button clear of every nav tab
+PASS hit 320x568 #game floating button clear of 第一個看玩法 | fab=None button=[25, 887, 295, 939]
+PASS hit 320x568 #parent bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 320x568 #parent nav tab 首頁 centre hits itself
+PASS hit 320x568 #parent nav tab 練習 centre hits itself
+PASS hit 320x568 #parent nav tab 數學 centre hits itself
+PASS hit 320x568 #parent nav tab 遊戲 centre hits itself
+PASS hit 320x568 #parent nav tab 家長 centre hits itself
+PASS hit 320x568 #parent floating button clear of every nav tab
+PASS hit 320x568 L30 study step opens | #learning
+PASS hit 320x568 L30 study 我已看過，下一步 grid 32/32
+PASS hit 320x568 floating button clear of L30 study 我已看過，下一步
+PASS hit 320x568 L30 study first mouse tap on 我已看過，下一步 is accepted | '第 1／12 步' -> '第 2／12 步' hash=#learning
+PASS hit 320x568 L30 study first touch tap on 我已看過，下一步 is accepted | '第 2／12 步' -> '第 3／12 步' hash=#learning
+PASS hit 320x568 L30 串字 typed question reachable
+PASS hit 320x568 L30 串字 提交答案 (idle) grid 32/32
+PASS hit 320x568 L30 串字 提交答案 (typing, #1) grid 32/32
+PASS hit 320x568 floating button clear of L30 串字 提交答案
+PASS hit 320x568 L30 串字 tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 320x568 L30 串字 FIRST mouse tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 368, 308, 419] focused=[12, 368, 308, 419]
+PASS hit 320x568 L30 串字 提交答案 (typing, #2) grid 32/32
+PASS hit 320x568 floating button clear of L30 串字 提交答案
+PASS hit 320x568 L30 串字 tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 320x568 L30 串字 FIRST touch tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 368, 308, 419] focused=[12, 368, 308, 419]
+PASS hit 320x568 legacy #learn study step opens | #learn
+PASS hit 320x568 legacy 開始試試 → grid 32/32
+PASS hit 320x568 floating button clear of legacy 開始試試 →
+PASS hit 320x568 legacy first mouse tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 320x568 legacy first touch tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 320x568 legacy #learn typed step opens | #learn
+PASS hit 320x568 legacy 交答案 grid 32/32
+PASS hit 320x568 legacy 看示範 grid 32/32
+PASS hit 320x568 floating button clear of legacy 交答案 / 看示範
+PASS hit 320x568 legacy tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 320x568 legacy FIRST mouse tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 320x568 legacy tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 320x568 legacy FIRST touch tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 320x568 import page armed (dock enabled)
+PASS hit 320x568 import 核對及加入 grid 32/32
+PASS hit 320x568 floating button clear of import dock
+PASS hit 320x568 import mouse tap on 核對及加入 opens the summary step
+PASS hit 320x568 import touch tap on 核對及加入 opens the summary step
+PASS hit 320x568 arcade lobby first 看玩法 grid 32/32
+PASS hit 320x568 floating button clear of arcade lobby first 看玩法
+PASS hit 320x568 arcade mouse tap on first 看玩法 opens the preview
+PASS hit 320x568 arcade touch tap on first 看玩法 opens the preview
+PASS hit 320x568 no page errors | []
+PASS hit 360x640 #kid bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 360x640 #kid nav tab 首頁 centre hits itself
+PASS hit 360x640 #kid nav tab 練習 centre hits itself
+PASS hit 360x640 #kid nav tab 數學 centre hits itself
+PASS hit 360x640 #kid nav tab 遊戲 centre hits itself
+PASS hit 360x640 #kid nav tab 家長 centre hits itself
+PASS hit 360x640 #kid floating button clear of every nav tab
+PASS hit 360x640 #kid floating button clear of 開始今天的小課 | fab=None button=[25, 153, 335, 212]
+PASS hit 360x640 #practice bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 360x640 #practice nav tab 首頁 centre hits itself
+PASS hit 360x640 #practice nav tab 練習 centre hits itself
+PASS hit 360x640 #practice nav tab 數學 centre hits itself
+PASS hit 360x640 #practice nav tab 遊戲 centre hits itself
+PASS hit 360x640 #practice nav tab 家長 centre hits itself
+PASS hit 360x640 #practice floating button clear of every nav tab
+PASS hit 360x640 #practice floating button clear of 第一張練習卡 | fab=None button=[12, 427, 175, 662]
+PASS hit 360x640 #game bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 360x640 #game nav tab 首頁 centre hits itself
+PASS hit 360x640 #game nav tab 練習 centre hits itself
+PASS hit 360x640 #game nav tab 數學 centre hits itself
+PASS hit 360x640 #game nav tab 遊戲 centre hits itself
+PASS hit 360x640 #game nav tab 家長 centre hits itself
+PASS hit 360x640 #game floating button clear of every nav tab
+PASS hit 360x640 #game floating button clear of 第一個看玩法 | fab=None button=[25, 915, 335, 967]
+PASS hit 360x640 #parent bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 360x640 #parent nav tab 首頁 centre hits itself
+PASS hit 360x640 #parent nav tab 練習 centre hits itself
+PASS hit 360x640 #parent nav tab 數學 centre hits itself
+PASS hit 360x640 #parent nav tab 遊戲 centre hits itself
+PASS hit 360x640 #parent nav tab 家長 centre hits itself
+PASS hit 360x640 #parent floating button clear of every nav tab
+PASS hit 360x640 L30 study step opens | #learning
+PASS hit 360x640 L30 study 我已看過，下一步 grid 32/32
+PASS hit 360x640 floating button clear of L30 study 我已看過，下一步
+PASS hit 360x640 L30 study first mouse tap on 我已看過，下一步 is accepted | '第 1／12 步' -> '第 2／12 步' hash=#learning
+PASS hit 360x640 L30 study first touch tap on 我已看過，下一步 is accepted | '第 2／12 步' -> '第 3／12 步' hash=#learning
+PASS hit 360x640 L30 串字 typed question reachable
+PASS hit 360x640 L30 串字 提交答案 (idle) grid 32/32
+PASS hit 360x640 L30 串字 提交答案 (typing, #1) grid 32/32
+PASS hit 360x640 floating button clear of L30 串字 提交答案
+PASS hit 360x640 L30 串字 tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 360x640 L30 串字 FIRST mouse tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 506, 211, 557] focused=[12, 506, 211, 557]
+PASS hit 360x640 L30 串字 提交答案 (typing, #2) grid 32/32
+PASS hit 360x640 floating button clear of L30 串字 提交答案
+PASS hit 360x640 L30 串字 tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 360x640 L30 串字 FIRST touch tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 506, 211, 557] focused=[12, 506, 211, 557]
+PASS hit 360x640 legacy #learn study step opens | #learn
+PASS hit 360x640 legacy 開始試試 → grid 32/32
+PASS hit 360x640 floating button clear of legacy 開始試試 →
+PASS hit 360x640 legacy first mouse tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 360x640 legacy first touch tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 360x640 legacy #learn typed step opens | #learn
+PASS hit 360x640 legacy 交答案 grid 32/32
+PASS hit 360x640 legacy 看示範 grid 32/32
+PASS hit 360x640 floating button clear of legacy 交答案 / 看示範
+PASS hit 360x640 legacy tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 360x640 legacy FIRST mouse tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 360x640 legacy tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 360x640 legacy FIRST touch tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 360x640 import page armed (dock enabled)
+PASS hit 360x640 import 核對及加入 grid 32/32
+PASS hit 360x640 floating button clear of import dock
+PASS hit 360x640 import mouse tap on 核對及加入 opens the summary step
+PASS hit 360x640 import touch tap on 核對及加入 opens the summary step
+PASS hit 360x640 arcade lobby first 看玩法 grid 32/32
+PASS hit 360x640 floating button clear of arcade lobby first 看玩法
+PASS hit 360x640 arcade mouse tap on first 看玩法 opens the preview
+PASS hit 360x640 arcade touch tap on first 看玩法 opens the preview
+PASS hit 360x640 no page errors | []
+PASS hit 390x844 #kid bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 390x844 #kid nav tab 首頁 centre hits itself
+PASS hit 390x844 #kid nav tab 練習 centre hits itself
+PASS hit 390x844 #kid nav tab 數學 centre hits itself
+PASS hit 390x844 #kid nav tab 遊戲 centre hits itself
+PASS hit 390x844 #kid nav tab 家長 centre hits itself
+PASS hit 390x844 #kid floating button clear of every nav tab
+PASS hit 390x844 #kid floating button clear of 開始今天的小課 | fab=None button=[29, 173, 361, 237]
+PASS hit 390x844 #practice bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 390x844 #practice nav tab 首頁 centre hits itself
+PASS hit 390x844 #practice nav tab 練習 centre hits itself
+PASS hit 390x844 #practice nav tab 數學 centre hits itself
+PASS hit 390x844 #practice nav tab 遊戲 centre hits itself
+PASS hit 390x844 #practice nav tab 家長 centre hits itself
+PASS hit 390x844 #practice floating button clear of every nav tab
+PASS hit 390x844 #practice floating button clear of 第一張練習卡 | fab=None button=[12, 433, 190, 668]
+PASS hit 390x844 #game bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 390x844 #game nav tab 首頁 centre hits itself
+PASS hit 390x844 #game nav tab 練習 centre hits itself
+PASS hit 390x844 #game nav tab 數學 centre hits itself
+PASS hit 390x844 #game nav tab 遊戲 centre hits itself
+PASS hit 390x844 #game nav tab 家長 centre hits itself
+PASS hit 390x844 #game floating button clear of every nav tab
+PASS hit 390x844 #game floating button clear of 第一個看玩法 | fab=None button=[25, 936, 365, 988]
+PASS hit 390x844 #parent bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 390x844 #parent nav tab 首頁 centre hits itself
+PASS hit 390x844 #parent nav tab 練習 centre hits itself
+PASS hit 390x844 #parent nav tab 數學 centre hits itself
+PASS hit 390x844 #parent nav tab 遊戲 centre hits itself
+PASS hit 390x844 #parent nav tab 家長 centre hits itself
+PASS hit 390x844 #parent floating button clear of every nav tab
+PASS hit 390x844 L30 study step opens | #learning
+PASS hit 390x844 L30 study 我已看過，下一步 grid 32/32
+PASS hit 390x844 floating button clear of L30 study 我已看過，下一步
+PASS hit 390x844 L30 study first mouse tap on 我已看過，下一步 is accepted | '第 1／12 步' -> '第 2／12 步' hash=#learning
+PASS hit 390x844 L30 study first touch tap on 我已看過，下一步 is accepted | '第 2／12 步' -> '第 3／12 步' hash=#learning
+PASS hit 390x844 L30 串字 typed question reachable
+PASS hit 390x844 L30 串字 提交答案 (idle) grid 32/32
+PASS hit 390x844 L30 串字 提交答案 (typing, #1) grid 32/32
+PASS hit 390x844 floating button clear of L30 串字 提交答案
+PASS hit 390x844 L30 串字 tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 390x844 L30 串字 FIRST mouse tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 646, 241, 697] focused=[12, 646, 241, 697]
+PASS hit 390x844 L30 串字 提交答案 (typing, #2) grid 32/32
+PASS hit 390x844 floating button clear of L30 串字 提交答案
+PASS hit 390x844 L30 串字 tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 390x844 L30 串字 FIRST touch tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 646, 241, 697] focused=[12, 646, 241, 697]
+PASS hit 390x844 legacy #learn study step opens | #learn
+PASS hit 390x844 legacy 開始試試 → grid 32/32
+PASS hit 390x844 floating button clear of legacy 開始試試 →
+PASS hit 390x844 legacy first mouse tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 390x844 legacy first touch tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 390x844 legacy #learn typed step opens | #learn
+PASS hit 390x844 legacy 交答案 grid 32/32
+PASS hit 390x844 legacy 看示範 grid 32/32
+PASS hit 390x844 floating button clear of legacy 交答案 / 看示範
+PASS hit 390x844 legacy tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 390x844 legacy FIRST mouse tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 390x844 legacy tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 390x844 legacy FIRST touch tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 390x844 import page armed (dock enabled)
+PASS hit 390x844 import 核對及加入 grid 32/32
+PASS hit 390x844 floating button clear of import dock
+PASS hit 390x844 import mouse tap on 核對及加入 opens the summary step
+PASS hit 390x844 import touch tap on 核對及加入 opens the summary step
+PASS hit 390x844 arcade lobby first 看玩法 grid 32/32
+PASS hit 390x844 floating button clear of arcade lobby first 看玩法
+PASS hit 390x844 arcade mouse tap on first 看玩法 opens the preview
+PASS hit 390x844 arcade touch tap on first 看玩法 opens the preview
+PASS hit 390x844 no page errors | []
+PASS hit 412x915 #kid bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 412x915 #kid nav tab 首頁 centre hits itself
+PASS hit 412x915 #kid nav tab 練習 centre hits itself
+PASS hit 412x915 #kid nav tab 數學 centre hits itself
+PASS hit 412x915 #kid nav tab 遊戲 centre hits itself
+PASS hit 412x915 #kid nav tab 家長 centre hits itself
+PASS hit 412x915 #kid floating button clear of every nav tab
+PASS hit 412x915 #kid floating button clear of 開始今天的小課 | fab=None button=[29, 173, 383, 237]
+PASS hit 412x915 #practice bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 412x915 #practice nav tab 首頁 centre hits itself
+PASS hit 412x915 #practice nav tab 練習 centre hits itself
+PASS hit 412x915 #practice nav tab 數學 centre hits itself
+PASS hit 412x915 #practice nav tab 遊戲 centre hits itself
+PASS hit 412x915 #practice nav tab 家長 centre hits itself
+PASS hit 412x915 #practice floating button clear of every nav tab
+PASS hit 412x915 #practice floating button clear of 第一張練習卡 | fab=None button=[12, 433, 201, 668]
+PASS hit 412x915 #game bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 412x915 #game nav tab 首頁 centre hits itself
+PASS hit 412x915 #game nav tab 練習 centre hits itself
+PASS hit 412x915 #game nav tab 數學 centre hits itself
+PASS hit 412x915 #game nav tab 遊戲 centre hits itself
+PASS hit 412x915 #game nav tab 家長 centre hits itself
+PASS hit 412x915 #game floating button clear of every nav tab
+PASS hit 412x915 #game floating button clear of 第一個看玩法 | fab=None button=[25, 951, 387, 1003]
+PASS hit 412x915 #parent bottom nav has 5 tabs (R3.5: 數學 is a tab) | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS hit 412x915 #parent nav tab 首頁 centre hits itself
+PASS hit 412x915 #parent nav tab 練習 centre hits itself
+PASS hit 412x915 #parent nav tab 數學 centre hits itself
+PASS hit 412x915 #parent nav tab 遊戲 centre hits itself
+PASS hit 412x915 #parent nav tab 家長 centre hits itself
+PASS hit 412x915 #parent floating button clear of every nav tab
+PASS hit 412x915 L30 study step opens | #learning
+PASS hit 412x915 L30 study 我已看過，下一步 grid 32/32
+PASS hit 412x915 floating button clear of L30 study 我已看過，下一步
+PASS hit 412x915 L30 study first mouse tap on 我已看過，下一步 is accepted | '第 1／12 步' -> '第 2／12 步' hash=#learning
+PASS hit 412x915 L30 study first touch tap on 我已看過，下一步 is accepted | '第 2／12 步' -> '第 3／12 步' hash=#learning
+PASS hit 412x915 L30 串字 typed question reachable
+PASS hit 412x915 L30 串字 提交答案 (idle) grid 32/32
+PASS hit 412x915 L30 串字 提交答案 (typing, #1) grid 32/32
+PASS hit 412x915 floating button clear of L30 串字 提交答案
+PASS hit 412x915 L30 串字 tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 412x915 L30 串字 FIRST mouse tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 644, 263, 695] focused=[12, 644, 263, 695]
+PASS hit 412x915 L30 串字 提交答案 (typing, #2) grid 32/32
+PASS hit 412x915 floating button clear of L30 串字 提交答案
+PASS hit 412x915 L30 串字 tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 412x915 L30 串字 FIRST touch tap on 提交答案 sends | topmost at tap=button.l30-btn.primary idle=[12, 644, 263, 695] focused=[12, 644, 263, 695]
+PASS hit 412x915 legacy #learn study step opens | #learn
+PASS hit 412x915 legacy 開始試試 → grid 32/32
+PASS hit 412x915 floating button clear of legacy 開始試試 →
+PASS hit 412x915 legacy first mouse tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 412x915 legacy first touch tap on 開始試試 → advances inside #learn | hash=#learn
+PASS hit 412x915 legacy #learn typed step opens | #learn
+PASS hit 412x915 legacy 交答案 grid 32/32
+PASS hit 412x915 legacy 看示範 grid 32/32
+PASS hit 412x915 floating button clear of legacy 交答案 / 看示範
+PASS hit 412x915 legacy tap focuses the answer box and typed text arrives (#1) | focus_ok=True typed_ok=True
+PASS hit 412x915 legacy FIRST mouse tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 412x915 legacy tap focuses the answer box and typed text arrives (#2) | focus_ok=True typed_ok=True
+PASS hit 412x915 legacy FIRST touch tap on 交答案 sends | topmost at tap=button#submit-answer.btn.primary hash=#learn
+PASS hit 412x915 import page armed (dock enabled)
+PASS hit 412x915 import 核對及加入 grid 32/32
+PASS hit 412x915 floating button clear of import dock
+PASS hit 412x915 import mouse tap on 核對及加入 opens the summary step
+PASS hit 412x915 import touch tap on 核對及加入 opens the summary step
+PASS hit 412x915 arcade lobby first 看玩法 grid 32/32
+PASS hit 412x915 floating button clear of arcade lobby first 看玩法
+PASS hit 412x915 arcade mouse tap on first 看玩法 opens the preview
+PASS hit 412x915 arcade touch tap on first 看玩法 opens the preview
+PASS hit 412x915 no page errors | []
+# done in 136s
+276 PASS / 0 FAIL

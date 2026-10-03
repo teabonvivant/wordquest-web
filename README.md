@@ -1,6 +1,8 @@
-# WordQuest R3.4
+# WordQuest R3.5
 
 完整的英文學習、普通數學、奧數及森林學園街機程式。此倉庫保存 R3.2 完整包的全部程式、教材、角色素材、開發模組、歷史原件、文件及測試證據，並附上 2026-09-30 的完整漏洞審查。
+
+**R3.5 在 R3.4 之上改寫全站文字（家長和孩子看的中文改成淺白的香港書面語），修好首次使用、英文課堂、遊戲街機、默書練習和數學的問題，並把默書定位為練習。這不是商用版：英文題庫要教師審核、數學內容分量不足、沒有真人錄音、圖片授權文件未齊。** 審查結論、改了甚麼和沒改甚麼，見 `docs/R3_5_審查與改動報告.md`；重建、測試和已知限制見 [README_R3_5.md](README_R3_5.md)。
 
 **R3.4 在 R3.3 之上改良街機：26 款遊戲的手感、規則公平度與手機（尤其橫屏）玩法；學習、帳戶、付款等沒有改，也不是商用版。** 做了什麼、怎樣重建與測試、已知限制，見 [README_R3_4.md](README_R3_4.md)；商用差距與遊戲評測見 `docs/R3_4_商用差距與遊戲評測.md`。
 
@@ -14,7 +16,7 @@
 node server/local_server.mjs
 ```
 
-然後開啟 `http://127.0.0.1:8765/app/index.html`。本機伺服器預設只監聽迴路位址。完整操作及升級說明見 [README_R3_4.md](README_R3_4.md) 與 [README_R3_3.md](README_R3_3.md)（R3.2 的原生裝置驗收流程見 [README_R3_2.md](README_R3_2.md)）。
+然後開啟 `http://127.0.0.1:8765/app/index.html`。本機伺服器預設只監聽迴路位址。完整操作及升級說明見 [README_R3_5.md](README_R3_5.md)、[README_R3_4.md](README_R3_4.md) 與 [README_R3_3.md](README_R3_3.md)（R3.2 的原生裝置驗收流程見 [README_R3_2.md](README_R3_2.md)）。
 
 更換版本、瀏覽器或網址前，請先在家長頁匯出家庭完整備份。本倉庫不包含使用者裝置內的真實學員紀錄；測試證據使用人工測試資料。家庭備份包含姓名及學習紀錄，請自行妥善保管。
 
@@ -31,7 +33,9 @@ node server/local_server.mjs
 | `tools/`、`patches/` | 重建工具及增量修訂資料 |
 | `docs/` | 使用、驗收及技術文件 |
 | `originals/` | 保留的歷史版本、英文與數學原件及先前審查資料 |
-| `docs/audit/2026-09-30/` | 最新漏洞審查報告、結果、重現程式及全部審查證據 |
+| `docs/audit/2026-09-30/` | R3.2 漏洞審查報告、結果、重現程式及全部審查證據 |
+| `docs/audit/2026-10-03/`、`docs/R3_5_審查與改動報告.md` | R3.5 的教學內容、介面和文字審查（問題清單與抽樣） |
+| `r35_src/`、`r35_tests/`、`r35_evidence/` | R3.5 的補丁模組、文字改寫表、新測試與證據（含舊測試改動紀錄） |
 
 教材檢查涵蓋英文 80 個單元、607 個詞項、4,923 題、6,057 筆字典資料，以及數學 122 項技能、366 個生成模板。程式包括六位森林學園角色及 26 款街機。這些數量不代表教師或真實學生驗收已完成。
 
@@ -56,7 +60,7 @@ node server/local_server.mjs
 python3 tools/build_r33.py
 ```
 
-開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.4 新測試入口為 `python3 r34_tests/run_release.py`（重建 `python3 tools/build_r34.py`）；R3.3 新測試入口為 `python3 r33_tests/run_release.py`；R3.2 回歸入口：
+開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.5 重建 `python3 tools/build_r35.py`，新測試入口為 `python3 r35_tests/run_release.py`，改前改後對照為 `python3 r35_tests/run_behaviour.py`；R3.4 新測試入口為 `python3 r34_tests/run_release.py`（重建 `python3 tools/build_r34.py`）；R3.3 新測試入口為 `python3 r33_tests/run_release.py`；R3.2 回歸入口：
 
 ```sh
 python r32_tests/run_release.py
@@ -72,4 +76,4 @@ python r32_tests/run_release.py
 7acea2291f3a58116b1cebc1c1aea618a06288789fd1bfd5462ea8810ee9639b
 ```
 
-`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 已更新為 R3.4（`python3 tools/package_r34.py` 重新產生）。R3.2 的原交付包清單保存在 `originals/R3_2/`；`GITHUB_UPLOAD_MANIFEST.json` 記錄 R3.2 上傳時的內容，保留不動。
+`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 已更新為 R3.5（`python3 tools/package_r35.py` 重新產生）。R3.2 的原交付包清單保存在 `originals/R3_2/`；`GITHUB_UPLOAD_MANIFEST.json` 記錄 R3.2 上傳時的內容，保留不動。

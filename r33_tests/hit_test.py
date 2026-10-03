@@ -54,7 +54,7 @@ def screens(pg, tag):
         pg.evaluate("window.scrollTo(0,0)")
         pg.wait_for_timeout(100)
         navs = nav_rects(pg)
-        check(f'hit {tag} {hash_} bottom nav has 4 tabs', len(navs) == 4, [n['label'] for n in navs])
+        check(f'hit {tag} {hash_} bottom nav has 5 tabs (R3.5: 數學 is a tab)', len(navs) == 5, [n['label'] for n in navs])
         for n in navs:
             ok, why = hit_centre(pg, f'#wq29-nav a[href="{n["href"]}"]')
             check(f'hit {tag} {hash_} nav tab {n["label"]} centre hits itself', ok, why)
@@ -146,7 +146,8 @@ def flow_legacy(pg, tag):
         pg.wait_for_timeout(600)
         check(f'hit {tag} legacy tap focuses the answer box and typed text arrives (#{k + 1})', r['focus_ok'] and r['typed_ok'],
               f"focus_ok={r['focus_ok']} typed_ok={r['typed_ok']}")
-        check(f'hit {tag} legacy FIRST {how} tap on 交答案 sends', bool(pg.query_selector('[data-act=next-task]')),
+        # R3.5 (p40): a wrong first answer allows a retry, shown as the encouragement line instead of the next-task button
+        check(f'hit {tag} legacy FIRST {how} tap on 交答案 sends', bool(pg.query_selector('[data-act=next-task], .p40-encourage')),
               f"topmost at tap={r['topmost']} hash={hashnow(pg)}")
         if k == 0:
             pg.evaluate("document.querySelector('[data-act=next-task]')?.click()")
@@ -166,10 +167,11 @@ def flow_import(pg, tag):
     for how in ('mouse', 'touch'):
         tap_sel(pg, sel, how)
         pg.wait_for_timeout(700)
-        opened = bool(pg.evaluate("!!document.querySelector('dialog[open]')"))
-        check(f'hit {tag} import {how} tap on 核對及加入 opens the summary', opened)
+        # R3.5 (p40): the summary is the inline third step of the add-range flow, not a pop-up dialog
+        opened = bool(pg.evaluate("(()=>{const s=document.querySelector('#v20-summary');return !!s&&!s.hidden&&getComputedStyle(s).display!=='none'&&s.getBoundingClientRect().height>0;})()"))
+        check(f'hit {tag} import {how} tap on 核對及加入 opens the summary step', opened)
         if opened:
-            pg.evaluate("document.querySelector('[data-imp=close-dialog]')?.click()")
+            pg.evaluate("document.querySelector('[data-p40=step][data-step=\"2\"]')?.click()")
             pg.wait_for_timeout(400)
 
 

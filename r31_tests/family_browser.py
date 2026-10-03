@@ -61,9 +61,9 @@ with sync_playwright() as pw:
   p.evaluate('__R3TEST.fault("journal-delete")');msg=p.evaluate('async v=>{try{await __R3TEST.restore(v);return ""}catch(e){return e.message}}',pack['payload']);require(p.evaluate('__R3TEST.marker()==="committed"') and msg);p.evaluate('__R3TEST.recover()');return require(p.evaluate('__R3TEST.marker()===null&&__R3TEST.journal().length===0'))
  check('Committed transaction with cleanup failure completes through recovery',commitcleanup)
  def missingjournal():
-  p.evaluate('__R3TEST.poisonMarker()');m=p.evaluate('async()=>{try{await __R3TEST.recover();return "";}catch(e){return e.message}}');require('遺失' in m and p.evaluate('__R3TEST.marker()==="prepared"'));p.evaluate('__R3TEST.clearMarker()');return True
+  p.evaluate('__R3TEST.poisonMarker()');m=p.evaluate('async()=>{try{await __R3TEST.recover();return "";}catch(e){return e.message}}');require(('遺失' in m or '不見了' in m) and p.evaluate('__R3TEST.marker()==="prepared"'));p.evaluate('__R3TEST.clearMarker()');return True
  check('Missing prepared journal is not silently treated as successful recovery',missingjournal)
- check('Full-time guard blocks new activity after daily total',lambda:p.evaluate('''()=>{const n=__R3TEST.settings();n.limitMinutes=5;n.englishMinutes=0;n.mathMinutes=0;n.olympiadMinutes=0;__R3TEST.saveSettings(n);try{WQR3.assertStudy();return false}catch(e){return /全站/.test(e.message)}}'''))
+ check('Full-time guard blocks new activity after daily total',lambda:p.evaluate('''()=>{const n=__R3TEST.settings();n.limitMinutes=5;n.englishMinutes=0;n.mathMinutes=0;n.olympiadMinutes=0;__R3TEST.saveSettings(n);try{WQR3.assertStudy();return false}catch(e){return /全站|使用時間已用完/.test(e.message)}}'''))
  p.evaluate('()=>{const n=__R3TEST.settings();n.limitMinutes=45;__R3TEST.saveSettings(n)}')
  check('Same-account restore cannot rewind accumulated cross-subject time',lambda:(p.evaluate('async v=>{const n=__R3TEST.settings();n.usage[WQMathHost.profile().id][WQFamilyCore.day()].arcade=100000;__R3TEST.saveSettings(n);await __R3TEST.restore(v);}',pack['payload']),require(p.evaluate('__R3TEST.settings().usage[WQMathHost.profile().id][WQFamilyCore.day()].arcade===100000')))[1])
  # Run old standalone learner migration through real file input and confirmation.

@@ -1,0 +1,47 @@
+# p40 library checkbox (N13b)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS phone 390: library search form found | {'cb': {'x': 12, 'y': 324.4, 'w': 24, 'h': 24}, 'lab': {'x': 12, 'y': 312.4, 'w': 114, 'h': 48}, 'q': {'x': 12, 'y': 250, 'w': 366, 'h': 48}, 'btn': {'x': 138, 'y': 310, 'w': 74, 'h': 52.8}, 'form': {'x': 12, 'y': 250, 'w': 366, 'h': 112.8}, 'appearance': 'checkbox', 'accent': 'rgb(19, 111, 116)', 'minW': '24px', 'minH': '24px', 'bg': 'rgba(0, 0, 0, 0)', 'border': '0px', 'radius': '0px', 'labDisplay': 'flex', 'checked': False, 'textRects': [{'y': 324.40625, 'h': 24, 'w': 24}, {'y': 324.203125, 'h': 24, 'w': 80.015625}], 'scrollW': 390, 'innerW': 390, 'hash': '#library'}
+PASS [B] phone 390: checkbox is a normal-size box (24x24), not 150x48 | {'x': 12, 'y': 324.4, 'w': 24, 'h': 24}
+PASS [B] phone 390: checkbox is not dressed as a text input (no white fill, no 12px radius) | bg=rgba(0, 0, 0, 0) radius=0px border=0px appearance=checkbox
+PASS [B] phone 390: checkbox has no input-style padding box (min size 24) | 24px 24px
+PASS [B] phone 390: checkbox takes the page accent colour | rgb(19, 111, 116)
+PASS [B] phone 390: label is a single 48 px row (hit area, text beside the box) | {'x': 12, 'y': 312.4, 'w': 114, 'h': 48}
+PASS [B] phone 390: label text sits on the same row as the box | [{'y': 324.40625, 'h': 24, 'w': 24}, {'y': 324.203125, 'h': 24, 'w': 80.015625}] box={'x': 12, 'y': 324.4, 'w': 24, 'h': 24}
+PASS phone 390: no horizontal scroll | 390>390
+PASS phone 390: the search box has its own full-width row above the checkbox | q={'x': 12, 'y': 250, 'w': 366, 'h': 48} lab={'x': 12, 'y': 312.4, 'w': 114, 'h': 48}
+PASS phone 390: checkbox, label and search button share the next row | btn={'x': 138, 'y': 310, 'w': 74, 'h': 52.8} lab={'x': 12, 'y': 312.4, 'w': 114, 'h': 48}
+PASS phone 390: clicking the box checks it
+PASS phone 390: Space on the focused box unchecks it
+PASS phone 390: Space on the focused box checks it again
+PASS phone 390: clicking the label text (right end) checks it | {'x': 12, 'y': 312.40625, 'w': 114.015625, 'h': 48}
+PASS phone 390: submit keeps pics=1 in the address | #library?q=&pics=1
+PASS phone 390: only words with pictures are listed (fewer than before) | 607 -> 310
+PASS [B] phone 390: after the re-render the box is checked and still 24x24 | {'x': 12, 'y': 324.4, 'w': 24, 'h': 24}
+PASS phone 390: unchecking and submitting gives pics=0 and the full list again | #library?q=&pics=0 607
+PASS phone 390: Enter in the search box still searches | #library?q=cat&pics=0
+PASS [B] phone 390: opening ?pics=1 shows the box checked at normal size | {'x': 12, 'y': 324.4, 'w': 24, 'h': 24}
+PASS phone 390: unit search keeps its own input rules (min-width 150, 48 px high, select present) | {'minW': '150px', 'minH': '48px', 'h': 48, 'checkboxes': 0, 'selectH': 48}
+PASS phone 390: workshop search keeps its own input rules, no horizontal scroll | {'minW': '150px', 'h': 50, 'scrollW': 390, 'innerW': 390}
+PASS phone 390: no page errors | []
+PASS desktop 1280: library search form found | {'cb': {'x': 1018, 'y': 288, 'w': 24, 'h': 24}, 'lab': {'x': 1018, 'y': 276, 'w': 114, 'h': 48}, 'q': {'x': 62, 'y': 276, 'w': 944, 'h': 48}, 'btn': {'x': 1144, 'y': 273.6, 'w': 74, 'h': 52.8}, 'form': {'x': 62, 'y': 273.6, 'w': 1156, 'h': 52.8}, 'appearance': 'checkbox', 'accent': 'rgb(19, 111, 116)', 'minW': '24px', 'minH': '24px', 'bg': 'rgba(0, 0, 0, 0)', 'border': '0px', 'radius': '0px', 'labDisplay': 'flex', 'checked': False, 'textRects': [{'y': 287.96875, 'h': 24, 'w': 24}, {'y': 287.765625, 'h': 24, 'w': 80.015625}], 'scrollW': 1280, 'innerW': 1280, 'hash': '#library'}
+PASS [B] desktop 1280: checkbox is a normal-size box (24x24), not 150x48 | {'x': 1018, 'y': 288, 'w': 24, 'h': 24}
+PASS [B] desktop 1280: checkbox is not dressed as a text input (no white fill, no 12px radius) | bg=rgba(0, 0, 0, 0) radius=0px border=0px appearance=checkbox
+PASS [B] desktop 1280: checkbox has no input-style padding box (min size 24) | 24px 24px
+PASS [B] desktop 1280: checkbox takes the page accent colour | rgb(19, 111, 116)
+PASS [B] desktop 1280: label is a single 48 px row (hit area, text beside the box) | {'x': 1018, 'y': 276, 'w': 114, 'h': 48}
+PASS [B] desktop 1280: label text sits on the same row as the box | [{'y': 287.96875, 'h': 24, 'w': 24}, {'y': 287.765625, 'h': 24, 'w': 80.015625}] box={'x': 1018, 'y': 288, 'w': 24, 'h': 24}
+PASS desktop 1280: no horizontal scroll | 1280>1280
+PASS desktop 1280: everything fits one row | q=276 lab=276 btn=273.6
+PASS desktop 1280: clicking the box checks it
+PASS desktop 1280: Space on the focused box unchecks it
+PASS desktop 1280: Space on the focused box checks it again
+PASS desktop 1280: clicking the label text (right end) checks it | {'x': 1017.96875, 'y': 275.96875, 'w': 114.015625, 'h': 48}
+PASS desktop 1280: submit keeps pics=1 in the address | #library?q=&pics=1
+PASS desktop 1280: only words with pictures are listed (fewer than before) | 607 -> 310
+PASS [B] desktop 1280: after the re-render the box is checked and still 24x24 | {'x': 1018, 'y': 288, 'w': 24, 'h': 24}
+PASS desktop 1280: unchecking and submitting gives pics=0 and the full list again | #library?q=&pics=0 607
+PASS desktop 1280: Enter in the search box still searches | #library?q=cat&pics=0
+PASS [B] desktop 1280: opening ?pics=1 shows the box checked at normal size | {'x': 1018, 'y': 288, 'w': 24, 'h': 24}
+PASS desktop 1280: unit search keeps its own input rules (min-width 150, 48 px high, select present) | {'minW': '150px', 'minH': '48px', 'h': 53, 'checkboxes': 0, 'selectH': 53}
+PASS desktop 1280: workshop search keeps its own input rules, no horizontal scroll | {'minW': '150px', 'h': 53, 'scrollW': 1280, 'innerW': 1280}
+PASS desktop 1280: no page errors | []
+SUMMARY p40 library checkbox (N13b): 45/45 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 18s

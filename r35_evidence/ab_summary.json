@@ -1,0 +1,128 @@
+[
+  {
+    "suite": "p50-logic",
+    "newChecks": 69,
+    "newFailed": [],
+    "bChecks": 52,
+    "bFailOnR34": 52,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 3
+  },
+  {
+    "suite": "p40-ocr",
+    "newChecks": 26,
+    "newFailed": [],
+    "bChecks": 16,
+    "bFailOnR34": 16,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 2
+  },
+  {
+    "suite": "p90-copy-text",
+    "newChecks": 16,
+    "newFailed": [],
+    "bChecks": 14,
+    "bFailOnR34": 14,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 41
+  },
+  {
+    "suite": "p10-firstrun",
+    "newChecks": 95,
+    "newFailed": [],
+    "bChecks": 75,
+    "bFailOnR34": 75,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 244
+  },
+  {
+    "suite": "p20-lesson",
+    "newChecks": 173,
+    "newFailed": [],
+    "bChecks": 115,
+    "bFailOnR34": 115,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 279
+  },
+  {
+    "suite": "p30-lobby",
+    "newChecks": 40,
+    "newFailed": [],
+    "bChecks": 30,
+    "bFailOnR34": 30,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 173
+  },
+  {
+    "suite": "p30-cards",
+    "newChecks": 16,
+    "newFailed": [],
+    "bChecks": 12,
+    "bFailOnR34": 12,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 820
+  },
+  {
+    "suite": "p30-misc",
+    "newChecks": 21,
+    "newFailed": [],
+    "bChecks": 14,
+    "bFailOnR34": 14,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 251
+  },
+  {
+    "suite": "p30-play",
+    "newChecks": 8,
+    "newFailed": [],
+    "bChecks": 3,
+    "bFailOnR34": 3,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 267
+  },
+  {
+    "suite": "p30-states",
+    "newChecks": 28,
+    "newFailed": [],
+    "bChecks": 13,
+    "bFailOnR34": 13,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 380
+  },
+  {
+    "suite": "p40-dictation",
+    "newChecks": 103,
+    "newFailed": [],
+    "bChecks": 69,
+    "bFailOnR34": 69,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [
+      "flow (section ran without error)",
+      "practice (section ran without error)",
+      "voice (section ran without error)",
+      "finish (section ran without error)",
+      "parent (section ran without error)"
+    ],
+    "seconds": 727
+  },
+  {
+    "suite": "p50-browser",
+    "newChecks": 68,
+    "newFailed": [],
+    "bChecks": 54,
+    "bFailOnR34": 54,
+    "bPassOnR34": [],
+    "guardsBrokenOnR34": [],
+    "seconds": 246
+  }
+]

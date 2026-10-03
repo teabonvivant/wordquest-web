@@ -1,0 +1,7 @@
+{'name': 'Shipped cloud-island runtime has an articulated goat pose', 'status': 'pass', 'detail': None}
+{'name': 'Held right key selects moving right-facing run pose', 'status': 'pass', 'detail': {'character': 'a-feng', 'action': 'run', 'face': 1, 'time': 0.46830000000000016}}
+{'name': 'Stopping after left movement retains left-facing pose', 'status': 'pass', 'detail': {'character': 'a-feng', 'action': 'idle', 'face': -1, 'time': 0.7349}}
+{'name': 'Real jump key selects upward jump pose', 'status': 'pass', 'detail': {'character': 'a-feng', 'action': 'jump', 'face': -1, 'time': 0.8183000000000008}}
+{'name': 'Game pause freezes articulated pose and source simulation clock', 'status': 'pass', 'detail': {'character': 'a-feng', 'action': 'fall', 'face': -1, 'time': 1.068300000000001}}
+{'name': '320px actual playing goat canvas remains within viewport', 'status': 'pass', 'detail': {'x': 11, 'y': 124.59375, 'width': 298, 'height': 208.59375}}
+{'name': 'No uncaught errors in live goat game', 'status': 'pass', 'detail': []}

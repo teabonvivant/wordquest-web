@@ -1,0 +1,61 @@
+# p40 sfx (N9)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS fixture: page visible (document.hidden=false) and sfx enabled
+PASS [B] playSfx('complete') schedules [523, 659, 784, 1047] (sine) | got [523, 659, 784, 1047] ['sine', 'sine', 'sine', 'sine'] want [523, 659, 784, 1047]
+PASS [B] playSfx('coin') schedules [988, 1319] (sine) | got [988, 1319] ['sine', 'sine'] want [988, 1319]
+PASS playSfx('correct') schedules [660, 880] (sine) | got [660, 880] ['sine', 'sine'] want [660, 880]
+PASS playSfx('wrong') schedules [220, 175] (triangle) | got [220, 175] ['triangle', 'triangle'] want [220, 175]
+PASS playSfx('finish') schedules [523, 659, 784] (sine) | got [523, 659, 784] ['sine', 'sine', 'sine'] want [523, 659, 784]
+PASS playSfx('tap') schedules [760] (sine) | got [760] ['sine'] want [760]
+PASS playSfx('pop') schedules [540, 760] (sine) | got [540, 760] ['sine', 'sine'] want [540, 760]
+PASS playSfx('match') schedules [600, 900] (sine) | got [600, 900] ['sine', 'sine'] want [600, 900]
+PASS sfx switched off: complete / coin / correct are silent | []
+PASS English speech playing (voiceBusy): complete / coin / correct are silent | []
+PASS L30: meaning session started (4 steps) | {'id': 'l30_muslfcc0_1_4sp65j', 'index': 0, 'len': 4, 'mode': 'meaning', 'q': {'id': 'q_a7c67c46143382b4_meaning', 'target': 'w_a7c67c46143382b4', 'mode': 'meaning', 'answer': 'cat', 'version': 1, 'prompt': '貓', 'choices': ['cat', 'mat', 'bat', 'hat']}, 'fb': None, 'tiles': [], 'unit': 'U01'}
+PASS [B] L30: picking a choice plays a tap | got [760] ['sine'] want [760]
+PASS [B] L30: correct answer plays the rising 660 -> 880 | got [660, 880] ['sine', 'sine'] want [660, 880]
+PASS L30: next step alone is silent | []
+PASS [B] L30: wrong answer plays the soft falling 220 -> 175 (triangle) | got [220, 175] ['triangle', 'triangle'] want [220, 175]
+PASS L30: wrong answer is not punished (feedback kept gentle, no coin change) | {'correct': False, 'exact': False, 'technical': False, 'expected': 'hat', 'answer': 'mat', 'caseOnly': False, 'independent': False, 'delayed': False}
+PASS L30: sfx off -> choose + correct submit are silent | []
+PASS L30: English speech playing (voiceBusy) -> choose + correct submit are silent | []
+PASS L30: last step answered (silent because speech was playing), feedback waiting | {'id': 'l30_muslfcc0_1_4sp65j', 'index': 3, 'len': 4, 'mode': 'meaning', 'q': {'id': 'q_5d246d17c8ffb086_meaning', 'target': 'w_5d246d17c8ffb086', 'mode': 'meaning', 'answer': 'bat', 'version': 1, 'prompt': '球棒', 'choices': ['hat', 'mat', 'bat', 'cat']}, 'fb': {'correct': True, 'exact': True, 'technical': False, 'expected': 'bat', 'answer': 'bat', 'caseOnly': False, 'independent': False, 'delayed': False}, 'tiles': [], 'unit': 'U01'}
+PASS [B] L30: finishing the group plays the complete tune, then the coin 600 ms later (exactly once) | got [523, 659, 784, 1047, 988, 1319] ['sine', 'sine', 'sine', 'sine', 'sine', 'sine'] want [523, 659, 784, 1047, 988, 1319]
+PASS L30: group completed and +1 coin | {'status': 'completed', 'award': 1, 'fin': True} stars 0->1
+PASS L30: no extra AudioContext was created (the shared sfx context is reused) | 1
+PASS L30: nothing else plays afterwards (no repeated coin)
+PASS [B] L30 tiles: first tile plays a tap | got [760] ['sine'] want [760]
+PASS [B] L30 tiles: the last tile completes the word and plays a match | got [600, 900] ['sine', 'sine'] want [600, 900]
+PASS [B] L30 tiles: removing a tile plays a pop | got [540, 760] ['sine', 'sine'] want [540, 760]
+PASS [B] L30 tiles: correct word plays correct | got [660, 880] ['sine', 'sine'] want [660, 880]
+PASS L30 tiles: sfx off -> tile click is silent | []
+PASS L30: abandoning a group leaves no open session | #kid None
+PASS [B] L30 study: "我已看過" finishing a one-word lesson plays the complete tune, and no coin (nothing was graded) | got [523, 659, 784, 1047] ['sine', 'sine', 'sine', 'sine'] want [523, 659, 784, 1047]
+PASS L30 study: wallet unchanged | 1
+PASS L30: if the save fails and the group is rolled back, neither complete nor coin plays | [] stars 1->1
+PASS [B] L30: after the save works again the same click completes the group (complete + coin) | got [523, 659, 784, 1047, 988, 1319] ['sine', 'sine', 'sine', 'sine', 'sine', 'sine'] want [523, 659, 784, 1047, 988, 1319]
+PASS L31: guided session started (8 steps, first is "notice") | {'id': 'a31_muslfja5_5_4syzb', 'index': 0, 'len': 8, 'step': 'notice', 'rec': 'r31_hair', 'fb': None, 'picked': [], 'cuts': [], 'draft': ''}
+PASS [B] L31 notice: "認識了，下一步" plays a tap | got [760] ['sine'] want [760]
+PASS L31: reached the assemble step | {'id': 'a31_muslfja5_5_4syzb', 'index': 1, 'len': 8, 'step': 'assemble', 'rec': 'r31_hair', 'fb': None, 'picked': [], 'cuts': [], 'draft': ''}
+PASS [B] L31 assemble: first block plays a tap | got [760] ['sine'] want [760]
+PASS [B] L31 assemble: removing the block plays a pop | got [540, 760] ['sine', 'sine'] want [540, 760]
+PASS [B] L31 assemble: the last block completes the word and plays a match | got [600, 900] ['sine', 'sine'] want [600, 900]
+PASS [B] L31 assemble: correct plays correct | got [660, 880] ['sine', 'sine'] want [660, 880]
+PASS L31: next step alone is silent | [] []
+PASS L31: reached the meaning step | {'id': 'a31_muslfja5_5_4syzb', 'index': 2, 'len': 8, 'step': 'meaning', 'rec': 'r31_hair', 'fb': None, 'picked': [], 'cuts': [], 'draft': ''}
+PASS [B] L31 meaning: wrong answer plays the soft falling 220 -> 175 | [220, 175] ['triangle', 'triangle']
+PASS [B] L31: finishing the correction plays a match | [600, 900]
+PASS L31: reached the recall step | {'id': 'a31_muslfja5_5_4syzb', 'index': 3, 'len': 8, 'step': 'recall', 'rec': 'r31_hair', 'fb': None, 'picked': [], 'cuts': [], 'draft': ''}
+PASS L31: sfx off -> correct recall submit is silent | []
+PASS L31: English speech playing (voiceBusy) -> correct meaning answer is silent | []
+PASS [B] L31 recall: typed correct answer plays correct | got [660, 880] ['sine', 'sine'] want [660, 880]
+PASS [B] L31: finishing the group plays the complete tune, then the coin 600 ms later (exactly once) | got [523, 659, 784, 1047, 988, 1319] ['sine', 'sine', 'sine', 'sine', 'sine', 'sine'] want [523, 659, 784, 1047, 988, 1319]
+PASS L31: group completed and the award reached the wallet (3rd task of the day = +2 with the daily bonus) | {'status': 'completed', 'award': 2} stars 2->4
+PASS L31 blend: reached the cut/assemble step | {'id': 'a31_muslfm6e_6_02tji', 'index': 1, 'len': 8, 'step': 'assemble', 'rec': 'r31_brunch', 'fb': None, 'picked': [], 'cuts': [], 'draft': ''}
+PASS [B] L31 blend: choosing a cut plays a tap | got [760] ['sine'] want [760]
+PASS [B] L31 blend: the last cut completes the word and plays a match | got [600, 900] ['sine', 'sine'] want [600, 900]
+PASS [B] maths: a settled maths reward plays the coin cue once (600 ms later) | got [988, 1319] ['sine', 'sine'] want [988, 1319]
+PASS maths: the reward reached the shared wallet (+1) | award=1 stars 4->5
+PASS maths: settling the same reward again gives nothing and plays nothing | [] award=0
+PASS maths: if the wallet cannot be saved there is no payment and no coin cue | [] {'msg': 'Page.evaluate: Error: 金幣沒有儲存成功，這次獎勵沒有完成。請再試一次。\n    at Object.award (file:///home'} stars 5->5
+PASS no page errors | []
+SUMMARY p40 sfx (N9): 59/59 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 24s

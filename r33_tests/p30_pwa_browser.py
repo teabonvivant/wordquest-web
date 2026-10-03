@@ -165,7 +165,7 @@ def wait_outcome(pg, seconds):
     while time.time() - t0 < seconds:
         pg.wait_for_timeout(250)
         m = status_msg(pg)
-        if '網頁已儲存' in m or '未能準備離線網頁' in m:
+        if '網頁已儲存' in m or '離線網頁準備不到' in m:
             return m, time.time() - t0
     return status_msg(pg), time.time() - t0
 
@@ -332,7 +332,7 @@ def main():
                     msg, secs = wait_outcome(g, limit)
                     g.wait_for_timeout(500)
                     need(ui_ready(g) != '已準備', f'UI claims ready ({ui_ready(g)})')
-                    need('未能準備離線網頁' in msg, f"no failure reason shown (message '{msg}')")
+                    need('離線網頁準備不到' in msg, f"no failure reason shown (message '{msg}')")
                     if max_secs:
                         need(secs < max_secs, f'took {secs:.1f} s to give up')
                     if extra:
@@ -437,7 +437,7 @@ def main():
                 msg = status_msg(g)
                 regs = g.evaluate("(async()=>{try{return navigator.serviceWorker?(await navigator.serviceWorker.getRegistrations()).length:0;}catch(_){return 0;}})()")  # file: origin may refuse the call: still 0 registrations
                 body = g.evaluate("document.querySelector('.offline-summary')?.innerText||''")
-                need('保留' in msg and 'HTML' in msg, 'file: message was: ' + msg)
+                need('保留' in msg and '檔案' in msg, 'file: message was: ' + msg)
                 need('保留這個檔案' in body or '保留' in body, 'summary wording missing')
                 need(regs == 0, f'{regs} service worker registrations in file: mode')
                 bad = [c for c in con if 'manifest' in c.lower()]

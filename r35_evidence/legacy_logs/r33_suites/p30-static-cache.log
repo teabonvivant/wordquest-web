@@ -1,0 +1,31 @@
+PASS GET carries a strong ETag
+PASS ETag is stable across requests and changes when the file changes
+PASS If-None-Match with the current ETag -> 304, empty body
+PASS 304 keeps Cache-Control: no-cache, nosniff and X-Frame-Options
+PASS weak validator and a list of tags still match (If-None-Match: "x", W/"etag")
+PASS If-None-Match: * -> 304
+PASS non-matching If-None-Match -> 200 with the full body
+PASS Accept-Encoding: br -> Content-Encoding br, Vary, body decodes to the original bytes
+PASS Accept-Encoding: gzip -> Content-Encoding gzip, body decodes to the original bytes
+PASS negotiation table: br wins ties, q-values and q=0 respected, unknown codings fall back to identity
+PASS no Accept-Encoding -> identity bytes, still Vary for compressible types
+PASS each coding has its own ETag; a br ETag does not validate the identity variant
+PASS compressible types: js, json, svg and webmanifest (>= 1 KB) are compressed; webmanifest MIME is manifest+json
+PASS files under 1 KB are not compressed (tiny webmanifest, small json)
+PASS png, webp, wasm and .gz are never compressed; wasm keeps its MIME type
+PASS HEAD (identity): Content-Length = file size, no body, same ETag as GET
+PASS HEAD (br): same Content-Length, Content-Encoding and ETag as the GET, no body
+PASS HEAD with a matching If-None-Match -> 304
+PASS Cache-Control: no-cache, nosniff and X-Frame-Options kept on identity and br responses
+PASS compressed copy is cached per file: 4 parallel cold br requests compress once, later requests never recompress
+PASS cache follows the file: a rewritten file is served (and tagged) fresh, not from the stale copy
+PASS path traversal, dot files, backslash, NUL and bad escapes are still refused (403 / 403 / 403 / 403 / 400)
+PASS symlink pointing outside the app directory is still refused (403); unknown file 404
+PASS Host check unchanged: a foreign Host header gets 403 and no ETag
+PASS methods unchanged: POST to a static file is 405; /app alias and / serve index.html
+PASS Origin / header checks unchanged on /api/speech (cross-origin 403, no key -> 503)
+PASS real index.html over br: transfer under 7 MB and byte-identical after decoding :: 12455707 -> 6350853 bytes (51.0%), cold 352 ms, warm 18 ms
+PASS real index.html over gzip: transfer under 7 MB and byte-identical after decoding :: 12455707 -> 6547692 bytes (52.6%)
+PASS real index.html: second request with If-None-Match -> 304 with an empty body :: 304 in 1 ms
+PASS real index.html: HEAD Content-Length equals the br GET length
+TOTAL 30 PASS 30 FAIL 0 (server: server/local_server.mjs)

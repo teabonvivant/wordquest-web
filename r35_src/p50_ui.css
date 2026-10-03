@@ -1,0 +1,30 @@
+/* R3.5 p50: maths chrome. Appended after the maths base CSS inside the shadow root. */
+.eyebrow{font-size:14px;letter-spacing:.5px}
+/* Question screens: only 「← 返回」 and the progress bar above the question. */
+.focusbar{display:flex;align-items:center;min-height:60px;padding:6px 0;border-bottom:1px solid var(--edge)}
+.backbtn{min-height:48px;min-width:48px;padding:8px 16px;background:#fff;border:1px solid #d5dfd9}
+.wqm.focus .lesson-panel{padding-top:14px}
+@media(max-height:480px){.focusbar{padding:2px 0}.wqm.focus .lesson-panel{padding-top:8px}.wqm.focus .question-wrap{padding-top:14px;padding-bottom:16px}.wqm.focus .progress{margin:10px 0}}
+/* Partner row: one compact line; the settings button sits beside it and its panel opens below. */
+#forest-math-slot{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:10px 0 12px}
+#forest-math-slot>.wqm-v32-companion{flex:1 1 220px;min-width:0;margin:0;padding:6px 10px;gap:10px;border-radius:16px}
+#forest-math-slot .forest-math-guide img{width:40px;height:46px;border-radius:12px}
+#forest-math-slot .forest-math-guide .forest-job{display:none}
+#forest-math-slot .forest-math-guide strong{font-size:15px}
+#forest-math-slot .forest-math-guide p{font-size:13px;margin:0;line-height:1.45;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+#forest-math-slot .forest-controlbar{margin:0;flex:0 0 auto}
+#forest-math-slot .forest-controlbar span{display:none}
+#forest-math-slot .forest-controlbar button{min-height:48px}
+#forest-math-slot .forest-options,#forest-math-slot .forest-quiet{flex:0 0 100%;margin-top:0}
+/* Touch targets: 48 px for everything a child taps. */
+.nav button{min-height:48px}
+.placeboard>div{padding-left:0;padding-right:0}
+.placeboard button{min-width:48px;min-height:48px;padding:3px 8px}
+.tool-tabs button{min-width:48px;min-height:48px;padding:7px 12px}
+.keypad button{min-width:48px}
+.tenframe{grid-template-columns:repeat(5,minmax(44px,48px))}
+.tiny-link{min-height:44px;padding:10px 14px;font-size:13px}
+/* Parent page: text links look like buttons. */
+.parentview button.quiet{background:#f6e6cc;border:1px solid #e4ccaa;color:#59442e;min-height:48px}
+.parentview button.quiet:hover:not(:disabled){background:#efdcbc}
+.about-math{margin-top:26px}

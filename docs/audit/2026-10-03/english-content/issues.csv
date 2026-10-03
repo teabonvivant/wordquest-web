@@ -1,0 +1,167 @@
+﻿issue_id,check,type,severity,location,original_text,suggested_fix,evidence
+E001,7 審核,無教師簽核,S1,全庫：607 詞／80 單元／92 組合／12 拼讀課／485 例句,"WQ30 editorialStatus=""AI-edited practice release; independent educator and audio review pending""；607/607 詞 reviewStatus=""editorial-AI-reviewed; external-teacher-pending""；80/80 單元 status=""practice-preview""；WQ31 92/92 ""AI-edited; human teacher review pending""；PHONICS 12/12 ""editorial_selection_not_teacher_certified""；SHARED 485/485 例句 ""editorial_draft""；介面橫額寫明「尚未經真人教師逐題簽核」",商用前由具資歷香港小學英文教師逐項簽核（見 report.md「最少工作」）；簽核前不得以「教師審定」「課程對應」宣傳；簽核後把狀態字串改為有簽核人及日期,wq30/wq31/phonics/shared 欄位
+E002,1 結構,聽力題型與讀字題型內容重複,S2,listenChoice 601 題、listenSpell 601 題,listenChoice 與 meaning 的 prompt／選項／答案 601/601 完全一樣；listenSpell 與 spell 的 prompt／答案 601/601 完全一樣；介面說明「中文用來分清同音字」，題面仍顯示中文，孩子不用聽也能答,聽力題改為只播音、不顯示中文（或只在 U58 同音字課保留中文）；或取消這兩種題型，避免 24.4%（1202/4923）題目是重複題而虛增進度,scripts/11_question_design.py
+E003,2 干擾項,「找錯」題固定把首字母換成 z,S2,edit 題 607 題,604/607（99.5%）題為「首字母→z」（cat→zat、ship→zhip）；其餘 3 題因答案已是 z 開頭才改 b（zip→bip、zoo→boo、zebra→bebra）；4 題錯誤字串其實是真詞（lip/tip/sip→zip、too→zoo）,錯誤位置與錯誤類型要輪替（母音、尾字母、漏字、多字）；避免用真詞當「錯字」；每課至少 3 種錯法,scripts/11_question_design.py
+E004,2 干擾項,focus 題「其他字塊」從不是答案,S2,focus 題 376 題,376/376 題的選項都含「其他字塊」，答案 0 次是它；208/376（55.3%）只有 2 個選項（目標字塊＋其他字塊），等於只有一個合理選項；112 題 3 選項、56 題 4 選項,加入「目標字塊不在這個詞內」的反例題（約 1/3），並用同課易混字塊（如 at/an、th/sh）做干擾項，不少於 3 選項,scripts/11_question_design.py
+E005,2 干擾項,主題課（T01–T20）干擾項離題,S2,T 單元 240 個詞位中 72 個（30%）,"一詞一題，題目由該詞「首個單元」的拼字家族生成；詞在主題課出現時干擾項不屬該主題。例：T04 農場動物 牛→[loud,cow,cloud,out]、鴨→[cut,hut,nut,duck]、母雞→[ten,men,hen,pen]；T04 12 詞中 10 詞零個主題內干擾項；T11 自然與天氣 9/12、T17 動作一 8/12",主題課要有自己的題庫（同主題干擾項 3 個）；現有題只保留給拼字家族課,scripts/12_distractor_quality.py
+E006,2 干擾項,干擾項來源狹窄,S3,meaning/listenChoice 607 題,"607 題的干擾項 100% 來自同一單元；全庫只用 257 個不同干擾詞；每單元平均 9 詞卻只有約 7.8 個不同干擾詞；53 題（8.7%）答案字長與三個干擾項相差≥2 字母（窗→[grow,window,snow,slow]、貨車→[cut,hut,nut,truck]）",每題抽樣前先做字長／詞性配對，避免答案形狀突出,scripts/12_distractor_quality.py
+E007,1 結構,同一中文提示對應多個合理英文答案,S2,8 組中文提示、16 個詞,生氣的(mad/angry)、石頭(rock/stone)、關上(shut/close)、船(ship/boat)、碟(dish/plate)、單車(bike/bicycle)、路(way/road)、高的(high/tall)；spell／listenSpell／missing 等題以完全相符評分，寫出另一個正確同義詞會被判錯,提示加上區別（輪船／小船、緊握…）或接受同義詞；或同一課內不同時出現,qdesign.json same_zh_across_607
+E008,4 例句,詞沒有例句（亦沒有句子填空題）,S2,297/607 詞（48.9%）,297 個詞 example 為空，全部屬只在拼字家族課出現的詞（U-only 367 詞中 297 個，80.9%）；這些詞沒有 cloze 題。例：bat、can、fan、man、pan、tap、lap、jam、ham、ram、yam、ten、men、pet、net、get,補寫 297 句（≤8 詞、≤P2 詞彙、含該詞完整形態、各自獨立）並附 zhHK 翻譯；完整名單見 word_level_gaps.csv,word_level_gaps.csv
+E009,4 例句,多個詞共用同一例句,S2,41 個詞共用 20 句（每句 2–3 詞）,"The pot is hot.（pot,hot）、The tag is on the bag.、I pick a sock.、I see three sheep.、This is my mother.、Please stop at the step.、The mouse is small.、The flag is blue.、We cook dinner together.、Tom learns English on Monday.（Tom,Monday,English 三詞共用）",每詞獨立例句；共用句式會令句子填空題答案不唯一,scripts/04_examples_scan.py
+E010,1 結構,詞缺圖片,S2,297/607 詞（48.9%）無圖；230 詞圖片與例句皆無,image 欄為 null；另 67 詞有例句無圖、67 詞有圖無例句；圖為 emoji 碼點（271 個不同碼點供 310 詞，37 個碼點被 2–4 個不同詞共用：man/dad 👨、pan/cook 🍳、coat/hood 🧥、dish/tray/eat/food 🍽）,具體名詞補圖；抽象詞不強行配圖；同圖異義詞改圖,structure_out.json
+E011,5 年級,沒有年級欄位,S2,607 詞、80 單元、6057 詞典詞條,WQ30 詞條欄位只有 id/form/meaning/canonical/image/imageCaption/example/units/reviewStatus/audio，單元只有 number/track；詞典 6292 義項只有 category，其中 2889（45.9%）屬 js_* 類（junior secondary 來源檔 secondary.txt）；無法驗證「P1–P6」,為每詞標 P1–P6（或 KS1/KS2）及來源（課程綱要／教科書詞表），並提供按年級篩選,shared.json category / wq30.json keys
+E012,5 單元文字,主題課 20 單元文字全部相同的樣板,S2,T01–T20（20 單元）,"prerequisites、note、story、parentGuide、extension 五欄 20/20 完全相同（story=""把英文用在日常生活。""）；sentence 20/20 為空；focus 全空",每個主題課寫自己的家長指引及示範句,scripts/13_unit_text_leak.py
+E013,5 單元文字,家長可見文字混入編輯內部備註,S2,U02.prerequisites,U01的字塊選擇和從左到右拼寫；lap和yam先確認生活詞義，列延伸候選。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E014,5 單元文字,家長可見文字混入編輯內部備註,S2,U03.note,men是man的複數，在本課先作詞義候選，不講成加s；wet用濕乾對照，不能單看一杯水就猜。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E015,5 單元文字,家長可見文字混入編輯內部備註,S2,U04.extension,比較pin與pit可作未教示範但pit不列必會；正式延伸只用候選詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E016,5 單元文字,家長可見文字混入編輯內部備註,S2,U08.note,bed的ed不是過去式標記；fed不規則變化不能由-ed規則推導；beg/keg候選需適齡審核，不能為湊六詞硬塞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E017,5 單元文字,家長可見文字混入編輯內部備註,S2,U08.parentGuide,將床與腿分別指出，再比較bed和red共同字尾；不用一次教所有候選詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E018,5 單元文字,家長可見文字混入編輯內部備註,S2,U08.extension,本課可只發布四核心詞，把冷僻候選留待審核；整庫360目標需由其他合適詞補足，不灌水。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E019,5 單元文字,家長可見文字混入編輯內部備註,S2,U13.objective,觀察sh可在詞首或詞尾，以整字和核准片段建立聲形聯繫。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E020,5 單元文字,家長可見文字混入編輯內部備註,S2,U14.objective,在核准例詞中認識常見ch聲形，兼看詞首與尾部。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E021,5 單元文字,家長可見文字混入編輯內部備註,S2,U14.extension,teach/chair可作已教比較，若未核准詞義與先備不放正式題。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E022,5 單元文字,家長可見文字混入編輯內部備註,S2,U15.extension,薄厚對照詞先教清楚，不能只用小大混淆；teeth把單數tooth放教師延伸。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E023,5 單元文字,家長可見文字混入編輯內部備註,S2,U16.prerequisites,基本指物和單複數概念；與U15比較須兩組音訊核准。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E024,5 單元文字,家長可見文字混入編輯內部備註,S2,U17.objective,辨認ng在核准詞尾的聲形和整字意思，並比較不同元音。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E025,5 單元文字,家長可見文字混入編輯內部備註,S2,U17.note,ng不是把n、g字母名稱接起；finger等詞不能未審核就當完全相同拆音；king不談政治權力。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E026,5 單元文字,家長可見文字混入編輯內部備註,S2,U20.objective,以ph共同拼法連到核准整字讀音；長詞按音節和可讀塊分段。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E027,5 單元文字,家長可見文字混入編輯內部備註,S2,U20.prerequisites,基本字素概念，長詞可先認讀不立即要求全拼；nephew屬教師延伸候選。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E028,5 單元文字,家長可見文字混入編輯內部備註,S2,U20.note,不能所有含ph都機械對應相同拆音；nephew讀音存在變體需先核對，發布前決定是否刪除候選。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E029,5 單元文字,家長可見文字混入編輯內部備註,S2,U24.extension,green/grin用核准音訊對比與不同情境，不誤稱最小拼法差就是同音。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E030,5 單元文字,家長可見文字混入編輯內部備註,S2,U25.note,英語tr/dr在實際口音中可能有音值變化，教學以核准整字為主；dress選名詞非穿衣動詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E031,5 單元文字,家長可見文字混入編輯內部備註,S2,U28.objective,以核准例詞教i_e模式，在短詞與連綴詞之間分級。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E032,5 單元文字,家長可見文字混入編輯內部備註,S2,U28.extension,pin/pine可候選示範但未核准不正式評；smile的sm先備不足時給輔助。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E033,5 單元文字,家長可見文字混入編輯內部備註,S2,U30.objective,比較u_e核准例詞，承認整字讀音並非全部同一發音，分組與口音需清楚。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E034,5 單元文字,家長可見文字混入編輯內部備註,S2,U34.parentGuide,可以用茶葉情境學tea/leaf，但不要把所有ea說成相同音；示例只選已核准時態。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E035,5 單元文字,家長可見文字混入編輯內部備註,S2,U35.extension,road/rope不同拼法近音，只有已學才比較；不用AI臨時生成冷僻oa詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼；並刪除對 AI 的提及,家長面板「給家長：這課怎樣教？」+ objective
+E036,5 單元文字,家長可見文字混入編輯內部備註,S2,U37.objective,將igh作核准拼法塊，詞尾t有無分開，不把gh獨立讀出。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E037,5 單元文字,家長可見文字混入編輯內部備註,S2,U38.note,die常見其他義涉及死亡，此課如保留只用骰子且可刪候選；chief/field不屬本聲音組。lie有說謊義，先定躺。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E038,5 單元文字,家長可見文字混入編輯內部備註,S2,U38.parentGuide,家長知道pie是批類食物，不是任何蛋糕；成人不要為湊數強教多義不適齡詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E039,5 單元文字,家長可見文字混入編輯內部備註,S2,U38.extension,fly→flies可在U49後做對照；本課不足六合適核心詞可跨課補全庫，不硬發布冷詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E040,5 單元文字,家長可見文字混入編輯內部備註,S2,U39.objective,在已核准口音下教這組oo讀音，分層處理school拼法例外。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E041,5 單元文字,家長可見文字混入編輯內部備註,S2,U39.prerequisites,整字音與字素意識；school的ch不屬U14常見音需教師標註。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E042,5 單元文字,家長可見文字混入編輯內部備註,S2,U40.extension,將oo詞依核准讀音分類需提供音訊，不讓孩子純看字母推斷。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E043,5 單元文字,家長可見文字混入編輯內部備註,S2,U43.objective,以核准英式整字音教ar，指出拼法固定而口音/r發音可不同。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E044,5 單元文字,家長可見文字混入編輯內部備註,S2,U45.prerequisites,基本r相關拼法，her功能詞需句子；fern不是每個孩子常見，列延伸候選。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E045,5 單元文字,家長可見文字混入編輯內部備註,S2,U45.note,teacher的弱讀er不可直接全部等同bird強讀；英式發音需核准，不能用美式r教成唯一。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E046,5 單元文字,家長可見文字混入編輯內部備註,S2,U49.extension,比較baby/babies與toy/toys，只有規則明確後才加入boy/boys等核准延伸。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E047,5 單元文字,家長可見文字混入編輯內部備註,S2,U50.parentGuide,用角色昨天照片，不假造孩子經歷；整字音檔核准後才教-ed發音分類。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E048,5 單元文字,家長可見文字混入編輯內部備註,S2,U52.extension,可新增tallest核准延伸；先理解比較對象，再評詞尾與雙寫。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E049,5 單元文字,家長可見文字混入編輯內部備註,S2,U53.objective,在核准詞中觀察un-改變意思，不把所有u/n開頭詞拆成同規律。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E050,5 單元文字,家長可見文字混入編輯內部備註,S2,U54.objective,在真正可分析的詞中學re-表示再做一次，整字語音依核准詞義。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E051,5 單元文字,家長可見文字混入編輯內部備註,S2,U55.extension,toothbrush/football可以展示構詞但不把所有新合成都用AI自動造詞。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼；並刪除對 AI 的提及,家長面板「給家長：這課怎樣教？」+ objective
+E052,5 單元文字,家長可見文字混入編輯內部備註,S2,U56.extension,love/give/have分組是例外觀察不代表同音，音檔各自核准。,改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E053,5 單元文字,家長可見文字混入編輯內部備註,S2,U60.extension,"比較Let's eat, Grandma.與Let's, eat Grandma.作教師評分反例，不用後句作恐怖圖；正式孩子頁只顯示正確意思。",改寫成家長看得明的指引；刪除「候選／核准／發布／AI／不灌水」等內部字眼,家長面板「給家長：這課怎樣教？」+ objective
+E054,5 單元文字,unit story 欄是中英夾雜的關鍵字串而非情境,S3,53/80 單元,例：U09「小豬在花園dig，小熊找lid蓋好盒，舞台櫃里有wig。」、U22「小熊smile，吃snack看snail，下雪snow的故事與swim分不同場景。」（後者其實是編輯備註）、U25「免費free入場不涉及付現」,改寫成兩三句完整中文情境，英文詞獨立標示,units_text
+E055,3 zhHK,簡體字誤用,S3,U09.story；r31_chair.note,U09 story「舞台櫃里有wig」（里→裏／裡）；WQ31 r31_chair.note「也不是這個词的歷史來源」（词→詞）。全庫（WQ30/WQ31/PHONICS/FAMILY/TEACHER/6057 詞典）掃描只有這 2 處真簡體字；着、里（公里／里程碑）、酶屬港式正字可接受,櫃里→櫃裏；词→詞,scripts/10_simplified_all.py
+E056,3 zhHK,台灣式或過度直譯用語,S3,SHARED button wq-c3e2d78f3ff33572-s2,螢幕按鈕,屏幕按鈕／熒幕按鈕（統一全庫「螢幕」用字）,zh_scan.json
+E057,3 zhHK,台灣式或過度直譯用語,S3,SHARED menu wq-398991009da1d251-s2,螢幕選單,屏幕選單／熒幕選單,zh_scan.json
+E058,3 zhHK,台灣式或過度直譯用語,S3,SHARED screen wq-4cd6c2914887dd4a-s1,螢幕,屏幕（或熒幕，全庫一致）,zh_scan.json
+E059,3 zhHK,台灣式或過度直譯用語,S3,SHARED screen reader wq-7947f0cccce47b9e-s1,螢幕閱讀器,屏幕閱讀器,zh_scan.json
+E060,3 zhHK,台灣式或過度直譯用語,S3,SHARED touchscreen wq-c58893cdd0448662-s1,觸控螢幕,觸控屏幕／觸控熒幕,zh_scan.json
+E061,3 zhHK,台灣式或過度直譯用語,S3,SHARED quality control wq-59ee9d6e5d71185a-s1,品質控制,質素管制,zh_scan.json
+E062,3 zhHK,台灣式或過度直譯用語,S3,SHARED access (example) wq-a0561fd649cdb6ba,學生可以透過學校網站存取檔案。,學生可以透過學校網站查閱檔案。,zh_scan.json
+E063,3 zhHK,台灣式或過度直譯用語,S3,SHARED accessibility wq-714db89df42bdb7c,可達性（例句譯作「無障礙設施」）,無障礙程度／無障礙設施，釋義與例句統一,zh_scan.json
+E064,4 例句,義項與例句不是同一個意思,S2,SHARED wq-0380db97ec507816 conductor,"指揮（義項）／例句 ""electrical conductor""→電導體",指揮；另加義項「導體」，或把例句改為樂團指揮,shared_examples.txt
+E065,4 例句,義項與例句不是同一個意思,S2,SHARED wq-13f6df6b81279274 inequality,不等式（義項）／例句譯作「不平等」,兩個義項分開：不等式（數學）／不平等（社會）；例句配對正確義項,shared_examples.txt
+E066,4 例句,義項與例句不是同一個意思,S2,SHARED wq-f30409c51a78ed69 reflection,"倒影（義項）／例句 ""ray diagram… reflection"" 譯作「反射」",義項補「反射」；例句與義項對齊,shared_examples.txt
+E067,4 例句,義項與例句不是同一個意思,S2,SHARED wq-8270f2824111e04d solution,"解決方法（義項）／例句 ""a blue solution"" 譯作「溶液」",義項補「溶液」，或改例句,shared_examples.txt
+E068,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-6b1d752dfd10d20f pollination,義項「傳粉」／例句「授粉」,統一為「授粉」,shared_examples.txt
+E069,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-7beb7f4a57251263 hypothesis,義項「假說」／例句「假設」,統一,shared_examples.txt
+E070,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-8975c9b4ea061e54 percentage,義項「百分率」／例句「百分比」,統一為「百分比」,shared_examples.txt
+E071,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-663ee49c71db7d16 narrator,義項「敘事者」／例句「敘述者」,統一,shared_examples.txt
+E072,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-38cc3d8dfb5158d9 carbon footprint,義項「碳足跡」／例句「碳足印」,統一,shared_examples.txt
+E073,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-50e0d250228d28f8 profession,義項「專業」；例句 people from each profession,改「職業」,shared_examples.txt
+E074,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-beb134754910a4b4 cow,例句譯「一隻牛」,一頭牛,shared_examples.txt
+E075,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-d081f5e402980b26 guitar,My brother plays the guitar. 譯「我的哥哥彈結他」,我的兄弟／哥哥或弟弟（原文未指明長幼），建議改成 My dad plays…,shared_examples.txt
+E076,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-d7411f04d55d30d5 find out,Let us find out the answer.,Let's find out the answer.（小學慣用 Let's）,shared_examples.txt
+E077,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-d05aa2a15fb3c40e make,Let us make a paper boat.,Let's make a paper boat.,shared_examples.txt
+E078,4 例句,詞典義項／例句用語不一致或不自然,S3,SHARED wq-d23be8d1141403ea profit,The fictional shop made a profit… 「fictional」不自然,The shop made a profit after paying its costs.,shared_examples.txt
+E079,4 例句,詞典包含大量初中程度詞（無年級標示）,S3,6057 詞條中 2739 條（45.2%）首義項屬 js_* 類,例：acceleration、equilibrium、displacement、condensation、personification、hyperbole、photosynthesis；有例句的 482 個詞條中 220 個（45.6%）屬 js_*,小學版預設只露出 P1–P6 標示詞；js_* 詞標為「延伸（初中）」,shared.json category
+E080,3 zhHK,給小朋友的中文釋義含文法術語,S3,10 個詞,him/them/her「他／他們／她（受詞）」、read「閱讀（現在式）」「閱讀（原形）」、does「做（第三人稱）」、played/walked/wanted/jumped「（… 的過去式）」；另 45/607 詞含括號標籤,改為「他（例：I see him.）」等示範；術語只放家長面板,scripts/14_meaning_jargon.py
+E081,1 結構,同一詞形多個條目且標示不一,S2,13 個詞形、14 個多餘條目,read×3（閱讀（現在式）U34／閱讀 U54／閱讀（原形）T17）；hot（熱的／覺得熱的）；sock（襪子／襪（單隻））；bank（河岸 U18／銀行 T12）；boat（船／小船）；car（車／私家車）；night（夜晚／晚上）；beach（海灘／沙灘）,同詞同義只留一條；真正不同義項才分條，並在題面標明（bank 河岸／銀行）,qdesign.json dup_form_words
+E082,3 zhHK,工作坊（WQ30）與 6057 詞典釋義不一致,S2,94/503 個同時在詞典的詞（18.7%）；另 104/607 詞（17.1%）不在詞典,實質不同的例：chest 箱子 vs 胸口、bank 河岸 vs 銀行、drop 一滴 vs 掉下、step 一步 vs 梯級、spot 斑點 vs 發現、flight 飛行 vs 航班、right 右邊 vs 正確的、sink 洗手盆 vs 鋅盤／沉下去；用字不同（可接受）：pot 鍋／煲、man 成年男子／男人、coat 外套／大褸。不在詞典：lot、yam、ram、keg、kit、dock、sled 等,建立單一詞庫為準；WQ30 只引用詞庫義項 id，不再另寫釋義,scripts/16_wq30_vs_dict.py
+E083,5 覆蓋,P1–P3 基本詞缺口,S2,254 個詞（自訂核心表 518 項中，258 個不同詞形不在 607 詞內，其中 4 個只在 WQ31）,顏色缺 purple/white/grey/gold/silver；數字缺 four–eight、eleven、twelve、twenty、hundred、first–third；家庭缺 mum、father、brother、sister、grandma、grandpa、family、friend；職業缺 doctor/driver/farmer/dentist/pilot/chef…；問候缺 hello/hi/goodbye/please/thank/sorry/yes/no；季節缺 spring/summer/autumn/winter；月份星期缺 Tuesday/Wednesday/Thursday/Saturday 及 12 個月；疑問詞 what/where/who/when/why/how/which/whose 全缺；介詞 in/on/under/behind/between/beside…,補 P1–P3 主題課（家人、顏色、數字、問候、職業、季節月份、疑問詞、介詞），約 120–150 詞,scripts/05_coverage.py
+E084,5 覆蓋,詞典缺少香港常見詞,S3,12 詞,sunny、rainy、cloudy、windy、snowy、MTR、mooncake、lantern 在 6057 詞典中也沒有；policeman／fireman 以中性詞 police officer／firefighter 出現（可接受）；are／am 為 be 的變化形,補天氣形容詞及港式文化詞（MTR、mooncake、lantern）,scripts/05_coverage.py
+E085,6 拼讀,拼讀卡圖示與詞不符,S3,PHONICS air/th 課 moth,moth（飛蛾）symbol 為 🦋（蝴蝶）,換成飛蛾圖或不用圖示,phonics.json
+E086,6 拼讀,家長提示中英夾雜,S3,PHONICS 第 3 課 ay,「今課 ay 表示 /eɪ/。same spelling 並非所有字都只有一種讀法」,改為「相同拼法不一定同一讀音」,phonics.json
+E087,6 拼讀,同一詞三種切法,S3,FAMILY repair／WQ31 r31_repair／PHONICS air-2,"FAMILY：rep|air；WQ31：re|pair；PHONICS 焦點字母 [3,4,5]（air）。三處各自注明「不是詞根」，但同一網站同詞三種標示會混淆",統一以 air 為焦點，不再用 re|pair 或 rep|air 分割,family.json / wq31.json / phonics.json
+E088,6 拼讀,同一拼法塊混入不同讀音,S3,WQ31 ear 組：hear/near/dear/clear/year/wear,r31_wear 與 hear 同屬「ear 熟字塊」；英式讀音 hear /hɪə/、wear /weə/ 不同，只靠備註「不必然讀同一個韻」帶過；WQ30 U47 同樣的 ear 組則已把 wear/bear/pear 排除，兩處做法不一致,把 wear 移出 ear 組或分成兩個子組並標讀音,wq31.json r31_wear / wq30.json U47
+E089,6 拼讀,英式拼寫整體一致，只餘美式用詞無英式標示,S3,9 個詞典詞頭,cookie（亦見 WQ30 與例句）、apartment、eraser、movie、program、subway、sweater、vacation、vest；詞典同時有 biscuit/flat/rubber/film/programme/underground/jumper/holiday/waistcoat。拼寫（colour、favourite、centre、kilometre、tyre、realise、grey、pyjamas、mum、maths）0 個美式拼法,美式詞可保留（港式課本亦用 cookie、sweater），但加註「英式：biscuit／jumper」,scripts/09_british_spelling.py
+E090,4 例句,同一詞義兩個譯名,S3,fair：FAMILY「展覽會」vs WQ31 注「市集」,FAMILY fair-event「展覽會」；WQ31 r31_fair 注「不把另一個「市集」意思混進同一道題」,統一為「市集／園遊會」或「展覽會」,family.json / wq31.json
+E091,6 拼讀,FAMILY 提示不一致,S3,FAMILY pair／hair,hair 提示「前面加 h」；pair 提示「前面換成 p」（由 air 起算是「加」，由 hair 起算才是「換」）,統一為「由 air 前面加 p」,family.json
+E092,6 拼讀,nephew 發音有變體，單元備註要求「發布前決定是否刪除」,S3,U20 nephew,U20 note「nephew讀音存在變體需先核對，發布前決定是否刪除候選」；詞仍在單元內作 ph=/f/ 例字（英式 /ˈnefjuː/，亦有 /ˈnevjuː/）,刪除 nephew，改用 phrase/graph 等無爭議詞,wq30.json U20
+E093,5 單元文字,die 只教「骰子（單數）」,S2,U38 die,U38 note「die常見其他義涉及死亡，此課如保留只用骰子且可刪候選」；小學生會遇到的是動詞 die；骰子單數 die 低頻,刪除 die，改用 U38 的 lie（說謊）以外詞或 pie/tie/cried 已足夠,wq30.json U38
+E094,4 例句,WQ31 混成詞組非小學範圍,S3,blend 組 10 組合（延伸探索）,spork、glamping、webinar、emoticon、sitcom、staycation、vlog、motel 等低頻或成人語境詞；例 I eat with a spork.,刪除或移到「延伸」；保留 brunch、smog,wq31.json
+E095,4 例句,"U60 家長備註引用「Let's eat, Grandma.」反例",S3,U60.extension,"「比較Let's eat, Grandma.與Let's, eat Grandma.作教師評分反例，不用後句作恐怖圖」","保留標點教學，但改用中性例句（如 Let's eat, Mum.），並移除「恐怖圖」字眼",wq30.json U60
+E096,2 干擾項,選擇題答案形狀一眼可見（抽樣發現）,S3,sample #75 mother、#314 below,"mother → [mother,this,that,these]（只有 mother 是名詞）；below → [big,long,small,below]（其餘三個全是「…的」形容詞）",干擾項按詞性配對,sample_review_320.csv
+E097,2 干擾項,大小寫或多字詞令答案形狀突出,S3,12 題大小寫混用、4 題含多字詞,U30 June 與 tube/cute/cube 同題（June 是唯一大寫）；U60 I'm 與 it's/don't/can't；多字詞選項：ice cream、fire engine、teddy bear、Hong Kong 各只在 1 題以答案出現，其餘選項為單字,大寫專有名詞只與大寫詞同題；多字詞不與單字混題,scripts/11_question_design.py
+E098,2 干擾項,選擇題干擾項與答案有同音／同詞根,S3,U58、U48：10 題含同音字、17 題含同詞根,U58 兩個 meaning 題選項同時含 sea/see/there/their；U48 cats/dogs/cat/dog；教學上可接受，但 listenChoice 題面已有中文才不致誤判,保留於 U58／U48，勿跨課用,scripts/11_question_design.py
+E099,4 例句,例句不自然（未入抽樣的 WQ30 例句逐句閱讀）,S3,w_f7aa3fa6f3449667 headphones,Keep your headphones quiet.,Turn down your headphones.／Keep the volume low.,WQ30 words
+E100,4 例句,例句不自然（未入抽樣的 WQ30 例句逐句閱讀）,S3,w_e8f943da2c5fc276 skateboard,Wear a helmet on a skateboard.,Wear a helmet when you ride a skateboard.,WQ30 words
+E101,4 例句,例句不自然（未入抽樣的 WQ30 例句逐句閱讀）,S3,w_7fe9a760d8246180 ear（T13）,I can hear with my ear.,I hear with my ears.（單隻 ear 的釋義為了分辨單複數，但例句不自然）,WQ30 words
+E102,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#2，判斷M）,S2,sample#2 w_5d246d17c8ffb086 bat（U01）,bat＝球棒｜例句：（無）｜bat 球棒：詞庫第一義是蝙蝠；只教球棒而不在題面標明，會令認識蝙蝠的孩子混亂,中文標明「球棒（棒球）」，或補蝙蝠義並分題,sample_review_320.csv
+E103,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#3，判斷M）,S2,sample#3 w_6d5d3981cfb49241 can（U01）,can＝罐｜例句：（無）｜can 罐：小一最常用的 can 是助動詞「能夠」；只教「罐」宜在中文寫明「罐頭」,標「罐頭／罐」；另列助動詞 can,sample_review_320.csv
+E104,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#5，判斷M）,S3,sample#5 w_df6b8848a0d0fae0 man（U01）,man＝成年男子｜例句：（無）｜man 成年男子：過度書面，宜用「男人」,改「男人」,sample_review_320.csv
+E105,8 抽樣,詞不適合小學課程（抽樣#10，判斷R）,S2,sample#10 w_7a0d323c107da715 ram（U02）,ram＝公羊｜例句：（無）｜ram 公羊：非小學課本詞，建議換詞,刪除；小學不教，改用 am 家族已有詞或改列延伸,sample_review_320.csv
+E106,8 抽樣,詞不適合小學課程（抽樣#11，判斷R）,S2,sample#11 w_6b10fb34594114da yam（U02）,yam＝薯蕷｜例句：（無）｜yam 薯蕷：「薯蕷」過度書面，詞本身亦極少用；建議換詞,刪除；薯蕷極少用，改 ham/jam 即足夠,sample_review_320.csv
+E107,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#15，判斷M）,S3,sample#15 w_2dbe67b71323bf62 men（U03）,men＝成年男子們｜例句：（無）｜men 成年男子們：同上，宜「男人（多個）」,改「男人（多個）」,sample_review_320.csv
+E108,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#16，判斷M）,S2,sample#16 w_85b5e74eb6b2be3b net（U03）,net＝網｜例句：（無）｜net 網：太籠統（魚網？網絡？），應寫「魚網」或「球網」,改「魚網」或「球網」,sample_review_320.csv
+E109,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#17，判斷M）,S3,sample#17 w_6190bbce3a10dde1 get（U03）,get＝取得｜例句：（無）｜get 取得：書面；宜「得到／拿到」,改「得到／拿到」,sample_review_320.csv
+E110,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#21，判斷M）,S3,sample#21 w_77cf5f0d87c2ef51 win（U04）,win＝勝出｜例句：（無）｜win 勝出：書面；宜「贏」,改「贏」,sample_review_320.csv
+E111,8 抽樣,詞不適合小學課程（抽樣#23，判斷M）,S3,sample#23 w_f12244cc4eb2c536 kit（U04）,kit＝工具套裝｜例句：（無）｜kit 工具套裝：低頻，解釋亦不自然,刪除或改「工具箱」,sample_review_320.csv
+E112,8 抽樣,與其他詞共用例句（抽樣#26，判斷M）,S3,sample#26 w_9780307a426f8ec9 hot（U05）,hot＝熱的｜例句：The pot is hot.｜The pot is hot. 與 pot 共用同一例句,為 pot 另寫句子，如 Mum cooks in a big pot.,sample_review_320.csv
+E113,8 抽樣,與其他詞共用例句（抽樣#27，判斷M）,S3,sample#27 w_878e8168b54780be pot（U05）,pot＝鍋｜例句：The pot is hot.｜The pot is hot. 與 hot 共用；pot 詞庫為「煲」，香港日常說「煲」,pot 改「煲」；另寫獨立例句,sample_review_320.csv
+E114,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#28，判斷R）,S1,sample#28 w_10622e0d04fd73a6 lot（U05）,lot＝一塊地｜例句：（無）｜lot 一塊地：常用義是 a lot（很多），「一塊地」是冷僻義項，會教錯重點,改為「很多（a lot）」或刪除；一塊地是冷僻義,sample_review_320.csv
+E115,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#29，判斷M）,S3,sample#29 w_baeee33e1e3c8d12 mug（U06）,mug＝有柄杯｜例句：（無）｜mug 有柄杯：冗長，宜「馬克杯」或「杯（有柄）」,改「馬克杯」,sample_review_320.csv
+E116,8 抽樣,與其他詞共用例句（抽樣#35，判斷M）,S3,sample#35 w_b5829c079370662b bag（U07）,bag＝袋｜例句：The tag is on the bag.｜The tag is on the bag. 與 tag 共用同一句,tag 另寫句子,sample_review_320.csv
+E117,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#38，判斷M）,S3,sample#38 w_efb26a4cdb6ff0ba fed（U08）,fed＝餵過｜例句：（無）｜fed 餵過：時態標示不準（fed＝餵了／餵（過去式）），且無例句,改「餵（過去式 feed）」或刪除,sample_review_320.csv
+E118,8 抽樣,詞不適合小學課程（抽樣#39，判斷M）,S3,sample#39 w_c2ea83f49b0b27de sled（U08）,sled＝雪橇｜例句：（無）｜sled 雪橇：香港課本少用；建議列延伸,改列延伸,sample_review_320.csv
+E119,8 抽樣,詞不適合小學課程（抽樣#41，判斷R）,S2,sample#41 w_769414b7520ed9dd keg（U08）,keg＝小桶｜例句：（無）｜keg 小桶：小學不會學的詞，湊字尾家族用；建議換詞,刪除；非小學詞,sample_review_320.csv
+E120,8 抽樣,找錯題錯字為真詞（抽樣#47，判斷M）,S3,sample#47 w_09fc41107fc9c276 tip（U10）,tip＝尖端｜例句：（無）｜tip 尖端：tip 在小學多指「提示／小費」；另 edit 題把 lip/tip/sip 改成 zip，而 zip 是同一單元的真詞,tip 改「提示／小費」並改 edit 題錯字,sample_review_320.csv
+E121,8 抽樣,找錯題錯字為真詞（抽樣#48，判斷M）,S3,sample#48 w_93122f0a7ad9417c sip（U10）,sip＝小口喝｜例句：I take a sip.｜sip：edit 題答案 zip 是同單元的真詞，孩子會困惑,edit 題避免 zip（同單元真詞）,sample_review_320.csv
+E122,8 抽樣,與其他詞共用例句（抽樣#51，判斷M）,S3,"sample#51 w_304b65d3dcf07b47 sock（U11,U19）",sock＝襪子｜例句：I pick a sock.｜sock：例句「I pick a sock.」與 pick 共用且不自然；sock 在 U11/U19/T07 有三個義項標示不一,另寫獨立例句並統一三處義項,sample_review_320.csv
+E123,8 抽樣,詞不適合小學課程（抽樣#54，判斷M）,S3,sample#54 w_f19ad3b1871ff3d1 dock（U11）,dock＝碼頭｜例句：（無）｜dock 碼頭：低頻，宜列延伸,改列延伸,sample_review_320.csv
+E124,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#66，判斷R）,S1,sample#66 w_bb138e880e134365 chest（U14）,chest＝箱子｜例句：（無）｜chest 箱子：身體部位的 chest（胸口）才是小學常用義；與詞庫 6057 條的「胸口」相反,改「胸口」；箱子不是小學義項，與詞典 6057 條相反,sample_review_320.csv
+E125,8 抽樣,與其他詞共用例句（抽樣#70，判斷M）,S3,"sample#70 w_36db83450c3a6736 three（U15,U33）",three＝三｜例句：I see three sheep.｜three：例句與 see 共用,three 另寫獨立例句,sample_review_320.csv
+E126,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#74，判斷M）,S2,sample#74 w_707ec08d35a86a15 them（U16）,them＝他們（受詞）｜例句：（無）｜them 他們（受詞）：漏了「她們／它們」，且「受詞」是文法術語,改「他們／她們／它們」，術語放家長面板,sample_review_320.csv
+E127,8 抽樣,干擾項令答案一眼可見（抽樣#75，判斷M）,S3,sample#75 w_b50e06738e954c65 mother（U16）,"mother＝母親｜例句：This is my mother.｜mother：例句與 this 共用；詞庫為「媽媽」；選擇題 [mother, this, that, these] 只有 mother 是名詞，一眼看穿",更換干擾項為名詞，另寫獨立例句,sample_review_320.csv
+E128,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#80，判斷R）,S1,sample#80 w_f70a8e7638a878fc bank（U18）,bank＝河岸｜例句：（無）｜bank 河岸：小學生只學 bank=銀行；T12 另有 bank=銀行，同一網站兩個義項各自獨立成題,改為「銀行」，河岸刪除或標「河岸（river bank）」放延伸,sample_review_320.csv
+E129,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#85，判斷M）,S3,sample#85 w_2ca168e8e58387dd kick（U19）,kick＝踢球｜例句：（無）｜kick 踢球：kick＝踢；「踢球」把義項寫窄,改「踢」,sample_review_320.csv
+E130,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#86，判斷M）,S3,sample#86 w_c1e56d0cbddaa728 pack（U19）,pack＝收拾行李｜例句：（無）｜pack 收拾行李：義項過窄（pack＝收拾／包裝）,改「收拾／包裝」,sample_review_320.csv
+E131,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#93，判斷M）,S2,sample#93 w_137d985c89803b83 skip（U21）,skip＝跳步｜例句：（無）｜skip 跳步：意思不清（蹦跳？跳繩？略過？）,改「略過」或刪除；說明跳繩另用 skipping rope,sample_review_320.csv
+E132,8 抽樣,與其他詞共用例句（抽樣#97，判斷M）,S3,"sample#97 w_393946c5c6ce3853 small（U22,U52,T19）",small＝小的｜例句：The mouse is small.｜small：例句與 mouse 共用,small 另寫獨立例句,sample_review_320.csv
+E133,8 抽樣,與其他詞共用例句（抽樣#100，判斷M）,S3,sample#100 w_9a1457f7a3707496 blue（U23）,blue＝藍色的｜例句：The flag is blue.｜blue：例句與 flag 共用,blue 另寫獨立例句,sample_review_320.csv
+E134,8 抽樣,與其他詞共用例句（抽樣#102，判斷M）,S3,sample#102 w_5924e245c406cba9 flag（U23）,flag＝旗｜例句：The flag is blue.｜flag：例句與 blue 共用,flag 另寫獨立例句,sample_review_320.csv
+E135,8 抽樣,與其他詞共用例句（抽樣#108，判斷M）,S3,"sample#108 w_40afe6254283a08b tree（U25,U33,T11）",tree＝樹｜例句：The tree is tall.｜tree：例句與 tall 共用,tree 另寫獨立例句,sample_review_320.csv
+E136,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#110，判斷M）,S2,sample#110 w_b32dfd8b04c2942c drop（U25）,drop＝一滴｜例句：（無）｜drop 一滴：小學常用的是動詞「掉下」；只教名詞「一滴」,改動詞「掉下」,sample_review_320.csv
+E137,8 抽樣,例句不自然（抽樣#118，判斷M）,S3,"sample#118 w_52de8bd58dd8c47a jump（U26,U50,T18）",jump＝跳｜例句：Jump over the small line.｜jump：例句 Jump over the small line. 不自然（small line？）,改 Jump over the line.,sample_review_320.csv
+E138,8 抽樣,詞不適合小學課程（抽樣#128，判斷R）,S2,sample#128 w_439868818bfd911a mule（U30）,mule＝騾｜例句：（無）｜mule 騾：非小學詞，建議換詞,刪除；改用常見動物,sample_review_320.csv
+E139,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#134，判斷M）,S2,sample#134 w_2906e41f2a16633f way（U32）,way＝路｜例句：（無）｜way 路：主要義是「方法／途徑」；「路」與 road 同義，易混,改「方法」或刪除，與 road 分開,sample_review_320.csv
+E140,8 抽樣,與其他詞共用例句（抽樣#137，判斷M）,S3,"sample#137 w_38941e6d91db7e8d see（U33,U58）",see＝看見｜例句：I see three sheep.｜see：例句與 three 共用,see 另寫獨立例句,sample_review_320.csv
+E141,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#142，判斷M）,S2,sample#142 w_d0d660b0c07e14e0 read（U34）,read＝閱讀（現在式）｜例句：（無）｜read 閱讀（現在式）：向孩子顯示「現在式」；同一個 read 在網站有 3 個條目、3 種標示,三個 read 合併為一個，標明現在式讀 /riːd/；過去式 read 放過去式課,sample_review_320.csv
+E142,8 抽樣,與其他詞共用例句（抽樣#143，判斷M）,S3,sample#143 w_0e29b801b697e61d boat（U35）,boat＝船｜例句：The goat is by the boat.｜boat：例句 The goat is by the boat. 與 goat 共用；boat 在 U35 是「船」、T10 是「小船」,boat 另寫獨立例句；統一「船」,sample_review_320.csv
+E143,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#144，判斷M）,S2,sample#144 w_fe394d0fffa23aec road（U35）,road＝路｜例句：（無）｜road 路：HK 應寫「馬路」，「路」太籠統,改「馬路」,sample_review_320.csv
+E144,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#150，判斷M）,S2,sample#150 w_4d5758b1f4dbfae8 flight（U37）,flight＝飛行｜例句：（無）｜flight 飛行：flight 多指「航班」；「飛行」是 flying,改「航班」,sample_review_320.csv
+E145,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#151，判斷M）,S2,sample#151 w_20e66b3da20ba9b4 lie（U38）,lie＝躺｜例句：（無）｜lie 躺：lie 最常見是「說謊」；單教「躺」而無例句，易與過去式 lay 混,改「說謊」或與 lay 分開教,sample_review_320.csv
+E146,8 抽樣,與其他詞共用例句（抽樣#152，判斷M）,S3,sample#152 w_fe91213c33563e58 food（U39）,food＝食物｜例句：The spoon is by the food.｜food：例句與 spoon 共用,food 另寫獨立例句,sample_review_320.csv
+E147,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#165，判斷M）,S3,sample#165 w_7d99a381d04e4b6c joy（U41）,joy＝喜悅｜例句：（無）｜joy 喜悅：過度書面，低頻,改「開心」或刪除,sample_review_320.csv
+E148,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#166，判斷M）,S3,sample#166 w_063e39850c9805d1 out（U42）,out＝外面｜例句：（無）｜out 外面：與 outside（在外面）幾乎同義，沒有說明分別,與 outside 合併或說明「外面（outside）」,sample_review_320.csv
+E149,8 抽樣,與其他詞共用例句（抽樣#168，判斷M）,S3,"sample#168 w_1e9ff9a11056e747 mouse（U42,T04）",mouse＝老鼠｜例句：The mouse is small.｜mouse：例句與 small 共用,mouse 另寫獨立例句,sample_review_320.csv
+E150,8 抽樣,同詞兩處釋義不一（抽樣#171，判斷M）,S3,sample#171 w_02486dfb966b14cc car（U43）,car＝車｜例句：The car is in the park.｜car 車：U43 是「車」，T10 是「私家車」，同一詞兩種解釋,統一為「汽車」,sample_review_320.csv
+E151,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#174，判斷M）,S3,sample#174 w_d391f2a39c24d3a5 card（U43）,card＝卡｜例句：（無）｜card 卡：太短；詞庫為「卡片」,改「卡片」,sample_review_320.csv
+E152,8 抽樣,義項選擇錯誤／優先次序不當（抽樣#183，判斷M）,S2,sample#183 w_0878bcb05ed6504d her（U45）,her＝她（受詞）｜例句：（無）｜her 她（受詞）：her 小學最常見是「她的」,改「她的」,sample_review_320.csv
+E153,8 抽樣,詞不適合小學課程（抽樣#184，判斷R）,S2,sample#184 w_3fe25346da7efdef fern（U45）,fern＝蕨類｜例句：（無）｜fern 蕨類：非小學詞，建議換詞,刪除；列為延伸,sample_review_320.csv
+E154,8 抽樣,與其他詞共用例句（抽樣#198，判斷M）,S3,sample#198 w_8ce729ab34641202 puppies（U49）,puppies＝小狗（複數）｜例句：The puppies have toys.｜puppies：例句與 toys 共用,puppies 另寫獨立例句,sample_review_320.csv
+E155,8 抽樣,與其他詞共用例句（抽樣#199，判斷M）,S3,sample#199 w_57712cc2a3891af7 toys（U49）,toys＝玩具（複數）｜例句：The puppies have toys.｜toys：例句與 puppies 共用,toys 另寫獨立例句,sample_review_320.csv
+E156,8 抽樣,與其他詞共用例句（抽樣#207，判斷M）,S3,"sample#207 w_48c6d04ae24c9e35 tall（U52,T19）",tall＝高的｜例句：The tree is tall.｜tall：例句與 tree 共用,tall 另寫獨立例句,sample_review_320.csv
+E157,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#212，判斷M）,S2,sample#212 w_2f26a0e84db9ccc5 read（U54）,read＝閱讀｜例句：（無）｜read 閱讀：同一詞第二個條目，與 U34、T17 的標示不一致,與 U34、T17 的 read 合併,sample_review_320.csv
+E158,8 抽樣,與其他詞共用例句（抽樣#217，判斷M）,S3,sample#217 w_763c429c7faa6e3c raincoat（U55）,raincoat＝雨衣｜例句：The raincoat is in the bedroom.｜raincoat：例句與 bedroom 共用；WQ30 寫「雨衣」，詞庫與 WQ31 寫「雨褸」，同網站不一致,統一「雨褸」,sample_review_320.csv
+E159,8 抽樣,與其他詞共用例句（抽樣#222，判斷M）,S3,sample#222 w_a7d807be7d100a6d one（U56）,one＝一｜例句：I have one book.｜one：例句與 have 共用,one 另寫獨立例句,sample_review_320.csv
+E160,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#223，判斷M）,S3,sample#223 w_251156ec12e521bf does（U56）,does＝做（第三人稱）｜例句：（無）｜does 做（第三人稱）：文法術語；does 多用作助動詞，小學生更常見,does 改為「（助動詞）」示範,sample_review_320.csv
+E161,8 抽樣,與其他詞共用例句（抽樣#229，判斷M）,S3,sample#229 w_260e557dd5c3b525 Monday（U59）,Monday＝星期一｜例句：Tom learns English on Monday.｜Monday：同一句 Tom learns English on Monday. 供 3 個詞用,Monday 另寫獨立例句,sample_review_320.csv
+E162,8 抽樣,與其他詞共用例句（抽樣#232，判斷M）,S3,sample#232 w_3d0dbd0e68767a9c Tom（U59）,Tom＝湯姆（示例名）｜例句：Tom learns English on Monday.｜Tom：人名當詞彙；例句與 Monday、English 共用,Tom 改為句式，不當詞彙,sample_review_320.csv
+E163,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#307，判斷M）,S3,sample#307 w_7d8b9a1a79e2dc4a cold（T16）,cold＝覺得冷的｜例句：I feel cold without my coat.｜cold 覺得冷的：不自然；宜「冷的／凍的」,改「冷的／凍的」,sample_review_320.csv
+E164,8 抽樣,中文釋義過窄、過書面或含糊（抽樣#311，判斷M）,S3,sample#311 w_8f767e6a4d9df135 carry（T18）,carry＝搬運｜例句：I carry my schoolbag.｜carry 搬運：書面；例句 I carry my schoolbag. 應是「背／拿」,改「拿／背」，例句配合,sample_review_320.csv
+E165,8 抽樣,干擾項令答案一眼可見（抽樣#314，判斷M）,S3,sample#314 w_257b945830173d77 below（T19）,"below＝在下方｜例句：The boat is below the bridge.｜below：選擇題 [big, long, small, below] 其餘三個全是「…的」形容詞，答案一眼可見",更換干擾項為介詞/副詞,sample_review_320.csv
+E166,8 抽樣,與其他詞共用例句（抽樣#318，判斷M）,S3,sample#318 w_6abe886448241469 dinner（T20）,dinner＝晚餐｜例句：We cook dinner together.｜dinner：例句與 cook 共用,dinner 另寫獨立例句,sample_review_320.csv

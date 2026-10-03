@@ -24,7 +24,7 @@ with sync_playwright() as pw:
  mc(p,'selecttool:angle');p.locator('#wqm-app-host #tool-r3-angle').focus();p.keyboard.press('End');mc(p,'r3tool:angle:-5');ck('Protractor shows 175 degree bounded value',lambda:req('175°' in p.locator('#wqm-app-host #tool-region').inner_text()))
  mc(p,'selecttool:solid')
  for key in ['sx','sy','sz']:p.locator('#wqm-app-host #tool-r3-'+key).focus();p.keyboard.press('End')
- ck('Unit-cube stack has 125 cubes, not a flat cuboid placeholder',lambda:req('125 粒' in p.locator('#wqm-app-host #tool-region').inner_text() and p.locator('#wqm-app-host svg.r3-diagram g').count()==125))
+ ck('Unit-cube stack has 125 cubes, not a flat cuboid placeholder',lambda:req(any(w in p.locator('#wqm-app-host #tool-region').inner_text() for w in ('125 粒','125 個')) and p.locator('#wqm-app-host svg.r3-diagram g').count()==125))
  p.set_viewport_size({'width':320,'height':844});p.screenshot(path=str(R/'r3_evidence/new_solid_320.png'),full_page=False)
  ck('3D tool 320px width has no horizontal overflow',lambda:p.locator('#wqm-app-host .shell').evaluate('(x)=>x.scrollWidth<=x.clientWidth+1'))
  p.set_viewport_size({'width':1280,'height':900});mc(p,'selecttool:ruler');p.locator('#wqm-app-host #tool-r3-rulerStart').focus();p.keyboard.press('End');ck('Ruler start/end remain ordered at right bound',lambda:req('20 − 19 = 1' in p.locator('#wqm-app-host #tool-region').inner_text()))

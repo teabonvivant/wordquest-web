@@ -94,8 +94,11 @@ def main():
             start_game(pg, 'sky-rescue', play=True)
             before = pg.evaluate('__w34.fxStats()')
             pg.evaluate("(()=>{__w34.g().score=900;})()")
-            pg.wait_for_timeout(600)
-            after = pg.evaluate('__w34.fxStats()')
+            for _ in range(12):  # up to 3 s: the game reads the score on its next frame, which comes late on a busy machine
+                pg.wait_for_timeout(250)
+                after = pg.evaluate('__w34.fxStats()')
+                if after['pops'] > before['pops']:
+                    break
             C.check('FX on: a score jump pops a number', after['pops'] > before['pops'], f'{before["pops"]} -> {after["pops"]}', base=True)
             # --- reduced motion: the card animations stop
             ctx.pages[0].emulate_media(reduced_motion='reduce')

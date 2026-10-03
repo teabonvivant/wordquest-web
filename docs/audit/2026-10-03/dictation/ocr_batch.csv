@@ -1,0 +1,31 @@
+﻿image,psm,status,app_sec,cand,selected,truth,hit,recall,extra,pending,extra_sample,missed
+p1_clean_print.png,3,已辨認 35 個候選項目，請對照原稿。,2.5,35,32,16,16,1.0,16,17,P / English / Dictation / Dictation / date / Oct / Fri / faiR / RB / cite / Sik / Thi,
+p1_clean_print.png,6,已辨認 36 個候選項目，請對照原稿。,2.2,36,33,16,16,1.0,17,19,P / English / Dictation / Dictation / date / Oct / Fri / fiR / EA / RB / cite / Sk,
+p1_clean_print.png,11,已辨認 36 個候選項目，請對照原稿。,2.2,36,33,16,16,1.0,17,19,P / English / Dictation / Dictation / date / Oct / Fri / AR / f / f / St / Til,
+p2b_phone_straight.jpg,3,已辨認 37 個候選項目，請對照原稿。,6.9,37,35,16,16,1.0,19,24,P / English / Dictation / Unit / Fruit / and / Food / Dictation / date / Oct / Fri / fal,
+p2b_phone_straight.jpg,6,已辨認 35 個候選項目，請對照原稿。,6.6,35,32,16,16,1.0,16,21,P / English / Dictation / Dictation / date / Oct / Fri / fi / 2A / RAB / 7t / R,
+p2b_phone_straight.jpg,11,已辨認 40 個候選項目，請對照原稿。,6.7,40,38,16,16,1.0,22,21,P / English / Dictation / Unit / Fruit / and / Food / Dictation / date / Oct / Fri / fai,
+p2_phone_skew_shadow.jpg,3,已辨認 24 個候選項目，請對照原稿。,6.4,24,23,16,8,0.5,15,13,a2 / English / Dictation / Fruit / and / Food / on / date / Oct / Fri / eA / 2A,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite
+p2_phone_skew_shadow.jpg,6,已辨認 42 個候選項目，請對照原稿。,6.5,42,37,16,8,0.5,29,27,P / English / Dictation / ynit / Fruit / and / Food / station / date / Oct / Fri / nc,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite
+p2_phone_skew_shadow.jpg,11,已辨認 31 個候選項目，請對照原稿。,6.4,31,29,16,8,0.5,21,17,English / Dictation / Fruit / and / Food / on / date / Oct / Fri / eA / pine / pe,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite
+p3_dark.jpg,3,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,5.3,0,0,16,0,0.0,0,0,,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p3_dark.jpg,6,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,5.0,0,0,16,0,0.0,0,0,,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p3_dark.jpg,11,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,5.3,0,0,16,0,0.0,0,0,,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p4_blurry.jpg,3,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,4.1,0,0,16,0,0.0,0,0,,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p4_blurry.jpg,6,已辨認 10 個候選項目，請對照原稿。,4.1,10,3,16,0,0.0,3,3,| / a / a,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p4_blurry.jpg,11,已辨認 1 個候選項目，請對照原稿。,4.2,1,1,16,0,0.0,1,1,a,pencil / ruler / eraser / school bag / ice-cream / t-shirt / grandmother / favourite / wednesday / colour / light / pillow
+p7_bilingual_table.jpg,3,已辨認 6 個候選項目，請對照原稿。,5.9,6,4,12,1,0.08,3,2,p / nit / Food,breakfast / lunch / dinner / hungry / thirsty / juice / sandwich / noodles / rice / vegetable / sweet
+p7_bilingual_table.jpg,6,已辨認 27 個候選項目，請對照原稿。,6.2,27,21,12,4,0.33,17,16,p3 / Unit / Food / a / sh / eakfast / Fe / sh / Ee / it / aH / Jui,breakfast / lunch / dinner / hungry / thirsty / juice / sandwich / noodles
+p7_bilingual_table.jpg,11,已辨認 20 個候選項目，請對照原稿。,6.2,20,17,12,3,0.25,14,15,P / nit / Food / 3A / kfast / ies / eee / BREY / sh / tl / a / noo,breakfast / lunch / dinner / hungry / thirsty / juice / sandwich / noodles / vegetable
+p6_handwritten.jpg,3,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,6.3,0,0,8,0,0.0,0,0,,apple / banana / orange / ice-cream / school bag / teacher / friend / beautiful
+p6_handwritten.jpg,6,已辨認 191 個候選項目，請對照原稿。,11.8,191,153,8,0,0.0,153,153,ee / po / o / pe / A / fee / be / qn4 / pe / Be / | / Un,apple / banana / orange / ice-cream / school bag / teacher / friend / beautiful
+p6_handwritten.jpg,11,已辨認 79 個候選項目，請對照原稿。,7.0,79,59,8,0,0.0,59,58,ae / a / ce / a / TA / oe / ee / a / a / i / i / B,apple / banana / orange / ice-cream / school bag / teacher / friend / beautiful
+p6b_handwritten_flat.png,3,已辨認 8 個候選項目，請對照原稿。,1.3,8,8,8,3,0.38,5,8,bangna / schoo / ag / peccher / beaytiful,apple / banana / school bag / teacher / beautiful
+p6b_handwritten_flat.png,6,已辨認 9 個候選項目，請對照原稿。,1.3,9,9,8,2,0.25,7,8,appte / bangna / schoo / bag / peccher / frend / beaytiful,apple / banana / school bag / teacher / friend / beautiful
+p6b_handwritten_flat.png,11,已辨認 10 個候選項目，請對照原稿。,1.3,10,10,8,1,0.12,9,9,app'e / bangna / tce / cream / schoo / bag / peecher / frend / beaytiful,apple / banana / ice-cream / school bag / teacher / friend / beautiful
+p5_blank_paper.jpg,3,這個範圍未辨認到英文。請看原相，重新框選或手動補字。,4.9,0,0,0,0,,0,0,,
+p5_blank_paper.jpg,6,已辨認 96 個候選項目，請對照原稿。,6.4,96,75,0,0,,75,75,ae / a4 / oe / Ba / a / es / a / ie / a / ee / a / a,
+p5_blank_paper.jpg,11,已辨認 142 個候選項目，請對照原稿。,6.5,142,114,0,0,,114,114,z / ie / e / s / BS / a / a / ee / a / fo / Pi / ee,
+p10_300_words.jpg,3,已辨認 123 個候選項目，請對照原稿。,7.8,123,123,119,119,1.0,4,16,P / Revision / List / words,
+p10_300_words.jpg,6,已辨認 125 個候選項目，請對照原稿。,8.2,125,124,119,119,1.0,5,17,en / P / Revision / List / words,
+p10_300_words.jpg,11,已辨認 192 個候選項目，請對照原稿。,8.2,192,127,119,119,1.0,8,20,P / Revision / List / words / ee / lA / a / 7h,

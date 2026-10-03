@@ -20,22 +20,30 @@ PW = U.PW
 def reach_summary(pg, title, words):
     """Real UI: range-new -> paste text -> organise -> 核對及加入 dialog with the confirmation ticked."""
     pg.evaluate("location.hash='#range-new'")
+    pg.wait_for_timeout(300)
+    # R3.5: a draft left over from an earlier segment reopens on step 2 or 3; go back to step 1 like a user would
+    pg.evaluate("""[...document.querySelectorAll('[data-p40="step"][data-step="1"]')].find(x=>x.getBoundingClientRect().height>0)?.click()""")
     pg.wait_for_selector('#range-title', timeout=8000)
     pg.fill('#range-title', title)
     pg.fill('#raw-words', '\n'.join('%s | 字' % w for w in words))
     pg.click('[data-imp="parse"]')
     pg.wait_for_timeout(400)
     pg.evaluate("document.querySelector('#v20-confirm-next').click()")  # DOM click: the phone launcher overlap is a p10 layout topic
-    pg.wait_for_selector('#v20-summary[open]', timeout=8000)
+    pg.wait_for_function("(()=>{const s=document.querySelector('#v20-summary');return !!s&&!s.hidden&&getComputedStyle(s).display!=='none'&&s.getBoundingClientRect().height>0;})()", timeout=8000)  # R3.5: the summary is the inline third step, not a pop-up
     pg.check('#confirm-import')
 
 
 def dialog_open(pg):
-    return pg.evaluate("!!document.querySelector('#v20-summary')?.open")
+    return pg.evaluate("(()=>{const s=document.querySelector('#v20-summary');return !!s&&!s.hidden&&getComputedStyle(s).display!=='none'&&s.getBoundingClientRect().height>0;})()")  # R3.5: 'dialog' = the inline summary step is showing
 
 
 def gate_in_app(pg):
     return pg.evaluate("!!document.querySelector('#app #v23-parent-password')")
+
+
+def gate_in_page(pg):
+    """R3.5: the page-level gate (#v23-parent-password) is on screen."""
+    return pg.evaluate("(()=>{const e=document.querySelector('#v23-parent-password');return !!e&&e.getBoundingClientRect().height>0;})()")
 
 
 def titles(pg):
@@ -70,63 +78,70 @@ def run(p, w, h, touch, label):
             pass
 
     def import_dialog():
+        # R3.5: the import summary is an inline step of the page (not a pop-up), so an expired confirmation shows the
+        # page-level parent gate. What must still hold: the draft survives, nothing is written without a fresh press.
         reach_summary(pg, 'Unit A', ['apple', 'banana'])
-        R.check(c('1 summary dialog reached through the real import flow'), lambda: require(dialog_open(pg)))
+        R.check(c('1 summary step reached through the real import flow'), lambda: require(dialog_open(pg)))
         pg.evaluate('__T.expireParent()')
         pg.click('#v20-save-range')
         pg.wait_for_timeout(500)
-        R.check(c('2 expired: the dialog stays open'), lambda: require(dialog_open(pg)))
-        R.check(c('3 expired: an explicit message is shown INSIDE the dialog'), lambda: require(pg.evaluate("document.querySelector('#v20-summary #wq20-gate')?.innerText||''").count('家長驗證已過期，請重新輸入密碼') == 1))
-        R.check(c('4 expired: the password box is inside the dialog and reachable (top-most element)'), lambda: require(U.wq33.hit(pg, '#v20-summary #wq20-gate-password') is True))
-        R.check(c('5 expired: no gate was drawn into #app behind the dialog'), lambda: require(not gate_in_app(pg)))
-        R.check(c('6 expired: nothing was saved'), lambda: require('Unit A' not in titles(pg)))
-        soft(lambda: pg.fill('#wq20-gate-password', 'wrong-password-1', timeout=2000))
-        soft(lambda: pg.click('#wq20-gate [data-wq20="gate-unlock"]', timeout=2000))
+        R.check(c('2 expired: the draft is kept and nothing is saved'), lambda: require(pg.evaluate("__T.importDraft().title") == 'Unit A' and 'Unit A' not in titles(pg)))
+        R.check(c('3 expired: an explicit parent-check page with a password box is shown'), lambda: require(
+            pg.evaluate("document.querySelector('#app h1')?.innerText||''") == '家長確認' and gate_in_page(pg)))
+        R.check(c('4 expired: the password box is reachable (top-most element)'), lambda: require(U.wq33.hit(pg, '#v23-parent-password') is True))
+        R.check(c('5 expired: no pop-up is open behind the gate'), lambda: require(not pg.evaluate("!!document.querySelector('dialog[open]')")))
+        soft(lambda: pg.fill('#v23-parent-password', 'wrong-password-1', timeout=2000))
+        soft(lambda: pg.click('[data-v23="parent-unlock"]', timeout=2000))
         pg.wait_for_timeout(1500)
-        R.check(c('7 wrong password: error shown in the dialog, still locked'), lambda: require('密碼不正確' in pg.evaluate("document.querySelector('#wq20-gate-error')?.textContent||''") and not pg.evaluate('__T.parentAllowed()')))
-        soft(lambda: pg.fill('#wq20-gate-password', PW, timeout=2000))
-        soft(lambda: pg.click('#wq20-gate [data-wq20="gate-unlock"]', timeout=2000))
+        R.check(c('7 wrong password: error shown, still locked'), lambda: require('密碼不正確' in pg.evaluate("document.querySelector('#v23-parent-error')?.textContent||''") and not pg.evaluate('__T.parentAllowed()')))
+        soft(lambda: pg.fill('#v23-parent-password', PW, timeout=2000))
+        soft(lambda: pg.click('[data-v23="parent-unlock"]', timeout=2000))
         soft(lambda: pg.wait_for_function('__T.parentAllowed()', timeout=3000))
-        pg.wait_for_timeout(300)
-        R.check(c('8 correct password: back in the same dialog, told to press the button again'), lambda: require(dialog_open(pg) and '請再按一次「確認加入」' in pg.evaluate("document.querySelector('#v20-summary #wq20-gate')?.innerText||''")))
-        R.check(c('9 draft survives: title, words and the ticked confirmation are intact'), lambda: require(
-            pg.evaluate("__T.importDraft().title") == 'Unit A' and pg.evaluate("document.querySelectorAll('#v20-summary .v20-summary-list li').length") == 2 and pg.evaluate("document.querySelector('#confirm-import').checked")))
+        pg.wait_for_timeout(500)
+        R.check(c('8 correct password: back on the summary step, no automatic save'), lambda: require(dialog_open(pg) and 'Unit A' not in titles(pg)))
+        R.check(c('9 draft survives: title and both words are intact (the tick must be given again)'), lambda: require(
+            pg.evaluate("__T.importDraft().title") == 'Unit A' and pg.evaluate("document.querySelectorAll('#v20-summary .v20-summary-list li').length") == 2))
         R.check(c('10 nothing was written by the verification itself (no automatic replay)'), lambda: require('Unit A' not in titles(pg)))
-        pg.evaluate('__T.parentFor(60000)')  # baseline has no in-dialog gate: give it the same starting point
+        soft(lambda: pg.check('#confirm-import', timeout=3000))
+        pg.evaluate('__T.parentFor(60000)')
         soft(lambda: pg.click('#v20-save-range', timeout=3000))
         pg.wait_for_timeout(800)
-        R.check(c('11 pressing 確認加入 again saves the range and closes the dialog'), lambda: require('Unit A' in titles(pg) and not dialog_open(pg)))
+        R.check(c('11 pressing the save button again saves the range and leaves the step'), lambda: require('Unit A' in titles(pg) and not dialog_open(pg)))
         R.check(c('12 the saved range has both words'), lambda: require(len([x for x in pg.evaluate('__T.db().words') if x['en'] in ('apple', 'banana') and x['rangeId'] in [r['id'] for r in pg.evaluate('__T.db().ranges') if r['title'] == 'Unit A']]) == 2))
 
     def second_import():
-        # Enter submits the password, and a second expiry in the same dialog works again
+        # Enter submits the password, and a second expiry in the same flow works again
         reach_summary(pg, 'Unit B', ['cherry', 'grape'])
         pg.evaluate('__T.expireParent()')
         pg.click('#v20-save-range')
-        soft(lambda: pg.wait_for_selector('#v20-summary #wq20-gate-password', timeout=3000))
-        soft(lambda: pg.fill('#wq20-gate-password', PW, timeout=2000))
-        soft(lambda: pg.press('#wq20-gate-password', 'Enter', timeout=2000))
+        soft(lambda: pg.wait_for_selector('#v23-parent-password', timeout=3000))
+        soft(lambda: pg.fill('#v23-parent-password', PW, timeout=2000))
+        soft(lambda: pg.press('#v23-parent-password', 'Enter', timeout=2000))
         soft(lambda: pg.wait_for_function('__T.parentAllowed()', timeout=3000))
+        pg.wait_for_timeout(500)
         R.check(c('13 Enter in the password box verifies'), lambda: require(dialog_open(pg) and pg.evaluate('__T.parentAllowed()')))
+        soft(lambda: pg.check('#confirm-import', timeout=3000))
         pg.evaluate('__T.expireParent()')
         pg.click('#v20-save-range')
         pg.wait_for_timeout(400)
-        R.check(c('14 a second expiry in the same dialog shows the box again (single box)'), lambda: require(pg.evaluate("document.querySelectorAll('#wq20-gate').length") == 1 and pg.evaluate("!!document.querySelector('#wq20-gate-password')") and dialog_open(pg)))
-        R.check(c('15 buttons that need no parent check still work while expired ("繼續選字" closes the dialog)'),
-                lambda: (pg.click('#v20-summary [data-imp="close-dialog"] >> nth=-1'), pg.wait_for_timeout(300), require(not dialog_open(pg)))[2])
-        R.check(c('16 draft is still there after closing the dialog'), lambda: require(pg.evaluate("__T.importDraft().title") == 'Unit B' and 'Unit B' not in titles(pg)))
+        R.check(c('14 a second expiry shows the password box again (single box)'), lambda: require(pg.evaluate("document.querySelectorAll('#v23-parent-password').length") == 1 and gate_in_page(pg)))
+        R.check(c('15 buttons that need no parent check still work while expired (back to the child home)'),
+                lambda: (pg.click('#app a[href="#kid"]'), pg.wait_for_timeout(300), require(pg.evaluate('location.hash') == '#kid'))[2])
+        R.check(c('16 draft is still there after leaving the gate'), lambda: require(pg.evaluate("__T.importDraft().title") == 'Unit B' and 'Unit B' not in titles(pg)))
 
     def real_expiry():
         reach_summary(pg, 'Unit C', ['lemon', 'mango'])
         pg.evaluate('__T.parentFor(1200)')
         pg.wait_for_timeout(1700)  # real elapsed time instead of the forced reset
-        R.check(c('17 real expiry (1.2 s) behaves the same'), lambda: (pg.click('#v20-save-range'), pg.wait_for_timeout(400), require(pg.evaluate("!!document.querySelector('#v20-summary #wq20-gate-password')") and not gate_in_app(pg)))[2])
-        soft(lambda: pg.fill('#wq20-gate-password', PW, timeout=2000))
-        soft(lambda: pg.click('#wq20-gate [data-wq20="gate-unlock"]', timeout=2000))
+        R.check(c('17 real expiry (1.2 s) behaves the same'), lambda: (pg.click('#v20-save-range'), pg.wait_for_timeout(400), require(gate_in_page(pg)))[2])
+        soft(lambda: pg.fill('#v23-parent-password', PW, timeout=2000))
+        soft(lambda: pg.click('[data-v23="parent-unlock"]', timeout=2000))
+        pg.wait_for_timeout(500)
+        soft(lambda: pg.check('#confirm-import', timeout=3000))
         pg.evaluate('__T.parentFor(60000)')
         soft(lambda: pg.click('#v20-save-range', timeout=3000))
         pg.wait_for_timeout(800)
-        R.check(c('18 after verification the save goes through and nothing is left over'), lambda: require('Unit C' in titles(pg) and not gate_in_app(pg) and not pg.evaluate("!!document.querySelector('#wq20-gate')")))
+        R.check(c('18 after verification the save goes through and nothing is left over'), lambda: require('Unit C' in titles(pg) and not gate_in_page(pg) and not pg.evaluate("!!document.querySelector('#wq20-gate')")))
 
     def not_expired():
         reach_summary(pg, 'Unit D', ['melon', 'peach'])
@@ -146,7 +161,7 @@ def run(p, w, h, touch, label):
         pg.click('#r3-dialog [data-r3="export-family"]')
         pg.wait_for_timeout(500)
         R.check(c('20 family dialog: expired -> message and password box inside that dialog'), lambda: require(
-            pg.evaluate("document.querySelector('#r3-dialog #wq20-gate')?.innerText||''").count('家長驗證已過期，請重新輸入密碼') == 1 and U.wq33.hit(pg, '#r3-dialog #wq20-gate-password') is True and not gate_in_app(pg)))
+            pg.evaluate("document.querySelector('#r3-dialog #wq20-gate')?.innerText||''").count('家長確認已過期，請重新輸入密碼') == 1 and U.wq33.hit(pg, '#r3-dialog #wq20-gate-password') is True and not gate_in_app(pg)))
         soft(lambda: pg.fill('#wq20-gate-password', PW, timeout=2000))
         soft(lambda: pg.press('#wq20-gate-password', 'Enter', timeout=2000))
         soft(lambda: pg.wait_for_function('__T.parentAllowed()', timeout=3000))
@@ -170,7 +185,7 @@ def run(p, w, h, touch, label):
         soft(lambda: pg.fill('#wq20-gate-password', PW, timeout=1500))
         soft(lambda: pg.click('#wq20-gate [data-wq20="gate-unlock"]', timeout=1500))
         pg.wait_for_timeout(600)
-        R.check(c('23 five wrong passwords lock the box for a while, even a correct one is refused'), lambda: require('嘗試太多' in pg.evaluate("document.querySelector('#wq20-gate-error')?.textContent||''") and not pg.evaluate('__T.parentAllowed()')))
+        R.check(c('23 five wrong passwords lock the box for a while, even a correct one is refused'), lambda: require('試了太多次' in pg.evaluate("document.querySelector('#wq20-gate-error')?.textContent||''") and not pg.evaluate('__T.parentAllowed()')))
 
     seg('import dialog', import_dialog)
     seg('second import', second_import)

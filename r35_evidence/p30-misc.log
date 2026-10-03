@@ -1,0 +1,23 @@
+# p30 arcade extras  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS copy pass: every one of the 1445 CSV originals occurs exactly as often in R3.4 + p30 as in the R3.4 base (p30 adds none) | []
+PASS 動感效果 switch is present in the sound panel | True
+PASS 動感效果 switch works (click flips WQFX.on) | (True, False)
+PASS [B] 動感效果 switch survives a rewrite of the old panel sentence (copy-pass simulation) | True
+PASS [B] 動感效果 switch still works after that rewrite
+PASS [B] play view eyebrow reads 遊戲街機・已投 1 枚金幣 (one line, no English tag) | 遊戲街機・已投 1 枚金幣
+PASS [B] S2-06 操作說明 opens an in-page dialog with the touch sentence (no browser alert) | ('遺跡郵差・玩法\n\n左右滑動換跑道，輕按跳躍，向下滑動滑行。\n\n跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過去。\n\n知道了', [])
+PASS [B] the help dialog closes and the game stays paused on its card | {'stars': 59, 'used': 1, 'playing': False, 'reason': 'ready', 'game': 'ruins-courier', 'phase': 'ready', 'lives': 3, 'run': 'coin_3440212e-d67f-4299-b32a-55ee7b732c4b', 'done': False, 'route': 'playground', 'overlay': True, 'title': '準備好了？', 'ledger': 1}
+PASS [B] S3-10 the numbers 1 to 16 are labelled 第幾拍 | {'t': '第幾拍（先選樂器，再按數字）', 'next': 'step0', 'fs': 16}
+PASS [B] S3-10 the label stays after the tools are redrawn | True
+PASS [B] result stars are read as N 顆星 (not 粒星) | 3 顆星
+PASS [B] result card with no coin left: says so in plain words and offers 去賺金幣：做一個小練習 | 金幣用完了。做完 1 組練習，就得 1 枚金幣。
+PASS no console errors (phone play view) | []
+PASS [B] S2-06 desktop ready card shows the keyboard sentence only | 按 ← → 換路，↑ 跳起，↓ 滑行。
+PASS [B] S2-06 desktop help dialog shows the keyboard sentence | 按 ← → 換路，↑ 跳起，↓ 滑行。
+PASS no console errors (desktop play view) | []
+PASS [B] copy 6: landscape progress line is shown in full in all 26 games (not clipped, e.g. 124/15…) | []
+PASS [B] landscape progress line is >= 14px (26/26) | []
+PASS [B] copy 6: dock captions read 返回 and 縮小 (離開 / 還原 are gone) | ({'c': '"返回"', 'al': '儲存並返回', 't': '儲存並返回'}, {'c': '"縮小"', 'al': '放大／縮小', 't': '放大／縮小'})
+PASS the full words stay in aria-label (保存並返回 / 放大／還原) | ('儲存並返回', '放大／縮小')
+PASS no console errors (landscape, 26 games) | []
+SUMMARY p30 arcade extras: 21/21 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 158s

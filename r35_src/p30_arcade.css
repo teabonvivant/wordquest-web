@@ -1,0 +1,229 @@
+/* R3.5 p30: arcade lobby, game cards, intro dialog, ready / result panel and arcade-wide touch help.
+ * Additive only. Every selector is either a new p30- class or scoped under one, so the R3.3 / R3.4 rules stay the fallback.
+ * Colour rule for text: dark ink on a white or cream panel (contrast >= 7:1), never white text on a pastel gradient. */
+
+/* ---- tokens ------------------------------------------------------------------------------------------------------------------- */
+.p30-lobby,.a28-dialog.p30-intro,.a28-play,.p30-help,.p30-top-btn{--p30-ink:#1f2f3d;--p30-sub:#465462;--p30-line:#d8d2c3;--p30-pri:#2c4752;--p30-ok:#1f5a45;--p30-off:#4a5560}
+
+/* ---- lobby: top block (coins first) --------------------------------------------------------------------------------------------- */
+.p30-lobby{max-width:1100px;margin:0 auto;padding-bottom:88px;color:var(--p30-ink)}
+.p30-lobby h1{font-size:26px;line-height:1.3;margin:2px 0 12px;letter-spacing:0}
+.p30-top{display:grid;gap:12px;padding:16px;border-radius:20px;background:#fff6dc;border:2px solid #e3cb86}
+.p30-wallet{display:flex;align-items:center;gap:14px}
+.p30-wallet .a28-coin{width:64px;height:64px;font-size:32px;flex:none;border-width:3px}
+.p30-wallet small{display:block;font-size:16px;font-weight:800;line-height:1.3;color:#5b4710}
+.p30-wallet strong{display:block;font-size:56px;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--p30-ink)}
+.p30-wallet strong span{font-size:18px;font-weight:700;color:var(--p30-sub);margin-left:4px}
+.p30-slogan{margin:0;font-size:18px;line-height:1.6;font-weight:800;color:var(--p30-ink)}
+.p30-earn{display:grid;gap:6px}
+.p30-lobby .p30-earn .btn,.p30-guest .btn{width:100%;min-height:56px;font-size:19px;font-weight:850;justify-content:center}
+.p30-earn small,.p30-note{display:block;font-size:14px;line-height:1.5;color:var(--p30-sub);margin:0}
+.p30-lobby .notice,.p30-lobby .a28-break,.p30-lobby .a28-resume{font-size:16px;line-height:1.6;margin:14px 0 0}
+.p30-lobby .notice{display:grid;gap:10px;justify-items:stretch}
+.p30-lobby .notice .btn{width:100%;justify-content:center}
+.p30-top-guest .p30-slogan{font-size:20px}
+.p30-lobby .a28-break span,.p30-lobby .a28-resume p{font-size:16px;line-height:1.6;color:var(--p30-ink)}
+.p30-lobby .a28-resume h2{font-size:20px}
+.p30-lobby .a28-eyebrow{font-size:14px;letter-spacing:0;color:var(--p30-sub);text-transform:none}
+.p30-lobby .a28-resume .btn,.p30-lobby .a28-break .btn,.p30-lobby .notice .btn{min-height:48px;font-size:16px}
+
+@media(orientation:landscape) and (max-height:550px){
+ .p30-top{grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:20px;padding:10px 16px}
+ .p30-wallet strong{font-size:44px}
+ .p30-top .p30-earn{grid-column:1/-1}
+}
+
+/* ---- lobby: sections, chips ------------------------------------------------------------------------------------------------------ */
+.p30-sec{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:24px 0 10px}
+.p30-sec h2{font-size:22px;line-height:1.3;margin:0}
+.p30-sec span{font-size:15px;color:var(--p30-sub)}
+.p30-lobby .a28-tabs{display:flex;flex-wrap:wrap;gap:8px;overflow:visible;padding:0 0 14px}
+.p30-lobby .a28-tabs .a28-btn{min-width:0;min-height:44px;padding:0 16px;font-size:15px;border-radius:24px}
+.p30-lobby .a28-tabs .btn.soft{background:#e9e4d6;color:#2f4650;border-color:#d8d2c3}
+.p30-lobby .a28-tabs .btn.primary{background:var(--p30-pri);color:#fff;border-color:var(--p30-pri)}
+.p30-empty{font-size:16px;line-height:1.6;color:var(--p30-sub);margin:6px 0 0}
+
+/* ---- lobby: game cards (one column on phones, big picture first) ----------------------------------------------------------------------- */
+.p30-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.p30-card{display:grid;grid-template-columns:minmax(0,1fr);row-gap:6px;align-content:start;padding:10px;border-radius:18px;background:#fff;border:2px solid var(--p30-line);
+ box-shadow:0 3px 0 color-mix(in srgb,var(--machine) 60%,#fff);color:var(--p30-ink)}
+.a28-cabinet.p30-card[data-r2-new="true"]:before{content:none;display:none}
+.p30-shot{position:relative;overflow:hidden;border:3px solid #263347;border-radius:12px;background:#253449}
+.p30-shot .a28-thumb{aspect-ratio:10/7;width:100%;display:block;background:#eee9dd}
+.p30-shot .a28-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+.p30-badge{position:absolute;left:8px;bottom:8px;padding:3px 10px;border-radius:999px;font-size:14px;line-height:1.35;font-weight:850;color:#fff;background:var(--p30-ok);box-shadow:0 1px 3px #0005}
+.p30-badge.shut{background:var(--p30-off)}
+.p30-card .a28-cabinet-body{display:contents}
+.p30-card h3{margin:6px 2px 0;font-size:22px;line-height:1.35;color:var(--p30-ink);letter-spacing:0}
+.p30-card .a28-cabinet-body p{min-height:0;margin:0 2px;color:var(--p30-ink)}
+.p30-card .p30-en{font-size:14px;line-height:1.4;font-weight:700;letter-spacing:.4px;color:var(--p30-sub)}
+.p30-card .p30-desc{font-size:15px;line-height:1.6;color:#2f3d4a}
+.p30-card .a28-cabinet-body .a28-btn{width:100%;min-height:52px;margin-top:8px;font-size:18px;font-weight:850;padding:8px 12px;border-radius:14px;box-shadow:none}
+.p30-card .a28-cabinet-body .a28-btn.primary{background:var(--p30-pri)!important;color:#fff!important;border:2px solid var(--p30-pri)!important}
+.p30-card .a28-cabinet-body .a28-btn.secondary{background:#fff!important;color:var(--p30-pri)!important;border:2px solid var(--p30-pri)!important}
+.p30-card .p30-note{text-align:center;font-size:14px;line-height:1.5;color:var(--p30-sub)}
+.p30-card .wq32-cabinet-buddy{display:flex;align-items:center;justify-content:center;gap:8px;margin:0;padding:0;background:none;border:0}
+.p30-card .wq32-cabinet-buddy img{width:28px;height:28px;border-radius:50%}
+.p30-card .wq32-cabinet-buddy span{font-size:14px;line-height:1.4;color:var(--p30-sub);font-weight:700}
+@media(min-width:640px){
+ .p30-cards{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+}
+
+/* ---- lobby: folded sections ------------------------------------------------------------------------------------------------------------- */
+.p30-fold{margin:22px 0 0;border:2px solid var(--p30-line);border-radius:18px;background:#fff;overflow:hidden}
+.p30-fold>summary{display:flex;align-items:center;gap:10px;min-height:56px;padding:8px 16px;font-size:18px;font-weight:850;line-height:1.4;cursor:pointer;color:var(--p30-ink);list-style:none}
+.p30-fold>summary::-webkit-details-marker{display:none}
+.p30-fold>summary::after{content:'＋';margin-left:auto;font-size:22px;font-weight:700}
+.p30-fold[open]>summary::after{content:'－'}
+.p30-fold-hint{font-size:14px;font-weight:600;color:var(--p30-sub)}
+.p30-fold-body{padding:0 12px 14px}
+.p30-more .p30-fold-body{display:grid;gap:14px}
+.p30-more,.p30-more p,.p30-more small,.p30-more summary,.p30-more span,.p30-more strong,.p30-more h2,.p30-more h3{font-size:inherit}
+.p30-more .a28-status-strip{grid-template-columns:1fr 1fr;gap:10px;margin:0;padding:12px;border-radius:14px}
+.p30-more .a28-status-strip>div{display:block;padding:6px 8px;border:0}
+.p30-more .a28-status-strip small{display:block;font-size:14px;color:var(--p30-sub);white-space:normal}
+.p30-more .a28-status-strip strong{display:block;font-size:24px;margin-top:2px}
+.p30-more .a28-status-strip strong span{font-size:14px;color:var(--p30-sub)}
+.p30-more .a28-wardrobe{display:grid;grid-template-columns:1fr;gap:12px;margin:0;padding:14px;border-radius:16px}
+.p30-more .a28-wardrobe .a28-eyebrow{font-size:14px;letter-spacing:0;text-transform:none;color:var(--p30-sub)}
+.p30-more .a28-wardrobe h2{font-size:20px;margin:0 0 6px}
+.p30-more .a28-wardrobe>div>p:last-child{font-size:15px;line-height:1.6;color:var(--p30-ink)}
+.p30-more .a28-skins{gap:8px}
+.p30-more .a28-skins article{padding:8px 6px 10px}
+.p30-more .a28-skins h3{font-size:15px;line-height:1.3;margin:0 0 4px;color:var(--p30-ink)}
+.p30-more .a28-skins p{font-size:14px;min-height:0;margin:0 0 6px;color:var(--p30-sub)}
+.p30-more .a28-skins .a28-btn{font-size:14px;min-height:48px;padding:6px}
+.p30-more details.a28-rules,.p30-more details.r2-records{margin:0;padding:0;border:2px solid var(--p30-line);border-radius:14px;background:#fff;font-size:15px;line-height:1.7;color:var(--p30-ink)}
+.p30-more details.a28-rules>summary,.p30-more details.r2-records>summary{display:flex;align-items:center;min-height:52px;padding:8px 14px;font-size:16px;font-weight:800;color:var(--p30-ink);cursor:pointer}
+.p30-more details.a28-rules>p,.p30-more details.r2-records>p,.p30-more details.r2-records>div{margin:0 14px 12px;font-size:15px}
+.p30-more .r2-score-list span,.p30-more .r2-score-list strong{font-size:15px}
+.p30-more .p30-parent-link{display:flex;min-height:52px;font-size:16px;justify-content:center}
+.p30-more #wq32-classmates,.p30-more .wq32-classmate-strip{margin:0}
+.p30-more .wq32-classmate-copy p,.p30-more .wq32-classmate-copy h2{font-size:15px;line-height:1.6}
+.p30-more .wq32-classmate-copy h2{font-size:18px}
+.p30-more .wq32-actions .btn,.p30-more .wq32-actions button{min-height:48px;font-size:15px}
+
+/* ---- lobby: back to top (S2-18) ----------------------------------------------------------------------------------------------------------- */
+.p30-top-btn{position:fixed;left:12px;bottom:76px;z-index:90;display:none;align-items:center;justify-content:center;min-width:48px;min-height:48px;padding:0 16px;border-radius:24px;border:2px solid var(--p30-pri);background:#fff;color:var(--p30-pri);font-size:16px;font-weight:850;box-shadow:0 4px 14px #1f2f3d33;cursor:pointer}
+.p30-top-btn.show{display:inline-flex}
+@media(min-width:900px){.p30-top-btn{bottom:24px}}
+
+/* ---- intro dialog (看玩法) ---------------------------------------------------------------------------------------------------------------- */
+.a28-dialog.p30-intro{color:var(--p30-ink)}
+.p30-intro .a28-dialog-top{align-items:center;padding:12px 14px 10px 18px}
+.p30-intro .a28-dialog-top .a28-eyebrow{font-size:14px;letter-spacing:.5px;color:var(--p30-sub)}
+.p30-intro .a28-dialog-top h2{font-size:24px;line-height:1.3}
+.p30-intro .p30-close{flex:none;min-width:48px;min-height:48px;padding:0 14px;gap:6px;border:2px solid var(--p30-pri)!important;border-radius:14px;background:#fff!important;color:var(--p30-pri)!important;font-size:16px;font-weight:850;box-shadow:none}
+.p30-intro .p30-close span:first-child{font-size:20px;line-height:1}
+.p30-intro .a28-preview{display:flex;flex-direction:column}
+.p30-intro .a28-preview>span{position:static;display:block;width:100%;box-sizing:border-box;font-size:14px;line-height:1.4;padding:6px 12px;text-align:center;border-radius:0;background:#1f2f3d;color:#fff}
+.p30-intro .a28-dialog-content{padding:14px 18px 0;font-size:16px;line-height:1.7}
+.p30-intro .wq32-guide{margin:0 0 10px}
+.p30-intro .wq32-guide .wq32-name{font-size:15px}
+.p30-intro .wq32-guide .wq32-line{font-size:15px;line-height:1.5}
+.p30-intro .p30-how{margin:0 0 8px;font-size:18px;line-height:1.55;font-weight:850;color:var(--p30-ink);text-wrap:balance}
+.p30-intro .p30-goal{display:block;margin:0 0 8px;padding:8px 12px;border-radius:12px;background:#e4efe2;color:#23392f;font-size:16px;line-height:1.5}
+.p30-intro .a28-preview-progress{margin:0 0 10px;padding:9px 12px;font-size:16px;line-height:1.5;color:var(--p30-ink)}
+.p30-intro details.p30-guide-more{margin:0 0 10px;font-size:15px;line-height:1.6;color:var(--p30-sub)}
+.p30-intro details.p30-guide-more>summary{min-height:48px;display:flex;align-items:center;font-weight:800;cursor:pointer}
+.p30-actions{position:sticky;bottom:0;z-index:2;display:grid;gap:6px;margin:0 -18px;padding:10px 18px 12px;background:#fffaf1;border-top:1px solid #eadfc8;box-shadow:0 -6px 12px #fffaf1}
+.p30-actions .btn,.p30-actions a.btn{width:100%;min-height:56px;margin:0;font-size:18px;font-weight:850;justify-content:center;border-radius:14px}
+.p30-actions .p30-before{margin:0;font-size:16px;font-weight:800;color:#6b3f00;text-align:center}
+.p30-actions .p30-after,.p30-intro .p30-after{margin:0;font-size:14px;line-height:1.5;color:var(--p30-sub);text-align:center}
+.p30-intro .small.muted{font-size:14px;color:var(--p30-sub);line-height:1.5}
+.p30-intro .p30-fine{margin:0 0 12px;padding:0}
+@media(max-height:700px){.p30-intro .wq32-guide{display:none}}
+.p30-how .p30-t{display:none}
+@media(pointer:coarse){.p30-how .p30-t{display:inline}.p30-how .p30-k{display:none}}
+
+/* short landscape (phones turned sideways): picture on the left, words and the main button on the right, so nothing hides under the button bar */
+@media(orientation:landscape) and (max-height:550px){
+ .a28-dialog.p30-intro[open]{display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);align-items:start;max-height:96dvh;width:calc(100vw - 16px)}
+ .p30-intro .a28-dialog-top{grid-column:1;grid-row:1;padding:8px 10px 6px 14px}
+ .p30-intro .a28-dialog-top h2{font-size:20px}
+ .p30-intro .a28-preview{grid-column:1;grid-row:2;align-self:stretch}
+ .p30-intro .a28-preview canvas,.p30-intro .a28-preview img{max-width:100%;height:auto}
+ .p30-intro .a28-dialog-content{grid-column:2;grid-row:1/span 2;padding:10px 14px 0;line-height:1.55}
+ .p30-intro .p30-how{font-size:17px;margin:0 0 6px}
+ .p30-intro .p30-goal{padding:6px 10px;font-size:15px;margin:0 0 6px}
+ .p30-intro .a28-preview-progress{margin:0 0 6px;padding:6px 10px;font-size:15px}
+ .p30-actions{margin:0 -14px;padding:8px 14px 10px;gap:4px}
+ .p30-actions .btn,.p30-actions a.btn{min-height:52px}
+}
+
+/* ---- touch / keyboard help: one switch for the whole arcade --------------------------------------------------------------------------- */
+.p30-help{padding:0;width:min(420px,calc(100vw - 24px));max-height:92dvh;overflow:auto;border:0;border-radius:20px;background:#fffaf1;color:var(--p30-ink);box-shadow:0 20px 60px #111e4299}
+.p30-help::backdrop{background:#172939bd}
+.p30-help-in{padding:18px}
+.p30-help h2{margin:0 0 8px;font-size:22px}
+.p30-help p{margin:0 0 10px;font-size:18px;line-height:1.6;font-weight:800}
+.p30-help .p30-goal{display:block;margin:0 0 12px;padding:8px 12px;border-radius:12px;background:#e4efe2;color:#23392f;font-size:16px;line-height:1.5;font-weight:700}
+.p30-help .btn{width:100%;min-height:56px;font-size:18px;font-weight:850;justify-content:center}
+
+/* ---- ready / result card: bigger text, short labels, note on top --------------------------------------------------------------------- */
+.a28-viewport .pg-overlay[hidden]{display:none!important}
+.a28-play .a28-overlaycard{display:flex;flex-direction:column;gap:10px;box-sizing:border-box;color:var(--p30-ink)}
+.a28-play .a28-overlaycard>.wq32-overlay-face{align-self:center}
+.a28-play .a28-overlaycard>h2{margin:0;font-size:24px;line-height:1.3}
+.a28-play .a28-overlaycard>p{margin:0;font-size:16px;line-height:1.55;color:var(--p30-ink)}
+.a28-play .a28-overlaycard>small{text-wrap:balance;order:-3;display:block;margin:0;padding:6px 10px;border-radius:10px;background:#fff0c9;color:#5b3f00;font-size:16px;line-height:1.4;font-weight:800;text-align:center}
+.a28-play .a28-overlaycard .wq34-goalbox{display:grid;gap:8px;margin:0;text-align:left}
+.a28-play .a28-overlaycard .wq34-goal{font-size:16px;line-height:1.5;padding:8px 12px;color:#23392f}
+.a28-play .a28-overlaycard .wq34-how{display:block;font-size:16px;line-height:1.55;color:var(--p30-ink);font-weight:700;padding:0 2px;-webkit-line-clamp:unset;overflow:visible}
+.a28-play .a28-overlaycard .wq34-earn{font-size:16px;line-height:1.5;padding:8px 12px;margin:0;color:#5b3f00}
+.a28-play .a28-overlaycard .row{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:0}
+.a28-play .a28-overlaycard .row .btn,.a28-play .a28-overlaycard .row a.btn{width:100%;min-height:52px;font-size:18px;font-weight:850;justify-content:center;padding:8px 14px}
+.a28-play .a28-overlaycard .wq34-line b{font-size:34px}
+.a28-play .a28-overlaycard .wq34-line>span,.a28-play .a28-overlaycard .wq34-line .wq34-best,.a28-play .a28-overlaycard .wq34-line .wq34-new{font-size:16px}
+.a28-play .a28-overlaycard .wq34-line .wq34-best,.a28-play .a28-overlaycard .wq34-line.sub{color:#4a5660}
+.a28-play .a28-overlaycard .wq34-line .wq34-new{color:#6b3f00}
+.a28-play .a28-overlaycard .wq34-stars{font-size:38px}
+.a28-play .a28-overlaycard .wq34-stars span.on{color:#c27a00;text-shadow:0 2px 0 #7a4a00}
+.a28-play .a28-overlaycard .wq34-goal,.a28-play .a28-overlaycard .wq34-how{text-wrap:balance}
+
+/* phones in portrait: the card is a panel under the canvas, so it never shrinks with the picture */
+@media(max-width:700px){
+ .a28-play:not(.r2-immersive) .a28-viewport.p30-below{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;aspect-ratio:auto;height:auto;overflow:hidden}
+ .a28-play:not(.r2-immersive) .a28-viewport.p30-below .pg-overlay{position:static;inset:auto;display:block;width:100%;padding:10px;background:#243349;backdrop-filter:none;overflow:visible;scroll-margin-bottom:76px}
+ .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overlaycard{width:100%;max-width:none;max-height:none;overflow:visible;padding:14px;border-radius:16px;background:#fff9ec;box-shadow:none}
+ .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overlaycard>.wq32-overlay-face{display:none}
+ .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overlay-symbol{display:none}
+ .a28-play.p30-card-on:not(.r2-immersive) .a28-touch-controls{display:none}
+ .a28-play:not(.r2-immersive) .wq32-gamebar .wq32-game-state{display:none}
+ .a28-play.p30-card-on:not(.r2-immersive) .wq32-gamebar{display:none}
+}
+
+/* short landscape (phones turned sideways): text on the left, buttons on the right, nothing clipped */
+@media(orientation:landscape) and (max-height:550px){
+ .a28-play .a28-viewport .pg-overlay{padding:6px}
+ .a28-play .a28-overlaycard{display:grid;grid-template-columns:minmax(0,1fr) minmax(138px,38%);column-gap:14px;row-gap:6px;align-content:center;align-items:center;width:min(580px,98%);max-height:100%;overflow:auto;padding:10px 14px;text-align:left}
+ .a28-play .a28-overlaycard>*{grid-column:1}
+ .a28-play .a28-overlaycard>small{grid-column:1/-1}
+ .a28-play .a28-overlaycard>.row{grid-column:2;grid-row:2/span 8;align-self:center}
+ .a28-play .a28-overlaycard>.wq32-overlay-face,.a28-play .a28-overlaycard>.a28-overlay-symbol{display:none}
+ .a28-play .a28-overlaycard>h2{font-size:22px;text-align:left}
+ .a28-play .a28-overlaycard .wq34-result{margin:0}
+ .a28-play .a28-overlaycard .wq34-line{justify-content:flex-start}
+ .a28-play .a28-overlaycard .wq34-stars{justify-content:flex-start;font-size:30px;margin-bottom:2px}
+ .a28-play .a28-overlaycard .wq34-line b{font-size:28px}
+}
+
+/* ---- in-game chrome: sizes and contrast --------------------------------------------------------------------------------------------------- */
+.a28-play .a28-eyebrow{font-size:13px;letter-spacing:.6px;color:#44586a}
+.a28-play .a28-playhead p{font-size:14px;color:#44586a}
+.a28-play .a28-playstats>*{font-size:14px}
+.a28-play .a28-game-footer>span{font-size:14px;color:#44586a}
+.a28-play .a28-game-footer .btn{min-height:48px;font-size:15px}
+.a28-play .a28-tools button{min-height:48px}
+.a28-play #pg-hint{font-size:15px;line-height:1.6;color:#3a4958}
+.a28-play .r2-audio>summary{display:flex;align-items:center;min-height:52px;font-size:16px}
+.a28-play .r2-audio input[type=range]{min-height:44px;height:44px}
+.wq34-rotate button{min-width:48px;min-height:48px;font-size:18px}
+.p30-beat-cap{flex:1 0 100%;margin:8px 0 0;font-size:16px;font-weight:800;color:var(--p30-ink);text-align:center}
+.a28-tools .p30-beat-cap{order:0}
+@media(orientation:landscape) and (max-height:550px){
+ /* immersive dock: full-text labels stay in aria-label, the visible captions are short but never ambiguous */
+ .a28-play.r2-immersive .a28-game-footer>span{white-space:normal;max-height:none;overflow:visible;text-overflow:clip;font-size:14px;line-height:1.35}
+ .a28-play.r2-immersive .a28-game-footer .btn{min-height:44px}
+ .a28-play.r2-immersive .a28-tools .btn{min-height:44px}
+}

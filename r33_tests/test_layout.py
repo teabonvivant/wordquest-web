@@ -45,10 +45,9 @@ def n3(p):
             for hash_ in ['#kid', '#practice', '#game', '#parent']:
                 goto(pg, hash_, 450)
                 fab, navs = rect(pg, '#wqm-launch'), nav_rects(pg)
-                over = [n['label'] for n in navs if overlap(fab, n)]
-                share = {n['label']: f"{100 * overlap_area(fab, n) / (n['w'] * n['h']):.0f}%" for n in navs if overlap(fab, n)}
-                check(f'N3 {tag} {hash_} floating button clear of every nav tab', len(navs) == 4 and not over,
-                      f'fab={fmt(fab)} overlaps={over} covered_share={share}')
+                # R3.5 (p10): the floating maths button is gone on purpose; maths is the 數學 nav tab, so nothing floats over the 5 tabs.
+                check(f'N3 {tag} {hash_} no floating button; the nav has 5 tabs including 數學', fab is None and len(navs) == 5,
+                      f'fab={fmt(fab)} tabs={[n["label"] for n in navs]}')
                 bad = []
                 for n in navs:
                     ok, why = hit_centre(pg, f'#wq29-nav a[href="{n["href"]}"]')
@@ -67,28 +66,17 @@ def n3(p):
                         if math_open(pg):
                             pg.evaluate("WQMathApp.close()")
                             pg.wait_for_timeout(400)
-            # the launcher itself stays visible, inside the viewport, and still opens maths
+            # R3.5 (p10): maths opens from the 數學 nav tab (it replaced the floating launcher)
             goto(pg, '#kid', 400)
-            fab = rect(pg, '#wqm-launch')
-            inside = bool(fab) and fab['l'] >= 0 and fab['t'] >= 0 and fab['r'] <= w and fab['b'] <= h
-            check(f'N3 {tag} floating button still visible inside the viewport on #kid', inside, f'fab={fmt(fab)}')
-            ok, why = hit_centre(pg, '#wqm-launch')
-            check(f'N3 {tag} floating button centre hits itself', ok, why)
-            if fab:
-                tap_sel(pg, '#wqm-launch', 'touch' if w <= 768 else 'mouse')
+            ok, why = hit_centre(pg, '#wq29-nav .p10-nav-math')
+            check(f'N3 {tag} 數學 nav tab centre hits itself', ok, why)
+            tap_sel(pg, '#wq29-nav .p10-nav-math', 'touch' if w <= 768 else 'mouse')
+            pg.wait_for_timeout(500)
+            check(f'N3 {tag} tapping the 數學 nav tab opens the maths dialog', math_open(pg))
+            if math_open(pg):
+                pg.evaluate("WQMathApp.close()")
                 pg.wait_for_timeout(500)
-                check(f'N3 {tag} tapping the floating button opens the maths dialog', math_open(pg))
-                if math_open(pg):
-                    pg.evaluate("WQMathApp.close()")
-                    pg.wait_for_timeout(500)
             if w == 390:
-                # focus flows hide the launcher (a launcher on top of a lesson / game / import page is a mis-tap trap)
-                for r in FOCUS_ROUTES:
-                    goto(pg, '#' + r, 600)
-                    disp = pg.evaluate("getComputedStyle(document.querySelector('#wqm-launch')).display")
-                    check(f'N3 {tag} floating button hidden on focus route #{r}', disp == 'none', f'display={disp}')
-                goto(pg, '#kid', 500)
-                check(f'N3 {tag} floating button visible again back on #kid', visible(pg, '#wqm-launch'))
                 check(f'N3 {tag} no page errors', not errs, errs[:2])
         except Exception as e:
             fail_exc(f'N3 {tag}', e)
@@ -148,7 +136,7 @@ def n1(p):
                 ('L31 收起提示，自己串', lambda pg: l31_to_recall(pg), '#l31-answer', '[data-l31=submit]',
                  "!!document.querySelector('.l31-feedback')"),
                 ('legacy #learn 自己串字', lambda pg: legacy_start(pg, 'spell'), '#answer', '#submit-answer',
-                 "!!document.querySelector('[data-act=next-task]')"),
+                 "!!document.querySelector('[data-act=next-task], .p40-encourage')"),
             ]:
                 tag = f'{w}x{h} {label}'
                 try:
@@ -241,12 +229,13 @@ def n2(p):
                 pg.wait_for_timeout(600)
                 check(f'N2 {tag} tapping the answer box focuses it and the typed text arrives', r['focus_ok'] and r['typed_ok'],
                       f"focus_ok={r['focus_ok']} typed_ok={r['typed_ok']}")
+                # R3.5 (p40): the typed 'abc' is wrong, practice allows a retry, so the tap shows as the encouragement line
                 check(f'N2 {tag} first touch tap on 交答案 sends the answer',
-                      bool(pg.query_selector('[data-act=next-task]')), f"topmost={r['topmost']} hash={hashnow(pg)}")
+                      bool(pg.query_selector('[data-act=next-task], .p40-encourage')), f"topmost={r['topmost']} hash={hashnow(pg)}")
                 if w == 390:
                     ab = pg.evaluate("document.querySelector('[data-act=pause-session]')?.getAttribute('aria-label')||''")
                     check(f'N2 {tag} the 休息 exit is labelled for assistive tech (nav is hidden on phones in a lesson)',
-                          '休息' in ab, f'aria-label={ab!r}')
+                          ('休息' in ab or '暫停' in ab), f'aria-label={ab!r}')
                     ok2, why = hit_centre(pg, '[data-act=pause-session]')
                     check(f'N2 {tag} 休息 exit centre is tappable', ok2, why)
                     tap_sel(pg, '[data-act=pause-session]', 'touch')
@@ -287,10 +276,11 @@ def n4(p):
             for how in how_list:
                 tap_sel(pg, '#v20-confirm-next', how)
                 pg.wait_for_timeout(700)
-                opened = bool(pg.evaluate("!!document.querySelector('dialog[open]')"))
-                check(f'N4 {tag} {how} tap on 核對及加入 opens the summary dialog', opened)
+                # R3.5 (p40): the summary is the inline third step of the add-range flow, not a pop-up dialog
+                opened = bool(pg.evaluate("(()=>{const s=document.querySelector('#v20-summary');return !!s&&!s.hidden&&getComputedStyle(s).display!=='none'&&s.getBoundingClientRect().height>0;})()"))
+                check(f'N4 {tag} {how} tap on 核對及加入 opens the summary step', opened)
                 if opened:
-                    pg.evaluate("document.querySelector('[data-imp=close-dialog]')?.click()")
+                    pg.evaluate("document.querySelector('[data-p40=step][data-step=\"2\"]')?.click()")
                     pg.wait_for_timeout(400)
             check(f'N4 {tag} no page errors', not errs, errs[:2])
         except Exception as e:
@@ -370,7 +360,7 @@ def prepare(pg):
 
 
 def open_by_tap(pg):
-    tap_sel(pg, '#wqm-launch', 'touch')
+    tap_sel(pg, '#wq29-nav .p10-nav-math', 'touch')
     wait_for(pg, "!!document.querySelector('#wqm-dialog')&&document.querySelector('#wqm-dialog').open", 3000)
     pg.wait_for_timeout(200)
     return math_open(pg)
@@ -463,34 +453,34 @@ def n12(p):
 
         # --- close() followed by an immediate navigation must win (not be undone by a history rollback) --------------------
         variants = [
-            ('(a) same tick', lambda: pg.evaluate("()=>{WQMathApp.close();location.hash='#arcade';}")),
-            ('(b) setTimeout 0', lambda: pg.evaluate("()=>{WQMathApp.close();setTimeout(()=>{location.hash='#arcade';},0);}")),
-            ('(c) two evaluate calls', lambda: (pg.evaluate("WQMathApp.close()"), pg.evaluate("location.hash='#arcade'"))),
+            ('(a) same tick', lambda: pg.evaluate("()=>{WQMathApp.close();location.hash='#game';}")),
+            ('(b) setTimeout 0', lambda: pg.evaluate("()=>{WQMathApp.close();setTimeout(()=>{location.hash='#game';},0);}")),
+            ('(c) two evaluate calls', lambda: (pg.evaluate("WQMathApp.close()"), pg.evaluate("location.hash='#game'"))),
         ]
         for nm, act in variants:
             prepare(pg)
             open_by_tap(pg)
             act()
             pg.wait_for_timeout(900)
-            check(f'N12 close() then navigation {nm}: hash is #arcade after 900ms and the dialog is closed',
-                  hashnow(pg) == '#arcade' and not math_open(pg), f'hash={hashnow(pg)} open={math_open(pg)}')
+            check(f'N12 close() then navigation {nm}: hash is #game after 900ms and the dialog is closed',
+                  hashnow(pg) == '#game' and not math_open(pg), f'hash={hashnow(pg)} open={math_open(pg)}')
             pg.wait_for_timeout(500)
-            check(f'N12 close() then navigation {nm}: still on #arcade 1.4s later (no late history rollback)',
-                  hashnow(pg) == '#arcade', f'hash={hashnow(pg)}')
+            check(f'N12 close() then navigation {nm}: still on #game 1.4s later (no late history rollback)',
+                  hashnow(pg) == '#game', f'hash={hashnow(pg)}')
         # --- forced race: a navigation issued right AFTER the deferred history.back() was issued (in flight) must survive ----------
         for nm, js in [('immediately after history.back() returns',
                         "()=>{const hb=history.back.bind(history);let done=false;"
-                        "history.back=function(){hb();if(!done){done=true;location.hash='#arcade';}history.back=hb;};"
-                        "setTimeout(()=>{if(!done){done=true;location.hash='#arcade';}history.back=hb;},500);WQMathApp.close();}"),
+                        "history.back=function(){hb();if(!done){done=true;location.hash='#game';}history.back=hb;};"
+                        "setTimeout(()=>{if(!done){done=true;location.hash='#game';}history.back=hb;},500);WQMathApp.close();}"),
                        ('2ms after history.back() returns',
                         "()=>{const hb=history.back.bind(history);let done=false;"
-                        "history.back=function(){hb();if(!done){done=true;setTimeout(()=>{location.hash='#arcade';},2);}history.back=hb;};"
-                        "setTimeout(()=>{if(!done){done=true;location.hash='#arcade';}history.back=hb;},500);WQMathApp.close();}")]:
+                        "history.back=function(){hb();if(!done){done=true;setTimeout(()=>{location.hash='#game';},2);}history.back=hb;};"
+                        "setTimeout(()=>{if(!done){done=true;location.hash='#game';}history.back=hb;},500);WQMathApp.close();}")]:
             prepare(pg)
             open_by_tap(pg)
             pg.evaluate(js)
             pg.wait_for_timeout(1800)
-            check(f'N12 forced race, navigation {nm}: ends on #arcade', hashnow(pg) == '#arcade' and not math_open(pg),
+            check(f'N12 forced race, navigation {nm}: ends on #game', hashnow(pg) == '#game' and not math_open(pg),
                   f'hash={hashnow(pg)} open={math_open(pg)}')
         check('N12 no page errors', not errs, errs[:3])
     except Exception as e:

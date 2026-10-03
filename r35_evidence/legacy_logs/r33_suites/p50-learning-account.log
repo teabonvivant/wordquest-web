@@ -1,0 +1,157 @@
+# p50 tests against /home/claude/teabonvivant/wordquest-web/app/index.html
+# --- N7 ---
+PASS N7 registration form has #register-grade
+PASS N7 grade options are 請選擇年級 + 小一..小六 (values 1..6) | [['', '請選擇年級'], ['1', '小一'], ['2', '小二'], ['3', '小三'], ['4', '小四'], ['5', '小五'], ['6', '小六']]
+PASS N7 there is no grade value 0 (K3 uses 小一)
+PASS N7 hint says 幼稚園高班 -> 小一, word count follows grade, editable later | 幼稚園高班可選「小一」。每課詞數會按年級調整，之後可在家長區修改。
+PASS N7 label is linked to the select
+PASS N7 select is a 44px+ tall touch target
+PASS N7 submit without a grade is blocked (stays on login, no account created) | ('#login', None)
+PASS N7 missing grade shows a visible alert + aria-invalid
+PASS N7 missing grade toast and focus on the select
+PASS N7 choosing a grade clears the alert
+PASS N7 select is hit-testable on a 390px phone
+PASS N7 registered with 小一 -> child.grade is 1 | [1]
+PASS N7 L30 pace differs between 小一 / 小三 / 小六 (values read from the page) | (2, 4, 5)
+PASS N7 child home offers pace(1) words after registering 小一 | (2, 2)
+PASS N7 first lesson has 3 x pace(1) steps | (2,)
+PASS N7 maths profile grade follows the child (header shows 小1)
+PASS N7 children page is behind the parent gate and shows no grade button yet
+PASS N7 parent area: one 修改年級 button per child | 1
+PASS N7 修改年級 button is hit-testable and 44px+ high on a phone
+PASS N7 editor opens with the current grade selected and the word-count hint
+PASS N7 editor select/save/cancel are hit-testable on a phone
+PASS N7 save button is 44px+ high
+PASS N7 saving writes child.grade = 6 | [6]
+PASS N7 saving confirms with the word-count hint toast
+PASS N7 child card shows 小6 afterwards
+PASS N7 child home offers pace(6) words after the change | (5, 5)
+PASS N7 next lesson has 3 x pace(6) steps | (5,)
+PASS N7 maths profile grade follows the edit without reloading (header shows 小6)
+PASS N7 maths reading flag follows the grade: 小六 no longer auto-reads | (0, 0)
+PASS N7 legacy pacing panel (WQEducation.pace) reflects 小六 | (('6', '12', '5'), 3, 5)
+PASS N7 grade survives a reload
+PASS N7 page errors during the flow
+PASS N7 registered 小1: maths header 小1 and auto-read on | ('小明 · 小1', 1, [1])
+PASS N7 registered 小2: maths header 小2 and auto-read on | ('小明 · 小2', 1, [2])
+PASS N7 registered 小3: maths header 小3 and auto-read off | ('小明 · 小3', 0, [3])
+PASS N7 registered 小4: maths header 小4 and auto-read off | ('小明 · 小4', 0, [4])
+PASS N7 registered 小5: maths header 小5 and auto-read off | ('小明 · 小5', 0, [5])
+PASS N7 registered 小6: maths header 小6 and auto-read off | ('小明 · 小6', 0, [6])
+PASS N7 two children -> two 修改年級 buttons | (2, [3, 5])
+PASS N7 editor belongs to the clicked child only | c_demo
+PASS N7 cancel closes the editor and changes nothing | [3, 5]
+PASS N7 editing the second child leaves the first untouched | [3, 2]
+PASS N7 active child (the second) now follows pace(2) | (3, 3)
+PASS N7 switching child closes a half-open grade editor (nothing saved) | (True, [3, 2])
+PASS N7 save-child-grade without the parent gate changes nothing | ([3, 2], [3, 2])
+PASS N7 save-child-grade without the parent gate shows the parent gate
+PASS N7 a tab without the write lease cannot open the grade editor | 另一個分頁正在編輯這個帳戶。請先關閉那個分頁，再按「在這個分頁編輯」。現在不會扣金幣。
+PASS N7 a forged save in a read-only tab does not change the grade | ([3, 2], [3, 2])
+PASS N7 existing account (created by R3.2) keeps its children and grades | ([3, 5], [3, 5])
+PASS N7 existing account stays logged in on the new build
+PASS N7 existing account logs in without picking a grade | ('#kid', [3, 5])
+PASS N7 guest home uses grade 3 pace | (4, 4)
+PASS N7 guest maths profile is 小3
+PASS N7 after registering 小一 and logging out, guest is still grade 3 | (4, 4)
+# --- N6 ---
+PASS N6 tiles selected -> 結束這組 succeeds (session abandoned) | {'n': 1, 'status': 'abandoned', 'attempts': 0, 'dirty': False, 'error': '', 'hash': '#kid'}
+PASS N6 no unsaved state left (l30Dirty cleared, no error) | {'n': 1, 'status': 'abandoned', 'attempts': 0, 'dirty': False, 'error': '', 'hash': '#kid'}
+PASS N6 returns to the child home | {'n': 1, 'status': 'abandoned', 'attempts': 0, 'dirty': False, 'error': '', 'hash': '#kid'}
+PASS N6 no 尚未保存 / 字塊範圍 text remains
+PASS N6 answered tiles question (feedback shown) -> 結束這組 succeeds | (3, {'n': 2, 'status': 'abandoned', 'attempts': 1, 'dirty': False, 'error': '', 'hash': '#kid'})
+PASS N6 the answered question stays recorded after abandoning | {'n': 2, 'status': 'abandoned', 'attempts': 1, 'dirty': False, 'error': '', 'hash': '#kid'}
+PASS N6 a new tiles group can be started and used after abandoning | {'tiles': 1}
+PASS N6 abandon mode=study state=partial (first question study)
+PASS N6 abandon mode=study state=feedback (first question study)
+PASS N6 abandon mode=meaning state=partial (first question meaning)
+PASS N6 abandon mode=meaning state=feedback (first question meaning)
+PASS N6 abandon mode=focus state=partial (first question focus)
+PASS N6 abandon mode=focus state=feedback (first question focus)
+PASS N6 abandon mode=tiles state=partial (first question tiles)
+PASS N6 abandon mode=tiles state=feedback (first question tiles)
+PASS N6 abandon mode=swap state=partial (first question swap)
+PASS N6 abandon mode=swap state=feedback (first question swap)
+PASS N6 abandon mode=missing state=partial (first question missing)
+PASS N6 abandon mode=missing state=feedback (first question missing)
+PASS N6 abandon mode=sort state=partial (first question sort)
+PASS N6 abandon mode=sort state=feedback (first question sort)
+PASS N6 abandon mode=listenChoice state=partial (first question listenChoice)
+PASS N6 abandon mode=listenChoice state=feedback (first question listenChoice)
+PASS N6 abandon mode=spell state=partial (first question spell)
+PASS N6 abandon mode=spell state=feedback (first question spell)
+PASS N6 abandon mode=listenSpell state=partial (first question listenSpell)
+PASS N6 abandon mode=listenSpell state=feedback (first question listenSpell)
+PASS N6 abandon mode=cloze state=partial (first question cloze)
+PASS N6 abandon mode=cloze state=feedback (first question cloze)
+PASS N6 abandon mode=edit state=partial (first question edit)
+PASS N6 abandon mode=edit state=feedback (first question edit)
+PASS N6 abandon mode=mixed state=partial (first question spell)
+PASS N6 abandon mode=mixed state=feedback (first question spell)
+PASS N6 abandon mode=lesson state=partial (first question study)
+PASS N6 abandon mode=lesson state=feedback (first question study)
+PASS N6 page errors during the flows
+PASS N6 core exports WQ30Core.abandon | {'hasAbandon': True, 'tilesBefore': 'ok', 'tilesAfter': 'ok', 'tilesCleared': True, 'fbBefore': 'ok', 'fbAfter': 'ok', 'fbKeepsAttempt': True, 'spellAfter': 'ok', 'skewFinished': 1000, 'skewAfter': 'ok', 'twice': '學習紀錄有問題：這組已經結束', 'completed': '學習紀錄有問題：這組已經結束', 'garbage': '學習紀錄有問題：格式不對', 'strictLeftoverTiles': '學習紀錄有問題：字塊超出範圍', 'strictOutOfRange': '學習紀錄有問題：字塊超出範圍', 'strictDuplicate': '學習紀錄有問題：字塊重複了', 'strictWrongMode': '學習紀錄有問題：字塊超出範圍', 'strictNoFinish': '學習紀錄有問題：完成狀態前後不一致', 'strictStatus': '學習紀錄有問題：練習狀態有誤', 'strictTime': '學習紀錄有問題：時間紀錄不對', 'strictIndex': '學習紀錄有問題：完成位置不對', 'strictAnswer': '學習紀錄有問題：題目答案被改動過'}
+PASS N6 core: abandon() with tiles selected yields a state validateState accepts | ok
+PASS N6 core: the pre-fix state (tiles left on an abandoned session) is still rejected | 學習紀錄有問題：字塊超出範圍
+PASS N6 core: abandon() after an answered tiles question validates and keeps the attempt | ok
+PASS N6 core: abandon() on a spell session with a draft validates | ok
+PASS N6 core: a clock before startedAt never produces time-going-backwards | (1000, 'ok')
+PASS N6 core: abandon() refuses an already finished / completed / invalid session | ('學習紀錄有問題：這組已經結束', '學習紀錄有問題：這組已經結束', '學習紀錄有問題：格式不對')
+PASS N6 validateState still rejects: tile index outside the word | 學習紀錄有問題：字塊超出範圍
+PASS N6 validateState still rejects: duplicate tile | 學習紀錄有問題：字塊重複了
+PASS N6 validateState still rejects: tiles on a non-tiles question | 學習紀錄有問題：字塊超出範圍
+PASS N6 validateState still rejects: abandoned without finishedAt | 學習紀錄有問題：完成狀態前後不一致
+PASS N6 validateState still rejects: unknown status | 學習紀錄有問題：練習狀態有誤
+PASS N6 validateState still rejects: finishedAt before startedAt | 學習紀錄有問題：時間紀錄不對
+PASS N6 validateState still rejects: finished session at the wrong index | 學習紀錄有問題：完成位置不對
+PASS N6 validateState still rejects: tampered question answer | 學習紀錄有問題：題目答案被改動過
+# --- N8 ---
+PASS N8 guest: no Admin / 1234 / admin-test / 測試區 text or link on 13 routes
+PASS N8 login page has no sandbox link element
+PASS N8 logging in as Admin gives a neutral reply (no credentials, no sandbox link) | ('<h2>這個帳戶名稱不能使用</h2><p>請改用自己建立的家庭帳戶登入；第一次使用請先建立帳戶。</p><div class="l30-row"><button type="button" class="l30-btn" data-l30', '')
+PASS N8 public page on file:// without the parameter has no sandbox state | {'test': False, 'allowed': True, 'info': False, 'banner': False, 'host': '', 'proto': 'file:'}
+PASS N8 signed-in family: no Admin / 1234 / admin-test / 測試區 text or link on 13 routes
+PASS N8 guest on a 1280px desktop: no Admin / 1234 / admin-test / 測試區 text or link on 13 routes
+PASS N8 file:// + ?mode=admin-test still enters the sandbox | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': '', 'proto': 'file:'}
+PASS N8 sandbox Admin login works on file://
+PASS N8 http://127.0.0.1 + ?mode=admin-test enters the sandbox | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': '127.0.0.1', 'proto': 'http:'}
+PASS N8 sandbox Admin login works on http://127.0.0.1
+PASS N8 http://127.0.0.1 without the parameter is a normal page | {'test': False, 'allowed': True, 'info': False, 'banner': False, 'host': '127.0.0.1', 'proto': 'http:'}
+PASS N8 http://localhost + ?mode=admin-test enters the sandbox | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': 'localhost', 'proto': 'http:'}
+PASS N8 http://localhost without the parameter is a normal page | {'test': False, 'allowed': True, 'info': False, 'banner': False, 'host': 'localhost', 'proto': 'http:'}
+SKIP N8 [::1]: cannot bind ::1 here
+PASS N8 http://[::1]:8081 + ?mode=admin-test enters the sandbox (loopback allowed) | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': '[::1]', 'proto': 'http:'}
+PASS N8 https://localhost + ?mode=admin-test enters the sandbox (loopback allowed) | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': 'localhost', 'proto': 'https:'}
+PASS N8 http://localhost:3000 + ?mode=admin-test enters the sandbox (loopback allowed) | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': 'localhost', 'proto': 'http:'}
+PASS N8 http://127.0.0.1:8080 + ?mode=admin-test enters the sandbox (loopback allowed) | {'test': True, 'allowed': True, 'info': True, 'banner': True, 'host': '127.0.0.1', 'proto': 'http:'}
+PASS N8 http://wordquest.example + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': 'wordquest.example', 'proto': 'http:'}
+PASS N8 http://wordquest.example shows the normal guest home
+PASS N8 https://wordquest.example + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': 'wordquest.example', 'proto': 'https:'}
+PASS N8 https://wordquest.example shows the normal guest home
+PASS N8 http://127.0.0.1.wordquest.example + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': '127.0.0.1.wordquest.example', 'proto': 'http:'}
+PASS N8 http://127.0.0.1.wordquest.example shows the normal guest home
+PASS N8 http://localhost.wordquest.example + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': 'localhost.wordquest.example', 'proto': 'http:'}
+PASS N8 http://localhost.wordquest.example shows the normal guest home
+PASS N8 http://sub.localhost.example + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': 'sub.localhost.example', 'proto': 'http:'}
+PASS N8 http://sub.localhost.example shows the normal guest home
+PASS N8 http://192.168.1.20:8080 + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': '192.168.1.20', 'proto': 'http:'}
+PASS N8 http://192.168.1.20:8080 shows the normal guest home
+PASS N8 http://10.0.0.5 + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': '10.0.0.5', 'proto': 'http:'}
+PASS N8 http://10.0.0.5 shows the normal guest home
+PASS N8 https://www.example.org + ?mode=admin-test is NOT the sandbox (no banner, no info, localTestAllowed false) | {'test': False, 'allowed': False, 'info': False, 'banner': False, 'host': 'www.example.org', 'proto': 'https:'}
+PASS N8 https://www.example.org shows the normal guest home
+# --- N13A ---
+PASS N13a guest home no longer says 可以先參觀 | '你好，歡迎來玩\n試玩中\n登入／開始使用\n\n約 5 分鐘。先學 4 個單字。\n\n練習需要先登入；先參觀不會儲存進度。\n\n🔤'
+PASS N13a guest home explains practising needs a login
+PASS N13a login page no longer says guests can do questions
+PASS N13a settings page for guests says practising needs a login
+PASS N13a copy matches behaviour: a practice card sends guests to the login page | #login
+PASS N13a guest demo range shows water with 水 (not 未填中文意思) | 'water\n\n水\n\n配圖待核對\n待補生字讀音\n例句音檔未存\n聽讀音\n補圖／讀音\n'
+PASS N13a new account: every demo word has a Chinese meaning and an example
+PASS N13a water = 水 with an example sentence containing water | 水
+PASS N13a the logged-in home carries no guest note
+PASS N13a offline materials list shows water with 水 | 'water\n\n水\n\n配圖待核對\n待補生字讀音\n例句音檔未存\n聽讀音\n補圖／讀音\n'
+PASS N13a report page lists water with its meaning (no bare 未確認) | ['water\n水']
+PASS N13a after logout the guest demo range still has 水 for water | 'water\n\n水\n\n配圖待核對\n待補生字讀音\n例句音檔未存\n聽讀音\n補圖／讀音\n'
+SUMMARY: 150 passed, 0 failed, 150 checks in 338s

@@ -1,0 +1,27 @@
+﻿severity,id,screen,issue,evidence,suggestion
+S1,D1,兒童首頁／練習,學校默書範圍孩子找不到：首頁主按鈕是內置 at/an 課；要自行入 練習→我的默書範圍；全程不顯示正在用哪個範圍,shots/50_kid_home_scrolled.png; shots/30_practice_myrange_top.png; shots/02_route_practice.png,把「今次默書」放首頁最頂，顯示範圍名、字數、日期，一按開始
+S1,D2,兒童首頁,沒有默書日倒數／分日計劃；dictationDate 只儲存及顯示,shots/81_range_detail.png,按默書日倒推每日 5-8 字小計劃
+S1,D3,聽寫題,裝置無英式語音時，提交鍵要播完音檔才可按；只得「先跳過」，無說明無後備,shots/59_no_voice_listenSpell.png; shots/59b_after_skip.png,無語音時改為睇字抄寫／提示家長，並解鎖提交
+S1,D4,OCR 結果,一律預選全部候選，連標題、日期、中文註解亂碼；空白紙／手寫相出 96-191 個候選，仍顯示「已辨認」成功字句,shots/13_ocr_result_top.png; shots/16_dialog_edit_pending.png,只預選像英文單字的項目；候選>40 或信心低時改提示重影
+S1,D5,答錯處理,答錯無重試；無分級提示；「看示範」是教學片並靜默記為有協助,shots/42_wrong_answer.png; shots/56_show_help_dialog.png,答錯可再試2次，首字母／字數提示，重聽，鼓勵語
+S1,D6,練習／完成頁／家長設定,考試式預設及字眼：「嚴格默書：大小寫必須正確」預設、「交答案」、完成頁「成績／通過／有效任務／原站結算」,shots/54_finish_spell.png; shots/53_spell_spell_q.png,預設寬鬆；字眼改「核對」「今日練習」；刪除結算術語
+S1,D7,OCR 失敗／離線,對家長顯示技術錯誤字眼（OCR loader unavailable／Failed to fetch／檔案路徑）,shots/E_cdn_blocked.png; shots/E_offline.png; shots/71b_r3_end_404mid.png,改為人話：點樣做、下一步
+S2,D8,兒童首頁,示範默書 Unit 3 用假日期(今日+4日)，標「今次默書」,shots/02_route_ranges.png,示範範圍標明「示範」，無日期，家長可刪
+S2,D9,儲存後,儲存後落地到冗長「離線教材」維護頁，不見成功回饋及下一步,shots/22_after_save_offline_page.png,落地到範圍詳情＋「叫孩子開始」
+S2,D10,上載,不收 PDF；主按鈕在摺位下；固定欄遮擋,shots/95_import_firstscreen_360x640.png; shots/11_photo_loaded.png,收 PDF（首頁）；主按鈕固定底部
+S2,D11,草稿,重新載入頁面後草稿消失；離開頁面辨認中靜默變空,shots/E_after_reload.png; shots/E_hang_3s.png,草稿自動存
+S2,D12,學習模式,study 只覆蓋首 5 字；其餘字未見過就考,shots/97_nozh_study.png,按範圍全部字做認詞
+S2,D13,字庫,字典未收天氣字、ice-cream 要選中文；只有約 30% 有例句；無中文時 spell 題空白提示,shots/97_nozh_spell.png; dictionary_coverage.csv,缺字時提示家長補中文，題目顯示英文語音
+S2,D14,離線 OCR,離線OCR面板埋藏；下載全部 4 個核心變體(11 檔，大小未能實測)；測試員語言,shots/71_r3_downloading_ok.png; shots/96_privacy_details.png,家長明確同意前先顯示大小，只下載需要的一款
+S2,D15,範圍管理,#ranges 無家長閘，孩子可切換使用中範圍；儲存後不能改名／重新辨認,shots/81_range_detail.png,範圍管理放入家長閘；加改名及重掃
+S2,D16,家長報告,開發者用語，無下一步按鈕,shots/90_parent_report_top.png,加「再練這些字」按鈕
+S2,D17,家長閘,5 分鐘租約，容易中途要再解鎖,shots/03_parent_page.png,延長至 15 分鐘或操作中續期
+S2,D18,家長操作量,小心家長 16 字需 32-53 次點擊,effort.py,預設只確認有疑問項
+S3,D19,字卡,窄屏 grandmother 斷成 grandmot|her,layout.py,加 overflow-wrap／縮字
+S3,D20,OCR 設定,psm 選項藏在隱私摺下,shots/96_privacy_details.png,改放進階
+S3,D21,拼字檢查,teh、sch00l、rn→m 未被糾正,shots/16_dialog_edit_pending.png,加常見誤認提示
+S3,D22,加入,沒有自動填日期／單元名；句子表預設拆字模式,shots/03_range-new_full.png,自動填
+S3,D23,空白辨認,無光線／角度建議,shots/13_ocr_result_top.png,加拍攝貼士
+S3,D24,狀態字,「未確認」「選詞答對過」等狀態字不一致,strings_static.csv,統一詞彙
+S3,D25,刺刺卡,吉祥物卡浮佔約 37% 螢幕,shots/53_spell_spell_q.png,縮小
+S3,D26,語速,學校路徑無慢速音檔；app 語速 0.88,strings_static.csv,加慢速

@@ -1,0 +1,52 @@
+# p30 lobby and intro states  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] guest: the lobby says 先看玩法。登入後才能玩。 | 遊戲街機
+
+先看玩法。登入後才能玩。
+
+先看看全部遊戲和玩法預覽。登入後，才會儲存學習紀錄、金幣和生命。
+登入／建立帳戶
+可以玩的遊戲
+5 款
+新遊戲
+全部
+動
+PASS [B] guest: no coin counter is shown (a guest has no coins to count)
+PASS [B] guest: every card button reads 看玩法 | ['看玩法', '看玩法', '看玩法']
+PASS guest intro: a login link, no dead button | (True, [])
+PASS [B] guest intro: keeps the preview caption and the how line | RUINS COURIER
+
+遺跡郵差
+✕
+關閉
+試玩預覽・不扣幣・不能操作
+阿峰 · 奧數同學
+
+這是真實玩法預覽，還沒開始，不會扣金幣。
+
+左右滑動換跑道，輕按跳躍，向下滑動滑行。
+
+跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過
+PASS guest: no console errors | []
+PASS [B] round used up: the lobby says why and what to do
+PASS [B] round used up: the lobby offers 去賺金幣：做一個小練習 (enabled, >= 48px) | {'h': 56, 'dis': False}
+PASS [B] round used up: the intro says so, offers the practice, no dead button | ('操作\n阿峰 · 奧數同學\n\n這是真實玩法預覽，還沒開始，不會扣金幣。\n\n左右滑動換跑道，輕按跳躍，向下滑動滑行。\n\n跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過去。\n\n已解鎖。這一輪的 5 次玩完了。\n\n預覽裏的分數、生命和收集物，不會記在你的帳戶裏。\n\n去賺金幣：做一個小練習\n\n做完 1 組練習得 1 枚金幣', [])
+PASS blocked by the parent: the intro has no dead button | ('RIER\n\n遺跡郵差\n✕\n關閉\n試玩預覽・不扣幣・不能操作\n阿峰 · 奧數同學\n\n這是真實玩法預覽，還沒開始，不會扣金幣。\n\n左右滑動換跑道，輕按跳躍，向下滑動滑行。\n\n跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過去。\n\n家長暫停開放\n\n預覽裏的分數、生命和收集物，不會記在你的帳戶裏。\n\n返回學習，解鎖更多遊戲', [])
+PASS no console errors (round used up, blocked) | []
+PASS 768x1024: the lobby has no horizontal scroll | 768
+PASS 768x1024: several columns of cards | 2
+PASS 768x1024: no console errors | []
+PASS 320x568: the lobby has no horizontal scroll | 320
+PASS [B] 320x568: one column | 1
+PASS [B] 320x568: every tap target in the lobby is >= 44px | []
+PASS 320x568: no console errors | []
+PASS [B] 844x390: the intro main button is fully on screen without scrolling and covers no text (26 games) | []
+PASS 844x390: no console errors (intro loop) | []
+PASS [B] 667x375: the intro main button is fully on screen without scrolling and covers no text (26 games) | []
+PASS 667x375: no console errors (intro loop) | []
+PASS [B] 568x320: the intro main button is fully on screen without scrolling (8 games) | []
+PASS 568x320: no console errors (intro loop) | []
+PASS 390x844: the intro main button is fully on screen without scrolling (8 games) | []
+PASS 390x844: no console errors (intro loop) | []
+PASS [B] 320x568: the intro main button is fully on screen without scrolling (26 games) | []
+PASS 320x568: no console errors (intro loop) | []
+SUMMARY p30 lobby and intro states: 28/28 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 192s

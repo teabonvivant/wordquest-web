@@ -1,0 +1,51 @@
+{
+  "base": "R3.4.0",
+  "version": "R3.5.0",
+  "baseSHA256": "e62e8c00a0be3652c796d987a90909b48ca1a43ad43c612212643465e5d7e12d",
+  "appSHA256": "86e699cef31913b5ad2574c64640c285f73ff26205359fc01fb640d3dad75d01",
+  "swSHA256": "9a5a1f99967ef504d7aada86ed194dd7ffcfccfce683a6ff5127a53ff3826e59",
+  "serverSHA256": "25b19c7933bebc1ee2767381321dd30b12805f4380943e16247087d1ed8117d6",
+  "modules": [
+    "p00_noop",
+    "p10_firstrun",
+    "p20_lesson",
+    "p30_arcade",
+    "p40_dictation",
+    "p50_maths",
+    "p90_copy",
+    "p95_fixups"
+  ],
+  "extraFiles": [
+    "app/icons/icon-192.png",
+    "app/icons/icon-512.png",
+    "app/manifest.webmanifest",
+    "r35_evidence/copy_applied.csv"
+  ],
+  "scripts": 40,
+  "evidence": {
+    "p30": {
+      "css_bytes": 19959,
+      "js_bytes": 25576
+    },
+    "p50": {
+      "obsolete_copy_rows": {
+        "T4114": "maths footer line 1 (removed)",
+        "T4115": "maths footer line 2 (removed)",
+        "T4116": "maths footer line 3 (removed)",
+        "T3837": "maths catalog coverage note (moved to the parent page note)",
+        "T3242": "toast of WQMathHost.openParentGate (replaced: gate now returns to the maths progress page)"
+      }
+    },
+    "p90": {
+      "rows": 1445,
+      "applied_rows": 1415,
+      "edits": 1655,
+      "skipped": {
+        "compare": 1,
+        "notfound": 23,
+        "partial": 3,
+        "short": 3
+      }
+    }
+  }
+}

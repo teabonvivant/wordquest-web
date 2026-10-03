@@ -1,0 +1,110 @@
+[
+  {
+    "name": "p50-logic",
+    "file": "p50_logic.cjs",
+    "started": 1791041655.3819761,
+    "returncode": 0,
+    "seconds": 1.7,
+    "pass_lines": 69,
+    "fail_lines": 0
+  },
+  {
+    "name": "p40-ocr",
+    "file": "p40_ocr.cjs",
+    "started": 1791041657.0698178,
+    "returncode": 0,
+    "seconds": 1.8,
+    "pass_lines": 26,
+    "fail_lines": 0
+  },
+  {
+    "name": "p90-copy-text",
+    "file": "p90_copy_text.py",
+    "started": 1791041658.8947093,
+    "returncode": 0,
+    "seconds": 20.6,
+    "pass_lines": 16,
+    "fail_lines": 0
+  },
+  {
+    "name": "p10-firstrun",
+    "file": "p10_firstrun_browser.py",
+    "started": 1791041679.4786658,
+    "returncode": 0,
+    "seconds": 114.3,
+    "pass_lines": 95,
+    "fail_lines": 0
+  },
+  {
+    "name": "p20-lesson",
+    "file": "p20_lesson_browser.py",
+    "started": 1791041793.7936707,
+    "returncode": 0,
+    "seconds": 139.3,
+    "pass_lines": 173,
+    "fail_lines": 0
+  },
+  {
+    "name": "p30-lobby",
+    "file": "p30_lobby.py",
+    "started": 1791041933.0674102,
+    "returncode": 0,
+    "seconds": 86.2,
+    "pass_lines": 40,
+    "fail_lines": 0
+  },
+  {
+    "name": "p30-cards",
+    "file": "p30_cards.py",
+    "started": 1791042019.2532828,
+    "returncode": 0,
+    "seconds": 409.0,
+    "pass_lines": 16,
+    "fail_lines": 0
+  },
+  {
+    "name": "p30-misc",
+    "file": "p30_misc.py",
+    "started": 1791042428.2494242,
+    "returncode": 0,
+    "seconds": 158.0,
+    "pass_lines": 21,
+    "fail_lines": 0
+  },
+  {
+    "name": "p30-play",
+    "file": "p30_play.py",
+    "started": 1791042586.2887063,
+    "returncode": 0,
+    "seconds": 134.1,
+    "pass_lines": 8,
+    "fail_lines": 0
+  },
+  {
+    "name": "p30-states",
+    "file": "p30_states.py",
+    "started": 1791042720.3553905,
+    "returncode": 0,
+    "seconds": 192.3,
+    "pass_lines": 28,
+    "fail_lines": 0
+  },
+  {
+    "name": "p40-dictation",
+    "file": "p40_dictation_browser.py",
+    "started": 1791042912.6900117,
+    "returncode": 0,
+    "seconds": 369.7,
+    "pass_lines": 103,
+    "fail_lines": 0
+  },
+  {
+    "name": "p50-browser",
+    "file": "p50_browser.py",
+    "started": 1791043282.3797011,
+    "returncode": 0,
+    "seconds": 122.9,
+    "pass_lines": 68,
+    "fail_lines": 0
+  }
+]

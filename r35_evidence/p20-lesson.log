@@ -1,0 +1,203 @@
+# R3.5 p20 lesson loop  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] S1-03 no answer chosen: no warning bar | alerts=0
+PASS [B] S1-03 no answer chosen: inline hint says what to do and that wrong answers cost nothing | 先選一個答案，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 no answer chosen: no 重試儲存 button or text
+PASS [B] S1-03 no answer chosen: no duplicate toast | None
+PASS [B] S1-03 no answer chosen: hint is fully on screen and the submit button is still reachable
+PASS S1-03 no answer chosen: nothing was committed (same step, no feedback)
+PASS S1-03 after choosing, submit gives feedback
+PASS [B] S1-03 empty spell: inline hint "先輸入答案", no warning bar, nothing committed | 先輸入答案，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 empty missing: inline hint "先填上缺少的字母", no warning bar, nothing committed | 先填上缺少的字母，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 empty tiles: inline hint "先按字塊排出答案", no warning bar, nothing committed | 先按字塊排出答案，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 blanks only count as empty (hint, focus back in the box)
+PASS [B] S1-03 typing clears the hint
+PASS [B] S1-03 save failure: warning explains what happened and what to do next | 這次沒能儲存進度。
+請先不要關閉這一頁，按「再試一次」。
+如果還是不行，請家長到「家長」→「設定／備份」下載備份。
+再試一次
+PASS [B] S1-03 save failure: retry button is called 再試一次 (not 重試儲存) | 再試一次
+PASS [B] S1-03 save failure: no second (toast) copy of the warning | None
+PASS [B] S1-03 save failure: warning stays in view under the header when the page is scrolled | {'top': 57, 'bottom': 253.734375, 'hb': 57, 'vh': 844, 'y': 438}
+PASS S1-03 save failure: the chosen answer is still selected and no feedback was recorded
+PASS S1-03 retry after the problem is gone clears the warning
+PASS [B] S1-03 retry success says 已儲存 | 已儲存。
+PASS [B] S1-04 wrong answer: feedback card is fully visible without scrolling | {'top': 578.40625, 'bottom': 695.234375, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS S1-04 wrong answer: 下一題 button is reachable
+PASS [B] S1-04 feedback says 答案是 <word>。 | 答案是 hat。
+
+一起看：h－a－t。
+PASS [B] S1-04 feedback adds one short line made from the word | 答案是 hat。
+
+一起看：h－a－t。
+PASS [B] S1-04 feedback no longer repeats 一起訂正 / 正確答案： | 答案是 hat。
+
+一起看：h－a－t。
+PASS [B] S1-04 right option: ✓ 答案 (words, not only colour) | [{'t': 'hat ✓ 答案', 'bw': '4px', 'bs': 'solid', 'pressed': 'false'}, {'t': 'cat 再看看', 'bw': '3px', 'bs': 'dashed', 'pressed': 'true'}, {'t': 'bat', 'bw': '2px', 'bs': 'solid', 'pressed': 'false'}, {'t': 'mat', 'bw': '2px', 'bs': 'solid', 'pressed': 'false'}]
+PASS [B] S1-04 right option: thick solid border | [{'t': 'hat ✓ 答案', 'bw': '4px', 'bs': 'solid', 'pressed': 'false'}]
+PASS [B] S1-04 chosen wrong option: 再看看 with an orange dashed border | [{'t': 'cat 再看看', 'bw': '3px', 'bs': 'dashed', 'pressed': 'true'}]
+PASS [B] S1-04 untouched options carry no mark | [{'t': 'hat ✓ 答案', 'bw': '4px', 'bs': 'solid', 'pressed': 'false'}, {'t': 'cat 再看看', 'bw': '3px', 'bs': 'dashed', 'pressed': 'true'}, {'t': 'bat', 'bw': '2px', 'bs': 'solid', 'pressed': 'false'}, {'t': 'mat', 'bw': '2px', 'bs': 'solid', 'pressed': 'false'}]
+PASS [B] S1-04 button is 下一題 mid-lesson | 下一題
+PASS [B] S1-04 next question starts at the top of the page | 0
+PASS last question: button stays 完成這一組 | 完成這一組
+PASS [B] S1-04 meaning: wrong answer says 答案是 man。 and no 正確答案/一起訂正 | 答案是 man。 /  / 一起看：m－a－n。
+PASS [B] S1-04 meaning: feedback card visible without scrolling | {'top': 578.59375, 'bottom': 695.421875, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 focus: wrong answer says 答案是 an。 and no 正確答案/一起訂正 | 答案是 an。
+PASS [B] S1-04 focus: feedback card visible without scrolling | {'top': 621.09375, 'bottom': 694.734375, 'left': 29, 'right': 361, 'w': 332, 'h': 73.640625, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 tiles: wrong answer says 答案是 hat。 and no 正確答案/一起訂正 | 答案是 hat。 /  / 一起看：h－a－t。
+PASS [B] S1-04 tiles: feedback card visible without scrolling | {'top': 578.21875, 'bottom': 695.046875, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 swap: wrong answer says 答案是 man。 and no 正確答案/一起訂正 | 答案是 man。 /  / 一起看：m－a－n。
+PASS [B] S1-04 swap: feedback card visible without scrolling | {'top': 541.703125, 'bottom': 658.53125, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 missing: wrong answer says 答案是 a。 and no 正確答案/一起訂正 | 答案是 a。 /  / 整個字是 pan。
+PASS [B] S1-04 missing: feedback card visible without scrolling | {'top': 541.703125, 'bottom': 662.625, 'left': 29, 'right': 361, 'w': 332, 'h': 120.921875, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 sort: wrong answer says 答案是 at。 and no 正確答案/一起訂正 | 答案是 at。
+PASS [B] S1-04 sort: feedback card visible without scrolling | {'top': 613.09375, 'bottom': 686.734375, 'left': 29, 'right': 361, 'w': 332, 'h': 73.640625, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 listenChoice: wrong answer says 答案是 man。 and no 正確答案/一起訂正 | 答案是 man。 /  / 一起看：m－a－n。
+PASS [B] S1-04 listenChoice: feedback card visible without scrolling | {'top': 577.984375, 'bottom': 694.8125, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 spell: wrong answer says 答案是 pan。 and no 正確答案/一起訂正 | 答案是 pan。 /  / 一起看：p－a－n。
+PASS S1-04 spell: feedback card visible without scrolling | {'top': 474.015625, 'bottom': 590.84375, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 listenSpell: wrong answer says 答案是 hat。 and no 正確答案/一起訂正 | 答案是 hat。 /  / 一起看：h－a－t。
+PASS [B] S1-04 listenSpell: feedback card visible without scrolling | {'top': 578.40625, 'bottom': 695.234375, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 cloze: wrong answer says 答案是 hat。 and no 正確答案/一起訂正 | 答案是 hat。 /  / 一起看：h－a－t。
+PASS S1-04 cloze: feedback card visible without scrolling | {'top': 498.3125, 'bottom': 615.140625, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 edit: wrong answer says 答案是 man。 and no 正確答案/一起訂正 | 答案是 man。 /  / 一起看：m－a－n。
+PASS [B] S1-04 edit: feedback card visible without scrolling | {'top': 568.890625, 'bottom': 685.71875, 'left': 29, 'right': 361, 'w': 332, 'h': 116.828125, 'vh': 844, 'vw': 390}
+PASS [B] S1-04 missing-letter: shows the whole word | 答案是 a。 /  / 整個字是 pan。
+PASS [B] S2-20 meaning: a right answer is just 答對了！ | 答對了！
+PASS [B] S2-20 spell: a right answer is just 答對了！ | 答對了！
+PASS [B] S2-20 missing: a right answer is just 答對了！ | 答對了！
+PASS [B] S2-20 tiles: a right answer is just 答對了！ | 答對了！
+PASS [B] S2-20 cloze: a right answer is just 答對了！ | 答對了！
+PASS guard: 聲音有問題 still gives the not-scored card | 先留待補聽 /  / 聲音或裝置有問題，這題不評分，稍後補聽。
+PASS [B] S1-04 wrong answer is said aloud (sound on) | ['bat']
+PASS guard: a right answer is not read out | []
+PASS guard: with the sound switch off nothing is spoken | []
+PASS [B] S2-20 hint wording: 提示：第一個字母是 x，一共 N 個字母。 | 提示：第一個字母是 c，一共 3 個字母。
+PASS [B] S2-20 hint has no 字元 / 記作 | 提示：第一個字母是 c，一共 3 個字母。
+PASS guard: hint is recorded on the session
+PASS guard: a hinted right answer counts as practice, not own spelling | {'correct': True, 'exact': True, 'technical': False, 'expected': 'can', 'answer': 'can', 'caseOnly': False, 'independent': False, 'delayed': False}
+PASS [B] S2-20 a hinted right answer is still just 答對了！ | 答對了！
+PASS [B] S2-20 result: 做了 8 題，答對 4 題 | W / 👦 / 小明 / 聲音：開 / 家長 / 波波 /  / 這一組完成了。成績和金幣，請看下面。 /  / 你的金幣：61 枚。 /  / 這一組已完成 / 今天又多練了一小步 /  / 做了 8 題，答對 4 題。不用全對，也不會扣掉已有的金幣。 /  / 這一組共 12 步：4 步學新詞，8 步做題。 /  / 取得 1 枚金幣 /  / 金幣和原本的練習合併計算。 /  / 再練一組 / 去遊戲街機 / 回首頁 /  / 剛看過答案後串對是練習成果。隔日再試，才知道是否仍然記得。 /  / 資料只存在這部裝置，不會自動同步到其他裝置。 / 首頁 / 練習 / 數學 / 遊戲 / 家長
+PASS [B] S2-20 result: explains 12 steps vs 8 questions
+PASS [B] S2-20 result: old 4／8 題答對 form is gone
+PASS [B] S3-08 result buttons: 再練一組 (primary), 去遊戲街機, 回首頁 | [{'t': '再練一組', 'h': '#classroom', 'p': True}, {'t': '去遊戲街機', 'h': '#game', 'p': False}, {'t': '回首頁', 'h': '#kid', 'p': False}]
+PASS guard: the three result buttons still lead to #classroom, #game and #kid | [{'t': '再練一組', 'h': '#classroom', 'p': True}, {'t': '去遊戲街機', 'h': '#game', 'p': False}, {'t': '回首頁', 'h': '#kid', 'p': False}]
+PASS guard: finished result never shows 0 coins for a done set
+PASS [B] S3-08 再練一組 goes to #classroom | #classroom
+PASS [B] S3-08 去遊戲街機 goes to #game | #game
+PASS S3-08 回首頁 goes to #kid | #kid
+PASS [B] S2-20 one-mode set: 做了 4 題，答對 0 題 and no step explanation | W / 👦 / 小明 / 聲音：開 / 家長 / 波波 /  / 這一組完成了。成績和金幣，請看下面。 /  / 你的金幣：62 枚。 /  / 這一組已完成 / 今天又多練了一小步 /  / 做了 4 題，答對 0 題。不用全對，也不會扣掉已有的金幣。 /  / 取得 1 枚金幣 /  / 金幣和原本的練習合併計算。 /  / 再練一組 / 去遊戲街機 / 回首頁 /  / 剛看過答案後串對是練習成果。隔日再試，才知道是否仍然記得。 /  / 資料只存在這部裝置，不會自動同步到其他裝置。 / 首頁 / 練習 / 數學 / 遊戲 / 家長
+PASS guard: a wrong set never takes coins away (wording keeps that promise)
+PASS [B] S2-20 parent report carries the 只算練習 sentence |  /  / WWordQuest / 👦 小明🔊聲音：開🔐登出👨‍👩‍👧家長☰選單 / 目前沒有網絡，仍可練習 / <p>這個程式需要開啟 JavaScript，才能學習和儲存資料。</p>← 家長工具拼字課學習情況看過、認得、自己串對、隔日仍串對，是四種不同
+PASS [B] S2-14 #learn with no practice goes home | #kid
+PASS [B] S2-14 plain notice 今天還沒開始，按「開始今天的小課」。 | 今天還沒開始，按「開始今天的小課」。
+PASS [B] S2-14 never shows 這一輪完成了 or 0 金幣 | W / 👦 / 小明 / 聲音：開 / 家長 / 小明，你好 / 小3 / 62 金幣 / 開始今天的小課 /  / 約 5 分鐘。先學 4 個單字。 /  / 今次默書練習 /  / 示範默書 Unit 3 示範 /  / 12 個單字 /  / 開始練習 / 🔤 / 英文 / 🔢 / 數學 / 🎮 / 遊戲 / 更多玩法 / 資料只存在這
+PASS [B] S2-14 the child home page is shown with its start button
+PASS [B] S2-14 with a running practice #learn lands on that practice | #learning
+PASS guard: #learning still shows the running practice
+PASS guard: number key 1 selects the first option
+PASS guard: Enter submits the chosen option
+PASS guard: Enter submits a typed answer
+PASS [B] S1-03 Enter with nothing chosen shows the same hint, no warning bar
+PASS [B] S3-12 study step: audio button has 🔊 and says 聽讀音 | 🔊 聽讀音
+PASS [B] S3-12 study step: no Enter hint (there is no input) | 進度會自動儲存。
+PASS [B] S3-12 choice step: no 選字途中 Enter hint under the buttons
+PASS guard: choice step still says the number keys work
+PASS guard: typing step keeps its Enter / draft hint | ← 暫停，回首頁
+第 9／12 步
+怎樣玩？
+刺刺
+
+慢慢想，需要時才按原有提示。
+
+自己串字
+貓
+
+先想一想，再試作答。
+
+你的英文答案
+提交答案
+需要提示
+題號和草稿會儲存。用輸入法選字時，按 Enter 不會提交。
+⋯
+PASS [B] S3-12 listening step: audio button has 🔊 | 🔊 聽英文讀音
+PASS S3-15 help button is 怎樣玩？ | ['← 暫停，回首頁', '怎樣玩？', '🔊 怎樣玩？', '🔊 聽讀音', '我已看過，下一步', '']
+PASS [B] S3-15 read-aloud help button is 🔊 怎樣玩？ | ['← 暫停，回首頁', '怎樣玩？', '🔊 怎樣玩？', '🔊 聽讀音', '我已看過，下一步', '']
+PASS [B] S3-15 no 聽老師說明 / 怎樣操作？ on the lesson page | ['← 暫停，回首頁', '怎樣玩？', '🔊 怎樣玩？', '🔊 聽讀音', '我已看過，下一步', '']
+PASS [B] S3-15 hint button name is plain (no 本題會記作有提示) | 需要提示（請刺刺幫忙）
+PASS S3-13 DOM order: back, question, input, primary button, secondary, give-up last | {'back': 1, 'card': 12, 'input': 17, 'submit': 20, 'hint': 21, 'abandon': 28, 'more': 26}
+PASS [B] S3-13 the ⋯ menu button comes after the main actions in the tab order | {'back': 1, 'card': 12, 'input': 17, 'submit': 20, 'hint': 21, 'abandon': 28, 'more': 26}
+PASS [B] S3-14 give-up button is hidden until ⋯ is opened
+PASS [B] S3-14 give-up button is not in the thumb row with the main button
+PASS [B] S3-14 ⋯ sits at the top right and is at least 44px | {'top': 0, 'right': 0, 'w': 46, 'h': 46, 'label': '更多'}
+PASS [B] S3-14 ⋯ has an accessible name | {'top': 0, 'right': 0, 'w': 46, 'h': 46, 'label': '更多'}
+PASS [B] S2-07 give-up is called 放棄這組 | {'t': '放棄這組', 'color': 'rgb(163, 40, 26)', 'vis': True, 'top': 141, 'left': 227, 'right': 369, 'vw': 390}
+PASS [B] S3-14 give-up is red when the menu is open | {'t': '放棄這組', 'color': 'rgb(163, 40, 26)', 'vis': True, 'top': 141, 'left': 227, 'right': 369, 'vw': 390}
+PASS S3-14 opened menu stays inside the screen | {'t': '放棄這組', 'color': 'rgb(163, 40, 26)', 'vis': True, 'top': 141, 'left': 227, 'right': 369, 'vw': 390}
+PASS [B] S3-14 Escape closes the menu
+PASS [B] S3-14 tapping elsewhere closes the menu
+PASS guard: cancelling the confirm keeps the practice running
+PASS [B] S2-07 confirm text: 放棄這一組嗎？… (one set = 一組) | ['放棄這一組嗎？不會得到完成獎勵。已答的紀錄會保留，下次可以另選一組。']
+PASS guard: accepting the confirm ends the practice and goes home | #kid
+PASS guard: the abandoned set is recorded as abandoned (no award) | {'status': 'abandoned', 'award': 0, 'fin': True}
+PASS S2-07 top-left link says 暫停 and goes home | ← 暫停，回首頁
+PASS no console errors during the phone run | []
+PASS [B] S3-15 workshop help button is 怎樣玩？ (not 怎樣操作？) | ['怎樣玩？', '🔊 怎樣玩？', '🔊 聽這個詞', '認識了，下一步', '']
+PASS [B] S3-15 workshop read-aloud buttons carry 🔊 | ['怎樣玩？', '🔊 怎樣玩？', '🔊 聽這個詞', '認識了，下一步', '']
+PASS [B] S3-14 workshop give-up is inside the ⋯ menu, not in the button row
+PASS [B] S1-03 workshop: empty answer gives the inline hint, no warning bar | 先選一個答案，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 workshop: empty typed answer gives the inline hint | 先輸入答案，再按「提交答案」。不肯定也可以試一個，答錯不扣金幣。
+PASS [B] S1-03 workshop: typing clears the hint
+PASS [B] S1-03 workshop: save failure says what to do (再試一次, 家長 → 備份) | 這次沒能儲存進度。
+請先不要關閉這一頁，按「再試一次」。
+如果還是不行，請家長到「家長」→「設定／備份」下載備份。
+再試一次
+PASS [B] S1-03 workshop: 再試一次 clears the warning (on the base the retry did nothing after a failed submit) | None
+PASS [B] S2-07 workshop confirm uses the same 放棄這一組嗎？ text | ['放棄這一組嗎？不會得到完成獎勵。已答的紀錄會保留，下次可以另選一組。']
+PASS guard: workshop give-up ends the set (home, no running session) | #assembly-learn
+PASS [B] S3-08 workshop result buttons: 再練一組 / 去遊戲街機 / 回首頁 | ['再練一組', '去遊戲街機', '回首頁']
+PASS no console errors during the workshop run | []
+PASS S2-02 small 320x568: study step main button fully on screen | {'top': 437.203125, 'bottom': 488, 'left': 12, 'right': 308, 'w': 296, 'h': 50.796875, 'vh': 568, 'vw': 320}
+PASS S2-02 small 320x568: choice step main button fully on screen | {'top': 437.203125, 'bottom': 488, 'left': 12, 'right': 308, 'w': 296, 'h': 50.796875, 'vh': 568, 'vw': 320}
+PASS S2-02 small 320x568: typed step main button fully on screen | {'top': 368.203125, 'bottom': 419, 'left': 12, 'right': 308, 'w': 296, 'h': 50.796875, 'vh': 568, 'vw': 320}
+PASS [B] S1-04 small 320x568: wrong-answer card fully visible, no scrolling | {'top': 302.125, 'bottom': 418.953125, 'left': 29, 'right': 291, 'w': 262, 'h': 116.828125, 'vh': 568, 'vw': 320}
+PASS S1-04 small 320x568: 下一題 reachable
+PASS [B] S1-03 small 320x568: empty submit hint fully visible | {'top': 320.46875, 'bottom': 418.96875, 'left': 29, 'right': 291, 'w': 262, 'h': 98.5, 'vh': 568, 'vw': 320}
+PASS [B] S1-03 small 320x568: no toast / bar over the main button after an empty submit
+PASS [B] S1-03 small 320x568: a toast does not cover the main button | {'top': 10, 'bottom': 110.390625, 'left': 80, 'right': 240, 'w': 160, 'h': 100.390625, 'vh': 568, 'vw': 320}
+PASS guard small 320x568: top row controls do not overlap and the page has no sideways scroll | {'bad': 0, 'n': 4, 'over': False}
+PASS [B] S3-14 small 320x568: open menu fits on screen | {'l': 157, 'r': 299, 't': 135, 'b': 181, 'vw': 320, 'vh': 568}
+PASS no console errors small | []
+PASS [B] S2-02 landscape 844x390: study step main button fully on screen | {'top': 327.203125, 'bottom': 380, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 390, 'vw': 844}
+PASS [B] S2-02 landscape 844x390: choice step main button fully on screen | {'top': 327.203125, 'bottom': 380, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 390, 'vw': 844}
+PASS [B] S2-02 landscape 844x390: typed step main button fully on screen | {'top': 327.09375, 'bottom': 379.890625, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 390, 'vw': 844}
+PASS S1-04 landscape 844x390: wrong-answer card fully visible, no scrolling | {'top': 192.515625, 'bottom': 309.34375, 'left': 41, 'right': 803, 'w': 762, 'h': 116.828125, 'vh': 390, 'vw': 844}
+PASS S1-04 landscape 844x390: 下一題 reachable
+PASS [B] S1-03 landscape 844x390: empty submit hint fully visible | {'top': 261.328125, 'bottom': 308.828125, 'left': 41, 'right': 803, 'w': 762, 'h': 47.5, 'vh': 390, 'vw': 844}
+PASS [B] S1-03 landscape 844x390: no toast / bar over the main button after an empty submit
+PASS S1-03 landscape 844x390: a toast does not cover the main button | {'top': 10, 'bottom': 60.796875, 'left': 250.9921875, 'right': 593.0078125, 'w': 342.015625, 'h': 50.796875, 'vh': 390, 'vw': 844}
+PASS guard landscape 844x390: top row controls do not overlap and the page has no sideways scroll | {'bad': 0, 'n': 4, 'over': False}
+PASS S3-14 landscape 844x390: open menu fits on screen | {'l': 671, 'r': 813, 't': 148, 'b': 194, 'vw': 844, 'vh': 390}
+PASS no console errors landscape | []
+PASS [B] S2-02 tablet 768x1024: study step main button fully on screen | {'top': 961.203125, 'bottom': 1014, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 1024, 'vw': 768}
+PASS S2-02 tablet 768x1024: choice step main button fully on screen | {'top': 915.71875, 'bottom': 968.515625, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 1024, 'vw': 768}
+PASS S2-02 tablet 768x1024: typed step main button fully on screen | {'top': 734.390625, 'bottom': 787.1875, 'left': 22, 'right': 302, 'w': 280, 'h': 52.796875, 'vh': 1024, 'vw': 768}
+PASS [B] S1-04 tablet 768x1024: wrong-answer card fully visible, no scrolling | {'top': 826.796875, 'bottom': 943.625, 'left': 59, 'right': 709, 'w': 650, 'h': 116.828125, 'vh': 1024, 'vw': 768}
+PASS S1-04 tablet 768x1024: 下一題 reachable
+PASS [B] S1-03 tablet 768x1024: empty submit hint fully visible | {'top': 709.71875, 'bottom': 757.21875, 'left': 59, 'right': 709, 'w': 650, 'h': 47.5, 'vh': 1024, 'vw': 768}
+PASS [B] S1-03 tablet 768x1024: no toast / bar over the main button after an empty submit
+PASS S1-03 tablet 768x1024: a toast does not cover the main button | {'top': 10, 'bottom': 60.796875, 'left': 212.9921875, 'right': 555.0078125, 'w': 342.015625, 'h': 50.796875, 'vh': 1024, 'vw': 768}
+PASS guard tablet 768x1024: top row controls do not overlap and the page has no sideways scroll | {'bad': 0, 'n': 4, 'over': False}
+PASS S3-14 tablet 768x1024: open menu fits on screen | {'l': 595, 'r': 737, 't': 239, 'b': 285, 'vw': 768, 'vh': 1024}
+PASS no console errors tablet | []
+PASS [B] S2-02 desktop 1280x800: study step main button fully on screen | {'top': 737.203125, 'bottom': 790, 'left': 230, 'right': 510, 'w': 280, 'h': 52.796875, 'vh': 800, 'vw': 1280}
+PASS [B] S2-02 desktop 1280x800: choice step main button fully on screen | {'top': 737.203125, 'bottom': 790, 'left': 230, 'right': 510, 'w': 280, 'h': 52.796875, 'vh': 800, 'vw': 1280}
+PASS S2-02 desktop 1280x800: typed step main button fully on screen | {'top': 667.390625, 'bottom': 720.1875, 'left': 230, 'right': 510, 'w': 280, 'h': 52.796875, 'vh': 800, 'vw': 1280}
+PASS S1-04 desktop 1280x800: wrong-answer card fully visible, no scrolling | {'top': 602.609375, 'bottom': 719.4375, 'left': 267, 'right': 1013, 'w': 746, 'h': 116.828125, 'vh': 800, 'vw': 1280}
+PASS S1-04 desktop 1280x800: 下一題 reachable
+PASS [B] S1-03 desktop 1280x800: empty submit hint fully visible | {'top': 642.71875, 'bottom': 690.21875, 'left': 267, 'right': 1013, 'w': 746, 'h': 47.5, 'vh': 800, 'vw': 1280}
+PASS [B] S1-03 desktop 1280x800: no toast / bar over the main button after an empty submit
+PASS S1-03 desktop 1280x800: a toast does not cover the main button | {'top': 10, 'bottom': 60.796875, 'left': 468.9921875, 'right': 811.0078125, 'w': 342.015625, 'h': 50.796875, 'vh': 800, 'vw': 1280}
+PASS guard desktop 1280x800: top row controls do not overlap and the page has no sideways scroll | {'bad': 0, 'n': 4, 'over': False}
+PASS [B] S3-14 desktop 1280x800: open menu fits on screen | {'l': 899, 'r': 1041, 't': 172, 'b': 218, 'vw': 1280, 'vh': 800}
+PASS no console errors desktop | []
+SUMMARY R3.5 p20 lesson loop: 173/173 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 139s

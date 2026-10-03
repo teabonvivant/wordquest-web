@@ -1,0 +1,29 @@
+﻿answer,expected,strict_correct,strict_lexical,practice_correct,note
+apple,apple,True,True,True,
+ apple ,apple,True,True,True,
+Apple,apple,False,True,True,大小寫不符
+APPLE,apple,False,True,True,大小寫不符
+wednesday,Wednesday,False,True,True,大小寫不符
+Wednesday,Wednesday,True,True,True,
+ice cream,ice-cream,False,False,False,
+icecream,ice-cream,False,False,False,
+Ice-cream,ice-cream,False,True,True,大小寫不符
+ice-cream,ice-cream,True,True,True,
+colour,colour,True,True,True,
+color,colour,False,False,False,
+colour,color,False,False,False,
+favorite,favourite,False,False,False,
+school  bag,school bag,True,True,True,
+schoolbag,school bag,False,False,False,
+School Bag,school bag,False,True,True,大小寫不符
+tshirt,T-shirt,False,False,False,
+t-shirt,T-shirt,False,True,True,大小寫不符
+T-Shirt,T-shirt,False,True,True,大小寫不符
+pensil,pencil,False,False,False,
+apple.,apple,False,False,False,
+it’s,it's,True,True,True,
+ａpple,apple,True,True,True,
+grandmother,grandmother,True,True,True,
+grand mother,grandmother,False,False,False,
+Mr Chan,Mr. Chan,False,False,False,
+Mr. Chan,Mr Chan,False,False,False,

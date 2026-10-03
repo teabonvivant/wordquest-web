@@ -53,7 +53,7 @@ with sync_playwright() as pw:
  p.set_viewport_size({'width':1280,'height':900})
  p.locator('[data-wq32-pref="guide"]').select_option('fox')
  check('Gallery fixed selection keeps keyboard focus on the replacement selector',lambda:req(p.evaluate('document.activeElement?.dataset.wq32Pref==="guide"')))
- route(p,'kid');p.locator('#wq32-home-cast [data-wq32="gallery"][data-key="owl"]').click()
+ route(p,'kid');p.evaluate("(()=>{const d=document.getElementById('p10-more');if(d)d.open=true})()");p.wait_for_timeout(60);p.locator('#wq32-home-cast [data-wq32="gallery"][data-key="owl"]').click()
  check('Home character opens actual modal with focus on close control',lambda:req(p.locator('#wq32-character-dialog').evaluate('(d)=>d.open') and p.evaluate('document.activeElement?.dataset.wq32==="close"')))
  p.keyboard.press('Escape')
  check('Escape closes gallery and returns focus to origin button',lambda:req(not p.locator('#wq32-character-dialog').count() and p.evaluate('document.activeElement?.dataset.key==="owl"')))
@@ -61,23 +61,30 @@ with sync_playwright() as pw:
  check('Maths home automatically uses otter helper',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='bo-bo'))
  mc(p,'nav:tools');check('Tool workshop uses the red panda teacher',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='tang-li'))
  mc(p,'nav:olympiad');check('Olympiad home uses the goat classmate',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='a-feng'))
+ # R3.5: a question in progress shows no partner row (r35 p50 F3, so the question gets the whole screen). The partner choices are therefore checked
+ # with the same inputs the maths screens hand to WQ32.mathHTML, and the partner settings are checked on the maths home, where the partner still stands.
+ def guide(**o):
+  ctx={'view':'lesson','grade':1,'mode':'practice','track':'normal','rest':False,'completed':False,'feedback':'','hinted':False,'exploring':False,'visual':False,'earlyNumber':False,'busy':True};ctx.update(o)
+  return p.evaluate('(c)=>{const d=document.createElement("div");d.innerHTML=WQ32.mathHTML(c);const g=d.querySelector(".forest-math-guide");return g?{c:g.dataset.forestCharacter,s:g.dataset.state}:null}',ctx)
  mc(p,'nav:normal');mc(p,'grade:1');mc(p,'practice:1N1.1')
- check('Early number practice uses the otter',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='bo-bo'))
- p.locator('#wqm-app-host #answer').fill('123');before=p.evaluate('WQMathApp.getState()');bal=p.evaluate('WQMathHost.profile().balance')
- p.locator('#wqm-app-host [data-forest-options]').click();p.locator('#wqm-app-host [data-forest-pref="guide"]').select_option('panda')
- check('Changing fixed maths helper preserves unsubmitted input',lambda:req(p.locator('#wqm-app-host #answer').input_value()=='123'))
- check('Changing fixed helper does not write maths state or balance',lambda:req(p.evaluate('WQMathApp.getState()')==before and p.evaluate('WQMathHost.profile().balance')==bal))
- check('Fixed helper actually changes image and name',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='tang-li'))
- p.locator('#wqm-app-host [data-forest-pref="show"]').uncheck()
- check('Hide setting removes maths portrait without deleting draft',lambda:req(p.locator('.forest-math-guide').count()==0 and p.locator('#wqm-app-host #answer').input_value()=='123'))
- p.locator('#wqm-app-host [data-forest-pref="show"]').check();p.locator('#wqm-app-host [data-forest-pref="guide"]').select_option('auto')
+ check('Question screen shows no partner row and no partner settings button (R3.5)',lambda:req(p.locator('.forest-math-guide').count()==0 and p.locator('#wqm-app-host [data-forest-options]').count()==0))
+ check('Early number practice uses the otter',lambda:req((guide(earlyNumber=True) or {}).get('c')=='bo-bo'))
  p.locator('#wqm-app-host #answer').fill('9999');p.locator('#wqm-app-host #answer').press('Enter')
- check('Wrong answer shows supportive hedgehog, not reward or shame',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='ci-ci' and p.locator('.forest-math-guide').get_attribute('data-state')=='retry'))
+ check('Wrong answer shows supportive hedgehog, not reward or shame',lambda:req((lambda g:bool(g) and g['c']=='ci-ci' and g['s']=='retry')(guide(earlyNumber=True,feedback='retry',busy=False))))
  check('Enter submission retains keyboard focus on actual feedback',lambda:req(p.locator('#wqm-app-host .feedback').evaluate('(e)=>e.getRootNode().activeElement===e')))
  mc(p,'nextq');q=qnow(p);p.locator('#wqm-app-host #answer').fill(str(q['answer']));mc(p,'submit')
- check('Correct submission switches to success expression',lambda:req(p.locator('.forest-math-guide').get_attribute('data-state')=='correct'))
+ check('Correct submission switches to success expression',lambda:req((lambda g:bool(g) and g['s']=='correct')(guide(earlyNumber=True,feedback='correct',busy=False))))
  check('Companion never prints the answer or invokes scoring itself',lambda:req(p.evaluate('WQ32.inspect().learningWriteAccess===false')))
  p.screenshot(path=str(E/'math_correct_desktop.png'),full_page=False)
+ closemath(p);openmath(p)
+ if p.locator('#wqm-app-host [data-action="nav:home"]').count():mc(p,'nav:home')
+ before=p.evaluate('WQMathApp.getState()');bal=p.evaluate('WQMathHost.profile().balance')
+ p.locator('#wqm-app-host [data-forest-options]').click();p.locator('#wqm-app-host [data-forest-pref="guide"]').select_option('panda')
+ check('Changing fixed maths helper does not write maths state or balance',lambda:req(p.evaluate('WQMathApp.getState()')==before and p.evaluate('WQMathHost.profile().balance')==bal))
+ check('Fixed helper actually changes image and name',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='tang-li'))
+ p.locator('#wqm-app-host [data-forest-pref="show"]').uncheck()
+ check('Hide setting removes maths portrait',lambda:req(p.locator('.forest-math-guide').count()==0))
+ p.locator('#wqm-app-host [data-forest-pref="show"]').check();p.locator('#wqm-app-host [data-forest-pref="guide"]').select_option('auto')
  closemath(p);openmath(p); # preserve current session; move away to home if resume overlay
  if p.locator('#wqm-app-host [data-action="nav:home"]').count():mc(p,'nav:home')
  # Switching view with current work is handled by original preserve-work code.
@@ -85,7 +92,7 @@ with sync_playwright() as pw:
  # Exercise with no prerequisites, using the visible R3 geometry/measure entry.
  choices=p.locator('#wqm-app-host [data-action^="practice:4S"]')
  if choices.count():choices.first.click()
- check('Geometry practice chooses fox teacher from skill context',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='you-you'))
+ check('Geometry practice chooses fox teacher from skill context',lambda:req((guide(grade=4,visual=True) or {}).get('c')=='you-you'))
  for width in [320,390,844,1280]:
   p.set_viewport_size({'width':width,'height':844 if width<800 else 900});check(f'Maths guide and question no overflow at {width}px',lambda:req(mathfits(p)))
   if width==320:p.screenshot(path=str(E/'math_geometry_320.png'),full_page=False)
@@ -104,7 +111,7 @@ with sync_playwright() as pw:
  # Quota failure must keep original stored data and disclose session-only setting.
  key=p.evaluate('Object.keys(localStorage.dump()).find(k=>k.startsWith("wordquest-v32-characters:normal:")&&!k.includes(":guest:"))')
  old=p.evaluate('(k)=>localStorage.getItem(k)',key);p.evaluate('(k)=>window.__failSet=k',key);route(p,'companions');p.locator('[data-wq32-pref="guide"]').select_option('fox')
- check('Storage failure reports session-only preferences and preserves stored JSON',lambda:req(p.evaluate('(k)=>localStorage.getItem(k)',key)==old and '未能保存' in p.locator('.wq32-setting-status').inner_text()))
+ check('Storage failure reports session-only preferences and preserves stored JSON',lambda:req(p.evaluate('(k)=>localStorage.getItem(k)',key)==old and any(w in p.locator('.wq32-setting-status').inner_text() for w in ('未能保存','沒有儲存成功'))))
  p.evaluate('window.__failSet=null');prefs(p,'guide','star')
  # Full family export includes new field; true media I/O is the explicitly declared adapter.
  unlock(p);p.locator('[data-r3="family"]').click()
@@ -121,7 +128,7 @@ with sync_playwright() as pw:
  p.evaluate('(payload)=>__R3TEST.restore(payload)',legacy)
  check('Old R3 family preferences without new field restore as automatic',lambda:req(p.evaluate('WQ32.getPreferences().guide==="auto"')))
  broken=copy.deepcopy(pack['payload']);broken['characterPreferences'][0]['preferences']['guide']='not-a-role'
- check('Malformed new preference is rejected before family replacement',lambda:req(p.evaluate('async payload=>{try{await __R3TEST.restore(payload);return false}catch(e){return e.message.includes("角色偏好")}}',broken)))
+ check('Malformed new preference is rejected before family replacement',lambda:req(p.evaluate('async payload=>{try{await __R3TEST.restore(payload);return false}catch(e){return (e.message.includes("角色偏好")||e.message.includes("角色設定"))}}',broken)))
  check('No uncaught JavaScript exceptions in complete UI run',lambda:req(not errors,str(errors)))
  b.close()
 print('TOTAL',len(rows),'PASS',sum(x['status']=='pass' for x in rows),'FAIL',sum(x['status']=='fail' for x in rows))

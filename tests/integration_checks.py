@@ -123,7 +123,7 @@ def run():
   check('Incorrect password cannot unlock maths settings',wrongpw)
   check('Existing parent password unlocks without another account',lambda:(unlock(p),True)[1])
   check('English parent page displays separate maths activity count',lambda:req('普通數學 10 次作答' in p.locator('#wq-maths-parent').inner_text(),'missing summary'))
-  p.locator('[data-wqm-open="parent"]').click()
+  None if p.locator('#wqm-dialog').evaluate('(d)=>d.open') else p.locator('[data-wqm-open="parent"]').click()
   check('Unlocked maths settings open in same program',lambda:req(p.locator('#wqm-app-host #limit').count()==1,'settings absent'))
   def settings():
    p.locator('#wqm-app-host #setting-olympiad').uncheck();mc(p,'save-settings');req(state(p)['settings']['olympiad'] is False,'not disabled')
@@ -142,9 +142,9 @@ def run():
    return req(p.evaluate('''()=>{try{WQMathHost.award({id:'unknown'},WQMathHost.profile().account+':'+WQMathHost.profile().id);return false}catch(e){return /找不到/.test(e.message)}}'''),'unknown event accepted')
   check('Uncommitted reward event cannot credit wallet',unsupported,'FAULT')
   evt=create_event(p,'r1-second')
-  check('Reward for wrong child scope is rejected',lambda:req(p.evaluate('''(e)=>{try{WQMathHost.award(e.event,'other:child');return false}catch(x){return /切換/.test(x.message)}}''',evt),'wrong scope accepted'),'FAULT')
+  check('Reward for wrong child scope is rejected',lambda:req(p.evaluate('''(e)=>{try{WQMathHost.award(e.event,'other:child');return false}catch(x){return /切換|已換了/.test(x.message)}}''',evt),'wrong scope accepted'),'FAULT')
   def tampered():
-   return req(p.evaluate('''(e)=>{try{WQMathHost.award({...e.event,valid:false},e.scope);return false}catch(x){return /不一致/.test(x.message)}}''',evt),'tampered event accepted')
+   return req(p.evaluate('''(e)=>{try{WQMathHost.award({...e.event,valid:false},e.scope);return false}catch(x){return /不一致|對不上/.test(x.message)}}''',evt),'tampered event accepted')
   check('Event payload must match saved outbox',tampered,'FAULT')
   def walletfailure():
    b=balance(p)
@@ -281,7 +281,7 @@ def run():
   # Independent viewport pages, no claims of actual iOS/Android devices.
   for width in [1280,768,390,320]:
    ctx,p,errors,dialogs=boot(browser,width=width)
-   check(f'{width}px English subject buttons are visible with no page overflow',lambda:req(p.locator('[data-wqm-open="normal"]').is_visible() and p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'English overflow'),'VIEWPORT')
+   check(f'{width}px English subject buttons are visible with no page overflow',lambda:req(p.locator('[data-wqm-open="home"]:visible, [data-wqm-open="normal"]:visible').count()>0 and p.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'English overflow'),'VIEWPORT')
    op(p,'normal')
    check(f'{width}px maths catalogue has no horizontal content overflow',lambda:req(p.locator('#wqm-app-host .shell').evaluate('(s)=>s.scrollWidth<=s.clientWidth+1'),'Maths overflow'),'VIEWPORT')
    mc(p,'nav:home');mc(p,'daily:normal')

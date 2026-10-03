@@ -1,0 +1,321 @@
+﻿序號,詞id,英文,中文義,例句,所屬單元,判斷(OK/GAP/M/R),錯誤類型碼,理由
+1,w_1bb342f45a8206ba,mat,地墊,The cat is on the mat.,U01,GAP,G2,有例句，但具體物件沒有圖片
+2,w_5d246d17c8ffb086,bat,球棒,,U01,M,M1,bat 球棒：詞庫第一義是蝙蝠；只教球棒而不在題面標明，會令認識蝙蝠的孩子混亂
+3,w_6d5d3981cfb49241,can,罐,,U01,M,M1,can 罐：小一最常用的 can 是助動詞「能夠」；只教「罐」宜在中文寫明「罐頭」
+4,w_654a43bc179eb167,fan,風扇,,U01,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+5,w_df6b8848a0d0fae0,man,成年男子,,U01,M,M2,man 成年男子：過度書面，宜用「男人」
+6,w_c8e453511d869f35,pan,平底鑊,,U01,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+7,w_e5cedb1cbd58611b,cap,鴨舌帽,My cap is green.,"U02,T07",OK,,
+8,w_f8527078c24607c8,map,地圖,I can see a map.,U02,OK,,
+9,w_b0db1f2af2870832,jam,果醬,,U02,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+10,w_7a0d323c107da715,ram,公羊,,U02,R,W1,ram 公羊：非小學課本詞，建議換詞
+11,w_6b10fb34594114da,yam,薯蕷,,U02,R,W1,yam 薯蕷：「薯蕷」過度書面，詞本身亦極少用；建議換詞
+12,w_6fd5f9806db53696,pen,筆,The pen is on my desk.,"U03,T08",OK,,
+13,w_b2d685499a2a02a0,hen,母雞,The hen lays an egg.,"U03,T04",OK,,
+14,w_0c1287e5f6912d4c,ten,十,,U03,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+15,w_2dbe67b71323bf62,men,成年男子們,,U03,M,M2,men 成年男子們：同上，宜「男人（多個）」
+16,w_85b5e74eb6b2be3b,net,網,,U03,M,M2,net 網：太籠統（魚網？網絡？），應寫「魚網」或「球網」
+17,w_6190bbce3a10dde1,get,取得,,U03,M,M2,get 取得：書面；宜「得到／拿到」
+18,w_2f155217b018f33f,pin,別針,,U04,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+19,w_f7b01f8dadb93084,fin,魚鰭,,U04,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+20,w_2da858f8c5510e80,bin,垃圾桶,,U04,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+21,w_77cf5f0d87c2ef51,win,勝出,,U04,M,M2,win 勝出：書面；宜「贏」
+22,w_dd779d21c28572ca,sit,坐下,I sit on a mat.,U04,OK,,
+23,w_f12244cc4eb2c536,kit,工具套裝,,U04,M,W1,kit 工具套裝：低頻，解釋亦不自然
+24,w_d5d267d3426282fd,top,頂部,,U05,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+25,w_f97b6c04ab773107,hop,單腳跳,,U05,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+26,w_9780307a426f8ec9,hot,熱的,The pot is hot.,U05,M,X2,The pot is hot. 與 pot 共用同一例句
+27,w_878e8168b54780be,pot,鍋,The pot is hot.,U05,M,X2,The pot is hot. 與 hot 共用；pot 詞庫為「煲」，香港日常說「煲」
+28,w_10622e0d04fd73a6,lot,一塊地,,U05,R,M1,lot 一塊地：常用義是 a lot（很多），「一塊地」是冷僻義項，會教錯重點
+29,w_baeee33e1e3c8d12,mug,有柄杯,,U06,M,M2,mug 有柄杯：冗長，宜「馬克杯」或「杯（有柄）」
+30,w_c35abbe85ecea82b,rug,地氈,,U06,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+31,w_f0bab42504ed7d48,hug,擁抱,,U06,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+32,w_00c748c606db783e,run,跑,I run in the park.,"U06,U51,T17",OK,,
+33,w_35bd88192d42c8e7,bun,小圓麵包,,U06,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+34,w_69687785955dcd62,sad,難過的,I feel sad when I lose my toy.,"U07,T16",OK,,
+35,w_b5829c079370662b,bag,袋,The tag is on the bag.,U07,M,X2,The tag is on the bag. 與 tag 共用同一句
+36,w_c8dc26abe75f50b3,bed,床,The bed is soft.,"U08,T09",OK,,
+37,w_e5b31ee09808e493,red,紅色的,The bed is red.,U08,OK,,
+38,w_efb26a4cdb6ff0ba,fed,餵過,,U08,M,M2,fed 餵過：時態標示不準（fed＝餵了／餵（過去式）），且無例句
+39,w_c2ea83f49b0b27de,sled,雪橇,,U08,M,W1,sled 雪橇：香港課本少用；建議列延伸
+40,w_c455e2252c5933a6,leg,腿,Bend your leg.,"U08,T13",OK,,
+41,w_769414b7520ed9dd,keg,小桶,,U08,R,W1,keg 小桶：小學不會學的詞，湊字尾家族用；建議換詞
+42,w_7e7f65313b69cdbe,lid,蓋子,,U09,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+43,w_251ed7c31b03cea2,dig,挖,,U09,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+44,w_ecea60b946b6f844,pig,豬,The pig is on the farm.,"U09,T04",OK,,
+45,w_6c497b0fee518234,wig,假髮,,U09,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+46,w_e17e76ab6f93ca06,zip,拉鏈,,U10,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+47,w_09fc41107fc9c276,tip,尖端,,U10,M,Q3,tip 尖端：tip 在小學多指「提示／小費」；另 edit 題把 lip/tip/sip 改成 zip，而 zip 是同一單元的真詞
+48,w_93122f0a7ad9417c,sip,小口喝,I take a sip.,U10,M,Q3,sip：edit 題答案 zip 是同單元的真詞，孩子會困惑
+49,w_37288e9b12887227,dog,狗,The dog is by the door.,"U11,U48,T04",OK,,
+50,w_a69e1ea62167c5b8,fog,霧,,U11,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+51,w_304b65d3dcf07b47,sock,襪子,I pick a sock.,"U11,U19",M,X2,sock：例句「I pick a sock.」與 pick 共用且不自然；sock 在 U11/U19/T07 有三個義項標示不一
+52,w_0f1e21119299c976,rock,石頭,,U11,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+53,w_2cdbd68c8cda27a1,lock,鎖,,U11,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+54,w_f19ad3b1871ff3d1,dock,碼頭,,U11,M,W1,dock 碼頭：低頻，宜列延伸
+55,w_c34e3142dfdf2c0e,shut,關上,,U12,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+56,w_682fcb5c455d6950,duck,鴨,The duck swims in the pond.,"U12,U19,T04",OK,,
+57,w_254e7b5ba403617c,luck,運氣,,U12,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+58,w_8319366d48e2126a,truck,貨車,,"U12,U25",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+59,w_6552ecabf675c465,stuck,卡住,,U12,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+60,w_7917ad23cde83f3f,shop,商店,,U13,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+61,w_75dbd8e57e9456b0,shark,鯊魚,The shark swims in the ocean.,"U13,U43,T06",OK,,
+62,w_2bad6a2c6706c488,brush,刷子,,"U13,U24",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+63,w_0c056576663a2eae,chin,下巴,,U14,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+64,w_e4d90ce897003c76,rich,富有的,,U14,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+65,w_17ff4a2a16950d45,chop,切碎,,U14,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+66,w_bb138e880e134365,chest,箱子,,U14,R,M1,chest 箱子：身體部位的 chest（胸口）才是小學常用義；與詞庫 6057 條的「胸口」相反
+67,w_52e2f14a56374a11,thin,薄的,The book is thin.,U15,OK,,
+68,w_791fab40b6f3e991,moth,飛蛾,,U15,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+69,w_e6045917c6e278e0,path,小路,,U15,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+70,w_36db83450c3a6736,three,三,I see three sheep.,"U15,U33",M,X2,three：例句與 see 共用
+71,w_0189c06a21a56739,thumb,拇指,,U15,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+72,w_2e7872d91b484ffa,that,那個,,U16,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+73,w_d65940e0891e3534,those,那些,,U16,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+74,w_707ec08d35a86a15,them,他們（受詞）,,U16,M,M1,them 他們（受詞）：漏了「她們／它們」，且「受詞」是文法術語
+75,w_b50e06738e954c65,mother,母親,This is my mother.,U16,M,Q1,"mother：例句與 this 共用；詞庫為「媽媽」；選擇題 [mother, this, that, these] 只有 mother 是名詞，一眼看穿"
+76,w_21256d8265b46f3c,sing,唱,We sing a song.,"U17,T17",OK,,
+77,w_46d8295d9cee5d4f,wing,翅膀,,U17,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+78,w_7795137cc805a61f,king,國王,,U17,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+79,w_96a610efd0e5a6cc,bang,砰的一聲,,U17,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+80,w_f70a8e7638a878fc,bank,河岸,,U18,R,M1,bank 河岸：小學生只學 bank=銀行；T12 另有 bank=銀行，同一網站兩個義項各自獨立成題
+81,w_fff2d6117ce3894b,link,連結,,U18,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+82,w_355ca6726e3310a3,think,想,,U18,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+83,w_6b04be335c55b972,drink,喝,Drink some water.,"U18,T17",OK,,
+84,w_679a3eaff3db162e,neck,頸,,U19,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+85,w_2ca168e8e58387dd,kick,踢球,,U19,M,M2,kick 踢球：kick＝踢；「踢球」把義項寫窄
+86,w_c1e56d0cbddaa728,pack,收拾行李,,U19,M,M2,pack 收拾行李：義項過窄（pack＝收拾／包裝）
+87,w_4affb490d9a59c3d,phone,電話,,U20,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+88,w_57cdb1d98512f716,elephant,大象,The elephant has a long trunk.,"U20,T05",OK,,
+89,w_d61982e7914e529c,nephew,姪兒或外甥,,U20,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+90,w_1b8bf727caa13560,trophy,獎盃,,U20,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+91,w_4083fdb6ed29bb7c,spot,斑點,,U21,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+92,w_cac8d04c54eb5519,spin,旋轉,,U21,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+93,w_137d985c89803b83,skip,跳步,,U21,M,M2,skip 跳步：意思不清（蹦跳？跳繩？略過？）
+94,w_e9ffb28f4c533ca8,skin,皮膚,,U21,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+95,w_a9bcee49f14173ca,smell,聞,,U22,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+96,w_a3d78ac61cb5a668,smile,微笑,,"U22,U28",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+97,w_393946c5c6ce3853,small,小的,The mouse is small.,"U22,U52,T19",M,X2,small：例句與 mouse 共用
+98,w_7638dee36f051b48,snail,蝸牛,The snail moves slowly.,"U22,U31,T06",OK,,
+99,w_4d97b83ae81b31f2,block,積木,,U23,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+100,w_9a1457f7a3707496,blue,藍色的,The flag is blue.,U23,M,X2,blue：例句與 flag 共用
+101,w_da3349b617d85c11,clock,時鐘,Look at the clock.,"U23,T09",OK,,
+102,w_5924e245c406cba9,flag,旗,The flag is blue.,U23,M,X2,flag：例句與 blue 共用
+103,w_4e82afc5f0fb5604,flat,平的,,U23,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+104,w_f982f25c65fb1701,crab,蟹,The crab walks on the sand.,"U24,T06",OK,,
+105,w_736f959e8310bff9,crow,烏鴉,,U24,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+106,w_b843e6695ec2d07d,green,綠色的,,"U24,U33",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+107,w_b7e9865f392feaf8,grin,咧嘴笑,,U24,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+108,w_40afe6254283a08b,tree,樹,The tree is tall.,"U25,U33,T11",M,X2,tree：例句與 tall 共用
+109,w_cc37d3004586cb0f,drum,鼓,Play the drum softly.,"U25,T15",OK,,
+110,w_b32dfd8b04c2942c,drop,一滴,,U25,M,M1,drop 一滴：小學常用的是動詞「掉下」；只教名詞「一滴」
+111,w_c40c5f5bfd83038e,frog,青蛙,The frog is by the tree.,U25,OK,,
+112,w_3fe56d106e678bc0,free,免費的,,U25,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+113,w_db4f4048c5b2e954,hand,手,Raise your hand.,"U26,T13",OK,,
+114,w_9e29da83043c6fff,wind,風,,U26,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+115,w_6d129b1a29657cf2,tent,帳篷,We sleep in a tent.,"U26,T12",OK,,
+116,w_5c132806358c1be4,went,去了,,U26,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+117,w_793a986e208f806f,lamp,燈,The lamp is in the tent.,U26,GAP,G2,有例句，但具體物件沒有圖片
+118,w_52de8bd58dd8c47a,jump,跳,Jump over the small line.,"U26,U50,T18",M,X1,jump：例句 Jump over the small line. 不自然（small line？）
+119,w_9f23abc71dfb502d,same,相同的,,U27,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+120,w_3666eb6a604f4fd2,kite,風箏,Fly a kite in the park.,"U28,T14",OK,,
+121,w_a8293209a8ed32e3,time,時間,,U28,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+122,w_3ad1defd9a4d5504,five,五,,U28,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+123,w_c05ab2c1b21f11dc,nose,鼻,I smell with my nose.,"U29,T13",OK,,
+124,w_7d2e238aa601c9f6,bone,骨頭,A bone is hard.,"U29,T13",OK,,
+125,w_4bc57a641c664c72,hope,希望,,U29,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+126,w_83bbec66b2feb617,cute,可愛的,,U30,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+127,w_27d9296f5e235fd1,June,六月,,"U30,U59",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+128,w_439868818bfd911a,mule,騾,,U30,R,W1,mule 騾：非小學詞，建議換詞
+129,w_b97f87a0db0af848,tune,曲調,,U30,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+130,w_603398457224615c,tail,尾巴,,U31,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+131,w_c123b6762c03b7fa,mail,郵件,,U31,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+132,w_6bde6293b9694d6b,day,天,,U32,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+133,w_c2a96093892eb7bf,stay,留下,,U32,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+134,w_2906e41f2a16633f,way,路,,U32,M,M1,way 路：主要義是「方法／途徑」；「路」與 road 同義，易混
+135,w_fdda2c5ab8b5fa19,tray,托盤,,U32,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+136,w_a63044fd3c28298d,spray,噴霧,,U32,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+137,w_38941e6d91db7e8d,see,看見,I see three sheep.,"U33,U58",M,X2,see：例句與 three 共用
+138,w_ab1e2b8c32a796f9,feet,腳（複數）,,U33,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+139,w_d19c534e8beb7378,sheep,綿羊,The sheep has thick wool.,"U33,T04",OK,,
+140,w_f367011b3544c7f3,sea,海,I can see the sea.,"U34,U57,U58",OK,,
+141,w_1b088c561bf73dbe,tea,茶,The tea is warm.,"U34,U57,T03",OK,,
+142,w_d0d660b0c07e14e0,read,閱讀（現在式）,,U34,M,M2,read 閱讀（現在式）：向孩子顯示「現在式」；同一個 read 在網站有 3 個條目、3 種標示
+143,w_0e29b801b697e61d,boat,船,The goat is by the boat.,U35,M,X2,boat：例句 The goat is by the boat. 與 goat 共用；boat 在 U35 是「船」、T10 是「小船」
+144,w_fe394d0fffa23aec,road,路,,U35,M,M2,road 路：HK 應寫「馬路」，「路」太籠統
+145,w_ffb143ead66ed97e,soap,肥皂,Wash your hands with soap.,"U35,T09",OK,,
+146,w_53250f8c44eed61e,toast,多士,,U35,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+147,w_eba608726c0e03b5,coach,教練,,U35,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+148,w_98a0044a8b847837,right,右邊,,U37,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+149,w_4d1e50b7804487ad,high,高的,,U37,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+150,w_4d5758b1f4dbfae8,flight,飛行,,U37,M,M2,flight 飛行：flight 多指「航班」；「飛行」是 flying
+151,w_20e66b3da20ba9b4,lie,躺,,U38,M,M1,lie 躺：lie 最常見是「說謊」；單教「躺」而無例句，易與過去式 lay 混
+152,w_fe91213c33563e58,food,食物,The spoon is by the food.,U39,M,X2,food：例句與 spoon 共用
+153,w_7b5572b29ab902bf,boot,靴,,U39,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+154,w_86e4f3d7a941704f,room,房間,,U39,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+155,w_6efe8e55e81a2096,zoo,動物園,,U39,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+156,w_33c3d99ce985e648,look,看,Look at the picture.,"U40,T17",OK,,
+157,w_824019be22554bc4,foot,腳,,U40,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+158,w_19e27a758460c64d,wood,木材,,U40,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+159,w_9f6feed3fd49df7e,wool,羊毛,,U40,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+160,w_cb066042655ee7af,coin,硬幣,,U41,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+161,w_f517385c2e2076ff,soil,泥土,,U41,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+162,w_8ea913cc8fb34b9a,join,加入,,U41,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+163,w_b12014e216b43ced,boy,男孩,,U41,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+164,w_7306eaf1a23a2508,toy,玩具,The toy is in the box.,"U41,U49",OK,,
+165,w_7d99a381d04e4b6c,joy,喜悅,,U41,M,M2,joy 喜悅：過度書面，低頻
+166,w_063e39850c9805d1,out,外面,,U42,M,M2,out 外面：與 outside（在外面）幾乎同義，沒有說明分別
+167,w_df24c457d0840642,house,房屋,Our house has a red door.,"U42,T12",OK,,
+168,w_1e9ff9a11056e747,mouse,老鼠,The mouse is small.,"U42,T04",M,X2,mouse：例句與 small 共用
+169,w_21ef97968aca71a4,cow,牛,The cow eats grass.,"U42,T04",OK,,
+170,w_af095f5ae0171090,now,現在,,U42,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+171,w_02486dfb966b14cc,car,車,The car is in the park.,U43,M,M3,car 車：U43 是「車」，T10 是「私家車」，同一詞兩種解釋
+172,w_0438882b80ec43a7,park,公園,We play in the park.,"U43,T12",OK,,
+173,w_1c26c7405720f537,farm,農場,,U43,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+174,w_d391f2a39c24d3a5,card,卡,,U43,M,M2,card 卡：太短；詞庫為「卡片」
+175,w_78f51e6be27222b0,dark,黑暗的,,U43,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+176,w_2b49d477c92261c9,fork,叉,The fork is short.,U44,OK,,
+177,w_6a2670c9c432d1da,horse,馬,The horse can run.,"U44,T04",OK,,
+178,w_601bb98833d39832,corn,粟米,We grow corn.,"U44,T02",OK,,
+179,w_7fe2dbfc59dbe626,born,出生的,,U44,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+180,w_980ba03407aa5644,storm,暴風雨,,U44,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+181,w_1b2b8ecf34bc0c9f,sport,運動,,U44,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+182,w_c65700ed7f9b3869,north,北方,,U44,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+183,w_0878bcb05ed6504d,her,她（受詞）,,U45,M,M1,her 她（受詞）：her 小學最常見是「她的」
+184,w_3fe25346da7efdef,fern,蕨類,,U45,R,W1,fern 蕨類：非小學詞，建議換詞
+185,w_44616fe940c34a0e,term,學期,,U45,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+186,w_a52ed52db3131d4a,bird,鳥,The bird is on the tree.,U45,OK,,
+187,w_dc02beaa1c57948f,nurse,護士,,U45,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+188,w_9d83b9fb8cecd279,hair,頭髮,,U46,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+189,w_e20e3c01fa85b692,chair,椅子,Sit on the chair.,"U46,T09",OK,,
+190,w_b6c4a6ef202ac192,fair,公平的,,"U46,U53",GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+191,w_5f2ca464f2ac0f6b,repair,修理,I can repair the chair.,U46,OK,,
+192,w_cefff80a271a3f60,airport,機場,,U46,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+193,w_c2de0bb888d68dbd,dear,親愛的,,U47,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+194,w_5832bdd24c4f65be,fear,害怕,,U47,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+195,w_03e50f8a09e37db8,box,盒,,U48,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+196,w_1b42a36060dea201,babies,嬰兒（複數）,,U49,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+197,w_ddaa09a61c9fdafd,city,城市,,U49,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+198,w_8ce729ab34641202,puppies,小狗（複數）,The puppies have toys.,U49,M,X2,puppies：例句與 toys 共用
+199,w_57712cc2a3891af7,toys,玩具（複數）,The puppies have toys.,U49,M,X2,toys：例句與 puppies 共用
+200,w_588a56ecd9739737,walk,步行,We walk to school.,"U50,T17",OK,,
+201,w_54c689c903e0613b,walked,步行（walk 的過去式）,,U50,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+202,w_2841491ed15c2417,want,想要,,U50,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+203,w_b59c618a6ee70cd8,wanted,想要（want 的過去式）,,U50,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+204,w_396cf916245517f0,running,正在跑,The rabbit is running.,U51,OK,,
+205,w_cccb5c664f4fc55c,smaller,較小的,This box is smaller.,U52,OK,,
+206,w_ab473523473b9bdb,biggest,最大的,,U52,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+207,w_48c6d04ae24c9e35,tall,高的,The tree is tall.,"U52,T19",M,X2,tall：例句與 tree 共用
+208,w_abb3e912b2af3041,taller,較高的,,U52,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+209,w_bfb285e561c52db6,kind,友善的,It is kind to help a friend.,"U53,T16",OK,,
+210,w_28f9eda67caf4137,unkind,不友善的,,U53,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+211,w_0704f726737ef269,safe,安全的,,U53,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+212,w_2f26a0e84db9ccc5,read,閱讀,,U54,M,M2,read 閱讀：同一詞第二個條目，與 U34、T17 的標示不一致
+213,w_8fc0ccc1fb788897,reuse,再使用,We can reuse the box.,U54,OK,,
+214,w_5975843fdd9749fd,rewrite,重寫,,U54,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+215,w_08c9f17cfcd69e01,build,建造,,U54,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+216,w_33a7a52a0c1de37b,rebuild,重建,,U54,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+217,w_763c429c7faa6e3c,raincoat,雨衣,The raincoat is in the bedroom.,U55,M,X2,raincoat：例句與 bedroom 共用；WQ30 寫「雨衣」，詞庫與 WQ31 寫「雨褸」，同網站不一致
+218,w_cb1d100677d597f6,toothbrush,牙刷,Use your toothbrush every day.,"U55,T09",OK,,
+219,w_f9f8c46a328b4087,rainbow,彩虹,We see a rainbow after the rain.,"U55,T11",OK,,
+220,w_45e7ddbc19c11bf8,notebook,筆記簿,Write in your notebook.,"U55,T08",OK,,
+221,w_c20b492755ed56f8,give,給,,U56,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+222,w_a7d807be7d100a6d,one,一,I have one book.,U56,M,X2,one：例句與 have 共用
+223,w_251156ec12e521bf,does,做（第三人稱）,,U56,M,M2,does 做（第三人稱）：文法術語；does 多用作助動詞，小學生更常見
+224,w_d1a24a0f413fc880,great,很棒的,,U57,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+225,w_7c0add81c5f9dfab,steak,牛扒,,U57,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+226,w_3cfbb1f55b410caf,two,二,,U58,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）
+227,w_c0b6ed945ccb623c,their,他們的,,U58,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+228,w_8a7ed42788da516b,here,這裡,,U58,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+229,w_260e557dd5c3b525,Monday,星期一,Tom learns English on Monday.,U59,M,X2,Monday：同一句 Tom learns English on Monday. 供 3 個詞用
+230,w_0c49467bdc6f0b15,Friday,星期五,,U59,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+231,w_1dd34c729618a3cc,Sunday,星期日,,U59,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+232,w_3d0dbd0e68767a9c,Tom,湯姆（示例名）,Tom learns English on Monday.,U59,M,X2,Tom：人名當詞彙；例句與 Monday、English 共用
+233,w_c3aebd69125399d7,May,五月,,U59,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+234,w_94d9d8c1b2160ce7,Hong Kong,香港,,U59,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+235,w_6b7e36b30f2b8057,I'm,我是（縮寫）,,U60,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+236,w_addf67706ae89202,can't,不能（縮寫）,,U60,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+237,w_7d65185a84b445ca,it's,它是或它有（縮寫）,,U60,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+238,w_7a124cfb0c35e6e1,we're,我們是（縮寫）,,U60,GAP,G1,詞義可用，但沒有例句（亦無句子填字題）、沒有圖片
+239,w_beecf420f3ac4889,apple,蘋果,The apple is red.,T01,OK,,
+240,w_245671195b77042c,banana,香蕉,I eat a banana.,T01,OK,,
+241,w_d7d83bb3836757eb,pear,梨,The pear is sweet.,T01,OK,,
+242,w_86e53849dbe96ba0,grape,提子（單顆）,Pick one grape.,T01,OK,,
+243,w_79dfb77e8b8cc03f,strawberry,士多啤梨,This strawberry is red.,T01,OK,,
+244,w_bd775306247272f5,watermelon,西瓜,We share a watermelon.,T01,OK,,
+245,w_750a14c34267dbbb,cherry,車厘子（單顆）,Take one cherry.,T01,OK,,
+246,w_cce98b98d31e0d26,carrot,紅蘿蔔,The rabbit eats a carrot.,T02,OK,,
+247,w_56c7c7a608ac54df,onion,洋蔥,Peel the onion.,T02,OK,,
+248,w_d9dfbba3abcea4bf,sandwich,三文治,This sandwich has cheese.,T02,OK,,
+249,w_048df27f269933ee,pizza,薄餅,We share a pizza.,T02,OK,,
+250,w_9a5ce56caa5d21ab,salad,沙律,There is tomato in the salad.,T02,OK,,
+251,w_d6e2e671fca1f78d,water,水,Please drink some water.,T03,OK,,
+252,w_5beac5305c353aa2,juice,果汁,The juice is cold.,T03,OK,,
+253,w_c333ec364f44a8ee,egg,雞蛋,The egg is in the bowl.,T03,OK,,
+254,w_1887ee7c1043e10f,cheese,芝士,Put cheese in the sandwich.,T03,OK,,
+255,w_bae5e0b21594a263,butter,牛油,Spread butter on the bread.,T03,OK,,
+256,w_56a0991a255a4f73,pancake,班戟（單塊）,This pancake is round.,T03,OK,,
+257,w_bab24135b9b5a4c4,cookie,曲奇餅（單塊）,I have one cookie.,T03,OK,,
+258,w_60ee00a841fad366,ice cream,雪糕,The ice cream is cold.,T03,OK,,
+259,w_922af3608b0c4875,lion,獅子,The lion rests under a tree.,T05,OK,,
+260,w_287c597108ae2459,tiger,老虎,The tiger has stripes.,T05,OK,,
+261,w_437b2b025033f70a,giraffe,長頸鹿,The giraffe has a long neck.,T05,OK,,
+262,w_803f4ac98c9644e4,zebra,斑馬,The zebra has black and white stripes.,T05,OK,,
+263,w_a832fa364055142b,deer,鹿,The deer eats grass.,T05,OK,,
+264,w_9fcb6e1ad62d407f,sock,襪（單隻）,I found one sock.,T07,OK,,
+265,w_991e6bedba85cf8c,scarf,頸巾,This scarf is warm.,T07,OK,,
+266,w_268a5bc822d2d6f5,glove,手套（單隻）,I lost one glove.,T07,OK,,
+267,w_5c7eb5f29f9e9d12,umbrella,雨傘,Take an umbrella.,T07,OK,,
+268,w_c35a51ef4c6ad9e0,pencil,鉛筆,Write with a pencil.,T08,OK,,
+269,w_82a9c292a2fff67c,ruler,間尺,Use a ruler to draw a line.,T08,OK,,
+270,w_7272d9509e42930a,scissors,剪刀,Use scissors to cut the paper.,T08,OK,,
+271,w_6ec9515d62f5085b,crayon,蠟筆,I use a red crayon.,T08,OK,,
+272,w_68bcb8245f34aa9f,paintbrush,畫筆,Dip the paintbrush in water.,T08,OK,,
+273,w_f33d06e8ef2d5d18,calculator,計數機,Check the sum with a calculator.,T08,GAP,G2,有例句，但具體物件沒有圖片
+274,w_fc85c35d8311302d,computer,電腦,The computer is on the desk.,T08,OK,,
+275,w_c88591494ca4ea39,door,門,Please close the door.,T09,OK,,
+276,w_5bbb65c5daaee51c,key,鎖匙,This key opens the door.,T09,OK,,
+277,w_53d188977b4dae20,basket,籃,The apples are in a basket.,T09,OK,,
+278,w_e43164745dc540c6,sponge,海綿,The sponge is wet.,T09,OK,,
+279,w_347837b572819697,car,私家車,The car is red.,T10,OK,,
+280,w_37668a5d61958889,taxi,的士,The taxi is outside.,T10,OK,,
+281,w_31b71f4da3855257,bicycle,單車,I ride a bicycle.,T10,OK,,
+282,w_b1f1495bcb68c8f4,ambulance,救護車,An ambulance helps sick people.,T10,OK,,
+283,w_4d9e353759c8bee8,aeroplane,飛機（英式用詞）,The aeroplane is in the sky.,T10,OK,,
+284,w_f19d216790493ef9,boat,小船,The boat is on the lake.,T10,OK,,
+285,w_7dd58793293f963d,flower,花,The flower is yellow.,T11,OK,,
+286,w_1888f16728811daa,mountain,山,The mountain is high.,T11,OK,,
+287,w_86b9dfbed26a856a,volcano,火山,A volcano can erupt.,T11,OK,,
+288,w_bbdfffda2707a076,bank,銀行,The bank is next to the shop.,T12,OK,,
+289,w_a108adadc095efac,hotel,酒店,We stay in a hotel.,T12,OK,,
+290,w_92c084346ad2c974,factory,工廠,The factory makes toys.,T12,OK,,
+291,w_549e4b29eb51716b,beach,沙灘,We play on the beach.,T12,OK,,
+292,w_d677f9ced6567dc1,tongue,舌頭,My tongue helps me taste.,T13,OK,,
+293,w_efd26f4c8414afe0,brain,腦,Your brain helps you think.,T13,OK,,
+294,w_42f7ee9f7cb558eb,heart,心臟,Your heart pumps blood.,T13,OK,,
+295,w_8351f5c83e76ecfc,tennis,網球運動,We play tennis.,T14,OK,,
+296,w_14c7e7f5f51f9dea,rugby,欖球運動,They play rugby on the field.,T14,OK,,
+297,w_9c75077650d80ef5,balloon,氣球,The balloon is red.,T14,OK,,
+298,w_af5c110eced555a8,puzzle,拼圖,We finish the puzzle together.,T14,OK,,
+299,w_4dcfd7fd7cd9716e,yo-yo,搖搖,The yo-yo moves up and down.,T14,OK,,
+300,w_426d44511f396e2f,guitar,結他,She plays the guitar.,T15,OK,,
+301,w_602569f5749202f2,violin,小提琴,He plays the violin.,T15,OK,,
+302,w_6766d1312a663f52,microphone,咪高峰,Sing into the microphone.,T15,OK,,
+303,w_a20d6e6d46587803,film,影片,We watch a short film.,T15,OK,,
+304,w_96b3671cc3c62779,ticket,門票,Keep your ticket safe.,T15,OK,,
+305,w_25bf041ff1858e5a,angry,生氣的,He feels angry.,T16,OK,,
+306,w_ab791d1878aec444,worried,擔心的,I am worried about my cat.,T16,OK,,
+307,w_7d8b9a1a79e2dc4a,cold,覺得冷的,I feel cold without my coat.,T16,M,M2,cold 覺得冷的：不自然；宜「冷的／凍的」
+308,w_ef809c401863d492,quiet,安靜的,Please be quiet in the library.,T16,OK,,
+309,w_b7bc1a64569d6c83,brave,勇敢的,The brave child tries again.,T16,OK,,
+310,w_7d7fad7100ed46f6,dance,跳舞,We dance to the music.,T17,OK,,
+311,w_8f767e6a4d9df135,carry,搬運,I carry my schoolbag.,T18,M,M2,carry 搬運：書面；例句 I carry my schoolbag. 應是「背／拿」
+312,w_66fb11f569f73952,close,關上,Close the door.,T18,OK,,
+313,w_89f843d243f5d92b,share,分享,We share the toys.,T18,OK,,
+314,w_257b945830173d77,below,在下方,The boat is below the bridge.,T19,M,Q1,"below：選擇題 [big, long, small, below] 其餘三個全是「…的」形容詞，答案一眼可見"
+315,w_d0619d4415e3a5a3,afternoon,下午,We go home in the afternoon.,T20,OK,,
+316,w_ce280d9d754a3ee9,night,晚上,The sky is dark at night.,T20,OK,,
+317,w_2f5f8257b4df0100,yesterday,昨天,It rained yesterday.,T20,OK,,
+318,w_6abe886448241469,dinner,晚餐,We cook dinner together.,T20,M,X2,dinner：例句與 cook 共用
+319,w_a86d9d7fc08b8e0f,weekend,週末,We visit the park at the weekend.,T20,OK,,
+320,w_79c97a59c218b46b,holiday,假期,We go to the beach on holiday.,T20,OK,,

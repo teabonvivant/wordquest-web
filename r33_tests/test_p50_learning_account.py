@@ -10,6 +10,7 @@ Exit code 1 when any check failed.  Run it against the frozen R3.2 file to see t
 Expected values (pace, dictionary...) are read from the page itself, never hard coded.
 """
 import json
+import os
 import re
 import socket
 import subprocess
@@ -76,7 +77,7 @@ def pace(pg, g):
 def hero_count(pg):
     """The 'N words' number shown on the child home."""
     go(pg, 'kid')
-    m = re.search(r'先學\s*(\d+)\s*個詞語', pg.inner_text('.l30-hero'))
+    m = re.search(r'先學\s*(\d+)\s*個(?:詞語|單字)', pg.inner_text('.l30-hero'))
     return int(m.group(1)) if m else None
 
 
@@ -86,13 +87,22 @@ def lesson_steps(pg):
     pg.locator('[data-l30="start"][data-mode="lesson"]').first.click()
     pg.wait_for_timeout(900)
     n = pg.evaluate("(()=>{const s=WQ30.snapshot().state.sessions.filter(x=>x.status==='active');return s.length?s[0].queue.length:-1})()")
+    pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
     pg.locator('[data-l30="abandon"]').first.click()
     pg.wait_for_timeout(800)
     return n
 
 
+def click_maths_entry(pg):
+    """Open maths the way a user does: the 數學 tab (R3.5) when the build has it, else the floating button (R3.4 and older)."""
+    if pg.query_selector('#wq29-nav [data-wqm-open]'):
+        pg.click('#wq29-nav [data-wqm-open]')
+    else:
+        pg.click('#wqm-launch')
+
+
 def open_math(pg):
-    pg.click('#wqm-launch')
+    click_maths_entry(pg)
     pg.wait_for_timeout(1000)
     return pg.evaluate("document.querySelector('#wqm-app-host')?.shadowRoot?.querySelector('.name')?.textContent||''")
 
@@ -103,7 +113,9 @@ def math_daily(pg):
 
 
 def math_close(pg):
-    pg.evaluate("document.querySelector('#wqm-app-host').shadowRoot.querySelector('[data-action=\"close\"]').click()")
+    # R3.5 (p50): a question screen shows only 「← 返回」 and the progress line, so the shell's close button exists on the
+    # maths pages but not inside a running practice; fall back to the same close() the product itself exposes.
+    pg.evaluate("""(()=>{const b=document.querySelector('#wqm-app-host').shadowRoot.querySelector('[data-action="close"]');if(b)b.click();else window.WQMathApp.close();})()""")
     pg.wait_for_timeout(400)
 
 
@@ -301,7 +313,7 @@ def n7():
             pg2.click('[data-act="show-grade-edit"]')
             pg2.wait_for_timeout(500)
         toast = pg2.evaluate("document.querySelector('#toast')?.textContent||''")
-        check('N7 a tab without the write lease cannot open the grade editor', pg2.query_selector('#wq33-grade-editor') is None and ('另一分頁' in toast or '編輯權' in toast), toast)
+        check('N7 a tab without the write lease cannot open the grade editor', pg2.query_selector('#wq33-grade-editor') is None and ('另一分頁' in toast or '編輯權' in toast or '另一個分頁' in toast), toast)
         cid2 = user_db(pg2)['children'][0]['id']
         pg2.evaluate("""(cid)=>{const s=document.createElement('select');s.id='wq33-grade-select';s.innerHTML='<option value="6" selected>6</option>';document.body.append(s);
           const b=document.createElement('button');b.id='forged';b.dataset.act='save-child-grade';b.dataset.id=cid;b.textContent='x';document.body.append(b);document.querySelector('#forged').click();}""", cid2)
@@ -448,6 +460,7 @@ def force_close(pg):
             if loc.count() and loc.first.is_enabled():
                 loc.first.click()
                 pg.wait_for_timeout(500)
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l30="abandon"]').first.click()
         pg.wait_for_timeout(700)
 
@@ -463,6 +476,7 @@ def n6():
         pg.locator('[data-l30="tile"]').first.click()
         pg.wait_for_timeout(500)
         before = pg.evaluate("WQ30.snapshot().state.sessions.filter(x=>x.status==='active')[0].tiles.length")
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l30="abandon"]').first.click()
         pg.wait_for_timeout(1000)
         st = abandon_state(pg)
@@ -479,6 +493,7 @@ def n6():
         drive(pg, 'feedback')
         tiles_kept = pg.evaluate("WQ30.snapshot().state.sessions.filter(x=>x.status==='active')[0]?.tiles.length")
         fb_visible = pg.query_selector('.l30-feedback') is not None
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l30="abandon"]').first.click()
         pg.wait_for_timeout(1000)
         st = abandon_state(pg)
@@ -491,6 +506,7 @@ def n6():
         pg.wait_for_timeout(500)
         s2 = pg.evaluate("(()=>{const s=WQ30.snapshot().state.sessions.filter(x=>x.status==='active')[0];return s?{tiles:s.tiles.length}:null})()")
         check('N6 a new tiles group can be started and used after abandoning', s2 is not None and s2['tiles'] == 1 and not abandon_state(pg)['dirty'], s2)
+        pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
         pg.locator('[data-l30="abandon"]').first.click()
         pg.wait_for_timeout(800)
         force_close(pg)
@@ -507,6 +523,7 @@ def n6():
                     continue
                 start_mode(pg, u, mode)
                 m = drive(pg, state)
+                pg.evaluate("(()=>{const m=document.querySelector('.p20-more');if(m)m.open=true;})()")  # R3.5: give-up now lives in the top-right menu
                 pg.locator('[data-l30="abandon"]').first.click()
                 pg.wait_for_timeout(900)
                 st = abandon_state(pg)
@@ -519,16 +536,16 @@ def n6():
         r = pg.evaluate(CORE_JS)
         check('N6 core exports WQ30Core.abandon', r.get('hasAbandon') is True, r)
         check('N6 core: abandon() with tiles selected yields a state validateState accepts', r.get('tilesAfter') == 'ok' and r.get('tilesCleared') is True, r.get('tilesAfter'))
-        check('N6 core: the pre-fix state (tiles left on an abandoned session) is still rejected', '字塊範圍' in str(r.get('strictLeftoverTiles')), r.get('strictLeftoverTiles'))
+        check('N6 core: the pre-fix state (tiles left on an abandoned session) is still rejected', '字塊超出範圍' in str(r.get('strictLeftoverTiles')), r.get('strictLeftoverTiles'))
         check('N6 core: abandon() after an answered tiles question validates and keeps the attempt', r.get('fbAfter') == 'ok' and r.get('fbKeepsAttempt') is True, r.get('fbAfter'))
         check('N6 core: abandon() on a spell session with a draft validates', r.get('spellAfter') == 'ok', r.get('spellAfter'))
         check('N6 core: a clock before startedAt never produces time-going-backwards', r.get('skewAfter') == 'ok' and r.get('skewFinished') == 1000, (r.get('skewFinished'), r.get('skewAfter')))
         check('N6 core: abandon() refuses an already finished / completed / invalid session',
               all(r.get(k) not in (None, 'ok') for k in ('twice', 'completed', 'garbage')), (r.get('twice'), r.get('completed'), r.get('garbage')))
-        for key, label, needle in (('strictOutOfRange', 'tile index outside the word', '字塊範圍'), ('strictDuplicate', 'duplicate tile', '重複字塊'),
-                                   ('strictWrongMode', 'tiles on a non-tiles question', '字塊範圍'), ('strictNoFinish', 'abandoned without finishedAt', '完成狀態矛盾'),
-                                   ('strictStatus', 'unknown status', '課程狀態'), ('strictTime', 'finishedAt before startedAt', '時間倒退'),
-                                   ('strictIndex', 'finished session at the wrong index', '完成位置'), ('strictAnswer', 'tampered question answer', '題目答案已更改')):
+        for key, label, needle in (('strictOutOfRange', 'tile index outside the word', '字塊超出範圍'), ('strictDuplicate', 'duplicate tile', '字塊重複了'),
+                                   ('strictWrongMode', 'tiles on a non-tiles question', '字塊超出範圍'), ('strictNoFinish', 'abandoned without finishedAt', '完成狀態前後不一致'),
+                                   ('strictStatus', 'unknown status', '練習狀態有誤'), ('strictTime', 'finishedAt before startedAt', '時間紀錄不對'),
+                                   ('strictIndex', 'finished session at the wrong index', '完成位置不對'), ('strictAnswer', 'tampered question answer', '題目答案被改動過')):
             check(f'N6 validateState still rejects: {label}', needle in str(r.get(key)), r.get(key))
         b.close()
 
@@ -716,13 +733,13 @@ def n13a():
         pg.wait_for_timeout(1000)
         # ---- guest copy ----------------------------------------------------------------------------
         home = pg.inner_text('#app')
-        check('N13a guest home no longer says 可以先參觀', '可以先參觀' not in home and '登入後開始練習' in home, repr(home[:60]))
+        check('N13a guest home no longer says 可以先參觀', '可以先參觀' not in home and '練習需要先登入' in home, repr(home[:60]))
         check('N13a guest home explains practising needs a login', pg.query_selector('#wq33-guest-note') is not None and '登入' in pg.inner_text('#wq33-guest-note'))
         go(pg, 'login', 500)
         check('N13a login page no longer says guests can do questions', '訪客都可以做問題' not in pg.inner_text('#app') and '先登入' in pg.inner_text('.auth-note'))
         go(pg, 'settings', 600)
-        check('N13a settings page for guests says practising needs a login', '訪客可以做題' not in pg.inner_text('#app') and '練習需要先登入' in pg.inner_text('#app'))
-        go(pg, 'kid', 500)
+        check('N13a settings page for guests says practising needs a login', '訪客可以做題' not in pg.inner_text('#app') and '練習要先登入' in pg.inner_text('#app'))
+        go(pg, 'practice', 500)  # R3.5: the practice cards live on the practice page, not on the child home
         pg.locator('.l30-card[data-l30="entry"]').first.click()
         pg.wait_for_timeout(700)
         check('N13a copy matches behaviour: a practice card sends guests to the login page', pg.evaluate('location.hash') == '#login', pg.evaluate('location.hash'))

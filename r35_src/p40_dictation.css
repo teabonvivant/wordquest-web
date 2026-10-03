@@ -1,0 +1,111 @@
+/* R3.5 p40: school dictation as practice. Selectors carry `html body` / `#app` weight because older layers use !important. */
+
+/* ---- S3-09: add a range in three steps, one visible at a time ------------------------------------------------------ */
+html body #import-v20 .v20-stepper{display:none!important}
+html body #import-v20 .v20-layout{display:block!important}
+html body #import-v20[data-p40-step="1"] .v20-selection,
+html body #import-v20[data-p40-step="1"] .v20-selected-footer,
+html body #import-v20[data-p40-step="1"] #v20-summary{display:none!important}
+html body #import-v20[data-p40-step="2"] .v20-source,
+html body #import-v20[data-p40-step="2"] #v20-summary{display:none!important}
+html body #import-v20[data-p40-step="3"] .v20-source,
+html body #import-v20[data-p40-step="3"] .v20-selection,
+html body #import-v20[data-p40-step="3"] .v20-selected-footer{display:none!important}
+#import-v20 .p40-steps{list-style:none;display:flex;gap:6px;margin:12px 0 14px;padding:0}
+#import-v20 .p40-step{flex:1 1 0;min-width:0;display:flex}
+#import-v20 .p40-step>button,#import-v20 .p40-step>span{flex:1;display:flex;align-items:center;gap:8px;min-width:0;min-height:48px;padding:6px 10px;border-radius:14px;border:2px solid #d9e4e4;background:#fff;color:#536c7a;font:inherit;font-size:15px;font-weight:700;text-align:left}
+#import-v20 .p40-step>.p40-num{display:none}
+#import-v20 .p40-step.now{display:flex}
+#import-v20 .p40-step.now>*,#import-v20 .p40-step.now{border-color:#136f74}
+#import-v20 .p40-step.now{border:0}
+#import-v20 .p40-step.now>span,#import-v20 .p40-step.now>button{background:#e7f4ed;color:#21364c;border-color:#136f74}
+#import-v20 .p40-step.done>button{background:#fff;color:#136f74;border-color:#136f74;cursor:pointer}
+#import-v20 .p40-num{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#d9e4e4;color:#21364c;font-size:14px}
+#import-v20 .p40-step.now .p40-num{background:#136f74;color:#fff}
+#import-v20 .p40-step.done .p40-num{background:#136f74;color:#fff}
+#import-v20 .p40-name{min-width:0;overflow-wrap:anywhere;line-height:1.25}
+@media(max-width:420px){
+ #import-v20 .p40-step>button,#import-v20 .p40-step>span{padding:6px;gap:5px;font-size:13px}
+ #import-v20 .p40-num{width:22px;height:22px;font-size:12px}
+}
+#import-v20 .p40-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:14px 0 0}
+#import-v20 .p40-bar .btn{min-height:48px;flex:0 0 auto}
+#import-v20 #p40-bar1{flex-direction:column;align-items:stretch}
+#import-v20 #p40-bar1 .btn{width:100%}
+#import-v20 .p40-why{margin:6px 0 0;font-size:15px;line-height:1.5;color:#7a4b00;background:#fff6dc;border-left:4px solid #e2b13c;border-radius:8px;padding:8px 10px}
+#import-v20 .p40-why[hidden],.p40-why[hidden]{display:none}
+#import-v20 .p40-tips{margin:12px 0;padding:10px 14px;border-radius:14px;background:#eef6fb;border:1px solid #c6dcea;font-size:15px;line-height:1.55;color:#21364c}
+#import-v20 .p40-tips ul{margin:6px 0 0;padding-left:20px}
+#import-v20 .p40-count{margin:8px 0;font-size:15px;line-height:1.5;color:#21364c;font-weight:700}
+#import-v20 .p40-draftnote{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 12px;padding:8px 12px;border-radius:12px;background:#e7f4ed;border:1px solid #a9d3bc;font-size:15px;line-height:1.5}
+#import-v20 .p40-draftnote .btn{min-height:40px;padding:4px 12px;font-size:14px}
+#import-v20 #ocr-status.p40-warn{background:#fff6dc;border:1px solid #e2b13c;color:#5c3d00;border-radius:10px;padding:8px 10px;font-weight:700}
+#import-v20 #ocr-status.p40-bad{background:#fdecea;border:1px solid #e0a39b;color:#7a1f14;border-radius:10px;padding:8px 10px}
+/* a finished progress bar next to a warning looks like an error bar */
+html body #import-v20 .v20-source:has(#ocr-status.p40-warn) #ocr-progress,html body #import-v20 .v20-source:has(#ocr-status.p40-bad) #ocr-progress{display:none}
+#import-v20 .p40-tech{margin-top:6px;font-size:13px;font-weight:400;color:#536c7a}
+#import-v20 .p40-tech p{margin:4px 0 0;overflow-wrap:anywhere;word-break:break-word}
+#import-v20 .p40-step3 h2{margin-top:0}
+#import-v20 #p40-back2{min-height:44px;margin-right:6px}
+#import-v20 .v20-selection>.row.between{align-items:center;flex-wrap:wrap;gap:8px}
+#import-v20 .v20-selection>.row.between>h2{flex:1 1 auto;margin:0}
+
+/* ---- practice: help panel, hints, retries --------------------------------------------------------------------------- */
+.p40-help{display:grid;gap:8px;margin:12px 0 0}
+.p40-hint{padding:10px 12px;border-radius:14px;background:#fff6dc;border:1px solid #e2b13c;color:#4a3300;font-size:17px;line-height:1.55}
+.p40-hint p{margin:4px 0 0}
+.p40-hint .small{font-size:14px;color:#6b5a30}
+.p40-mask{display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:24px;font-weight:800;letter-spacing:.08em;overflow-wrap:anywhere}
+.p40-encourage{margin:0;padding:8px 12px;border-radius:14px;background:#e7f4ed;border:1px solid #a9d3bc;color:#17503a;font-size:17px;font-weight:700;line-height:1.45}
+.p40-voice-note{display:grid;gap:8px;margin:10px 0 0;padding:10px 12px;border-radius:14px;background:#fff6dc;border:1px solid #e2b13c;color:#4a3300;font-size:16px;line-height:1.5}
+.p40-voice-note p{margin:0}
+.p40-voice-note .btn{min-height:48px;justify-self:start}
+.p40-copy{padding:10px 12px;border-radius:14px;background:#eef6fb;border:1px solid #c6dcea;font-size:17px}
+.p40-copy p{margin:0}
+.p40-copy .word{display:block;margin-top:6px;font-size:34px;font-weight:800;letter-spacing:.02em;overflow-wrap:anywhere;color:#21364c}
+.p40-prompt{margin:0 0 8px;padding:8px 12px;border-radius:12px;background:#eef6fb;font-size:17px;line-height:1.5;color:#21364c}
+.p40-studyline{margin:0 0 8px;padding:6px 10px;border-radius:10px;background:#eef6fb;font-size:15px;line-height:1.45;color:#21364c}
+.p40-fb .p40-note{margin:6px 0 0;font-size:15px;line-height:1.5}
+.p40-fb .correct-answer{font-size:30px;font-weight:800;margin:6px 0;overflow-wrap:anywhere}
+.p40-nope,.p40-nope:disabled{opacity:.45;text-decoration:line-through;filter:grayscale(1)}
+#app .p40-why.in-learn,#app .task-shell>.p40-why{margin:8px 0 0;font-size:14px;line-height:1.4;min-height:2.8em;color:#7a4b00;background:#fff6dc;border-left:4px solid #e2b13c;border-radius:8px;padding:6px 10px;box-sizing:border-box}
+#app .task-shell>.p40-why[hidden]{display:none}
+.task-shell[data-type=spell] .audio-controls,.compact-quiz .task-shell[data-type=spell] .audio-controls{display:block!important}
+
+/* ---- finish page ------------------------------------------------------------------------------------------------------- */
+.p40-finish h1{font-size:28px;line-height:1.3;overflow-wrap:anywhere}
+.p40-finish .p40-gain{margin:4px 0;font-size:16px;color:#5a461d}
+.p40-again{margin:14px 0;text-align:left}
+.p40-again h2{font-size:19px;margin:0 0 6px}
+.p40-again .list li{gap:10px}
+.p40-again .list li>span{white-space:nowrap;font-size:14px;color:#7a4b00}
+.p40-finish-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.p40-finish-actions .btn{min-height:52px}
+
+/* ---- parent: ranges, detail, report ----------------------------------------------------------------------------------- */
+.chip.p40-demo{background:#eef6fb;border:1px solid #c6dcea;color:#21364c;font-size:13px;font-weight:700;vertical-align:2px}
+.p40-saved{display:grid;gap:2px;margin:0 0 12px;padding:10px 12px;border-radius:14px;background:#e7f4ed;border:1px solid #a9d3bc;color:#17503a;font-size:16px;line-height:1.5}
+.p40-detail .p40-detail-actions{display:grid;gap:10px;margin:10px 0 14px}
+.p40-detail .p40-detail-actions>.btn{min-height:56px;font-size:19px}
+.p40-detail ul.list li{gap:10px}
+.p40-detail ul.list li strong{overflow-wrap:anywhere}
+.p40-rename{padding:8px 0}
+.p40-rename summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700;color:#136f74}
+.p40-rename .form-grid{margin:8px 0}
+.p40-next{margin-top:14px;border:2px solid #136f74}
+.p40-next h2{margin-top:0}
+.p40-next .btn{width:100%;min-height:52px}
+.p40-legend summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700}
+.range-card h3{overflow-wrap:anywhere}
+
+/* ---- D19: long words wrap instead of running off the card ------------------------------------------------------------- */
+.study-content .word,.task-card .word,.task-card .meaning,.task-card .big-word{overflow-wrap:anywhere}
+@media(max-width:420px){
+ .study-content .word{font-size:clamp(26px,9vw,40px)}
+ .task-card .word{font-size:clamp(26px,9vw,40px)}
+}
+
+/* ---- D25: the mascot becomes a small strip on question screens ----------------------------------------------------- */
+.task-shell>.wq32-guide{align-self:start;margin:0 0 6px;padding:6px 10px;min-height:0}
+.task-shell>.wq32-guide .wq32-image{width:44px;height:44px;border-radius:14px;object-fit:cover}
+.task-shell>.wq32-guide .wq32-line{font-size:15px;line-height:1.35;margin:0}

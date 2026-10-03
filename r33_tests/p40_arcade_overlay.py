@@ -103,7 +103,7 @@ with sync_playwright() as p:
             dlg = pg.evaluate("""(()=>{const b=document.querySelector('#pg-dialog [data-a28="buy"]');
               return b?{text:b.textContent.trim(),disabled:b.disabled,locked:b.classList.contains('a33-locked')}:null;})()""")
             C.check('lobby: "確認投 1 幣開始" present, enabled and not locked',
-                    bool(dlg) and '確認投 1 幣開始' in dlg['text'] and not dlg['disabled'] and not dlg['locked'], dlg)
+                    bool(dlg) and '用 1 枚金幣開始' in dlg['text'] and not dlg['disabled'] and not dlg['locked'], dlg)
             pg.locator('#pg-dialog [data-a28="buy"]').click()
             pg.wait_for_selector('#pg-canvas', timeout=10000)
             pg.wait_for_function('__p40.state().game==="ruins-courier"')
@@ -155,7 +155,7 @@ with sync_playwright() as p:
             C.check('finished screen: default focus is 返回大堂', bool(a) and a['act'] == 'leave', a, base=True)
             C.check('finished screen: focus is not on a coin-spending button', bool(a) and a['act'] != 'buy', a, base=True)
             bb = buy_btn(pg)
-            C.check('finished screen: "再投 1 幣" text unchanged', bool(bb) and bb['text'] == '再投 1 幣', bb)
+            C.check('finished screen: "再投 1 枚金幣" text (R3.5 wording)', bool(bb) and bb['text'].endswith('再投 1 枚金幣'), bb)
             C.check('lock: the coin button is natively disabled while locked', bool(bb) and bb['disabled'] and bb['locked'], bb, base=True)
             C.check('lock: a progress bar runs along the locked button', bool(bb) and bb['barH'] == '5px' and bb['barAnim'] == 'a33-lock', bb,
                     base=True)

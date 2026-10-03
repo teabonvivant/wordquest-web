@@ -1,0 +1,28 @@
+# p40 OCR preselection (D4)  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS clean print: "pencil" is preselected | pencil,ruler,eraser,school bag,ice-cream,t-shirt,grandmother,favourite,wednesday,colour,light,pillow,island,little,tall,million
+PASS clean print: "ruler" is preselected | pencil,ruler,eraser,school bag,ice-cream,t-shirt,grandmother,favourite,wednesday,colour,light,pillow,island,little,tall,million
+PASS clean print: "eraser" is preselected | pencil,ruler,eraser,school bag,ice-cream,t-shirt,grandmother,favourite,wednesday,colour,light,pillow,island,little,tall,million
+PASS clean print: "grandmother" is preselected | pencil,ruler,eraser,school bag,ice-cream,t-shirt,grandmother,favourite,wednesday,colour,light,pillow,island,little,tall,million
+PASS clean print: "wednesday" is preselected | pencil,ruler,eraser,school bag,ice-cream,t-shirt,grandmother,favourite,wednesday,colour,light,pillow,island,little,tall,million
+PASS clean print: at least 12 words preselected | 16
+PASS [B] clean print: the unit title is not preselected | pencil|ruler|eraser|school bag|ice-cream|T-shirt|grandmother|favourite|Wednesday|colour|light|pillow|island|little|tall|million
+PASS [B] clean print: result is not flagged unclear | {"raw":44,"pre":16,"known":15,"conf":[52.619926,23.446976,11.770386,91.008858,69.575089,95.144272,41.942642,92.610634,91
+PASS [B] skewed photo with shadow: nothing is preselected
+PASS [B] skewed photo with shadow: flagged unclear
+PASS [B] bilingual table: nothing is preselected
+PASS [B] bilingual table: flagged unclear
+PASS [B] handwriting: nothing is preselected
+PASS [B] handwriting: flagged unclear
+PASS [B] blank paper: nothing is preselected
+PASS [B] blank paper: flagged unclear
+PASS [B] blurry photo: nothing is preselected
+PASS [B] blurry photo: flagged unclear
+PASS [B] dark photo: nothing is preselected
+PASS [B] dark photo: flagged unclear
+PASS 300-word page: a long clean list is not flagged unclear | 119 of 124
+PASS 300-word page: most words stay preselected | 119
+PASS [B] noisy sentence photo: nothing is preselected | 0
+PASS [B] noisy sentence photo: flagged unclear
+PASS clean sentence list in sentence mode keeps the sentences | 4 of 4
+PASS typed text is untouched (still all selected) | 2
+SUMMARY p40 OCR preselection: 26/26 passed; failed [B] (expected on R3.4 base) = 0; failed other = 0

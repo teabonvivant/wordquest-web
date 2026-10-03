@@ -1,0 +1,62 @@
+# r34 p30 phone play layer  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] 844x390 every game opens enlarged, nothing overflows or overlaps the screen
+PASS [B] 844x390 canvas uses the freed height (>= 88% of the ideal size)
+PASS 844x390 touch keys / system buttons >= 40x36 px
+PASS 844x390 no page errors
+PASS [B] 932x430 every game opens enlarged, nothing overflows or overlaps the screen
+PASS [B] 932x430 canvas uses the freed height (>= 88% of the ideal size)
+PASS 932x430 touch keys / system buttons >= 40x36 px
+PASS 932x430 no page errors
+PASS [B] 667x375 every game opens enlarged, nothing overflows or overlaps the screen
+PASS [B] 667x375 canvas uses the freed height (>= 88% of the ideal size)
+PASS 667x375 touch keys / system buttons >= 40x36 px
+PASS 667x375 no page errors
+PASS [B] 740x360 every game opens enlarged, nothing overflows or overlaps the screen
+PASS [B] 740x360 canvas uses the freed height (>= 88% of the ideal size)
+PASS 740x360 touch keys / system buttons >= 40x36 px
+PASS 740x360 no page errors
+PASS portrait: not enlarged by itself
+PASS [B] portrait: "turn your phone" chip shown above the screen | {'w': 364, 'h': 62, 'vis': True, 'b': 216.9375}
+PASS [B] rotate to landscape: enlarged mode starts by itself
+PASS [B] rotate back to portrait: leaves the enlarged mode by itself
+PASS [B] manual 還原 in landscape stays in the normal view
+PASS [B] turning the phone again re-enables the enlarged mode
+PASS [B] chip closed once stays closed in the session
+PASS tool-heavy game (color-workshop): no "turn your phone" chip
+PASS no page errors
+PASS landscape window with a mouse (no touch): not enlarged by itself
+PASS desktop: no rotate chip
+PASS [B] ruins-courier: sliding right changes lane (one step per stretch of drag) | lane 1->2, right pulses=2
+PASS [B] ruins-courier: a tap is a jump (up pulse 100-300 ms) | pulses=1, 149 ms
+PASS ruins-courier: a small wobble is not a steer | [[8596.39999999851, 'up']]
+PASS mouse click on the canvas does not press any key | []
+PASS [B] forest-dash: swipe up = one jump | pulses=1, 238 ms
+PASS [B] forest-dash: swipe down = one slide | pulses=1, 350 ms
+PASS [B] forest-dash: sliding sideways changes lane and never jumps | lane 1->2
+PASS [B] forest-dash: second finger holds jump while it stays down | ['up'] -> []
+PASS [B] star-patrol: dragging steers in four directions | [{'right'}, {'right', 'down'}, {'left', 'down'}, {'up', 'left'}, {'right', 'down'}]
+PASS star-patrol: lifting the finger releases every key | []
+PASS [B] star-patrol: tap = shield key | [[17445.29999999702, 'action'], [17547.10000000149, '']]
+PASS color-orbit: right half turns right once, left half turns left once (no doubled input) | 0->1->0
+PASS [B] drift-path: touching anywhere turns (action while the finger is down) | ['action'] dir 0->1
+PASS rolling-block: the engine's own swipe works and the gesture layer adds no keys | moves 0->3, keys []
+PASS [B] valley-race: drag right holds right, dragging back holds left, lift releases | ['right'] ['left'] []
+PASS [B] valley-race: a downward flick holds the brake until the finger lifts | ['down'] -> []
+PASS [B] lighthouse-well: tap = action | [[23410.79999999702, 'action'], [23512.60000000149, '']]
+PASS [B] harbor-volley: tap = action | [[24477.79999999702, 'action'], [24578.79999999702, '']]
+PASS [B] cloud-island: tap = up | [[25627.60000000149, 'up'], [25769.89999999851, '']]
+PASS [B] sky-rescue: tap = action | [[26747.20000000298, 'action'], [26848.89999999851, '']]
+PASS [B] cloud-island: dragging right moves the goat right | x 90->225.36892288888887
+PASS moon-bells: native finger follow still works and adds no keys | target None->581.6246896062434
+PASS touch cancel releases the keys | {"id":"star-patrol","playing":true,"keys":[],"score":0,"health":3,"level":1,"done":false,"reason":"","error":"","imm":true,"fs":false,"sources":[]}
+PASS pause during a drag: no key stays held, no error | {'id': 'star-patrol', 'playing': False, 'keys': [], 'score': 0, 'health': 3, 'level': 1, 'done': False, 'reason': 'paused', 'error': '', 'imm': True, 'fs': False, 'sources': []}
+PASS [B] after resuming, the next drag steers again
+PASS game ends during a drag: nothing stays held | {'id': 'star-patrol', 'playing': False, 'keys': [], 'score': 0, 'health': 3, 'level': 1, 'done': True, 'reason': 'finished', 'error': '', 'imm': True, 'fs': False, 'sources': []}
+PASS no page errors during gestures
+PASS [B] ruins-courier: ready card shows the touch hint | 左右滑動換跑道，輕按跳躍，向下滑動滑行。按 ← → 換線，↑ 跳起，↓ 滑行。
+PASS [B] forest-pong: ready card shows the touch hint | 用手指左右拖動球拍。按 ← → 或 A D 移動球拍。
+PASS [B] block-studio: ready card shows the touch hint | 輕按旋轉，左右滑動移動，向下滑直接落下。按 ← → 移動，↑ 旋轉，↓ 加速，Space 直接落下。
+PASS [B] drift-path: ready card shows the touch hint | 輕按畫面任何位置轉彎。按 Space 轉彎。
+PASS [B] footer buttons keep a full aria-label and get a short caption | [{'a': 'pause', 's': '暫停', 'al': '暫停', 'x': 705.1875, 'y': 289, 'w': 62.90625, 'h': 44, 'r': 768.09375, 'b': 333}, {'a': 'leave', 's': '返回', 'al': '儲存並返回', 'x': 773.09375, 'y': 289, 'w': 62.90625, 'h': 44, 'r': 836, 'b': 333}, {'a': 'help', 's': '說明', 'al': '操作說明', 'x': 705.1875, 'y': 338, 'w': 62.90625, 'h': 44, 'r': 768.09375, 'b': 382}, {'a': 'r2-full', 's': '縮小', 'al': '放大／縮小', 'x': 773.09375, 'y': 338, 'w': 62.90625, 'h': 44, 'r': 836, 'b': 382}]
+PASS no page errors
+SUMMARY r34 p30 phone play layer: 60/60 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 119s
