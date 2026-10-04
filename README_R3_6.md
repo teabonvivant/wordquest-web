@@ -92,4 +92,4 @@ python3 tools/package_r36.py                     # 重新產生 PACKAGE_MANIFEST
 
 ## 檔案
 
-新增：`tools/build_r36.py`、`tools/package_r36.py`、`r36_src/`、`r36_tests/`、`r36_evidence/`、`docs/R3_6_審查與改動報告.md`。修改：`app/index.html`、`app/sw.js`、`app/manifest.webmanifest`、`server/` 內的同名檔案，以及為新規則更新預期的舊測試（逐項見 `r36_evidence/legacy_test_updates.md`）。
+新增：`tools/build_r36.py`、`tools/package_r36.py`、`r36_src/`、`r36_tests/`、`r36_evidence/`、`docs/R3_6_審查與改動報告.md`。修改：`app/index.html`、`app/sw.js`、`app/manifest.webmanifest`，以及為新規則更新預期的舊測試（逐項見 `r36_evidence/legacy_test_updates.md`）。`server/local_server.mjs` 由建置腳本一併重建，內容和 R3.5 相同。
