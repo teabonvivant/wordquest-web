@@ -208,18 +208,47 @@ def l30_state(pg):
       answer:!!document.querySelector('#l30-answer:not([disabled])'),choice:!!document.querySelector('.l30-choice')};}""")
 
 
-def l30_to_spell(pg, limit=24):
-    """Advance the L30 lesson through study / choice steps until the typed '自己串字' question shows."""
+def _l30_skip_audio(pg):
+    """Headless Chromium has no English voice: press 🔊, wait for the 「未能完成播放」 status, then use the child's own 「聲音有問題」 button.
+    Returns True when that button was pressed."""
+    pg.evaluate("document.querySelector('[data-l30=audio]')?.click()")
+    try:
+        pg.wait_for_function("(document.querySelector('#l30-audio-status')?.textContent||'').includes('未能')", timeout=8000)
+    except Exception:  # noqa: BLE001
+        pass
+    pg.once('dialog', lambda d: d.accept())   # the button asks 「這題會標為待補聽…」 with a browser confirm; Playwright would dismiss it
+    return pg.evaluate("(()=>{const b=[...document.querySelectorAll('#app button')].find(b=>b.textContent.includes('聲音有問題'));if(b){b.click();return true}return false})()")
+
+
+def l30_to_spell(pg, limit=60):
+    """Advance the L30 lesson until a typed question (answer box) shows.
+    R3.6: a lesson is 8 study steps + 20 mixed questions in random order, so the walker answers whatever comes: choices, tile questions
+    (all tiles, any order) and listening questions, typed ones included (headless Chromium has no English voice: the child's own 「聲音有問題」 button is used)."""
     for _ in range(limit):
         s = l30_state(pg)
-        if s['answer']:
-            return True
         before = dom_sig(pg)
+        if s['answer']:
+            if not pg.evaluate("!!document.querySelector('[data-l30=audio]')"):
+                return True   # a typed question that needs no listening
+            # 聽音默字 has an answer box too, but its submit stays disabled until the child has heard it: use 「聲音有問題」 like the other listening questions
+            if not _l30_skip_audio(pg):
+                return True   # the sound is optional on this question
+            wait_changed(pg, before)
+            pg.wait_for_timeout(60)
+            continue
         if s['submit']:
-            if s['choice']:
-                pg.evaluate("document.querySelector('.l30-choice:not([disabled])')?.click()")
-                pg.wait_for_timeout(60)
-            pg.evaluate("document.querySelector('[data-l30=submit]').click()")
+            kind = pg.evaluate("""()=>({dis:!!document.querySelector('[data-l30=submit]')?.disabled,audio:!!document.querySelector('[data-l30=audio]'),
+                tiles:!!document.querySelector('[data-l30=tile]:not([disabled])')})""")
+            if kind['dis'] and kind['audio']:
+                _l30_skip_audio(pg)
+            else:
+                if kind['tiles']:
+                    pg.evaluate("document.querySelectorAll('[data-l30=tile]:not([disabled])').forEach(b=>b.click())")
+                    pg.wait_for_timeout(60)
+                elif s['choice']:
+                    pg.evaluate("document.querySelector('.l30-choice:not([disabled])')?.click()")
+                    pg.wait_for_timeout(60)
+                pg.evaluate("document.querySelector('[data-l30=submit]').click()")
         elif s['next']:
             pg.evaluate("document.querySelector('[data-l30=next]').click()")
         else:

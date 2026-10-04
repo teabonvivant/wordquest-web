@@ -120,6 +120,21 @@ def l31_correct_and_next(pg, wait=70):
     return mid, osc_since(pg, m2)
 
 
+def l31_clean_round(pg):
+    """R3.6: a round pays its coin only when every step is right the first time. Answer every step right; returns the rows of the last next click."""
+    rows = []
+    for _ in range(30):
+        s = pg.evaluate('__p40.l31()')
+        if not s:
+            break
+        if s['step'] == 'notice':
+            pg.locator('[data-l31="submit"]').click()
+        else:
+            l31_do(pg, True)
+        _mid, rows = l31_correct_and_next(pg, wait=1000)
+    return rows
+
+
 with sync_playwright() as p:
     b, ctx, pg, errs = open_page(p, audio=True)
     try:
@@ -145,7 +160,7 @@ with sync_playwright() as p:
         # ====================================================================== B. L30 meaning mode: a full group
         l30_start(pg, 'meaning')
         s = pg.evaluate('__p40.l30()')
-        C.check('L30: meaning session started (4 steps)', s and s['len'] == 4 and s['mode'] == 'meaning', s)
+        C.check('L30: meaning session started (8 steps, R3.6)', s and s['len'] == 8 and s['mode'] == 'meaning', s)
         stars0 = pg.evaluate('__p40.stars()')
         rows = act(pg, lambda: l30_choose(pg, True))
         expect('L30: picking a choice plays a tap', rows, TAP)
@@ -171,9 +186,26 @@ with sync_playwright() as p:
         rows = act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
         C.check('L30: English speech playing (voiceBusy) -> choose + correct submit are silent', rows == [], f(rows))
         pg.evaluate('__p40.voice(false)')
-        # last step -> complete + coin
+        # R3.6: this session had one wrong answer (to hear the wrong cue), so it cannot pay. Finish it: complete tune, no coin.
+        for _ in range(4):
+            act(pg, lambda: l30_next(pg))
+            act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
+        rows = act(pg, lambda: l30_next(pg), wait=1000)
+        expect('L30: finishing a group with a mistake plays the complete tune and no coin (R3.6: only 5 stars pay)', rows, COMPLETE)
+        done = pg.evaluate('__p40.l30Done()')
+        C.check('L30: group with a mistake completed, no coin', done and done['status'] == 'completed' and done['award'] == 0 and
+                pg.evaluate('__p40.stars()') == stars0, f'{done} stars {stars0}->{pg.evaluate("__p40.stars()")}')
+        # a clean session: every answer right -> 5 stars -> complete tune, then the coin 600 ms later (exactly once)
+        l30_start(pg, 'meaning', unit='U02')
+        stars0 = pg.evaluate('__p40.stars()')
+        for _ in range(7):
+            act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
+            act(pg, lambda: l30_next(pg))
+        pg.evaluate('__p40.voice(true)')
+        rows = act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
+        pg.evaluate('__p40.voice(false)')
         s = pg.evaluate('__p40.l30()')
-        C.check('L30: last step answered (silent because speech was playing), feedback waiting', s and s['index'] == 3 and s['fb'] is not None, s)
+        C.check('L30: last step answered (silent because speech was playing), feedback waiting', s and s['index'] == 7 and s['fb'] is not None, s)
         rows = act(pg, lambda: l30_next(pg), wait=1000)
         expect('L30: finishing the group plays the complete tune, then the coin 600 ms later (exactly once)', rows, COMPLETE + COIN)
         done = pg.evaluate('__p40.l30Done()')
@@ -226,7 +258,7 @@ with sync_playwright() as p:
 
         # ====================================================================== E. L30 rolled-back save stays silent
         l30_start(pg, 'meaning', unit='U03')
-        for i in range(3):
+        for i in range(7):
             act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
             act(pg, lambda: l30_next(pg))
         act(pg, lambda: (l30_choose(pg, True), l30_submit(pg)))
@@ -294,9 +326,18 @@ with sync_playwright() as p:
         step, rows = l31_do(pg, correct=True)
         expect('L31 recall: typed correct answer plays correct', rows, CORRECT)
         mid, rows = l31_correct_and_next(pg, wait=1000)
-        expect('L31: finishing the group plays the complete tune, then the coin 600 ms later (exactly once)', rows, COMPLETE + COIN)
+        expect('L31: finishing a group with a mistake plays the complete tune and no coin (R3.6: only 5 stars pay)', rows, COMPLETE)
         done = pg.evaluate('__p40.l31Done()')
-        C.check('L31: group completed and the award reached the wallet (3rd task of the day = +2 with the daily bonus)',
+        C.check('L31: group with a mistake completed, no award reached the wallet',
+                done and done['status'] == 'completed' and done['award'] == 0 and pg.evaluate('__p40.stars()') == stars3,
+                f'{done} stars {stars3}->{pg.evaluate("__p40.stars()")}')
+        # a clean round of the same group: everything right the first time -> complete tune, then the coin 600 ms later (exactly once)
+        l31_start(pg, 'air')
+        stars3 = pg.evaluate('__p40.stars()')
+        rows = l31_clean_round(pg)
+        expect('L31: finishing a clean group plays the complete tune, then the coin 600 ms later (exactly once)', rows, COMPLETE + COIN)
+        done = pg.evaluate('__p40.l31Done()')
+        C.check('L31: clean group completed and the award reached the wallet',
                 done and done['status'] == 'completed' and done['award'] >= 1 and pg.evaluate('__p40.stars()') == stars3 + done['award'],
                 f'{done} stars {stars3}->{pg.evaluate("__p40.stars()")}')
 

@@ -54,7 +54,7 @@ def screens(pg, tag):
         pg.evaluate("window.scrollTo(0,0)")
         pg.wait_for_timeout(100)
         navs = nav_rects(pg)
-        check(f'hit {tag} {hash_} bottom nav has 5 tabs (R3.5: 數學 is a tab)', len(navs) == 5, [n['label'] for n in navs])
+        check(f'hit {tag} {hash_} bottom nav has 6 tabs (R3.5: 數學 is a tab; R3.6: 奧數 is one too)', len(navs) == 6, [n['label'] for n in navs])
         for n in navs:
             ok, why = hit_centre(pg, f'#wq29-nav a[href="{n["href"]}"]')
             check(f'hit {tag} {hash_} nav tab {n["label"]} centre hits itself', ok, why)
@@ -108,6 +108,7 @@ def flow_l30_spell(pg, tag):
         if k == 0:
             pg.evaluate("document.querySelector('[data-l30=next]')?.click()")
             pg.wait_for_timeout(350)
+            l30_to_spell(pg)   # R3.6: walk on to the next typed question (the quiz mixes question types)
             if not pg.query_selector(inp + ':not([disabled])'):
                 break
 

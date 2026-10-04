@@ -1,0 +1,30 @@
+# t05 time limit and notices  app=/tmp/ab36/r35/app/index.html
+PASS A0 set-up: limit 5 minutes, three hours of English / maths / olympiad already recorded | {'english': 3600000, 'math': 3600000, 'olympiad': 3600000, 'arcade': 0}
+Traceback (most recent call last):
+  File "/home/claude/teabonvivant/wordquest-web/r36_tests/t05_time_notices.py", line 106, in <module>
+    can = json.loads(ev(pg, "JSON.stringify({study:WQR3.canStudy(),play:WQR3.canPlay()})"))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/teabonvivant/wordquest-web/r35_tests/p20_lib.py", line 49, in ev
+    return pg.evaluate('(c)=>window.__ev(c)', code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 8531, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_page.py", line 467, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_frame.py", line 320, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: TypeError: WQR3.canStudy is not a function
+    at eval (eval at window.__ev (file:///tmp/ab36/r35/app/index.html:5649:18), <anonymous>:1:28)
+    at window.__ev (file:///tmp/ab36/r35/app/index.html:8787:18)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:13)
+    at UtilityScript.evaluate (<anonymous>:297:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

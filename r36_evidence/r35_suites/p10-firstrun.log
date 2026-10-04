@@ -1,0 +1,97 @@
+# R3.5 p10 first-run screens and chrome  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] A1 the one big button 「開始今天的小課」 is full width and on the first screen (390x844) | {"t": 173, "b": 237, "l": 29, "r": 361, "w": 332, "h": 64} nav=783
+PASS [B] A2 only one 「今天」 entry is visible on the home (no duplicate daily cards) | ['開始今天的小課']
+PASS [B] A3 four big tiles 英文 / 數學 / 奧數 / 遊戲 are on the first screen (R3.6: 奧數 is its own tile) | [{'t': '🔤英文', 'top': 412.640625, 'bottom': 547.53125, 'h': 134.890625}, {'t': '🔢數學', 'top': 412.640625, 'bottom': 547.53125, 'h': 134.890625}, {'t': '🧩奧數', 'top': 559.53125, 'bottom': 694.421875, 'h': 134.890625}, {'t': '🎮遊戲', 'top': 559.53125, 'bottom': 694.421875, 'h': 134.890625}]
+PASS [B] A4 the first screen has the greeting with the child name and grade tag 小3
+PASS [B] A5 「更多玩法」 is a closed <details> | {'tag': 'DETAILS', 'open': False, 'sum': '更多玩法'}
+PASS [B] A6 夥伴 / 詞語組合工房 / 8 種練習 / 拼字教室 all sit inside 「更多玩法」 (R3.6: the 跨科任務 and 數學學習 cards are gone) | {'ids': [True, True], 'cards': 8, 'cls': True}
+PASS [B] A7 all 8 practice cards say 「開始」 | ['開始', '開始', '開始', '開始', '開始', '開始', '開始', '開始']
+PASS [B] A8 the open / closed state of 「更多玩法」 survives a re-render (leave and come back)
+PASS [B] A9 tile 英文 opens the practice page | #practice
+PASS [B] A10 tile 數學 opens the maths dialog
+PASS [B] A11 tile 遊戲 opens the arcade lobby | #game
+PASS A12 the big button still starts the lesson (guard) | #learning
+PASS [B] A14 an unknown address (#home) lands on the new home, not the old oversized portrait block | #kid
+PASS A13 no sideways scroll on #kid (390x844) | 0
+PASS A13 no sideways scroll on #practice (390x844) | 0
+PASS A13 no sideways scroll on #login (390x844) | 0
+PASS A13 no sideways scroll on #classroom (390x844) | 0
+PASS A13 no sideways scroll on #assembly (390x844) | 0
+PASS [B] A14 landscape 844x390: the big button and the tiles are on the first screen (four tiles; 320x568: the first row) | btn={'t': 167.5, 'b': 224.9375, 'l': 37, 'r': 437.90625, 'w': 400.90625, 'h': 57.4375} tiles=[{'b': 227.03125, 't': 87, 'h': 140.03125, 'w': 175.546875}, {'b': 227.03125, 't': 87, 'h': 140.03125, 'w': 175.546875}, {'b': 375.078125, 't': 235.03125, 'h': 140.046875, 'w': 175.546875}, {'b': 375.078125, 't': 235.03125, 'h': 140.046875, 'w': 175.546875}] nav=390
+PASS A15 landscape 844x390: no sideways scroll on the home
+PASS [B] A16 landscape: sticky header is one row of at most 52px | {"t": 0, "b": 49, "l": 0, "r": 844, "w": 844, "h": 49}
+PASS [B] A14 small phone 320x568: the big button and the tiles are on the first screen (four tiles; 320x568: the first row) | btn={'t': 152.640625, 'b': 211.640625, 'l': 25, 'r': 295, 'w': 270, 'h': 59} tiles=[{'b': 466.53125, 't': 373.234375, 'h': 93.296875, 'w': 144}, {'b': 466.53125, 't': 373.234375, 'h': 93.296875, 'w': 144}, {'b': 567.828125, 't': 474.53125, 'h': 93.296875, 'w': 144}, {'b': 567.828125, 't': 474.53125, 'h': 93.296875, 'w': 144}] nav=507
+PASS A15 small phone 320x568: no sideways scroll on the home
+PASS [B] A14 tablet 768x1024: the big button and the tiles are on the first screen (four tiles; 320x568: the first row) | btn={'t': 273.5, 'b': 337.5, 'l': 39, 'r': 729, 'w': 690, 'h': 64} tiles=[{'b': 677.140625, 't': 517.140625, 'h': 160, 'w': 172}, {'b': 677.140625, 't': 517.140625, 'h': 160, 'w': 172}, {'b': 677.140625, 't': 517.140625, 'h': 160, 'w': 172}, {'b': 677.140625, 't': 517.140625, 'h': 160, 'w': 172}] nav=1024
+PASS A15 tablet 768x1024: no sideways scroll on the home
+PASS [B] B1 the demo range is the only one: card 「今次默書練習」 labelled 「示範」, 12 個單字, no invented date | {'txt': '今次默書練習\n\n示範默書 Unit 3 示範\n\n12 個單字\n\n開始練習', 'btn': '開始練習', 'top': 296.5}
+PASS [B] B2 the card sits under the main button, above the tiles
+PASS [B] B3 a school range: card shows its name, 5 個單字 and the school date | {'txt': '今次默書練習\n\n第三單元默書\n\n5 個單字 · 默書日：10月8日\n\n開始練習', 'btn': '開始練習'}
+PASS [B] B4 the demo range is hidden from the card once a school range exists | {'txt': '今次默書練習\n\n第三單元默書\n\n5 個單字 · 默書日：10月8日\n\n開始練習', 'btn': '開始練習'}
+PASS [B] B5 「開始練習」 starts a practice set made of the school range words | {'n': 5, 'ids': ['w_s_cat', 'w_s_apple', 'w_s_banana', 'w_s_dog', 'w_s_egg'], 'mode': 'practice'} #learn
+PASS [B] B6 with an unfinished set the card button says 「繼續練習」 | '繼續練習'
+PASS B7 a visitor sees no dictation card (guard)
+PASS [B] C1 visitor home: one full-width button on the first screen | {"t": 173, "b": 237, "l": 29, "r": 361, "w": 332, "h": 64}
+PASS C2 visitor home: note under the button mentions 登入 (guard)
+PASS [B] C3 visitor home: header shows 試玩中 | 試玩中
+PASS [B] C4 login page first screen: two big cards 「第一次使用：建立帳戶」 and 「已有帳戶：登入」 | [{'t': '第一次使用：建立帳戶由家', 'top': 258.53125, 'bottom': 347.78125, 'h': 89.25}, {'t': '已有帳戶：登入輸入帳戶名', 'top': 359.78125, 'bottom': 449.03125, 'h': 89.25}]
+PASS [B] C5 the arcade promo comes below the forms | forms={'t': 467.03125, 'b': 1448.84375, 'l': 12, 'r': 378, 'w': 366, 'h': 981.8125} portal={'t': 1675.125, 'b': 1953.5625, 'l': 12, 'r': 378, 'w': 366, 'h': 278.4375}
+PASS [B] C6 the register password field says 「至少 8 個字」
+PASS [B] C7 「顯示密碼」 toggle shows and hides the password | ['password', 'text', '隱藏密碼', 'password']
+PASS [B] C8 form titles are 「登入」 and 「建立新帳戶」 | ['建立新帳戶', '登入', '遊戲街機，從這裏進入', '測試入口 · Admin']
+PASS [B] C9 the password label is 「家長密碼」 (no 「舊 PIN」 in the sign-up form) | ['帳戶名稱', '孩子的名字', '孩子的年級', '家長密碼', '帳戶名稱', '家長密碼']
+PASS [B] C10 the five sign-in / sign-up inputs are linked to their label (for=) | []
+PASS [B] C11 required inputs carry aria-required | []
+PASS C12 no 1234 / Admin-password hint on the normal sign-in screen (guard; R3.6: the file:// page may carry a plain 「進入 Admin 測試」 link)
+PASS [B] C13 a wrong sign-in shows an inline message under the password field that stays after the toast is gone | {'t': '帳戶名稱或密碼不對，請再試一次。', 'vis': True, 'below': True, 'toast': False}
+PASS [B] C14 the inline message clears when the field is edited
+PASS [B] C15 a too-short password shows 「密碼要 8 個字或以上…」 inline and keeps it | {'t': '密碼要 8 個字或以上。可用三個詞加數字，例如 apple-tree-2026。', 'bad': 'true'}
+PASS [B] C16 an empty account name is flagged under that field
+PASS C17 sign-up succeeds and lands on the child home (guard)
+PASS [B] C18 logged-in header: no 登出 button for the child
+PASS [B] C19 settings: 「關於這個程式」 carries the name and the version, once (R3.6: the teacher-review line is gone)
+PASS [B] C20 settings: no V28 / Web Locks / UTF-8 / 編輯權 engineering wording | []
+PASS [B] C21 settings: button says 「匯出學習備份」
+PASS [B] C22 settings has a 「登出」 button that asks first and stays logged in on 取消 | ['要登出嗎？登出後，要用家長密碼才能再登入。']
+PASS [B] C23 confirming the log-out returns to the visitor home | 試玩中
+PASS C24 logging in again with the new form works (guard)
+PASS [B] D1 #kid: no version number or engineering / status wording | []
+PASS [B] D1 #practice: no version number or engineering / status wording | []
+PASS [B] D1 #classroom: no version number or engineering / status wording | []
+PASS [B] D1 #assembly: no version number or engineering / status wording | []
+PASS [B] D1 #children: no version number or engineering / status wording | []
+PASS [B] D2 brand 「W」 is at least 44x44 | [44, 44]
+PASS D3 every header button is at least 44px high (guard) | [['👦 小明', 44], ['🔊聲音：開', 44], ['👨\u200d👩\u200d👧家長', 44]]
+PASS [B] D4 the name capsule is display-only (not a button) and does nothing when pressed | SPAN
+PASS [B] D5 header shows sound state in words and no 登出 | ['🔊聲音：開', '👨\u200d👩\u200d👧家長']
+PASS [B] D6 pressing the sound button flips the words to 「聲音：關」
+PASS [B] D7 navigation reads 首頁 練習 數學 奧數 遊戲 家長 (R3.6: 奧數 added) | ['首頁', '練習', '數學', '奧數', '遊戲', '家長']
+PASS [B] D8 #kid: the floating 「＋ 數學／奧數」 button is gone
+PASS [B] D8 #practice: the floating 「＋ 數學／奧數」 button is gone
+PASS [B] D8 #classroom: the floating 「＋ 數學／奧數」 button is gone
+PASS [B] D8 #assembly: the floating 「＋ 數學／奧數」 button is gone
+PASS [B] D9 navigation item 數學 opens the maths dialog
+PASS [B] D10 the page end clears the fixed navigation (390x844): the last footer line sits above it | footer text bottom=753.21875 nav top=783
+PASS [B] D11 workshop page at 390px: the teacher portrait does not cover the title | {'overlap': 0, 'fig': [64, 64]}
+PASS [B] D12 practice page: no workshop promo card, own title near the top | promo=False h1={'t': 131.25, 'b': 167.640625, 'l': 12, 'r': 268.015625, 'w': 256.015625, 'h': 36.390625}
+PASS [B] D13 spelling classroom: no workshop promo card above its own title
+PASS D14 the home still has the workshop entry (inside 更多玩法) (guard)
+PASS [B] D15 add-child form: name and grade inputs have a label link | []
+PASS [B] D16 settings learning rules: the three selects have a label link | []
+PASS [B] D17 after clearing the data: 「資料已清除。請建立新孩子。」 and the add-child form opens | 資料已清除。請建立新孩子。 #children
+PASS D18 online: no offline strip
+PASS [B] D19 offline: strip 「目前沒有網絡，仍可練習」 appears at once | '目前沒有網絡，仍可練習'
+PASS D20 back online: the strip goes away
+PASS [B] D21 sideways phone: header is one row (<= 52px) and the navigation is hidden | {'t': 0, 'b': 49, 'l': 0, 'r': 844, 'w': 844, 'h': 49} nav=False
+PASS [B] D22 a 「選單」 button of at least 44px sits in the header | {"t": 2, "b": 46, "l": 749.859375, "r": 824, "w": 74.140625, "h": 44}
+PASS [B] D23 the menu lists the six places, each at least 44px high (R3.6: 奧數 added) | [{'t': '首頁', 'h': 48}, {'t': '練習', 'h': 48}, {'t': '數學', 'h': 48}, {'t': '奧數', 'h': 48}, {'t': '遊戲', 'h': 48}, {'t': '家長', 'h': 48}]
+PASS [B] D24 choosing a place goes there and closes the menu | #practice nav=False
+PASS [B] D25 a visitor pressing 「家長」 is told to create an account first
+PASS [B] D26 the visitor does not see the parent tools
+PASS D27 ?mode=admin-test still shows the sandbox sign-in with its own fields (guard)
+PASS [B] E1 built page no longer contains 「由原站結算」
+PASS [B] E1 built page no longer contains 「工程校對」
+PASS [B] E1 built page no longer contains 「匯出 V28 備份」
+PASS [B] E1 built page no longer contains 「程式及文字校對」
+PASS E2 no console error / page error during the whole run | []
+SUMMARY R3.5 p10 first-run screens and chrome: 95/95 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 123s

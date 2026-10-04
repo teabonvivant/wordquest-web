@@ -67,6 +67,15 @@ def text(pg):
     return sh(pg, "return root.querySelector('main').innerText;")
 
 
+def open_scope(pg, tile):
+    """R3.6: normal maths (tile 'math') and the olympiad (tile 'oly') have their own entrances on the home page."""
+    pg.evaluate("(()=>{const d=document.getElementById('wqm-dialog');if(d&&d.open)d.close();})()")
+    pg.evaluate("location.hash='#kid'")
+    pg.wait_for_timeout(500)
+    pg.click('#app .p10-tile.' + tile)
+    pg.wait_for_timeout(1100)
+
+
 def eyebrows(pg):
     return sh(pg, "return [...root.querySelectorAll('.eyebrow')].map(e=>e.innerText.trim());")
 
@@ -182,7 +191,7 @@ def main():
         home_text = text(pg)
         c.check('H1 home: no disclaimer footer (version line, 「不適合正式比賽判分」, 「待獨立教師」)',
                 not re.search(r'WordQuest Maths R3|不適合正式比賽判分|待獨立教師|並非全套官方', home_text), home_text[-120:].replace('\n', ' '), True)
-        c.check('H2 home: the tab bar is there (5 tabs) and nothing else was lost', S(pg, '.nav button').count() == 5)
+        c.check('H2 home: the tab bar is there (R3.6: 4 tabs for normal maths; the olympiad has its own entrance and tabs) and nothing else was lost', S(pg, '.nav button').count() == 4)
         eb = eyebrows(pg)
         c.check('H3 home: small headings are Chinese', eb and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)
         slot = rect(pg, '#forest-math-slot')
@@ -192,14 +201,15 @@ def main():
         c.check('H5 catalog: no footer, no coverage disclaimer', not re.search(r'不適合正式比賽判分|79個單元|待教師審核', t), '', True)
         eb = eyebrows(pg)
         c.check('H6 catalog: small heading is Chinese', eb and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)
-        act(pg, 'nav:olympiad', 600)
+        open_scope(pg, 'oly')   # R3.6: the olympiad is opened from its own home tile
         t = text(pg)
         eb = eyebrows(pg)
         c.check('H7 olympiad / tower: no footer', not re.search(r'WordQuest Maths R3|不適合正式比賽判分', t), '', True)
-        c.check('H8 the tower page still works (levels + cards button)', S(pg, '[data-action^="olylevel:"]').count() == 4 and S(pg, '[data-action="nav:cards"]').count() == 1)
+        c.check('H8 the tower page still works (levels + cards button)', S(pg, '[data-action^="olylevel:"]').count() == 4 and S(pg, '[data-action="nav:cards"]').count() >= 1)   # R3.6: the olympiad tabs now include 策略卡, so the page button is no longer the only one
         act(pg, 'nav:cards', 600)
         eb = eyebrows(pg)
         c.check('H9 strategy cards page: small heading is Chinese', eb and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)
+        open_scope(pg, 'math')   # back to normal maths for the hands-on tools
         act(pg, 'nav:tools', 600)
         eb = eyebrows(pg)
         c.check('H10 tools page: small heading is Chinese', eb and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)
@@ -310,7 +320,7 @@ def main():
         # back = save and leave; nothing is lost
         act(pg, 'pause', 600)
         t = text(pg)
-        c.check('F11 「← 返回」 leaves the lesson to the 「歡迎回來」 page with the tab bar and a way to continue', S(pg, '.nav button').count() == 5 and S(pg, '[data-action="resume"]').count() == 1 and '歡迎回來' in t, '', True)
+        c.check('F11 「← 返回」 leaves the lesson to the maths home with the tab bar and a small 繼續上次學習 card (R3.6 item 8: no blocking 歡迎回來 page)', S(pg, '.nav button').count() == 4 and S(pg, '[data-action="resume"]').count() == 1 and '有一課做到一半' in t and '歡迎回來' not in t, '', True)   # R3.6: four tabs in normal maths
         eb = eyebrows(pg)
         c.check('F12 that page has a Chinese small heading', eb and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)
         act(pg, 'resume', 800)
@@ -353,7 +363,7 @@ def main():
         view = pg.evaluate("WQMathApp.getView()")
         c.check('G4 after the password the maths progress page opens by itself', is_open and view == 'parent', f'open={is_open} view={view}', True)
         t = text(pg) if is_open else ''
-        c.check('G5 the progress page has the one short note 「關於數學內容」', S(pg, '.about-math').count() == 1 and '關於數學內容' in t, '', True)
+        c.check('G5 the progress page no longer carries the 「關於數學內容」 note (R3.6 item 7: the teacher-review notice is gone)', S(pg, '.about-math').count() == 0 and '關於數學內容' not in t, '', True)
         c.check('G6 the progress page has no footer and no engineering version line', is_open and not re.search(r'WordQuest Maths R3|不適合正式比賽判分|保留0\.1\.2', t), '', True)
         eb = eyebrows(pg) if is_open else []
         c.check('G7 the progress page small heading is Chinese', bool(eb) and all(not re.search(r'[A-Za-z]{3,}', e) for e in eb), str(eb), True)

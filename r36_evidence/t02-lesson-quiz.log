@@ -1,0 +1,40 @@
+# t02 lesson / 考考你 / tick  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] A1 the unit page has no number choice (no select or input) | select=0 input=0
+PASS [B] A2 no 「自己選玩法」 / 「選玩法」 on the unit page
+PASS [B] A3 the parent section is called 家長教學小貼士 | ['家長教學小貼士']
+PASS [B] A4 the old title 「給家長：這課怎樣教？」 is gone from the page and from the program
+PASS [B] A5 one start button 開始這一課, and the page says 8 words then 20 questions | ['開始這一課']
+PASS A6 no 「選玩法」 on the classroom, practice, home, arcade, phonics or family pages | {}
+PASS [B] A7 the phonics teacher button says 家長教學小貼士
+PASS [B] A8 on a phonics lesson the parent button reads 家長教學小貼士 | ['家長教學小貼士']
+PASS [B] B1 every one of the 80 units starts a lesson of 8 different words to study and 20 questions (units hold {8: 60, 12: 20} words) | []
+PASS B1b in none of the 80 lessons is the same word asked twice in a row | []
+PASS [B] B2 the 20 questions use at least 6 different question types | Counter({'spell': 3, 'listenChoice': 2, 'listenSpell': 2, 'meaning': 2, 'focus': 2, 'missing': 2, 'edit': 2, 'tiles': 2, 'swap': 2, 'cloze': 1})
+PASS [B] B3 the 20 questions cover all 8 study words, none more than 4 times | [('w_a7c67c46143382b4', 3), ('w_478f77a3f7abc4a9', 3), ('w_654a43bc179eb167', 3), ('w_1bb342f45a8206ba', 3), ('w_5d246d17c8ffb086', 2), ('w_df6b8848a0d0fae0', 2), ('w_c8e453511d869f35', 2), ('w_6d5d3981cfb49241', 2)]
+PASS B4 the same word is never asked twice in a row
+PASS B5 no single question type takes more than 5 of the 20 | Counter({'spell': 3, 'listenChoice': 2, 'listenSpell': 2, 'meaning': 2, 'focus': 2, 'missing': 2, 'edit': 2, 'tiles': 2, 'swap': 2, 'cloze': 1})
+PASS B6 every question type is one the app knows (no study card inside the quiz) | {'listenSpell', 'cloze', 'meaning', 'missing', 'spell', 'edit', 'swap', 'focus', 'tiles', 'listenChoice'}
+PASS [B] B7 the last study card says 開始考考你 | '開始考考你'
+PASS [B] B8 after the 8th card the child is in question 1 of 20, no extra button or choice in between | (8, 'listenChoice')
+PASS [B] B9 the screen says 考考你 1／20 with the full-stars rule
+PASS B10 reload half way keeps the same lesson, the same 28 steps and the place reached | {"i":11,"id":"l30_mutvshxj_29_a00p7d","q":["studyw_a7c67c461
+PASS [B] C1 none of the five old 「未完成」 questions is left in the program | []
+PASS [B] C2 opening another lesson while one is half done shows no question and no 未完成 notice | [][]
+PASS [B] C3 pressing 開始這一課 goes straight into the new lesson at card 1 (no dialog) | []
+PASS C4 the half-done lesson is kept as an abandoned record, not deleted | {'status': 'abandoned', 'mode': 'lesson', 'n': 28}
+PASS [B] C5 the new lesson screen says nothing about the earlier round | []
+PASS [B] C6 choosing a practice type on the 練習 page starts it at once even with a round open | []'study'
+PASS [B] C7 starting a school-range practice over an old round asks nothing | []'practice'
+PASS D1 before any lesson is finished no unit card has a tick | 0
+PASS D2 a lesson left half way gets no tick
+PASS D3 a finished practice drill (8 questions) gets no tick | None
+PASS [B] D4 the finished lesson card shows ✓, 已學完 and today's date | {'text': '✓ 已學完 · 10月4日 ★ ★ ★ ★ ★', 'on': 5, 'tick': True} want 10月4日
+PASS [B] D5 a perfect lesson shows five filled stars on the card | {'text': '✓ 已學完 · 10月4日 ★ ★ ★ ★ ★', 'on': 5, 'tick': True}
+PASS [B] D6 a lesson finished with mistakes is ticked too, with fewer stars | {'text': '✓ 已學完 · 10月4日 ★ ★ ★ ★ ★', 'on': 3, 'tick': True}
+PASS D7 exactly two cards have a tick so far (the two finished lessons)
+PASS [B] D8 the unit page of a finished lesson shows the tick and offers 再學一次 | {'done': True, 'btn': '再學一次'}
+PASS [B] D9 after closing and reopening the page the tick and date are still there | {'text': '✓ 已學完 · 10月4日 ★ ★ ★ ★ ★', 'on': 5, 'tick': True}
+PASS D10 the saved learning data still passes the engine validator | True
+PASS [B] D11 starting the same lesson again does not remove the tick
+PASS D12 no console or page errors | []
+SUMMARY t02 lesson / 考考你 / tick: 38/38 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 88s

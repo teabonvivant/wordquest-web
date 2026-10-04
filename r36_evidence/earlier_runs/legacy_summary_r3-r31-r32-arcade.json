@@ -1,0 +1,393 @@
+[
+  {
+    "group": "r34",
+    "suite": "r34_tests/run_release.py",
+    "returncode": 0,
+    "seconds": 344,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/content_generate.cjs",
+    "returncode": 0,
+    "seconds": 1,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/independent_oracle.py",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/family_contracts.cjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/server_contracts.mjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/arcade_regression.cjs",
+    "returncode": 0,
+    "seconds": 3,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/family_browser.py",
+    "returncode": 0,
+    "seconds": 9,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/new_features_browser.py",
+    "returncode": 0,
+    "seconds": 40,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/arcade_browser.py",
+    "returncode": 0,
+    "seconds": 61,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/integration_regression.py",
+    "returncode": 1,
+    "seconds": 479,
+    "fail_lines": 64,
+    "pass_lines": 365,
+    "failed_cases": 64,
+    "bad_lines": 64,
+    "ok": false
+  },
+  {
+    "group": "r3",
+    "suite": "r3_tests/lesson_text_browser.py",
+    "returncode": 0,
+    "seconds": 35,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "failed_cases": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/characters_core.cjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/family_contracts.cjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/arcade_regression.cjs",
+    "returncode": 0,
+    "seconds": 4,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/characters_browser.py",
+    "returncode": 1,
+    "seconds": 20,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 2,
+    "ok": false
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/family_browser.py",
+    "returncode": 0,
+    "seconds": 9,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/integration_regression.py",
+    "returncode": 0,
+    "seconds": 188,
+    "fail_lines": 0,
+    "pass_lines": 429,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r31",
+    "suite": "r31_tests/arcade_browser.py",
+    "returncode": 0,
+    "seconds": 60,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/arcade_regression.cjs",
+    "returncode": 0,
+    "seconds": 3,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/family_contracts.cjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/new_core.cjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/family_browser.py",
+    "returncode": 0,
+    "seconds": 9,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/characters_browser.py",
+    "returncode": 0,
+    "seconds": 20,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/integration_regression.py",
+    "returncode": 0,
+    "seconds": 63,
+    "fail_lines": 0,
+    "pass_lines": 75,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/arcade_browser.py",
+    "returncode": 0,
+    "seconds": 61,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/browser_new.py",
+    "returncode": 0,
+    "seconds": 10,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/cloud_live.py",
+    "returncode": 0,
+    "seconds": 8,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/server_contracts.mjs",
+    "returncode": 0,
+    "seconds": 0,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "r32",
+    "suite": "r32_tests/server_native_http.mjs",
+    "returncode": 0,
+    "seconds": 2,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/core_tests.cjs",
+    "returncode": 0,
+    "seconds": 4,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/syntax_check.py",
+    "returncode": 0,
+    "seconds": 3,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/browser_arcade.py",
+    "returncode": 0,
+    "seconds": 62,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/browser_compatibility.py",
+    "returncode": 0,
+    "seconds": 24,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/browser_probe.py",
+    "returncode": 0,
+    "seconds": 7,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/browser_safety.py",
+    "returncode": 0,
+    "seconds": 30,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "tests/smoke.py",
+    "returncode": 0,
+    "seconds": 6,
+    "fail_lines": 0,
+    "pass_lines": 0,
+    "bad_lines": 0,
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "arcade_tests/r1_regression.py",
+    "returncode": 1,
+    "seconds": 194,
+    "fail_lines": 10,
+    "pass_lines": 419,
+    "bad_lines": 10,
+    "known_failing": "TOTAL 429 {'PASS': 419, 'FAIL': 10}",
+    "ok": true
+  },
+  {
+    "group": "arcade",
+    "suite": "tests/integration_checks.py",
+    "returncode": 1,
+    "seconds": 186,
+    "fail_lines": 10,
+    "pass_lines": 419,
+    "bad_lines": 10,
+    "known_failing": "TOTAL 429 {'PASS': 419, 'FAIL': 10}",
+    "ok": true
+  }
+]

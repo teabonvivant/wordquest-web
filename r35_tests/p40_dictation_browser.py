@@ -310,7 +310,7 @@ def section_finish(c, p):
     pg.click('[data-act="next-task"]')
     pg.wait_for_timeout(700)
     h1 = vis_text(pg, 'h1') or ''
-    c.check('D6: the finish page says how many were practised and how many right', '今天練了 2 個字，答對 1 個' in h1, h1, base=True)
+    c.check('D6: the finish page says how many were practised and how many right (R3.6: 今天練了 2 個字 in the title, 答對 1 ／ 2 題 in the star block)', '今天練了 2 個字' in h1 and '答對 1 ／ 2 題' in (text_of(pg) or ''), h1, base=True)
     c.check('D6: the words to practise again are listed', 'ruler' in (vis_text(pg, '.p40-again') or ''), '', base=True)
     c.check('D6: a 再練這些字 button is offered', pg.query_selector('[data-p40="again"]') is not None, '', base=True)
     txt = text_of(pg)

@@ -1,0 +1,40 @@
+pass Actual family-panel device report dialog opens
+pass Downloaded health report excludes synthetic pupil name and account data
+pass Export holds writer guard while media snapshot is pending
+pass Export makes application UI inert until snapshot completes
+pass Concurrent ordinary save is refused while exporting
+pass Pending export refuses media store
+pass Pending export refuses media del
+pass Second export request is refused during first
+pass Successful export releases busy guard and inert state
+pass Real family backup download reports the current release (R3.6)
+pass External storage mutation during export rejects inconsistent snapshot
+pass Failed export restores usability
+pass In-progress image/audio importer blocks family export
+pass Oversize fault path emits no unrecoverable download and releases guard
+pass Foreign-family recovery journal is refused before any replay
+pass Invalid recovery keeps evidence marker and blocks other writes
+pass Same-family corrupt main JSON journal cannot overwrite last valid main
+pass Blocked IndexedDB open rejects rather than hanging; late connection closes
+pass No uncaught errors in new host safety scenarios
+pass Native diagnostic page refuses unsupported insecure context instead of shimming
+pass Failed probe preparation is stated without false success message
+pass Restart attestation requires explicit user action
+pass Attestation without successful stored-data check cannot pass restart
+pass Unsupported native cross-tab test explicitly blocked
+pass Native diagnostic page has no uncaught exceptions in blocked environment
+pass Canvas rig is painted and exposes eight selectable states
+pass Action selector drives idle
+pass Action selector drives run
+pass Action selector drives jump
+pass Action selector drives fall
+pass Action selector drives land
+pass Action selector drives dash
+pass Action selector drives hit
+pass Action selector drives victory
+pass Pause freezes animation timeline
+pass Single-step advances one frame without resume
+pass Reverse preserves selection and flips direction
+pass 320px action lab has no horizontal overflow
+pass No uncaught canvas/control errors
+TOTAL 39 PASS 39

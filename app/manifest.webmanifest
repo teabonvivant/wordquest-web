@@ -1,7 +1,7 @@
 {
-  "name": "WordQuest",
-  "short_name": "WordQuest",
-  "description": "WordQuest 英文默書與數學練習",
+  "name": "學霸星球 SmartQuest Planet",
+  "short_name": "學霸星球",
+  "description": "香港小朋友的英文與數學學習遊樂園",
   "lang": "zh-HK",
   "dir": "ltr",
   "start_url": "./index.html",
@@ -9,10 +9,27 @@
   "display": "standalone",
   "background_color": "#fff8ed",
   "theme_color": "#bf4d25",
-  "categories": ["education"],
+  "categories": [
+    "education"
+  ],
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

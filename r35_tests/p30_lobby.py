@@ -53,7 +53,7 @@ def main():
           if(!e)return null;const r=e.getBoundingClientRect();return {h:r.height,w:r.width,dis:!!e.disabled,l30:e.dataset.l30||'',tag:e.tagName}}""", EARN)
         C.check('S1-05 primary button 去賺金幣：做一個小練習 is enabled, >= 48px high, full width',
                 bool(eb) and not eb['dis'] and eb['h'] >= 48 and eb['w'] >= 390 * 0.8, eb, base=True)
-        C.check('S1-05 note under it: 做完 1 組練習得 1 枚金幣', '做完 1 組練習得 1 枚金幣' in body, '', base=True)
+        C.check('S1-05 note under it: 拿滿 5 顆星，得 1 枚金幣 (R3.6 rule; was 做完 1 組練習得 1 枚金幣)', '拿滿 5 顆星，得 1 枚金幣' in body, '', base=True)
         vis_cab = pg.evaluate("(()=>{" + SHOWN + "return [...document.querySelectorAll('[data-cabinet]')].filter(shown).map(e=>e.dataset.cabinet)})()")
         C.check('S2-05 main list shows only the 3 playable games (locked ones are folded)', len(vis_cab) == 3, vis_cab, base=True)
         fold = pg.evaluate("""(()=>{const d=document.querySelector('details.p30-locked');
@@ -74,18 +74,18 @@ def main():
         pg.evaluate("document.querySelector('details.p30-more')&&(document.querySelector('details.p30-more').open=false)")
         cardtxt = pg.evaluate("(()=>{" + SHOWN + """const c=[...document.querySelectorAll('[data-cabinet]')].filter(shown);
           return c.map(e=>({btn:e.querySelector('[data-a28="intro"]').innerText.replace(/\\s+/g,' ').trim(),t:e.innerText}))})()""")
-        C.check('S2-22 card button 看玩法 with the note 玩一次 1 枚金幣',
-                bool(cardtxt) and all(c['btn'].endswith('看玩法') and '玩一次 1 枚金幣' in c['t'] for c in cardtxt), cardtxt[:1], base=True)
+        C.check('S2-22 card button 看玩法 with the note 玩一次 N 枚金幣 (R3.6: N is 1 to 4 by game)',
+                bool(cardtxt) and all(c['btn'].endswith('看玩法') and re.search(r'玩一次 [1-4] 枚金幣', c['t']) for c in cardtxt), cardtxt[:1], base=True)
         one_btn = pg.evaluate("(()=>{" + SHOWN + "return [...document.querySelectorAll('[data-cabinet]')].filter(shown).map(e=>e.querySelectorAll('button').length)})()")
         C.check('S2-05 each playable card has exactly one button', all(n == 1 for n in one_btn), one_btn)
         # intro at 0 coins, for an unlocked game
         open_intro(pg, 'ruins-courier')
         pg.screenshot(path=str(SHOTS / ('intro_0coin_390_' + TAG + '.png')))
         dtxt = pg.inner_text('#pg-dialog')
-        C.check('S1-05 intro says 已解鎖。玩一次要 1 枚金幣，你現在有 0 枚。', '已解鎖。玩一次要 1 枚金幣，你現在有 0 枚。' in dtxt, '', base=True)
+        C.check('S1-05 intro says 這款要 N 枚金幣，你現在有 0 枚。 (R3.6 wording; N by game)', re.search(r'這款要 [1-4] 枚金幣，你現在有 0 枚。', dtxt) is not None, dtxt[-120:], base=True)
         dis = pg.evaluate("[...document.querySelectorAll('#pg-dialog button:disabled')].map(b=>b.innerText.trim())")
         C.check('S1-05 no dead disabled button in the intro at 0 coins', len(dis) == 0, dis, base=True)
-        C.check('S1-05 the intro offers 去賺金幣：做一個小練習 and its note', EARN in dtxt and '做完 1 組練習得 1 枚金幣' in dtxt, '', base=True)
+        C.check('S1-05 the intro offers 去賺金幣：做一個小練習 and its note (R3.6: 拿滿 5 顆星，得 1 枚金幣)', EARN in dtxt and '拿滿 5 顆星，得 1 枚金幣' in dtxt, '', base=True)
         close_intro(pg)
         # earn button wiring (does not change the coin policy)
         pg.evaluate("window.scrollTo(0,0)")
@@ -180,7 +180,8 @@ def main():
                 close_bad.append((gid, c))
             if info['cap'] != '試玩預覽・不扣幣・不能操作':
                 cap_bad.append((gid, info['cap']))
-            if not (info['buy'] and info['buy'].endswith('用 1 枚金幣開始') and info['before'] == '按下去才會扣 1 枚金幣' and info['beforeFirst']):
+            mm = re.search(r'用 ([1-4]) 枚金幣開始$', info['buy'] or '')   # R3.6: the price is per game (1 to 4)
+            if not (mm and info['before'] == f'按下去才會扣 {mm.group(1)} 枚金幣' and info['beforeFirst']):
                 buy_bad.append((gid, info['buy'], info['before']))
             dm = measure(pg, ['#pg-dialog .a28-dialog-content *', '#pg-dialog .a28-dialog-top *'])
             if dm and min(r['fs'] for r in dm) < 14:
@@ -193,7 +194,7 @@ def main():
         C.check('S2-06 phone intro: the first line is the touch sentence of the game, no key names (26/26)', not phone_bad and phone_n == 26, phone_bad[:3], base=True)
         C.check('S3-04 intro 關閉 is a bordered 48x48+ button with ✕ and the word (26/26)', not close_bad, close_bad[:2], base=True)
         C.check('S3-05 preview caption 試玩預覽・不扣幣・不能操作 (26/26)', not cap_bad, cap_bad[:2], base=True)
-        C.check('S2-22 intro main button 用 1 枚金幣開始 with 按下去才會扣 1 枚金幣 right above it (26/26)', not buy_bad, buy_bad[:2], base=True)
+        C.check('S2-22 intro main button 用 N 枚金幣開始 with 按下去才會扣 N 枚金幣 right above it, same N (26/26)', not buy_bad, buy_bad[:2], base=True)
         C.check('S2-04 intro dialog text >= 14px (26/26)', not font_bad, font_bad[:2], base=True)
         C.check('no console errors (phone intro loop)', not errs, errs[:3])
         b.close()

@@ -35,14 +35,14 @@ with sync_playwright() as pw:
  # Per-course tool state retained via actual pause/reopen, not free-tool values.
  mc(p,'nav:normal');mc(p,'grade:1');mc(p,'lesson:1M4.R3');mc(p,'nextstage');p.locator('#wqm-app-host #tool-r3-hour').focus();p.keyboard.press('End');close(p);op(p);mc(p,'resume')
  ck('Lesson clock adjustment persists through close and resume',lambda:req(p.locator('#wqm-app-host #tool-r3-hour').input_value()=='23'))
- close(p);op(p);mc(p,'abandon');mc(p,'nav:olympiad')
+ close(p);op(p,'olympiad')   # R3.6: opening the olympiad drops the unfinished normal-maths round (no olympiad tab inside normal maths)
  for level in [1,2,3,4]:
   mc(p,'olylevel:'+str(level));ck('Olympiad level '+str(level)+' shows five different skills',lambda:req(p.locator('#wqm-app-host [data-action^="lesson:"]').count()==5));mc(p,'mock:'+str(level));ss=state(p)['current'];ck('Original mock '+str(level)+' includes ten questions and correct level',lambda ss=ss: req(len(ss['queues']['4'])==10 and ss['track']=='olympiad'))
   for i in range(10):
    if not state(p)['current'].get('feedback'):req(answer(p)['correct'],'mock answer')
    if state(p)['current'].get('fastPause'):mc(p,'unpause-fast')
    mc(p,'nextq')
-  ck('Mock '+str(level)+' completed without paying exam coins',lambda:req(state(p)['current']['completed'] and not state(p)['current'].get('award')));mc(p,'completed-home');mc(p,'nav:olympiad')
+  ck('Mock '+str(level)+' completed without paying exam coins',lambda:req(state(p)['current']['completed'] and not state(p)['current'].get('award')));mc(p,'completed-home');op(p,'olympiad')
  # Old money template: sentence must survive submission/re-render.
  close(p);p.evaluate('''()=>{const C=WQMathCore,L=C.library(WQMathData),st=new WQMathStorage.Store(WQMathHost,L),n=C.blank(),r={template:'2N5.3-T1',seed:5},q=C.generate(L,r.template,r.seed);n.settings.slow=true;n.current={id:'sentence-fix',skill:q.skill,track:q.track,mode:'practice',game:null,stage:4,index:0,queues:{4:[r]},example:r,startedAt:Date.now()-5000,questionAt:Date.now()-5000,activeMs:0,hint:0,feedback:null,results:[],replacements:[],completed:false,rewardDone:false,fast:0,draft:'',picked:'',reflection:null};st.commit(n);}''');op(p);mc(p,'resume');q=question(p)
  if q['type']=='word':

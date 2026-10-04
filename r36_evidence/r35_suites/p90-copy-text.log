@@ -1,0 +1,19 @@
+# R3.5 copy: rendered text lint  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS guest home has some text | 117
+PASS no page errors while walking the screens | []
+PASS [B] guest-home: no banned wording
+PASS [B] login: no banned wording
+PASS [B] kid: no banned wording
+PASS [B] practice: no banned wording
+PASS [B] classroom: no banned wording
+PASS [B] game: no banned wording
+PASS [B] ranges: no banned wording
+PASS [B] offline: no banned wording
+PASS [B] settings: no banned wording
+PASS [B] parent: no banned wording
+PASS [B] children: no banned wording
+PASS [B] reports: no banned wording
+PASS [B] intro: no banned wording
+PASS [B] maths: no banned wording
+SCREENS guest-home, login, kid, practice, classroom, game, ranges, offline, settings, parent, children, reports, intro, maths
+SUMMARY R3.5 copy: rendered text lint: 16/16 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 22s

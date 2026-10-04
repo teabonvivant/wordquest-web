@@ -1,0 +1,72 @@
+[
+  {
+    "suite": "t01-home-brand",
+    "newChecks": 40,
+    "newFailed": [],
+    "bChecks": 26,
+    "bFailOnR35": 26,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 77
+  },
+  {
+    "suite": "t02-lesson-quiz",
+    "newChecks": 38,
+    "newFailed": [],
+    "bChecks": 25,
+    "bFailOnR35": 25,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 117
+  },
+  {
+    "suite": "t03-stars-coins",
+    "newChecks": 39,
+    "newFailed": [],
+    "bChecks": 29,
+    "bFailOnR35": 29,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 277
+  },
+  {
+    "suite": "t04-econ",
+    "newChecks": 22,
+    "newFailed": [],
+    "bChecks": 13,
+    "bFailOnR35": 13,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 0
+  },
+  {
+    "suite": "t04-games-ui",
+    "newChecks": 42,
+    "newFailed": [],
+    "bChecks": 23,
+    "bFailOnR35": 23,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 195
+  },
+  {
+    "suite": "t05-time-notices",
+    "newChecks": 46,
+    "newFailed": [],
+    "bChecks": 20,
+    "bFailOnR35": 20,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 116
+  },
+  {
+    "suite": "t06-admin",
+    "newChecks": 32,
+    "newFailed": [],
+    "bChecks": 13,
+    "bFailOnR35": 13,
+    "bPassOnR35": [],
+    "guardsBrokenOnR35": [],
+    "seconds": 75
+  }
+]

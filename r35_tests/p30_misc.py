@@ -130,7 +130,7 @@ def main():
         start_game(pg, 'ruins-courier', play=False)
         pg.wait_for_timeout(800)
         eb = pg.inner_text('.a28-playhead .a28-eyebrow')
-        C.check('play view eyebrow reads 遊戲街機・已投 1 枚金幣 (one line, no English tag)', eb == '遊戲街機・已投 1 枚金幣', eb, base=True)
+        C.check('play view eyebrow reads 遊戲街機・已投 N 枚金幣 (one line, no English tag; R3.6: N is the game price, 3 for ruins-courier)', eb == '遊戲街機・已投 3 枚金幣', eb, base=True)
         pg.locator('[data-a28="help"]').click()
         pg.wait_for_timeout(600)
         d = pg.evaluate("(()=>{const e=document.querySelector('dialog.p30-help[open]');return e?e.innerText:null})()")
@@ -161,7 +161,7 @@ def main():
         C.check('result stars are read as N 顆星 (not 粒星)', bool(lab) and lab.endswith('顆星') and '粒' not in lab, lab, base=True)
         pg.screenshot(path=str(SHOTS / f'result_stars_390_{TAG}.png'))
         # no coins left after paying the last one
-        pg.evaluate('__p40.reset(1)')
+        pg.evaluate('__p40.reset(3)')   # R3.6: ruins-courier costs 3, so 3 coins pay for exactly one round and leave none (it was reset(1))
         start_game(pg, 'ruins-courier', play=True)
         pg.wait_for_timeout(500)
         pg.evaluate("__p40.end('x')")

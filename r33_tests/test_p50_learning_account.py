@@ -70,6 +70,10 @@ def grades(pg):
     return [c['grade'] for c in d['children']] if d else None
 
 
+LESSON_WORDS = 8     # R3.6 (item 3): every lesson is 8 words, whatever the grade
+LESSON_STEPS = 28    # 8 study steps + 20 questions
+
+
 def pace(pg, g):
     return pg.evaluate(f"WQ30Core.pace({g})")
 
@@ -77,7 +81,7 @@ def pace(pg, g):
 def hero_count(pg):
     """The 'N words' number shown on the child home."""
     go(pg, 'kid')
-    m = re.search(r'先學\s*(\d+)\s*個(?:詞語|單字)', pg.inner_text('.l30-hero'))
+    m = re.search(r'先學\s*(\d+)\s*個(?:詞語|單字|字)', pg.inner_text('.l30-hero'))
     return int(m.group(1)) if m else None
 
 
@@ -149,7 +153,7 @@ def n7():
               opts == [['', '請選擇年級']] + [[str(i), '小' + '一二三四五六'[i - 1]] for i in range(1, 7)], opts)
         check('N7 there is no grade value 0 (K3 uses 小一)', sel is not None and all(v != '0' for v, _ in opts))
         hint = pg.inner_text('#register-grade-hint') if pg.query_selector('#register-grade-hint') else ''
-        check('N7 hint says 幼稚園高班 -> 小一, word count follows grade, editable later', '幼稚園高班' in hint and '小一' in hint and '每課詞數' in hint and '家長區' in hint, hint)
+        check('N7 hint says 幼稚園高班 -> 小一, editable later (R3.6: no word-count claim, lessons are 8 words for everyone)', '幼稚園高班' in hint and '小一' in hint and '每課詞數' not in hint and '家長區' in hint, hint)
         check('N7 label is linked to the select', pg.evaluate("!!document.querySelector('label[for=\"register-grade\"]')?.textContent.includes('年級')"))
         check('N7 select is a 44px+ tall touch target', sel is not None and pg.evaluate("document.querySelector('#register-grade').getBoundingClientRect().height") >= 44)
         pg.fill('#register-name', 'gradefam')
@@ -177,10 +181,8 @@ def n7():
         accept_dialogs(pg)
         reg(pg, 1)
         check('N7 registered with 小一 -> child.grade is 1', grades(pg) == [1], grades(pg))
-        p1, p3, p6 = pace(pg, 1), pace(pg, 3), pace(pg, 6)
-        check('N7 L30 pace differs between 小一 / 小三 / 小六 (values read from the page)', len({p1, p3, p6}) == 3, (p1, p3, p6))
-        check('N7 child home offers pace(1) words after registering 小一', hero_count(pg) == p1, (hero_count(pg), p1))
-        check('N7 first lesson has 3 x pace(1) steps', lesson_steps(pg) == 3 * p1, (p1,))
+        check('N7 child home says 先學 8 個字 after registering 小一 (R3.6: the same for every grade)', hero_count(pg) == LESSON_WORDS, hero_count(pg))
+        check('N7 first lesson has 8 study steps + 20 questions (R3.6)', lesson_steps(pg) == LESSON_STEPS, lesson_steps(pg))
         ed1 = pg.evaluate("WQEducation.pace(1,{dailyMax:12,dailyNew:5},true).dailyNew")
         ed6 = pg.evaluate("WQEducation.pace(6,{dailyMax:12,dailyNew:5},true).dailyNew")
         check('N7 maths profile grade follows the child (header shows 小1)', open_math(pg).endswith('小1'))
@@ -198,8 +200,8 @@ def n7():
             pg.click('[data-act="show-grade-edit"]')
             pg.wait_for_timeout(400)
         editor = pg.query_selector('#wq33-grade-select')
-        check('N7 editor opens with the current grade selected and the word-count hint',
-              editor is not None and pg.input_value('#wq33-grade-select') == '1' and '每課詞數會按年級調整' in pg.inner_text('#wq33-grade-editor'))
+        check('N7 editor opens with the current grade selected (R3.6: no word-count note any more)',
+              editor is not None and pg.input_value('#wq33-grade-select') == '1' and '每課詞數' not in pg.inner_text('#wq33-grade-editor'))
         check('N7 editor select/save/cancel are hit-testable on a phone',
               editor is not None and all(center_hit(pg, s_) is True for s_ in ('#wq33-grade-select', '[data-act="save-child-grade"]', '[data-act="cancel-grade-edit"]')))
         check('N7 save button is 44px+ high', editor is not None and pg.evaluate("document.querySelector('[data-act=\"save-child-grade\"]').getBoundingClientRect().height") >= 44)
@@ -208,10 +210,10 @@ def n7():
             pg.click('[data-act="save-child-grade"]')
             pg.wait_for_timeout(700)
         check('N7 saving writes child.grade = 6', grades(pg) == [6], grades(pg))
-        check('N7 saving confirms with the word-count hint toast', '每課詞數會按年級調整' in pg.evaluate("document.querySelector('#toast')?.textContent||''"))
+        check('N7 saving confirms with a toast naming the new grade (R3.6: no word-count claim any more)', (lambda t: '改為小六' in t and '每課詞數' not in t)(pg.evaluate("document.querySelector('#toast')?.textContent||''")))
         check('N7 child card shows 小6 afterwards', '小6' in pg.inner_text('.child-card'))
-        check('N7 child home offers pace(6) words after the change', hero_count(pg) == p6, (hero_count(pg), p6))
-        check('N7 next lesson has 3 x pace(6) steps', lesson_steps(pg) == 3 * p6, (p6,))
+        check('N7 child home still says 先學 8 個字 after the change to 小六 (R3.6: lesson size does not follow the grade)', hero_count(pg) == LESSON_WORDS, hero_count(pg))
+        check('N7 next lesson still has 8 + 20 steps after the change to 小六 (R3.6)', lesson_steps(pg) == LESSON_STEPS, lesson_steps(pg))
         check('N7 maths profile grade follows the edit without reloading (header shows 小6)', open_math(pg).endswith('小6'))
         before = pg.evaluate('window.__gv')
         math_daily(pg)
@@ -223,7 +225,7 @@ def n7():
         check('N7 legacy pacing panel (WQEducation.pace) reflects 小六', bool(m) and m.group(1) == '6' and int(m.group(3)) == ed6, (m.groups() if m else None, ed1, ed6))
         pg.reload()
         pg.wait_for_timeout(1500)
-        check('N7 grade survives a reload', grades(pg) == [6] and hero_count(pg) == p6)
+        check('N7 grade survives a reload', grades(pg) == [6] and hero_count(pg) == LESSON_WORDS)
         check('N7 page errors during the flow', not errs, errs[:2])
         b.close()
 
@@ -272,7 +274,7 @@ def n7():
             pg.click('[data-act="save-child-grade"]')
             pg.wait_for_timeout(700)
             check('N7 editing the second child leaves the first untouched', grades(pg) == [3, 2], grades(pg))
-            check('N7 active child (the second) now follows pace(2)', hero_count(pg) == pace(pg, 2), (hero_count(pg), pace(pg, 2)))
+            check('N7 active child (the second) still gets the 8-word lesson (R3.6)', hero_count(pg) == LESSON_WORDS, hero_count(pg))
             # a half-open editor is closed when the parent switches child
             go(pg, 'children')
             unlock_parent(pg)
@@ -360,14 +362,14 @@ def n7():
         pg.add_init_script(SPEECH_COUNTER)
         pg.goto(URL)
         pg.wait_for_timeout(1000)
-        check('N7 guest home uses grade 3 pace', hero_count(pg) == pace(pg, 3), (hero_count(pg), pace(pg, 3)))
+        check('N7 guest home offers the 8-word lesson (R3.6)', hero_count(pg) == LESSON_WORDS, hero_count(pg))
         check('N7 guest maths profile is 小3', open_math(pg).endswith('小3'))
         math_close(pg)
         accept_dialogs(pg)
         reg(pg, 1)
         logout(pg)
         go(pg, 'kid')
-        check('N7 after registering 小一 and logging out, guest is still grade 3', hero_count(pg) == pace(pg, 3), (hero_count(pg), pace(pg, 3)))
+        check('N7 after registering 小一 and logging out, the guest home still offers 8 words (R3.6)', hero_count(pg) == LESSON_WORDS, hero_count(pg))
         b.close()
 
 
@@ -553,8 +555,9 @@ def n6():
 # ============================================================================================= N8
 LEAK = re.compile(r'Admin|1234|admin-test|測試區|管理員測試', re.I)
 PUBLIC_ROUTES = ['login', 'kid', 'admin', 'learning-help', 'learning', 'game', 'practice', 'parent', 'settings', 'classroom', 'library', 'credits', 'offline']
+# R3.6 (item 4): the one sanctioned local test entry (#q36-admin-entry, only on file:// and localhost; t06_admin.py proves it is absent on https) is taken out before the scan.
 # Visible markup only: scripts/styles removed and inline data: URIs (base64 pictures) dropped, since those can contain "1234" by chance.
-PAGE_TEXT_JS = """()=>{const c=document.body.cloneNode(true);c.querySelectorAll('script,style,template').forEach(e=>e.remove());return c.innerHTML.replace(/data:[^"'\\s)]*/g,'');}"""
+PAGE_TEXT_JS = """()=>{const c=document.body.cloneNode(true);c.querySelectorAll('script,style,template,#q36-admin-entry').forEach(e=>e.remove());return c.innerHTML.replace(/data:[^"'\\s)]*/g,'');}"""
 
 
 def scan_routes(pg, label):

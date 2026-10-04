@@ -1,0 +1,88 @@
+boot errors []
+{'version': 'R2.0.0', 'catalogue': 26, 'newGames': 5, 'audioContext': 'not-created', 'audioError': '', 'globalMute': False, 'sfxVolume': 0.6, 'musicVolume': 0.35, 'liveAudioNodes': 0}
+profile {'id': 'c_demo', 'name': '整合測試學員', 'grade': 3, 'account': 'u_mutzw67j_1_a22ovqiwfzt', 'persistent': True, 'balance': 0}
+body 遊戲街機
+幣
+我的金幣
+0枚
+
+做練習，賺金幣，就可以玩
+
+去賺金幣：做一個小練習
+拿滿 5 顆星，得 1 枚金幣
+可以玩的遊戲
+3 款
+新遊戲
+全部
+動作
+運動
+解謎
+策略
+創作
+已開放
+●
+3 枚
+遺跡郵差
+
+RUINS COURIER
+
+石林、峽谷、月廟，一共三段。看清橫欄和拱門，再決定跳、滑或換線。
+
+看玩法
+
+玩一次 3 枚金幣
+
+阿峰陪你看玩法
+已開放
+●
+3 枚
+雲島探險
+
+CLOUD ISLAND
+
+探索三座雲島，用短跳、高跳、彈簧和短衝。有安全旗幟，掉下去也不用從頭來。
+
+看玩法
+
+玩一次 3 枚金幣
+
+糖栗老師陪你看玩法
+已開放
+●
+2 枚
+海港排球
+
+HARBOR VOLLEY
+
+電腦對手要時間反應。用高球、扣球和短球來改變節奏。
+
+看玩法
+
+玩一次 2 枚金幣
+
+阿峰陪你看玩法
+還沒開放（2 款）
+做練習解鎖
+進度、造型和規則
+家長也可以看
+errors []
+dbkeys ['wordquest-v10-user-u_mutzw67j_1_a22ovqiwfzt', 'wordquest-v10-accounts']
+dialog RUINS COURIER
+
+遺跡郵差
+✕
+關閉
+試玩預覽・不扣幣・不能操作
+阿峰 · 奧數同學
+
+先看看怎樣玩。
+
+按 ← → 換線，↑ 跳起，↓ 滑行。
+
+跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過去。
+
+這款要 3 枚金幣，你現在有 0 枚。
+去賺金幣：做一個小練習
+
+拿滿 5 顆星，得 1 枚金幣
+buttons [{'text': '✕\n關閉', 'data': {'a28': 'close'}}, {'text': '去賺金幣：做一個小練習', 'data': {'p30': 'earn', 'l30': 'start', 'unit': 'U01', 'mode': 'lesson'}}]

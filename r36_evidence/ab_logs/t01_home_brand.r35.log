@@ -1,0 +1,45 @@
+# t01 home / brand / maths scopes  app=/tmp/ab36/r35/app/index.html
+FAIL [B] A1 manifest and html carry the new name (title tag)
+FAIL [B] A2 no download file name still says WordQuest | ["'WordQuest_My_Rhythm.json", "'WordQuest-v13-backup-", "'WordQuest-original-backup.json", "'WordQuest-"]
+FAIL [B] A3 the arcade hero and admin sandbox labels say SmartQuest
+FAIL [B] A4 document.title is 學霸星球 SmartQuest Planet | WordQuest 學習森林
+FAIL [B] A5 header brand says 學霸星球 | 'WWordQuest'
+FAIL [B] A6 footer starts with the new name and has no WordQuest | '資料只存在這部裝置，不會自動同步到其他裝置。'
+FAIL [B] B1 four tiles in order 英文 / 數學 / 奧數 / 遊戲 | ['英文', '數學', '遊戲']
+FAIL [B] B2 every tile is at least 150 x 110 px | [(115, 100), (115, 100), (115, 100)]
+FAIL [B] B3 the tile picture is at least 52 px | 34px
+PASS B4 all four tiles sit fully on the first screen above the bottom bar (390x844) | nav top 783 tiles [513, 513, 513]
+PASS B5 no sideways scrolling on the home page (390) | 0
+PASS B4b the tile name does not sit on top of the picture (390) | gap 4px
+FAIL [B] B6 bottom bar has six items 首頁 練習 數學 奧數 遊戲 家長 | ['首頁', '練習', '數學', '遊戲', '家長']
+PASS B7 every bottom-bar item is at least 44 px high and inside the screen | [[75, 48, True], [75, 48, True], [75, 48, True], [75, 48, True], [75, 48, True]]
+PASS B8 the 英文 tile opens the English classroom | #practice
+PASS B9 the 遊戲 tile opens the arcade | #game
+FAIL [B] C1 數學 shows only the normal-maths tabs (no 奧數 tab) | ['學習首頁', '數學群島', '思維之塔', '教具工房', '家長與進度']
+PASS C2 normal scope shows no olympiad level or mock cards | ['nav:olympiad', 'nav:olympiad']
+PASS C3 normal scope offers the daily normal-maths round | ['close', 'nav:home', 'nav:normal', 'nav:olympiad', 'nav:tools', 'nav:parent', 'daily:normal', 'nav:normal', 'nav:normal', 'nav:olympiad', 'nav:tools', 'nav:parent']
+PASS C4 the maths header names 數學 (not 數學與奧數) | 'WWordQuest數學群島 · 思維之塔小明 · 小3◉ 60 金幣返回英文'
+Traceback (most recent call last):
+  File "/home/claude/teabonvivant/wordquest-web/r36_tests/t01_home_brand.py", line 89, in <module>
+    maths_open(pg, 'olympiad')
+  File "/home/claude/teabonvivant/wordquest-web/r36_tests/lib36.py", line 127, in maths_open
+    pg.click('.p10-tile.' + ('oly' if scope == 'olympiad' else 'math'))
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 9927, in click
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_page.py", line 857, in click
+    return await self._main_frame.click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_frame.py", line 549, in click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.click: Timeout 12000ms exceeded.
+Call log:
+  - waiting for locator(".p10-tile.oly")
+

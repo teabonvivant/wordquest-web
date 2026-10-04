@@ -1,0 +1,129 @@
+# p40 dictation browser  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+-- flow
+PASS [B] add-range: three named steps are shown
+PASS [B] add-range: step 1 shows only the photo / text part
+PASS [B] D22: name is pre-filled (默書 M月D日) | 默書 10月4日
+PASS D22: no invented date
+PASS [B] D23: photo tips are visible
+PASS [B] S3-09: the disabled 辨認 button says why | 請先按「拍照」或「上傳圖片」，再辨認。
+PASS [B] S3-09: the disabled next-step button says why | 還沒有單字。請先辨認相片，或在下面輸入文字再按「整理成可選字詞」。
+PASS [B] D11: typed text is still there after a reload | 'pencil | 鉛筆\nruler | 間尺'
+PASS [B] D11: the title is still there after a reload | Unit 9 測試
+PASS [B] S3-09: after 整理 the check step opens by itself
+PASS [B] D4/S3-09: count line says how many are selected | 共 12 項，已選 12 個。有 3 項要核對。請對照原稿，不對的取消或修改。
+PASS [B] S3-09: step 3 is a page section, not a pop-up
+PASS [B] S3-09: save button disabled with its reason before 我已對照原稿 | 請先勾選上面的「我已對照原稿」。
+PASS [B] D9: after saving the page lands on the range detail | ranges
+PASS [B] D9: the success line names the range and the word count | 已儲存「Unit 9 測試」，共 12 個單字。
+這是目前練習的範圍。
+PASS [B] D9: a button asks the child to start
+PASS D22: the saved range has no invented date
+PASS D11: the draft is cleared once saved
+PASS [B] D9: 請孩子開始練習 starts a practice | learn
+PASS [B] D17: the child side is no longer in parent mode | 0
+PASS flow: no page errors | []
+-- practice
+PASS [B] D6: the default is practice, not strict | practice
+PASS [B] D6: the button says 檢查答案 | 檢查答案
+PASS [B] D6: the help button says 看提示 (not 看示範) | 💡 看提示
+PASS [B] D6: the check button is disabled with a reason until there is an answer | 先輸入答案，再按「檢查答案」。
+PASS D5: the play-sound button is there
+PASS [B] D6: Pencil for pencil is accepted (capitals are not strict) | {'correct': True, 'expected': 'pencil', 'value': 'Pencil', 'detail': {'correct': True, 'lexical': Tr
+PASS [B] D5: after a wrong answer the question stays open
+PASS [B] D5: an encouraging line and a hint appear | 差一點點。看看提示，再試一次。 / 提示
+
+第一個字母是 r，一共 5 個字母。
+
+看了提示再答對，會記成「有提示時
+PASS D5: the sound button is still there after a wrong answer
+PASS [B] D5: the second hint is stronger (letter mask) | 提示
+
+r _ _ _ r（每個 _ 是一個字母）
+
+看了提示再答對，會記成「有提示時答對」。
+PASS [B] D5: a correct third try is accepted | {'correct': True, 'expected': 'ruler', 'value': 'ruler', 'detail': {'correct': T
+PASS [B] D5: a retried answer is not recorded as independent success | assisted=True
+PASS [B] D5: the screen says it was done with a hint
+PASS D5: after the retries the answer is shown | eraser
+PASS D5: no marks or test wording on the feedback
+PASS [B] D5: a wrong choice does not end the question
+PASS [B] D5: the option already tried is greyed out | 1
+PASS [B] D5: the retry count survives a reload | 1
+PASS [B] D12: the study list covers all 12 words | 12
+PASS [B] D12: the study card says how many words there are | 共 12 個字，一個一個看。
+PASS [B] D6: strict is kept as an option 「大小寫要完全一樣」 | ['practice:大小寫不同也算對（預設）', 'strict:大小寫要完全一樣']
+PASS [B] D6: a chosen strict mode stays strict
+PASS D6: in strict mode Pencil for pencil is a retry, not a pass | {}
+PASS practice: no page errors | []
+-- voice
+PASS [B] D3: with no English voice the check button can still be used
+PASS [B] D3: the note says what to do (parent reads / other device) | 這部裝置沒有英文聲音，請家長讀給孩子聽或改用其他裝置。
+
+看字抄寫
+PASS [B] D3: a 看字抄寫 button is offered
+PASS D3: the unexplained 先跳過 is gone (also after pressing play)
+PASS [B] D3: 看字抄寫 shows the word to copy | 照著抄：
+grandmother
+PASS [B] D3: a copied answer is not recorded as independent | assisted=True
+PASS [B] D13: a word with no meaning is asked as a spoken question | listenSpell
+PASS D13: the question is not blank
+PASS [B] D13: the parent sees which words have no Chinese meaning | 默書 10月4日  沒有填默書日期  關閉  1 個單字沒有中文意思（light）。孩子會用聽讀音的方式練這些字。  請孩子開始練習 改名稱或日期 pencil 鉛筆 還沒練習 ruler 間尺 還沒練習 eraser 擦膠 還沒練習 sc
+PASS voice: no page errors | []
+PASS [B] D3: a voice that fails to play does not block the answer | 這次沒有播出聲音。請再按一次，或請家長讀給孩子聽。
+
+看字抄寫
+-- finish
+PASS [B] D6: the finish page says how many were practised and how many right (R3.6: 今天練了 2 個字 in the title, 答對 1 ／ 2 題 in the star block) | 今天練了 2 個字
+PASS [B] D6: the words to practise again are listed
+PASS [B] D6: a 再練這些字 button is offered
+PASS [B] D6: the finish page has no marks or test wording | []
+PASS [B] D6: 再練這些字 starts a practice with just those words | ["ruler","ruler"]
+-- parent
+PASS [B] D16: the report has a 再練這些字 button for the parent
+PASS [B] D16/D24: the report uses plain words only | []
+PASS [B] D24: the report explains the status words
+PASS [B] D16: the report button starts a practice | learn
+PASS [B] D15: the ranges page asks for the parent password
+PASS D15: choosing today's range for the child is still allowed
+PASS [B] D17: the gate says 15 minutes
+PASS [B] D17: the parent lease lasts 15 minutes | 15
+PASS [B] D17: activity renews the lease | 15
+PASS D15: the ranges page now works | ranges
+PASS [B] D15: a range can be renamed
+PASS D8: the demo range is labelled 示範 | 離線教材 總覽 默書範圍 孩子 學習報告 設定／備份 默書範圍 ＋ 加入範圍 示範默書 Unit 3 示範  12 個單字  ✓ 目前練習中 查看 刪除
+PASS [B] D8: the demo range has no made-up date | [["r_demo","示範默書 Unit 3",""]]
+PASS D8: the demo range can be deleted
+-- ocr
+PASS [B] D7: no raw "Failed to fetch" in the visible message | 辨認功能沒有載入成功。請檢查網絡後再按一次，也可以直接輸入文字。
+詳細資料
+PASS [B] D7: the message says what to do next | 辨認功能沒有載入成功。請檢查網絡後再按一次，也可以直接輸入文字。
+詳細資料
+PASS [B] D7: technical detail sits in a collapsed 詳細資料
+PASS [B] D7: file paths and http codes are hidden | 辨認功能沒有載入成功。請檢查網絡後再按一次，也可以直接輸入文字。
+詳細資料
+PASS [B] D4: a clear photo gives the success line with counts | 找到 35 項，先選了 16 個像單字的。請對照原稿檢查。 另外 19 項不像單字（例如標題、日期、雜點），放在「未加入內容」，需要時可以加回來。
+PASS D4: the real words are preselected | pencil|Wednesday|ruler|colour|eraser|light|school bag|pillow|ice-cream|island|T-
+PASS [B] D4: noise is not preselected | pencil|Wednesday|ruler|colour|eraser|light|school bag|pillow|ice-cream|island|T-shirt|little|grandmother|tall|favourite|
+PASS [B] D4: after a clear result the check step opens
+PASS [B] D22: the unit name and the date are taken from the paper | Unit 4 Fruit and Food / 2026-10-10
+PASS [B] D4: an unclear photo shows 辨認結果不太清楚 instead of the success line | 辨認結果不太清楚。請檢查或重新拍照。
+PASS [B] D4: nothing is preselected from an unclear photo | 0
+PASS ocr: no page errors | []
+-- layout
+PASS layout 320: the ranges page has no sideways scroll | 0
+PASS layout 320: the check-words step has no sideways scroll | 0
+PASS layout 320: the save step has no sideways scroll | 0
+PASS layout 320: the question page has no sideways scroll | 0
+PASS [B] D25 320: the mascot is a small strip on the question page (<= 90 px) | 76
+PASS D25 320: the check button is within the first screen after typing | 502
+PASS D19 320: a long word stays inside the screen | overflow=0 right=299
+PASS layout 320: no page errors | []
+PASS layout 844: the ranges page has no sideways scroll | 0
+PASS layout 844: the check-words step has no sideways scroll | 0
+PASS layout 844: the save step has no sideways scroll | 0
+PASS layout 844: the question page has no sideways scroll | 0
+PASS D25 844: the mascot is a small strip on the question page (<= 90 px) | 59
+PASS D25 844: the check button is within the first screen after typing | 327
+PASS D19 844: a long word stays inside the screen | overflow=0 right=809
+PASS layout 844: no page errors | []
+SUMMARY p40 dictation browser: 103/103 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 400s

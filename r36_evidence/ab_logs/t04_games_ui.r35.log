@@ -1,0 +1,44 @@
+# t04b game prices in the arcade  app=/tmp/ab36/r35/app/index.html
+FAIL [B] A1 none of the old "1 枚金幣 per play" sentences is left in the program | ['每局 1 枚金幣', '投 1 枚金幣', '一枚金幣，換一局', '用 1 枚金幣開始', '再投 1 枚金幣', '按下去才會扣 1 枚金幣', '退回 1 枚金幣', '每局 1 枚金幣，沒有倒數計時']
+PASS B1 the lobby lists all 26 games | 26 cards
+FAIL [B] B2 every card carries a price tag with its own price (1 to 4) | [('ruins-courier', ''), ('cloud-island', ''), ('star-patrol', ''), ('lighthouse-well', '')]
+FAIL [B] B3 every open card says 「玩一次 N 枚金幣」 with the same N | [('ruins-courier', '玩一次 1 枚金幣'), ('cloud-island', '玩一次 1 枚金幣'), ('star-patrol', '玩一次 1 枚金幣'), ('lighthouse-well', '玩一次 1 枚金幣')]
+PASS B4 the price tags are not all the same
+PASS B5 the lobby wallet card shows the coin count with the new coin face | '遊戲街機\nW\n我的金幣\n30枚\n\n選一個遊戲，先看玩法。\n\n可以玩的遊戲\n26 款\n新遊戲\n全部\n動作\n運動\n解謎\n策略\n創作\n已開放\n遺跡郵差\n\nRUINS '
+PASS B6 no sideways scroll in the lobby (390)
+PASS B7 no price tag sticks out of its card | 0
+PASS C1a the 1-coin game (sky-rescue): the button and the notes all say 1 枚 | 'W 用 1 枚金幣開始'
+PASS C1b buying takes exactly 1 coins, writes one -1 line and uses 1 of the 5 plays | {'coins': 30, 'used': 0, 'last': None, 'n': 0} -> {'coins': 29, 'used': 1, 'last': {'id': 'coin_cf41cfe3-7a60-4236-815b-689642c797ca', 'kind': 'spend', 'amount': -1, 'at': 1791123165543, 'note': 'sky-rescue'}, 'n': 1}
+PASS C1c the play screen says how many coins this round cost | '遊戲街機・已投 1 枚金幣'
+PASS C1d cancelling before the start gives back 1 coins; the button and the question both say 1 | '取消未玩的一局 · 退回 1 枚金幣' ['confirm: 要取消還沒開始的這一局，並退回 1 枚金幣嗎？'] {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_cf41cfe3-7a60-4236-815b-689642c797ca', 'kind': 'refund', 'amount': 1, 'at': 1791123166446, 'note': '取消沒開始的一局'}, 'n': 2}
+FAIL [B] C2a the 2-coin game (drift-path): the button and the notes all say 2 枚 | 'W 用 1 枚金幣開始'
+FAIL [B] C2b buying takes exactly 2 coins, writes one -2 line and uses 1 of the 5 plays | {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_cf41cfe3-7a60-4236-815b-689642c797ca', 'kind': 'refund', 'amount': 1, 'at': 1791123166446, 'note': '取消沒開始的一局'}, 'n': 2} -> {'coins': 29, 'used': 1, 'last': {'id': 'coin_f5177cd6-c98b-4db9-b100-9265acc68688', 'kind': 'spend', 'amount': -1, 'at': 1791123169522, 'note': 'drift-path'}, 'n': 3}
+FAIL [B] C2c the play screen says how many coins this round cost | '遊戲街機・已投 1 枚金幣'
+FAIL [B] C2d cancelling before the start gives back 2 coins; the button and the question both say 2 | '取消未玩的一局 · 退回 1 枚金幣' ['confirm: 要取消還沒開始的這一局，並退回 1 枚金幣嗎？'] {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_f5177cd6-c98b-4db9-b100-9265acc68688', 'kind': 'refund', 'amount': 1, 'at': 1791123170393, 'note': '取消沒開始的一局'}, 'n': 4}
+FAIL [B] C3a the 3-coin game (valley-race): the button and the notes all say 3 枚 | 'W 用 1 枚金幣開始'
+FAIL [B] C3b buying takes exactly 3 coins, writes one -3 line and uses 1 of the 5 plays | {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_f5177cd6-c98b-4db9-b100-9265acc68688', 'kind': 'refund', 'amount': 1, 'at': 1791123170393, 'note': '取消沒開始的一局'}, 'n': 4} -> {'coins': 29, 'used': 1, 'last': {'id': 'coin_6896c995-ffeb-48b3-a2bd-5c1aeb673b54', 'kind': 'spend', 'amount': -1, 'at': 1791123173436, 'note': 'valley-race'}, 'n': 5}
+FAIL [B] C3c the play screen says how many coins this round cost | '遊戲街機・已投 1 枚金幣'
+FAIL [B] C3d cancelling before the start gives back 3 coins; the button and the question both say 3 | '取消未玩的一局 · 退回 1 枚金幣' ['confirm: 要取消還沒開始的這一局，並退回 1 枚金幣嗎？'] {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_6896c995-ffeb-48b3-a2bd-5c1aeb673b54', 'kind': 'refund', 'amount': 1, 'at': 1791123174308, 'note': '取消沒開始的一局'}, 'n': 6}
+FAIL [B] C4a the 4-coin game (color-orbit): the button and the notes all say 4 枚 | 'W 用 1 枚金幣開始'
+FAIL [B] C4b buying takes exactly 4 coins, writes one -4 line and uses 1 of the 5 plays | {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_6896c995-ffeb-48b3-a2bd-5c1aeb673b54', 'kind': 'refund', 'amount': 1, 'at': 1791123174308, 'note': '取消沒開始的一局'}, 'n': 6} -> {'coins': 29, 'used': 1, 'last': {'id': 'coin_8b41417d-e173-4a78-a449-938d5e6d82c8', 'kind': 'spend', 'amount': -1, 'at': 1791123177842, 'note': 'color-orbit'}, 'n': 7}
+FAIL [B] C4c the play screen says how many coins this round cost | '遊戲街機・已投 1 枚金幣'
+FAIL [B] C4d cancelling before the start gives back 4 coins; the button and the question both say 4 | '取消未玩的一局 · 退回 1 枚金幣' ['confirm: 要取消還沒開始的這一局，並退回 1 枚金幣嗎？'] {'coins': 30, 'used': 0, 'last': {'id': 'refund_coin_8b41417d-e173-4a78-a449-938d5e6d82c8', 'kind': 'refund', 'amount': 1, 'at': 1791123178729, 'note': '取消沒開始的一局'}, 'n': 8}
+FAIL [B] D2 with 1 coins the 2-coin game says what it costs, cannot be bought and offers the way to earn coins | nobuy=False earn=False '· 奧數同學\n\n這是真實玩法預覽，還沒開始，不會扣金幣。\n\n輕按畫面任何位置轉彎。\n\n在轉角中間轉向，留在米色小徑上。\n\n已解鎖。玩一次要 1 枚金幣，你現在有 1 枚。\n\n預覽裏的分數、生命和收集物，不會記在你的帳戶裏。\n\n按下去才會扣 1 枚金幣\n\nW\n用 1 枚金幣開始\n\n你有 1 枚金幣・這一輪已玩 0/5 次'
+FAIL [B] D3 with 2 coins the 3-coin game says what it costs, cannot be bought and offers the way to earn coins | nobuy=False earn=False '玩法預覽，還沒開始，不會扣金幣。\n\n左右拖動轉向，手指向下拖就煞車。\n\n留在米色道路上，依次經過四個路標。跑三圈完成。\n\n已解鎖。玩一次要 1 枚金幣，你現在有 2 枚。\n\n預覽裏的分數、生命和收集物，不會記在你的帳戶裏。\n\n按下去才會扣 1 枚金幣\n\nW\n用 1 枚金幣開始\n\n你有 2 枚金幣・這一輪已玩 0/5 次'
+FAIL [B] D4 with 3 coins the 4-coin game says what it costs, cannot be bought and offers the way to earn coins | nobuy=False earn=False '法預覽，還沒開始，不會扣金幣。\n\n輕按畫面左邊或右邊，轉動六角形。\n\n同一面連續三塊同色就會消除。一面疊到八塊就結束。\n\n已解鎖。玩一次要 1 枚金幣，你現在有 3 枚。\n\n預覽裏的分數、生命和收集物，不會記在你的帳戶裏。\n\n按下去才會扣 1 枚金幣\n\nW\n用 1 枚金幣開始\n\n你有 3 枚金幣・這一輪已玩 0/5 次'
+PASS D4 the same 3 coins are enough for a 1-coin game
+PASS E0 losing lives inside one paid round takes no more coins | {'coins': 8, 'used': 1, 'last': {'id': 'coin_c62e6fd5-dab2-4cef-8edd-065cb6d53a5c', 'kind': 'spend', 'amount': -1, 'at': 1791123190630, 'note': 'valley-race'}, 'n': 9}->{'coins': 8, 'used': 1, 'last': {'id': 'coin_c62e6fd5-dab2-4cef-8edd-065cb6d53a5c', 'kind': 'spend', 'amount': -1, 'at': 1791123190630, 'note': 'valley-race'}, 'n': 9}
+FAIL [B] E1 after a 3-coin game the play-again button offers 再投 3 枚金幣 | '再投 1 枚金幣'
+FAIL [B] E2 playing again takes another 3 coins and a second play of the round | {'coins': 8, 'used': 1, 'last': {'id': 'coin_c62e6fd5-dab2-4cef-8edd-065cb6d53a5c', 'kind': 'spend', 'amount': -1, 'at': 1791123190630, 'note': 'valley-race'}, 'n': 9}->{'coins': 7, 'used': 2, 'last': {'id': 'coin_83fcfc84-ae3a-40ff-9619-1c857938c2e5', 'kind': 'spend', 'amount': -1, 'at': 1791123195463, 'note': 'valley-race'}, 'n': 10}
+FAIL [B] E3 with 0 coins left there is no play-again button, and the message points to full stars | {'coins': 6, 'used': 3, 'last': {'id': 'coin_b369bb96-a14b-4f28-834c-067cd354ac12', 'kind': 'spend', 'amount': -1, 'at': 1791123200630, 'note': 'valley-race'}, 'n': 11} '這一局結束\n\nt04 end\n\n0\n分\n最高 0\n再投 1 枚金幣\n返回\n這一輪已玩 3/5 次。不會自動再扣金幣。'
+FAIL [B] E4 the end card then says 5 stars give a coin and offers a practice to earn one | earn=False '這一局結束\n\nt04 end\n\n0\n分\n最高 0\n再投 1 枚金幣\n返回\n這一輪已玩 3/5 次。不會自動再扣金幣。'
+FAIL [B] F1 after reopening the page the 4-coin spend, the balance and the play count are still the same | {'coins': 11, 'used': 4, 'last': {'id': 'coin_c062e6bd-3985-4d19-b704-aaf605e9835b', 'kind': 'spend', 'amount': -1, 'at': 1791123208234, 'note': 'color-orbit'}, 'n': 12}->{'coins': 11, 'used': 4, 'last': {'id': 'coin_c062e6bd-3985-4d19-b704-aaf605e9835b', 'kind': 'spend', 'amount': -1, 'at': 1791123208234, 'note': 'color-orbit'}, 'n': 12}
+PASS F2 the saved wallet passes the app's own validator | True
+PASS F3 no console or page errors | []
+PASS G1 small 320x568: price tags inside their cards and no sideways scroll | scroll=0 over=0
+PASS G2 small: the 「用 4 枚金幣開始」 button is at least 44 px high and inside the screen | {'h': 56, 'l': 28, 'r': 292, 'vw': 320, 't': 454.953125, 'bt': 510.953125, 'vh': 568}
+PASS G1 landscape 844x390: price tags inside their cards and no sideways scroll | scroll=0 over=0
+PASS G2 landscape: the 「用 4 枚金幣開始」 button is at least 44 px high and inside the screen | {'h': 52, 'l': 386.4375, 'r': 821, 'vw': 844, 't': 248.5625, 'bt': 300.5625, 'vh': 390}
+PASS G1 tablet 768x1024: price tags inside their cards and no sideways scroll | scroll=0 over=0
+PASS G2 tablet: the 「用 4 枚金幣開始」 button is at least 44 px high and inside the screen | {'h': 56, 'l': 37, 'r': 731, 'vw': 768, 't': 887.03125, 'bt': 943.03125, 'vh': 1024}
+SUMMARY t04b game prices in the arcade: 19/42 passed; failed [B] (expected on R3.2 base) = 23; failed other = 0; 97s

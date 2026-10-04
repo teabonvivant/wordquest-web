@@ -1,0 +1,14 @@
+# p30 play view, touch targets and touch-only text, 26 games  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+  portrait 390x844: small targets 0 -> []
+  portrait 390x844: key names 0 -> []
+PASS [B] S2-03 portrait 390x844: every tap target in the ready card and in the running game is >= 44px (26 games) | []
+PASS [B] S2-06 portrait 390x844: no key name is visible on a phone, ready card or running game (26 games) | []
+PASS portrait 390x844: no console errors | []
+  landscape 844x390: small targets 0 -> []
+  landscape 844x390: key names 0 -> []
+PASS [B] S2-03 landscape 844x390: every tap target in the ready card and in the running game is >= 44px (26 games) | []
+PASS S2-06 landscape 844x390: no key name is visible on a phone, ready card or running game (26 games) | []
+PASS landscape 844x390: no console errors | []
+PASS desktop (pointer: fine) still shows the keyboard sentence under the canvas | 按方向鍵或 WASD 飛行，Space 開護盾。飛近小鳥就能救牠。寶石只加分，不會得到金幣。
+PASS desktop: no console errors | []
+SUMMARY p30 play view, touch targets and touch-only text, 26 games: 8/8 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 154s

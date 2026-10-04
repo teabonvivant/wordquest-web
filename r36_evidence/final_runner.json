@@ -1,0 +1,65 @@
+[
+  {
+    "name": "t01-home-brand",
+    "file": "t01_home_brand.py",
+    "started": 1791121926.888581,
+    "returncode": 0,
+    "seconds": 50.0,
+    "pass_lines": 40,
+    "fail_lines": 0
+  },
+  {
+    "name": "t02-lesson-quiz",
+    "file": "t02_lesson_quiz.py",
+    "started": 1791121976.887334,
+    "returncode": 0,
+    "seconds": 88.0,
+    "pass_lines": 38,
+    "fail_lines": 0
+  },
+  {
+    "name": "t03-stars-coins",
+    "file": "t03_stars_coins.py",
+    "started": 1791122064.8553612,
+    "returncode": 0,
+    "seconds": 273.9,
+    "pass_lines": 39,
+    "fail_lines": 0
+  },
+  {
+    "name": "t04-econ",
+    "file": "t04_econ.cjs",
+    "started": 1791122338.7531323,
+    "returncode": 0,
+    "seconds": 0.2,
+    "pass_lines": 22,
+    "fail_lines": 0
+  },
+  {
+    "name": "t04-games-ui",
+    "file": "t04_games_ui.py",
+    "started": 1791122338.9198449,
+    "returncode": 0,
+    "seconds": 98.7,
+    "pass_lines": 42,
+    "fail_lines": 0
+  },
+  {
+    "name": "t05-time-notices",
+    "file": "t05_time_notices.py",
+    "started": 1791122437.5819602,
+    "returncode": 0,
+    "seconds": 109.3,
+    "pass_lines": 46,
+    "fail_lines": 0
+  },
+  {
+    "name": "t06-admin",
+    "file": "t06_admin.py",
+    "started": 1791127879.4414136,
+    "returncode": 0,
+    "seconds": 70.9,
+    "pass_lines": 32,
+    "fail_lines": 0
+  }
+]

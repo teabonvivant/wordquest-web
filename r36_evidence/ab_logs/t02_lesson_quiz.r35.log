@@ -1,0 +1,61 @@
+# t02 lesson / 考考你 / tick  app=/tmp/ab36/r35/app/index.html
+FAIL [B] A1 the unit page has no number choice (no select or input) | select=1 input=0
+FAIL [B] A2 no 「自己選玩法」 / 「選玩法」 on the unit page
+FAIL [B] A3 the parent section is called 家長教學小貼士 | ['給家長：這課怎樣教？']
+FAIL [B] A4 the old title 「給家長：這課怎樣教？」 is gone from the page and from the program
+FAIL [B] A5 one start button 開始這一課, and the page says 8 words then 20 questions | ['開始這一小課', '學新詞', '看圖選字', '找相同字塊', '按字塊拼字', '換字變新詞', '補字母', '詞語分組', '聽音選字', '自己串字', '聽音默字', '句子填字', '找錯再改好', '混合重溫']
+PASS A6 no 「選玩法」 on the classroom, practice, home, arcade, phonics or family pages | {}
+FAIL [B] A7 the phonics teacher button says 家長教學小貼士
+FAIL [B] A8 on a phonics lesson the parent button reads 家長教學小貼士 | ['家長教法']
+FAIL [B] B1 every one of the 80 units starts a lesson of 8 different words to study and 20 questions (units hold {8: 60, 12: 20} words) | [('U01', 4, 8), ('U02', 4, 8), ('U03', 4, 8), ('U04', 4, 8)]
+PASS B1b in none of the 80 lessons is the same word asked twice in a row | []
+FAIL [B] B2 the 20 questions use at least 6 different question types | Counter({'spell': 4})
+FAIL [B] B3 the 20 questions cover all 8 study words, none more than 4 times | [('w_a7c67c46143382b4', 1), ('w_478f77a3f7abc4a9', 1), ('w_1bb342f45a8206ba', 1), ('w_5d246d17c8ffb086', 1)]
+PASS B4 the same word is never asked twice in a row
+PASS B5 no single question type takes more than 5 of the 20 | Counter({'spell': 4})
+PASS B6 every question type is one the app knows (no study card inside the quiz) | {'spell'}
+Traceback (most recent call last):
+  File "/home/claude/teabonvivant/wordquest-web/r36_tests/t02_lesson_quiz.py", line 114, in <module>
+    pg.click('[data-l30="submit"]')
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 9927, in click
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_page.py", line 857, in click
+    return await self._main_frame.click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_frame.py", line 549, in click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.click: Timeout 12000ms exceeded.
+Call log:
+  - waiting for locator("[data-l30=\"submit\"]")
+    - locator resolved to <button type="button" data-l30="submit" class="l30-btn primary">我已看過，下一步</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <dialog open="" id="l30-dialog" class="l30-dialog">…</dialog> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <dialog open="" id="l30-dialog" class="l30-dialog">…</dialog> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    23 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <dialog open="" id="l30-dialog" class="l30-dialog">…</dialog> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+

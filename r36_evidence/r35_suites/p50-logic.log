@@ -1,0 +1,71 @@
+# p50 maths logic  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS A1 the 24 affected templates (8 skills x T1-T3) generate 40 questions each | 960 questions
+PASS [B] A2 every displayed corrected answer is accepted by the grader (960 questions) | 0 rejected; e.g. 
+PASS [B] A3 a decimal / money / measure question never shows a fraction as its answer | 0 show a fraction; e.g. 
+PASS [B] A4 displayed answer is a plain integer or decimal (no trailing zeros are invented) | 0 bad; e.g. 
+PASS [B] A5 money / circumference / area answers carry the unit the stem asks for (元, 厘米, 平方厘米) | 0 without; e.g. 
+PASS [B] A6 copying the corrected answer together with its unit (52.5 元) is accepted | 0 rejected; e.g. 
+PASS [B] A7 the explanation ("答案是 …") uses the displayed form, not the fraction | 0 differ, 0 with fraction; e.g. 
+PASS A8 recurring decimals (6D1 averages like 23/3) fall back to the exact fraction and are accepted | 75 recurring questions
+PASS A9 the exact answer, written in an allowed format, is accepted for all templates (marking unchanged) | 7320 questions, 0 rejected; e.g. 
+PASS [B] A10 the displayed corrected answer is accepted for ALL templates | 7320 questions, 0 rejected; e.g. 
+PASS A11 templates outside the 8 affected skills keep the exact displayed answer | 0 changed; e.g. 
+PASS A12 answers, formats and option keys of all generated questions are identical to R3.4 | 7320 questions, signature 196770cf
+PASS B0 sample questions with a unit exist | 個=1N1.1-T2:1 厘米=1M3.R3-T1:1 元=6N4.R3-T1:1 平方厘米=4M2.R3-T1:1 公斤=3M5.R3-T1:1 速率=6M4.R3-T1:1
+PASS [B] B1 "7 個" style: unit that matches the question is ignored (個) | 1N1.1-T2:1 answer 9; "9 個" -> 答對了！
+PASS [B] B1 "7個" style: unit that matches the question is ignored (個) | 1N1.1-T2:1 answer 9; "9個" -> 答對了！
+PASS [B] B2 "2厘米" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B2 "2 厘米" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B2 "2cm" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B2 "2 cm" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B2 "2CM" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B2 "2公分" accepted on a 厘米 question | 1M3.R3-T1:1
+PASS [B] B3 "63元" accepted on a 元 question | 6N4.R3-T1:1
+PASS [B] B3 "63 元" accepted on a 元 question | 6N4.R3-T1:1
+PASS [B] B3 "$63" accepted on a 元 question | 6N4.R3-T1:1
+PASS [B] B3 "HK$63" accepted on a 元 question | 6N4.R3-T1:1
+PASS [B] B3 "63 港元" accepted on a 元 question | 6N4.R3-T1:1
+PASS [B] B4 "8 平方厘米" accepted on a 平方厘米 question | 4M2.R3-T1:1
+PASS [B] B4 "8cm2" accepted on a 平方厘米 question | 4M2.R3-T1:1
+PASS [B] B4 "8 cm²" accepted on a 平方厘米 question | 4M2.R3-T1:1
+PASS [B] B4b "30 公里／小時" style (compound unit) accepted on a speed question | 6M4.R3-T1:1
+PASS [B] B5 a wrong number with the right unit is marked wrong, not "invalid format" | {"valid":true,"correct":false}
+PASS B6 wrong units (kg, 個, 元, m, 平方厘米, 克) on a 厘米 question are not accepted | 2 kg:invalid/false 2個:invalid/false 2 元:invalid/false 2m:invalid/false 2 平方厘米:invalid/false 2克:invalid/false
+PASS [B] B7 a wrong unit gets a plain hint that names the unit and says to write only the number | 單位不對，這題的單位是厘米。只填數字，單位不用寫。
+PASS [B] B7b the hint says why and what to do next in plain zh-HK | 單位不對，這題的單位是厘米。只填數字，單位不用寫。
+PASS [B] B8 a unit on a question with no unit says "只填數字，單位不用寫。" | 只填數字，單位不用寫。
+PASS B8b "HK$" on a question that is not about money is not accepted | 只填數字，單位不用寫。
+PASS B9 a plain number, with or without spaces, is still accepted | 1M3.R3-T1:1
+PASS B9b a plain wrong number is marked wrong (valid, not correct)
+PASS [B] B10 "4又3/10" is accepted as a mixed number | 17 improper-fraction answers; 0+0 rejected 
+PASS [B] B11 an incomplete mixed number ("4又") gets a plain hint | 帶分數請這樣寫：4又3/10。
+PASS B12 a mixed number with a zero denominator is still rejected
+PASS [B] B13 empty answer: "請先填答案。" | 請先填答案。
+PASS [B] B14 text that is not a number: says to write only numbers, with examples | 這裏只填數字，例如 12、0.5 或 1/2。
+PASS [B] B15 more than one decimal point also gets the same plain hint | 這裏只填數字，例如 12、0.5 或 1/2。
+PASS B16 a zero denominator is rejected (existing message kept) | 分母不可以是 0，請重新輸入。
+PASS [B] B17 a decimal-only question: a fraction is refused with "請用小數" | 這題請用小數作答，例如 0.25。
+PASS [B] B18 a fraction-only question: a decimal is refused with "請用分數" | 這題請用分數作答，例如 1/2。
+PASS [B] B18b a fraction-only question: an integer is refused with "請用分數" | 這題請用分數作答，例如 1/2。
+PASS [B] B19 decimal answer typed in on a decimal question is accepted (0.21 and 0.210) | 0.01
+PASS [B] C1 no question text says 「最具體」 | 0 questions
+PASS [B] C2 the naming questions (2S4, 3S1, 3S2, 4S1) ask 「選出最準確的名稱」 | 96 questions
+PASS [B] C3 the explanation of 2S4 / 4S1 uses the same term (最準確的名稱)
+PASS [B] C4 no option label carries an answer-leaking bracket such as 「（非正方形）」 | 0 zh, 0 en
+PASS [B] C5 2S4 offers just 「正方形」 and 「長方形」 | 正方形/長方形
+PASS C6 option labels stay distinct and non-empty after the bracket was removed
+PASS C7 the correct option still carries the correct key
+PASS [B] C8 no question or speech text ends with a half-width 「= ?」 | 0 questions; e.g. 
+PASS C9 equation questions use the full-width 「= ？」 throughout | 600 questions
+PASS [B] C10 the spoken text reads 「= ？」 as 「等於幾多？」 or 「等於多少？」 for both kinds of mark | 0 not converted; e.g. 
+PASS C11 English stems keep their ordinary 「= ?」 (only the Chinese text is unified) | 240 English stems
+PASS [B] C12 「4條直邊」 now has a space: 「4 條直邊」 | 0 without, 24 with
+PASS [B] C13 option labels such as 「4條」 have the space as well | 0 questions
+PASS [B] C14 no question uses 「看圖者」「24小時報時制」「正倍數」「選最直接的判斷」 | hits 0/0/0/0
+PASS [B] C15 replacements read as plain written Chinese in the stems
+PASS [B] C16 the lesson texts of the same skills use the same words
+PASS [B] C17 solid names in 1S1 are 正方體、球體、圓柱體、圓錐體 | 圓柱體、圓錐體、正方體、球體
+PASS [B] C18 2S1 says 圓柱體 (not 圓柱) and the other solid names agree with 1S1
+PASS [B] C19 the old shape words 方塊形 圓柱形 圓錐形 球形 are gone from the questions | 0
+PASS C20 no engineering word (引擎, 模組, 驗證, 校對 …) in any generated question text | 0
+SUMMARY p50 maths logic: 69/69 passed; failed [B] (expected on R3.4 base) = 0; failed other = 0; 2s

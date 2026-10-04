@@ -7,6 +7,7 @@ For each game and each viewport (320x568, 360x640 and 390x844 portrait, 844x390 
 then plays one tick and ends the run to get the RESULT card, and measures both. Screenshots go to
 /home/claude/audit_r35/r35/p30/cards/<TAG>/ (jpeg); contact sheets are built at the end when PIL is available.
 """
+import re
 import sys
 from pathlib import Path
 
@@ -90,7 +91,7 @@ def card_checks(info, rows, mode, state, vp, portrait):
         acts = {b['act']: b['t'] for b in info['btns']}
         if acts.get('play') != '開始' or acts.get('leave') != '返回':
             bad.append(f'button words {acts}')
-        if not (info['note'] or '').startswith('已投 1 枚金幣') or '/5' not in (info['note'] or ''):
+        if not re.match(r'已投 [1-4] 枚金幣', info['note'] or '') or '/5' not in (info['note'] or ''):
             bad.append(f"note {info['note']!r}")
         if info['h2'] != '準備好了？':
             bad.append(f"title {info['h2']!r}")
@@ -141,7 +142,7 @@ def run_viewport(p, C, key, games):
             ready_bad.append((gid, ['exception ' + str(e)[:160]]))
     n = len(games)
     print(f'  {key}: {shot_n} screenshots in {OUT}')
-    C.check(f'S1-06 {key}: READY card readable and never clipped, {n}/{n} games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 1 枚金幣 on top)',
+    C.check(f'S1-06 {key}: READY card readable and never clipped, {n}/{n} games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 N 枚金幣 on top)',
             not ready_bad, ready_bad[:3], base=True)
     C.check(f'S1-06 {key}: RESULT card readable and never clipped, {n}/{n} games', not result_bad, result_bad[:3], base=True)
     C.check(f'{key}: no console errors', not errs, errs[:3])

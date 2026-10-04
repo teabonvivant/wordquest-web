@@ -1,0 +1,13 @@
+/* R3.6 q20 - stars, tick and date, quiz banner */
+.q36-stars{display:inline-flex;gap:2px;vertical-align:middle;letter-spacing:0}
+.q36-star{font-size:22px;line-height:1;color:#d9cdb6}
+.q36-star.on{color:#f0a500;text-shadow:0 1px 0 #b87400}
+.q36-stars.small .q36-star{font-size:15px}
+.q36-stars.big .q36-star{font-size:44px;margin:0 2px}
+.q36-done{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0 2px;padding:4px 10px 4px 4px;border-radius:99px;background:#e5f3e8;border:1px solid #a9d3b4;color:#24523a;font-size:14px;font-weight:700;width:fit-content;max-width:100%}
+.q36-tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#2f7d4f;color:#fff;font-size:14px;line-height:1}
+.l30-unit-card .q36-done{margin:6px 0 8px}
+.q36-quiz-intro{margin:0 0 12px;padding:10px 14px;border-radius:14px;background:#fff3cf;border:1px solid #e8cd72;color:#5a4411;font-size:16px;line-height:1.5}
+.q36-rule{margin:0 0 12px;font-size:16px;font-weight:700;color:#7a5600}
+.q36-rule span{color:#f0a500}
+.q36-result h1{margin:6px 0}

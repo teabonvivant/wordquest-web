@@ -102,14 +102,14 @@ with sync_playwright() as p:
             pg.locator('[data-cabinet="ruins-courier"] [data-a28="intro"]').click()
             dlg = pg.evaluate("""(()=>{const b=document.querySelector('#pg-dialog [data-a28="buy"]');
               return b?{text:b.textContent.trim(),disabled:b.disabled,locked:b.classList.contains('a33-locked')}:null;})()""")
-            C.check('lobby: "確認投 1 幣開始" present, enabled and not locked',
-                    bool(dlg) and '用 1 枚金幣開始' in dlg['text'] and not dlg['disabled'] and not dlg['locked'], dlg)
+            C.check('lobby: "用 3 枚金幣開始" present, enabled and not locked (R3.6: ruins-courier costs 3)',
+                    bool(dlg) and '用 3 枚金幣開始' in dlg['text'] and not dlg['disabled'] and not dlg['locked'], dlg)
             pg.locator('#pg-dialog [data-a28="buy"]').click()
             pg.wait_for_selector('#pg-canvas', timeout=10000)
             pg.wait_for_function('__p40.state().game==="ruins-courier"')
             s1 = st(pg)
-            C.check('lobby: confirm charges exactly one coin and opens the ready screen',
-                    spent(s0, s1) == (1, 1) and s1['title'] == '準備好了？', s1)
+            C.check('lobby: confirm charges exactly the game price (3 coins, 1 play) and opens the ready screen',
+                    spent(s0, s1) == (3, 1) and s1['title'] == '準備好了？', s1)
             rd = pg.evaluate("""(()=>{const b=document.querySelector('#pg-overlay [data-a28="play"]');
               return b?{text:b.textContent.trim(),disabled:b.disabled,locked:b.classList.contains('a33-locked')}:null;})()""")
             C.check('ready screen: "開始遊戲" is never locked', bool(rd) and not rd['disabled'] and not rd['locked'], rd)
@@ -155,7 +155,7 @@ with sync_playwright() as p:
             C.check('finished screen: default focus is 返回大堂', bool(a) and a['act'] == 'leave', a, base=True)
             C.check('finished screen: focus is not on a coin-spending button', bool(a) and a['act'] != 'buy', a, base=True)
             bb = buy_btn(pg)
-            C.check('finished screen: "再投 1 枚金幣" text (R3.5 wording)', bool(bb) and bb['text'].endswith('再投 1 枚金幣'), bb)
+            C.check('finished screen: "再投 3 枚金幣" text (R3.6: the price of the game)', bool(bb) and bb['text'].endswith('再投 3 枚金幣'), bb)
             C.check('lock: the coin button is natively disabled while locked', bool(bb) and bb['disabled'] and bb['locked'], bb, base=True)
             C.check('lock: a progress bar runs along the locked button', bool(bb) and bb['barH'] == '5px' and bb['barAnim'] == 'a33-lock', bb,
                     base=True)
@@ -188,8 +188,8 @@ with sync_playwright() as p:
             pg.locator('#pg-overlay [data-a28="buy"]').click()
             pg.wait_for_function('__p40.state().title==="準備好了？"', timeout=8000)
             after = st(pg)
-            C.check('after the lock: an explicit click on "再投 1 幣" charges exactly one coin and opens a new run',
-                    spent(before, after) == (1, 1) and after['run'] != before['run'] and after['phase'] == 'ready', after)
+            C.check('after the lock: an explicit click on "再投 3 枚金幣" charges exactly the game price and opens a new run',
+                    spent(before, after) == (3, 1) and after['run'] != before['run'] and after['phase'] == 'ready', after)
             note = pg.evaluate("document.querySelector('#pg-overlay small').textContent")
             C.check('new run: ready screen reports 2/5 coins used and "開始遊戲" is free', '2/5' in note and
                     not pg.evaluate("document.querySelector('#pg-overlay [data-a28=\"play\"]').disabled"), note)
@@ -309,8 +309,8 @@ with sync_playwright() as p:
                     pass
                 pg.wait_for_timeout(250)
                 after = st(pg)
-                C.check(f'Tab path ({key}): {key} on the focused coin button charges exactly one coin',
-                        spent(before, after) == (1, 1) and after['phase'] == 'ready', f'{spent(before, after)} {after["title"]}')
+                C.check(f'Tab path ({key}): {key} on the focused coin button charges exactly the game price (3 coins, 1 play)',
+                        spent(before, after) == (3, 1) and after['phase'] == 'ready', f'{spent(before, after)} {after["title"]}')
             scenario(f'tab path {key}', s_tab, pg)
 
         # ============================================================ the other bots (forced end, Space immediately)

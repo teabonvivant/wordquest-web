@@ -1,0 +1,26 @@
+{'id': 'SAFE-001', 'name': 'Native AudioContext produces nonzero measured samples', 'pass': True, 'detail': [0, 0.0006952598923817277, 3.715203274623491e-05, 2.7949952254857635e-06, 0, 0.004973988514393568, 0.0004427226958796382, 3.940566602977924e-05, 2.7860717182193184e-06, 0, 0.0033280341885983944, 0.0005444201524369419]}
+{'id': 'SAFE-002', 'name': 'Both volume buses at zero output zero samples', 'pass': True, 'detail': {'samples': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'buses': {'sfx': 0, 'music': 0}}}
+{'id': 'SAFE-003', 'name': 'Zero volume schedules no new sound nodes', 'pass': True, 'detail': None}
+{'id': 'SAFE-004', 'name': 'Independent SFX and music gain controls', 'pass': True, 'detail': {'sfx': 0.4000000059604645, 'music': 0.20000000298023224}}
+{'id': 'SAFE-005', 'name': 'Volume settings survive serialization and new DOM', 'pass': True, 'detail': None}
+{'id': 'SAFE-006', 'name': 'Pointer-held control moves player', 'pass': True, 'detail': {'before': 400, 'after': 445}}
+{'id': 'SAFE-007', 'name': 'Pointer release stops movement', 'pass': True, 'detail': {'after': 445, 'later': 445}}
+{'id': 'SAFE-008', 'name': 'Global sound toggle mutes both buses', 'pass': True, 'detail': None}
+{'id': 'SAFE-009', 'name': 'Global mute does not stop gameplay', 'pass': True, 'detail': None}
+{'id': 'SAFE-010', 'name': 'Global toggle restores configured volumes', 'pass': True, 'detail': None}
+{'id': 'SAFE-011', 'name': 'Window blur releases input and pauses', 'pass': True, 'detail': None}
+{'id': 'SAFE-012', 'name': 'No native-audio/control JavaScript errors', 'pass': True, 'detail': []}
+{'id': 'SAFE-013', 'name': 'Admission save failure does not debit in-memory coins', 'pass': True, 'detail': None}
+{'id': 'SAFE-014', 'name': 'Admission save failure does not debit stored coins', 'pass': True, 'detail': None}
+{'id': 'SAFE-015', 'name': 'Admission save failure has no playable charged run', 'pass': True, 'detail': None}
+{'id': 'SAFE-016', 'name': 'Checkpoint failure freezes playing state', 'pass': True, 'detail': None}
+{'id': 'SAFE-017', 'name': 'Checkpoint failure retains stored last-good data', 'pass': True, 'detail': None}
+{'id': 'SAFE-018', 'name': 'Checkpoint failure presents recovery action', 'pass': True, 'detail': None}
+{'id': 'SAFE-019', 'name': 'Retry save clears failure without a second admission', 'pass': True, 'detail': None}
+{'id': 'SAFE-020', 'name': 'Cloud pointer press holds jump', 'pass': True, 'detail': None}
+{'id': 'SAFE-021', 'name': 'Cloud pointer cancellation clears held jump', 'pass': True, 'detail': None}
+{'id': 'SAFE-022', 'name': 'All tab displays old 21 plus new 5 cabinets', 'pass': True, 'detail': None}
+{'id': 'SAFE-023', 'name': 'Old best score visible by original game identity', 'pass': True, 'detail': None}
+{'id': 'SAFE-024', 'name': 'Original music studio still starts after audio replacement', 'pass': True, 'detail': None}
+{'id': 'SAFE-025', 'name': 'Original game obeys new SFX volume bus', 'pass': True, 'detail': None}
+{'id': 'SAFE-026', 'name': 'Old game and all-catalogue no JS errors', 'pass': True, 'detail': []}

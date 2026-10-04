@@ -1,0 +1,24 @@
+# t04a game prices (economy rules)  app=/tmp/ab36/r36/app/index.html
+PASS [B] A1 there are 26 games and each has a price from 1 to 4
+PASS [B] A2 the price table is exactly the agreed one
+PASS [B] A3 all four prices are used and the dearer games are the harder / later ones (cost never falls as the unlock threshold rises within the original 21) | [6,7,7,6]
+PASS [B] A4 MAX_COST is 4 and an unknown id falls back to a price of 1 (never free, never above 4)
+PASS [B] B1 buying each game takes exactly its price and writes a -price ledger line
+PASS [B] B2 with exactly the price in the wallet the game can be bought and the balance goes to 0
+PASS [B] B3 one coin short: refused, the message names the price, and nothing changed
+PASS [B] B4 a 1-coin game stays possible with 1 coin, a 4-coin game is not possible with 3
+PASS B5 the same receipt cannot be used twice (no double charge)
+PASS B6 a locked game cannot be bought even with enough coins
+PASS [B] C1 cancelling an unstarted round gives back exactly what it cost, for every game
+PASS C2 a round that has started cannot be cancelled
+PASS [B] C3 a full wallet cannot take a refund that would pass the limit
+PASS [B] D1 five plays per round whatever they cost; the sixth is refused with a message about plays, not coins
+PASS [B] D2 the coins spent in a round of five add up to the sum of their prices | 38
+PASS E1 earning is unchanged: 1 coin per distinct task, +1 on the third, 4 tasks pay, never more than 5 a day | [1,1,2,1,0,0,0]
+PASS E2 an invalid (not full-marks) task pays nothing and is not recorded as done
+PASS E3 the same task twice in a day pays once
+PASS [B] F1 a saved wallet with spends of 1, 2, 3 and 4 coins and a refund passes validate() | [-1,-2,-3,-4,4]
+PASS F2 a wallet saved by R3.5 (every spend -1) still loads
+PASS F3 a spend of 5 coins, 0 coins or a refund of 5 is rejected as corrupt | []
+PASS F4 positive "spend" lines (a way to mint coins) are rejected
+SUMMARY t04a game prices (economy rules): 22/22 passed; failed [B] (expected on R3.5 base) = 0; failed other = 0; 0s

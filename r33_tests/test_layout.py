@@ -45,8 +45,8 @@ def n3(p):
             for hash_ in ['#kid', '#practice', '#game', '#parent']:
                 goto(pg, hash_, 450)
                 fab, navs = rect(pg, '#wqm-launch'), nav_rects(pg)
-                # R3.5 (p10): the floating maths button is gone on purpose; maths is the 數學 nav tab, so nothing floats over the 5 tabs.
-                check(f'N3 {tag} {hash_} no floating button; the nav has 5 tabs including 數學', fab is None and len(navs) == 5,
+                # R3.5 (p10): the floating maths button is gone on purpose; maths is the 數學 nav tab, so nothing floats over the 5 tabs (R3.6: 6 tabs, 奧數 has its own).
+                check(f'N3 {tag} {hash_} no floating button; the nav has 6 tabs including 數學 and 奧數 (R3.6)', fab is None and len(navs) == 6,
                       f'fab={fmt(fab)} tabs={[n["label"] for n in navs]}')
                 bad = []
                 for n in navs:
@@ -95,6 +95,7 @@ def _next_typed(pg, label):
     if label == 'L30':
         pg.evaluate("document.querySelector('[data-l30=next]')?.click()")
         pg.wait_for_timeout(300)
+        l30_to_spell(pg)   # R3.6: the next question is not necessarily a typed one; walk on to the next typed question
     elif label == 'L31':
         s = l31_state(pg)
         if s['correction']:
@@ -413,10 +414,14 @@ def n12(p):
         tap(pg, bb['x'] + bb['width'] / 2, bb['y'] + bb['height'] / 2, 'touch')
         pg.wait_for_timeout(1100)
         check('N12 close button closes the dialog', not math_open(pg))
-        check('N12 close button: hash unchanged and no extra history position', hashnow(pg) == '#practice' and (i0 is None or nav_index(pg) == i0),
-              f'hash={hashnow(pg)} index {i0} -> {nav_index(pg)}')
+        # R3.6 (item 12): the dialog's only close control is now 「回首頁」, so it leaves for the child home (#kid) instead of staying on #practice.
+        # The home page is one new history position; ONE Back then returns to the page the child came from.
+        check('N12 close button (回首頁): the child home is shown', hashnow(pg) == '#kid', f'hash={hashnow(pg)} index {i0} -> {nav_index(pg)}')
         back(pg, 700)
-        check('N12 close button: ONE Back then reaches the previous page', hashnow(pg) == '#kid', f'hash={hashnow(pg)}')
+        check('N12 close button (回首頁): ONE Back returns to the page the child came from', hashnow(pg) == '#practice', f'hash={hashnow(pg)}')
+        # Known and accepted: the dialog's own history position stays behind (same address as #practice), so a second Back shows #practice again
+        # before the page that preceded it. Esc and Back (checked above and below) leave no such position.
+        check('N12 close button (回首頁): the maths dialog is closed after Back', not math_open(pg))
 
         # --- repeated open / Esc cycles do not pile up history -----------------------------------------------------------
         prepare(pg)

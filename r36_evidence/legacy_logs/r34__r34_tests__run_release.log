@@ -1,0 +1,5 @@
+engine-behaviour     rc=0 pass=46 fail=0 19.2s
+engine-validity      rc=0 pass=1 fail=0 71.2s
+browser-rules        rc=0 pass=8 fail=0 80.5s
+browser-feel         rc=0 pass=12 fail=0 19.7s
+browser-touch        rc=0 pass=60 fail=0 152.8s

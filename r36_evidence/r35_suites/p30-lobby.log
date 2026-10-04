@@ -1,0 +1,73 @@
+# p30 lobby, cards, intro dialog, touch/keyboard text  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS fresh account really has 0 coins | 0
+PASS [B] S2-05 big coin count at the top (>= 48px, in the first screen) | {'fs': 56, 'top': 162.59375}
+PASS [B] S1-05 slogan at 0 coins: 做練習，賺金幣，就可以玩
+PASS [B] S1-05 primary button 去賺金幣：做一個小練習 is enabled, >= 48px high, full width | {'h': 56, 'w': 328, 'dis': False, 'l30': 'start', 'tag': 'BUTTON'}
+PASS [B] S1-05 note under it: 拿滿 5 顆星，得 1 枚金幣 (R3.6 rule; was 做完 1 組練習得 1 枚金幣)
+PASS [B] S2-05 main list shows only the 3 playable games (locked ones are folded) | ['ruins-courier', 'cloud-island', 'harbor-volley']
+PASS [B] S2-05 locked games sit in a collapsed 還沒開放 section with 做練習解鎖 | {'open': False, 'sum': '還沒開放（2 款） 做練習解鎖', 'n': 2}
+PASS [B] S2-05 single column on a phone (same left edge, >= 85% of the width) | [[13, 364], [13, 364], [13, 364]]
+PASS [B] S2-05 stats, costume, rules, records are collapsed by default | {'strip': True, 'ward': True, 'rules': True, 'rec': True}
+PASS S2-05 the folded section holds stats, costume, rules, records and the parent link | {'strip': True, 'ward': True, 'rules': True, 'rec': True, 'parent': True}
+PASS [B] S2-22 card button 看玩法 with the note 玩一次 N 枚金幣 (R3.6: N is 1 to 4 by game) | [{'btn': '看玩法', 't': '已開放\n●\n3 枚\n遺跡郵差\n\nRUINS COURIER\n\n石林、峽谷、月廟，一共三段。看清橫欄和拱門，再決定跳、滑或換線。\n\n看玩法\n\n玩一次 3 枚金幣\n\n阿峰陪你看玩法'}]
+PASS S2-05 each playable card has exactly one button | [1, 1, 1]
+PASS [B] S1-05 intro says 這款要 N 枚金幣，你現在有 0 枚。 (R3.6 wording; N by game) | 阿峰 · 奧數同學
+
+先看看怎樣玩。
+
+左右滑動換跑道，輕按跳躍，向下滑動滑行。
+
+跑完 1500 米就完成。橫跨三線的障礙，要跳或滑過去。
+
+這款要 3 枚金幣，你現在有 0 枚。
+去賺金幣：做一個小練習
+
+拿滿 5 顆星，得 1 枚金幣
+PASS [B] S1-05 no dead disabled button in the intro at 0 coins | []
+PASS [B] S1-05 the intro offers 去賺金幣：做一個小練習 and its note (R3.6: 拿滿 5 顆星，得 1 枚金幣)
+PASS [B] S1-05 the earn button starts today's lesson (route learning, a session exists) | #learning
+PASS S1-05 coin policy untouched: still 0 coins after starting the lesson | 0
+PASS [B] S1-05 locked game intro: says why and offers 做練習解鎖 | 幣・不能操作
+阿峰 · 奧數同學
+
+先看看怎樣玩。
+
+用手指拖動飛行，輕按畫面開護盾。
+
+共三區，每區六波編隊，再加守關機。只有機械和能量效果。
+
+還沒開放。要通過 5 項複習，你已通過 0 項。
+做練習解鎖
+
+通過複習，這個遊戲就會開放。
+PASS no console errors (0-coin lobby and intro) | []
+PASS 全部 shows all 26 cabinets | 26
+  numbers  (min..max over the cards)  new vs base are in the two runs of this suite
+  [description] n=26 font (15, 15) contrast (13.71, 13.71)
+  [state badge] n=26 font (14, 14) contrast (8.06, 8.06)
+  [buddy line] n=26 font (14, 14) contrast (7.76, 7.76)
+  [status label] n=26 font (14, 14) contrast (13.71, 13.71)
+  [all card text] n=208 font (14, 22) contrast (7.76, 13.71)
+PASS S2-04 26 card descriptions measured | 26
+PASS [B] S2-04 card description >= 14px | (15, 15)
+PASS [B] S2-04 card description contrast >= 4.5:1 on its background (all 26) | (13.71, 13.71)
+PASS [B] S2-04 已開放 is a solid badge with contrast >= 4.5:1 (all) | ((8.06, 8.06), (14, 14))
+PASS [B] S2-04 陪你看玩法 line >= 14px and >= 4.5:1 (all) | ((14, 14), (7.76, 7.76))
+PASS [B] S2-04 smallest text on any card is 14px | (14, 22)
+PASS [B] S2-04 every text on a card has contrast >= 4.5:1 (card names are large text) | (7.76, 13.71)
+  tap targets under 44px in the lobby: 0 []
+PASS [B] S2-03 every tap target in the lobby is >= 44px | []
+PASS [B] S2-18 回到頂部 shows on the long lobby, >= 48px | {'vis': True, 'w': 100.015625, 'h': 48, 't': '回到頂部', 'y': 2400}
+PASS [B] S2-18 回到頂部 scrolls to the top | 11
+PASS [B] S2-18 the button hides again at the top | False
+
+PASS [B] S2-06 phone intro: the first line is the touch sentence of the game, no key names (26/26) | []
+PASS [B] S3-04 intro 關閉 is a bordered 48x48+ button with ✕ and the word (26/26) | []
+PASS [B] S3-05 preview caption 試玩預覽・不扣幣・不能操作 (26/26) | []
+PASS [B] S2-22 intro main button 用 N 枚金幣開始 with 按下去才會扣 N 枚金幣 right above it, same N (26/26) | []
+PASS [B] S2-04 intro dialog text >= 14px (26/26) | []
+PASS no console errors (phone intro loop) | []
+PASS [B] S2-06 desktop intro: the first line is the keyboard / mouse sentence, no finger words (26/26) | []
+PASS desktop lobby uses several columns | 3
+PASS no console errors (desktop) | []
+SUMMARY p30 lobby, cards, intro dialog, touch/keyboard text: 40/40 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 100s

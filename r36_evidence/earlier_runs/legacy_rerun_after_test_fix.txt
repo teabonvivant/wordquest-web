@@ -1,0 +1,11 @@
+== r31 characters_browser
+pass Malformed new preference is rejected before family replacement
+pass No uncaught JavaScript exceptions in complete UI run
+TOTAL 83 PASS 83 FAIL 0
+rc=0
+== r3 integration_regression
+rc=0
+429
+0
+PASS 320px question and submit button visible
+TOTAL 429 {'PASS': 429, 'FAIL': 0}

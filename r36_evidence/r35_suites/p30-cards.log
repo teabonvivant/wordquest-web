@@ -1,0 +1,22 @@
+# p30 ready / result card, 26 games  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+  320x568: 52 screenshots in /home/claude/audit_r35/r35/p30/cards/new
+PASS [B] S1-06 320x568: READY card readable and never clipped, 26/26 games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 N 枚金幣 on top) | []
+PASS [B] S1-06 320x568: RESULT card readable and never clipped, 26/26 games | []
+PASS 320x568: no console errors | []
+PASS [B] 320x568: PAUSED card has 繼續 / 返回 and fits | ({'play': '繼續', 'leave': '返回'}, [])
+  390x844: 52 screenshots in /home/claude/audit_r35/r35/p30/cards/new
+PASS [B] S1-06 390x844: READY card readable and never clipped, 26/26 games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 N 枚金幣 on top) | []
+PASS [B] S1-06 390x844: RESULT card readable and never clipped, 26/26 games | []
+PASS 390x844: no console errors | []
+PASS [B] 390x844: PAUSED card has 繼續 / 返回 and fits | ({'play': '繼續', 'leave': '返回'}, [])
+  844x390: 52 screenshots in /home/claude/audit_r35/r35/p30/cards/new
+PASS [B] S1-06 844x390: READY card readable and never clipped, 26/26 games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 N 枚金幣 on top) | []
+PASS [B] S1-06 844x390: RESULT card readable and never clipped, 26/26 games | []
+PASS 844x390: no console errors | []
+PASS [B] 844x390: PAUSED card has 繼續 / 返回 and fits | ({'play': '繼續', 'leave': '返回'}, [])
+  360x640: 52 screenshots in /home/claude/audit_r35/r35/p30/cards/new
+PASS [B] S1-06 360x640: READY card readable and never clipped, 26/26 games (>=16px, >=48px full-width buttons, <=2 line how, 開始 / 返回, 已投 N 枚金幣 on top) | []
+PASS [B] S1-06 360x640: RESULT card readable and never clipped, 26/26 games | []
+PASS 360x640: no console errors | []
+PASS [B] 360x640: PAUSED card has 繼續 / 返回 and fits | ({'play': '繼續', 'leave': '返回'}, [])
+SUMMARY p30 ready / result card, 26 games: 16/16 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 462s

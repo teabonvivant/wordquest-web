@@ -103,6 +103,10 @@ def answer(pg, correct=True):
     q = info['q']
     mode = info['mode']
     ans = q.get('answer') or ''
+    if mode in ('listenChoice', 'listenSpell'):
+        # R3.6: a listening question can only be answered after the sound was played; a headless browser has no speech, so set it up through the bridge
+        ev(pg, "l30Commit(()=>{const t=l30Session();t.audioHeard=true;t.audioStatus='done';t.replays=1;})")
+        pg.wait_for_timeout(80)
     if q.get('choices'):
         if correct:
             idx = q['choices'].index(ans) if ans in q['choices'] else 0

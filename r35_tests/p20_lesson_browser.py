@@ -7,6 +7,7 @@ Checks marked [B] must FAIL on the R3.4 text base and PASS on the p20 build (the
 regression guards that pass on both. One PASS/FAIL line per check, then a SUMMARY line (Checker from r33_tests/p40_lib.py).
 Set-up uses the test bridges; the behaviour under test is done with real clicks / key presses or read from the DOM.
 """
+import re
 import sys
 import traceback
 from pathlib import Path
@@ -160,13 +161,13 @@ def s104(pg):
 
     # last step keeps its finishing label
     start(pg, 'meaning')
-    for _ in range(3):
+    for _ in range(7):   # R3.6: a one-mode set has 8 questions (it had 4)
         answer(pg, True)
         pg.click('[data-l30="submit"]')
         pg.click('[data-l30="next"]')
     answer(pg, True)
     pg.click('[data-l30="submit"]')
-    chk('last question: button stays 完成這一組', lambda: ((text_of(pg, '[data-l30="next"]') or '').strip() == '完成這一組', text_of(pg, '[data-l30="next"]')))
+    chk('last question: the button changes to 看成績 (R3.6 wording; it was 完成這一組)', lambda: ((text_of(pg, '[data-l30="next"]') or '').strip() == '看成績', text_of(pg, '[data-l30="next"]')))
 
     # every practice mode gives the same wrong-answer wording (and a correct answer is just 答對了！)
     for mode in ('meaning', 'focus', 'tiles', 'swap', 'missing', 'sort', 'listenChoice', 'spell', 'listenSpell', 'cloze', 'edit'):
@@ -245,7 +246,7 @@ def hint(pg):
 def result(pg):
     start(pg, 'lesson')
     right = 0
-    for i in range(12):
+    for i in range(60):   # R3.6: a lesson is 8 study cards + 20 quiz questions
         info = cur(pg)
         if not info:
             break
@@ -260,14 +261,14 @@ def result(pg):
         pg.wait_for_timeout(120)
     pg.wait_for_timeout(400)
     t = body_text(pg)
-    chk('S2-20 result: 做了 8 題，答對 4 題', lambda: ('做了 8 題，答對 4 題' in t, t[:400].replace('\n', ' / ')), base=True)
-    chk('S2-20 result: explains 12 steps vs 8 questions', lambda: ('這一組共 12 步：4 步學新詞，8 步做題。' in t, ''), base=True)
-    chk('S2-20 result: old 4／8 題答對 form is gone', lambda: ('題答對。' not in t.replace('答對 4 題', '') and '4／8' not in t, ''), base=True)
+    chk('S2-20 result: 20 題，答對 N 題 (R3.6: the quiz has 20 questions; it was 做了 8 題)', lambda: (re.search(r'20 題，答對 \d+ 題。', t) is not None, t[:400].replace('\n', ' / ')), base=True)
+    chk('S2-20 result: no step arithmetic (R3.6: 這一組共 12 步… is gone)', lambda: ('這一組共' not in t and '步學新詞' not in t, ''), base=True)
+    chk('S2-20 result: old 4／8 題答對 form is gone', lambda: (re.search(r'\d／\d+ 題答對', t) is None and '題答對。' not in t, ''), base=True)
     btns = pg.evaluate("[...document.querySelectorAll('#app a.l30-btn,#app button.l30-btn')].map(b=>({t:b.innerText.trim(),h:b.getAttribute('href')||b.dataset.l30||'',p:b.classList.contains('primary')}))")
-    chk('S3-08 result buttons: 再練一組 (primary), 去遊戲街機, 回首頁', lambda: ([b['t'] for b in btns][:3] == ['再練一組', '去遊戲街機', '回首頁'] and [b['p'] for b in btns][:3] == [True, False, False], str(btns)), base=True)
-    chk('guard: the three result buttons still lead to #classroom, #game and #kid', lambda: (sorted(b['h'] for b in btns[:3]) == ['#classroom', '#game', '#kid'], str(btns)))
-    chk('guard: finished result never shows 0 coins for a done set', lambda: ('這一組已完成' in t or '完成' in t, ''))
-    for label, target in (('再練一組', '#classroom'), ('去遊戲街機', '#game'), ('回首頁', '#kid')):
+    chk('S3-08 result buttons: 再做一次這一課 (primary), 選另一課, 去遊戲街機, 回首頁 (R3.6 names)', lambda: ([b['t'] for b in btns][:4] == ['再做一次這一課', '選另一課', '去遊戲街機', '回首頁'] and [b['p'] for b in btns][:4] == [True, False, False, False], str(btns)), base=True)
+    chk('guard: the result buttons still lead to #classroom, #game and #kid', lambda: (sorted(b['h'] for b in btns[:4] if b['h'].startswith('#')) == ['#classroom', '#game', '#kid'], str(btns)))
+    chk('guard: finished result never shows 0 coins for a done set', lambda: ('完成' in t and not re.search(r'(?<!\d)0 枚金幣', t), ''))
+    for label, target in (('選另一課', '#classroom'), ('去遊戲街機', '#game'), ('回首頁', '#kid')):
         pg.evaluate("location.hash='#learning'")
         pg.wait_for_timeout(300)
         try:
@@ -280,15 +281,16 @@ def result(pg):
 
     # practice of one mode only: no study steps, so no step explanation
     start(pg, 'meaning')
-    for _ in range(4):
+    coins_before = ev(pg, 'activeChild().stars')
+    for _ in range(8):   # R3.6: a one-mode set has 8 questions (it had 4)
         answer(pg, False)
         pg.click('[data-l30="submit"]')
         pg.click('[data-l30="next"]')
         pg.wait_for_timeout(100)
     pg.wait_for_timeout(300)
     t2 = body_text(pg)
-    chk('S2-20 one-mode set: 做了 4 題，答對 0 題 and no step explanation', lambda: ('做了 4 題，答對 0 題' in t2 and '這一組共' not in t2, t2[:300].replace('\n', ' / ')), base=True)
-    chk('guard: a wrong set never takes coins away (wording keeps that promise)', lambda: ('也不會扣掉已有的金幣' in t2 or '不扣走已有金幣' in t2, ''))
+    chk('S2-20 one-mode set: 8 題，答對 0 題 and no step explanation (R3.6: 8 questions, was 做了 4 題)', lambda: ('8 題，答對 0 題' in t2 and '這一組共' not in t2, t2[:300].replace('\n', ' / ')), base=True)
+    chk('guard: a wrong set never takes coins away (R3.6: checked on the balance; the reassurance sentence was removed from the result)', lambda: (ev(pg, 'activeChild().stars') == coins_before, f"{coins_before} -> {ev(pg, 'activeChild().stars')}"))
 
     # parent report: the "assisted answers are only practice" sentence lives in the parent view
     pg.evaluate("location.hash='#learning-report'")
@@ -311,7 +313,7 @@ def s214(pg):
     toast_t = text_of(pg, '#toast') or ''
     chk('S2-14 #learn with no practice goes home', lambda: (pg.evaluate('location.hash') == '#kid', pg.evaluate('location.hash')), base=True)
     chk('S2-14 plain notice 今天還沒開始，按「開始今天的小課」。', lambda: (toast_t.strip() == '今天還沒開始，按「開始今天的小課」。', toast_t), base=True)
-    chk('S2-14 never shows 這一輪完成了 or 0 金幣', lambda: ('這一輪完成了' not in t and '0 金幣' not in t, t[:120].replace('\n', ' / ')), base=True)
+    chk('S2-14 never shows 這一輪完成了 or 0 金幣 (R3.6: the chip reads 「60 金幣」, so the match is on a lone 0)', lambda: ('這一輪完成了' not in t and not re.search(r'(?<!\d)0 金幣', t), t[:120].replace('\n', ' / ')), base=True)
     chk('S2-14 the child home page is shown with its start button', lambda: (pg.locator('[data-l30="start"]').count() > 0, ''), base=True)
     # a running practice is not hidden by the guard
     start(pg, 'meaning')
@@ -331,11 +333,11 @@ def nav_names(pg, errs):
     start(pg, 'lesson')
     chk('S3-12 study step: audio button has 🔊 and says 聽讀音', lambda: ((text_of(pg, '[data-l30="audio"]') or '').strip() == '🔊 聽讀音', text_of(pg, '[data-l30="audio"]')), base=True)
     chk('S3-12 study step: no Enter hint (there is no input)', lambda: ('Enter' not in (text_of(pg, '.l30-quiz > .l30-row') or '') and 'Enter 不會' not in (text_of(pg, '.l30-quiz') or ''), text_of(pg, '.l30-quiz > .l30-row')), base=True)
-    advance(pg, until_mode='meaning')
+    start(pg, 'meaning')   # R3.6: the 20 quiz questions come in a mixed order, so open a one-mode set instead of walking to the first meaning step
     chk('S3-12 choice step: no 選字途中 Enter hint under the buttons', lambda: ('Enter 不會在選字途中提交' not in (text_of(pg, '.l30-quiz') or ''), ''), base=True)
-    chk('guard: choice step still says the number keys work', lambda: ('可以按鍵盤 1–4 選擇，再按 Enter 提交' in (text_of(pg, '.l30-quiz') or '')))
-    advance(pg, until_mode='spell')
-    chk('guard: typing step keeps its Enter / draft hint', lambda: (any(x in (text_of(pg, '.l30-quiz') or '') for x in ('Enter 不會在選字途中提交', '按 Enter 不會提交')), text_of(pg, '.l30-quiz')))
+    chk('guard: choice step no longer carries the keyboard sentence (R3.6 item 7; the keys still work, see the keyboard guards)', lambda: ('可以按鍵盤 1–4' not in (text_of(pg, '.l30-quiz') or ''), ''))
+    start(pg, 'spell')   # R3.6: the 20 quiz questions come in a mixed order, so open a one-mode set instead of walking to the first spell step
+    chk('guard: typing step no longer carries the Enter / draft sentence (R3.6 item 7; Enter still submits, see the keyboard guards)', lambda: (not any(x in (text_of(pg, '.l30-quiz') or '') for x in ('Enter 不會在選字途中提交', '按 Enter 不會提交')), text_of(pg, '.l30-quiz')))
     start(pg, 'listenSpell')
     chk('S3-12 listening step: audio button has 🔊', lambda: ((text_of(pg, '[data-l30="audio"]') or '').startswith('🔊'), text_of(pg, '[data-l30="audio"]')), base=True)
 
@@ -347,7 +349,7 @@ def nav_names(pg, errs):
     chk('S3-15 no 聽老師說明 / 怎樣操作？ on the lesson page', lambda: ('聽老師說明' not in ' '.join(names) and '怎樣操作？' not in ' '.join(names), str(names)), base=True)
 
     # --- S3-13 tab order and S3-14 give-up in the top-right menu
-    advance(pg, until_mode='spell')
+    start(pg, 'spell')   # R3.6: the 20 quiz questions come in a mixed order, so open a one-mode set instead of walking to the first spell step
     lab = pg.evaluate("(document.querySelector('[data-l30=\"hint\"]')||{getAttribute(){return ''}}).getAttribute('aria-label')||''")
     chk('S3-15 hint button name is plain (no 本題會記作有提示)', lambda: (lab != '' and '記作有提示' not in lab, lab), base=True)
     order = pg.evaluate("""()=>{const q=document.querySelector('.l30-quiz');const pos=(s)=>{const e=q.querySelector(s);return e?[...q.querySelectorAll('*')].indexOf(e):-1};
@@ -481,10 +483,10 @@ def layout(p, w, h, touch, tag):
         # S2-02: the main button is on screen on arrival (study, choice, typed)
         start(pg, 'lesson')
         chk(f'S2-02 {tag} {w}x{h}: study step main button fully on screen', lambda: (bool(fully_visible(pg, '[data-l30="submit"]')), str(vis_rect(pg, '[data-l30="submit"]'))), base=bf('S2-02 study'))
-        advance(pg, until_mode='meaning')
+        start(pg, 'meaning')   # R3.6: the 20 quiz questions come in a mixed order, so open a one-mode set instead of walking to the first meaning step
         pg.evaluate('window.scrollTo(0,0)')
         chk(f'S2-02 {tag} {w}x{h}: choice step main button fully on screen', lambda: (bool(fully_visible(pg, '[data-l30="submit"]')), str(vis_rect(pg, '[data-l30="submit"]'))), base=bf('S2-02 choice'))
-        advance(pg, until_mode='spell')
+        start(pg, 'spell')   # R3.6: the 20 quiz questions come in a mixed order, so open a one-mode set instead of walking to the first spell step
         pg.evaluate('window.scrollTo(0,0)')
         chk(f'S2-02 {tag} {w}x{h}: typed step main button fully on screen', lambda: (bool(fully_visible(pg, '[data-l30="submit"]')), str(vis_rect(pg, '[data-l30="submit"]'))), base=bf('S2-02 typed'))
         # S1-04 feedback visible, next reachable

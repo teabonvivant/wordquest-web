@@ -1,0 +1,42 @@
+# t01 home / brand / maths scopes  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] A1 manifest and html carry the new name (title tag)
+PASS [B] A2 no download file name still says WordQuest | []
+PASS [B] A3 the arcade hero and admin sandbox labels say SmartQuest
+PASS [B] A4 document.title is 學霸星球 SmartQuest Planet | 學霸星球 SmartQuest Planet
+PASS [B] A5 header brand says 學霸星球 | '★學霸星球'
+PASS [B] A6 footer starts with the new name and has no WordQuest | '學霸星球 SmartQuest Planet · 學習紀錄只存在這部裝置。'
+PASS [B] B1 four tiles in order 英文 / 數學 / 奧數 / 遊戲 | ['英文', '數學', '奧數', '遊戲']
+PASS [B] B2 every tile is at least 150 x 110 px | [(177, 135), (177, 135), (177, 135), (177, 135)]
+PASS [B] B3 the tile picture is at least 52 px | 58px
+PASS B4 all four tiles sit fully on the first screen above the bottom bar (390x844) | nav top 783 tiles [548, 548, 694, 694]
+PASS B5 no sideways scrolling on the home page (390) | 0
+PASS B4b the tile name does not sit on top of the picture (390) | gap 8px
+PASS [B] B6 bottom bar has six items 首頁 練習 數學 奧數 遊戲 家長 | ['首頁', '練習', '數學', '奧數', '遊戲', '家長']
+PASS B7 every bottom-bar item is at least 44 px high and inside the screen | [[62, 48, True], [62, 48, True], [62, 48, True], [62, 48, True], [62, 48, True], [62, 48, True]]
+PASS B8 the 英文 tile opens the English classroom | #practice
+PASS B9 the 遊戲 tile opens the arcade | #game
+PASS [B] C1 數學 shows only the normal-maths tabs (no 奧數 tab) | ['數學首頁', '數學群島', '教具工房', '家長與進度']
+PASS C2 normal scope shows no olympiad level or mock cards | []
+PASS C3 normal scope offers the daily normal-maths round | ['close', 'nav:home', 'nav:normal', 'nav:tools', 'nav:parent', 'daily:normal', 'nav:normal', 'nav:normal', 'nav:tools', 'nav:parent', 'diagnostic:normal']
+PASS C4 the maths header names 數學 (not 數學與奧數) | '🏠 回首頁＋學霸星球數學群島小明 · 小3◉ 60 金幣'
+PASS [B] C5 奧數 shows only the olympiad tabs 思維之塔 / 策略卡 / 家長與進度 | ['思維之塔', '策略卡', '家長與進度']
+PASS [B] C6 olympiad scope has levels and a mock paper, and no normal daily round | ['close', 'nav:olympiad', 'nav:cards', 'nav:parent', 'olylevel:1', 'olylevel:2', 'olylevel:3', 'olylevel:4', 'mock:1', 'nav:cards']
+PASS [B] D1 the maths page has a 回首頁 button, at least 44 px high and on screen | {'t': '🏠 回首頁', 'h': 52, 'w': 76.171875, 'top': 10, 'vis': True}
+PASS [B] D2 a 首頁 button is still there inside an olympiad lesson, at least 44 px high and on screen | {'t': '🏠 首頁', 'h': 48, 'vis': True}
+PASS [B] D3 tapping 首頁 in a lesson closes the maths dialog and shows the child home | open=False hash=#kid
+PASS [B] D4 leaving a round half way asked nothing | []
+PASS [B] D5 opening normal maths after an unfinished olympiad round goes straight to normal maths, no question | nav=['數學首頁', '數學群島', '教具工房', '家長與進度'] resume='' dialogs=[]
+PASS [B] D6 bottom-bar 奧數 opens the olympiad pages | ['思維之塔', '策略卡', '家長與進度']
+PASS [B] D7 bottom-bar 數學 opens the normal-maths pages | ['數學首頁', '數學群島', '教具工房', '家長與進度']
+PASS D8 no console or page errors in this flow | []
+PASS E1 small 320x568: four tiles, none cut off at the sides, no sideways scroll | [(12, 156), (164, 308), (12, 156), (164, 308)] scroll=0
+PASS [B] E2 small: the tiles are big (width >= 120 and height >= 88) | [(144, 93), (144, 93), (144, 93), (144, 93)]
+PASS E3 small phone: the first row of tiles is on the first screen | 466.53125
+PASS [B] E4 small: the maths 回首頁 button is fully on screen | {'l': 17, 'r': 93.171875, 't': 10, 'b': 62, 'w': 320, 'h': 568}
+PASS E1 landscape 844x390: four tiles, none cut off at the sides, no sideways scroll | [(463, 638), (646, 822), (463, 638), (646, 822)] scroll=0
+PASS [B] E2 landscape: the tiles are big (width >= 120 and height >= 88) | [(176, 140), (176, 140), (176, 140), (176, 140)]
+PASS [B] E4 landscape: the maths 回首頁 button is fully on screen | {'l': 23, 'r': 133.078125, 't': 20.484375, 'b': 72.484375, 'w': 844, 'h': 390}
+PASS E1 tablet 768x1024: four tiles, none cut off at the sides, no sideways scroll | [(22, 194), (206, 378), (390, 562), (574, 746)] scroll=0
+PASS [B] E2 tablet: the tiles are big (width >= 120 and height >= 88) | [(172, 160), (172, 160), (172, 160), (172, 160)]
+PASS [B] E4 tablet: the maths 回首頁 button is fully on screen | {'l': 23, 'r': 133.078125, 't': 20.484375, 'b': 72.484375, 'w': 768, 'h': 1024}
+SUMMARY t01 home / brand / maths scopes: 40/40 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 50s

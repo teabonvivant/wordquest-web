@@ -75,7 +75,7 @@ def run():
   browser=pw.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox'])
   ctx,p,errors,dialogs=boot(browser)
   check('Host bridge exposes correct version and no mutable database',lambda:req(p.evaluate("WQMathHost.apiVersion===1&&WQMathHost.version==='V32-M0.1.2-R1'&&!('db' in WQMathHost)&&Object.isFrozen(WQMathHost)"),'host bridge'))
-  check('Single homepage has both ordinary maths and Olympiad buttons',lambda:req(p.locator('[data-wqm-open="normal"]').count()==1 and p.locator('[data-wqm-open="olympiad"]').count()==1,'subject entries'))
+  check('Single homepage has both ordinary maths and Olympiad buttons (R3.6: the maths tile opens the ordinary scope as `home`; the Olympiad has its own tile)',lambda:req(p.locator('[data-wqm-open="home"]').count()>=1 and p.locator('[data-wqm-open="olympiad"]').count()>=1,'subject entries'))
   op(p)
   check('Maths resolves the real V32 bridge, not standalone profile adapter',lambda:req(p.evaluate('WQMathApp.hostConnected()'),'not connected'))
   check('Retained bank contains 28 skills and 84 templates',lambda:req(p.evaluate('WQMathData.skills.length===28&&WQMathData.templates.length===84'),'bank count'))
@@ -125,7 +125,7 @@ def run():
   check('Existing parent password unlocks without another account',lambda:(unlock(p),True)[1])
   check('English parent page displays separate maths activity count',lambda:req('普通數學 10 次作答' in p.locator('#wq-maths-parent').inner_text(),'missing summary'))
   None if p.locator('#wqm-dialog').evaluate('(d)=>d.open') else p.locator('[data-wqm-open="parent"]').click()
-  check('Unlocked maths settings open in same program',lambda:req(p.locator('#wqm-app-host #limit').count()==1,'settings absent'))
+  check('Unlocked maths settings open in same program (R3.6: the maths time-limit select is gone, learning has no time limit)',lambda:req(p.locator('#wqm-app-host #setting-olympiad').count()==1 and p.locator('#wqm-app-host #limit').count()==0,'settings absent'))
   def settings():
    p.locator('#wqm-app-host #setting-olympiad').uncheck();mc(p,'save-settings');req(state(p)['settings']['olympiad'] is False,'not disabled')
    p.locator('#wqm-app-host #setting-olympiad').check();mc(p,'save-settings');return req(state(p)['settings']['olympiad'],'not enabled')
@@ -259,7 +259,7 @@ def run():
    return req(stages==set(range(6)),{'stages':sorted(stages)})
   check('Full ordinary lesson completes all six teaching stages',lambda:lesson_flow('1N1.1'))
   check('Guided questions remain separate from independent mastery attempts',lambda:req(sum(a['mode']=='guided' for a in state(p)['attempts'])==3,'guided classification'))
-  mc(p,'completed-home');mc(p,'nav:olympiad')
+  mc(p,'completed-home');close(p);op(p,'olympiad')   # R3.6 (open() on an already open dialog does nothing, so close first): the olympiad has its own entrance, there is no olympiad tab inside normal maths
   check('Full Olympiad lesson completes challenge, teaching and reflection',lambda:lesson_flow('O-NUM-pairs',True))
   check('Correct Olympiad reflection earns the real strategy card',lambda:req(len(state(p)['cards'])==1,'strategy not recorded'))
   check('Ordinary and Olympiad attempts coexist with separate track fields',lambda:req(set(a['track'] for a in state(p)['attempts'])=={'normal','olympiad'},'track data merged'))
@@ -272,7 +272,7 @@ def run():
   for i,f in enumerate(fixtures):
    def one(f=f,i=i):
     p.evaluate('''({f,i})=>{WQMathApp.close();const C=WQMathCore,L=C.library(WQMathData),st=new WQMathStorage.Store(WQMathHost,L),q=C.generate(L,f.template,f.seed),r={template:f.template,seed:f.seed},n=C.blank();n.settings.slow=true;n.current={id:'template_case_'+i,skill:q.skill,track:q.track,mode:'practice',game:null,stage:4,index:0,queues:{4:[r]},example:r,startedAt:Date.now()-4000,questionAt:Date.now()-4000,activeMs:0,hint:0,feedback:null,results:[],replacements:[],completed:false,rewardDone:false,fast:0,draft:'',picked:'',reflection:null};st.commit(n);}''',{'f':f,'i':i})
-    op(p);mc(p,'resume');q=question(p);r=answer(p,q,enter=q['type']=='number')
+    op(p,'olympiad' if f['template'].startswith('O-') else 'home');mc(p,'resume');q=question(p);r=answer(p,q,enter=q['type']=='number')
     req(r['correct'] and len(state(p)['attempts'])==1,'wrong answer/rendering')
     req(p.locator('.feedback').evaluate('(e)=>e.getRootNode().activeElement===e'),'feedback focus lost')
     return {'template':f['template'],'type':q['type'],'marked_correct':True,'keyboard_feedback_focus':True}

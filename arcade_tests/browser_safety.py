@@ -62,7 +62,7 @@ try:
   check('Checkpoint failure retains stored last-good data',p.evaluate('(k)=>localStorage.getItem(k)',key)==stored)
   check('Checkpoint failure presents recovery action',p.locator('[data-a28="retry-save"]').count()==1)
   p.evaluate('window.__failSet=null');p.locator('[data-a28="retry-save"]').click();p.wait_for_timeout(120)
-  check('Retry save clears failure without a second admission',p.evaluate('__arcadeQA.host().balance===39'))
+  check('Retry save clears failure without a second admission',p.evaluate('__arcadeQA.host().balance===37'))   # R3.6: cloud-island costs 3 of the 40 coins
   play(p);btn=p.locator('[data-a28key="up"]');btn.scroll_into_view_if_needed();box=btn.bounding_box();p.mouse.move(box['x']+box['width']/2,box['y']+box['height']/2);p.mouse.down();p.wait_for_timeout(70)
   check('Cloud pointer press holds jump',p.evaluate('__arcadeQA.game().state.jumpHeld'))
   btn.dispatch_event('pointercancel',{'pointerId':1,'bubbles':True});p.mouse.up();p.wait_for_timeout(80)
@@ -73,6 +73,7 @@ try:
   tabs=p.locator('[data-a28="filter"]').evaluate_all('(xs)=>xs.map(x=>({text:x.innerText,data:x.dataset}))');# Filter metadata retained only for local test inspection.
   p.locator('[data-a28="filter"]').filter(has_text='全部').click();p.wait_for_timeout(100)
   check('All tab displays old 21 plus new 5 cabinets',p.locator('[data-cabinet]').count()==26)
+  p.evaluate("(()=>{const d=document.querySelector('details.p30-more');if(d)d.open=true;})()")   # R3.5 folded the records into 「更多」; the suite stopped here since then (its exit code stayed 0)
   p.locator('.r2-records summary').click();check('Old best score visible by original game identity','987 分' in p.locator('.r2-records').inner_text())
   p.locator('[data-cabinet="forest-band"] [data-a28="intro"]').click();p.locator('#pg-dialog [data-a28="buy"]').click();p.wait_for_selector('#pg-canvas');play(p);check('Original music studio still starts after audio replacement',p.evaluate('__arcadeQA.host().playing&&__arcadeQA.game().id==="forest-band"'))
   p.locator('.r2-audio summary').click();vol(p,'arcadeSfxVolume',0);p.wait_for_timeout(250);check('Original game obeys new SFX volume bus',p.evaluate('__arcadeQA.buses().sfx===0'))

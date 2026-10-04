@@ -17,6 +17,7 @@ def keys(page,key,ms=180):
  page.keyboard.down(key);page.wait_for_timeout(ms);page.keyboard.up(key)
 def start(page,gid):
  page.evaluate("location.hash='#game'");page.wait_for_selector(f'[data-cabinet="{gid}"]');page.locator(f'[data-cabinet="{gid}"] [data-a28="intro"]').click();page.locator('#pg-dialog [data-a28="buy"]').click();page.wait_for_selector('#pg-canvas');page.locator('[data-a28="play"]').click();page.wait_for_function('__arcadeQA.host().playing');
+COST={'ruins-courier':3,'cloud-island':3,'star-patrol':4,'lighthouse-well':4,'harbor-volley':2}   # R3.6: each game has its own price (the test starts with 40 coins)
 fixture=json.loads((ROOT/'arcade_evidence/test_fixture_initial.json').read_text())
 key=next(k for k in fixture['local'] if k.startswith('wordquest-v10-user-'));db=json.loads(fixture['local'][key]);db['children'][0]['stars']=40
 db.setdefault('arcadeV28',{'v':28,'children':{'c_demo':{'batch':{'number':1,'used':0,'lastSpentAt':0},'days':{},'ledger':[],'run':None,'paused':False,'permissions':{},'selectedSkin':'classic','bests':{},'migration':{'original':40,'returned':0,'due':0,'at':0}}}})
@@ -28,7 +29,7 @@ try:
   for gid in ['ruins-courier','cloud-island','star-patrol','lighthouse-well','harbor-volley']:
    ctx,page,errors,dialogs=harness.boot(b,initial=fixture)
    start(page,gid);page.wait_for_timeout(160)
-   st=snap(page);check(gid+' one coin admission',st['balance']==39,st)
+   st=snap(page);check(gid+' one coin admission',st['balance']==40-COST[gid],st)
    g=page.evaluate('__arcadeQA.game()');check(gid+' registered ID and state',g['id']==gid and g['state']['health']==3)
    keys(page,'ArrowRight',150);keys(page,'ArrowUp',90);page.wait_for_timeout(60)
    moved=page.evaluate('__arcadeQA.game()');check(gid+' keyboard updates simulation',moved['state']['t']>g['state']['t'])
@@ -37,12 +38,12 @@ try:
    check(gid+' pause freezes simulation',not st['playing'] and saved==page.evaluate('__arcadeQA.game()'))
    check(gid+' pause stops audio',page.evaluate("WQR2Runtime.status().audioContext==='suspended' && WQR2Runtime.status().liveAudioNodes===0"))
    page.locator('[data-a28="play"]').click();page.wait_for_function('__arcadeQA.host().playing')
-   check(gid+' resume no second charge',snap(page)['balance']==39)
+   check(gid+' resume no second charge',snap(page)['balance']==40-COST[gid])
    page.wait_for_timeout(220);page.locator('[data-a28="pause"]').click();page.screenshot(path=str(ROOT/'r3_evidence'/f'{gid}_paused.png'),full_page=True)
    savedState=harness.state_snapshot(page);savedRun=snap(page)['run'];ctx.close()
    ctx,page,errors2,dialogs=harness.boot(b,initial=savedState)
    page.evaluate("location.hash='#game'");page.wait_for_timeout(100);page.locator('[data-a28="resume"]').first.click();page.wait_for_selector('#pg-canvas')
-   restored=snap(page);check(gid+' restore on independent DOM instance',restored['run']['id']==savedRun['id'] and restored['run']['snapshot']==savedRun['snapshot'] and restored['balance']==39)
+   restored=snap(page);check(gid+' restore on independent DOM instance',restored['run']['id']==savedRun['id'] and restored['run']['snapshot']==savedRun['snapshot'] and restored['balance']==40-COST[gid])
    check(gid+' old best retained',page.evaluate("__arcadeQA.db().arcadeV28.children.c_demo.bests['forest-dash|1']===987"))
    # Mobile dimensions / enlarged layout is tested by actual user button.
    for w,h in [(320,568),(390,844),(844,390)]:

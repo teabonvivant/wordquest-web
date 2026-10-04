@@ -1,6 +1,8 @@
-# WordQuest R3.5
+# 學霸星球 SmartQuest Planet R3.6
 
 完整的英文學習、普通數學、奧數及森林學園街機程式。此倉庫保存 R3.2 完整包的全部程式、教材、角色素材、開發模組、歷史原件、文件及測試證據，並附上 2026-09-30 的完整漏洞審查。
+
+**R3.6 在 R3.5 之上照 15 項要求改學習規則：首頁圖案加大、學習沒有時限、每課固定 8 字再接 20 題「考考你」、所有測試用星星（5 星才有金幣）、26 款遊戲各有 1 至 4 枚金幣的價錢、數學與奧數分開進入並有回首頁按鈕、已學的課有剔號和日期、全站說明句清走、改名「學霸星球 SmartQuest Planet」、本機 Admin 測試帳戶。這不是商用版。** 做了什麼、怎樣重建與測試、已知限制，見 [README_R3_6.md](README_R3_6.md)；報告見 `docs/R3_6_審查與改動報告.md`。
 
 **R3.5 在 R3.4 之上改寫全站文字（家長和孩子看的中文改成淺白的香港書面語），修好首次使用、英文課堂、遊戲街機、默書練習和數學的問題，並把默書定位為練習。這不是商用版：英文題庫要教師審核、數學內容分量不足、沒有真人錄音、圖片授權文件未齊。** 審查結論、改了甚麼和沒改甚麼，見 `docs/R3_5_審查與改動報告.md`；重建、測試和已知限制見 [README_R3_5.md](README_R3_5.md)。
 
@@ -34,6 +36,8 @@ node server/local_server.mjs
 | `docs/` | 使用、驗收及技術文件 |
 | `originals/` | 保留的歷史版本、英文與數學原件及先前審查資料 |
 | `docs/audit/2026-09-30/` | R3.2 漏洞審查報告、結果、重現程式及全部審查證據 |
+| `docs/R3_6_審查與改動報告.md` | R3.6 的 15 項改動、要你決定的事和驗證結果 |
+| `r36_src/`、`r36_tests/`、`r36_evidence/` | R3.6 的補丁模組、新測試、A/B 證明與證據（含舊測試改動紀錄） |
 | `docs/audit/2026-10-03/`、`docs/R3_5_審查與改動報告.md` | R3.5 的教學內容、介面和文字審查（問題清單與抽樣） |
 | `r35_src/`、`r35_tests/`、`r35_evidence/` | R3.5 的補丁模組、文字改寫表、新測試與證據（含舊測試改動紀錄） |
 
@@ -60,7 +64,7 @@ node server/local_server.mjs
 python3 tools/build_r33.py
 ```
 
-開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.5 重建 `python3 tools/build_r35.py`，新測試入口為 `python3 r35_tests/run_release.py`，改前改後對照為 `python3 r35_tests/run_behaviour.py`；R3.4 新測試入口為 `python3 r34_tests/run_release.py`（重建 `python3 tools/build_r34.py`）；R3.3 新測試入口為 `python3 r33_tests/run_release.py`；R3.2 回歸入口：
+開發測試的 Python 套件列於 `requirements-test.txt` 及 `requirements-r31-dev.txt`；瀏覽器測試另需 Playwright 的 Chromium。R3.6 重建 `python3 tools/build_r36.py`（需 `WQ36_BASE_DIR`），新測試入口為 `python3 r36_tests/run_r36.py`，改前改後對照為 `python3 r36_tests/run_behaviour36.py`；R3.5 重建 `python3 tools/build_r35.py`，新測試入口為 `python3 r35_tests/run_release.py`，改前改後對照為 `python3 r35_tests/run_behaviour.py`；R3.4 新測試入口為 `python3 r34_tests/run_release.py`（重建 `python3 tools/build_r34.py`）；R3.3 新測試入口為 `python3 r33_tests/run_release.py`；R3.2 回歸入口：
 
 ```sh
 python r32_tests/run_release.py
@@ -76,4 +80,4 @@ python r32_tests/run_release.py
 7acea2291f3a58116b1cebc1c1aea618a06288789fd1bfd5462ea8810ee9639b
 ```
 
-`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 已更新為 R3.5（`python3 tools/package_r35.py` 重新產生）。R3.2 的原交付包清單保存在 `originals/R3_2/`；`GITHUB_UPLOAD_MANIFEST.json` 記錄 R3.2 上傳時的內容，保留不動。
+`PACKAGE_MANIFEST.json` 及 `SHA256SUMS.txt` 已更新為 R3.6（`python3 tools/package_r36.py` 重新產生）。R3.2 的原交付包清單保存在 `originals/R3_2/`；`GITHUB_UPLOAD_MANIFEST.json` 記錄 R3.2 上傳時的內容，保留不動。

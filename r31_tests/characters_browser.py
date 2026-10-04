@@ -60,13 +60,13 @@ with sync_playwright() as pw:
  prefs(p,'guide','auto');openmath(p)
  check('Maths home automatically uses otter helper',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='bo-bo'))
  mc(p,'nav:tools');check('Tool workshop uses the red panda teacher',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='tang-li'))
- mc(p,'nav:olympiad');check('Olympiad home uses the goat classmate',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='a-feng'))
+ closemath(p);openmath(p,'olympiad');check('Olympiad home uses the goat classmate',lambda:req(p.locator('.forest-math-guide').get_attribute('data-forest-character')=='a-feng'))
  # R3.5: a question in progress shows no partner row (r35 p50 F3, so the question gets the whole screen). The partner choices are therefore checked
  # with the same inputs the maths screens hand to WQ32.mathHTML, and the partner settings are checked on the maths home, where the partner still stands.
  def guide(**o):
   ctx={'view':'lesson','grade':1,'mode':'practice','track':'normal','rest':False,'completed':False,'feedback':'','hinted':False,'exploring':False,'visual':False,'earlyNumber':False,'busy':True};ctx.update(o)
   return p.evaluate('(c)=>{const d=document.createElement("div");d.innerHTML=WQ32.mathHTML(c);const g=d.querySelector(".forest-math-guide");return g?{c:g.dataset.forestCharacter,s:g.dataset.state}:null}',ctx)
- mc(p,'nav:normal');mc(p,'grade:1');mc(p,'practice:1N1.1')
+ closemath(p);openmath(p,'normal');mc(p,'nav:normal');mc(p,'grade:1');mc(p,'practice:1N1.1')   # R3.6: normal maths and the olympiad are opened separately
  check('Question screen shows no partner row and no partner settings button (R3.5)',lambda:req(p.locator('.forest-math-guide').count()==0 and p.locator('#wqm-app-host [data-forest-options]').count()==0))
  check('Early number practice uses the otter',lambda:req((guide(earlyNumber=True) or {}).get('c')=='bo-bo'))
  p.locator('#wqm-app-host #answer').fill('9999');p.locator('#wqm-app-host #answer').press('Enter')

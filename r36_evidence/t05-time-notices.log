@@ -1,0 +1,48 @@
+# t05 time limit and notices  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS A0 set-up: limit 5 minutes, three hours of English / maths / olympiad already recorded | {'english': 3600000, 'math': 3600000, 'olympiad': 3600000, 'arcade': 0}
+PASS [B] A1 learning is allowed and games are still allowed (the games clock is at 0) | {'study': True, 'play': True}
+PASS [B] A2 an English lesson starts although 3 hours were already used | {'id': 'l30_mutw24zh_1_2j6rqf', 'index': 0, 'len': 28, 'mode': 'study', 'q': {'i
+PASS [B] A3 staying in a lesson adds nothing to the clock and no limit box appears | {'english': 3600000, 'math': 3600000, 'olympiad': 3600000, 'arcade': 0} -> {'english': 3600000, 'math': 3600000, 'olympiad': 3600000, 'arcade': 0}
+PASS [B] A4 a whole lesson runs to the result page and pays its coin | 60->61 '考考你完成了\n★\n★\n★\n★\n★\n全部答對！滿星\n\n20 題，答對 20 題。\n\n得到 1 枚金幣！'
+PASS [B] A5 the school-range practice starts (home card) | '★\n👦\n小明\n聲音：開\n家長\n📘 默書練習\n1/8\n暫停\n刺刺\n\n慢慢想。不會的話，可以按「看提示」。\n\n自己串出這個字\n鞋\n🔊 聽讀音\n\n這部裝置沒有英文聲音'
+PASS [B] A6.normal maths (normal) runs a whole lesson with the maths clock over its limit | n=8 bad=[] '🏠 回首頁\n＋\n學霸星球\n◉ 62 金幣\n數學首頁\n數學群島\n教具工房\n家長與進度\n波波\n\n想想你用了甚麼方法。\n\n學伴'
+PASS [B] A6.olympiad maths (olympiad) runs a whole lesson with the maths clock over its limit | n=4 bad=[] '🏠 回首頁\n◇\n學霸星球\n◉ 64 金幣\n思維之塔\n策略卡\n家長與進度\n波波\n\n想想你用了甚麼方法。\n\n學伴設定\n一課，'
+PASS [B] A7 the maths app has no break screen to reach any more (no code path sets it)
+PASS [B] A8 the maths parent settings no longer offer a daily time limit
+PASS [B] A9 with the games clock at its limit: games are blocked, learning is not | {'study': True, 'play': False}
+PASS [B] A10 pressing the game start button then takes no coin and says the games time is used | {'coins': 20, 'used': 0, 'n': 3}->{'coins': 20, 'used': 0, 'n': 3} '目前沒有網絡，仍可練習 | 今天的遊戲時間用完了。明天再玩，或由家長調整。'
+PASS [B] A11 and a lesson still starts at that moment | {'id': 'l30_mutw34ok_3_r8lyw6', 'index': 0, 'len': 28, 'mode
+PASS [B] A12 playing a game counts on the games clock | 298200->300081
+PASS [B] A13 when it runs out the box says games time is over, learning goes on, parent can change it | '今天玩夠了\n\n今天的遊戲時間用完了。去學習，明天再玩。家長可以調整遊戲時間。\n\n返回首頁'
+PASS A14 the button takes the child home | #kid
+PASS [B] A15 and from there a lesson starts | {'id': 'l30_mutw3a0i_4_mah9s3', 'index': 0, 'len': 28, 'mode
+PASS [B] B1 the family panel has one time field: play time for games | '家庭備份與遊戲時間\n關閉\n備份包括全部孩子的英文、普通數學、奧數、遊戲、時間設定，以及自訂的圖片和音檔。不包含登入密碼。請把檔案當作私人資料，妥善保管。\n一次備份整個家庭\n裝置與儲存檢查匯出家庭完整備份還原家庭備份\n\n還原前先顯示所有孩子及紀錄數，確認後才取代目前家庭資料。\n\n處理未完成的操作轉入舊數學紀錄\n遊戲時間\n'
+PASS [B] B2 the three per-subject minute fields and the "total time" field are gone | []
+PASS [B] B3 saving stores the games limit (30) and no per-subject minutes | {'l': 30, 'e': 0, 'm': 0, 'o': 0}
+PASS [B] B4 the panel reports today's games time, not "English, maths and games together" | '務\n語音服務的路徑（同一個網站內）\n聲音代號\n同意把讀題及英文教材文字傳到設定的語音服務（不傳孩子姓名）\n儲存聲音設定\n\n還沒安裝語音服務，或沒有設定伺服器金鑰時，固定的聲音不能使用。請不要把 API 金鑰貼在這裏。\n\n遊戲時間已儲存。\n\n離線相片辨認\n\n程式包沒有附上完整的相片辨認資料。連上網絡時，可以下載到這個瀏覽器。之後就能在本機辨認印刷的英文字。不支援手寫。\n\n準備離線相片辨認檢查離線資源'
+PASS [B] B5 the child home has no shared "today across subjects" plan card | '★\n👦\n小明\n聲音：開\n家長\n小明，你好\n小3\n19 金幣\n開始今天的小課\n\n先學 8 個字，再考考你。\n\n今次默書練習\n\n示範默書 Unit 3 示範\n\n12 個單字\n\n繼續練習\n🔤\n英文\n🔢\n數學'
+PASS C1 #kid: no empty notice box left behind | []
+PASS C1 #learn: no empty notice box left behind | []
+PASS C1 #game: no empty notice box left behind | []
+PASS C1 #companions: no empty notice box left behind | []
+PASS C1 #assembly: no empty notice box left behind | []
+PASS C1 #classroom: no empty notice box left behind | []
+PASS C1 #practice: no empty notice box left behind | []
+PASS C1 #learning: no empty notice box left behind | []
+PASS C1 #login: no empty notice box left behind | []
+PASS C1 #parent: no empty notice box left behind | []
+PASS C1 #report: no empty notice box left behind | []
+PASS C1 #offline: no empty notice box left behind | []
+PASS C1 #settings: no empty notice box left behind | []
+PASS C1 #game-settings: no empty notice box left behind | []
+PASS C1 #range-new: no empty notice box left behind | []
+PASS C1 #ranges: no empty notice box left behind | []
+PASS C1 #children: no empty notice box left behind | []
+PASS C2 a whole lesson (study cards, 20 questions, feedback, result) was read | 49
+PASS C3 none of the 84 removed sentences shows up on any of the 25 page groups | {}
+PASS C4 the sentence from the request (「聲音由裝置讀出，不是老師錄音。」) and its relatives are nowhere | {}
+PASS C5 kid-facing pages carry no "not a recording / does not mean / not an exam" type of line | {}
+PASS C6 no old brand name and no "not teacher-reviewed" footer on any page | {}
+PASS C7 the program says SmartQuest on its pages (title and footer) | 學霸星球 SmartQuest Planet
+PASS C8 no console or page errors | []
+SUMMARY t05 time limit and notices: 46/46 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 109s

@@ -190,12 +190,12 @@ def main():
         need('manifest+json' in h.get('Content-Type', ''), 'content-type ' + h.get('Content-Type', ''))
         m = json.loads(body.decode('utf-8'))
         manifest.update(m)
-        need(m.get('name') == 'WordQuest' and m.get('lang') == 'zh-HK', f"name/lang {m.get('name')}/{m.get('lang')}")
+        need(m.get('name') == '學霸星球 SmartQuest Planet' and m.get('lang') == 'zh-HK', f"name/lang {m.get('name')}/{m.get('lang')}")
         need(m.get('start_url') == './index.html' and m.get('display') == 'standalone', 'start_url/display')
         need(m.get('theme_color', '').lower() == '#bf4d25' and m.get('background_color', '').lower() == '#fff8ed', 'colours')
         need({i.get('purpose') for i in m.get('icons', [])} >= {'any', 'maskable'}, 'icon purposes')
         return f'{len(body)} bytes'
-    check('manifest.webmanifest is served as manifest+json and is valid (zh-HK, WordQuest, standalone, #fff8ed / #bf4d25)', t_manifest)
+    check('manifest.webmanifest is served as manifest+json and is valid (zh-HK, 學霸星球 SmartQuest Planet, standalone, #fff8ed / #bf4d25)', t_manifest)
 
     def t_icons():
         got = []
@@ -287,7 +287,7 @@ def main():
             pg.reload()
             pg.wait_for_function("document.body&&document.body.innerText.length>20", timeout=15000)
             title = pg.title()
-            need('WordQuest' in title, 'title after offline reload: ' + title)
+            need('SmartQuest' in title, 'title after offline reload: ' + title)
             need(pg.evaluate("!!navigator.serviceWorker.controller"), 'page not controlled by the service worker')
             return title
         check('offline (set_offline) reload still shows the app, served by the service worker', t_offline)
@@ -313,7 +313,7 @@ def main():
             time.sleep(0.5)
             pg.reload()
             pg.wait_for_function("document.body&&document.body.innerText.length>20", timeout=15000)
-            need('WordQuest' in pg.title(), 'title ' + pg.title())
+            need('SmartQuest' in pg.title(), 'title ' + pg.title())
             return 'node server stopped; page still opens from the cache'
         check('with the server process really stopped, a reload still opens the app', t_server_dead)
         b.close()

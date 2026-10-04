@@ -1,0 +1,41 @@
+# t03 stars and coins  app=/home/claude/teabonvivant/wordquest-web/app/index.html
+PASS [B] A1 star rule: all right = 5, 19/20 and 18/20 = 4, 17/20 and 15/20 = 3, 14/20 and 10/20 = 2, below half = 1 (4 of 5 = 3, 3 of 5 = 2, 2 of 5 = 1) | [5,4,4,3,3,2,2,1,1,5,3,5,3,2,1,1,1]
+PASS [B] A2 the host helper gives the engine's star rule for every score up to 30 questions
+PASS [B] A3 the maths module's own copy of the rule agrees with the engine for every score up to 30 | [1,5,1,2,5,1,1,2,5,1,1,2,3,5,1,1,1,2,3,5,1,1,1,2,2,3,5,1,1,1
+PASS [B] B1 a lesson with all 20 right: 5 stars and 1 coin | coins 60->61 stars 5
+PASS [B] B2 the result page says it was full marks and how many coins came | '考考你完成了\n★\n★\n★\n★\n★\n全部答對！滿星\n\n20 題，答對 20 題。\n\n得到 1 枚金幣！\n\n選另一課\n去遊戲街機\n回首頁'
+PASS [B] B3 19 of 20 right: 4 stars and no coin | coins 61->61 stars 4
+PASS [B] B4 the result says full stars are needed for a coin | '考考你完成了\n★\n★\n★\n★\n★\n做得不錯\n\n20 題，答對 19 題。\n\n拿到 5 顆星，就有金幣。\n\n要再練：yam\n\n再做一次這一課\n選另一課\n去遊戲街機\n回首頁'
+PASS B5 17 of 20 right: 3 stars and no coin | coins 61->61 stars 3
+PASS B6 every answer wrong: 1 star and no coin | coins 61->61 stars 1
+PASS [B] B7 every answer right but one only after pressing 「需要提示」: no coin and not 5 stars | hints [7] coins 61->61 stars 4
+PASS [B] B8 that result page tells the child about the hint | '考考你完成了\n★\n★\n★\n★\n★\n做得不錯\n\n20 題，答對 20 題，其中 1 題用了提示。\n\n拿到 5 顆星，就有金幣。\n\n要再練：hop\n\n再做一次這一課\n選另一課\n去遊戲街機\n回首頁'
+PASS B9 the same lesson again the same day, all right: still 5 stars but no second coin | coins 61->61 '考考你完成了\n★\n★\n★\n★\n★\n全部答對！滿星\n\n20 題，答對 20 題。\n\n這一課今天已經得過金幣，或今天的金幣已領滿。\n\n選另一課\n去遊戲街機\n回首頁'
+PASS [B] B10 across 5 lessons with 0, 1, 2, 5 and 10 mistakes a coin comes only with 0 mistakes | []
+PASS [B] B11 a short practice drill with one wrong answer pays nothing | coins 62->62
+PASS B12 a short practice drill with every answer right pays 1 coin (2 when it is the day's third) and shows 5 stars | coins 62->64 stars 5
+PASS B13 every payment so far is 1 coin (2 on the third of the day, with the daily bonus) | [["learn",1],["learn",1],["learn",2]]
+PASS B14 after reopening the page the balance is the same | 64 -> 64
+PASS C1 workshop round, everything right first time: 1 coin | 60->61
+PASS [B] C2 the workshop result shows 5 stars and the count | '這組詞語完成了\n★\n★\n★\n★\n★\n\n答對 6 ／ 6 題\n\n取得 1 枚金幣\n\n同一天，相同的組合只得一次金幣。\n\n再練一組\n去遊戲街機\n回首頁\n學霸星球 S'
+PASS [B] C3 one meaning question wrong first time (then corrected): no coin | 61->61
+PASS [B] C4 that page says full stars are needed
+PASS [B] C5 a typed word only after 「需要提示」: no coin | 61->61
+PASS [B] D1 school-range practice, 8 of 8 on your own: 1 coin and 5 stars | 60->61
+PASS [B] D2 one wrong first try (corrected on the second try): no coin and the page says so | 61->61
+PASS [B] D3 one answer after 「看提示」: no coin | 61->61
+PASS [B] D4 the finish title no longer contradicts the star line (no 「答對 8 個」 next to 7 of 8)
+PASS [B] E1 phonics quiz, 5 of 5: 1 coin | (60, 61, 5)
+PASS [B] E2 phonics quiz, 4 of 5: no coin | (61, 61, 4)
+PASS [B] E3 phonics result page does not show a bare score; it shows stars and the rule | ★ 👦 小明 聲音：開 家長 ✓  第 2 課 · air 藏在新字裏  這課小測完成了 ★ ★ ★ ★ ★  答對 4 ／ 5 題  先看錯在哪裏，再重溫。  這次沒有金幣，再試一次吧。 重溫這課 再做小測 下一課 返回課程 看小測訂正 
+PASS E4 spelling-family mixed round, every word right on its own: coin only for the full round | {'before': 61, 'after': 62, 'asked': 5}
+PASS [B] E5 spelling-family mixed round with one wrong: no coin | {'before': 62, 'after': 62, 'asked': 5}
+PASS E6 no console or page errors in the English flows | []
+PASS [B] F1 normal maths lesson, all answers right on your own: 5 stars and 1 coin | 60->61 lesson:3N1.2
+PASS [B] F2 one answer wrong: fewer than 5 stars and no coin, with the rule in words | 61->61 lesson:3N1.R3
+PASS [B] F3 one answer after pressing the hint: no coin | 61->61 lesson:3N2.1
+PASS [B] F4 olympiad lesson, all right: 5 stars and 1 coin | 61->62 lesson:O-CAL-pattern
+PASS [B] F5 olympiad lesson with a wrong answer: no coin | 62->62 lesson:O-NUM-pairs
+PASS [B] F6 olympiad lesson with a hint: no coin | 62->62 lesson:O-APP-queue
+PASS F7 no console or page errors in the maths flows | []
+SUMMARY t03 stars and coins: 39/39 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 274s

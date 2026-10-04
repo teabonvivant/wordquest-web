@@ -1,0 +1,5 @@
+.q36-cost{position:absolute;right:8px;bottom:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 4px;border-radius:999px;font-size:15px;line-height:1.35;font-weight:850;color:#4a3300;background:#ffd45a;border:2px solid #b87400;box-shadow:0 1px 3px #0005}
+.q36-cost i{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#f0a500;color:#fff;font-style:normal;font-size:12px;border:1px solid #b87400}
+.q36-cost.dim{opacity:.85}
+.q36-intro-cost{display:inline-flex;align-items:center;gap:6px;margin:4px 0 6px;padding:4px 12px 4px 6px;border-radius:999px;background:#fff3cf;border:2px solid #e0b64a;font-weight:800;color:#5a4411;font-size:17px}
+.q36-intro-cost i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#f0a500;color:#fff;font-style:normal;font-size:13px}

@@ -45,7 +45,7 @@ def text_of(pg):
 
 
 # The one place a version number may show: the 「關於這個程式」 line on the parent's settings page (support needs it).
-ABOUT_LINE = re.compile(r'^WordQuest R\d\.\d\.\d · 內容尚未經老師逐題審核。$')
+ABOUT_LINE = re.compile(r'^學霸星球 SmartQuest Planet R\d\.\d\.\d$')
 
 
 def scan(texts):

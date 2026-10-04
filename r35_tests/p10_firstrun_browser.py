@@ -103,15 +103,15 @@ def main():
             vis_today = pg.evaluate("""(()=>{const f=eval('('+arguments[0]+')');return [...document.querySelectorAll('#app a, #app button')].filter(e=>f(e)&&/今天/.test(e.textContent)).map(e=>e.textContent.trim())})()""".replace('arguments[0]', json.dumps(VISIBLE_JS)))
             c.check('A2 only one 「今天」 entry is visible on the home (no duplicate daily cards)', len(vis_today) == 1, repr(vis_today), base=True)
             tiles = pg.evaluate("""(()=>[...document.querySelectorAll('#app .p10-tile')].map(e=>{const r=e.getBoundingClientRect();return {t:e.textContent.trim(),top:r.top,bottom:r.bottom,h:r.height}}))()""")
-            c.check('A3 three big tiles 英文 / 數學 / 遊戲 are on the first screen', [t['t'] for t in tiles] == ['🔤英文', '🔢數學', '🎮遊戲'] or [re.sub(r'[^一-鿿]', '', t['t']) for t in tiles] == ['英文', '數學', '遊戲'] and all(t['bottom'] <= nt and t['h'] >= 80 for t in tiles), repr(tiles), base=True)
+            c.check('A3 four big tiles 英文 / 數學 / 奧數 / 遊戲 are on the first screen (R3.6: 奧數 is its own tile)', [re.sub(r'[^一-鿿]', '', t['t']) for t in tiles] == ['英文', '數學', '奧數', '遊戲'] and all(t['bottom'] <= nt and t['h'] >= 80 for t in tiles), repr(tiles), base=True)
             c.check('A4 the first screen has the greeting with the child name and grade tag 小3',
                     pg.evaluate("(()=>{const h=document.querySelector('#app h1');return !!h&&h.textContent.includes('小明')})()") and '小3' in (pg.evaluate("document.querySelector('#app .p10-chips')?.textContent||''")), base=True)
             more = pg.evaluate("(()=>{const d=document.querySelector('#p10-more');return d?{tag:d.tagName,open:d.open,sum:d.querySelector('summary')?.textContent.trim()}:null})()")
             c.check('A5 「更多玩法」 is a closed <details>', bool(more) and more['tag'] == 'DETAILS' and more['open'] is False and more['sum'] == '更多玩法', repr(more), base=True)
-            folded = pg.evaluate("""(()=>{const d=document.querySelector('#p10-more');if(!d)return null;const ids=['r3-daily','wq32-home-cast','l31-home-entry','wq-subjects'];
+            folded = pg.evaluate("""(()=>{const d=document.querySelector('#p10-more');if(!d)return null;const ids=['wq32-home-cast','l31-home-entry'];
               return {ids:ids.map(i=>!!d.querySelector('#'+i)),cards:d.querySelectorAll('.l30-card[data-l30="entry"]').length,cls:!!d.querySelector('.l30-classroom')}})()""")
-            c.check('A6 跨科任務 / 夥伴 / 詞語組合工房 / 數學學習 / 8 種練習 / 拼字教室 all sit inside 「更多玩法」',
-                    bool(folded) and all(folded['ids']) and folded['cards'] == 8 and folded['cls'], repr(folded), base=True)
+            c.check('A6 夥伴 / 詞語組合工房 / 8 種練習 / 拼字教室 all sit inside 「更多玩法」 (R3.6: the 跨科任務 and 數學學習 cards are gone)',
+                    bool(folded) and all(folded['ids']) and folded['cards'] == 8 and folded['cls'] and not pg.query_selector('#r3-daily') and not pg.query_selector('#wq-subjects'), repr(folded), base=True)
             pg.click('#p10-more > summary') if pg.query_selector('#p10-more > summary') else None
             pg.wait_for_timeout(300)
             words = pg.evaluate("[...document.querySelectorAll('#app .l30-card[data-l30=\"entry\"] .l30-go>span:first-child')].map(e=>e.textContent)")
@@ -164,8 +164,9 @@ def main():
                 nt = min(nav_top(pg), vh)
                 mb = rect(pg, '[data-l30="start"][data-mode="lesson"]')
                 ts = pg.evaluate("[...document.querySelectorAll('#app .p10-tile')].map(e=>{const r=e.getBoundingClientRect();return {b:r.bottom,t:r.top,h:r.height,w:r.width}})")
-                c.check(f'A14 {tag} {vw}x{vh}: the big button and all three tiles are on the first screen',
-                        bool(mb) and mb['b'] <= nt and len(ts) == 3 and all(t['b'] <= nt and t['t'] >= 0 for t in ts), f'btn={mb} tiles={ts} nav={nt}', base=True)
+                need = ts[:2] if (vw < 360 and vh < 600) else ts   # R3.6: four bigger tiles; on a 320x568 phone only the first row sits above the bottom bar
+                c.check(f'A14 {tag} {vw}x{vh}: the big button and the tiles are on the first screen (four tiles; 320x568: the first row)',
+                        bool(mb) and mb['b'] <= nt and len(ts) == 4 and len(need) >= 2 and all(t['b'] <= nt and t['t'] >= 0 for t in need), f'btn={mb} tiles={ts} nav={nt}', base=True)
                 c.check(f'A15 {tag} {vw}x{vh}: no sideways scroll on the home', pg.evaluate("document.documentElement.scrollWidth-innerWidth") <= 1)
                 hh = rect(pg, '.header')
                 if vh < 500:
@@ -240,7 +241,7 @@ def main():
             req = pg.evaluate("['login-name','login-pin','register-name','register-pin','register-grade'].filter(i=>{const e=document.getElementById(i);return !e||(!e.required&&e.getAttribute('aria-required')!=='true')})")
             c.check('C11 required inputs carry aria-required', req == [], repr(req), base=True)
             txt = page_text(pg)
-            c.check('C12 no Admin / 1234 hint on the normal sign-in screen (guard)', not re.search(r'Admin|1234', txt))
+            c.check('C12 no 1234 / Admin-password hint on the normal sign-in screen (guard; R3.6: the file:// page may carry a plain 「進入 Admin 測試」 link)', not re.search(r'1234|Admin\s*/', txt))
             # inline errors
             pg.fill('#login-name', 'nobody')
             pg.fill('#login-pin', 'wrongpassword1')
@@ -277,7 +278,7 @@ def main():
             unlock_parent(pg, 'apple-tree-2026')
             pg.wait_for_timeout(600)
             stx = page_text(pg)
-            c.check('C19 settings: 「關於這個程式」 carries the version and the honest line, once', stx.count('關於這個程式') == 1 and '內容尚未經老師逐題審核' in stx, base=True)
+            c.check('C19 settings: 「關於這個程式」 carries the name and the version, once (R3.6: the teacher-review line is gone)', stx.count('關於這個程式') == 1 and re.search(r'學霸星球 SmartQuest Planet R\d\.\d\.\d', stx) is not None and '內容尚未經老師逐題審核' not in stx, base=True)
             c.check('C20 settings: no V28 / Web Locks / UTF-8 / 編輯權 engineering wording', not re.search(r'V28|Web Locks|UTF-8|編輯權', stx), re.findall(r'V28|Web Locks|UTF-8|編輯權', stx), base=True)
             c.check('C21 settings: button says 「匯出學習備份」', '匯出學習備份' in stx and '匯出 V28 備份' not in stx, base=True)
             msgs = []
@@ -334,7 +335,7 @@ def main():
             c.check('D6 pressing the sound button flips the words to 「聲音：關」', pg.evaluate("document.querySelector('#header-sfx .label').textContent") == '聲音：關', base=True)
             pg.click('#header-sfx')
             navl = pg.evaluate("[...document.querySelectorAll('#wq29-nav a')].map(e=>e.textContent.trim())")
-            c.check('D7 navigation reads 首頁 練習 數學 遊戲 家長', navl == ['首頁', '練習', '數學', '遊戲', '家長'], repr(navl), base=True)
+            c.check('D7 navigation reads 首頁 練習 數學 奧數 遊戲 家長 (R3.6: 奧數 added)', navl == ['首頁', '練習', '數學', '奧數', '遊戲', '家長'], repr(navl), base=True)
             for rt in ('kid', 'practice', 'classroom', 'assembly'):
                 goto(pg, rt, 600)
                 c.check(f'D8 #{rt}: the floating 「＋ 數學／奧數」 button is gone', not pg.evaluate("(()=>{const e=document.querySelector('#wqm-launch');return !!e&&getComputedStyle(e).display!=='none'})()"), base=True)
@@ -424,7 +425,7 @@ def main():
                 pg.click('#p10-menu')
                 pg.wait_for_timeout(300)
             items = pg.evaluate("[...document.querySelectorAll('#wq29-nav a')].filter(e=>e.getClientRects().length).map(e=>({t:e.textContent.trim(),h:e.getBoundingClientRect().height}))")
-            c.check('D23 the menu lists the five places, each at least 44px high', [i['t'] for i in items] == ['首頁', '練習', '數學', '遊戲', '家長'] and all(i['h'] >= 44 for i in items), repr(items), base=True)
+            c.check('D23 the menu lists the six places, each at least 44px high (R3.6: 奧數 added)', [i['t'] for i in items] == ['首頁', '練習', '數學', '奧數', '遊戲', '家長'] and all(i['h'] >= 44 for i in items), repr(items), base=True)
             pg.click('#wq29-nav a[href="#practice"]')
             pg.wait_for_timeout(700)
             nv1 = pg.evaluate("(()=>{const n=document.querySelector('#wq29-nav');return !!n&&n.getClientRects().length>0})()")

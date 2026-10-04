@@ -16,7 +16,7 @@ with sync_playwright() as pw:
  def render(sk,stage):
   p.evaluate('WQMathApp.close()')
   q=p.evaluate('''([sid,stage])=>{const C=WQMathCore,L=C.library(WQMathData),st=new WQMathStorage.Store(WQMathHost,L),n=C.blank(),t=[...L.templates.values()].find(t=>t.skill===sid),r={template:t.id,seed:7},q=C.generate(L,t.id,7);n.current={id:'lesson-text-'+sid,skill:sid,track:q.track,mode:'lesson',game:null,stage,index:0,queues:{},example:r,startedAt:Date.now()-10000,questionAt:Date.now()-10000,activeMs:0,hint:0,feedback:null,results:[],replacements:[],completed:false,rewardDone:false,fast:0,draft:'',picked:'',reflection:null};st.commit(n);return q;}''',[sk['id'],stage])
-  p.evaluate('WQMathApp.open("home")');p.locator('#wqm-app-host [data-action="resume"]').click();text=p.locator('#wqm-app-host main').inner_text();assert not re.search(r'\{[\w]+\}',text),text[-2000:]
+  p.evaluate('WQMathApp.open("%s")'%('olympiad' if sk['track']=='olympiad' else 'home'));p.locator('#wqm-app-host [data-action="resume"]').click();text=p.locator('#wqm-app-host main').inner_text();assert not re.search(r'\{[\w]+\}',text),text[-2000:]
   if stage==2 and q.get('answerLabel'):
    label=q['answerLabel'];label=label.get('zh') if isinstance(label,dict) else label;assert '答案：'+label in text,text[-2000:]
   if stage==4:assert '同一題，可以換一條路' in text
