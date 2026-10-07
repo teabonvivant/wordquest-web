@@ -2,7 +2,7 @@
   "product": "學霸星球 SmartQuest Planet",
   "version": "R3.6.0",
   "releaseStatus": "learning rules (8 words + 20-question mixed quiz, five-star coin rule, per-game prices, game-time cap only), home/maths split, Admin test account, rename to SmartQuest Planet (not a commercial release; teacher review of content still outstanding)",
-  "createdAtUTC": "2026-10-04T15:59:07.830594+00:00",
+  "createdAtUTC": "2026-10-07T10:58:22.201740+00:00",
   "base": "R3.5 (rebuilt from originals/R3_2 by build_r33, build_r34, build_r35), then r36_src/patches by tools/build_r36.py",
   "entry": "START_HERE.html",
   "app": "app/index.html",
@@ -52,8 +52,8 @@
       "fail_lines": 0
     }
   ],
-  "totalFiles": 1633,
-  "hashedFiles": 1631,
+  "totalFiles": 1635,
+  "hashedFiles": 1633,
   "excludes": [
     "PACKAGE_MANIFEST.json",
     "SHA256SUMS.txt"
@@ -63,6 +63,11 @@
       "path": ".gitignore",
       "bytes": 292,
       "sha256": "72b9fd55b20167c8f437eeb79bc37078479ec59c52b35e91f569acc6dda2fc8d"
+    },
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "GITHUB_UPLOAD_MANIFEST.json",
@@ -1363,6 +1368,11 @@
       "path": "evidence/viewport_capture.json",
       "bytes": 864,
       "sha256": "7b433c59afb203a9b106d779e0c6f76b1529f9e32e06c2d3a283a213eb017343"
+    },
+    {
+      "path": "index.html",
+      "bytes": 714,
+      "sha256": "b98bfb4451b0d6e1ccb8b8aaf18c5021b954bc80939ff8b9a84925f226f698ee"
     },
     {
       "path": "originals/R1/PACKAGE_MANIFEST.json",
