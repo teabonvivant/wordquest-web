@@ -97,7 +97,7 @@ with sync_playwright() as p:
     q = ev(pg, "(()=>{const s=l30Session();return {m:s.queue.map(x=>x.mode),t:s.queue.map(x=>x.target)}})()")
     gm, gt = q['m'][8:], q['t'][8:]
     study_words = set(q['t'][:8])
-    c.check('B2 the 20 questions use at least 6 different question types', len(set(gm)) >= 6, repr(Counter(gm)), base=True)
+    c.check('B2 R3.7: the 20 questions use only multiple-choice and fill-in question types, at least 4 of them', set(gm) <= {'meaning', 'listenChoice', 'spell', 'listenSpell', 'cloze'} and len(set(gm)) >= 4, repr(Counter(gm)), base=True)
     c.check('B3 the 20 questions cover all 8 study words, none more than 4 times', set(gt) == study_words and max(Counter(gt).values()) <= 4 and min(Counter(gt).values()) >= 2, repr(Counter(gt).most_common()), base=True)
     c.check('B4 the same word is never asked twice in a row', all(gt[i] != gt[i - 1] for i in range(1, len(gt))))
     c.check('B5 no single question type takes more than 5 of the 20', max(Counter(gm).values()) <= 5, repr(Counter(gm)))
@@ -161,10 +161,10 @@ with sync_playwright() as p:
     c.check('C5 the new lesson screen says nothing about the earlier round', not [w for w in STALE if w in t_study], repr([w for w in STALE if w in t_study]), base=True)
     # a practice type from the 練習 page while another round is open
     route_to(pg, '#practice', 800)
-    pg.click('[data-l30="entry"][data-mode="meaning"]')
+    pg.click('[data-l30="entry"][data-mode="mcq"]')
     pg.wait_for_timeout(700)
     d = cur(pg)
-    c.check('C6 choosing a practice type on the 練習 page starts it at once even with a round open', bool(d) and d['mode'] in ('meaning', 'study') and d['index'] == 0 and not pg.dialogs, repr(pg.dialogs) + repr(d and d['mode']), base=True)
+    c.check('C6 choosing a practice type on the 練習 page starts it at once even with a round open', bool(d) and d['mode'] in ('meaning', 'listenChoice', 'study') and d['index'] == 0 and not pg.dialogs, repr(pg.dialogs) + repr(d and d['mode']), base=True)
     # old school-range flow
     ev(pg, "(()=>{go('kid');render();})()")
     ev(pg, "startDaily()")

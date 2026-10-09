@@ -1,0 +1,7 @@
+PASS test_touch
+PASS test_desktop_keys_and_gates
+PASS test_perfect_runs
+PASS test_boss_needs_three_consecutive
+PASS test_perks
+desktop avg frame interval 16.62 ms (60.2 fps); update+render 0.71 ms
+PASS test_fps_and_destroy

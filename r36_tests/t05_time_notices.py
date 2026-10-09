@@ -118,8 +118,8 @@ with sync_playwright() as p:
     clear(pg)
 
     ev(pg, "(()=>{db.session=null;save();})()")
-    route_to(pg, '#kid', 700)
-    pg.click('[data-p10="dictation"]')
+    route_to(pg, '#p/dictation', 700)
+    pg.click('[data-act="start-practice"][data-type="mcq"]')
     pg.wait_for_timeout(900)
     c.check('A5 the school-range practice starts (home card)', pg.query_selector('#answer') is not None or pg.query_selector('[data-act="submit-answer"]') is not None, repr(text(pg)[:80]), base=True)
     route_to(pg, '#kid', 500)
@@ -241,8 +241,8 @@ with sync_playwright() as p:
     route_to(pg, '#kid', 400)
     # old practice
     ev(pg, "(()=>{db.session=null;save();})()")
-    route_to(pg, '#kid', 600)
-    pg.click('[data-p10="dictation"]')
+    route_to(pg, '#p/dictation', 600)
+    pg.click('[data-act="start-practice"][data-type="mcq"]')
     pg.wait_for_timeout(900)
     pages['old-practice'] = text(pg) + '\n' + alltext(pg)
     # maths

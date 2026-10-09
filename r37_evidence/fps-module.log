@@ -1,0 +1,4 @@
+PASS test_touch
+desktop avg rAF frame interval ms: 21.35 ; avg update+render ms: 1.11
+PASS test_desktop
+PASS test_win_five_stars

@@ -1,6 +1,6 @@
 /* Cache only this app's static shell and explicitly installed OCR. Never cache API responses or backups. */
 'use strict';
-const BASE=new URL('./',self.location.href),SHELL='wordquest-r3-shell-'+encodeURIComponent(BASE.pathname)+'-3.6.0',CONFIG='wordquest-r3-config',POINTER=new URL('ocr-active.json',BASE).href;
+const BASE=new URL('./',self.location.href),SHELL='wordquest-r3-shell-'+encodeURIComponent(BASE.pathname)+'-3.7.0',CONFIG='wordquest-r3-config',POINTER=new URL('ocr-active.json',BASE).href;
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(SHELL);await c.addAll([new URL('index.html',BASE).href]);})()));
 // No skipWaiting: a running old page is not forced onto a different worker mid-session.
 // R3.3 p30: drop OLD shell caches of this scope only (never OCR, config or other scopes), then take control.

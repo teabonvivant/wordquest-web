@@ -123,8 +123,8 @@ def mev(pg, code):
 def maths_open(pg, scope='normal'):
     """Open the maths dialog through the home tile (real click)."""
     pg.evaluate("(()=>{const d=document.getElementById('wqm-dialog');if(d&&d.open)d.close();})()")
-    route_to(pg, '#kid', 500)
-    pg.click('.p10-tile.' + ('oly' if scope == 'olympiad' else 'math'))
+    route_to(pg, '#p/' + ('olympiad' if scope == 'olympiad' else 'math'), 500)
+    pg.click('[data-wqm-open="' + ('olympiad' if scope == 'olympiad' else 'home') + '"]')
     pg.wait_for_timeout(900)
 
 
@@ -254,9 +254,9 @@ def l31_play(pg, wrong=None, hint_recall=False, group=None, max_steps=80):
 def old_play(pg, wrong=(), hint=(), max_steps=40):
     """School-range practice from the home card 「今次默書練習 · 開始練習」 (the 8-question `#learn` page), real clicks.
     `wrong`: question numbers answered wrongly; `hint`: numbers where 「看提示」 is pressed before the right answer."""
-    route_to(pg, '#kid', 600)
+    route_to(pg, '#p/dictation', 600)
     ev(pg, "(()=>{db.session=null;save();})()")
-    pg.click('#app button:text-is("開始練習")')
+    pg.click('[data-act="start-practice"][data-type="fill"]')
     pg.wait_for_timeout(800)
     c0 = coins(pg)
     k = 0

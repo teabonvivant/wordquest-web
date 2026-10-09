@@ -1,59 +1,73 @@
 {
   "product": "學霸星球 SmartQuest Planet",
-  "version": "R3.6.0",
-  "releaseStatus": "learning rules (8 words + 20-question mixed quiz, five-star coin rule, per-game prices, game-time cap only), home/maths split, Admin test account, rename to SmartQuest Planet (not a commercial release; teacher review of content still outstanding)",
-  "createdAtUTC": "2026-10-07T10:58:22.201740+00:00",
-  "base": "R3.5 (rebuilt from originals/R3_2 by build_r33, build_r34, build_r35), then r36_src/patches by tools/build_r36.py",
+  "version": "R3.7.0",
+  "releaseStatus": "planet home, level mode (English / maths / olympiad), two test modes only, five parent difficulty levels, word-shooter FPS, runner game, characters and daily missions; checks are Chromium emulation, not real devices or children",
+  "createdAtUTC": "2026-10-09T12:34:21.643991+00:00",
+  "base": "R3.6 (commit bd28b55), then r37_src/patches by tools/build_r37.py",
   "entry": "START_HERE.html",
   "app": "app/index.html",
-  "rebuild": "python3 tools/build_r36.py",
-  "nativeValidation": "not completed; no real-device, iOS Safari, child, listening or Windows-launcher verification (phone tests are Chromium touch emulation)",
+  "rebuild": "python3 tools/build_r37.py",
+  "nativeValidation": "not completed; no real-device, iOS Safari or child verification (phone tests are Chromium touch emulation)",
   "suites": [
     {
-      "name": "t01-home-brand",
+      "name": "levels-math-unit",
+      "file": "test_levels_math.cjs",
       "returncode": 0,
-      "pass_lines": 40,
-      "fail_lines": 0
+      "last_line": "PASS 236807 checks",
+      "seconds": 0
     },
     {
-      "name": "t02-lesson-quiz",
+      "name": "t01-shell-levels",
+      "file": "t01_shell_levels.py",
       "returncode": 0,
-      "pass_lines": 38,
-      "fail_lines": 0
+      "last_line": "t01: 130/130 checks passed",
+      "seconds": 63
     },
     {
-      "name": "t03-stars-coins",
+      "name": "t02-math-levels",
+      "file": "t02_math_levels.py",
       "returncode": 0,
-      "pass_lines": 39,
-      "fail_lines": 0
+      "last_line": "t02: 30/30 checks passed",
+      "seconds": 35
     },
     {
-      "name": "t04-econ",
+      "name": "t03-parent-chars",
+      "file": "t03_parent_chars.py",
       "returncode": 0,
-      "pass_lines": 22,
-      "fail_lines": 0
+      "last_line": "t03: 51/51 checks passed",
+      "seconds": 38
     },
     {
-      "name": "t04-games-ui",
+      "name": "t04-games",
+      "file": "t04_games.py",
       "returncode": 0,
-      "pass_lines": 42,
-      "fail_lines": 0
+      "last_line": "t04: 38/38 checks passed",
+      "seconds": 64
     },
     {
-      "name": "t05-time-notices",
+      "name": "t05-admin-regression",
+      "file": "t05_admin_regression.py",
       "returncode": 0,
-      "pass_lines": 46,
-      "fail_lines": 0
+      "last_line": "t05: 24/24 checks passed",
+      "seconds": 39
     },
     {
-      "name": "t06-admin",
+      "name": "fps-module",
+      "file": "test_fps.py",
       "returncode": 0,
-      "pass_lines": 32,
-      "fail_lines": 0
+      "last_line": "PASS test_win_five_stars",
+      "seconds": 20
+    },
+    {
+      "name": "runner-module",
+      "file": "test_runner.py",
+      "returncode": 0,
+      "last_line": "PASS test_fps_and_destroy",
+      "seconds": 45
     }
   ],
-  "totalFiles": 1635,
-  "hashedFiles": 1633,
+  "totalFiles": 1668,
+  "hashedFiles": 1666,
   "excludes": [
     "PACKAGE_MANIFEST.json",
     "SHA256SUMS.txt"
@@ -115,9 +129,14 @@
       "sha256": "5ca697752b36123cb14e1adb54d57900bba7d18207cd0c2cfe3f1b982bc5acce"
     },
     {
+      "path": "README_R3_7.md",
+      "bytes": 4048,
+      "sha256": "3c57a78c3ff1ed2dff280a6999774354bbfb86d3e8ac75b635c3fa414dbecdc1"
+    },
+    {
       "path": "README_先看這份.md",
-      "bytes": 1699,
-      "sha256": "444aba2ea463f7e3ac970ecdd5c01dbd16c7532dcaef3c861bcc54f4b82c2b03"
+      "bytes": 2441,
+      "sha256": "48bd559f42a864ed8bc6961ca3b7dca5a7eae96f5d5a86fa380ccd0fab8f2f9f"
     },
     {
       "path": "START_HERE.html",
@@ -416,8 +435,8 @@
     },
     {
       "path": "app/index.html",
-      "bytes": 12460014,
-      "sha256": "c2bc868b0b48fb3a39dabdab74956df82b22640415ec95ed5cc838139468113a"
+      "bytes": 12678799,
+      "sha256": "83156e749030eaa9f57365414ae93c45b6e0b7a1230e47cdc7d4c65f3c1c5fe7"
     },
     {
       "path": "app/manifest.webmanifest",
@@ -427,7 +446,7 @@
     {
       "path": "app/sw.js",
       "bytes": 1899,
-      "sha256": "a3c941bf2a2e607e8839c1459c50a7dd8288ec7780ee4f9843bfa509804498a2"
+      "sha256": "b3d04ac6e0519704fa9297a8930c5b7b246cb69f6cc77ac4f789251d8e284bcb"
     },
     {
       "path": "arcade_evidence/browser_results.json",
@@ -718,6 +737,11 @@
       "path": "docs/R3_6_審查與改動報告.md",
       "bytes": 17117,
       "sha256": "cc2e26d5c01baafe4f172db5546913ccac35db32ad58a0a5fc97a068851ba732"
+    },
+    {
+      "path": "docs/R3_7_審查與改動報告.md",
+      "bytes": 745,
+      "sha256": "27c4789827a82721171c103875d9faf80699434cb2abab06effc64e21e4272cf"
     },
     {
       "path": "docs/R3_升級及驗證報告.html",
@@ -7226,8 +7250,8 @@
     },
     {
       "path": "r36_tests/lib36.py",
-      "bytes": 14761,
-      "sha256": "17454725d655ab2a0702cacb93684e91592f5dedc47f3d45de892403b10fb15d"
+      "bytes": 14846,
+      "sha256": "2235a0dcc1963633a3e60cf3833ecb2c5b654e267d78db38d4058fc001726918"
     },
     {
       "path": "r36_tests/run_behaviour36.py",
@@ -7256,8 +7280,8 @@
     },
     {
       "path": "r36_tests/t02_lesson_quiz.py",
-      "bytes": 14992,
-      "sha256": "b95695bcb9de74737fa89c9f0aa96fcf75122e9a02cb17adbf8dedc6d2464202"
+      "bytes": 15118,
+      "sha256": "1fa6afd712557a811a1f24117de714e9309b0d3792e10ffe1cd293257197145f"
     },
     {
       "path": "r36_tests/t03_stars_coins.py",
@@ -7276,13 +7300,158 @@
     },
     {
       "path": "r36_tests/t05_time_notices.py",
-      "bytes": 16590,
-      "sha256": "94f0560474b41b7be51c531220a7f418d681a9046408a45c4727ea2148b638cc"
+      "bytes": 16650,
+      "sha256": "1fae8d32a49eddd6ef5df8816b40e575f2bd0377887a9fa5f8274801cf117e35"
     },
     {
       "path": "r36_tests/t06_admin.py",
       "bytes": 12911,
       "sha256": "753f12bbeda6b9b37fad7ac42ff12c4bfbf5d65a55fa1b554f82564a01ad6435"
+    },
+    {
+      "path": "r37_evidence/build.json",
+      "bytes": 264,
+      "sha256": "24bfc4a99cc37d4d3db03b5731b5d856b0ac833b17536f7c4d8d6199ccf73214"
+    },
+    {
+      "path": "r37_evidence/final_runner.json",
+      "bytes": 1249,
+      "sha256": "665294fee29f48849dc319460a753b78f793ff0518aed74addac75e9d74e4337"
+    },
+    {
+      "path": "r37_evidence/fps-module.log",
+      "bytes": 129,
+      "sha256": "211d7567d3116d75cdcf531b925d009269bea0a385c9f36e048ef36e54045ec4"
+    },
+    {
+      "path": "r37_evidence/levels-math-unit.log",
+      "bytes": 19,
+      "sha256": "a32bcce33fce45f2136603e6a579d0ea0580cbd02a5c854a59157156e2b5019d"
+    },
+    {
+      "path": "r37_evidence/runner-module.log",
+      "bytes": 223,
+      "sha256": "a124620fc684b392644aaa7aa250eaecbdfa3faa4850ce243e64e33917c2717c"
+    },
+    {
+      "path": "r37_evidence/t01-shell-levels.log",
+      "bytes": 27,
+      "sha256": "f8b0365e5168fed9ba9049ecc4d01fc0eb08fd0e63fba6fee5be1700a5f465ff"
+    },
+    {
+      "path": "r37_evidence/t02-math-levels.log",
+      "bytes": 25,
+      "sha256": "d6ed35bb768a8fc13d9d587019d6a1d5771fdab6f885b90f9b5838ab29aa58aa"
+    },
+    {
+      "path": "r37_evidence/t03-parent-chars.log",
+      "bytes": 25,
+      "sha256": "aecaa69642460b69e4d1f75ff95ac32290b80d624bd086643f71dcf4306d5641"
+    },
+    {
+      "path": "r37_evidence/t04-games.log",
+      "bytes": 25,
+      "sha256": "144afd0aed2da5749d36060a76769c14204336469d621a35a5d5a0b9faa66200"
+    },
+    {
+      "path": "r37_evidence/t05-admin-regression.log",
+      "bytes": 25,
+      "sha256": "7efc9414874f2cb265cc440a0854ebb94e109a173c3a621c8c0aa1048097e6e2"
+    },
+    {
+      "path": "r37_src/fps_game.js",
+      "bytes": 59011,
+      "sha256": "8d108b5c2a06d315c69034e54ccf6291f6ac2e8e8abbac315d5227c6cc182f0e"
+    },
+    {
+      "path": "r37_src/levels_math.js",
+      "bytes": 38604,
+      "sha256": "1938cb054de1bf717eb7e0e8e981c65f88861c8a4639cea5e748a6246153c6be"
+    },
+    {
+      "path": "r37_src/patches/s10_shell.py",
+      "bytes": 991,
+      "sha256": "4b2730cea21ea8ad5d190e39f6518704f541f694565abe96101a5ea165443e9c"
+    },
+    {
+      "path": "r37_src/patches/s20_modes.py",
+      "bytes": 5169,
+      "sha256": "8d65e0fd780a521f9f075e8e0e954a48c536370fad83e9544a6654cda7cf095b"
+    },
+    {
+      "path": "r37_src/runner_game.js",
+      "bytes": 57026,
+      "sha256": "270f6de88df7cfc814ee9278bc9e3bb1e7d7bc541114ebb93b26f8decdf9d2c3"
+    },
+    {
+      "path": "r37_src/s10_core.js",
+      "bytes": 11032,
+      "sha256": "680014b952be0301fffa124502fed6b0a56b26439399055425c64a30c0cf92a0"
+    },
+    {
+      "path": "r37_src/s10_shell.css",
+      "bytes": 23035,
+      "sha256": "794dc95111cb837c758f5e4b547aade1ee421b2f0e454e28fab4fa7cb5c4fcfc"
+    },
+    {
+      "path": "r37_src/s20_ui.js",
+      "bytes": 21444,
+      "sha256": "9b4f2f007dc2f88265cebda38096e904118d90e987f62c92638ce7a9f53ff6cd"
+    },
+    {
+      "path": "r37_src/s30_wiring.js",
+      "bytes": 8330,
+      "sha256": "9e0161741ceb671dfba8214fbd27c5c5f80a10f51bfcc04c5492b5e4cc1b8b5d"
+    },
+    {
+      "path": "r37_tests/lib37.py",
+      "bytes": 2580,
+      "sha256": "ca526b690e7eebb23e21dd4093a7ea38a01d5a04f11823bc113c159df7bab81f"
+    },
+    {
+      "path": "r37_tests/run_r37.py",
+      "bytes": 1819,
+      "sha256": "7d73cdd8779ce4151c0e7a8ed6f170a07e96f36ffd58b8abb07cfad86d270e7a"
+    },
+    {
+      "path": "r37_tests/t01_shell_levels.py",
+      "bytes": 11591,
+      "sha256": "c31282649c053dcced7d7f70eab8622a1803d9297b71908970d1e897c397a463"
+    },
+    {
+      "path": "r37_tests/t02_math_levels.py",
+      "bytes": 5458,
+      "sha256": "e728abfc21751dc343a1e58998dfb070ac1965e0bd66058a78514c40a5b2d59b"
+    },
+    {
+      "path": "r37_tests/t03_parent_chars.py",
+      "bytes": 8079,
+      "sha256": "ee7c528b1aca7c9d4cedf61e8c8d05c8aa4fc15359882171c6da1a3f1da19626"
+    },
+    {
+      "path": "r37_tests/t04_games.py",
+      "bytes": 6687,
+      "sha256": "99f382b1370b1a94b3abcaebb77bd381bd072777399473c7d40d99e26e64e2c0"
+    },
+    {
+      "path": "r37_tests/t05_admin_regression.py",
+      "bytes": 3844,
+      "sha256": "eeed14a44b21651d6919be5d1b39fa7999f82be7c10b75a19620467b97435557"
+    },
+    {
+      "path": "r37_tests/test_fps.py",
+      "bytes": 7261,
+      "sha256": "12700b0ec3126963ef9163fc84c0495419ccbdcb5314c6c14a4d64d995da7891"
+    },
+    {
+      "path": "r37_tests/test_levels_math.cjs",
+      "bytes": 4048,
+      "sha256": "ce00b464fa3d9fb5da86221ed891771dd48c46527dc84be6a81c9d6fe02f8382"
+    },
+    {
+      "path": "r37_tests/test_runner.py",
+      "bytes": 11670,
+      "sha256": "2117657c59bfea14c94e2b44c9189221954b1b71d0e5417a1085d8c6c0fac1a9"
     },
     {
       "path": "r3_evidence/DELIVERY_SUMMARY.json",
@@ -8145,6 +8314,11 @@
       "sha256": "b9b2d7c60a1f30865bb4b2d12661c66bee6edf4c5533a737e7da75dd3d4e0c91"
     },
     {
+      "path": "tools/build_r37.py",
+      "bytes": 3069,
+      "sha256": "07c03cccca8be179dff118d9fdaa3e984eac63af4278747781aaf737a3645c54"
+    },
+    {
       "path": "tools/document_characters_r31.py",
       "bytes": 14307,
       "sha256": "6622bcc06f2bc4b97343d9a3f66d2de07bc5f011d842c5b9e258f425a7544745"
@@ -8188,6 +8362,11 @@
       "path": "tools/package_r36.py",
       "bytes": 2825,
       "sha256": "85c92cdd48b5b6bd611dc145919c20f8e225ca59963bd4ff096307a0b9ad48b9"
+    },
+    {
+      "path": "tools/package_r37.py",
+      "bytes": 2644,
+      "sha256": "4cc516e861593d576749c456a7e2f29a22bd56df5612b9a447d11911e5e288b9"
     },
     {
       "path": "tools/package_release.py",

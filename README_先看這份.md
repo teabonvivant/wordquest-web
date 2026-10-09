@@ -1,4 +1,10 @@
-# 學霸星球 SmartQuest Planet R3.6 · 先看這份
+# 學霸星球 SmartQuest Planet R3.7 · 先看這份
+
+先在舊版匯出「家庭完整備份」，再解壓整個ZIP。開啟 START_HERE.html；一般使用不用安裝Python。
+
+R3.7（本版）：星系主頁（六個星球）、英文／數學／奧數闖關、全站測試只剩選擇題與填充題、家長 5 級難度、新遊戲「字母獵場」（第一身射擊）與「星際跑酷」、12 個角色與每日任務。詳見 README_R3_7.md、docs/R3_7_審查與改動報告.md。沒有真機、真人兒童、教師審核驗證，也不是商用版。重建：python3 tools/build_r37.py（底版 R3.6 = commit bd28b55）　新測試：r37_tests/t01…t05（WQ33_APP=app/index.html python3 r37_tests/t01_shell_levels.py）
+
+--- 以下是 R3.6 及更早的說明（歷史資料） ---
 
 先在舊版匯出「家庭完整備份」，再解壓整個ZIP。開啟 START_HERE.html；一般使用不用安裝Python。
 
