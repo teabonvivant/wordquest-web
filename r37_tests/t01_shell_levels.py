@@ -152,5 +152,7 @@ with sync_playwright() as p:
     C.ok(len(mq) == 8 and set(mq) <= {'meaning', 'listenChoice'}, f'選擇題 drill: 8 questions, choice types only {mq}')
     C.ok(len(fq) == 8 and set(fq) <= {'spell', 'listenSpell', 'cloze'}, f'填充題 drill: 8 questions, fill types only {fq}')
     C.ok(not errs, f'no console errors in the whole run {errs[:3]}')
+    miss = ev(pg, "(()=>{const o=[];for(let w=0;w<5;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en))o.push(x.en);return o})()")
+    C.ok(not miss, f'every English level word (5 worlds x 10 stages x 3) has a picture, missing {miss[:8]}')
     b.close()
 C.done()

@@ -151,10 +151,10 @@ def orientation_suite(p):
 
 
 # ------------------------------------------------------------------------------------------------------------------------------
-def rec_run(pg, fn):
+def rec_run(pg, fn, wait=0.12):
     pg.evaluate('__w34.startRec()')
     fn()
-    time.sleep(0.12)
+    time.sleep(wait)
     return pg.evaluate('__w34.stopRec()')
 
 
@@ -220,7 +220,7 @@ def gesture_suite(p):
         # --- lanes + swipes: forest-dash
         r = go('forest-dash')
         cx, cy = r['x'] + r['w'] / 2, r['y'] + r['h'] / 2
-        rec = rec_run(pg, lambda: (T.drag(0, cx, cy + 60, cx, cy - 70, steps=5, step_ms=10), T.up(0)))
+        rec = rec_run(pg, lambda: (T.drag(0, cx, cy + 60, cx, cy - 70, steps=5, step_ms=10), T.up(0)), wait=0.45)
         n_u, ms_u = pulses(rec, 'up')
         C.check('forest-dash: swipe up = one jump', n_u == 1 and ms_u >= 150, f'pulses={n_u}, {ms_u:.0f} ms', base=True)
         pg.wait_for_timeout(1100)

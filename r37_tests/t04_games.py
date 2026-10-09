@@ -1,5 +1,6 @@
 """R3.7 t04 - games planet: arcade still reachable, 字母獵場 (FPS) and 星際跑酷 (runner) mounted inside the app, mission and coin rules, clean tear-down."""
 import sys
+import time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib37 import *  # noqa: E402,F401,F403
@@ -8,8 +9,12 @@ C = Checker('t04')
 
 
 def aim_fire(pg, correct=True):
+    for _ in range(30):   # only a word not hidden behind a wall can be hit; wait for one to come into view
+        if pg.evaluate("(want)=>{const d=WQ37FPS._debug;return d.state!=='play'||d.targets.some(t=>t.clear&&(t.word===d.correctWord)===want)}", correct):
+            break
+        pg.wait_for_timeout(100)
     ok = pg.evaluate("""(want)=>{const d=WQ37FPS._debug;if(d.state!=='play')return false;
-      const i=d.targets.findIndex(t=>(t.word===d.correctWord)===want);if(i<0)return false;WQ37FPS._debugTurnTo(i);WQ37FPS._debugFire(0);return true;}""", correct)
+      const i=d.targets.findIndex(t=>t.clear&&(t.word===d.correctWord)===want);if(i<0)return false;WQ37FPS._debugTurnTo(i);WQ37FPS._debugFire(0);return true;}""", correct)
     pg.wait_for_timeout(450)
     if not ok:
         raise AssertionError('no target')
@@ -32,12 +37,18 @@ with sync_playwright() as p:
         C.ok(pg.evaluate("!document.querySelector('.header')||getComputedStyle(document.querySelector('.header')).display==='none'"), f'{name}: app header hidden while playing (full screen)')
         pg.keyboard.press('Enter'); pg.wait_for_timeout(500)
         C.ok(pg.evaluate('WQ37FPS._debug.state') == 'play', f'{name}: FPS starts')
+        pg.wait_for_function("WQ37FPS._debug.targets.some(t=>t.clear&&t.word===WQ37FPS._debug.correctWord)", timeout=5000)
         s0 = pg.evaluate('WQ37FPS._debug.score')
         aim_fire(pg, True)
-        C.ok(pg.evaluate('WQ37FPS._debug.score') > s0, f'{name}: shooting the right word scores')
-        hearts = pg.evaluate('WQ37FPS._debug.hearts')
+        try:
+            pg.wait_for_function(f"WQ37FPS._debug.score>{s0}", timeout=3000); scored = True
+        except Exception:
+            scored = False
+        C.ok(scored, f'{name}: shooting the right word scores')
+        d0 = pg.evaluate('({h:WQ37FPS._debug.hearts,w:WQ37FPS._debug.wrong,s:WQ37FPS._debug.shield})')
         aim_fire(pg, False)
-        C.ok(pg.evaluate('WQ37FPS._debug.hearts') < hearts, f'{name}: shooting a wrong word costs a heart')
+        d1 = pg.evaluate('({h:WQ37FPS._debug.hearts,w:WQ37FPS._debug.wrong,s:WQ37FPS._debug.shield})')
+        C.ok(d1['w'] == d0['w'] + 1 and (d1['h'] == d0['h'] - 1 or (d0['s'] and not d1['s'] and d1['h'] == d0['h'])), f'{name}: shooting a wrong word costs a heart (or the shield) {d0}->{d1}')
         # leave through the app: no leftover canvas or loops
         go(pg, '#kid', 500)
         C.ok(pg.evaluate("document.querySelector('canvas')===null"), f'{name}: leaving the FPS removes the canvas')
@@ -53,17 +64,11 @@ with sync_playwright() as p:
     res = None
     for attempt in range(3):
         go(pg, '#fps', 700); pg.keyboard.press('Enter'); pg.wait_for_timeout(400)
-        for k in range(10):
-            r0 = pg.evaluate('WQ37FPS._debug.round')
-            for _try in range(12):
-                if pg.evaluate('WQ37FPS._debug.state') != 'play' or pg.evaluate('WQ37FPS._debug.round') != r0:
-                    break
+        t_end = time.time() + 60
+        while time.time() < t_end and not pg.evaluate('WQ37FPS._debug.result'):
+            if pg.evaluate("WQ37FPS._debug.state==='play'&&WQ37FPS._debug.targets.some(t=>t.clear&&t.word===WQ37FPS._debug.correctWord)"):
                 aim_fire(pg, True)
-                pg.wait_for_timeout(250)
-        for _ in range(30):
-            if pg.evaluate('WQ37FPS._debug.result'):
-                break
-            pg.wait_for_timeout(250)
+            pg.wait_for_timeout(150)
         res = pg.evaluate('WQ37FPS._debug.result')
         if res and res['stars'] == 5:
             break
@@ -113,4 +118,13 @@ with sync_playwright() as p:
     C.ok(pg.evaluate("document.querySelector('canvas')===null") and pg.evaluate("WQ37Run._debug")is None, 'leaving the runner destroys it')
     C.ok(not errs, f'no console errors {errs[:3]}')
     b.close()
+
+    # games planet on small and landscape phones: the 今日任務 card must not squeeze the game tiles, every picture stays inside its tile
+    for w, h, name in [(360, 640, 'small'), (844, 390, 'landscape')]:
+        b, ctx, pg, errs = open_page(p, w, h, True)
+        pg.goto(URL); pg.wait_for_timeout(1200); go(pg, '#p/games', 700)
+        r = pg.evaluate("""()=>[...document.querySelectorAll('.r37-tiles .r37-tile')].map(t=>{const a=t.getBoundingClientRect(),i=t.querySelector('.r37-ti').getBoundingClientRect();return {h:Math.round(a.height),in:i.top>=a.top-1&&i.bottom<=a.bottom+1}})""")
+        C.ok(len(r) == 4 and all(x['h'] >= 64 and x['in'] for x in r), f'{name}: 4 game tiles >= 64 px high with the picture inside {r}')
+        C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), f'{name}: games planet needs no page scroll')
+        b.close()
 C.done()

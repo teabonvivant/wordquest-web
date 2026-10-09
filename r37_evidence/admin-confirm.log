@@ -1,0 +1,35 @@
+# t06 admin test account  app=/home/workspace/wordquest-web-dev/app/index.html
+PASS [B] A1 on file:// the normal log-in page links to the Admin test area | {'href': 'file:///home/workspace/wordquest-web-dev/app/index.html?mode=admin-test#login', 'text': '進入 Admin 測試'}
+PASS A2 the normal page does not show the test password | '★\n👦\n試玩中\n聲音：開\n登入\n家長\n← 返回\n登入或建立帳戶\n🔐\n練習需要先登入\n先試玩不會儲存紀錄和金幣。帳戶只存在'
+PASS A3 no sideways scroll on the normal log-in page | 0
+PASS [B] A4 following the link opens the test area | True
+PASS [B] B1 in the test area the log-in card has Admin and 1234 filled in | {'n': 'Admin', 'p': '1234', 'btn': ['聲音：開', '登入', '聽廣東話說明', '登入測試中心']}
+PASS [B] B2 the old helper lines are gone (one log-in card only) | '★\n👦\n試玩中\n聲音：開\n登入\n家長\n測試專用環境（不是正式管理員）\n只用假資料 · 帳戶 Admin ／ 密碼 1234\n返回一般網站\n\n遊戲街機 · 26 款遊戲\n\n遊戲街機，從這裏進入\n\n已解鎖與未解鎖遊戲都看得到。先看玩法，再選你下一個學習目標。\n\n進入遊戲街機\n\n電腦用鍵盤 · 手機用觸控 · 訪客可免費看玩法預覽\n\n測試專用 · 資料另外儲存\n\n測試帳戶登入\n烈烈老師 · 解題老師\n\n'
+PASS [B] B3 one click logs in as Admin, with 50 test coins, and lands on the test centre | {'admin': True, 'unlock': True, 'coins': 50, 'hash': '#admin'}
+PASS B4 the test centre links to the games, the lessons and the parent tools | '★\nAdmin\n👦\nAdmin 測試學生\n聲音：開\n家長\n測試專用環境（不是正式管理員）\n只用假資料 · 全部開放，免費試玩\n返回一般網站\n組合工房測試\n92 個組合與 15 組主題\n組合學習報告\n安排孩子練習\n學習測試入口\n新首頁八種練習'
+PASS B5 the test centre lists the games by name (all 26 are there)
+PASS B6 the footer says this is the test area, with the new name | '學霸星球 SmartQuest Planet · 測試專用。請不要放入真實孩子的資料。'
+PASS [B] B7 all 26 games are open for Admin | 26 cards, closed: []
+PASS [B] B8 the card buttons say "free test" | ['免費測試 · 看玩法', '免費測試 · 看玩法', '免費測試 · 看玩法']
+PASS [B] B9.1 sky-rescue (1-coin game): Admin starts it without paying; the button says so | '幣 開始測試（不扣金幣）' {'coins': 50, 'used': 0, 'n': 1}->{'coins': 50, 'used': 0, 'n': 1}
+PASS [B] B9.2 drift-path (2-coin game): Admin starts it without paying; the button says so | '幣 開始測試（不扣金幣）' {'coins': 50, 'used': 0, 'n': 1}->{'coins': 50, 'used': 0, 'n': 1}
+PASS [B] B9.3 valley-race (3-coin game): Admin starts it without paying; the button says so | '幣 開始測試（不扣金幣）' {'coins': 50, 'used': 0, 'n': 1}->{'coins': 50, 'used': 0, 'n': 1}
+PASS [B] B9.4 color-orbit (4-coin game): Admin starts it without paying; the button says so | '幣 開始測試（不扣金幣）' {'coins': 50, 'used': 0, 'n': 1}->{'coins': 50, 'used': 0, 'n': 1}
+PASS [B] B10 Admin can still start a game when the round's 5 plays are used up (no 5-play cap) | False
+PASS B11 the 80 classroom units are there for Admin | 80
+PASS B12 Admin starts the last classroom unit straight away | {'id': 'l30_mv14ymvn_1_iq2y9w', 'index': 0, 'len': 28, 'mode': 'study', 'q': {'id': 'q_w_1ecc240742a43145_study', 'targe
+PASS B13 Admin can walk a whole lesson to the result page | '考考你完成了\n★\n★\n★\n★\n★\n全部答對！滿星\n\n20 題，答對 20 題。\n\n得到 1 枚金幣！\n\n選另一課\n去遊戲街機\n回首頁'
+PASS B14 the test centre has a switch to the normal rules | 1
+PASS B15 after the switch the rules are normal again
+PASS [B] B16 with the normal rules the 4-coin game takes 4 coins again | '幣 用 4 枚金幣開始' {'coins': 20, 'used': 0, 'n': 2}->{'coins': 16, 'used': 1, 'n': 3}
+PASS B17 the test data sits under its own keys, not the family keys | ['wordquest-v29-test-user-wordquest_test_admin_v29', 'wordquest-v29-test-user-wordquest_test_admin_v29-v24-protection']
+PASS B18 no console or page errors in the test area | []
+PASS B19 the normal (family) side has no Admin account | None
+PASS C1 on a normal https address (no ?mode=admin-test) the test area stays off | {"allowed":false,"test":false}
+PASS C2 no Admin link, no test banner, no test password on the page | '★\n👦\n試玩中\n聲音：開\n登入\n家長\n← 返回\n登入或建立帳戶\n🔐\n練習需要先登入\n先試玩不會儲存紀錄和金幣。帳戶只存在這部裝置，不會上傳；請不要用其他網站的密碼。\n第一次使用：建立帳戶\n由家長設定，約 1 分鐘\n已有帳戶：登入\n輸入帳戶名稱和家長密碼\n建立新帳戶\n帳戶名稱\n\n3 個字或以上，用來登入。\n\n孩子的名字\n'
+PASS C3 typing Admin / 1234 on a normal https address does not log in | True
+PASS C4 the #admin page is "not found" on a normal https address | '★\n👦\n試玩中\n聲音：開\n登入\n家長\n找不到這個頁面\n\n這個頁面不存在，請返回首頁。\n\n返回首頁\n學霸星球 SmartQuest Planet · 學習紀錄只存在這部裝置。\n星系\n英文\n數學\n奧數\n遊戲\n家長\n這個帳戶名稱不能使用\n\n請改用'
+PASS C6 with ?mode=admin-test on https: 1234 is not shown and does not log in | '★\n👦\n試玩中\n聲音：開\n登入\n家長\n測試專用環境（不是正式管理員）\n只用假資料 · 請用 Admin 帳戶登入\n返回一般網站\n\n遊戲街機 · 26 款遊戲\n\n遊戲街機，從這裏進入\n\n已解鎖與未解鎖遊戲都看得到。先看玩法，再選你下一個學習目'
+PASS C5 no console or page errors on the https address | []
+PASS D1 320 px: the test log-in card fits and its button is tall enough | over=0 {'h': 48.796875, 'l': 31, 'r': 289, 'vw': 320}
+SUMMARY t06 admin test account: 33/33 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 65s

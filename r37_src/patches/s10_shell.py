@@ -8,7 +8,7 @@ ANCHOR = '\ninstallMediaEvents();\nrender();'
 def apply(s, ctx):
     once, src = ctx.once, ctx.src
     css = (src / 's10_shell.css').read_text()
-    js = '\n'.join((src / f).read_text() for f in ('s10_core.js', 's20_ui.js', 's30_wiring.js'))
+    js = '\n'.join((src / f).read_text() for f in ('s10_core.js', 's15_art.js', 's20_ui.js', 's30_wiring.js'))
     libs = ''
     for name, tag in (('levels_math.js', 'levels-math'), ('fps_game.js', 'fps-game'), ('runner_game.js', 'runner-game')):
         p = src / name

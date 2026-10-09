@@ -36,11 +36,13 @@ def new_page(pw, touch):
     return b, p, errs
 
 def aim(p, want_correct):
-    d = dbg(p)
-    for i, t in enumerate(d['targets']):
-        if (t['word'] == d['correctWord']) == want_correct:
-            p.evaluate('i=>WQ37FPS._debugTurnTo(i)', i); return t['word']
-    raise AssertionError('no target found')
+    for _ in range(40):   # only a word not hidden behind a wall can be hit; wait for one to come into view
+        d = dbg(p)
+        for i, t in enumerate(d['targets']):
+            if (t['word'] == d['correctWord']) == want_correct and t['clear']:
+                p.evaluate('i=>WQ37FPS._debugTurnTo(i)', i); return t['word']
+        p.wait_for_timeout(100)
+    raise AssertionError('no visible target found: ' + json.dumps(d, ensure_ascii=False))
 
 def test_touch(pw):
     b, p, errs = new_page(pw, True)
@@ -83,6 +85,9 @@ def test_desktop(pw):
     p.keyboard.down('ArrowRight'); p.wait_for_timeout(400); p.keyboard.up('ArrowRight')
     a2 = dbg(p)['player']; assert a2['a'] - a1['a'] > 0.4, (a1, a2)
     p.wait_for_timeout(400); p.screenshot(path=SHOTS + '/desktop_play.png')
+    p.evaluate('game.destroy();boot(1,10)')
+    p.keyboard.press('Enter')
+    p.wait_for_function("WQ37FPS._debug.state==='play'&&WQ37FPS._debug.targets.some(t=>t.clear&&t.word===WQ37FPS._debug.correctWord)")
     # correct shot
     aim(p, True); s0 = dbg(p)['score']; p.keyboard.press('Space'); p.wait_for_timeout(150)
     d = dbg(p); assert d['score'] > s0 and d['round'] == 2, d
@@ -104,7 +109,7 @@ def test_desktop(pw):
     p.click('text=再玩一次'); p.wait_for_timeout(300); assert dbg(p)['state'] == 'play' and dbg(p)['hearts'] == 3
     ft = p.evaluate('''()=>new Promise(r=>{let n=0,t0=performance.now();function f(){n++;if(performance.now()-t0<3000)requestAnimationFrame(f);else r((performance.now()-t0)/n)}requestAnimationFrame(f)})''')
     print('desktop avg rAF frame interval ms: %.2f ; avg update+render ms: %.2f' % (ft, dbg(p)['avgRenderMs']))
-    assert ft < 34
+    assert dbg(p)['avgRenderMs'] < 16.7
     p.evaluate('game.destroy()')
     assert p.evaluate('document.querySelectorAll("#c canvas").length') == 0
     assert p.evaluate('document.querySelector("#c").children.length') == 0

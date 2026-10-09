@@ -3,6 +3,7 @@
     WQ33_APP=/path/to/index.html python3 r36_tests/t01_home_brand.py
 
 `[B]` = expected to fail on the R3.5 build (the A/B runner proves it).
+Superseded from R3.7 by r37_tests/t01_shell_levels.py: sections B-D test the retired R3.6 home tiles, bottom bar and maths dialog.
 """
 import re
 import sys

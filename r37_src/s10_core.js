@@ -28,14 +28,14 @@ const R37_MISSIONS=[
  {id:'ok',icon:'✅',name:'答對 15 題',key:'correct',goal:15,coins:1},
  {id:'fps',icon:'🎯',name:'玩 1 局獵場',key:'fps',goal:1,coins:1},
  {id:'star',icon:'⭐',name:'得 1 個五星',key:'five',goal:1,coins:2},
- {id:'en',icon:'🔤',name:'英文 3 題全中',key:'enok',goal:10,coins:1}
+ {id:'en',icon:'🔤',name:'英文答對 10 題',key:'enok',goal:10,coins:1}
 ];
 const r37Mem={};
 const r37Day=()=>dayKey();
 function r37Key(){return 'wq37-'+(WQ_TEST_MODE?'t-':'')+(isLoggedIn()?accountId():'guest')+'-'+(activeChild()?.id||'x');}
 function r37Get(){
- const k=r37Key();if(r37Mem[k])return r37Mem[k];
- let o=null;try{if(isLoggedIn())o=JSON.parse(localStorage.getItem(k)||'null');}catch(_){}
+ const k=r37Key();
+ let o=r37Mem[k]||null;try{if(!o&&isLoggedIn())o=JSON.parse(localStorage.getItem(k)||'null');}catch(_){}
  if(!o||typeof o!=='object'||Array.isArray(o))o={};
  if(!o.lv||typeof o.lv!=='object'||Array.isArray(o.lv))o.lv={};
  if(![1,2,3,4,5].includes(o.diff))o.diff=3;
@@ -106,7 +106,7 @@ function r37EnDistractors(word,pool,n,near,rng){
  return r37Shuf(ranked,rng).slice(0,n);
 }
 function r37Edit(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n];}
-const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️'};
+const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️',mean:'💬',past:'⏪',pour:'🫗',term:'🏫',crutch:'🩼',square:'⛲',turnip:'🥔',ceiling:'🏠',issue:'❓',mostly:'📊',squeeze:'🍋',colander:'🥣',fault:'🌍',denote:'👉',funnel:'🔻',kidney:'🫘',newton:'🍎',solute:'🧂',tackle:'💪',vertex:'🔺',anaemia:'🩸',concede:'🤝',convert:'🔄',deprive:'🚫',excerpt:'📑',pension:'👴',relieve:'😌',unlikely:'🙅',cauliflower:'🥦',compound:'⚗️',digitise:'💾',hardship:'😣',workload:'📚',bandwidth:'📶',encounter:'👋',fieldwork:'🧭',mandatory:'❗',perimeter:'📐',reference:'📖',undertake:'📋',withstand:'🛡️',capability:'🦾',decorative:'🎀',generosity:'💝',livelihood:'💼',persuasive:'🗣️',proportion:'🥧',surrounding:'🏞️',behavioural:'🙋',controversy:'⚡',credibility:'✅',prospective:'🔭',unavoidable:'⛔',reproduction:'🐣',irresistible:'🍩'};
 function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||'';}catch(_){return R37_EMO[en]||'';}}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 

@@ -8,23 +8,23 @@ const R37_PLANETS=[
  {id:'parent',name:'家長星',icon:'👪',hue:46,x:20,y:73}
 ];
 const r37Planet=id=>R37_PLANETS.find(p=>p.id===id);
-const r37B=(icon,label,attrs,cls='')=>`<button type="button" class="r37-tile ${cls}" ${attrs}><span class="r37-ti" aria-hidden="true">${icon}</span><span class="r37-tn">${label}</span></button>`;
-const r37A=(icon,label,href,cls='')=>`<a class="r37-tile ${cls}" href="${href}"><span class="r37-ti" aria-hidden="true">${icon}</span><span class="r37-tn">${label}</span></a>`;
+const r37B=(icon,label,attrs,cls='')=>`<button type="button" class="r37-tile ${cls}" ${attrs}><span class="r37-ti" aria-hidden="true">${r37Icon(icon)}</span><span class="r37-tn">${label}</span></button>`;
+const r37A=(icon,label,href,cls='')=>`<a class="r37-tile ${cls}" href="${href}"><span class="r37-ti" aria-hidden="true">${r37Icon(icon)}</span><span class="r37-tn">${label}</span></a>`;
 const r37Stars=(n,max=5)=>'<span class="r37-st" aria-label="'+n+' 顆星">'+Array.from({length:max},(_,i)=>`<i class="${i<n?'on':''}">★</i>`).join('')+'</span>';
 function r37Top(extra=''){
  const c=activeChild(),ch=r37Char();
- return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">🪐</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
+ return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">${r37Icon('🪐')}</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
 }
 function r37Nav(active){
  const items=[['kid','🪐','星系'],['p/english','🔤','英文'],['p/math','🔢','數學'],['p/olympiad','🧩','奧數'],['p/games','🎮','遊戲'],['p/parent','👪','家長']];
- return `<nav class="r37-nav" aria-label="主選單">${items.map(([h,i,t])=>`<a href="#${h}" class="${active===h?'on':''}"><span aria-hidden="true">${i}</span><b>${t}</b></a>`).join('')}</nav>`;
+ return `<nav class="r37-nav" aria-label="主選單">${items.map(([h,i,t])=>`<a href="#${h}" class="${active===h?'on':''}" ${active===h?'aria-current="page"':''}><span aria-hidden="true">${r37Icon(i)}</span><b>${t}</b></a>`).join('')}</nav>`;
 }
 function r37Home(){
  const m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)).length,prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
  const ring=p=>{const q=prog[p.id];if(!q)return '';return `<span class="r37-pp" style="--p:${Math.round(q.done/Math.max(1,q.total)*100)}"><b>${q.done}/${q.total}</b></span>`;};
  return `<section class="r37-gx">${r37Top()}
  <div class="r37-sys"><div class="r37-sun" aria-hidden="true"><span>★</span><small>學霸星球</small></div><i class="r37-orbit o1"></i><i class="r37-orbit o2"></i><i class="r37-orbit o3"></i>
- ${R37_PLANETS.map((p,i)=>`<a class="r37-planet" href="#p/${p.id}" data-pl="${p.id}" style="--h:${p.hue};--x:${p.x}%;--y:${p.y}%;--d:${(i*.7).toFixed(1)}s"><span class="r37-orb"><em aria-hidden="true">${p.icon}</em></span><span class="r37-pn">${p.name}</span>${ring(p)}</a>`).join('')}</div>
+ ${R37_PLANETS.map((p,i)=>`<a class="r37-planet" href="#p/${p.id}" data-pl="${p.id}" style="--h:${p.hue};--x:${p.x}%;--y:${p.y}%;--d:${(i*.7).toFixed(1)}s"><span class="r37-orb"><em aria-hidden="true">${r37Icon(p.icon)}</em></span><span class="r37-pn">${p.name}</span>${ring(p)}</a>`).join('')}</div>
  <a class="r37-quest" href="#p/games"><span aria-hidden="true">🎁</span><b>今日任務</b><span class="r37-pips2">${m.map(x=>`<i class="${day.claimed.includes(x.id)?'on':''}"></i>`).join('')}</span><span>${doneN}/3</span></a>
  ${r37Nav('kid')}</section>`;
 }
@@ -49,13 +49,13 @@ function r37Hub(id){
  }else if(id==='parent'){
   return r37ParentHub();
  }
- return `<section class="r37-hub" style="--h:${p.hue}">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${p.icon}</em></span><h1>${p.name}</h1>${extra}</div><div class="r37-tiles">${tiles}</div>${r37Nav('p/'+id)}</section>`;
+ return `<section class="r37-hub" style="--h:${p.hue}">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${r37Icon(p.icon)}</em></span><h1>${p.name}</h1>${extra}</div><div class="r37-tiles">${tiles}</div>${r37Nav('p/'+id)}</section>`;
 }
 function r37GamesHub(){
  const m=r37Mission(),d=r37Get().day,ch=r37Char();
  const quest=m.map(x=>{const v=Math.min(x.goal,d[x.key]||0),ok=v>=x.goal,got=d.claimed.includes(x.id);return `<div class="r37-mq ${ok?'ok':''}"><span aria-hidden="true">${x.icon}</span><b>${x.name}</b><i style="--p:${Math.round(v/x.goal*100)}%"></i><em>${v}/${x.goal}</em>${got?'<span class="r37-got">✓</span>':ok?`<button type="button" data-r37="claim" data-id="${x.id}">🎁 +${x.coins}</button>`:`<span class="r37-rw">🪙${x.coins}</span>`}</div>`;}).join('');
- return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">🎮</em></span><h1>遊戲星</h1></div>
- <div class="r37-tiles">${r37A('🕹️','遊戲街機','#game','gold big')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#fps','pink big')+r37B(ch.icon,'角色','data-r37="chars"','blue big')}</div>
+ return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${r37Icon('🎮')}</em></span><h1>遊戲星</h1></div>
+ <div class="r37-tiles r37-gt">${r37A('🕹️','遊戲街機','#game','gold big')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#fps','pink big')+r37B(ch.icon,'角色','data-r37="chars"','blue big')}</div>
  <div class="r37-card r37-quests"><h2>🎁 今日任務</h2>${quest}</div>${r37Nav('p/games')}</section>`;
 }
 function r37Chars(){
@@ -94,16 +94,16 @@ function r37Play(){
  const P=r37P;if(!P)return r37Home();
  const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
  if(P.phase==='learn'){
-  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2><div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem">${r37Emoji(w.en)||'🔊'}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
+  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2><div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
  let body='';
- const aud=q.audio?`<button type="button" class="r37-spk" data-r37="speak" data-t="${esc(q.audio)}" aria-label="聽">🔊</button>`:'';
+ const aud=q.audio?`<button type="button" class="r37-spk" data-r37="speak" data-t="${esc(q.audio)}" aria-label="聽">${r37Icon('🔊')}</button>`:'';
  if(q.mode==='mcq'){
-  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe">${q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
+  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
  }else{
-  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe">${q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
+  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
  const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span aria-hidden="true">${fb.ok?'🎉':'💭'}</span><div><b>${fb.ok?P.praise:'答案：'+esc(q.answer)}</b>${!fb.ok&&q.explain?`<small>${esc(q.explain)}</small>`:''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
   :`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint">💡</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
@@ -192,5 +192,5 @@ function r37ParentHub(){
  }else{
   body=`<div class="r37-tiles">${r37A('⚙️','設定／備份','#settings')+r37A('🔐',isLoggedIn()?'登出':'登入','#login')+r37A('📴','離線教材','#offline')+r37A('🖼️','圖片來源','#credits')+(isTestAdmin()?r37A('🧪','測試中心','#admin'):'')}</div>`;
  }
- return `<section class="r37-hub" style="--h:46">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">👪</em></span><h1>家長星</h1></div><div class="r37-ptabs" role="tablist">${tabs}</div>${body}${r37Nav('p/parent')}</section>`;
+ return `<section class="r37-hub" style="--h:46">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${r37Icon('👪')}</em></span><h1>家長星</h1></div><div class="r37-ptabs" role="tablist">${tabs}</div>${body}${r37Nav('p/parent')}</section>`;
 }

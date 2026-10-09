@@ -1,9 +1,4 @@
 PASS test_touch
-Traceback (most recent call last):
-  File "/home/workspace/wordquest-web-dev/r37_tests/test_fps.py", line 128, in <module>
-    fn(pw); print('PASS', fn.__name__)
-    ^^^^^^
-  File "/home/workspace/wordquest-web-dev/r37_tests/test_fps.py", line 92, in test_desktop
-    assert dbg(p)['hearts'] == h0 - 1
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError
+desktop avg rAF frame interval ms: 19.44 ; avg update+render ms: 0.75
+PASS test_desktop
+PASS test_win_five_stars

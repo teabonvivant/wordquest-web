@@ -1,0 +1,20 @@
+[
+  {
+    "name": "fps-confirm",
+    "returncode": 0,
+    "seconds": 20,
+    "last_line": "PASS test_win_five_stars"
+  },
+  {
+    "name": "touch-confirm",
+    "returncode": 0,
+    "seconds": 124,
+    "last_line": "SUMMARY r34 p30 phone play layer: 60/60 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 124s"
+  },
+  {
+    "name": "admin-confirm",
+    "returncode": 0,
+    "seconds": 65,
+    "last_line": "SUMMARY t06 admin test account: 33/33 passed; failed [B] (expected on R3.2 base) = 0; failed other = 0; 65s"
+  }
+]

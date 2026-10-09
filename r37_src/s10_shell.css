@@ -48,10 +48,10 @@ body.r37-playing .header{display:none}
 .r37-pips2{display:flex;gap:5px}.r37-pips2 i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.28)}.r37-pips2 i.on{background:#7cf0b4}
 @media(max-aspect-ratio:5/4),(max-width:700px){
  .r37-sun,.r37-orbit{display:none}
- .r37-sys{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:6px;align-items:center;justify-items:center;padding:4px 0}
+ .r37-sys{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));gap:6px;align-items:center;justify-items:center;padding:4px 0;container-type:size}
  .r37-planet{position:relative;left:auto;top:auto;transform:none;animation-name:r37fl2}
  @keyframes r37fl2{50%{transform:translateY(-6px)}}
- .r37-orb{width:min(30vw,18vh,130px)}
+ .r37-orb{width:min(30vw,calc((100cqh - 20px)/3 - 54px),130px)}
  .r37-orb em{font-size:min(14vw,8vh,60px)}
 }
 /* hubs */
@@ -72,6 +72,11 @@ body.r37-playing .header{display:none}
 .r37-card{position:relative;z-index:2;margin:0 14px 12px;padding:14px 16px;border-radius:24px;background:rgba(255,255,255,.96);color:#1d2158;max-width:980px;width:calc(100% - 28px);align-self:center;box-shadow:0 10px 28px rgba(0,0,0,.28)}
 .r37-card h2{margin:0 0 8px;font-size:20px}
 .r37-quests{flex:none}
+.r37-tiles.r37-gt{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(64px,1fr)}.r37-gt .r37-tile.big{grid-column:span 1}.r37-gt .r37-ti{font-size:clamp(30px,min(8vmin,7vh),62px)}
+@media(min-aspect-ratio:3/2){.r37-tiles.r37-gt{grid-template-columns:repeat(4,1fr)}}
+@media(max-height:760px){.r37-gt .r37-tile{flex-direction:row;gap:10px}
+ .r37-quests{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 10px}.r37-quests h2{display:none}
+ .r37-quests .r37-mq{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 2px 8px;text-align:center}.r37-quests .r37-mq i{left:8px;right:8px}.r37-quests .r37-mq b{font-size:13px;white-space:nowrap}.r37-quests .r37-mq span{font-size:20px}.r37-quests .r37-mq button{padding:4px 10px;min-height:32px;font-size:13px}}
 .r37-mq{display:grid;grid-template-columns:34px 1fr auto auto;align-items:center;gap:8px;padding:6px 0;position:relative}
 .r37-mq span{font-size:24px}.r37-mq b{font-size:15px}.r37-mq i{position:absolute;left:44px;right:0;bottom:0;height:4px;border-radius:4px;background:linear-gradient(90deg,#7cf0b4 var(--p),#e3e6ff var(--p))}
 .r37-mq em{font-style:normal;font-weight:800;color:#555a9a}.r37-mq button{border:0;border-radius:999px;padding:8px 14px;background:#ffd15c;color:#4a3000;font-weight:900;font-size:15px;cursor:pointer;min-height:40px}
@@ -137,7 +142,10 @@ body.r37-playing .header{display:none}
 .r37-stage.ok .r37-q{animation:r37ok .3s}@keyframes r37ok{50%{transform:scale(1.04)}}
 .r37-learn{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
 .r37-wc{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 6px;border:0;border-radius:24px;background:#fff;color:#1d2158;font:inherit;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.25)}
-.r37-wem{font-size:clamp(36px,8vh,60px)}.r37-wc b{font-size:clamp(20px,3.6vh,30px);word-break:break-all}.r37-wc span:last-child{font-size:clamp(16px,2.6vh,22px);font-weight:800;color:#555a9a}
+.r37-wem{font-size:clamp(36px,8vh,60px);display:grid;place-items:center;flex-shrink:0;width:1.25em;height:1.25em;border-radius:24%;background:#eef5ff}.r37-wc b{font-size:clamp(20px,3.6vh,30px);word-break:break-all}.r37-wc span:last-child{font-size:clamp(16px,2.6vh,22px);font-weight:800;color:#555a9a}
+.r37-svg{display:inline-block;width:1em;height:1em;vertical-align:middle;flex-shrink:0;pointer-events:none}
+.r37-orb em,.r37-bigorb em,.r37-ti{display:grid;place-items:center;line-height:1}
+.r37-wc:focus-visible{outline:3px solid #ffd15c;outline-offset:3px}
 @media(max-width:520px){.r37-learn{grid-template-columns:1fr;gap:8px}.r37-wc{flex-direction:row;justify-content:space-around;padding:10px}}
 .r37-go{border:0;border-radius:24px;padding:14px 44px;background:linear-gradient(160deg,#ffe58c,#ffb71c);color:#4a3000;font:inherit;font-size:26px;font-weight:900;cursor:pointer;box-shadow:0 6px 0 #c5942b}
 .r37-result{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px}

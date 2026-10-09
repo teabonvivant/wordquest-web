@@ -7,6 +7,7 @@
   a switch back to the normal rules (coins are taken again)
 * test data is kept apart from the family accounts
 * on a normal https address none of this exists: no link, no test banner, Admin / 1234 does not log in, /#admin is "not found"
+  (R3.7.1: with ?mode=admin-test the https test area opens with a private password; 1234 still never logs in - see r37_tests/t06_live_admin.py)
 """
 import json
 import sys
@@ -164,12 +165,12 @@ with sync_playwright() as p:
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' and 'ERR_' not in m.text and 'Failed to load resource' not in m.text else None)
     pg.set_default_timeout(12000)
     pg.route('https://smartquest.example/**', lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
-    pg.goto(host + SUFFIX)
+    pg.goto(host)
     pg.wait_for_timeout(1200)
     pg.evaluate("location.hash='#login'")
     pg.wait_for_timeout(900)
     local = ev(pg, "JSON.stringify({allowed:WQ_LOCAL_TEST_ALLOWED,test:WQ_TEST_MODE})")
-    c.check('C1 on a normal https address the test area stays off, even with ?mode=admin-test', json.loads(local) == {'allowed': False, 'test': False}, local)
+    c.check('C1 on a normal https address (no ?mode=admin-test) the test area stays off', json.loads(local) == {'allowed': False, 'test': False}, local)
     t = text(pg)
     foot = pg.evaluate("document.querySelector('.footer')?.innerText||''")
     c.check('C2 no Admin link, no test banner, no test password on the page', not pg.query_selector('#q36-admin-entry') and not pg.query_selector('#wq29-test-banner') and '1234' not in t and 'Admin' not in t and '測試專用' not in foot, repr(t[:160]))
@@ -184,6 +185,17 @@ with sync_playwright() as p:
     route_to(pg, '#admin', 900)
     t = text(pg)
     c.check('C4 the #admin page is "not found" on a normal https address', '找不到這個頁面' in t and '測試中心' not in t, repr(t[:120]))
+    pg.goto(host + SUFFIX)
+    pg.wait_for_timeout(1200)
+    pg.evaluate("location.hash='#login'")
+    pg.wait_for_timeout(900)
+    t = text(pg)
+    if pg.query_selector('#login-name'):
+        pg.fill('#login-name', 'Admin')
+        pg.fill('#login-pin', '1234')
+        pg.click('[data-act="login-submit"]')
+        pg.wait_for_timeout(1800)
+    c.check('C6 with ?mode=admin-test on https: 1234 is not shown and does not log in', '1234' not in t and ev(pg, "!isLoggedIn()&&!isTestAdmin()") is True, repr(t[:120]))
     c.check('C5 no console or page errors on the https address', not errs, repr(errs[:3]))
     b.close()
 

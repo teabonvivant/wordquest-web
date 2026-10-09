@@ -2,7 +2,7 @@
   "product": "學霸星球 SmartQuest Planet",
   "version": "R3.7.0",
   "releaseStatus": "planet home, level mode (English / maths / olympiad), two test modes only, five parent difficulty levels, word-shooter FPS, runner game, characters and daily missions; checks are Chromium emulation, not real devices or children",
-  "createdAtUTC": "2026-10-09T12:34:21.643991+00:00",
+  "createdAtUTC": "2026-10-09T15:45:14.408111+00:00",
   "base": "R3.6 (commit bd28b55), then r37_src/patches by tools/build_r37.py",
   "entry": "START_HERE.html",
   "app": "app/index.html",
@@ -20,54 +20,68 @@
       "name": "t01-shell-levels",
       "file": "t01_shell_levels.py",
       "returncode": 0,
-      "last_line": "t01: 130/130 checks passed",
-      "seconds": 63
+      "last_line": "t01: 131/131 checks passed",
+      "seconds": 67
     },
     {
       "name": "t02-math-levels",
       "file": "t02_math_levels.py",
       "returncode": 0,
       "last_line": "t02: 30/30 checks passed",
-      "seconds": 35
+      "seconds": 37
     },
     {
       "name": "t03-parent-chars",
       "file": "t03_parent_chars.py",
       "returncode": 0,
       "last_line": "t03: 51/51 checks passed",
-      "seconds": 38
+      "seconds": 39
     },
     {
       "name": "t04-games",
       "file": "t04_games.py",
       "returncode": 0,
-      "last_line": "t04: 38/38 checks passed",
-      "seconds": 64
+      "last_line": "t04: 42/42 checks passed",
+      "seconds": 60
     },
     {
       "name": "t05-admin-regression",
       "file": "t05_admin_regression.py",
       "returncode": 0,
       "last_line": "t05: 24/24 checks passed",
-      "seconds": 39
+      "seconds": 40
+    },
+    {
+      "name": "t06-live-admin",
+      "file": "t06_live_admin.py",
+      "returncode": 0,
+      "last_line": "t06: 19/19 checks passed",
+      "seconds": 28
+    },
+    {
+      "name": "t07-visual-daily",
+      "file": "t07_visual_daily.py",
+      "returncode": 0,
+      "last_line": "t07: 53/53 checks passed",
+      "seconds": 44
     },
     {
       "name": "fps-module",
       "file": "test_fps.py",
-      "returncode": 0,
-      "last_line": "PASS test_win_five_stars",
-      "seconds": 20
+      "returncode": 1,
+      "last_line": "AssertionError: no target found",
+      "seconds": 14
     },
     {
       "name": "runner-module",
       "file": "test_runner.py",
       "returncode": 0,
       "last_line": "PASS test_fps_and_destroy",
-      "seconds": 45
+      "seconds": 46
     }
   ],
-  "totalFiles": 1668,
-  "hashedFiles": 1666,
+  "totalFiles": 1683,
+  "hashedFiles": 1681,
   "excludes": [
     "PACKAGE_MANIFEST.json",
     "SHA256SUMS.txt"
@@ -87,6 +101,11 @@
       "path": "GITHUB_UPLOAD_MANIFEST.json",
       "bytes": 342516,
       "sha256": "daf9f0655a3de680b145db0863049f0bc090d4fcdd436f4172620eff964fefb0"
+    },
+    {
+      "path": "PRODUCT.md",
+      "bytes": 568,
+      "sha256": "f898f38cd881654d8988a4cb7fe0f84f297a3c709ef91036c9fbfa74acd74aad"
     },
     {
       "path": "README.md",
@@ -130,8 +149,8 @@
     },
     {
       "path": "README_R3_7.md",
-      "bytes": 4048,
-      "sha256": "3c57a78c3ff1ed2dff280a6999774354bbfb86d3e8ac75b635c3fa414dbecdc1"
+      "bytes": 5652,
+      "sha256": "b76020d94215d066794e89e8a60339dc486dc9ff10ddd3065dee387d17359988"
     },
     {
       "path": "README_先看這份.md",
@@ -435,8 +454,8 @@
     },
     {
       "path": "app/index.html",
-      "bytes": 12678799,
-      "sha256": "83156e749030eaa9f57365414ae93c45b6e0b7a1230e47cdc7d4c65f3c1c5fe7"
+      "bytes": 12688350,
+      "sha256": "4c91e026c1f03b3499c46d85ccd427f2f6e2befd930d291a16fbdfc48ddacf7c"
     },
     {
       "path": "app/manifest.webmanifest",
@@ -740,8 +759,8 @@
     },
     {
       "path": "docs/R3_7_審查與改動報告.md",
-      "bytes": 745,
-      "sha256": "27c4789827a82721171c103875d9faf80699434cb2abab06effc64e21e4272cf"
+      "bytes": 4604,
+      "sha256": "cd99e92fede2aec57557fb5aeaa72174ce9fe7923811c2042b8591e4b3338ab3"
     },
     {
       "path": "docs/R3_升級及驗證報告.html",
@@ -6125,8 +6144,8 @@
     },
     {
       "path": "r34_tests/browser_touch.py",
-      "bytes": 21265,
-      "sha256": "f5ca8f1867bf31694e1556e07f1ea394901a6c5b234e75ac1c3b517acc682e4f"
+      "bytes": 21287,
+      "sha256": "e80f1452763b2e46db93a3033275497581a5b8ff10cc53383091755461f69ea3"
     },
     {
       "path": "r34_tests/engine_behaviour.cjs",
@@ -7275,8 +7294,8 @@
     },
     {
       "path": "r36_tests/t01_home_brand.py",
-      "bytes": 11296,
-      "sha256": "6b89972c16b83bdea4d95d5e8f0baf90867716b269e068c7031e2dcfb614155a"
+      "bytes": 11427,
+      "sha256": "992b8f6e6cb460c9e7643d967de54bbd345bee1480b6ea6d237a031ed34258f2"
     },
     {
       "path": "r36_tests/t02_lesson_quiz.py",
@@ -7305,23 +7324,33 @@
     },
     {
       "path": "r36_tests/t06_admin.py",
-      "bytes": 12911,
-      "sha256": "753f12bbeda6b9b37fad7ac42ff12c4bfbf5d65a55fa1b554f82564a01ad6435"
+      "bytes": 13556,
+      "sha256": "37e590367d059583e2ef1322f0f2a3fd5364f6750d3c92f9a993cbf9d60952e0"
+    },
+    {
+      "path": "r37_evidence/admin-confirm.log",
+      "bytes": 6089,
+      "sha256": "66832f712c2f47645c20ca79ea06e507ddaa86f5a204d7fde28a34ab1b112ee5"
     },
     {
       "path": "r37_evidence/build.json",
-      "bytes": 264,
-      "sha256": "24bfc4a99cc37d4d3db03b5731b5d856b0ac833b17536f7c4d8d6199ccf73214"
+      "bytes": 281,
+      "sha256": "d5f22821212404a679c5eb436f7fd3d184b010943938b6fd3ee95ac1bf6b061d"
     },
     {
       "path": "r37_evidence/final_runner.json",
-      "bytes": 1249,
-      "sha256": "665294fee29f48849dc319460a753b78f793ff0518aed74addac75e9d74e4337"
+      "bytes": 1572,
+      "sha256": "d0186854fe4cbd6b771eb2568e521a1d842e2b80cf8eb8974614ee08943ac0f5"
+    },
+    {
+      "path": "r37_evidence/fps-confirm.log",
+      "bytes": 129,
+      "sha256": "83323786de6acb4ba0ff3c4cc72d86431021de2756c4b52737652de9b7dc8d3a"
     },
     {
       "path": "r37_evidence/fps-module.log",
       "bytes": 129,
-      "sha256": "211d7567d3116d75cdcf531b925d009269bea0a385c9f36e048ef36e54045ec4"
+      "sha256": "25c84fa93992b89a8bacae8ccaab518b7f87c6707835afa69bbf5548f22f8940"
     },
     {
       "path": "r37_evidence/levels-math-unit.log",
@@ -7331,12 +7360,12 @@
     {
       "path": "r37_evidence/runner-module.log",
       "bytes": 223,
-      "sha256": "a124620fc684b392644aaa7aa250eaecbdfa3faa4850ce243e64e33917c2717c"
+      "sha256": "6988d43090f5a9f9d67ca181eaca512ad91f4b3a23bdd7a1129cea343ed65b0d"
     },
     {
       "path": "r37_evidence/t01-shell-levels.log",
       "bytes": 27,
-      "sha256": "f8b0365e5168fed9ba9049ecc4d01fc0eb08fd0e63fba6fee5be1700a5f465ff"
+      "sha256": "2833ef43abe493162afbc73309bba6fd29ba354e901eaa8935506ffdbdc55aca"
     },
     {
       "path": "r37_evidence/t02-math-levels.log",
@@ -7351,7 +7380,7 @@
     {
       "path": "r37_evidence/t04-games.log",
       "bytes": 25,
-      "sha256": "144afd0aed2da5749d36060a76769c14204336469d621a35a5d5a0b9faa66200"
+      "sha256": "cb9d3eb049592f150d3090a559df00bd4977bdd8b820618626eb1f0d44c31bdf"
     },
     {
       "path": "r37_evidence/t05-admin-regression.log",
@@ -7359,9 +7388,49 @@
       "sha256": "7efc9414874f2cb265cc440a0854ebb94e109a173c3a621c8c0aa1048097e6e2"
     },
     {
+      "path": "r37_evidence/t06-live-admin.log",
+      "bytes": 25,
+      "sha256": "4fa1609e3eebd0f42d65e461cba1592786672045872ca4d7ab50aba38ebd1e28"
+    },
+    {
+      "path": "r37_evidence/t07-visual-daily.log",
+      "bytes": 25,
+      "sha256": "60201d1abe0bd57ce3545d2d00257af0b5c789b5e6e0116afcef1c47a6b0dc8b"
+    },
+    {
+      "path": "r37_evidence/touch-confirm.log",
+      "bytes": 5677,
+      "sha256": "255664233f123d270ede50490908ed2dc5025479aa02a8b855ab569f5d4c3cfa"
+    },
+    {
+      "path": "r37_evidence/visual-review/art_home_desktop.png",
+      "bytes": 539825,
+      "sha256": "230e81347d134cfcae9bb22bd79135c1c3765857d85b83f95855f4810754bba6"
+    },
+    {
+      "path": "r37_evidence/visual-review/art_home_phone.png",
+      "bytes": 643348,
+      "sha256": "b871b3a6513630934362ce0ec911d832f5d4756f91f0d225cf7a1ddbe26a05ee"
+    },
+    {
+      "path": "r37_evidence/visual-review/art_home_small-phone.png",
+      "bytes": 415411,
+      "sha256": "03b1934ba22d59f9fde7933423d811df56a84fd41edcc74609f253531fedd963"
+    },
+    {
+      "path": "r37_evidence/visual-review/art_learn_phone.png",
+      "bytes": 228796,
+      "sha256": "872a405944c08fd110bd93578075116efcf121d35af05a0505813b4bddd29854"
+    },
+    {
+      "path": "r37_evidence/visual_followup.json",
+      "bytes": 536,
+      "sha256": "61a1030116b5110dd2870cc3a62ec99ef386e0206dd754f2f5d1d834e779a6fe"
+    },
+    {
       "path": "r37_src/fps_game.js",
-      "bytes": 59011,
-      "sha256": "8d108b5c2a06d315c69034e54ccf6291f6ac2e8e8abbac315d5227c6cc182f0e"
+      "bytes": 59088,
+      "sha256": "dfd3257183625c0995fc428a93cf0d2fbc173cb4517eeeb64759d42017b11a4c"
     },
     {
       "path": "r37_src/levels_math.js",
@@ -7370,13 +7439,18 @@
     },
     {
       "path": "r37_src/patches/s10_shell.py",
-      "bytes": 991,
-      "sha256": "4b2730cea21ea8ad5d190e39f6518704f541f694565abe96101a5ea165443e9c"
+      "bytes": 1005,
+      "sha256": "3353bb580cf96e2ed46535a3bb6f3f582536d5f21ea41417731e66b7cd678808"
     },
     {
       "path": "r37_src/patches/s20_modes.py",
       "bytes": 5169,
       "sha256": "8d65e0fd780a521f9f075e8e0e954a48c536370fad83e9544a6654cda7cf095b"
+    },
+    {
+      "path": "r37_src/patches/s40_admin.py",
+      "bytes": 2216,
+      "sha256": "d1a89a72efcc1407e84362ddebddfc7890fa56a9afddd12f1e93aa15f8d8dffa"
     },
     {
       "path": "r37_src/runner_game.js",
@@ -7385,23 +7459,28 @@
     },
     {
       "path": "r37_src/s10_core.js",
-      "bytes": 11032,
-      "sha256": "680014b952be0301fffa124502fed6b0a56b26439399055425c64a30c0cf92a0"
+      "bytes": 13299,
+      "sha256": "d5e6f0a4ed85abaf3b064e0a8820703f29b30ab93f19350b9a9225d48e5d3256"
     },
     {
       "path": "r37_src/s10_shell.css",
-      "bytes": 23035,
-      "sha256": "794dc95111cb837c758f5e4b547aade1ee421b2f0e454e28fab4fa7cb5c4fcfc"
+      "bytes": 24499,
+      "sha256": "495ddbf22a7d6deccdf0666a0b9fa3d6243313da2db5bf28f44738915246dd72"
+    },
+    {
+      "path": "r37_src/s15_art.js",
+      "bytes": 4744,
+      "sha256": "7db4b6b651f14fbeaf33fdfb9323237fc4205929fde47ca5019152b817b3a93b"
     },
     {
       "path": "r37_src/s20_ui.js",
-      "bytes": 21444,
-      "sha256": "9b4f2f007dc2f88265cebda38096e904118d90e987f62c92638ce7a9f53ff6cd"
+      "bytes": 21690,
+      "sha256": "7537b61d1b8de3eb8c27378a63d8104ff12e2c596d85dcc899eaa951f51b46b3"
     },
     {
       "path": "r37_src/s30_wiring.js",
-      "bytes": 8330,
-      "sha256": "9e0161741ceb671dfba8214fbd27c5c5f80a10f51bfcc04c5492b5e4cc1b8b5d"
+      "bytes": 8610,
+      "sha256": "3c4284cf4495b69854f1919884dd0590780651c1173bd0ff4e17b4ac43a30425"
     },
     {
       "path": "r37_tests/lib37.py",
@@ -7410,13 +7489,13 @@
     },
     {
       "path": "r37_tests/run_r37.py",
-      "bytes": 1819,
-      "sha256": "7d73cdd8779ce4151c0e7a8ed6f170a07e96f36ffd58b8abb07cfad86d270e7a"
+      "bytes": 1921,
+      "sha256": "3de342f99cfa292d5ed6ffca08c596736316ad03292c9f22a45a52d86bbe333b"
     },
     {
       "path": "r37_tests/t01_shell_levels.py",
-      "bytes": 11591,
-      "sha256": "c31282649c053dcced7d7f70eab8622a1803d9297b71908970d1e897c397a463"
+      "bytes": 11866,
+      "sha256": "43843fab1205c0d5e7070b79d0e08cdb6badca7d243cd78b489e481fc249dd83"
     },
     {
       "path": "r37_tests/t02_math_levels.py",
@@ -7430,8 +7509,8 @@
     },
     {
       "path": "r37_tests/t04_games.py",
-      "bytes": 6687,
-      "sha256": "99f382b1370b1a94b3abcaebb77bd381bd072777399473c7d40d99e26e64e2c0"
+      "bytes": 8240,
+      "sha256": "f42977261835224134f68ffd977f90874affc10389853ed2fd43222122675d59"
     },
     {
       "path": "r37_tests/t05_admin_regression.py",
@@ -7439,9 +7518,19 @@
       "sha256": "eeed14a44b21651d6919be5d1b39fa7999f82be7c10b75a19620467b97435557"
     },
     {
+      "path": "r37_tests/t06_live_admin.py",
+      "bytes": 4863,
+      "sha256": "c41d355d1e8c160c33de09af0dfa0566ed2161c3d229877619218f42c5970ec5"
+    },
+    {
+      "path": "r37_tests/t07_visual_daily.py",
+      "bytes": 2193,
+      "sha256": "ee4fb6b89bafcf6f0af4ee8f160548f30ae603d9b0bf1e0171551659f7db8478"
+    },
+    {
       "path": "r37_tests/test_fps.py",
-      "bytes": 7261,
-      "sha256": "12700b0ec3126963ef9163fc84c0495419ccbdcb5314c6c14a4d64d995da7891"
+      "bytes": 7708,
+      "sha256": "badf8b008c2b95f825eab1ca0c9ee8ee8e41a546e7d5a238d0f4a3c78324cfbc"
     },
     {
       "path": "r37_tests/test_levels_math.cjs",

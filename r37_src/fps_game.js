@@ -978,9 +978,9 @@
       destroy: destroy, pause: pause, resume: resume,
       _state: function () {
         return {
-          round: G.round, hearts: G.hearts, score: G.score, correctWord: cur ? cur.en : null, state: state, combo: G.combo, correct: G.correct, wrong: G.wrong,
+          round: G.round, hearts: G.hearts, score: G.score, correctWord: cur ? cur.en : null, state: state, combo: G.combo, correct: G.correct, wrong: G.wrong, shield: G.shield,
           player: { x: P.x, y: P.y, a: P.a }, bugs: bugs.length, result: lastResult, resultShown: resultShown, avgRenderMs: avgMs, touch: touchMode,
-          targets: targets.map(function (t) { return { word: t.w.en, angle: normAng(targetAngle(t) - P.a), dist: Math.hypot(t.x - P.x, t.y - P.y) }; })
+          targets: targets.map(function (t) { var h = rayHit(targetAngle(t)); return { word: t.w.en, angle: normAng(targetAngle(t) - P.a), dist: Math.hypot(t.x - P.x, t.y - P.y), clear: !!(h && h.o === t) }; })
         };
       },
       _fire: function (off) { fire(off || 0); },

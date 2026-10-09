@@ -70,8 +70,8 @@ with sync_playwright() as p:
     C.ok(pg.inner_text('.r37-coin').strip().endswith('0'), 'trial: coin counter shows 0, not a dash')
     # ---- games hub: tiles do not overlap on a phone ----
     go(pg, '#p/games', 400)
-    gaps = pg.evaluate("[...document.querySelectorAll('.r37-tile')].map(e=>e.getBoundingClientRect()).sort((a,b)=>a.top-b.top).map((r,i,a)=>i?r.top-a[i-1].bottom:0).slice(1)")
-    C.ok(len(gaps) >= 3 and min(gaps) >= 0, f'phone: game tiles do not overlap (gaps {gaps})')
+    hits = pg.evaluate("(()=>{const r=[...document.querySelectorAll('.r37-tile')].map(e=>e.getBoundingClientRect()),o=[];r.forEach((a,i)=>r.slice(i+1).forEach((b,j)=>{if(a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom)o.push([i,i+1+j])}));return {n:r.length,o}})()")
+    C.ok(hits['n'] >= 4 and not hits['o'], f'phone: game tiles do not overlap {hits}')
     C.ok(fits(pg, '.r37-tile'), 'phone: game tiles inside the viewport')
     # ---- level words: most early words have a picture ----
     pics = ev(pg, "[0,1,2].map(w=>{let n=0,t=0;for(let s=0;s<10;s++)for(const x of r37EnStage(w,s)){t++;if(r37Emoji(x.en))n++;}return n/t})")
