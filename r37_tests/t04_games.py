@@ -82,13 +82,10 @@ with sync_playwright() as p:
     def rdbg(pg):
         return pg.evaluate('WQ37Run._debug')
 
+    import test_runner as TR  # door, listen and spelling gates are solved the same way as the module test
+
     def rtake(pg, ok=True):
-        if not rdbg(pg)['armed']:
-            pg.evaluate('WQ37Run._debugAdvanceToGate()')
-        d = rdbg(pg)
-        cl = [x['lane'] for x in d['doors'] if x['word'] == d['correctWord']][0]
-        pg.evaluate('n=>WQ37Run._debugLane(n)', cl if ok else (cl + 1) % 3)
-        pg.evaluate('WQ37Run._debugAdvanceToGate()')
+        TR.take(pg, ok)
 
     b, ctx, pg, errs = open_page(p, 390, 844, True)
     register(pg, 'r37run', '小明')

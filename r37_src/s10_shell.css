@@ -239,3 +239,4 @@ body.r37leg #app,body.r37leg #app.l30-root{padding:0!important;margin:0!importan
 .r37-nu{font-size:clamp(10px,1.7vmin,13px);font-weight:800;line-height:1.1;max-width:90%;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;opacity:.92}
 .r37-path{container-type:size}
 @media(max-width:560px){.r37-path .r37-node{width:min(100%,clamp(44px,11vh,100px),calc(20cqh - 8px))}}
+.r37-lk{border:0;cursor:pointer;text-decoration:none;font-size:20px;min-width:44px;min-height:44px;display:inline-grid;place-items:center;margin-right:6px}
