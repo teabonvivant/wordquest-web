@@ -6,8 +6,10 @@ const R37_DIFF=[
  {n:4,icon:'🔥',name:'挑戰',hearts:3,qs:10,pass:.8,opts:4,scaffold:'none',hint:true,near:true},
  {n:5,icon:'🚀',name:'極速',hearts:3,qs:12,pass:.9,opts:4,scaffold:'none',hint:false,near:true}
 ];
+const r37U=(p,a)=>Array.from({length:10},(_,i)=>p+String(a+i).padStart(2,'0'));
 const R37_TRACKS={english:{name:'英文',icon:'🔤',worlds:[
- {name:'萌芽草原',icon:'🌱'},{name:'彩虹森林',icon:'🌲'},{name:'金沙沙漠',icon:'🏜️'},{name:'火焰火山',icon:'🌋'},{name:'星空城堡',icon:'🏰'}]},
+ {name:'萌芽草原',icon:'🌱',units:r37U('U',1)},{name:'彩虹森林',icon:'🌲',units:r37U('U',11)},{name:'金沙沙漠',icon:'🏜️',units:r37U('U',21)},{name:'火焰火山',icon:'🌋',units:r37U('U',31)},
+ {name:'冰晶雪山',icon:'🏔️',units:r37U('U',41)},{name:'星空城堡',icon:'🏰',units:r37U('U',51)},{name:'生活海港',icon:'⚓',units:r37U('T',1)},{name:'未來太空站',icon:'🛸',units:r37U('T',11)}]},
  math:{name:'數學',icon:'🔢'},olympiad:{name:'奧數',icon:'🧩'}};
 const R37_CHARS=[
  {id:'panda',icon:'🐼',name:'熊貓',cost:0,perk:'heart',desc:'多一顆心'},
@@ -38,6 +40,7 @@ function r37Get(){
  let o=r37Mem[k]||null;try{if(!o&&isLoggedIn())o=JSON.parse(localStorage.getItem(k)||'null');}catch(_){}
  if(!o||typeof o!=='object'||Array.isArray(o))o={};
  if(!o.lv||typeof o.lv!=='object'||Array.isArray(o.lv))o.lv={};
+ if(o.enV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('english:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.enOld={n,st};o.enV=2;}
  if(![1,2,3,4,5].includes(o.diff))o.diff=3;
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
@@ -58,7 +61,10 @@ function r37Shuf(arr,rng){const a=[...arr];for(let i=a.length-1;i>0;i--){const j
 
 /* ---- level progress ---- */
 const r37LvKey=(t,w,s)=>t+':'+w+':'+s;
-function r37Entry(t,w,s){return r37Get().lv[r37LvKey(t,w,s)]||null;}
+function r37Entry(t,w,s){const e=r37Get().lv[r37LvKey(t,w,s)]||null;if(e||t!=='english')return e;const u=r37UnitId(w,s),x=u&&r37ClassDone(u);return x?{passed:true,best:x.best||0,cls:true}:null;}
+function r37UnitId(w,s){return R37_TRACKS.english.worlds[w]?.units[s]||'';}
+function r37UnitAt(uid){const W=R37_TRACKS.english.worlds;for(let w=0;w<W.length;w++){const s=W[w].units.indexOf(uid);if(s>=0)return {w,s};}return null;}
+let r37ClassDone=()=>null;
 function r37StageOpen(t,w,s){
  if(adminUnlocks())return true;
  if(s>0)return !!r37Entry(t,w,s-1)?.passed;
@@ -87,16 +93,15 @@ function r37EnPool(){
  return r37Pool=out;
 }
 function r37EnBand(w){const p=r37EnPool(),n=p.length,a=Math.floor(w*n/5),b=Math.floor((w+1)*n/5);return {a,b,len:b-a};}
-function r37EnStage(w,s){
- const p=r37EnPool(),{a,len}=r37EnBand(w),rng=r37Rng(r37Hash('en-stage|'+w+'|'+s)),pick=[],used=new Set();
- const slot=len/30,boss=s===9;
- for(let j=0;j<3;j++){
-  const idx=boss?29-j:s*3+j;let k=a+Math.floor((idx+.5)*slot+(rng()-.5)*slot*.9);
-  while(used.has(k)&&k<a+len-1)k++;used.add(k);pick.push(p[Math.min(p.length-1,Math.max(0,k))]);
- }
- return pick;
+const r37UW={};
+function r37UnitWords(uid){
+ if(r37UW[uid])return r37UW[uid];const u=typeof LIB30!=='undefined'&&LIB30.units.get(uid);if(!u)return [];
+ return r37UW[uid]=u.words.map(k=>LIB30.words.get(k)).filter(Boolean).map(x=>({en:x.form,zh:x.meaning,pos:'',sc:x.form.length,img:x.image||'',ex:x.example||''}));
 }
+function r37EnStage(w,s){return r37UnitWords(r37UnitId(w,s));}
+function r37EnWorldPool(w){return (R37_TRACKS.english.worlds[w]?.units||[]).flatMap(r37UnitWords);}
 function r37EnReview(w,s){const out=[];for(let x=0;x<s;x++)out.push(...r37EnStage(w,x));return out;}
+function r37EnChunks(words){return [words.slice(0,3),words.slice(3,6),words.slice(6)].filter(c=>c.length);}
 function r37EnDistractors(word,pool,n,near,rng){
  const cand=pool.filter(x=>x.en!==word.en&&x.zh!==word.zh);
  let ranked;
@@ -106,30 +111,33 @@ function r37EnDistractors(word,pool,n,near,rng){
  return r37Shuf(ranked,rng).slice(0,n);
 }
 function r37Edit(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n];}
+const R37_UEMO={"pet":"🐾","win":"🏆","sit":"🪑","hit":"🎯","kit":"🧰","top":"🔝","hop":"🐇","pop":"🍿","dot":"⚫","hug":"🤗","fun":"🎉","bad":"👎","mad":"😠","sled":"🛷","beg":"🥺","dig":"⛏️","zip":"🤐","sip":"🥤","jog":"🏃","dock":"⚓","shut":"🚪","luck":"🍀","shell":"🐚","wish":"🌠","chip":"🍟","rich":"💰","lunch":"🍱","mother":"👩","song":"🎤","long":"📏","bang":"💥","hang":"🪝","wink":"😉","link":"🔗","kick":"⚽","pack":"🧳","sick":"🤒","photo":"📷","alphabet":"🔤","step":"👣","spin":"🌀","skip":"⏭️","smell":"👃","small":"🤏","sweet":"🍬","block":"🧱","crop":"🌾","grin":"😁","drop":"💧","free":"🆓","sand":"🏖️","wind":"🌬️","lamp":"💡","jump":"🐸","name":"📛","same":"🟰","plate":"🍽️","time":"⏰","stone":"🪨","hope":"🤞","note":"📝","tube":"🧪","cute":"🥰","June":"📅","tune":"🎵","sail":"⛵","wait":"⏳","day":"☀️","say":"💬","clay":"🏺","see":"👀","team":"👥","meat":"🍖","float":"🛟","slow":"🐢","grow":"🌱","blow":"🎈","yellow":"🟡","right":"➡️","bright":"🔆","sight":"👁️","high":"🪁","flight":"✈️","lie":"🛏️","die":"🎲","cried":"😢","flies":"🪰","room":"🛋️","zoo":"🐼","good":"👍","wool":"🧶","point":"👉","joy":"😄","loud":"📢","brown":"🟫","farm":"🚜","arm":"💪","card":"💳","dark":"🌑","sport":"🏀","north":"🧭","fern":"🌿","turn":"🔄","air":"💨","fair":"⚖️","repair":"🔧","airport":"🛫","hear":"👂","dear":"💌","beard":"🧔","box":"📦","baby":"👶","city":"🏙️","cities":"🏙️","puppy":"🐶","toys":"🧸","walked":"🚶","jumped":"🐸","make":"🛠️","tall":"🦒","unhappy":"😞","kind":"🫶","safe":"🛡️","reuse":"♻️","rewrite":"✍️","build":"🏗️","rebuild":"🏗️","give":"🎁","love":"❤️","said":"🗣️","great":"🌟","steak":"🥩","here":"📍","Monday":"📅","Friday":"📅","Sunday":"📅","May":"📅","calculator":"🧮","brave":"🦁","careful":"⚠️","draw":"✏️","carry":"🎒","open":"🔓","close":"🔒","help":"🤝","wide":"↔️","above":"⬆️","below":"⬇️","afternoon":"🌤️","evening":"🌇","breakfast":"🥞","dinner":"🍲","fan":"🪭","jam":"🍓","ham":"🍖","wet":"💦","mop":"🧹","bun":"🍞","wig":"💇","chest":"🧰","bench":"🪑","moth":"🦋","sink":"🚰","neck":"🦒","pond":"🦆","lake":"🏞️","gate":"🚪","rope":"🪢","cone":"🔺","mule":"🐴","flute":"🪈","tail":"🐕","pillow":"🛏️","pool":"🏊","soil":"🪴","hair":"💇","stairs":"🪜","raincoat":"🧥","playground":"🛝","head":"🙂","spray":"🧴","coach":"🧑‍🏫","path":"🛤️"};
 const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️',mean:'💬',past:'⏪',pour:'🫗',term:'🏫',crutch:'🩼',square:'⛲',turnip:'🥔',ceiling:'🏠',issue:'❓',mostly:'📊',squeeze:'🍋',colander:'🥣',fault:'🌍',denote:'👉',funnel:'🔻',kidney:'🫘',newton:'🍎',solute:'🧂',tackle:'💪',vertex:'🔺',anaemia:'🩸',concede:'🤝',convert:'🔄',deprive:'🚫',excerpt:'📑',pension:'👴',relieve:'😌',unlikely:'🙅',cauliflower:'🥦',compound:'⚗️',digitise:'💾',hardship:'😣',workload:'📚',bandwidth:'📶',encounter:'👋',fieldwork:'🧭',mandatory:'❗',perimeter:'📐',reference:'📖',undertake:'📋',withstand:'🛡️',capability:'🦾',decorative:'🎀',generosity:'💝',livelihood:'💼',persuasive:'🗣️',proportion:'🥧',surrounding:'🏞️',behavioural:'🙋',controversy:'⚡',credibility:'✅',prospective:'🔭',unavoidable:'⛔',reproduction:'🐣',irresistible:'🍩'};
-function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||'';}catch(_){return R37_EMO[en]||'';}}
+let r37ImgMap=null;
+function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.words.values())if(x.image&&/^[0-9a-f-]+$/.test(x.image))r37ImgMap[x.form]=String.fromCodePoint(...x.image.split('-').map(h=>parseInt(h,16)));}catch(_){}}return r37ImgMap[en]||'';}
+function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}catch(_){return R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */
 function r37EnQuestions(w,s,diff,seed){
- const D=R37_DIFF[diff-1],rng=r37Rng(r37Hash('en-q|'+w+'|'+s+'|'+diff+'|'+seed)),stage=r37EnStage(w,s),pool=r37EnPool();
- const near=pool.slice(r37EnBand(w).a,r37EnBand(w).b);
- let words=[...stage];if(s===9)words.push(...r37Shuf(r37EnReview(w,9),rng).slice(0,6));
- const N=s===9?Math.max(D.qs,12):D.qs,qs=[];
+ const D=R37_DIFF[diff-1],rng=r37Rng(r37Hash('en-q|'+w+'|'+s+'|'+diff+'|'+seed)),stage=r37EnStage(w,s),pool=r37EnPool(),wp=r37EnWorldPool(w);
+ const near=wp.length>20?wp:pool,chunks=r37EnChunks(stage);
+ const N=s===9?Math.max(D.qs,12):Math.max(D.qs,stage.length),qs=[];
  const fillShare=diff===5?[0,1,1,0,1]:diff===1?[0,0,1]:[0,1];
- const order=r37Shuf(words,rng);
+ const order=[],cks=[];chunks.forEach((c,i)=>{for(const x of r37Shuf(c,rng)){order.push(x);cks.push(i);}});
+ const extra=r37Shuf(s===9?[...stage,...r37EnReview(w,9)]:stage,rng);
  for(let k=0;k<N;k++){
-  const wd=order[k%order.length],mode=fillShare[k%fillShare.length]?'fill':'mcq',emoji=r37Emoji(wd.en);
+  const wd=k<order.length?order[k]:extra[(k-order.length)%extra.length],ck=k<order.length?cks[k]:chunks.length-1,mode=fillShare[k%fillShare.length]?'fill':'mcq',emoji=r37Emoji(wd.en);
   if(mode==='mcq'){
    const kind=['zh2en','en2zh','listen'][(diff===1?[0,2]:[0,1,2])[k%(diff===1?2:3)]];
-   const nOpt=D.opts-1,ds=r37EnDistractors(wd,near.length>20?near:pool,nOpt,D.near,rng);
+   const nOpt=D.opts-1,ds=r37EnDistractors(wd,near,nOpt,D.near,rng);
    const opts=r37Shuf([wd,...ds],rng);
-   if(kind==='zh2en')qs.push({mode,kind,prompt:wd.zh,emoji,options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,word:wd.en,lang:'en'});
-   else if(kind==='en2zh')qs.push({mode,kind,prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,audio:wd.en,hint:'按 🔊 聽一聽',explain:wd.en+' = '+wd.zh,word:wd.en,lang:'zh'});
-   else qs.push({mode,kind,prompt:'🔊',emoji:'',options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,word:wd.en,lang:'en'});
+   if(kind==='zh2en')qs.push({mode,kind,prompt:wd.zh,emoji,options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,word:wd.en,lang:'en',ck});
+   else if(kind==='en2zh')qs.push({mode,kind,prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,audio:wd.en,hint:'按 🔊 聽一聽',explain:wd.en+' = '+wd.zh,word:wd.en,lang:'zh',ck});
+   else qs.push({mode,kind,prompt:'🔊',emoji:'',options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,word:wd.en,lang:'en',ck});
   }else{
    const listen=k%3===2&&diff>=2;
-   qs.push({mode,kind:listen?'fill-listen':'fill',prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en],audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length});
+   qs.push({mode,kind:listen?'fill-listen':'fill',prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en],audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,ck});
   }
  }
  return qs;
@@ -141,7 +149,7 @@ function r37MathQuestions(track,w,s,diff,seed){
 }
 function r37QuizQuestions(track,mode,n,diff,seed){
  const out=[],seen=new Set(),open=[],rng=r37Rng(r37Hash('quiz|'+track+'|'+seed));
- if(track==='english'){for(let w=0;w<5;w++)if(r37StageOpen('english',w,0))for(let s=0;s<9;s++)open.push([w,s]);}
+ if(track==='english'){for(let w=0;w<R37_TRACKS.english.worlds.length;w++)if(r37StageOpen('english',w,0))for(let s=0;s<10;s++)if(r37StageOpen('english',w,s))open.push([w,s]);}
  else{for(let w=0;w<6;w++)if(r37StageOpen(track,w,0))for(let s=0;s<10;s++)open.push([w,s]);}
  for(let k=0;out.length<n&&k<400;k++){
   const [w,s]=open[Math.floor(rng()*open.length)];

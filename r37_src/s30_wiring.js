@@ -3,11 +3,14 @@ const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|l
 let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null;
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
 function r37FpsStop(){if(r37FpsHandle){try{r37FpsHandle.destroy();}catch(_){}r37FpsHandle=null;}}
-function r37FpsWords(){
- const diff=r37Get().diff,pool=r37EnPool(),band=r37EnBand(Math.min(4,Math.max(0,diff-1))),rng=r37Rng(r37Hash('fps|'+Date.now()));
- const src=pool.slice(band.a,band.b),withEmoji=src.filter(x=>r37Emoji(x.en)),mix=[...r37Shuf(withEmoji,rng).slice(0,5),...r37Shuf(src,rng).slice(0,12)];
- const seen=new Set();return mix.filter(x=>!seen.has(x.en)&&seen.add(x.en)).map(x=>({en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'🔤'}));
+function r37GameWords(w0,n){
+ const W=R37_TRACKS.english.worlds,rng=r37Rng(r37Hash('gw|'+Date.now())),ok=x=>/^[a-z]{2,10}$/.test(x.en),learned=[];
+ for(let w=0;w<W.length;w++)for(let s=0;s<10;s++)if(r37Entry('english',w,s)?.passed)learned.push(...r37EnStage(w,s));
+ let src=learned.filter(ok);if(src.length<8)src=src.concat(r37EnWorldPool(Math.min(W.length-1,w0||0)).filter(ok));
+ const seen=new Set(),pick=[...r37Shuf(src.filter(x=>r37Emoji(x.en)),rng),...r37Shuf(src,rng)].filter(x=>!seen.has(x.en)&&seen.add(x.en)).slice(0,n);
+ return pick.map(x=>({en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'🔤'}));
 }
+function r37FpsWords(){return r37GameWords(0,17);}
 function r37FpsMount(){
  const box=$('#r37-fps-box');if(!box)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
@@ -18,10 +21,8 @@ function r37FpsMount(){
 function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
- const diff=r37Get().diff,pool=r37EnPool(),band=r37EnBand(Math.min(4,w)),rng=r37Rng(r37Hash('run|'+Date.now())),src=pool.slice(band.a,band.b);
- const words=[...r37Shuf(src.filter(x=>r37Emoji(x.en)),rng).slice(0,6),...r37Shuf(src,rng).slice(0,14)];const seen=new Set();
- const ch=r37Char();
- r37RunHandle=WQ37Run.start(box,{words:words.filter(x=>!seen.has(x.en)&&seen.add(x.en)).map(x=>({en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''})),character:{icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),
+ const diff=r37Get().diff,ch=r37Char();
+ r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),
   onFinish:res=>{const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
@@ -36,9 +37,10 @@ const r37PriorRender=render;
 render=function(){
  const route=(location.hash||'#kid').slice(1).split('?')[0];
  if(!R37_ROUTE.test(route)){
-  document.body.classList.remove('r37','r37-playing');r37FpsStop();r37RunStop();
+  document.body.classList.remove('r37','r37-playing','r37leg');r37FpsStop();r37RunStop();
   const out=r37PriorRender.apply(this,arguments);
   try{r37FixNav();}catch(_){}
+  try{r37Wrap(route);}catch(_){}
   return out;
  }
  if(route==='lp/play'&&!r37P){location.replace('#kid');return;}
@@ -47,7 +49,7 @@ render=function(){
  if(route!=='rn/play')r37RunStop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='rn/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='rn/play');
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
@@ -61,6 +63,7 @@ render=function(){
  else if(route==='fps')html='<section class="r37-fps"><div id="r37-fps-box"></div></section>';
  $('#app').innerHTML=html;
  r37Layout();
+ try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
  if(route==='fps')r37FpsMount();
  if(route==='rn/play')r37RunMount();
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
@@ -70,6 +73,28 @@ render=function(){
  }
  showSaveIssue();
 };
+const R37_LEG={english:/^(classroom|unit|library|learning|assembly|assembly-unit|assembly-learn|practice|companions)$/,dictation:/^(learn|ranges|range-new|report)$/,games:/^(game|game-settings)$/,parent:/^(parent|children|settings|learning-report|learning-plan|learning-help|assembly-report|assembly-plan|legacy-family|legacy-phonics)$/};
+function r37LegPlanet(route){for(const k in R37_LEG)if(R37_LEG[k].test(route))return k;return '';}
+function r37Wrap(route){
+ const pl=r37LegPlanet(route),app=$('#app');if(!pl||!app||app.querySelector(':scope>.r37-leg'))return;
+ if(route==='unit')r37UnitLevelBtn();
+ const p=r37Planet(pl),back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':'#p/'+pl;
+ for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href','#p/'+pl);a.textContent='← '+p.name;}}
+ const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
+ sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="#p/${pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
+ const body=document.createElement('div');body.className='r37-legbody';while(app.firstChild)body.appendChild(app.firstChild);
+ sec.appendChild(body);sec.insertAdjacentHTML('beforeend',r37Nav(pl==='english'||pl==='games'||pl==='parent'?'p/'+pl:''));app.appendChild(sec);
+ document.body.classList.add('r37','r37leg');r37Layout();
+}
+new MutationObserver(()=>{if(!document.body.classList.contains('r37leg'))return;const app=$('#app');if(app&&!app.querySelector(':scope>.r37-leg')){const r=(location.hash||'#kid').slice(1).split('?')[0];try{r37Wrap(r);}catch(_){}}}).observe(document.getElementById('app')||document.body,{childList:true});
+const r37L30Done=l30UnitDone;
+r37ClassDone=uid=>{try{return r37L30Done(uid);}catch(_){return null;}};
+l30UnitDone=function(uid){const x=r37L30Done(uid);if(x)return x;const at=r37UnitAt(uid);if(!at)return null;const e=r37Get().lv[r37LvKey('english',at.w,at.s)];return e&&e.passed?{at:Date.parse(e.at)||Date.now(),stars:e.best||0,best:e.best||0}:null;};
+function r37UnitLevelBtn(){
+ const id=new URLSearchParams((location.hash.split('?')[1]||'')).get('id'),at=id&&r37UnitAt(id),row=$('#app .q36-start .l30-row');if(!at||!row)return;
+ const open=r37StageOpen('english',at.w,at.s);
+ row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} 第 ${at.s+1} 關</a>`);
+}
 function r37FixNav(){
  const nav=$('#wq29-nav');if(!nav)return;
  const map={'#practice':'#p/english','#game':'#p/games','#parent':'#p/parent'};
@@ -118,3 +143,17 @@ document.addEventListener('keydown',e=>{
  else if(!typing&&(e.key==='h'||e.key==='H')&&R37_DIFF[P.diff-1].hint&&q.hint){P.hintShown=true;render();}
 });
 window.addEventListener('resize',()=>{try{r37Layout();}catch(_){}});
+/* R3.8 maths dialog joins the planet look: space backdrop, white text outside the cards, back button returns to the planet */
+(()=>{
+ const css=`\n/* R3.8 planet theme */\n.wqm{background:radial-gradient(1100px 620px at 50% -8%,#1f6b5c 0,#161a5a 52%,#0c1033 100%)!important;background-attachment:fixed!important}
+.wqm .topbar{border-bottom-color:rgba(255,255,255,.14)}.wqm .topbar .brand,.wqm .topbar .name,.wqm .hero h1,.wqm .hero p,.wqm .section-head h2,.wqm .section-head p,.wqm>.shell>h1,.wqm>.shell>h2,.wqm>.shell>p,.wqm .shell>section>h2{color:#fff}
+.wqm .eyebrow{color:#9ff0d4}.wqm .nav button{color:#cfd4ff;border-radius:999px}.wqm .nav button.active{background:rgba(255,255,255,.18);color:#fff}
+.wqm .card,.wqm .notice,.wqm .stats>*{border-radius:24px;box-shadow:0 10px 30px rgba(4,6,30,.4)}
+.wqm .wq36-home{font-size:0!important;background:rgba(255,255,255,.16)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)!important;border-radius:999px!important}.wqm .wq36-home::after{content:"🪐 回星球";font-size:17px}
+.wqm .wq36-home-small{font-size:0!important}.wqm .wq36-home-small::after{content:"🪐 星球";font-size:16px}
+.wqm .wallet{background:#ffd15c;border-color:#c5942b;color:#4a3000;font-weight:800}
+.wqm .hero .row>button.quiet{color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:999px}.wqm .forest-controlbar>button{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.12)}`;
+ const apply=()=>{const host=document.getElementById('wqm-app-host');if(host&&host.shadowRoot&&!host.shadowRoot.querySelector('#r38-wqm')){const st=document.createElement('style');st.id='r38-wqm';st.textContent=css;host.shadowRoot.appendChild(st);}};
+ document.addEventListener('click',e=>{if(e.target.closest?.('[data-wqm-open],#wqm-launch')){setTimeout(apply,0);setTimeout(apply,400);}},true);
+ globalThis.r38WqmTheme=apply;
+})();

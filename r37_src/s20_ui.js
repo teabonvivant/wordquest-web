@@ -67,9 +67,9 @@ function r37LevelMap(t,wIdx){
  if(!worlds.length)return `<section class="r37-hub">${r37Top()}<div class="r37-card"><h2>${T.name}闖關準備中</h2></div>${r37Nav('p/'+t)}</section>`;
  let w=Number.isInteger(wIdx)?wIdx:r37Mem._w?.[t];if(!Number.isInteger(w)){w=0;for(let i=0;i<worlds.length;i++)if(r37StageOpen(t,i,0))w=i;}
  w=Math.max(0,Math.min(worlds.length-1,w));(r37Mem._w=r37Mem._w||{})[t]=w;
- const diff=r37Diff(),W=worlds[w],wOpen=r37StageOpen(t,w,0);
+ const diff=r37Diff(),W=worlds[w],wOpen=r37StageOpen(t,w,0),ut=x=>t==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(W.units?.[x])?.title||''):'';
  const nodes=Array.from({length:10},(_,s)=>{const e=r37Entry(t,w,s),open=r37StageOpen(t,w,s),cur=open&&!e?.passed&&(s===0||r37Entry(t,w,s-1)?.passed||adminUnlocks()),boss=s===9;
-  return `<button type="button" class="r37-node ${e?.passed?'done':''} ${cur?'cur':''} ${open?'':'lock'} ${boss?'boss':''}" ${open?`data-r37="level" data-track="${t}" data-w="${w}" data-s="${s}"`:'disabled'} aria-label="${boss?'魔王關':'第 '+(s+1)+' 關'}"><span class="r37-nn">${open?(boss?'👹':s+1):'🔒'}</span>${open&&e?r37Stars(e.best):'<span class="r37-st ph"></span>'}</button>`;}).join('');
+  return `<button type="button" class="r37-node ${e?.passed?'done':''} ${cur?'cur':''} ${open?'':'lock'} ${boss?'boss':''}" ${open?`data-r37="level" data-track="${t}" data-w="${w}" data-s="${s}"`:'disabled'} aria-label="${boss?'魔王關':'第 '+(s+1)+' 關'}${ut(s)?'：'+esc(ut(s)):''}"><span class="r37-nn">${open?(boss?'👹':s+1):'🔒'}</span>${ut(s)?`<span class="r37-nu">${esc(ut(s))}</span>`:''}${open&&e?r37Stars(e.best):'<span class="r37-st ph"></span>'}</button>`;}).join('');
  return `<section class="r37-hub r37-map" style="--h:${t==='english'?205:t==='math'?155:272}">${r37Top('<a class="r37-back2" href="#p/'+t+'">←</a>')}
  <div class="r37-worlds" role="tablist">${worlds.map((x,i)=>`<button type="button" role="tab" class="r37-wtab ${i===w?'on':''} ${r37StageOpen(t,i,0)?'':'lock'}" data-r37="world" data-track="${t}" data-w="${i}" ${r37StageOpen(t,i,0)?'':'disabled'}><span aria-hidden="true">${r37StageOpen(t,i,0)?x.icon||'🌍':'🔒'}</span><b>${i+1}</b></button>`).join('')}</div>
  <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${W.icon||'🌍'}</span><div><h1>${esc(W.name)}</h1><small>${r37WorldDone(t,w)}/10 · ${r37Stars(Math.min(5,Math.round(r37WorldStars(t,w)/50*5)))}</small></div><span class="r37-dchip" title="難度">${diff.icon} ${diff.n}</span></div>
@@ -94,7 +94,7 @@ function r37Play(){
  const P=r37P;if(!P)return r37Home();
  const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
  if(P.phase==='learn'){
-  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2><div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
+  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
@@ -120,8 +120,9 @@ function r37StartLevel(track,w,s){
  const diff=r37Get().diff,D=R37_DIFF[diff-1],ch=r37Char(),seed=r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff);
  const qs=track==='english'?r37EnQuestions(w,s,diff,seed):r37MathQuestions(track,w,s,diff,seed);
  if(!qs.length){toast('這一關還未準備好。','bad');return;}
- const W=r37TrackWorlds(track)[w],title=(s===9?'👹 ':'')+(W?.icon||'')+' '+(W?.name||'')+' · '+(s+1);
- r37P={kind:'level',track,w,s,diff,qs,i:0,res:[],hearts:D.hearts+(ch.perk==='heart'?1:0),maxHearts:D.hearts+(ch.perk==='heart'?1:0),shield:ch.perk==='shield',correct:0,hinted:0,phase:track==='english'?'learn':'quiz',learn:track==='english'?r37EnStage(w,s):[],fb:null,hintShown:false,title,praise:'做得好！'};
+ const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,title=(s===9?'👹 ':'')+(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
+ const chunks=track==='english'?r37EnChunks(r37EnStage(w,s)):[];
+ r37P={kind:'level',track,w,s,diff,qs,i:0,res:[],hearts:D.hearts+(ch.perk==='heart'?1:0),maxHearts:D.hearts+(ch.perk==='heart'?1:0),shield:ch.perk==='shield',correct:0,hinted:0,phase:track==='english'?'learn':'quiz',chunks,ck:0,learn:chunks[0]||[],fb:null,hintShown:false,title,praise:'做得好！'};
  r37Nav37('lp/play');
 }
 function r37StartQuiz(track,mode){
@@ -140,6 +141,7 @@ function r37Answer(value){
  else{if(P.kind==='level'){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}playSfx('wrong');}
  if(P.hintShown)P.hinted++;
  render();
+ try{r37FxAnswer(ok);}catch(_){}
  if(ok){clearTimeout(r37Timer);r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},750);}
 }
 function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][P.correct%5];}
@@ -147,6 +149,7 @@ function r37Next(){
  const P=r37P;if(!P||!P.fb)return;clearTimeout(r37Timer);
  P.i++;P.fb=null;P.hintShown=false;
  if(P.hearts<=0||P.i>=P.qs.length){r37Finish();return;}
+ const ck=P.qs[P.i].ck;if(P.chunks&&ck!==undefined&&ck!==P.ck&&P.chunks[ck]){P.ck=ck;P.learn=P.chunks[ck];P.phase='learn';}
  render();
 }
 function r37Finish(){

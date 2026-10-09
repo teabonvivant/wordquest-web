@@ -43,8 +43,11 @@ with sync_playwright() as p:
       out.pool=r37EnPool().length;
       out.bands=[0,1,2,3,4].map(w=>{const s=r37EnPool().slice(r37EnBand(w).a,r37EnBand(w).b);return s.reduce((a,x)=>a+x.sc,0)/s.length;});
       out.stage=r37EnStage(0,0).map(x=>x.en);out.stage2=r37EnStage(0,0).map(x=>x.en);
-      out.stageLen=[0,1,2,3,4].every(w=>[...Array(10).keys()].every(s=>r37EnStage(w,s).length===3&&new Set(r37EnStage(w,s).map(x=>x.en)).size===3));
-      out.rise=[0,1,2,3,4].map(w=>{const a=r37EnStage(w,0).concat(r37EnStage(w,1)).reduce((n,x)=>n+x.sc,0),b=r37EnStage(w,8).concat(r37EnStage(w,9)).reduce((n,x)=>n+x.sc,0);return b>=a;});
+      out.nw=R37_TRACKS.english.worlds.length;
+      out.unitMatch=R37_TRACKS.english.worlds.every((W,w)=>W.units.every((u,s)=>{const a=r37EnStage(w,s).map(x=>x.en).join(),b=LIB30.units.get(u).words.map(k=>LIB30.words.get(k).form).join();return a===b&&a.length>0;}));
+      out.allUnits=R37_TRACKS.english.worlds.flatMap(W=>W.units).join()===D30.units.map(u=>u.id).join();
+      out.chunks=r37EnChunks(r37EnStage(0,0)).map(c=>c.length);
+      out.cover=(()=>{const q=r37EnQuestions(0,0,1,7),st=r37EnStage(0,0).map(x=>x.en);return st.every(e=>q.some(x=>x.word===e))&&q.every((x,i)=>i===0||x.ck>=q[i-1].ck);})();
       out.counts=[1,2,3,4,5].map(df=>r37EnQuestions(0,2,df,7).length);
       out.opts=[1,2,3,4,5].map(df=>r37EnQuestions(0,2,df,7).filter(q=>q.mode==='mcq').map(q=>q.options.length));
       out.modes=[1,2,3,4,5].map(df=>[...new Set(r37EnQuestions(1,3,df,7).map(q=>q.mode))].sort().join());
@@ -57,10 +60,12 @@ with sync_playwright() as p:
       return out;})()""")
     C.ok(d['pool'] > 3000, f"word pool is large ({d['pool']})")
     C.ok(all(d['bands'][i] < d['bands'][i + 1] for i in range(4)), f"worlds rise in difficulty {d['bands']}")
-    C.ok(d['stage'] == d['stage2'] and len(d['stage']) == 3, 'a stage has exactly 3 words, stable between calls')
-    C.ok(d['stageLen'], 'every stage in every world has 3 distinct words')
-    C.ok(all(d['rise']), 'late stages of each world are harder than the first stages')
-    C.ok(d['counts'] == [6, 8, 8, 10, 12], f"question count follows difficulty {d['counts']}")
+    C.ok(d['stage'] == d['stage2'] and len(d['stage']) == 8, 'a stage is one classroom unit (8 words), stable between calls')
+    C.ok(d['nw'] == 8 and d['allUnits'], 'English worlds cover all 80 classroom units in course order (8 worlds x 10)')
+    C.ok(d['unitMatch'], 'every stage uses exactly the words of its classroom unit')
+    C.ok(d['chunks'] == [3, 3, 2], f"stage words are learned in 3+3+2 checkpoints {d['chunks']}")
+    C.ok(d['cover'], 'every unit word is tested and questions follow checkpoint order')
+    C.ok(d['counts'] == [8, 8, 8, 10, 12], f"question count = max(difficulty count, 8 unit words) {d['counts']}")
     C.ok(all(set(x) == {2} for x in d['opts'][:1]) and all(set(x) == {3} for x in d['opts'][1:]) or all(len(set(x)) == 1 for x in d['opts']), 'options per question constant within a level')
     C.ok(d['opts'][0][0] == 3 and d['opts'][2][0] == 4, f"difficulty 1 has 3 options, difficulty 3 has 4 ({d['opts'][0][:1]}, {d['opts'][2][:1]})")
     C.ok(all(m == 'fill,mcq' for m in d['modes']), f"only two test modes appear: {d['modes']}")
@@ -73,17 +78,21 @@ with sync_playwright() as p:
     go(pg, '#lv/english', 400)
     C.ok(pg.evaluate("document.querySelectorAll('.r37-node:not(.lock)').length") == 1, 'only stage 1 is open at the start')
     pg.click('.r37-node.cur'); pg.wait_for_timeout(300)
-    C.ok(pg.evaluate("document.querySelectorAll('.r37-wc').length") == 3, 'learn screen shows the 3 words of the stage')
+    C.ok(pg.evaluate("document.querySelectorAll('.r37-wc').length") == 3, 'learn screen shows the first 3 words of the unit')
     pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(250)
     coins0 = ev(pg, 'r37Coins()')
     total = ev(pg, 'r37P.qs.length')
+    learns = 1
     for i in range(total):
+        if ev(pg, 'r37P.phase') == 'learn':
+            learns += 1; pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
             pg.click(f'.r37-opt:has-text("{q["answer"]}")') if False else pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===a).click()", q['answer'])
         else:
             pg.fill('#r37-in', q['answer']); pg.keyboard.press('Enter')
         pg.wait_for_timeout(950)
+    C.ok(learns == 3, f'the stage shows 3 learning checkpoints ({learns})')
     C.ok(pg.evaluate("!!document.querySelector('.r37-result.win')"), 'all-correct run ends on the win screen')
     res = ev(pg, 'r37P.result')
     C.ok(res['stars'] == 5 and res['passed'], f'all correct without hints = 5 stars, passed {res}')
@@ -96,6 +105,8 @@ with sync_playwright() as p:
     pg.click('.r37-node.done'); pg.wait_for_timeout(300); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     total = ev(pg, 'r37P.qs.length')
     for i in range(total):
+        if ev(pg, 'r37P.phase') == 'learn':
+            pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
             pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===a).click()", q['answer'])
@@ -116,6 +127,8 @@ with sync_playwright() as p:
             pg.fill('#r37-in', 'zzzz'); pg.keyboard.press('Enter')
         pg.wait_for_timeout(250)
         pg.click('[data-r37="next"]'); pg.wait_for_timeout(250)
+        if ev(pg, 'r37P.phase') == 'learn':
+            pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     C.ok(pg.evaluate("!!document.querySelector('.r37-result.lose')"), f'losing all {hearts0} hearts ends the level as failed')
     C.ok(ev(pg, 'r37P.result.passed') is False and ev(pg, 'r37P.result.coins') == 0, 'failed level: not passed, no coins')
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(300)
@@ -152,7 +165,15 @@ with sync_playwright() as p:
     C.ok(len(mq) == 8 and set(mq) <= {'meaning', 'listenChoice'}, f'選擇題 drill: 8 questions, choice types only {mq}')
     C.ok(len(fq) == 8 and set(fq) <= {'spell', 'listenSpell', 'cloze'}, f'填充題 drill: 8 questions, fill types only {fq}')
     C.ok(not errs, f'no console errors in the whole run {errs[:3]}')
-    miss = ev(pg, "(()=>{const o=[];for(let w=0;w<5;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en))o.push(x.en);return o})()")
-    C.ok(not miss, f'every English level word (5 worlds x 10 stages x 3) has a picture, missing {miss[:8]}')
+    miss = ev(pg, "(()=>{const o=[];for(let w=0;w<8;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en))o.push(x.en);return o})()")
+    C.ok(len(miss) <= 40, f'English level words (80 units x 8) nearly all have a picture, missing {len(miss)}: {miss[:8]}')
+    # ---- classroom <-> level sync ----
+    ev(pg, "(()=>{const o=r37Get();o.lv['english:0:4']={best:4,passed:true,at:new Date().toISOString()};r37Save();})()")
+    C.ok(bool(ev(pg, "l30UnitDone('U05')")), 'a passed level stage marks its classroom unit as learned')
+    go(pg, '#unit?id=U01', 500)
+    C.ok(pg.evaluate("!!document.querySelector('.r37-leg .r37-ulv[data-r37=level][data-w=\"0\"][data-s=\"0\"]')"), 'classroom unit page has a level-challenge button for the same stage, inside the planet shell')
+    C.ok(pg.evaluate("document.querySelector('.r37-leg .r37-back2').getAttribute('href')") == '#classroom', 'unit page back arrow returns to the classroom')
+    go(pg, '#classroom', 500)
+    C.ok(pg.evaluate("!!document.querySelector('#app>.r37-leg .r37-nav')"), 'classroom renders inside the planet shell with the planet nav')
     b.close()
 C.done()
