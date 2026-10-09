@@ -1198,7 +1198,7 @@ body.r37-playing .header{display:none}
 .r37-prog{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:900}
 .r37-st{display:inline-flex;gap:1px;font-size:18px}.r37-st i{font-style:normal;color:rgba(255,255,255,.28)}.r37-st i.on{color:#ffd15c;text-shadow:0 0 8px rgba(255,209,92,.7)}.r37-st.ph{height:18px}
 .r37-tiles{position:relative;z-index:2;flex:1;min-height:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(42vw,190px),1fr));grid-auto-rows:minmax(0,1fr);gap:12px;padding:10px 14px 14px;align-content:center;max-width:980px;width:100%;margin:0 auto}
-.r37-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:92px;border:0;border-radius:26px;background:linear-gradient(160deg,#fff,#eef0ff);color:#1d2158;text-decoration:none;font:inherit;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.25),0 14px 28px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
+.r37-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:0;border:0;border-radius:26px;background:linear-gradient(160deg,#fff,#eef0ff);color:#1d2158;text-decoration:none;font:inherit;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.25),0 14px 28px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent}
 .r37-tile:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
 .r37-ti{font-size:clamp(38px,8vmin,66px);line-height:1}.r37-tn{font-size:clamp(17px,2.8vmin,24px);font-weight:900}
 .r37-tile.gold{background:linear-gradient(160deg,#fff6c9,#ffd15c);color:#4a3000}.r37-tile.blue{background:linear-gradient(160deg,#e3f2ff,#9fd0ff);color:#0d3a6b}.r37-tile.green{background:linear-gradient(160deg,#e3ffe9,#99e8ae);color:#0d4a22}.r37-tile.pink{background:linear-gradient(160deg,#ffe3f1,#ffa0cc);color:#6b0d3a}
@@ -1296,6 +1296,7 @@ body.r37 .head-actions .btn,body.r37 .child-pill{color:#1d2158}
  .r37-stage{gap:6px}.r37-q{padding:8px 14px}.r37-qe{font-size:34px}.r37-qt{font-size:26px}.r37-opts{gap:6px}.r37-opt{min-height:48px;font-size:20px}.r37-pfoot{min-height:56px;padding-top:2px}.r37-fb{padding:6px 14px}.r37-ptop{padding:4px 14px}.r37-learn{gap:6px}.r37-wc{padding:6px;flex-direction:row;justify-content:space-around}
  .r37-diffs{grid-template-columns:repeat(5,1fr)}.r37-df{min-height:70px}.r37-dl{display:none}
 }
+.r37-login{display:grid;justify-items:center;gap:14px;padding:26px 30px;border-radius:28px;background:rgba(255,255,255,.94);color:#1d2158;font-size:20px;text-decoration:none}.r37-login .r37-lk{font-size:54px}.r37-login .r37-go{text-decoration:none}
 .r37-gate{position:relative;z-index:2;flex:1;min-height:0;overflow:auto;display:grid;place-items:center;padding:8px 14px}.r37-gate .card{margin:0!important;width:100%}
 .r37-path.n3{grid-template-columns:repeat(3,1fr);grid-template-rows:1fr;max-width:640px}.r37-path.n3 .r37-node{width:min(100%,clamp(80px,22vmin,170px))}
 @media(max-height:520px){.r37-path.n3{grid-template-columns:repeat(3,1fr)!important;grid-template-rows:1fr!important}}
@@ -5450,7 +5451,8 @@ let importDraft={title:'英文默書',date:'',raw:'',confirmed:false,source:'upl
 
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const WQ_LOCAL_TEST_ALLOWED=location.protocol==='file:'||['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname);
-const WQ_TEST_MODE=WQ_LOCAL_TEST_ALLOWED&&new URLSearchParams(location.search).get('mode')==='admin-test';
+const WQ_TEST_MODE=new URLSearchParams(location.search).get('mode')==='admin-test';
+const R37_ADMIN=Object.freeze({salt:'wordquest-live-admin-r37-388a01aaa87b55e6',hash:'6b3ef1bcd806e023476c9b2b42e16dbc83b087f1eabb6f97818746738fdebb87'});
 const DBKEY_PREFIX=WQ_TEST_MODE?'wordquest-v29-test-user-':'wordquest-v10-user-';
 const AUTHKEY=WQ_TEST_MODE?'wordquest-v29-test-accounts':'wordquest-v10-accounts';
 const SESSIONKEY=WQ_TEST_MODE?'wordquest-v29-test-current-account':'wordquest-v10-current-account';
@@ -6641,10 +6643,10 @@ const v20OriginalToast=toast;toast=function(message,type='ok'){if(lastRoute!=='r
    Role is derived from the reserved session ID, never a user-supplied backup role/name. */
 async function loginTestAdmin(){
  if(!WQ_TEST_MODE){toast('標準版沒有管理員功能。','bad');return;}
- if(authBusy)return;const pin=$('#login-pin')?.value||'';if(!/^\d{4}$/.test(pin)){toast('帳戶名稱或 PIN 不對，請再試一次。','bad');return;}
+ if(authBusy)return;const pin=$('#login-pin')?.value||'';if(!(WQ_LOCAL_TEST_ALLOWED?/^\d{4}$/:/^.{10,128}$/).test(pin)){toast('帳戶名稱或密碼不對，請再試一次。','bad');return;}
  authBusy=true;let previous='';let wroteSession=false;
  try{
-  const hash=await pinHash(pin,TEST_ADMIN.salt),expected=globalThis.crypto?.subtle?TEST_ADMIN.hash:TEST_ADMIN.legacyHash;
+  const hash=await pinHash(pin,WQ_LOCAL_TEST_ALLOWED?TEST_ADMIN.salt:R37_ADMIN.salt),expected=!globalThis.crypto?.subtle?(WQ_LOCAL_TEST_ALLOWED?TEST_ADMIN.legacyHash:''):WQ_LOCAL_TEST_ALLOWED?TEST_ADMIN.hash:R37_ADMIN.hash;
   if(hash!==expected){toast('帳戶名稱或 PIN 不對，請再試一次。','bad');return;}
   previous=sessionStorage.getItem(SESSIONKEY)||'';
   // Verify both storage mechanisms before switching accounts. Do not overwrite existing data.
@@ -6986,7 +6988,7 @@ loginAccount=async function(){
  }catch(e){toast(e.message,'bad');}finally{authBusy=false;}
 };
 const v23LegacyLoginView=adminPriorLoginView;
-loginView=function(){return v23LegacyLoginView().replace(/4 位數 PIN/g,'家長密碼（舊帳戶填 PIN）').replace('設定 4 位數 PIN','家長密碼（8 至 128 個字）').replace(/maxlength="4"/g,'maxlength="128"').replace(/inputmode="numeric"/g,'')+(!isLoggedIn()?`<p class="small muted">新帳戶要設定家長密碼，8 至 128 個字。${WQ_TEST_MODE?'這是測試版。Admin / 1234 只供測試假資料。':''}</p>`:'');};
+loginView=function(){return v23LegacyLoginView().replace(/4 位數 PIN/g,'家長密碼（舊帳戶填 PIN）').replace('設定 4 位數 PIN','家長密碼（8 至 128 個字）').replace(/maxlength="4"/g,'maxlength="128"').replace(/inputmode="numeric"/g,'')+(!isLoggedIn()?`<p class="small muted">新帳戶要設定家長密碼，8 至 128 個字。${WQ_TEST_MODE?(WQ_LOCAL_TEST_ALLOWED?'這是測試版。Admin / 1234 只供測試假資料。':'這是測試版，只供測試假資料。'):''}</p>`:'');};
 const v23OriginalRender=render;
 render=function(){
  if(pgGame&&!pgPause()){if(location.hash.slice(1)!==lastRoute)location.hash='#'+lastRoute;pgOverlay();return;}
@@ -7563,10 +7565,10 @@ const wq29PriorLoginView=loginView;
 loginView=function(){
  if(!WQ_TEST_MODE)return wq29PriorLoginView().replace('V23 標準版沒有預設管理員。','');
  if(isLoggedIn())return `<section class="card pad wq29-login"><p class="wq29-eyebrow">測試專用環境</p><h1>已登入 ${esc(currentAccount().name)}</h1><p>這裏只使用測試資料。</p><div class="wq29-actions">${link('進入遊戲街機','game','primary')}${link('測試中心','admin')}${btn('登出測試帳戶','logout','soft')}</div></section>`;
- return `<section class="wq29-login card pad"><p class="wq29-eyebrow">測試專用 · 資料另外儲存</p><h1>測試帳戶登入</h1><p>登入後可試玩全部 26 款遊戲、三種難度，並測試教材、學習、報告與備份。</p><div class="wq29-credentials"><div><span>測試帳戶</span><strong>Admin</strong></div><div><span>測試密碼</span><strong>1234</strong></div></div><div class="field"><label for="login-name">帳戶</label><input id="login-name" value="Admin" autocomplete="username" maxlength="40"></div><div class="field"><label for="login-pin">測試密碼</label><input id="login-pin" type="password" maxlength="128" autocomplete="current-password" value="1234"></div><div class="wq29-actions">${btn('登入測試中心','login-submit','primary full')}</div><div class="wq29-actions">${link('先看遊戲街機','game','soft')}<a class="btn quiet" data-wq29-mode href="${esc(wq29ModeURL(false))}">返回一般網站</a></div><p class="wq29-caption">第一次登入送 50 枚測試金幣。預設全部開放、遊戲免費，也可以改用正常規則。測試用的資料、相片和音檔，另外儲存，不會自動進入孩子的正式紀錄。請不要匯入真實孩子的資料。</p><p id="wq29-login-error" role="status"></p></section>`;
+ return `<section class="wq29-login card pad"><p class="wq29-eyebrow">測試專用 · 資料另外儲存</p><h1>測試帳戶登入</h1><p>登入後可試玩全部 26 款遊戲、三種難度，並測試教材、學習、報告與備份。</p><div class="wq29-credentials"><div><span>測試帳戶</span><strong>Admin</strong></div>${WQ_LOCAL_TEST_ALLOWED?'<div><span>測試密碼</span><strong>1234</strong></div>':''}</div><div class="field"><label for="login-name">帳戶</label><input id="login-name" value="Admin" autocomplete="username" maxlength="40"></div><div class="field"><label for="login-pin">測試密碼</label><input id="login-pin" type="password" maxlength="128" autocomplete="current-password" value="${WQ_LOCAL_TEST_ALLOWED?'1234':''}"></div><div class="wq29-actions">${btn('登入測試中心','login-submit','primary full')}</div><div class="wq29-actions">${link('先看遊戲街機','game','soft')}<a class="btn quiet" data-wq29-mode href="${esc(wq29ModeURL(false))}">返回一般網站</a></div><p class="wq29-caption">第一次登入送 50 枚測試金幣。預設全部開放、遊戲免費，也可以改用正常規則。測試用的資料、相片和音檔，另外儲存，不會自動進入孩子的正式紀錄。請不要匯入真實孩子的資料。</p><p id="wq29-login-error" role="status"></p></section>`;
 };
 adminView=function(){
- if(!isTestAdmin())return WQ_TEST_MODE?`<section class="card pad"><h1>管理員測試</h1><p>請先進入本機測試環境，再用 Admin／1234 登入。</p>${link('測試帳戶登入','login','primary')}</section>`:`<section class="card pad"><h1>找不到這個頁面</h1><p>這個頁面不存在，請返回首頁。</p>${link('返回首頁','kid','primary')}</section>`;
+ if(!isTestAdmin())return WQ_TEST_MODE?`<section class="card pad"><h1>管理員測試</h1><p>請用 Admin 帳戶登入。</p>${link('測試帳戶登入','login','primary')}</section>`:`<section class="card pad"><h1>找不到這個頁面</h1><p>這個頁面不存在，請返回首頁。</p>${link('返回首頁','kid','primary')}</section>`;
  const free=adminUnlocks(),c=activeChild();
  return `<section class="wq29-admin"><header class="wq29-admin-head"><div><p class="wq29-eyebrow">SMARTQUEST PLANET · ADMIN SANDBOX</p><h1>測試中心</h1><p>只操作測試帳戶，不會改動孩子的學習成績。</p></div><a href="#game" class="btn primary big">${wq29Icon} 進入遊戲街機</a></header><section class="wq29-mode card pad"><div><span class="wq29-mode-tag">${free?'全部開放 · 免費試玩':'正常規則 · 測試金幣'}</span><h2>${free?'所有遊戲及課後小測已開放':'測試扣金幣、解鎖和五局上限'}</h2><p>${free?'不收金幣，也沒有五局上限。遊戲本身仍有生命和過關條件。造型可以直接試用。':'每局 1 至 4 枚金幣（按遊戲不同），仍要先達到學習門檻。可以在遊戲設定提前開放，或重設下一輪。'}</p></div><button class="btn secondary" data-wq29="toggle-mode">${free?'改用正常規則測試':'開放全部功能免費測試'}</button></section><section class="wq29-test-tools card pad"><div><small>測試金幣（不是正式餘額）</small><strong id="wq29-test-balance">${c.stars}</strong><button class="btn soft" data-wq29="add-coins">增加 20 枚測試金幣</button></div><label for="wq29-difficulty">下一局遊戲難度<select id="wq29-difficulty">${['入門','標準','挑戰'].map((n,i)=>`<option value="${i}" ${pgChild().difficulty===i?'selected':''}>${n}</option>`).join('')}</select></label>${link('金幣／遊戲規則設定','game-settings','soft')}</section><section class="card pad"><h2>全部 26 款遊戲</h2><p>點遊戲看玩法，再按「${free?'免費開始測試':'投金幣開始'}」。</p><div class="wq29-games">${COIN28.catalog.map(g=>`<button class="btn secondary" data-a28="intro" data-id="${g.id}">${esc(a28Meta(g.id).name)}</button>`).join('')}</div></section><section class="card pad"><h2>教材、學習與家長功能</h2><div class="wq29-feature-links">${[['孩子學習首頁','kid'],['選擇題型／默書測試','practice'],['拍照／上傳默書範圍','range-new'],['默書範圍管理','ranges'],['拼字家族','spelling-family'],['拼讀課程','phonics'],['圖片與讀音／教材包','offline'],['孩子資料管理','children'],['家長總覽','parent'],['學習報告','report'],['設定／備份與還原','settings']].map(([n,r])=>link(n,r,'secondary')).join('')}</div><p class="wq29-caption">OCR 或語音功能，仍需要網絡、合適的裝置和權限。</p></section><section class="card pad admin-courses"><h2>拼字專家 · 十二課</h2><div class="admin-lessons">${PC.lessons.map(l=>`<article><strong>${l.number} · ${esc(l.pattern)}</strong><span>${esc(l.title)}</span><div>${pcBtn('看教學','learn',`data-lesson="${l.id}"`,'secondary')}${pcBtn('課後小測','quiz',`data-lesson="${l.id}" ${pcReadyToTest(l.id)?'':'disabled'}`,'primary')}</div></article>`).join('')}</div></section><details class="card pad"><summary>重新開始測試</summary><p>只會重設測試帳戶的教材、答題、金幣和遊戲資料，不會刪除正式帳戶。</p>${adminButton('重設測試資料','reset','','danger')} ${link('先匯出測試備份','settings','secondary')}</details></section>`;
 };
@@ -7578,8 +7580,8 @@ render=function(){
  const nav=$('#wq29-nav');if(nav)nav.innerHTML=`<a class="btn soft" href="#kid">學習首頁</a><a class="btn primary" id="wq29-game-nav" href="#game">${wq29Icon} 遊戲街機</a>${isTestAdmin()?'<a class="btn secondary" href="#admin">測試中心</a>':WQ_TEST_MODE?link('測試帳戶登入','login','secondary'):wq29AdminLink('管理員測試','quiet')}`;
  if(['kid','login'].includes(lastRoute)&&!$('#wq29-portal-title'))$('#app').insertAdjacentHTML('afterbegin',wq29Portal());
  if(lastRoute==='admin'&&isTestAdmin())$('#app').innerHTML=adminView();
- if(WQ_TEST_MODE&&!$('#wq29-test-banner')){const b=document.createElement('aside');b.id='wq29-test-banner';b.className='wq29-test-banner';b.setAttribute('aria-label','目前是測試環境');b.innerHTML=`<strong>測試專用環境</strong><span>只用假資料 · ${isTestAdmin()?(adminUnlocks()?'全部開放，免費試玩':'按正常規則測試'):'帳戶 Admin ／ 密碼 1234'}</span><a data-wq29-mode href="${esc(wq29ModeURL(false))}">返回一般網站</a>`;$('.header')?.insertAdjacentElement('afterend',b);}
- const b=$('#wq29-test-banner');if(b){const span=b.querySelector('span');span.textContent='只用假資料 · '+(isTestAdmin()?(adminUnlocks()?'全部開放，免費試玩':'按正常規則測試'):'帳戶 Admin ／ 密碼 1234');}
+ if(WQ_TEST_MODE&&!$('#wq29-test-banner')){const b=document.createElement('aside');b.id='wq29-test-banner';b.className='wq29-test-banner';b.setAttribute('aria-label','目前是測試環境');b.innerHTML=`<strong>測試專用環境</strong><span>只用假資料 · ${isTestAdmin()?(adminUnlocks()?'全部開放，免費試玩':'按正常規則測試'):(WQ_LOCAL_TEST_ALLOWED?'帳戶 Admin ／ 密碼 1234':'請用 Admin 帳戶登入')}</span><a data-wq29-mode href="${esc(wq29ModeURL(false))}">返回一般網站</a>`;$('.header')?.insertAdjacentElement('afterend',b);}
+ const b=$('#wq29-test-banner');if(b){const span=b.querySelector('span');span.textContent='只用假資料 · '+(isTestAdmin()?(adminUnlocks()?'全部開放，免費試玩':'按正常規則測試'):(WQ_LOCAL_TEST_ALLOWED?'帳戶 Admin ／ 密碼 1234':'請用 Admin 帳戶登入'));}
  const badge=$('#v25-build-badge');if(badge)badge.textContent=WQ_TEST_MODE?'測試版':'遊戲街機';
  $('.head-actions .preview')?.remove();
  for(const n of $$('.admin-state'))n.remove();
@@ -11243,7 +11245,8 @@ function r37EnDistractors(word,pool,n,near,rng){
  return r37Shuf(ranked,rng).slice(0,n);
 }
 function r37Edit(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n];}
-function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||'';}catch(_){return '';}}
+const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️'};
+function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||'';}catch(_){return R37_EMO[en]||'';}}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */
@@ -11310,7 +11313,7 @@ const r37A=(icon,label,href,cls='')=>`<a class="r37-tile ${cls}" href="${href}">
 const r37Stars=(n,max=5)=>'<span class="r37-st" aria-label="'+n+' 顆星">'+Array.from({length:max},(_,i)=>`<i class="${i<n?'on':''}">★</i>`).join('')+'</span>';
 function r37Top(extra=''){
  const c=activeChild(),ch=r37Char();
- return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">🪐</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():'—'}</span></div>`;
+ return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">🪐</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
 }
 function r37Nav(active){
  const items=[['kid','🪐','星系'],['p/english','🔤','英文'],['p/math','🔢','數學'],['p/olympiad','🧩','奧數'],['p/games','🎮','遊戲'],['p/parent','👪','家長']];
@@ -11545,7 +11548,8 @@ render=function(){
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
- else if(route==='p/parent'&&isLoggedIn()&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
+ else if(route==='p/parent'&&!isLoggedIn())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">🔒</div><b>家長請先登入</b><a class="r37-go" href="#login">登入</a></div></div>'+r37Nav('p/parent')+'</section>';
+ else if(route==='p/parent'&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));

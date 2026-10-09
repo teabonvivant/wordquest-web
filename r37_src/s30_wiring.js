@@ -51,7 +51,8 @@ render=function(){
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
- else if(route==='p/parent'&&isLoggedIn()&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
+ else if(route==='p/parent'&&!isLoggedIn())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">🔒</div><b>家長請先登入</b><a class="r37-go" href="#login">登入</a></div></div>'+r37Nav('p/parent')+'</section>';
+ else if(route==='p/parent'&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));

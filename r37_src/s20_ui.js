@@ -13,7 +13,7 @@ const r37A=(icon,label,href,cls='')=>`<a class="r37-tile ${cls}" href="${href}">
 const r37Stars=(n,max=5)=>'<span class="r37-st" aria-label="'+n+' 顆星">'+Array.from({length:max},(_,i)=>`<i class="${i<n?'on':''}">★</i>`).join('')+'</span>';
 function r37Top(extra=''){
  const c=activeChild(),ch=r37Char();
- return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">🪐</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():'—'}</span></div>`;
+ return `<div class="r37-bar"><a class="r37-back" href="#kid" aria-label="回星系">🪐</a><div class="r37-who"><span class="r37-av">${ch.icon}</span><span>${esc(c?.name||'小朋友')}</span></div>${extra}<span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
 }
 function r37Nav(active){
  const items=[['kid','🪐','星系'],['p/english','🔤','英文'],['p/math','🔢','數學'],['p/olympiad','🧩','奧數'],['p/games','🎮','遊戲'],['p/parent','👪','家長']];

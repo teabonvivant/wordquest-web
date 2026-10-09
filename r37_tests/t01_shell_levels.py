@@ -20,7 +20,7 @@ with sync_playwright() as p:
         pg.screenshot(path=str(SHOTS / f'home_{name}.png'))
         for hub in HUBS + ['lv/english', 'lv/math', 'lv/olympiad']:
             go(pg, '#' + hub)
-            sel = '.r37-tile,.r37-wtab,.r37-node,.r37-ptab,.r37-df' if not hub.startswith('p/games') else '.r37-tile'
+            sel = '.r37-tile,.r37-wtab,.r37-node,.r37-ptab,.r37-df,.r37-login' if not hub.startswith('p/games') else '.r37-tile'
             C.ok(fits(pg, sel), f'{name}: {hub} controls inside the viewport')
             C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), f'{name}: {hub} needs no page scroll')
         pg.screenshot(path=str(SHOTS / f'lv_{name}.png'))

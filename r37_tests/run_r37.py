@@ -20,6 +20,7 @@ JOBS = [
     ('t03-parent-chars', PY, 't03_parent_chars.py'),
     ('t04-games', PY, 't04_games.py'),
     ('t05-admin-regression', PY, 't05_admin_regression.py'),
+    ('t06-live-admin', PY, 't06_live_admin.py'),
     ('fps-module', PY, 'test_fps.py'),
     ('runner-module', PY, 'test_runner.py'),
 ]
