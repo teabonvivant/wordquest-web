@@ -22,6 +22,8 @@ JOBS = [
     ('t05-admin-regression', PY, 't05_admin_regression.py'),
     ('t06-live-admin', PY, 't06_live_admin.py'),
     ('t07-visual-daily', PY, 't07_visual_daily.py'),
+    ('t08-integration-fx', PY, 't08_integration_fx.py'),
+    ('t09-arcade', PY, 't09_arcade.py'),
     ('fps-module', PY, 'test_fps.py'),
     ('runner-module', PY, 'test_runner.py'),
 ]

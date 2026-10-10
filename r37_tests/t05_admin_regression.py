@@ -1,4 +1,4 @@
-"""R3.7 t05 - Admin test account sees every level; the English lesson (8 words + 20 questions, star rule) still works from the 英文星; maths/olympiad entries; routes outside the shell still render."""
+"""R3.7 t05 - Admin test account sees every level; the English lesson (8 words + 20 questions, star rule) still works from the 英文星; maths/olympiad entries; older pages render inside their planet frame."""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -46,10 +46,10 @@ with sync_playwright() as p:
     n = ev(pg, "L30.plan(LIB30,{uid:'U02',mode:'lesson',count:8,childId:'c1',sessionId:'zz'}).queue.filter(q=>q.mode==='study').length")
     C.ok(n == 8, f'a lesson still teaches 8 words ({n})')
 
-    # ---- routes outside the shell still render and the nav leads back to the planets ----
+    # ---- R3.8: the older pages still render, now inside their planet's frame with a way back to that planet ----
     for h in ['#classroom', '#game', '#ranges', '#report', '#settings', '#library', '#children', '#learning', '#assembly']:
         go(pg, h, 500)
-        C.ok(pg.evaluate("document.querySelector('#app').innerText.trim().length")>10 and not pg.evaluate("document.body.classList.contains('r37')"), f'{h} renders outside the shell')
+        C.ok(pg.evaluate("(document.querySelector('#app>.r37-leg .r37-legbody')?.innerText||'').trim().length")>10 and pg.evaluate("document.body.classList.contains('r37leg')&&/^#p\\//.test(document.querySelector('.r37-leg .r37-legt')?.getAttribute('href')||'')"), f'{h} renders inside its planet frame')
     go(pg, '#game', 500)
     nav = pg.evaluate("[...document.querySelectorAll('#wq29-nav a')].map(a=>a.getAttribute('href')+'|'+a.textContent.trim()).join(' ')")
     C.ok('#p/english|英文' in nav and '#p/games' in nav and '#p/parent' in nav, f'old pages link back to the planets: {nav}')

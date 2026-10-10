@@ -1,0 +1,85 @@
+/* R3.8 Arcade+ styles (s35_arcade.js). Prefix arx-. Touch targets >= 44px; animations only when motion is allowed. */
+/* ---- lobby reskin inside the planet shell: readable white text on the dark sky, white cards stay white ---- */
+.r37-leg[data-pl=games] .p30-lobby>h1,.r37-leg[data-pl=games] .p30-sec h2{color:#fff;text-shadow:0 2px 10px rgba(5,6,40,.55)}
+.r37-leg[data-pl=games] .p30-sec span,.r37-leg[data-pl=games] .p30-empty{color:#e3e6ff}
+.r37-leg[data-pl=games] .p30-lobby>.notice{color:#1d2158}
+.r37-leg[data-pl=games] .p30-card{background:#fff;border-radius:24px;box-shadow:0 10px 26px rgba(4,6,30,.45)}
+.arx-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:4px 0 12px}
+.arx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:6px 18px;border:0;border-radius:999px;background:linear-gradient(180deg,#ffe07a,#ffbf2e);color:#5a3a00;font:inherit;font-size:17px;font-weight:900;box-shadow:0 4px 0 #c78f12;cursor:pointer}
+.arx-btn:focus-visible,.arx-go:focus-visible,.arx-x:focus-visible,.arx-opt:focus-visible,.arx-pw:focus-visible,.arx-say:focus-visible{outline:3px solid #7cc8ff;outline-offset:2px}
+.arx-chip{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:4px 14px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-size:16px;font-weight:800}
+.arx-hint{color:#cfd4ff;font-size:14px}
+.arx-row{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:2px 2px 0;color:#1d2158}
+.arx-stars{display:inline-flex;gap:1px;font-style:normal;font-size:24px;line-height:1;letter-spacing:0}
+.arx-stars i{font-style:normal;color:#d3d5e6}
+.arx-stars i.on{color:#f2a900;text-shadow:0 1px 0 #a66d00}
+.arx-stars.big{font-size:32px;justify-content:center}
+.arx-best{display:inline-flex;align-items:center;min-height:26px;padding:1px 10px;border-radius:999px;background:#fff1c9;color:#5b3f00;font-size:14px;font-weight:850;white-space:nowrap}
+.arx-best.none{background:#eceefa;color:#4d5280;font-weight:700}
+.arx-tg{flex:1 0 100%;font-size:12.5px;line-height:1.35;color:#4d5280;font-variant-numeric:tabular-nums}
+/* ready / result card */
+.arx-pw{min-height:48px!important;font-size:17px!important;font-weight:850!important;background:#fff6dc!important;color:#5b3f00!important;border:2px solid #e3cb86!important;border-radius:14px}
+.arx-pw small{font-size:13px;font-weight:700;opacity:.8;margin-left:4px}
+.arx-pwstat{margin:0;padding:6px 10px;border-radius:12px;background:#e6f0e1;color:#23392f;font-size:15px;font-weight:800;text-align:center}
+.a28-overlaycard .arx-row{justify-content:center}
+.a28-overlaycard .arx-tg{text-align:center}
+.arx-res{display:grid;gap:3px;justify-items:center;margin:0}
+.a28-overlaycard.arx-on>.wq32-overlay-face{display:none}
+.arx-rec{display:flex;flex-wrap:wrap;gap:0 10px;align-items:baseline;justify-content:center;padding:5px 14px;border-radius:16px;background:linear-gradient(180deg,#fff2b8,#ffd15c);color:#5a3a00;box-shadow:0 3px 0 #c78f12;text-align:center}
+.arx-rec b{font-size:20px;line-height:1.3}
+.arx-rec span{font-size:14px;font-weight:800}
+.arx-rec.first{background:#e6f0ff;color:#1d2158;box-shadow:0 3px 0 #9db5e8}
+.arx-cl{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 10px}
+.arx-cap{font-size:14px;font-weight:850;color:#4d5280}
+.arx-new{font-style:normal;padding:2px 10px;border-radius:999px;background:#2c4752;color:#ffe07a;font-size:15px;font-weight:900}
+.a28-overlaycard>.arx-res .arx-next,.arx-next{margin:0;font-size:15px;line-height:1.4;font-weight:800;color:#2f3d4a;text-align:center}
+.arx-next.done{color:#8a5a00}
+.arx-has-rec .wq34-new{display:none}
+/* combo + shield badges over the game viewport (decorative, never take pointer events) */
+.arx-combo,.arx-shield{position:absolute;z-index:5;pointer-events:none;border-radius:999px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.arx-combo{right:10px;top:46px;padding:4px 14px;font-size:clamp(18px,3.4vw,30px);color:#fff;background:linear-gradient(180deg,#ff8a3d,#e0481f);box-shadow:0 3px 0 #8b2a10}
+.arx-combo[data-n="3"],.arx-combo[data-n="4"]{background:linear-gradient(180deg,#ffd15c,#f29a00);color:#4d3000;text-shadow:none}
+.arx-combo[data-n="5"],.arx-combo[data-n="6"],.arx-combo[data-n="7"],.arx-combo[data-n="8"],.arx-combo[data-n="9"]{background:linear-gradient(180deg,#d38bff,#8a3df0)}
+.arx-combo.hit{animation:arx-pop .28s ease-out}
+.arx-combo[hidden],.arx-shield[hidden]{display:none}
+.arx-shield{left:10px;top:46px;padding:3px 12px;font-size:clamp(13px,2.4vw,18px);color:#fff;background:rgba(40,100,200,.82);box-shadow:0 2px 0 rgba(10,30,90,.6)}
+@keyframes arx-pop{0%{transform:scale(.6)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+/* toast */
+.arx-toasts{position:fixed;left:50%;top:64px;transform:translateX(-50%);z-index:2147483000;display:grid;gap:6px;justify-items:center;width:min(94vw,440px);pointer-events:none}
+.arx-toast{padding:6px 14px;border-radius:999px;background:#1d2158;color:#fff;border:2px solid #ffd15c;font-size:15px;font-weight:800;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,.4);animation:arx-in .25s ease-out}
+@keyframes arx-in{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+/* dialogs: power-up quiz + achievements */
+.arx-dlg{border:0;padding:0;border-radius:24px;width:min(94vw,460px);max-height:92vh;background:#fff;color:#1d2158;box-shadow:0 20px 60px rgba(0,0,0,.55);overflow:auto}
+.arx-dlg.wide{width:min(94vw,640px)}
+.arx-dlg::backdrop{background:rgba(8,10,40,.62)}
+.arx-dh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 6px}
+.arx-dh h2{margin:0;font-size:22px;line-height:1.3}
+.arx-dh small{font-size:15px;opacity:.7;margin-left:4px}
+.arx-x{min-height:44px;padding:4px 16px;border:2px solid #c9cde6;border-radius:999px;background:#fff;color:#1d2158;font:inherit;font-size:16px;font-weight:800;cursor:pointer}
+.arx-dbody{display:grid;gap:10px;justify-items:center;padding:6px 16px 18px;text-align:center}
+.arx-dbody h3{margin:0;font-size:22px}
+.arx-dbody p{margin:0;font-size:16px;line-height:1.5}
+.arx-big{font-size:64px;line-height:1.1}
+.arx-word{display:flex;align-items:center;gap:10px;font-size:34px;font-weight:900}
+.arx-say{min-width:48px;min-height:48px;border:0;border-radius:50%;background:#eef0ff;font-size:24px;cursor:pointer}
+.arx-q{color:#4d5280}
+.arx-opts{display:grid;gap:10px;width:100%}
+.arx-opt{min-height:56px;padding:6px 14px;border:3px solid #c9cde6;border-radius:16px;background:#fff;color:#1d2158;font:inherit;font-size:22px;font-weight:850;cursor:pointer}
+.arx-opt.ok{background:#d8f5df;border-color:#2a9d57}
+.arx-opt.bad{background:#ffe0e0;border-color:#d44}
+.arx-opt:disabled{cursor:default}
+.arx-fb{font-weight:850}
+.arx-go{min-height:52px;width:100%;border:0;border-radius:16px;background:linear-gradient(180deg,#ffe07a,#ffbf2e);color:#5a3a00;font:inherit;font-size:19px;font-weight:900;box-shadow:0 4px 0 #c78f12;cursor:pointer}
+.arx-sum{color:#4d5280}
+.arx-achs{list-style:none;margin:0;padding:0;display:grid;gap:8px;width:100%;text-align:left}
+.arx-ach{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 12px;border-radius:16px;background:#f1f2fb;opacity:.82}
+.arx-ach.on{background:linear-gradient(180deg,#fff6d0,#ffe9a0);opacity:1}
+.arx-ai{font-size:30px;flex:none;width:40px;text-align:center}
+.arx-at{display:grid;gap:1px;flex:1;min-width:0}
+.arx-at b{font-size:17px}
+.arx-at small{font-size:13.5px;color:#4d5280}
+.arx-ap{font-size:14px;font-weight:850;color:#5b3f00;white-space:nowrap}
+.a28-dialog .arx-row{margin:0 0 8px;justify-content:flex-start}
+@media(max-width:700px){.arx-stars{font-size:22px}.arx-tg{font-size:12px}}
+@media(max-height:550px) and (orientation:landscape){.a28-overlaycard .arx-row{display:none}.a28-overlaycard .arx-pw{min-height:44px!important;font-size:15px!important;padding:4px 10px!important}.a28-overlaycard .arx-res{gap:3px}.arx-rec{padding:4px 10px}.arx-rec b{font-size:17px}.arx-rec span{font-size:13px}.arx-stars.big{font-size:28px}.arx-next{font-size:13px!important}.arx-pwstat{font-size:13px;padding:3px 8px}.arx-combo{top:38px}.arx-shield{top:38px}}
+@media(prefers-reduced-motion:reduce){.arx-combo.hit,.arx-toast{animation:none}}

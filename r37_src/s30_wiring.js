@@ -37,7 +37,7 @@ const r37PriorRender=render;
 render=function(){
  const route=(location.hash||'#kid').slice(1).split('?')[0];
  if(!R37_ROUTE.test(route)){
-  document.body.classList.remove('r37','r37-playing','r37leg');r37FpsStop();r37RunStop();
+  document.body.classList.remove('r37','r37-playing','r37leg');document.body.classList.toggle('r37arc',/^(playground|arcade-play|gameplay)$/.test(route));r37FpsStop();r37RunStop();
   const out=r37PriorRender.apply(this,arguments);
   try{r37FixNav();}catch(_){}
   try{r37Wrap(route);}catch(_){}
@@ -49,7 +49,7 @@ render=function(){
  if(route!=='rn/play')r37RunStop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='rn/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='rn/play');
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();

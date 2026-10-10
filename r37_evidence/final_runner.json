@@ -10,63 +10,77 @@
     "name": "t01-shell-levels",
     "file": "t01_shell_levels.py",
     "returncode": 0,
-    "last_line": "t01: 131/131 checks passed",
-    "seconds": 67
+    "last_line": "t01: 138/138 checks passed",
+    "seconds": 65
   },
   {
     "name": "t02-math-levels",
     "file": "t02_math_levels.py",
     "returncode": 0,
     "last_line": "t02: 30/30 checks passed",
-    "seconds": 37
+    "seconds": 35
   },
   {
     "name": "t03-parent-chars",
     "file": "t03_parent_chars.py",
     "returncode": 0,
     "last_line": "t03: 51/51 checks passed",
-    "seconds": 39
+    "seconds": 38
   },
   {
     "name": "t04-games",
     "file": "t04_games.py",
     "returncode": 0,
     "last_line": "t04: 42/42 checks passed",
-    "seconds": 60
+    "seconds": 62
   },
   {
     "name": "t05-admin-regression",
     "file": "t05_admin_regression.py",
     "returncode": 0,
     "last_line": "t05: 24/24 checks passed",
-    "seconds": 40
+    "seconds": 39
   },
   {
     "name": "t06-live-admin",
     "file": "t06_live_admin.py",
     "returncode": 0,
     "last_line": "t06: 19/19 checks passed",
-    "seconds": 28
+    "seconds": 25
   },
   {
     "name": "t07-visual-daily",
     "file": "t07_visual_daily.py",
     "returncode": 0,
     "last_line": "t07: 53/53 checks passed",
-    "seconds": 44
+    "seconds": 40
+  },
+  {
+    "name": "t08-integration-fx",
+    "file": "t08_integration_fx.py",
+    "returncode": 0,
+    "last_line": "t08: 78/78 checks passed",
+    "seconds": 35
+  },
+  {
+    "name": "t09-arcade",
+    "file": "t09_arcade.py",
+    "returncode": 0,
+    "last_line": "t09: 110/110 checks passed",
+    "seconds": 51
   },
   {
     "name": "fps-module",
     "file": "test_fps.py",
-    "returncode": 1,
-    "last_line": "AssertionError: no target found",
-    "seconds": 14
+    "returncode": 0,
+    "last_line": "ALL PASSED 9/9",
+    "seconds": 117
   },
   {
     "name": "runner-module",
     "file": "test_runner.py",
     "returncode": 0,
-    "last_line": "PASS test_fps_and_destroy",
-    "seconds": 46
+    "last_line": "ALL PASSED 13/13",
+    "seconds": 182
   }
 ]

@@ -60,7 +60,9 @@ def test_touch(pw):
     p.screenshot(path=SHOTS + '/mobile_play.png')
     # synthetic pointer fire at the correct target through the touch button
     aim(p, True); s0 = dbg(p)['score']
-    p.evaluate('''()=>{const b=document.querySelector('.wq37-fire');
+    # re-aim and fire in the same task, so moving targets cannot step into the line of fire in between
+    p.evaluate('''()=>{const d=WQ37FPS._debug,i=d.targets.findIndex(t=>t.word===d.correctWord);WQ37FPS._debugTurnTo(i);
+      const b=document.querySelector('.wq37-fire');
       b.dispatchEvent(new PointerEvent('pointerdown',{pointerType:'touch',pointerId:7,bubbles:true,cancelable:true,isPrimary:true}));
       b.dispatchEvent(new PointerEvent('pointerup',{pointerType:'touch',pointerId:7,bubbles:true}));}''')
     p.wait_for_timeout(200)

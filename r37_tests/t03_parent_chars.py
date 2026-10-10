@@ -8,8 +8,14 @@ from wq33 import PW  # noqa: E402
 C = Checker('t03')
 
 
+def skip_learn(pg):
+    while ev(pg, 'r37P && r37P.phase') == 'learn':
+        pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+
+
 def flawless(pg):
     for _ in range(ev(pg, 'r37P.qs.length')):
+        skip_learn(pg)
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
             pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===a).click()", q['answer'])
@@ -19,6 +25,7 @@ def flawless(pg):
 
 
 def wrong_once(pg):
+    skip_learn(pg)
     q = ev(pg, 'r37P.qs[r37P.i]')
     if q['mode'] == 'mcq':
         pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
@@ -49,7 +56,8 @@ with sync_playwright() as p:
         C.ok(ev(pg, f"JSON.parse(localStorage.getItem(r37Key())).diff") == n, f'level {n} is saved')
         # the level engine and the older practice flows both follow it
         qs = ev(pg, "r37EnQuestions(0,2,r37Get().diff,5).length")
-        C.ok(qs == [6, 8, 8, 10, 12][n - 1], f'level {n}: English stage has {qs} questions')
+        # R3.8: a stage is a classroom unit, so every one of its 8 words is asked at least once
+        C.ok(qs == [8, 8, 8, 10, 12][n - 1], f'level {n}: English stage has {qs} questions')
         pn = ev(pg, "(()=>{startPractice('mcq');return db.session.queue.length})()")
         C.ok(pn == [6, 8, 8, 10, 12][n - 1], f'level {n}: dictation practice has {pn} questions')
         opts = ev(pg, "choiceOptions(db.words[0]).length")

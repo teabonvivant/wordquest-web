@@ -1,7 +1,15 @@
 PASS test_touch
 PASS test_desktop_keys_and_gates
 PASS test_perfect_runs
-PASS test_boss_needs_three_consecutive
+PASS test_vertical_dodging
+PASS test_spell_gate
+PASS test_listen_gate
+PASS test_boss_hp_phase
+PASS test_boss_attacks
+PASS test_powerups
+PASS test_endless
 PASS test_perks
-desktop avg frame interval 16.71 ms (59.9 fps); update+render 0.63 ms
+desktop avg frame interval 16.52 ms (60.5 fps); update+render 0.92 ms
 PASS test_fps_and_destroy
+PASS test_screenshots
+ALL PASSED 13/13
