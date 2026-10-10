@@ -83,9 +83,6 @@ with sync_playwright() as p:
       v20.items.forEach(c=>{c.selected=true;c.reviewed=true;c.excludedReason='';});
       const mine=v20.items.find(c=>c.en==='boxes');if(mine){mine.zh='盒子（家長寫的）';}
       v20Origin=v20Owner();importDraft.title='t13 forms';
-      let cb=document.querySelector('#confirm-import');
-      if(!cb){cb=document.createElement('input');cb.type='checkbox';cb.id='confirm-import';cb.style.display='none';document.body.appendChild(cb);}
-      cb.checked=true;
       return v20.items.map(c=>[c.en,c.zh]);})"""
     SAVE_ITEMS = ['books', 'ran', 'color', 'boxes', 'carelessly', 'blorp']
     pre = pg.evaluate("(a)=>window.__r37(a[0])(a[1])", [SETUP, SAVE_ITEMS])
@@ -93,7 +90,7 @@ with sync_playwright() as p:
     n0 = ev(pg, 'db.words.length')
     pg.evaluate("()=>window.__r37('saveRange()')")
     pg.wait_for_timeout(700)
-    C.ok(ev(pg, 'db.words.length') == n0 + len(SAVE_ITEMS), 'saveRange stored the six words')
+    C.ok(ev(pg, 'db.words.length') == n0 + len(SAVE_ITEMS), 'saveRange stored the six words (R3.12: no confirm tick is needed any more)')
     rows = ev(pg, """(()=>{const r=db.ranges[db.ranges.length-1];return db.words.filter(w=>w.rangeId===r.id).map(w=>({en:w.en,zh:w.zh,emoji:w.emoji,example:w.example,keys:Object.keys(w).sort(),
       pic:(()=>{try{const i=imageFor(w);return i?{src:String(i.src).slice(0,30),custom:!!i.custom}:null;}catch(e){return 'ERR '+e.message;}})(),
       html:(()=>{try{return picture(w).slice(0,60);}catch(e){return 'ERR '+e.message;}})()}));})()""")

@@ -30,14 +30,10 @@ html body #import-v20 #run-ocr:disabled{display:none}
 html body #import-v20 #run-ocr{min-height:44px;font-size:15px;background:#fff;color:var(--s50-ink);border:1.5px solid var(--s50-line)}
 html body #import-v20 #ocr-progress{order:7}
 html body #import-v20 #ocr-status{order:7}
-html body #import-v20 .v20-source .form-grid{order:8;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:8px;margin-top:12px}
-html body #import-v20 .v20-source .form-grid .v20-field{margin:0}
-html body #import-v20 .v20-source .form-grid label{font-size:12px;margin-bottom:3px;color:#5b4a3b}
-html body #import-v20 .v20-source .form-grid input{min-height:44px;padding:6px 10px;font-size:15px}
 html body #import-v20 #v20-text-details{order:9;margin-top:6px}
 html body #import-v20 .v20-source>details:not(#v20-text-details){display:none}
-html body #import-v20 .s50-priv{order:10;margin:6px 0 0;font-size:12px;line-height:1.5;color:#6b5a4c}
 html body #import-v20 #p40-bar1{order:11;margin-top:10px}
+html body #import-v20 #v20-text-details{margin-top:12px}
 html body #import-v20[data-s50-items="0"] #p40-bar1{display:none}
 
 /* ---- step 2: filter pills, compact cards, fixed action bar ---- */
@@ -60,8 +56,8 @@ html body #import-v20 .s50-knob::after{content:'';position:absolute;top:3px;left
 html body #import-v20 .s50-sw[aria-checked="true"] .s50-knob{background:var(--s50-amber)}
 html body #import-v20 .s50-sw[aria-checked="true"] .s50-knob::after{transform:translateX(18px)}
 html body #import-v20 .s50-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 6px}
-html body #import-v20 .s50-tools .btn{min-height:44px;font-size:15px;padding:0 14px;border:1.5px solid #cdb9a6;border-radius:22px;background:#fff;color:var(--s50-ink);font-weight:700}
-html body #import-v20 .s50-more summary{list-style:none;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:22px;border:1.5px solid #cdb9a6;background:#fff;font-weight:700;font-size:15px;color:var(--s50-ink);cursor:pointer}
+html body #import-v20 .s50-tools .btn{min-height:44px;font-size:14px;padding:0 11px;border:1.5px solid #cdb9a6;border-radius:22px;background:#fff;color:var(--s50-ink);font-weight:700}
+html body #import-v20 .s50-more summary{list-style:none;display:inline-flex;align-items:center;min-height:44px;padding:0 11px;border-radius:22px;border:1.5px solid #cdb9a6;background:#fff;font-weight:700;font-size:14px;color:var(--s50-ink);cursor:pointer}
 html body #import-v20 .s50-more summary::-webkit-details-marker{display:none}
 html body #import-v20 .s50-more{margin:0;position:relative}
 html body #import-v20 .s50-menu{display:flex;flex-direction:column;gap:2px;position:absolute;z-index:6;left:0;top:44px;min-width:190px;padding:6px;background:#fffaf2;border:1px solid var(--s50-line);border-radius:14px;box-shadow:0 8px 24px rgba(40,20,5,.22)}
@@ -84,8 +80,8 @@ html body #import-v20 .s50-grid .v20-candidate-foot{position:absolute;right:0;bo
 html body #import-v20 .s50-grid .v20-candidate-foot span{display:none}
 html body #import-v20 .s50-grid .v20-candidate-foot button{min-width:44px;min-height:44px;font-size:0;color:#643b23;padding:0}
 html body #import-v20 .s50-grid .v20-candidate-foot button::before{content:'✎';font-size:18px;line-height:1}
-html body #import-v20 .s50-grid .is-review .v20-candidate-foot button{font-size:13px;font-weight:800;color:#fff;background:#b45309;border-radius:14px;min-width:60px;min-height:44px;padding:0 10px;margin:0 4px 2px 0}
-html body #import-v20 .s50-grid .is-review .v20-candidate-foot button::before{content:none}
+html body #import-v20 .s50-grid .is-review .v20-candidate-foot button{font-size:0;color:#8a3b00;background:none;min-width:44px;min-height:44px;padding:0}
+html body #import-v20 .s50-grid .is-review .v20-candidate-foot button::before{content:'?';display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid #b45309;background:#fff6dc;color:#8a3b00;font-size:15px;font-weight:800;line-height:1}
 html body #import-v20 .s50-grid.sentences .v20-token strong{font-size:16px;line-height:1.5}
 html body #import-v20 .s50-skipped{margin:6px 0 0;border:1px solid #dac6b1;border-radius:14px;background:#fffdf8;padding:0 10px}
 html body #import-v20 .s50-skipped summary{display:flex;flex-wrap:wrap;gap:0 6px;align-items:center;min-height:44px;padding:6px 0;font-size:14px;font-weight:800;cursor:pointer;color:var(--s50-ink)}
@@ -104,17 +100,52 @@ html body #import-v20 .v20-selected-footer .inner>div{display:flex;flex-wrap:wra
 html body #import-v20 .v20-selected-footer small{font-size:13px;min-height:0;display:inline-flex;align-items:center}
 html body #import-v20 .v20-selected-footer .btn{min-height:48px}
 
-/* ---- step 3 ---- */
-html body #import-v20 #v20-summary{padding:12px}
-html body #import-v20 #v20-summary h2{font-size:18px;margin:0 0 6px}
-html body #import-v20 .v20-summary-list{margin:6px 0;padding:0}
-html body #import-v20 .v20-summary-list li{min-height:48px}
-html body #import-v20 #v20-summary .p40-bar{position:sticky;bottom:0;z-index:5;margin:10px -12px -12px;padding:8px 12px;gap:8px;background:#fffaf2;border:0;border-top:2px solid var(--s50-line);border-radius:0 0 20px 20px;box-shadow:0 -6px 16px rgba(20,10,40,.18)}
-html body #import-v20 #v20-summary .p40-bar .p40-why{flex:1 1 100%;margin:0;font-size:13px;padding:5px 8px}
-html body #import-v20 #v20-summary .p40-bar .btn{min-height:50px;font-size:17px;font-weight:800}
-html body #import-v20 #v20-summary .p40-bar .btn.primary{flex:1 1 auto}
-html body #import-v20 .v20-summary-check{min-height:48px;font-size:15px}
+/* ---- R3.12 step 2: name / date row, one save button, cards scroll inside their own box ---- */
+html body #import-v20 .s50-meta{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:8px;margin:0 0 6px}
+html body #import-v20 .s50-meta .v20-field{margin:0;min-width:0}
+html body #import-v20 .s50-meta label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html body #import-v20 .s50-meta input{min-height:44px;padding:6px 10px;font-size:15px;width:100%;box-sizing:border-box}
+html body #import-v20[data-p40-step="2"] .v20-selection>.row.between>h2{display:none}
+html body #import-v20[data-p40-step="2"] .v20-selection>.row.between{justify-content:space-between}
+html body .r37-legbody:has(#import-v20[data-p40-step="2"]:not([data-s50-saved])){display:flex;flex-direction:column;overflow:hidden;padding-bottom:0}
+html body .r37-legbody:has(#import-v20[data-p40-step="2"]:not([data-s50-saved]))>*{width:100%;box-sizing:border-box}
+html body .r37-legbody:has(#import-v20[data-p40-step="2"]:not([data-s50-saved]))>.tabs{flex:none}
+html body #import-v20[data-p40-step="2"] .p40-steps{margin:0 0 6px}
+html body #import-v20[data-p40-step="2"] .p40-step>button,html body #import-v20[data-p40-step="2"] .p40-step>span{min-height:40px;padding-top:2px;padding-bottom:2px}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved]){flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved])>*{flex:none}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved])>.v20-layout{display:flex!important;flex-direction:column;flex:1 1 auto;min-height:0}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved]) .v20-selection{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;width:100%;box-sizing:border-box;margin-left:0;margin-right:0}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved]) .v20-selection>*{flex:none}
+html body #import-v20[data-p40-step="2"]:not([data-s50-saved]) #word-editor{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+html body #import-v20 .s50-grid.s50-flash{outline:3px solid var(--s50-amber);outline-offset:-2px;border-radius:14px;background:#fff0df}
 
+/* the dock: 逐個核對 (small, only when something is flagged) + 儲存 */
+html body #import-v20 .v20-selected-footer{flex:none;position:relative;bottom:auto}
+html body #import-v20 .v20-selected-footer .inner>div{display:none}
+html body #import-v20 .v20-selected-footer .inner{justify-content:flex-end;gap:8px}
+html body #import-v20 .v20-selected-footer #v20-confirm-next{flex:1 1 auto;min-width:0;min-height:52px;font-size:18px;font-weight:800;padding:0 16px}
+html body #import-v20 .s50-review{flex:0 0 auto;min-height:48px;padding:0 12px;border-radius:24px;border:1.5px dashed #b45309;background:#fff6dc;color:#7a3b00;font-size:14px;font-weight:800;white-space:nowrap}
+html body #import-v20 .s50-review[hidden],html body #import-v20 .s50-over[hidden]{display:none!important}
+html body #import-v20 .s50-over{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:flex-end}
+html body #import-v20 .s50-over span{flex:1 1 100%;font-size:15px;font-weight:800;color:var(--s50-ink)}
+html body #import-v20 .s50-over .btn{min-height:48px;font-size:16px;font-weight:800;padding:0 16px}
+html body #import-v20 .s50-over .btn.primary{flex:1 1 auto}
+html body #import-v20 .v20-selected-footer[data-s50-over="1"] .inner{display:none}
+html body #import-v20 .s50-accept{border-style:dashed;border-color:#b45309;color:#7a3b00}
+
+/* ---- the saved card ---- */
+html body #import-v20[data-s50-saved] .v20-layout,html body #import-v20[data-s50-saved] .v20-selected-footer,html body #import-v20[data-s50-saved] #p40-steps,
+html body #import-v20[data-s50-saved] #p40-draftnote,html body #import-v20[data-s50-saved] #p40-bar1{display:none!important}
+html body #import-v20 .s50-saved{max-width:520px;margin:18px auto 0;text-align:center;padding:22px 18px}
+html body #import-v20 .s50-saved-mark{width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:#e7f4ed;color:#136f74;font-size:38px;font-weight:900;line-height:64px}
+html body #import-v20 .s50-saved h2{font-size:24px;margin:0 0 6px}
+html body #import-v20 .s50-saved-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+html body #import-v20 .s50-saved-btns .btn{min-height:56px;font-size:19px;font-weight:800;width:100%}
+
+@media(max-width:600px){
+ html body .r37-legbody:has(#import-v20[data-p40-step="2"]:not([data-s50-saved]))>.tabs{display:none}
+}
 @media(min-width:900px){
  html body #import-v20 .s50-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
 }

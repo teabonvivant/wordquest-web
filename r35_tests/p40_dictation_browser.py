@@ -16,31 +16,22 @@ FORBIDDEN = ['成績', '通過', '合格', '分數', '計時', '原站', '有效
 
 
 def add_range(pg, txt=PASTE, title=None, date=None):
+    """R3.12: paste -> 整理 -> (name / date on step 2, optional) -> one press on 儲存. Flagged (needs-review) cards are saved as they are."""
     go_range_new(pg)
-    if title:
-        pg.fill('#range-title', title)
-    if date:
-        pg.fill('#range-date', date)
     pg.fill('#raw-words', txt)
     pg.wait_for_timeout(200)
     pg.click('[data-imp="parse"]')
     pg.wait_for_timeout(700)
-    for _ in range(40):
-        pend = pg.query_selector_all('.v20-grid .is-review [data-imp="edit"]')
-        if not pend:
-            break
-        pend[0].scroll_into_view_if_needed()
-        pend[0].click()
-        pg.wait_for_timeout(250)
-        if pg.query_selector('#v20-item-checked'):
-            pg.check('#v20-item-checked')
-            pg.click('[data-imp="save-edit"]')
-            pg.wait_for_timeout(250)
+    if title:
+        pg.fill('#range-title', title)
+    if date:
+        pg.fill('#range-date', date)
     pg.click('#v20-confirm-next')
-    pg.wait_for_timeout(500)
-    pg.check('#confirm-import')
-    pg.click('#v20-save-range')
-    pg.wait_for_timeout(1200)
+    try:
+        pg.wait_for_selector('#s50-saved', timeout=8000)
+    except Exception:
+        pass
+    pg.wait_for_timeout(300)
 
 
 def start_session(pg, items, mode='practice'):
@@ -77,7 +68,7 @@ def section_flow(c, p):
     pg.goto(URL)
     boot(pg)
     go_range_new(pg)
-    c.check('add-range: three named steps are shown', pg.query_selector('#p40-steps') is not None and len(pg.query_selector_all('#p40-steps li')) == 3, '', base=True)
+    c.check('add-range: R3.12 two named steps are shown (no separate save step)', pg.query_selector('#p40-steps') is not None and len(pg.query_selector_all('#p40-steps li')) == 2, '')
     c.check('add-range: step 1 shows only the photo / text part', vis_text(pg, '.v20-selection') is None and vis_text(pg, '.v20-source') is not None, '', base=True)
     title = pg.input_value('#range-title') or ''
     c.check('D22: name is pre-filled (默書 M月D日)', bool(__import__('re').match(r'^默書 \d{1,2}月\d{1,2}日$', title)), title, base=True)
@@ -93,9 +84,11 @@ def section_flow(c, p):
     next_vis = pg.evaluate("()=>{const e=document.querySelector('#p40-next1');return !!e&&e.getClientRects().length>0}")
     c.check('S3-09/R3.10: no words -> the next-step button is hidden (or disabled with its reason)',
             pg.is_disabled('#p40-next1') and (not next_vis or len(why1) > 5), why1, base=True)
-    # D11: the draft survives a reload
-    pg.fill('#range-title', 'Unit 9 測試')
+    # D11: the draft survives a reload. R3.12: the name sits on step 2, so the typed words are parsed first, then the name is changed.
     pg.fill('#raw-words', 'pencil | 鉛筆\nruler | 間尺')
+    pg.click('[data-imp="parse"]')
+    pg.wait_for_timeout(700)
+    pg.fill('#range-title', 'Unit 9 測試')
     pg.wait_for_timeout(900)
     ev(pg, "(()=>{window.dispatchEvent(new Event('pagehide'));})()")
     pg.reload()
@@ -104,11 +97,13 @@ def section_flow(c, p):
     raw_after = (pg.input_value('#raw-words') or '') if pg.query_selector('#raw-words') else ''
     c.check('D11: typed text is still there after a reload', 'pencil' in raw_after and 'ruler' in raw_after, repr(raw_after[:40]), base=True)
     c.check('D11: the title is still there after a reload', pg.input_value('#range-title') == 'Unit 9 測試', pg.input_value('#range-title'), base=True)
-    # parse -> step 2
-    if not raw_after.strip():
-        pg.fill('#raw-words', PASTE)
-    else:
-        pg.fill('#raw-words', PASTE)
+    c.check('D11: the parsed cards come back on step 2 (R3.12 draft keeps the check step)', ev(pg, "document.querySelector('#import-v20').dataset.p40Step") == '2' and ev(pg, 'v20.items.length') == 2,
+            ev(pg, "document.querySelector('#import-v20').dataset.p40Step"))
+    # back to step 1 -> new words -> parse -> step 2
+    pg.click('#p40-back2')
+    pg.wait_for_timeout(300)
+    open_text(pg)
+    pg.fill('#raw-words', PASTE)
     pg.click('[data-imp="parse"]')
     pg.wait_for_timeout(800)
     c.check('S3-09: after 整理 the check step opens by itself', vis_text(pg, '.v20-selection') is not None and vis_text(pg, '.v20-source') is None, '', base=True)
@@ -116,35 +111,26 @@ def section_flow(c, p):
     cl = (vis_text(pg, '#p40-count') or '') or ((vis_text(pg, '#v20-message') or '') + ' ' + (vis_text(pg, '#v20-import-dock') or ''))
     c.check('D4/S3-09: count line says how many are selected', '已選' in cl, cl, base=True)
     shot(pg, 'flow_step2_390')
-    for _ in range(40):
-        pend = pg.query_selector_all('.v20-grid .is-review [data-imp="edit"]')
-        if not pend:
-            break
-        pend[0].scroll_into_view_if_needed()
-        pend[0].click()
-        pg.wait_for_timeout(250)
-        if pg.query_selector('#v20-item-checked'):
-            pg.check('#v20-item-checked')
-            pg.click('[data-imp="save-edit"]')
-            pg.wait_for_timeout(250)
+    # R3.12 replaces the step-3 checks (inline summary / disabled save + reason / tick) with the equivalent one-step checks
+    n_flag = ev(pg, 'v20Pending().length')
+    c.check('R3.12: flagged cards are only a hint: 逐個核對 (n) is offered and 儲存 is live', n_flag > 0 and (vis_text(pg, '#s50-review') or '').count('(%d)' % n_flag) == 1 and not pg.is_disabled('#v20-confirm-next'), str(n_flag), base=False)
+    c.check('R3.12: there is no step 3 / summary / 我已對照原稿 tick anywhere', pg.query_selector('#v20-summary') is None and pg.query_selector('#confirm-import') is None and pg.query_selector('#v20-save-range') is None, '')
+    c.check('S3-09: the save button is in the first screen (fixed bar) and names the count', pg.evaluate("()=>{const e=document.querySelector('#v20-confirm-next').getBoundingClientRect();return e.top>=0&&e.bottom<=innerHeight}") and '儲存 12 個字' in (vis_text(pg, '#v20-confirm-next') or ''), vis_text(pg, '#v20-confirm-next') or '', base=False)
+    day_shown = pg.input_value('#range-date')
+    c.check('D22: R3.12 the date defaults to today (HK) once the words are parsed', bool(__import__('re').match(r'^\d{4}-\d{2}-\d{2}$', day_shown)), day_shown)
+    shot(pg, 'flow_step2_save_390')
     pg.click('#v20-confirm-next')
-    pg.wait_for_timeout(500)
-    inline = pg.evaluate("()=>{const e=document.querySelector('#v20-summary');return !!e&&!e.closest('dialog')&&e.getClientRects().length>0}")
-    c.check('S3-09: step 3 is a page section, not a pop-up', inline, '', base=True)
-    why3 = vis_text(pg, '#p40-why3') or ''
-    c.check('S3-09: save button disabled with its reason before 我已對照原稿', pg.is_disabled('#v20-save-range') and '勾選' in why3, why3, base=True)
-    shot(pg, 'flow_step3_390')
-    pg.check('#confirm-import')
-    pg.click('#v20-save-range')
-    pg.wait_for_timeout(1300)
+    pg.wait_for_selector('#s50-saved', timeout=8000)
+    pg.wait_for_timeout(300)
     rt = ev(pg, 'lastRoute')
-    c.check('D9: after saving the page lands on the range detail', rt == 'ranges' and pg.query_selector('.p40-saved') is not None, rt, base=True)
-    c.check('D9: the success line names the range and the word count', '共 12 個單字' in (vis_text(pg, '.p40-saved') or ''), vis_text(pg, '.p40-saved') or '', base=True)
-    c.check('D9: a button asks the child to start', pg.query_selector('[data-p40="start-kid"]') is not None, '', base=True)
-    c.check('D22: the saved range has no invented date', ev(pg, 'latestRange().dictationDate') == '', ev(pg, 'latestRange().dictationDate'))
+    c.check('D9: after saving the page shows the small success card', rt == 'range-new' and pg.query_selector('#s50-saved') is not None, rt, base=False)
+    c.check('D9: the card names the word count', '已儲存 12 個字' in (vis_text(pg, '#s50-saved') or ''), vis_text(pg, '#s50-saved') or '', base=False)
+    c.check('D9: the saved range holds the 12 words and the title', ev(pg, 'rangeWords(latestRange().id).length') == 12, '', base=False)
+    c.check('D9: a button asks the child to start (開始練習)', pg.query_selector('#s50-saved [data-s50="practice"]') is not None and pg.query_selector('#s50-saved [data-s50="again"]') is not None, '', base=False)
+    c.check('D22: the saved date is the one shown on the form (today by default), not an invented future date', ev(pg, 'latestRange().dictationDate') == day_shown, ev(pg, 'latestRange().dictationDate'))
     c.check('D11: the draft is cleared once saved', ev(pg, "(()=>{try{return Object.keys(localStorage).filter(k=>k.startsWith('wq35-p40-draft')).length}catch(e){return -1}})()") == 0, '', base=False)
     shot(pg, 'flow_landing_390')
-    pg.click('[data-p40="start-kid"]')
+    pg.click('#s50-saved [data-s50="practice"]')
     pg.wait_for_timeout(900)
     c.check('D9: 請孩子開始練習 starts a practice', ev(pg, 'lastRoute') in ('learn', 'kid') and ev(pg, '!!db.session') is True, ev(pg, 'lastRoute'), base=True)
     c.check('D17: the child side is no longer in parent mode', ev(pg, 'v23ParentUntil') == 0, str(ev(pg, 'v23ParentUntil')), base=True)
@@ -476,10 +462,13 @@ def section_layout(c, p):
         pg.wait_for_timeout(700)
         ov = pg.evaluate("()=>document.documentElement.scrollWidth-innerWidth")
         c.check('layout %s: the check-words step has no sideways scroll' % tag, ov <= 1, str(ov))
-        pg.click('#v20-confirm-next') if not pg.is_disabled('#v20-confirm-next') else None
-        pg.wait_for_timeout(400)
+        c.check('layout %s: R3.12 the 儲存 bar is inside the screen on the check step' % tag, pg.evaluate("()=>{const e=document.querySelector('#v20-confirm-next').getBoundingClientRect();return e.bottom<=innerHeight+1&&e.right<=innerWidth+1&&e.left>=-1}"), '')
+        pg.click('[data-s50="all"]')   # the same words were saved a moment ago (R3.11 leaves them un-selected as 已學過)
+        pg.wait_for_timeout(200)
+        pg.click('#v20-confirm-next')
+        pg.wait_for_selector('#s50-saved', timeout=8000)
         ov = pg.evaluate("()=>document.documentElement.scrollWidth-innerWidth")
-        c.check('layout %s: the save step has no sideways scroll' % tag, ov <= 1, str(ov))
+        c.check('layout %s: the saved card has no sideways scroll' % tag, ov <= 1, str(ov))
         ev(pg, 'clearImportDraft();render();')
         start_session(pg, [['grandmother', 'listenSpell']])
         ov = pg.evaluate("()=>document.documentElement.scrollWidth-innerWidth")

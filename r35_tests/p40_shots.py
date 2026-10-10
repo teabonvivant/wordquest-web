@@ -41,16 +41,11 @@ def run_size(p, w, h):
     pg.click('[data-imp="parse"]')
     pg.wait_for_timeout(800)
     S(pg, 'a4_step2')
-    for _ in range(40):
-        pend = pg.query_selector_all('.v20-grid .is-review [data-imp="edit"]')
-        if not pend:
-            break
-        pend[0].scroll_into_view_if_needed(); pend[0].click(); pg.wait_for_timeout(250)
-        if pg.query_selector('#v20-item-checked'):
-            pg.check('#v20-item-checked'); pg.click('[data-imp="save-edit"]'); pg.wait_for_timeout(250)
+    # R3.12: no step 3 any more - one press on 儲存 and the small success card shows
     pg.click('#v20-confirm-next')
-    pg.wait_for_timeout(500)
-    S(pg, 'a5_step3')
+    pg.wait_for_selector('#s50-saved', timeout=8000)
+    pg.wait_for_timeout(300)
+    S(pg, 'a5_saved')
     ev(pg, 'clearImportDraft();render();')
     start_session(pg, [['pencil', 'spell']])
     S(pg, 'c1_spell')

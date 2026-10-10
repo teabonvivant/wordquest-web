@@ -12,7 +12,36 @@
 | 記憶 | `localStorage['wq50-dict-prefs:<accountId>']` = `{minLen, basic}`。 |
 | 第 1 步 | 隱藏英雄標題／老虎老師卡／副題／返回列；拍照、上傳在最上；選相後自動 `runOCR()`（成功即進第 2 步）；框選後「用這個範圍」亦自動辨認；PSM／增強不再顯示；貼上文字預設收起。 |
 | 第 2 步 | 模式分頁及說明隱藏；全選／全不選＋「⋯ 更多」（只看要核對、合併字詞、復原、編輯基本字）；字卡整張可點，✎ 圖示修改，需核對＝虛線＋「核對」按鈕。 |
-| 固定操作列 | 第 2 步 `#v20-import-dock`、第 3 步 `.p40-bar` 都是 `position:sticky; bottom:0`（捲動容器是 `.r37-legbody`）。 |
+| 固定操作列 | 第 2 步 `#v20-import-dock`（R3.12 起沒有第 3 步，見文末）。 |
 
 測試：`WQ33_APP=app/index.html python3 r37_tests/t12_dictation_import.py`（相片＋貼文字，390×844 及 1440×900）。
 舊測試改動：`r35_tests/p40_lib35.go_range_new` 會先展開「或直接貼上文字」；`p40_dictation_browser.py` 兩項「disabled 按鈕說明原因」改為「按鈕不顯示或有原因」、一項「count line」改讀新的摘要行／操作列。
+
+## R3.11 s56：詞形標籤、同字根、已學過（第 2 步字卡）
+
+`r37_src/s56_morph_ui.{js,css}` ＋ `patches/s56_morph_ui.py`（接在 s55 之後，包住 `s50Apply`／`v20Card`／`s50FixLabels`）。
+
+- 標籤（字卡中文下一行，單行、過長以 … 截斷，全文在 `title`／`aria-label`）：`run 的過去式`、`美式串法 colour`、`寫法 ice cream`、`來自 quick`、`同字根 book`、`已學過 book`。優先次序：已學過 ＞ 同字根 ＞ 詞形／派生。
+- 同字根：同一次上傳中 `s55SameWord` 為真者只預選原文先出現的一個，其餘不預選但仍顯示（點選即加回）；手動選的不被推翻；兩字都是詞典條目（glass／glasses）不合併。
+- 已學過：當前孩子 `db.words` 有同字或同字根的字，預設不預選（手動可選）；示範範圍 `r_demo` 的字不計。
+- 詞典條目本身（quickly、children）只顯示派生提示「來自 quick」，不標詞形；`全選` 不會把同字根卡一併選上。
+- 測試：`r37_tests/t14_morph_ui.py`（390×844、1440×900）；`run_r37.py` 另含 `test_morph.cjs`、`t13`。
+
+
+## R3.12 s50：兩步、一按儲存（取代第 3 步「我已對照原稿」）
+
+只改 `r37_src/s50_dictation.{js,css}`；底版與 `r35_src/p40_*` 不動（p40 的 IIFE 私有，故用外面的覆寫）。
+
+| 項目 | 做法 |
+| --- | --- |
+| 沒有第 3 步 | `v20RenderSummary` 覆寫為空；`v20Summary`／`saveRange` 都改為 `s50TrySave()`，所以舊的 `data-imp="summary"`、`data-act="save-range"` 都是同一個動作。DOM 內不再有 `#confirm-import`、`#v20-summary`、`#v20-save-range`；`#p40-steps` 由 MutationObserver 收成兩步（拍照或輸入／檢查並儲存）。 |
+| 儲存鍵 | `#v20-confirm-next`（id 不變，host 的 `v20RenderWords` 要它）＝「✓ 儲存 N 個字」。N＝`s50SaveList()`：已選、英文可用（`validEnglish`、中文≤300）、同字（`V20.fold`）只留一個（有中文的優先）。不選字時顯示「先揀字」，按下高亮字卡並提示；辨認中顯示「辨認中…」（唯一的 disabled）。 |
+| 需核對 | 只是提示：虛線框＋小「?」（44px 觸控區）。儲存照樣存（中文可空）。儲存鍵旁「逐個核對 (n)」按了才逐個開，標題「核對 i / n」，「✓ 下一個」存好即當已核對並開下一個；工具列「全部接受 (n)」一鍵清掉。逐項的勾選框已隱藏，「保留」＝已核對。 |
+| 超過 120 | 按儲存後在固定列內問「只儲存前 120 個？」［返回］［儲存前 120 個］。 |
+| 名稱／日期 | 由第 1 步搬到第 2 步頂部一行（`#s50-meta`，標籤只給讀屏）。名稱＝`默書 M月D日`（p40 原有）；日期在進入第 2 步時預設今日（HK），相片上有日期則用相片的。 |
+| 成功卡 | 存好後留在同一頁，顯示 `#s50-saved`：「✓ 已儲存 N 個字」＋「開始練習」（`startDaily`，家長權限收回）／「再上傳」。取代舊的跳去範圍清單。 |
+| 版面 | 第 2 步 `.r37-legbody` 變 flex 欄，字卡區 `#word-editor` 自己捲動；儲存列固定在底；手機（≤600px）收起上方分頁列。 |
+| 文字 | 第 1 步只一行「光線夠亮、紙放平。相片不上傳。」；第 2 步只一行「找到 N 項，已選 M 個。」。 |
+
+測試：`r37_tests/t15_dictation_save.py`（四個尺寸、貼文字＋相片、點擊數、>120、0 項、核對流程）。
+舊測試改動見該次回報：t12／t13／t14 與 `r35_tests/p40_dictation_browser.py`、`p40_shots.py` 中第 3 步／勾選框的檢查已換成等價的新流程檢查。

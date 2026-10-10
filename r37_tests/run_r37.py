@@ -29,6 +29,10 @@ JOBS = [
     ('runner-module', PY, 'test_runner.py'),
     ('t11-learn-card', PY, 't11_learn_card.py'),
     ('t12-dictation-import', PY, 't12_dictation_import.py'),
+    ('morph-module', 'node', 'test_morph.cjs'),
+    ('t13-morph-import', PY, 't13_morph_import.py'),
+    ('t14-morph-ui', PY, 't14_morph_ui.py'),
+    ('t15-dictation-save', PY, 't15_dictation_save.py'),
 ]
 if __name__ == '__main__':
     want = [a.lower() for a in sys.argv[1:]]
