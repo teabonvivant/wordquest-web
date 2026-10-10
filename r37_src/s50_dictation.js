@@ -8,14 +8,32 @@ const S50_DEFAULT={minLen:3,basic:true};
 let s50Prefs=null,s50PrefsKey='',s50SkipOpen=false,s50BusyAuto=false;
 let s50Saved=null,s50Over=false,s50Review=null;   // R3.12: success card / over-120 prompt / one-by-one review state
 function s50Key(){let id='';try{id=String(accountId()||'');}catch(_){}return 'wq50-dict-prefs:'+(id||'guest');}
-function s50GetPrefs(){
+function s50Stored(){
  const k=s50Key();
  if(s50Prefs&&s50PrefsKey===k)return s50Prefs;
  let p={...S50_DEFAULT};
  try{const o=JSON.parse(localStorage.getItem(k)||'null');if(o&&typeof o==='object'){if([0,3,4,5].includes(o.minLen))p.minLen=o.minLen;if(typeof o.basic==='boolean')p.basic=o.basic;}}catch(_){}
  s50Prefs=p;s50PrefsKey=k;return p;
 }
-function s50SetPrefs(patch){const p=Object.assign(s50GetPrefs(),patch);try{localStorage.setItem(s50Key(),JSON.stringify(p));}catch(_){}return p;}
+/* R3.13: a list (one item per line) shows 不限 and no basic-word skipping until the parent chooses otherwise in this import */
+function s50IsListLayout(){
+ const live=v20.items.filter(c=>!c.excludedReason&&!(c.s50&&c.s50.dup)&&c.kind!=='sentence');
+ const n=live.filter(c=>c.s50x&&c.s50x.list).length;
+ return n>=3&&n>=live.length*0.6;
+}
+function s50GetPrefs(){
+ if(v20&&v20.s50Eff)return v20.s50Eff;
+ if(v20&&v20.items&&s50IsListLayout())return {minLen:0,basic:false};
+ return s50Stored();
+}
+function s50SetPrefs(patch){
+ const eff=Object.assign({},s50GetPrefs(),patch);
+ if(v20)v20.s50Eff=eff;
+ const p=Object.assign({},s50Stored(),patch);
+ s50Prefs=p;
+ try{localStorage.setItem(s50Key(),JSON.stringify(p));}catch(_){}
+ return eff;
+}
 const s50Letters=en=>(String(en||'').match(/[A-Za-z]/g)||[]).length;
 const s50Eligible=c=>!c.excludedReason&&c.kind!=='sentence'&&!/\s/.test(String(c.en||''));
 const s50HostExcluded=c=>!!c.excludedReason&&!c.selected;
@@ -36,10 +54,25 @@ function s50SaveList(){
 }
 
 /* Recompute which items the filter keeps. Hand-made choices (a change that this function did not make) always win. */
+/* a selected card must be something 儲存 can store: clean it, else leave it un-selected and say why (never a silent drop at the end) */
+function s50Sane(c){
+ if(!c.selected||validEnglish(c.en))return;
+ const t=s50Charset(c.en).replace(/^[^A-Za-z]+|[^A-Za-z.!?')]+$/g,'').trim();
+ if(t&&validEnglish(t)){
+  c.en=t;
+  const g=V20.gloss(t,v20Dictionary);
+  c.known=g.known;c.choices=g.choices;c.example=g.example;
+  if(!c.zh)c.zh=g.zh;
+  return;
+ }
+ c.selected=false;
+ c.excludedReason=c.excludedReason||'英文格式不合，請核對';
+}
 function s50Apply(){
  const P=s50GetPrefs();
  const groups=new Map();
  for(const c of v20.items){
+  try{s50Sane(c);}catch(_){}
   let m=c.s50;
   if(!m||typeof m!=='object'){m=c.s50={base:!!c.selected,sel:!!c.selected,manual:false,skip:false,dup:false};}
   else if(!!c.selected!==m.sel){m.manual=true;m.base=!!c.selected;}
@@ -49,7 +82,10 @@ function s50Apply(){
    const key=V20.fold(c.en);
    /* the built-in basic list also holds in / on / an / is: those short ones belong to the length pills, so 不限 keeps them */
    const basic=P.basic&&v20.common.has(key)&&!(V20.COMMON.has(key)&&s50Letters(c.en)<3);
-   m.skip=short||basic;
+   /* R3.13: a word that sat on its own line of a list is an item of the teacher's list, not a word of a text: the pills do not cut it
+    * until the parent touches them in this import */
+   const exempt=!v20.s50Eff&&c.s50x&&c.s50x.list;
+   m.skip=!exempt&&(short||basic);
   }
   const want=m.skip?false:m.base;
   if(!s50HostExcluded(c)||want){
@@ -89,7 +125,8 @@ function s50RenderEditor(){
  const seg=S50_LENS.map(([v,t])=>`<button type="button" data-s50="len" data-v="${v}" aria-pressed="${P.minLen===v}">${t}</button>`).join('');
  const chips=skipped.map(c=>`<button type="button" class="s50-chip" data-s50="addback" data-id="${esc(c.id)}" aria-label="加回 ${esc(c.en)}"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en)}</span></button>`).join('')
   +excluded.map(c=>`<button type="button" class="s50-chip s50-chip-odd" data-imp="restore" data-id="${esc(c.id)}" title="${esc(c.excludedReason)}" aria-label="加回 ${esc(c.en)}（${esc(c.excludedReason)}）"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en.length>24?c.en.slice(0,23)+'…':c.en)}</span></button>`).join('');
- box.innerHTML=`<div class="s50-filters">
+ const poor=v20Photo&&s50OcrPoor();
+ box.innerHTML=`${poor?`<div class="s50-retry s50-retry-2">${s50RetryHtml()}</div>`:''}<div class="s50-filters">
   <div class="s50-row"><span class="s50-lab" id="s50-lab">字母數</span><div class="s50-seg" role="group" aria-labelledby="s50-lab">${seg}</div></div>
   <button type="button" class="s50-sw" role="switch" aria-checked="${P.basic}" data-s50="basic"><span class="s50-knob" aria-hidden="true"></span><span>略過基本字<small>（the、and、you…）</small></span></button>
  </div>
@@ -145,6 +182,7 @@ function s50FixLabels(){
 }
 const s50PriorRW=v20RenderWords;
 v20RenderWords=function(){
+ try{s50Normalise();}catch(e){try{console.warn('s50',e);}catch(_){}}
  try{s50Apply();}catch(e){try{console.warn('s50',e);}catch(_){}}
  const r=s50PriorRW.apply(this,arguments);
  try{s50RenderEditor();s50ShrinkLong();s50FixLabels();}catch(e){try{console.warn('s50',e);}catch(_){}}
@@ -187,6 +225,8 @@ document.addEventListener('click',e=>{
   else if(a==='review')s50StartReview();
   else if(a==='save120'){s50Over=false;s50Commit(s50SaveList().slice(0,120));}
   else if(a==='over-back'){s50Over=false;s50FixLabels();}
+  else if(a==='retry-enh')s50Retry('enh');
+  else if(a==='retry-crop')s50Retry('crop');
   else if(a==='practice')s50Practice();
   else if(a==='again'){s50Saved=null;render();}
  }catch(err){try{console.warn('s50',err);}catch(_){}}
@@ -207,7 +247,8 @@ function s50Nudge(){
 }
 function s50TrySave(){
  if(v20.saving)return;
- if(v20.rawDirty){toast('原文改了，請先按「整理成可選字詞」。','bad');$('#p40-back2')?.click();return;}
+ s50Err('');
+ if(v20.rawDirty){s50Err('原文改了，請先按「整理成可選字詞」。');$('#p40-back2')?.click();return;}
  if(ocrBusy||v20FileLoading)return;
  const list=s50SaveList();
  if(!list.length){s50Nudge();return;}
@@ -218,9 +259,9 @@ function s50Commit(list){
  if(v20.saving||!list.length)return;
  captureImportDraft();
  const c=activeChild();
- if(!c||v20Origin&&v20Origin!==v20Owner()){toast('孩子或帳戶已切換，請重新匯入。','bad');return;}
+ if(!c||v20Origin&&v20Origin!==v20Owner()){s50Err('孩子或帳戶已切換，請重新匯入。');return;}
  const title=(importDraft.title||'').trim()||'英文默書';
- if(title.length>120){toast('名稱請用 120 字以內。','bad');$('#range-title')?.focus();return;}
+ if(title.length>120){s50Err('名稱請用 120 字以內。');$('#range-title')?.focus();return;}
  let date=String(importDraft.date||'');
  if(date){try{WQEducation.validDate(date);}catch(_){date='';}}
  const dropped=v20Selected().length-list.length;
@@ -235,7 +276,7 @@ function s50Commit(list){
    db.words.push({id:uid('w'),childId:c.id,rangeId:r.id,en:x.en,zh:x.zh,kind:x.kind,example:meta.choices.length===1&&meta.zh===x.zh?meta.example:'',emoji:'',createdAt:new Date().toISOString(),studySeen:0,reviewLevel:0,reviewDue:null,lastSeen:null,importEvidence:v20ValidateEvidence({mode:v20.mode,checked:true,sources})});
   }
   c.activeRangeId=r.id;db.session=null;
-  if(!save()){db=before;toast('儲存失敗。選好的字和草稿還在，請先備份再試。','bad');return;}
+  if(!save()){db=before;s50Err('儲存失敗。選好的字和草稿還在，請先備份再試。');return;}
   const wasLogged=isLoggedIn();
   clearImportDraft();
   mediaSelectedRange=r.id;mediaMessage='已加入你選定的默書內容。請核對圖片及準備讀音。';
@@ -244,7 +285,7 @@ function s50Commit(list){
   render();
  }catch(e){
   db=before;
-  toast('儲存失敗。原有教材沒有改動，草稿還在，請再試一次。','bad');
+  s50Err('儲存失敗。原有教材沒有改動，草稿還在，請再試一次。');
  }finally{v20.saving=false;}
 }
 /* every route into saving ends here: the host's save-range button, the old 確認加入 and the dock all mean the same thing */
@@ -410,6 +451,13 @@ function s50Enhance(){
  s50SeedDate();
  s50SavedCard(root);
  s50FixLabels();
+ try{s50RetryUi();}catch(_){}
+ if(!root._s50RetryObs){
+  /* p40 sets the warn / bad class on #ocr-status after it wrote the text: look again when the status changes */
+  let t=0;
+  root._s50RetryObs=new MutationObserver(()=>{clearTimeout(t);t=setTimeout(()=>{try{s50RetryUi();}catch(_){}},30);});
+  root._s50RetryObs.observe(root,{subtree:true,attributes:true,attributeFilter:['class'],childList:true,characterData:true});
+ }
  if(!root._s50Obs){
   const sc=()=>{const body=root.closest('.r37-legbody');if(body)body.scrollTop=0;s50SeedDate();s50FixLabels();};
   root._s50Obs=new MutationObserver(sc);root._s50Obs.observe(root,{attributes:true,attributeFilter:['data-p40-step']});
@@ -422,3 +470,484 @@ render=function(){
  try{if(lastRoute==='range-new')s50Enhance();}catch(e){try{console.warn('s50',e);}catch(_){}}
  return r;
 };
+
+/* ===== R3.13 layout reader =====================================================================================
+ * V20.candidates cuts every line into words. A school list is not a text: "go cycling", "towel 毛巾", "B. Vocabulary (10%@2%)",
+ * "accident(ally)" and "Dim Sum" are one item each. This reads the lines of a freshly parsed document as a whole (blank / junk /
+ * heading / list line / prose), and rebuilds the items of the list lines and headings once, before s50Apply sees them.
+ * Prose lines keep the core's own word items. Nothing here runs on a document the parent already worked on (item.s50 present). */
+const S50_ZH='㐀-䶿一-鿿豈-﫿　-〿＀-￯';
+const S50_ZH_CH='\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff';
+const S50_ZH_RUN=new RegExp('['+S50_ZH_CH+'](?:['+S50_ZH+']|[,;/·](?=['+S50_ZH_CH+']))*','g');
+const s50HasZh=t=>/[㐀-䶿一-鿿豈-﫿]/.test(t);
+const S50_LEAD=/^[\s ]*(?:(?:\(?\d{1,3}\s*[.)、:：]|[•●▪·*\-–—.:|]|[A-Za-z]\)|[lI|!](?=\.))+\s*)+/;
+const S50_LEAD_LABEL=/^(?:sentences?|passage|paragraph|text|dictation|example|answer)$/i;
+const S50_STRICT_HEAD=/^(?:vocabulary|dictation|sentences|recitation|syllabus|semester|phonics|bonus)$/i;
+const S50_LAYOUT_WORDS=/\b(?:vocabulary|dictation|sentences|recitation|syllabus|semester|phonics|bonus|thematic|quiz|word list|sight words|high frequency words|target vocabulary|read dictation)\b/i;
+const S50_INSTR_A=/^[*\s]*(?:please (?:study|read|write|revise|learn|complete|fill|answer|circle|underline|copy|spell|memori[sz]e|prepare)|you (?:need|have) to (?:fill|study|write|read|learn|revise|complete|answer)|here (?:is|are) (?:some|an?) examples?)\b/i;
+const S50_INSTR_B=/^[*\s]*(?:say|read|write|circle|underline|listen|look at|fill|match|tick|copy|study|revise|learn|spell|choose|complete|answer|draw|colou?r)\b.*\b(?:words?|sentences?|following|syllables?|letters?|blanks?|table|examples?|passage|text|below|above|pictures?|each)\b.*[.:]\s*$/i;
+const S50_MONTH=/\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s*,?\s*(?:\d{1,2}(?:st|nd|rd|th)?\s*,?\s*)?\d{4}\b/i;
+const S50_AUX=/\b(?:is|are|am|was|were|has|have|had|can|will|do|does|did|likes?|wants?)\b/;
+const S50_PUNCT=/[.!?,;:"“”]|(?:^|\s)['‘’]|['‘’](?:\s|$)/;
+const S50_NAME_SUFFIX=/(?:ly|ed|ing|tion|sion|ment|ness|ful|less|ous|ive|able|ible|al|ic|ent|ant|ish|ize|ise|er|est)$/i;
+const S50_FUNC=new Set('the a an and or but of to in on at for from with by as is are was were be been am it its he she they we you i me my your his her their our this that these those there here not no do does did have has had will would can could should may might must than then so if when what who how which where'.split(' '));
+const S50_ARTICLE=new Set('the a an his her my our their its your this that these those some any no'.split(' '));
+const s50Words=t=>String(t||'').trim().split(/\s+/).filter(Boolean);
+const s50Dict=k=>{try{return !!v20Dictionary.has(k);}catch(_){return false;}};
+const s50LettersOnly=t=>String(t||'').replace(/[^A-Za-z]/g,'');
+
+/* the characters validEnglish allows; everything else (% @ * & + _ [ ] …) is dropped, runs of spaces folded */
+function s50Charset(t){
+ return String(t||'').replace(/[‘]/g,"'").replace(/[^A-Za-z0-9\s'’“”".,!?;:()\-–/]+/g,' ').replace(/\s+/g,' ').trim();
+}
+/* OCR: "acap" -> "a cap", "alion" -> "a lion" when the whole is unknown and the rest is a known word */
+function s50ArticleGlue(w){
+ const k=w.toLowerCase();
+ if(w.length<4||s50Dict(k))return w;
+ if(/^an[aeiou]/i.test(w)&&w.length>=5&&s50Dict(k.slice(2)))return w.slice(0,2)+' '+w.slice(2);
+ if(/^a/i.test(w)&&s50Dict(k.slice(1))&&k.length>=4)return w.slice(0,1)+' '+w.slice(1);
+ return w;
+}
+/* syllable marks (wa'ter, Pon'to), a lone trailing apostrophe (round'), a broken hyphen (hide-and- seek) */
+function s50Tidy(t){
+ let s=String(t||'').replace(/([A-Za-z])-\s+([a-z])/g,'$1-$2');
+ s=s.replace(/\b([A-Za-z]{2,})['’‘]([A-Za-z]{2,})\b/g,(m,a,b)=>{
+  if(/^(?:s|t|ll|re|ve|d|m)$/i.test(b))return m;
+  const j=a+b;
+  return s50Dict(j.toLowerCase())||/^[A-Z][a-z]+$/.test(a)?j:m;
+ });
+ s=s.replace(/\b([A-Za-z]{3,})['’‘](?=\s|$)/g,(m,a)=>/s$/i.test(a)||!s50Dict(a.toLowerCase())?m:a);
+ return s.replace(/\s+/g,' ').trim();
+}
+/* "accident(ally)" -> accident, accidentally; "busy/business" -> busy, business; "break (breaks)"; "equip (–ped, –ment)" */
+function s50Expand(t){
+ let m=/^([A-Za-z][A-Za-z'’-]*)\(([A-Za-z]+)\)$/.exec(t);
+ if(m)return [m[1],m[1]+m[2]];
+ m=/^(.*?[A-Za-z])\s*\(([^()]*)\)$/.exec(t);
+ if(m&&/[+=→]/.test(m[2]))return [m[1]];            // "criticise (critic + ise)": a spelling hint, not a second word
+ if(m&&!/\s/.test(m[1])&&/^[A-Za-z\s,\-–—]+$/.test(m[2])){
+  const out=[m[1]];
+  for(const p of m[2].split(/\s*,\s*/).map(x=>x.trim()).filter(Boolean)){
+   const sf=/^[-–—]\s*([A-Za-z]+)$/.exec(p);
+   if(sf)out.push(m[1]+sf[1]);else if(/^[A-Za-z]+(?: [A-Za-z]+)?$/.test(p))out.push(p);
+  }
+  return out;
+ }
+ if(/^[A-Za-z]+(?:\/[A-Za-z]+)+$/.test(t))return t.split('/');
+ return [t];
+}
+/* English + Chinese in one string -> [{en, zh}]; a Latin piece takes the Chinese that follows it (zh first: the one before it) */
+function s50Pairs(t){
+ const runs=[...t.matchAll(S50_ZH_RUN)];
+ if(!runs.length)return [{en:t,zh:''}];
+ const out=[];
+ let pos=0,pendingZh='';
+ for(const r of runs){
+  const piece=t.slice(pos,r.index);
+  const en=piece.replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→(（\[]+$/g,'').trim();
+  if(en&&/[A-Za-z]/.test(en)){out.push({en,zh:r[0].replace(/[\u3000-\u303f\uff00-\uffef\s]+$/,'')});pendingZh='';}
+  else if(!en&&out.length)out[out.length-1].zh+=r[0];
+  else pendingZh=r[0];
+  pos=r.index+r[0].length;
+ }
+ const tail=t.slice(pos).replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→)）\]]+$/g,'').trim();
+ if(tail&&/[A-Za-z]/.test(tail))out.push({en:tail,zh:pendingZh});
+ return out;
+}
+function s50CleanSeg(raw){
+ let t=String(raw||'').replace(S50_LEAD,'');
+ t=t.replace(/^(?:e\.?\s?g\.?|i\.?\s?e\.?)\s+/i,'');
+ return t.replace(/[\s*·|_]+$/,'').trim();
+}
+
+/* ---- line level ---- */
+function s50HeadingWhy(t,ctx){
+ const s=t.replace(S50_LEAD,'').trim();
+ const words=s50Words(s);
+ if(!s)return '';
+ if(/[%@]/.test(t))return '版面標題（含 % 或 @）';
+ if(/^\(?\d+\s*words?\)?\.?$/i.test(s))return '字數提示';
+ if(/^[A-Z]\.\s*$/.test(s)||/^[A-Z]\.\s/.test(t.trim()))return '版面標題';
+ const letters=s50LettersOnly(s);
+ if(letters.length>=4&&letters===letters.toUpperCase()&&words.length>=2)return '全大寫標題';
+ if(/^(?:primary|p\.?)\s*\d/i.test(s)||/^\d{4}\s*[-–/]\s*\d{2,4}\b/.test(s)||/^\d{1,2}(?:st|nd|rd|th)\b/i.test(s)||S50_MONTH.test(s))return '年級或日期';
+ if(/\bschool\s*$/i.test(s)&&words.length>=3&&words.length<=7&&words.filter(w=>/^[A-Z]/.test(w)).length>=2)return '校名';
+ if(S50_INSTR_A.test(s)||S50_INSTR_B.test(s))return '指示語';
+ const lab=/^([A-Za-z][\w.]*(?:\s+[A-Z0-9][\w.]*){0,2})\s*[:：]\s*(.*)$/.exec(s);
+ if(lab&&S50_LEAD_LABEL.test(lab[1])&&words.length>=4)return '';   // "Sentence: The cat is on the mat.": the label is dropped, the sentence is kept
+ if(lab&&(words.length<=12)&&/^[A-Z]/.test(lab[1])&&!s50HasZh(lab[2]||'')&&(lab[1].split(/\s+/).length===1||lab[1].split(/\s+/).every(w=>/^[A-Z0-9]/.test(w))))return '標籤行';
+ if(/^(?:name|class|date|no|class no|ready|topic|note|remarks?)\b\s*[:：_.\d(]/i.test(s))return '姓名、班別或日期';
+ if(words.length===1&&S50_STRICT_HEAD.test(s))return '版面字';
+ if(words.length>1&&words.length<=8&&!/[.!?]$/.test(s)&&S50_LAYOUT_WORDS.test(s))return '版面標題';
+ if(/^(?:word list|unit|lesson|chapter|module|term|years?)\b.*\d/i.test(s)&&words.length<=8)return '課名或頁碼';
+ return '';
+}
+function s50SentenceLike(w,txt){return w.length>=4&&/^[A-Z]/.test(txt)&&S50_AUX.test(txt);}
+
+/* OCR: cells of a table row come as one line with single spaces when the gap is not wide enough for the core's own cut. The
+ * boxes tell: a gap of more than 0.8 x the word height is a column gap, an ordinary word space is about 0.35 x. */
+/* the boxes of a segment, clipped to it ("2.actor" starts before the segment "actor") */
+function s50TokensIn(line,sg){
+ const out=[];
+ for(const t of line.tokens||[]){
+  if(!(t.end>sg.start&&t.start<sg.end))continue;
+  const a=Math.max(t.start,sg.start),b=Math.min(t.end,sg.end);
+  out.push({text:String(line.text).slice(a,b),start:a,end:b,confidence:t.confidence,bbox:t.bbox});
+ }
+ return out;
+}
+function s50SplitByGap(line,sg){
+ const tk=s50TokensIn(line,sg).filter(t=>t.bbox);
+ if(tk.length<3||tk.length>8)return [sg];
+ /* the tallest word of the row (an ascender or a capital): "a" alone is only x-height high */
+ const hs=tk.filter(t=>(t.text.match(/[A-Za-z]/g)||[]).length>=2).map(t=>t.bbox.y1-t.bbox.y0).filter(h=>h>0).sort((a,b)=>a-b);
+ const h=hs.length?hs[hs.length-1]:0;
+ if(!h)return [sg];
+ const cuts=[];
+ for(let i=1;i<tk.length;i++)if(tk[i].bbox.x0-tk[i-1].bbox.x1>0.8*h)cuts.push(i);
+ if(!cuts.length)return [sg];
+ const out=[];let from=0;
+ for(const c of [...cuts,tk.length]){
+  const part=tk.slice(from,c);
+  if(part.length){const a=part[0].start,b=part[part.length-1].end;out.push({start:a,end:b,text:line.text.slice(a,b)});}
+  from=c;
+ }
+ return out;
+}
+const s50SegText=(sg)=>s50Tidy(s50CleanSeg(sg.text));
+/* kinds: blank | junk | head | bi (English + Chinese) | cand (a short line without sentence punctuation) | prose */
+function s50ClassifyLines(d){
+ const lines=d.lines||[];
+ const info=lines.map((line,i)=>{
+  const t=String(line.text||'');
+  const o={i,line,t,kind:'prose',why:''};
+  if(!t.trim()){o.kind='blank';return o;}
+  const s=t.replace(S50_LEAD,'').trim();
+  if(!/[A-Za-z㐀-鿿]/.test(s)||(/^[A-Za-z]?[\s\d.,\-–|]*$/.test(s)&&(s.match(/[A-Za-z]/g)||[]).length<=1&&!/^[aAI]$/.test(s))){o.kind='junk';return o;}
+  o.segs=V20.segments(line);
+  let tt=t;
+  if(d.fromOCR&&!s50HasZh(t)){
+   o.segs=o.segs.flatMap(sg=>s50SplitByGap(line,sg)).map(sg=>s50OcrSeg(line,sg)).filter(sg=>sg.text&&/[A-Za-z]/.test(sg.text));
+   tt=o.segs.map(sg=>sg.text).join('   ');
+   o.t=tt;
+   const tz=tt.replace(S50_LEAD,'').trim();
+   if(!o.segs.length||/^[A-Za-z]?[\s\d.,\-–|]*$/.test(tz)&&!/^[aAI]$/.test(tz)){o.kind='junk';return o;}
+  }
+  o.why=s50HeadingWhy(tt,d);
+  if(o.why){o.kind='head';return o;}
+  if(s50HasZh(t)){o.kind='bi';return o;}
+  const ok=o.segs.length>0&&o.segs.every(sg=>{
+   const c=s50SegText(sg),core=c.replace(/\([^()]*\)/g,' ').trim(),w=s50Words(core);
+   return w.length>=1&&w.length<=6&&!S50_PUNCT.test(core)&&!s50SentenceLike(w,core)&&/[A-Za-z]/.test(core);
+  });
+  o.kind=ok?'cand':'prose';
+  return o;
+ });
+ const zhLines=info.filter(o=>o.kind==='bi').length,contentN=info.filter(o=>!['blank','junk'].includes(o.kind)).length;
+ const bilingual=zhLines>=3&&zhLines>=contentN*0.4;
+ if(bilingual){
+  /* everything before the first Chinese line is a title or a column header */
+  const first=info.findIndex(o=>o.kind==='bi');
+  for(let j=0;j<first;j++)if(['cand','prose'].includes(info[j].kind)){info[j].kind='head';info[j].why='標題或欄名';}
+  /* a header row between tables: no Chinese, several columns of capitalised words */
+  for(const o of info)if(o.kind==='cand'&&o.segs.length>=2&&o.segs.every(sg=>/^[A-Z]/.test(s50CleanSeg(sg.text)))){o.kind='head';o.why='欄名';}
+ }
+ /* a verb table's column names (Present / Present continuous / Past): only when two of them stand close together, so that
+  * "present" or "past" alone in a vocabulary list stays a word */
+ {
+  const VC=/^(?:simple\s+)?(?:present(?:\s+continuous|\s+tense)?|past(?:\s+tense)?|future)$/i;
+  const content=info.filter(o=>!['blank','junk'].includes(o.kind));
+  const isVc=o=>o.kind==='cand'&&o.segs.length>0&&o.segs.every(sg=>VC.test(s50CleanSeg(sg.text)));
+  content.forEach((o,i)=>{
+   if(!isVc(o))return;
+   const near=content.slice(Math.max(0,i-3),i+4).filter(x=>x!==o&&isVc(x)).length>0;
+   if(near||o.segs.length>=2){o.kind='head';o.why='動詞表欄名';}
+  });
+ }
+ /* the top of a table: a title in Title Case above lower-case items, or a row of column names (Noun / Description / Places ...) */
+ {
+  const content=info.filter(o=>!['blank','junk'].includes(o.kind));
+  const top=content.slice(0,5);
+  const colWord=new Set('noun nouns verb verbs adjective adjectives adverb meaning meanings description descriptions features feature location locations places place activities activity materials fabrics body parts clothes name type example examples phrase phrases word words topic category item items column'.split(' '));
+  for(const o of top){
+   if(o.kind!=='cand')continue;
+   const ws=s50Words(s50CleanSeg(o.t)).map(w=>w.toLowerCase().replace(/[^a-z]/g,'')).filter(Boolean);
+   if(ws.length&&ws.every(w=>colWord.has(w))&&(ws.length>=2||o.segs.length>=1&&top.indexOf(o)<2&&colWord.has(ws[0])&&!/^[a-z]/.test(s50CleanSeg(o.t))))
+    {o.kind='head';o.why='欄名';}
+  }
+  const f=content[0];
+  if(f&&f.kind==='cand'&&f.segs.length===1){
+   const ws=s50Words(s50CleanSeg(f.t));
+   const next=content.slice(1,6).filter(o=>o.kind==='cand'||o.kind==='bi');
+   const lower=next.filter(o=>/^[a-z]/.test(s50CleanSeg(o.t))).length;
+   if(ws.length<=4&&ws.every(w=>/^[A-Z]/.test(w))&&next.length>=3&&lower>=3&&lower>=next.length*0.6){f.kind='head';f.why='標題';}
+  }
+ }
+ /* a run of at least two short lines is a list; a short line alone between prose lines is just a short line */
+ let j=0;
+ while(j<info.length){
+  if(info[j].kind!=='cand'){j++;continue;}
+  let k=j;
+  while(k<info.length&&(info[k].kind==='cand'||info[k].kind==='blank'||info[k].kind==='junk'))k++;
+  const run=info.slice(j,k).filter(o=>o.kind==='cand');
+  let prose=!(run.length>=2||bilingual);
+  if(!prose&&!bilingual){
+   /* wrapped prose without punctuation (a narrow column in a photo) is a run of short lines too: its lines are longer and made of
+    * function words; a list's items are 1-4 words and mostly content words */
+   const cells=run.flatMap(o=>o.segs.map(sg=>s50Words(s50SegText(sg).replace(/\([^()]*\)/g,' '))));
+   const tot=cells.reduce((a,w)=>a+w.length,0),n=cells.length||1;
+   const stop=cells.flat().filter(w=>S50_FUNC.has(w.toLowerCase().replace(/[^a-z']/g,''))).length;
+   const m=tot/n,f=stop/Math.max(1,tot);
+   if(m>=4.5||(m>=3.5&&f>=0.4))prose=true;
+   /* two or three short lines hanging off a real prose line are the ragged end of that paragraph */
+   if(!prose&&run.length<=3){
+    const around=[];
+    for(let a=j-1;a>=0;a--){if(info[a].kind==='junk')continue;around.push(info[a]);break;}
+    for(let a=k;a<info.length;a++){if(info[a].kind==='junk')continue;around.push(info[a]);break;}
+    const strong=o=>o.kind==='prose'&&(s50Words(s50CleanSeg(o.t)).length>=7||/[.!?;]/.test(s50CleanSeg(o.t).replace(/\.$/,'')));
+    if(around.some(strong))prose=true;
+   }
+  }
+  if(prose)run.forEach(o=>{o.kind='prose';});
+  j=Math.max(k,j+1);
+ }
+ return {info,bilingual};
+}
+
+/* ---- item building ---- */
+function s50Overlap(olds,line,a,b){
+ return olds.filter(c=>c.lineId===line.id&&(!c.span||(c.span[1]>a&&c.span[0]<b)));
+}
+function s50Make(d,line,seg,olds,en,zh,opt={}){
+ d.s50seq=(d.s50seq||0)+1;
+ const mini=V20.fromText(en+' | ',d.id+'-n'+d.s50seq);
+ const c=V20.candidates(mini,{mode:'list',dictionary:v20Dictionary,common:v20.common})[0];
+ if(!c)return null;
+ const src=s50Overlap(olds,line,seg.start,seg.end);
+ const tk=s50TokensIn(line,seg);
+ const conf=tk.length?tk.map(t=>t.confidence).filter(x=>Number.isFinite(x)&&x>=0):src.map(x=>x.confidenceRaw).filter(Number.isFinite);
+ const g=V20.gloss(c.en,v20Dictionary);
+ const teacher=String(zh||'').trim();
+ const sentence=/[.!?]$/.test(c.en);
+ const reasons=[];
+ if(conf.length&&Math.min(...conf)<75)reasons.push('原相這裏需要再看');
+ if(/[0-9]/.test(c.en)&&/[A-Za-z][0-9]|[0-9][A-Za-z]/.test(c.en))reasons.push('數字可能混入字母');
+ const parts=c.en.split(/[\s-]+/).filter(Boolean);
+ const allKnown=parts.length>1&&parts.every(p=>s50Dict(V20.fold(p)));
+ if(!g.known&&!sentence&&!allKnown)reasons.push('內置題庫沒有這個字，核對後可以保留');
+ if(g.choices.length>1&&!teacher)reasons.push('請選今次的意思');
+ Object.assign(c,{
+  sourceRegionId:d.id,lineId:line.id,paragraphId:line.paragraphId,sourceText:line.originalText||line.text,
+  originalText:String(seg.text||c.en).slice(0,240),zh:teacher||g.zh||'',kind:sentence?'sentence':/\s/.test(c.en)?'phrase':'word',
+  sourceTokenIds:src.flatMap(x=>x.sourceTokenIds||[]),sourceBoxes:src.flatMap(x=>x.sourceBoxes||[]),
+  confidenceRaw:conf.length?Math.min(...conf):null,reviewReasons:reasons,reviewed:false,selected:true,excludedReason:'',
+  span:[seg.start,seg.end],explicit:false,known:g.known||allKnown,choices:g.choices,example:g.example,
+  common:!/\s/.test(c.en)&&v20.common.has(V20.fold(c.en)),
+ });
+ c.s50x={list:true,zh:!!teacher};
+ return c;
+}
+/* a list line / heading that cannot be English at all is kept, but not selected */
+const S50_OK_EN=/^[A-Za-z][A-Za-z0-9'’\-./ ]*$/;
+function s50Looks(en,ocr){
+ if(!S50_OK_EN.test(en))return '不像英文單字';
+ const ws=en.split(/[\s/]+/).filter(Boolean);
+ if(!(en.match(/[A-Za-z]/g)||[]).length)return '不像英文單字';
+ if(ocr){
+  if(ws.some(w=>w.replace(/[^A-Za-z]/g,'').length>1&&!/[aeiouyAEIOUY]/.test(w)))return '不像英文單字';
+  if(ws.some(w=>/[a-z][A-Z]/.test(w)))return '不像英文單字';
+  if(en.replace(/[^A-Za-z]/g,'').length<2&&!/^(?:a|I)$/.test(en))return '太短，可能不是單字';
+ }
+ return '';
+}
+/* OCR: words after the English that are not words (Chinese read as latin noise) are cut off; so are leading marks */
+function s50NoiseWord(w,prev){
+ const core=String(w).replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g,'');
+ if(!core)return true;
+ if(/[^A-Za-z'’\-.,/()]/.test(core))return true;
+ if(core.length<=1&&!/^[aAI]$/.test(core))return true;
+ if(core.length>=2&&core.length<=3&&core===core.toUpperCase()&&prev&&/[a-z]/.test(prev))return true;
+ if(core.length>=2&&!/[aeiouyAEIOUY]/.test(core))return true;
+ /* a short trailing word that is no word at all (Chinese read as "ae", "eR", "iLL") */
+ if(prev&&core.length<=3&&!/^[aAI]$/.test(core)&&(/[a-z][A-Z]/.test(core)||!s50Dict(core.toLowerCase())))return true;
+ return false;
+}
+function s50TrimNoise(t){
+ const ws=s50Words(t);
+ while(ws.length>1&&s50NoiseWord(ws[ws.length-1],ws[ws.length-2]))ws.pop();
+ return ws.join(' ');
+}
+/* the same on the words' boxes: a trailing word the engine itself was unsure of (confidence < 58) is not part of the item */
+function s50OcrSeg(line,sg,useConf){
+ const tk=s50TokensIn(line,sg);
+ if(!tk.length)return {start:sg.start,end:sg.end,text:s50TrimNoise(sg.text)};
+ const lowConf=t=>!!useConf&&Number.isFinite(t.confidence)&&t.confidence>=0&&t.confidence<58;
+ let a=0,b=tk.length;
+ while(b-a>1&&(s50NoiseWord(tk[b-1].text,tk[b-2].text)||lowConf(tk[b-1])))b--;
+ while(b-a>1&&(s50NoiseWord(tk[a].text,'')||lowConf(tk[a])))a++;
+ const start=tk[a].start,end=tk[b-1].end;
+ return {start,end,text:String(line.text).slice(start,end)};
+}
+function s50Rebuild(d,old){
+ const {info,bilingual}=s50ClassifyLines(d);
+ const byLine=new Map();
+ for(const c of old){(byLine.get(c.lineId)||byLine.set(c.lineId,[]).get(c.lineId)).push(c);}
+ const lineIds=new Set((d.lines||[]).map(l=>l.id));
+ const out=[];
+ const ocr=!!d.fromOCR;
+ let nList=0,nProse=0;
+ const raw=(d.lines||[]).map(l=>l.text).join('\n');
+ const offs=[];let acc=0;for(const l of d.lines||[]){offs.push(acc);acc+=String(l.text||'').length+1;}
+ const lowerSeen=new Set((raw.match(/\b[a-z]{2,}\b/g)||[]));
+ for(const o of info){
+  const olds=byLine.get(o.line.id)||[];
+  if(o.kind==='blank'||o.kind==='junk')continue;
+  if(o.kind==='head'){
+   const en=s50Tidy(s50Charset(s50CleanSeg(o.t).replace(/[%@]+/g,' ').replace(/\(\s*\d*\s*\)/g,' ')));
+   if(!(en.match(/[A-Za-z]/g)||[]).length){continue;}
+   const seg={start:0,end:o.t.length,text:o.t};
+   const c=s50Make(d,o.line,seg,olds,en.slice(0,80),'');
+   if(c){c.selected=false;c.excludedReason='可能是標題或指示：'+o.why;c.reviewReasons=[];c.s50x={list:false,head:true};out.push(c);}
+   continue;
+  }
+  if(o.kind==='bi'||o.kind==='cand'){
+   const segs=(o.segs||V20.segments(o.line)).map(sg=>ocr&&!s50HasZh(sg.text)?s50OcrSeg(o.line,sg,true):sg).filter(sg=>sg.text&&/[A-Za-z\u3400-\u9fff]/.test(sg.text));
+   for(const sg of segs){
+    const t0=s50Tidy(s50CleanSeg(sg.text));
+    if(!t0)continue;
+    const pairs=o.kind==='bi'?s50Pairs(t0):[{en:t0,zh:''}];
+    for(const pr of pairs){
+     let en=s50Tidy(s50CleanSeg(pr.en));
+     if(ocr)en=s50TrimNoise(en);
+     if(!en||!/[A-Za-z]/.test(en))continue;
+     /* the writer gave Chinese: keep the English whole (duck/goose feathers); no Chinese: split a/b and word(suffix) */
+     const forms=pr.zh||s50Dict(V20.fold(en))?[en]:s50Expand(en);   // a dictionary entry itself (his/her, o'clock) is never taken apart
+     for(let f of forms){
+      f=s50Charset(f);
+      if(ocr)f=f.split(' ').map(w=>/^[a-z][A-Z]+$/.test(w)&&s50Dict(w.toLowerCase())?w.toLowerCase():w.length>3?s50ArticleGlue(w):w).join(' ').replace(/^((?:a|an)) /i,'$1 ');
+      f=f.replace(/^[^A-Za-z]+|[^A-Za-z.!?')]+$/g,'').trim();
+      if(!f)continue;
+      const c=s50Make(d,o.line,sg,olds,f,pr.zh);
+      if(!c)continue;
+      const bad=s50Looks(c.en,ocr);
+      if(bad){c.selected=false;c.excludedReason=bad;c.reviewReasons=[];}
+      else if(ocr&&c.confidenceRaw!==null&&c.confidenceRaw<40){c.selected=false;c.excludedReason='辨認不太清楚';c.reviewReasons=[];}
+      out.push(c);nList++;
+     }
+    }
+   }
+   continue;
+  }
+  /* prose: the core's word items, tidied; names are left un-selected */
+  const here=offs[o.i];
+  const lead=/^\s*([A-Za-z]+)\s*[:：]/.exec(o.t);
+  const leadEnd=lead&&S50_LEAD_LABEL.test(lead[1])?lead[0].length:0;
+  for(const c of olds){
+   c.s50x={list:false};
+   if(leadEnd&&c.span&&c.span[1]<=leadEnd)continue;                       // the word "Sentence" of "Sentence: The cat..."
+   if(c.kind==='sentence'||c.excludedReason){out.push(c);continue;}
+   if(c.kind==='word'||c.kind==='phrase'){
+    const t=s50Tidy(c.en);
+    if(t!==c.en&&t){c.en=t;const g=V20.gloss(t,v20Dictionary);c.known=g.known;c.choices=g.choices;c.example=g.example;if(!c.zh)c.zh=g.zh;
+     c.reviewReasons=c.reviewReasons.filter(r=>!/題庫沒有/.test(r)||!g.known);}
+   }
+   if(c.kind==='word'&&c.selected&&/^[A-Z][a-z]{1,}$/.test(c.en)&&!c.known&&!S50_NAME_SUFFIX.test(c.en)&&!lowerSeen.has(c.en.toLowerCase())){
+    const a=here+(c.span?c.span[0]:0),before=raw.slice(0,a).replace(/[\s"'“‘(]+$/,'');
+    const prev=(/([A-Za-z']+)$/.exec(before)||[])[1];
+    if(!(prev&&S50_ARTICLE.has(prev.toLowerCase()))){c.selected=false;c.s50x.name=true;}
+   }
+   out.push(c);nProse++;
+  }
+ }
+ /* items of lines the reader did not see (should not happen) keep their place at the end */
+ for(const c of old)if(!lineIds.has(c.lineId)){c.s50x={list:false};out.push(c);}
+ d.s50layout=bilingual?'bilingual':nList>=3&&nList>=nProse*1.5?'list':nProse&&nList?'mixed':'text';
+ return out;
+}
+/* Called before s50Apply on every render: only a document whose items have never been through s50Apply is read. */
+function s50Normalise(){
+ if(!v20||v20.mode!=='list'||!window.WQImportCore)return;
+ for(const d of v20.documents||[]){
+  if(!d||d.s50n||!Array.isArray(d.lines))continue;
+  const idx=[];
+  v20.items.forEach((c,i)=>{if(c.sourceRegionId===d.id)idx.push(i);});
+  if(!idx.length)continue;
+  d.s50n=true;
+  const old=idx.map(i=>v20.items[i]);
+  if(old.some(c=>c.s50||c.parts||c.s50x))continue;
+  let neu;
+  try{neu=s50Rebuild(d,old);}catch(e){try{console.warn('s50 layout',e);}catch(_){}continue;}
+  const first=idx[0],set=new Set(old);
+  const rest=v20.items.filter(c=>!set.has(c));
+  const before=v20.items.slice(0,first).filter(c=>!set.has(c));
+  v20.items=before.concat(neu,rest.slice(before.length));
+ }
+}
+
+/* ===== R3.13 poor recognition: offer the two hidden helpers (straighten / more contrast) instead of a dead end ===== */
+let s50ReplaceAt=0;
+function s50OcrPoor(){
+ const docs=(v20.documents||[]).filter(d=>d&&d.fromOCR&&d.p40);
+ return docs.some(d=>d.p40.unclear||(d.p40.conf&&d.p40.conf.length&&d.p40.medConf<70)||d.p40.pre<3);
+}
+function s50RetryHtml(){
+ return '<span>辨認不清？</span><button type="button" class="btn quiet" data-s50="retry-enh">加強對比再試</button><button type="button" class="btn quiet" data-s50="retry-crop" aria-label="拉直或框選再試">拉直再試</button>';
+}
+/* step 1: under the recognition status when it ended in "unclear / nothing found / failed" */
+function s50RetryUi(){
+ const root=s50Root();if(!root)return;
+ const st=root.querySelector('#ocr-status');
+ let box=root.querySelector('#s50-retry');
+ const bad=!!(st&&v20Photo&&!ocrBusy&&(st.classList.contains('p40-warn')||st.classList.contains('p40-bad'))&&st.textContent.trim());
+ if(!bad){box?.remove();return;}
+ if(!box){
+  box=document.createElement('div');box.id='s50-retry';box.className='s50-retry';box.innerHTML=s50RetryHtml();
+  st.after(box);
+ }
+}
+function s50DropOcr(){
+ const ids=new Set((v20.documents||[]).filter(d=>d&&d.fromOCR).map(d=>d.id));
+ if(!ids.size)return;
+ v20History();v20Touch();
+ v20.documents=v20.documents.filter(d=>!ids.has(d.id));
+ v20.items=v20.items.filter(c=>!ids.has(c.sourceRegionId));
+ v20.parsedRaw=v20.documents.map(d=>d.raw).join('\n\n');
+ importDraft.raw=v20.parsedRaw;
+ const ta=$('#raw-words');if(ta)ta.value=importDraft.raw;
+ v20.s50Eff=null;
+}
+function s50Retry(mode){
+ if(!v20Photo||ocrBusy||v20FileLoading)return;
+ if(s50Step()===2)$('#p40-back2')?.click();
+ if(mode==='crop'){s50ReplaceAt=Date.now();v20Crop();return;}
+ s50ReplaceAt=Date.now();
+ const root=s50Root();
+ const cb=document.createElement('input');cb.type='checkbox';cb.id='v20-enhance';cb.hidden=true;cb.checked=true;
+ (root||document.body).append(cb);
+ try{s50AutoRun();}finally{setTimeout(()=>cb.remove(),0);}
+}
+const s50PriorUpdateOCR=updateOCR;
+updateOCR=function(){
+ const r=s50PriorUpdateOCR.apply(this,arguments);
+ try{s50RetryUi();}catch(_){}
+ return r;
+};
+const s50PriorAutoRun=s50AutoRun;
+s50AutoRun=function(){
+ if(s50ReplaceAt&&Date.now()-s50ReplaceAt<180000){
+  s50ReplaceAt=0;
+  try{s50DropOcr();}catch(e){try{console.warn('s50',e);}catch(_){}}
+ }
+ return s50PriorAutoRun.apply(this,arguments);
+};
+/* ===== a failed save is said where the parent is looking (the fixed bar), not only in a toast or a hidden line ===== */
+function s50Err(msg){
+ const dock=$('#v20-import-dock');
+ let e=$('#s50-err');
+ if(!e&&dock){
+  e=document.createElement('p');e.id='s50-err';e.className='s50-err';e.setAttribute('role','alert');
+  dock.prepend(e);
+ }
+ if(e){e.textContent=msg||'';e.hidden=!msg;}
+ if(msg)try{toast(msg,'bad');}catch(_){}
+}

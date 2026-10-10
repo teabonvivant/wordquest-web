@@ -45,3 +45,18 @@
 
 測試：`r37_tests/t15_dictation_save.py`（四個尺寸、貼文字＋相片、點擊數、>120、0 項、核對流程）。
 舊測試改動見該次回報：t12／t13／t14 與 `r35_tests/p40_dictation_browser.py`、`p40_shots.py` 中第 3 步／勾選框的檢查已換成等價的新流程檢查。
+
+
+## R3.13 s50 / s55 / s56：讀版面（50 份真實範圍評測後，舊版 71.3 分）
+
+`s50_dictation.js` 末段「layout reader」、`s55_hook.js`／`s55_morph.js`、`s56_morph_ui.js`；測試 `r37_tests/t16_dictation_real.py`（用 `r37_eval/dictation50`，只讀）。
+
+- **整份先讀、再切字**：`s50Normalise()` 在第一次 render 前把新文件的每一行分成 blank／junk／heading／list／prose，只重建 list 行及標題的項目，prose 行仍用核心的單字項目。已被家長動過的文件（item.s50）不會重讀。
+- **一行一項**：每行 ≤6 字、無句子標點、連續 ≥2 行（或對照表）→ 整行一張卡（詞組）；`1.towel 毛巾`／`towel：毛巾` 切出中文，**老師的中文優先**；`accident(ally)`、`busy/business`、`equip (–ped, –ment)`、`break (breaks)` 展開；`hide-and- seek`、`wa'ter` 先修。
+- **標題不預選**：`A. …`、含 `%`／`@`、全大寫、Vocabulary／Dictation／Theme／Please study／日期／校名／欄名等；每個標題一個「已略過」項（可加回）。句中大寫人名（題庫沒有、不跟在 the/a 後）預設不選，卡上標「像人名，未選」。
+- **篩選**：list 版面預設「不限＋不略過基本字」（`s50GetPrefs` 回傳有效值，畫面照樣顯示；家長按過才寫入偏好）；混合範圍裡 list 行的字不受 3+／基本字影響，prose 照舊。
+- **存不了的卡**：`s50Sane` 在選取前清洗（% @ * 等去掉）或標記；儲存失敗的訊息顯示在固定列 `#s50-err`。
+- **詞形**：`-ly` 副詞（softly、rudely、noisily、simply、comfortably）連到原形，標「soft 的副詞」，中文＝原形＋地；`closer` 等 verb-only 的形容詞可加 -er；縮寫中文含否定／will／is（`沒有（縮寫：did not）`）。chilly／silly／family／only／early 不受影響（`s55AdvOk` 只收規則拼寫變化）。
+- **相片**：差的結果在第 1 步（及第 2 步頂）顯示「加強對比再試／拉直再試」（`#v20-enhance` 隱藏勾選框、`v20Crop()`，成功後取代舊的辨認結果）；表格列按字框間距切欄，尾部亂碼／低信心字去掉。**chi_tra 沒有做**：離線 OCR 包固定為 eng（`r3OcrFiles` 數量被檢查），本機 tesseract 也只有 eng，加載 chi_tra 要改 host 與 sw 預載。
+- **同字根**：list 行不折疊（verb table 的 break／breaks／broke 各是一項）。
+- 未改：漏洞12（at last／a few 等已收錄詞組吞單字）。

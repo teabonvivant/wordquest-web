@@ -356,7 +356,8 @@ function analyse(word,hasIn,posIn){
     else for(const x of phraseVariants(c,joinSplit))if(x.v.length>=2&&has(x.v)){r={key:x.v,kind:x.kind};break;}
     memo.set(mk,r);return r;
   }
-  const adjLike=k=>{const p=posList(k);return p?p.some(x=>x==='adj'||x==='adv'||(x==='mixed'&&ADJ_BUILTIN.has(k))):ADJ_BUILTIN.has(k);};
+  /* R3.13: a built-in adjective whose dictionary entry only carries its verb sense (close -> closer, light -> lighter) still takes -er / -est */
+  const adjLike=k=>{const p=posList(k);return (p?p.some(x=>x==='adj'||x==='adv'||(x==='mixed'&&ADJ_BUILTIN.has(k))):false)||ADJ_BUILTIN.has(k);};
   /* entries tagged only as adverb / preposition / conjunction / modal take no -s, -ed or -ing; adjectives may (complete -> completed) */
   const notAdjOnly=k=>{const p=posList(k);return !p||p.some(x=>!FUNCTION_POS.has(x));};
   const verbLike=k=>{const p=posList(k);return !p||p.some(x=>x==='v'||x==='mixed');};
@@ -576,7 +577,13 @@ function sameWord(a,b,hasIn,posIn){
   return la===lb||la===nb||lb===na;
 }
 
-const api={analyse,sameWord,norm,LABEL,VERSION:'55.1',IRREGULAR_VERB_ROWS:T.rows,STOP,
+/* the spelled-out form(s) of a contraction (didn't -> ['did not']); null when w is not one */
+function expansions(word){
+  const w=norm(word);
+  const ct=CONTRACTIONS[w]||(NO_APOS[w]?CONTRACTIONS[NO_APOS[w]]:null);
+  return ct?ct.slice():null;
+}
+const api={analyse,sameWord,expansions,norm,LABEL,VERSION:'55.2',IRREGULAR_VERB_ROWS:T.rows,STOP,
   irregularForms:()=>[...T.form.keys()]};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 root.WQMorph=api;

@@ -60,7 +60,7 @@ with sync_playwright() as p:
     # entry shape, lemma helpers, derived words stay hints
     info = ev(pg, """(()=>{const g=(w)=>v20Dictionary.get(w);return {
       books:g('books'),ran:g('ran'),has:v20Dictionary.has('books'),blorp:v20Dictionary.has('blorp'),
-      careless:v20Dictionary.has('carelessly'),carelessInfo:s55Info('carelessly'),lemma:s55Lemma(['Pencils','Cats','Dogs','Apples'].find(w=>!s55HasRaw(w.toLowerCase()))),lemmaIn:['Pencils','Cats','Dogs','Apples'].find(w=>!s55HasRaw(w.toLowerCase())),
+      careless:v20Dictionary.has('painful'),carelessInfo:s55Info('painful'),adv:v20Dictionary.has('carelessly'),advInfo:s55Info('carelessly'),lemma:s55Lemma(['Pencils','Cats','Dogs','Apples'].find(w=>!s55HasRaw(w.toLowerCase()))),lemmaIn:['Pencils','Cats','Dogs','Apples'].find(w=>!s55HasRaw(w.toLowerCase())),
       same:[s55SameWord('book','books'),s55SameWord('ran','running'),s55SameWord('color','colour'),s55SameWord('quick','quickly'),s55SameWord('bus','busy'),s55SameWord('glass','glasses')],
       sizeAfter:v20Dictionary.size}})()""")
     C.ok(info['has'] is True and info['books']['_base'] == 'book' and info['books']['key'] == 'books', 'books entry points at book')
@@ -68,8 +68,11 @@ with sync_playwright() as p:
     C.ok(info['books']['senses'][0]['zhHK'] == '書' and info['books']['examples'] == [], 'zhHK kept from the base; no borrowed examples')
     C.ok(info['ran']['_base'] == 'run' and info['ran']['_label'] == '過去式', 'ran -> run, 過去式')
     C.ok(info['blorp'] is False, 'blorp is not a headword')
-    C.ok(info['careless'] is False and info['carelessInfo'] and info['carelessInfo']['derived'] is True and info['carelessInfo']['base'] == 'careless',
-         'derived words are a hint (s55Info) but not a dictionary hit')
+    C.ok(info['careless'] is False and info['carelessInfo'] and info['carelessInfo']['derived'] is True and info['carelessInfo']['base'] == 'pain',
+         'derived words (painful) are a hint (s55Info) but not a dictionary hit')
+    # R3.13: an -ly adverb that is not a headword is the adverb of its adjective: linked, labelled 副詞, not "not in the bank"
+    C.ok(info['adv'] is True and info['advInfo'] and info['advInfo']['derived'] is False and info['advInfo']['base'] == 'careless' and info['advInfo']['label'] == '副詞',
+         'carelessly is the adverb of careless (a form, label 副詞)')
     C.ok(info['lemma'] and info['lemma']['base'] == info['lemmaIn'].lower()[:-1], f's55Lemma folds case ({info["lemmaIn"]} -> {info["lemma"]})')
     C.ok(info['same'] == [True, True, True, False, False, False], f's55SameWord: {info["same"]}')
     C.ok(info['sizeAfter'] == res['size'], 'looking words up never grows the dictionary')

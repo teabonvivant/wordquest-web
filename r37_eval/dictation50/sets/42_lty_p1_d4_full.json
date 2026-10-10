@@ -1,0 +1,31 @@
+{
+ "id": "42_lty_p1_d4_full",
+ "type": "mixed",
+ "title": "Lau Tak Yung PS, P.1 English Dictation (4) 2023-24 - whole sheet",
+ "source_url": "https://www.ltyschool.edu.hk/dev_module/upload_files/document/23-24_2nd_Term_P.1_Dict_HB.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P1",
+ "raw_text": "Primary 1\nDictation (4)\n16th May, 2024\nReady: 1BU4 & U6\nSpace Town: Fun Times at the Zoo\nA. Phonics (20%@4%)\nRead the following words beginning with ‘w’ and ‘v’.\nB. Vocabulary (10%@2%)\n1. drink\n2. eat\n3. play\n4. read\n5. sleep\nC. High Frequency Words (10%@2%)\n1. many\n2. here\n3. small\n4. why\n5. how\nD. Sentences (10%@2%)\n1. The goldfish can swim.\n2. The dog can walk and run.",
+ "photo_text": "Primary 1\nDictation (4)\n16th May, 2024\nReady: 1BU4 & U6\nSpace Town: Fun Times at the Zoo\nA. Phonics (20%@4%)\nRead the following words beginning with ‘w’ and ‘v’.\nB. Vocabulary (10%@2%)\n1. drink\n2. eat\n3. play\n4. read\n5. sleep\nC. High Frequency Words (10%@2%)\n1. many\n2. here\n3. small\n4. why\n5. how\nD. Sentences (10%@2%)\n1. The goldfish can swim.\n2. The dog can walk and run.",
+ "targets": [
+  "drink",
+  "eat",
+  "play",
+  "read",
+  "sleep",
+  "many",
+  "here",
+  "small",
+  "why",
+  "how",
+  "goldfish",
+  "swim",
+  "dog",
+  "walk",
+  "run"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "Quote marks around single letters in the instruction line.",
+ "target_rule": "list items + content words (>=3 letters, not V20.COMMON, not a name)"
+}

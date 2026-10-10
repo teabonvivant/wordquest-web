@@ -1,0 +1,487 @@
+{
+ "merge_a_car_park": {
+  "before": [
+   {
+    "en": "car",
+    "sel": true,
+    "review": false
+   },
+   {
+    "en": "park",
+    "sel": true,
+    "review": true
+   },
+   {
+    "en": "bus",
+    "sel": true,
+    "review": false
+   },
+   {
+    "en": "terminal",
+    "sel": true,
+    "review": true
+   },
+   {
+    "en": "traffic lights",
+    "sel": true,
+    "review": false
+   },
+   {
+    "en": "a footbridge",
+    "sel": true,
+    "review": false
+   }
+  ],
+  "skipped_chips": [
+   "a"
+  ],
+  "merge_note": "按同一行的第一個字，再按最後一個字。",
+  "card_a_visible": false,
+  "after_merge_car_park": [
+   {
+    "en": "car park",
+    "sel": true,
+    "review": true
+   },
+   {
+    "en": "bus",
+    "sel": true,
+    "review": false
+   },
+   {
+    "en": "terminal",
+    "sel": true,
+    "review": true
+   },
+   {
+    "en": "traffic lights",
+    "sel": true,
+    "review": false
+   },
+   {
+    "en": "a footbridge",
+    "sel": true,
+    "review": false
+   }
+  ]
+ },
+ "phrase_single_phrase_per_line_unknown": [
+  {
+   "en": "car",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "park",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "taxi",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "rank",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "a footbridge",
+   "sel": true,
+   "review": false
+  }
+ ],
+ "phrase_comma_list": [
+  {
+   "en": "car",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "park",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "taxi",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "rank",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "footbridge",
+   "sel": true,
+   "review": false
+  }
+ ],
+ "phrase_known_phrases": [
+  {
+   "en": "ice cream",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "school bag",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "look after",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "listen to",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "bath",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "fire station",
+   "sel": true,
+   "review": false
+  }
+ ],
+ "phrase_unknown_phrases": [
+  {
+   "en": "cook",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "meal",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "hang",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "washing",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "vacuum",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "rug",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "walk",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "dog",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "make",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "candles",
+   "sel": true,
+   "review": false
+  }
+ ],
+ "zh_numbered_glued_1.towel": [
+  {
+   "en": "towel 毛巾",
+   "zh": "毛巾",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "bucket 水桶",
+   "zh": "水桶",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "swimming suit 泳衣",
+   "zh": "泳衣",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "sunbathe",
+   "zh": "",
+   "kind": "word",
+   "sel": true,
+   "pend": true
+  }
+ ],
+ "zh_numbered_spaced_1._towel": [
+  {
+   "en": "towel 毛巾",
+   "zh": "毛巾",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "bucket 水桶",
+   "zh": "水桶",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "swimming suit 泳衣",
+   "zh": "泳衣",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "sunbathe",
+   "zh": "",
+   "kind": "word",
+   "sel": true,
+   "pend": true
+  }
+ ],
+ "zh_plain_space": [
+  {
+   "en": "towel 毛巾",
+   "zh": "毛巾",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "bucket 水桶",
+   "zh": "水桶",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "swimming suit 泳衣",
+   "zh": "泳衣",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "sunbathe",
+   "zh": "",
+   "kind": "word",
+   "sel": true,
+   "pend": true
+  }
+ ],
+ "zh_pipe": [
+  {
+   "en": "towel",
+   "zh": "毛巾",
+   "kind": "word",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "bucket",
+   "zh": "水桶",
+   "kind": "word",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "swimming suit",
+   "zh": "泳衣",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "sunbathe",
+   "zh": "曬日光浴",
+   "kind": "word",
+   "sel": true,
+   "pend": true
+  }
+ ],
+ "zh_tab": [
+  {
+   "en": "towel",
+   "zh": "毛巾",
+   "kind": "word",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "毛巾",
+   "zh": "",
+   "kind": "word",
+   "sel": false,
+   "pend": false
+  },
+  {
+   "en": "bucket",
+   "zh": "水桶",
+   "kind": "word",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "水桶",
+   "zh": "",
+   "kind": "word",
+   "sel": false,
+   "pend": false
+  },
+  {
+   "en": "swimming suit",
+   "zh": "泳衣",
+   "kind": "phrase",
+   "sel": true,
+   "pend": false
+  },
+  {
+   "en": "泳衣",
+   "zh": "",
+   "kind": "word",
+   "sel": false,
+   "pend": false
+  },
+  {
+   "en": "sunbathe",
+   "zh": "",
+   "kind": "word",
+   "sel": true,
+   "pend": true
+  },
+  {
+   "en": "曬日光浴",
+   "zh": "",
+   "kind": "word",
+   "sel": false,
+   "pend": false
+  }
+ ],
+ "zh_glued_pending_left": 0,
+ "zh_glued_saved": [
+  [
+   "shoe",
+   "鞋"
+  ],
+  [
+   "book",
+   "書"
+  ],
+  [
+   "apple",
+   "蘋果"
+  ],
+  [
+   "school",
+   "學校"
+  ],
+  [
+   "teacher",
+   "老師"
+  ],
+  [
+   "friend",
+   "朋友"
+  ],
+  [
+   "pencil",
+   "鉛筆"
+  ],
+  [
+   "water",
+   "水"
+  ],
+  [
+   "thirsty",
+   "口渴的"
+  ],
+  [
+   "beautiful",
+   "美麗的"
+  ],
+  [
+   "favourite",
+   "最喜愛的"
+  ],
+  [
+   "because",
+   "因為"
+  ]
+ ],
+ "adverbs": [
+  {
+   "en": "softly",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "patiently",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "politely",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "rudely",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "quietly",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "loudly",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "impatiently",
+   "sel": true,
+   "review": true
+  },
+  {
+   "en": "early",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "late",
+   "sel": true,
+   "review": false
+  },
+  {
+   "en": "noisily",
+   "sel": true,
+   "review": true
+  }
+ ]
+}

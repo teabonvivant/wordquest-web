@@ -1,0 +1,37 @@
+{
+ "id": "09_tkokt_p3_community",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P3 vocabulary bank - Different places in the community",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P3%20Vocabulary%20Bank(new).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P3",
+ "raw_text": "Theme: Different places in the community\n1.airport 機場\n2.bank 銀行\n3.church 教堂\n4.cinema 電影院\n5.stadium 體育館\n6.fire station 消防局\n7.hospital 醫院\n8.shopping mall 購物商場\n9.supermarket 超市\n10.museum 博物館",
+ "photo_text": "Theme: Different places in the community\n1.airport 機場\n2.bank 銀行\n3.church 教堂\n4.cinema 電影院\n5.stadium 體育館\n6.fire station 消防局\n7.hospital 醫院\n8.shopping mall 購物商場\n9.supermarket 超市\n10.museum 博物館",
+ "targets": [
+  "airport",
+  "bank",
+  "church",
+  "cinema",
+  "stadium",
+  "fire station",
+  "hospital",
+  "shopping mall",
+  "supermarket",
+  "museum"
+ ],
+ "target_zh": {
+  "airport": "機場",
+  "bank": "銀行",
+  "church": "教堂",
+  "cinema": "電影院",
+  "stadium": "體育館",
+  "fire station": "消防局",
+  "hospital": "醫院",
+  "shopping mall": "購物商場",
+  "supermarket": "超市",
+  "museum": "博物館"
+ },
+ "proper_nouns": [],
+ "notes": "English + Chinese per row, numbering glued to the word (\"1.towel\") as printed. ",
+ "target_rule": "all list items"
+}

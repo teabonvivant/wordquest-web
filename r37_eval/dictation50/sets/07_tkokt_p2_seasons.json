@@ -1,0 +1,37 @@
+{
+ "id": "07_tkokt_p2_seasons",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P2 vocabulary bank - Activities in different seasons",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P2%20Vocabulary%20Bank(new).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P2",
+ "raw_text": "Theme: Activities in different seasons\n1.barbecue 燒烤\n2.camping 宿營\n3.cycling 踏單車\n4.fishing 釣魚\n5.hiking 遠足\n6.hotpot 火鍋\n7.ice-skating 溜冰\n8.kites 風箏\n9.plant 種植\n10.windsurfing 風帆",
+ "photo_text": "Theme: Activities in different seasons\n1.barbecue 燒烤\n2.camping 宿營\n3.cycling 踏單車\n4.fishing 釣魚\n5.hiking 遠足\n6.hotpot 火鍋\n7.ice-skating 溜冰\n8.kites 風箏\n9.plant 種植\n10.windsurfing 風帆",
+ "targets": [
+  "barbecue",
+  "camping",
+  "cycling",
+  "fishing",
+  "hiking",
+  "hotpot",
+  "ice-skating",
+  "kites",
+  "plant",
+  "windsurfing"
+ ],
+ "target_zh": {
+  "barbecue": "燒烤",
+  "camping": "宿營",
+  "cycling": "踏單車",
+  "fishing": "釣魚",
+  "hiking": "遠足",
+  "hotpot": "火鍋",
+  "ice-skating": "溜冰",
+  "kites": "風箏",
+  "plant": "種植",
+  "windsurfing": "風帆"
+ },
+ "proper_nouns": [],
+ "notes": "English + Chinese per row, numbering glued to the word (\"1.towel\") as printed. ",
+ "target_rule": "all list items"
+}

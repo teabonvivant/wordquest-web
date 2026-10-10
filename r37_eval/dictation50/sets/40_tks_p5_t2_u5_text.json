@@ -1,0 +1,39 @@
+{
+ "id": "40_tks_p5_t2_u5_text",
+ "type": "text",
+ "title": "Tung Koon School, P.5 2nd term 2025-26 - Dictation 1 (5A Unit 5) C. Text",
+ "source_url": "https://www.tks.edu.hk/pdf/Edict/25262nd/Dictation%20Booklet_%20English_P5_second%20term.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P5",
+ "raw_text": "C.\nText (55% @2%)\nFantasy Farm is a big farm. You can ride horses there. I have never ridden a\nhorse, but I think it will be exciting! Have you ever picked fruit or fed animals? You\ncan try them at Fantasy Farm.\nI have picked strawberries there. They are delicious! I have also fed rabbits and\ncows. They are lovely!\n(57 words)",
+ "photo_text": "C.\nText (55% @2%)\nFantasy Farm is a big farm. You can ride horses there. I have never ridden a\nhorse, but I think it will be exciting! Have you ever picked fruit or fed animals? You\ncan try them at Fantasy Farm.\nI have picked strawberries there. They are delicious! I have also fed rabbits and\ncows. They are lovely!\n(57 words)",
+ "targets": [
+  "big",
+  "ride",
+  "horses",
+  "never",
+  "ridden",
+  "horse",
+  "think",
+  "exciting",
+  "ever",
+  "picked",
+  "fruit",
+  "fed",
+  "animals",
+  "try",
+  "strawberries",
+  "delicious",
+  "also",
+  "rabbits",
+  "cows",
+  "lovely"
+ ],
+ "target_zh": {},
+ "proper_nouns": [
+  "Fantasy",
+  "Farm"
+ ],
+ "notes": "Present perfect (ridden, picked, fed), place name Fantasy Farm.",
+ "target_rule": "list items + content words (>=3 letters, not V20.COMMON, not a name)"
+}

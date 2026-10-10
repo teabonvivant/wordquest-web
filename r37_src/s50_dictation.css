@@ -160,3 +160,11 @@ html body #import-v20 .s50-saved-btns .btn{min-height:56px;font-size:19px;font-w
 @media(prefers-reduced-motion:reduce){
  html body #import-v20 *{transition:none!important;animation:none!important}
 }
+
+/* ---- R3.13: poor recognition helpers, visible save error ---- */
+html body #import-v20 .s50-retry{order:8;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:6px 0 0;font-size:14px;color:#7a3b00}
+html body #import-v20 .s50-retry span{font-weight:800}
+html body #import-v20 .s50-retry .btn{min-height:44px;padding:0 10px;font-size:14px;font-weight:800;border:1.5px dashed #b45309;border-radius:22px;background:#fff6dc;color:#7a3b00}
+html body #import-v20 .s50-retry-2{margin:0 0 6px}
+html body #import-v20 .s50-err{margin:0 0 6px;padding:8px 10px;border-radius:10px;background:#fde8e4;border:1.5px solid #b3261e;color:#7a1410;font-size:15px;font-weight:800}
+html body #import-v20 .s50-err[hidden]{display:none!important}

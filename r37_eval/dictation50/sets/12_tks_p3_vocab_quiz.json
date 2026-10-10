@@ -1,0 +1,24 @@
+{
+ "id": "12_tks_p3_vocab_quiz",
+ "type": "list",
+ "title": "Tung Koon School, P.3 3rd term 2024-25 - Vocabulary Quiz 3B Unit 3",
+ "source_url": "https://www.tks.edu.hk/sites/default/files/sites/default/files/24253rd/Dictation%20Booklet_English_P3_third%20term.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P3",
+ "raw_text": "Vocabulary Quiz: 3B Unit 3 (p.22-23)  Date: _________________________ (       )\nPlease study the following vocabulary items:\n1.\nbeautiful\n5.\nsafe\n2.\nugly\n6.\ndangerous\n3.\nbrave\n7.\nyoung\n4.\nevil\n8.\nold",
+ "photo_text": "Vocabulary Quiz: 3B Unit 3 (p.22-23)  Date: _________________________ (       )\nPlease study the following vocabulary items:\n1. beautiful          5. safe\n2. ugly                    6. dangerous\n3. brave                  7. young\n4. evil                    8. old",
+ "targets": [
+  "beautiful",
+  "ugly",
+  "brave",
+  "evil",
+  "safe",
+  "dangerous",
+  "young",
+  "old"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "Paste order is the PDF text-layer order (number and word on separate lines, columns interleaved).",
+ "target_rule": "all list items"
+}

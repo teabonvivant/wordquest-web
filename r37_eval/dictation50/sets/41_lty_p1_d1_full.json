@@ -1,0 +1,30 @@
+{
+ "id": "41_lty_p1_d1_full",
+ "type": "mixed",
+ "title": "Lau Tak Yung PS, P.1 English Dictation (1) 2023-24 - whole sheet",
+ "source_url": "https://www.ltyschool.edu.hk/dev_module/upload_files/document/23-24_2nd_Term_P.1_Dict_HB.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P1",
+ "raw_text": "Primary 1\nDictation (1)\n29th Feb, 2024\nReady: 1AU5\nSpace Town: Grandma and the Birthday Cake\nA. Phonics (20%@4%)\nSay the word and count the syllables.\n1\n-\n2   -\n3\nB. Vocabulary (10%@2%)\n1. a bear\n2. a lion\n3. a panda\n4. a rabbit\n5. a tiger\nC. High Frequency Words (10%@2%)\n1. that\n2. yes\n3. no\n4. eight\n5. four\nD. Sentences (10%)\n1. This is a fat cat.\n2. That monkey is thin.",
+ "photo_text": "Primary 1\nDictation (1)\n29th Feb, 2024\nReady: 1AU5\nSpace Town: Grandma and the Birthday Cake\nA. Phonics (20%@4%)\nSay the word and count the syllables.\n1\n-\n2   -\n3\nB. Vocabulary (10%@2%)\n1. a bear\n2. a lion\n3. a panda\n4. a rabbit\n5. a tiger\nC. High Frequency Words (10%@2%)\n1. that\n2. yes\n3. no\n4. eight\n5. four\nD. Sentences (10%)\n1. This is a fat cat.\n2. That monkey is thin.",
+ "targets": [
+  "a bear",
+  "a lion",
+  "a panda",
+  "a rabbit",
+  "a tiger",
+  "that",
+  "yes",
+  "no",
+  "eight",
+  "four",
+  "fat",
+  "cat",
+  "monkey",
+  "thin"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "Header lines (date, unit title \"Space Town\"), phonics instruction, section labels with marks.",
+ "target_rule": "list items + content words (>=3 letters, not V20.COMMON, not a name)"
+}

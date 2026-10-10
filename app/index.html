@@ -1638,6 +1638,14 @@ html body #import-v20 .s50-saved-btns .btn{min-height:56px;font-size:19px;font-w
 @media(prefers-reduced-motion:reduce){
  html body #import-v20 *{transition:none!important;animation:none!important}
 }
+
+/* ---- R3.13: poor recognition helpers, visible save error ---- */
+html body #import-v20 .s50-retry{order:8;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:6px 0 0;font-size:14px;color:#7a3b00}
+html body #import-v20 .s50-retry span{font-weight:800}
+html body #import-v20 .s50-retry .btn{min-height:44px;padding:0 10px;font-size:14px;font-weight:800;border:1.5px dashed #b45309;border-radius:22px;background:#fff6dc;color:#7a3b00}
+html body #import-v20 .s50-retry-2{margin:0 0 6px}
+html body #import-v20 .s50-err{margin:0 0 6px;padding:8px 10px;border-radius:10px;background:#fde8e4;border:1.5px solid #b3261e;color:#7a1410;font-size:15px;font-weight:800}
+html body #import-v20 .s50-err[hidden]{display:none!important}
 </style>
 <style id="wq37-s56-css">
 /* R3.11 s56: the one-line label under the Chinese on a step-2 card (word form / same family / already learned).
@@ -1647,6 +1655,515 @@ html body #import-v20 .v20-token small.s56-tag{display:block;margin-top:2px;max-
 html body #import-v20 .v20-token small.s56-learned{color:#1f6b3a}
 html body #import-v20 .v20-token small.s56-root{color:#8a3b00}
 html body #import-v20 .v20-token small.s56-derived{color:#5a4a8a}
+html body #import-v20 .v20-token small.s56-name{color:#7a4b00}
+</style>
+<style id="wq37-s60-css">
+/* R3.13 s60 - legacy pages: one bar, teacher cards folded, short copy, responsive fit.
+   Every rule is scoped to body.r37 / .r37-legbody so the games, quizzes and the dictation import (s50) keep their own layout. */
+
+/* ---- 1. one top bar: the old site header is folded into the ⋯ menu ---- */
+html body.r37 .header,html body.r37 #wq29-test-banner{display:none!important}
+html body.r37 .r37-bar{padding:6px 12px;gap:8px;min-height:56px;position:relative}
+html body.r37 .r37-bar .r37-coin{padding:6px 12px;font-size:16px;white-space:nowrap;flex:none;min-height:44px;display:inline-flex;align-items:center}
+html body.r37 .r37-bar .r37-legt{min-height:44px;font-size:18px}
+html body.r37 .r37-bar .r37-who{font-size:16px;min-width:0}
+html body.r37 .r37-bar .r37-who span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s60-slot{display:flex;align-items:center}
+.s60-more{display:grid;place-items:center;flex:none;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font:inherit;font-size:24px;font-weight:900;line-height:1;cursor:pointer;padding:0 0 6px}
+.s60-more:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+.s60-menu{position:absolute;right:10px;top:calc(100% - 2px);z-index:40;min-width:190px;display:flex;flex-direction:column;background:#fff;color:#1d2158;border-radius:18px;padding:6px;box-shadow:0 14px 34px rgba(4,6,30,.55)}
+.s60-menu>*{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 14px;border:0;border-radius:12px;background:none;color:#1d2158;font:inherit;font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;text-align:left}
+.s60-menu>*:hover,.s60-menu>*:focus-visible{background:#eef0ff;outline:0}
+.s60-menu small{font-size:13px;font-weight:700;color:#5a6090;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s60-off,html body #app .s60-off,html body #app .s60-help-text.s60-off{display:none!important}
+
+/* ---- 2. teacher card -> small 🔊 button inside the bar ---- */
+html body .s60-guide{display:block!important;width:44px;height:44px;min-height:0;margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;animation:none!important;overflow:visible}
+html body .s60-guide>img,html body .s60-guide .wq32-image,html body .s60-guide .wq32-name,html body .s60-guide .wq32-line,html body .s60-guide .wq32-voice-note,html body .s60-guide .wq32-subtle{display:none!important}
+html body .s60-guide .wq32-guide-copy{display:block;margin:0;padding:0;min-width:0}
+html body .s60-guide .wq32-actions{display:block;margin:0;padding:0}
+html body .s60-guide .wq32-btn{display:none}
+html body .s60-guide .wq32-btn[data-wq32="voice"]{position:relative;display:block;width:44px;height:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:transparent;overflow:hidden;white-space:nowrap;text-indent:-300px;cursor:pointer}
+html body .s60-guide .wq32-btn[data-wq32="voice"]::before{content:"🔊";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font-size:20px;color:#fff}
+
+/* ---- 3. content area: tabs only in the parent area, 44px targets, copy folded behind ⓘ ---- */
+html body .r37-legbody .tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 10px;padding:0 0 2px;scrollbar-width:none}
+html body .r37-legbody .tabs::-webkit-scrollbar{display:none}
+html body .r37-legbody .tabs .tab{flex:none;min-height:44px;display:inline-flex;align-items:center;padding:0 16px}
+html body .r37-legbody.s60-notabs>.tabs,html body .r37-legbody.s60-notabs>#r3-family-entry{display:none}
+html body .r37-legbody :is(button,.btn,.l30-btn,select,summary,.tab){min-height:44px}
+html body .r37-legbody :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=range]),select,textarea){min-height:44px}
+html body .r37-legbody input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;width:52px;height:44px;margin:0;border:0;border-radius:22px;cursor:pointer;vertical-align:middle;
+ background:radial-gradient(circle at 19px 50%,#fff 0 15px,transparent 16px) no-repeat #b9bde0;transition:background-color .15s}
+html body .r37-legbody input[type=checkbox]:checked{background:radial-gradient(circle at 33px 50%,#fff 0 15px,transparent 16px) no-repeat hsl(var(--h,200) 70% 40%)}
+html body .r37-legbody input[type=checkbox]:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+html body .r37-legbody label.s60-check{display:flex;align-items:center;gap:12px;min-height:44px}
+.s60-i{display:inline-grid;place-items:center;min-width:44px;min-height:44px;margin:-8px -6px -8px auto;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:20px;line-height:1;cursor:pointer;opacity:.75;flex:none}
+.s60-i:hover,.s60-i:focus-visible{opacity:1}
+[data-s60-help]:not(.s60-help-open) .s60-help-text{display:none!important}
+.s60-help-text{font-size:14px}
+.s60-fold>h2:first-child{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;margin-top:0;margin-bottom:0;min-height:44px}
+.s60-fold>h2:first-child::after{content:"▾";font-size:16px;opacity:.6;transition:transform .15s}
+.s60-fold.s60-closed>h2:first-child::after{transform:rotate(-90deg)}
+.s60-fold.s60-closed>*:not(h2:first-child){display:none!important}
+.s60-fold>h2:first-child~*{margin-top:12px}
+
+/* ---- 4. page frame helpers ---- */
+html body .r37-legbody{padding:6px 14px 12px}
+html body .r37-legbody .card.pad,html body .r37-legbody .l30-panel{padding:16px}
+html body .r37-legbody h1{font-size:24px;line-height:1.25;margin:2px 0 8px}
+html body .r37-legbody h1:has(>.s60-i){display:flex;align-items:center;gap:8px}
+html body .r37-legbody .l30-eyebrow,html body .r37-legbody>.eyebrow,html body .r37-legbody .eyebrow{display:none}
+html body .r37-legbody h2{font-size:19px;line-height:1.3;margin:0 0 8px}
+html body .r37-legbody .l30-topline{margin-bottom:8px;gap:10px;align-items:center}
+/* fitted pages: fixed head, one scrolling region */
+html body .r37-legbody[data-s60-fit]{display:flex;flex-direction:column;overflow:auto}
+html body .r37-legbody[data-s60-fit]>*{flex:none;width:100%;max-width:1180px;margin:0 auto 10px;box-sizing:border-box}
+html body .r37-legbody[data-s60-fit]>[data-s60-list]{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+html body .r37-legbody[data-s60-fit]>.s60-grow{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+html body .r37-legbody[data-s60-fit]>.s60-grow>[data-s60-list]{flex:1 1 auto;min-height:0;overflow:auto}
+@media(max-height:559px){html body .r37-legbody[data-s60-fit]>[data-s60-list]{flex:none;overflow:visible}html body .r37-legbody[data-s60-fit]>.s60-grow{overflow:visible}}
+/* card columns (settings, parent, credits): 1 column on phones, 2-4 on wider screens */
+html body .r37-legbody .s60-colbox{column-width:340px;column-gap:14px;width:100%;max-width:1360px;margin:0 auto;box-sizing:border-box}
+html body .r37-legbody .s60-colbox>*{break-inside:avoid;margin:0 0 12px;max-width:none;display:block;width:auto;box-sizing:border-box}
+html body .r37-legbody>*{max-width:1360px}
+html body .r37-legbody h1,html body .r37-legbody>div>h1{color:#fff;text-shadow:0 2px 8px rgba(5,6,40,.5)}
+html body .r37-legbody .card h1,html body .r37-legbody .l30-panel h1,html body .r37-legbody .l30-empty h1{color:#1d2158;text-shadow:none}
+[data-s60=library] .l30-search label{color:#fff}
+[data-s60=library] .l30-word{text-align:left}
+
+/* ---- 5. 拼字教室 (classroom): search row + unit grid that scrolls in its own container ---- */
+[data-s60=classroom] .l30-topline{display:flex;flex-wrap:nowrap}
+[data-s60=classroom] .l30-topline>div{flex:1;min-width:0}
+[data-s60=classroom] .l30-topline h1{margin:0}
+[data-s60=classroom] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0 0 6px;align-items:center}
+[data-s60=classroom] .l30-search input{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=classroom] .l30-search select{flex:0 1 140px;min-width:0;width:auto}
+[data-s60=classroom] .l30-search .l30-btn{flex:none;padding:0 16px}
+[data-s60=classroom] p.l30-muted{margin:0 0 6px;font-size:13px;min-height:0}
+[data-s60=classroom] .l30-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;margin:0;align-content:start;padding:2px 2px 8px}
+[data-s60=classroom] .l30-unit-card{padding:8px 10px!important;min-height:64px;height:auto;overflow:visible;border-radius:16px!important;display:flex;flex-direction:column;gap:2px}
+[data-s60=classroom] .l30-unit-card .l30-miniart,[data-s60=classroom] .l30-unit-card .l30-sample,[data-s60=classroom] .l30-unit-card p,[data-s60=classroom] .l30-unit-card .l30-go{display:none}
+[data-s60=classroom] .l30-unit-card .l30-eyebrow{display:block;font-size:12px;margin:0}
+[data-s60=classroom] .l30-unit-card h3{font-size:17px;margin:0;line-height:1.25}
+[data-s60=classroom] .l30-unit-card .q36-done{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;margin:0;min-height:0;font-size:12px}
+[data-s60=classroom] .l30-unit-card .q36-tick{width:18px;height:18px;font-size:12px}
+[data-s60=classroom] .l30-empty{margin:0}
+
+/* ---- 6. 詞庫 (library) ---- */
+[data-s60=library] h1{margin:0 0 6px}
+[data-s60=library] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0 0 6px;align-items:center}
+[data-s60=library] .l30-search input[type=text],[data-s60=library] .l30-search #l30-word-q{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=library] .l30-search label{flex:none;display:flex;align-items:center;gap:8px;font-size:14px;white-space:nowrap}
+[data-s60=library] .l30-search .l30-btn{flex:none;padding:0 16px}
+[data-s60=library] p.l30-muted{margin:0 0 6px;font-size:13px}
+[data-s60=library] .l30-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;padding:2px 2px 8px}
+[data-s60=library] .l30-word{padding:8px 10px!important;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;border-radius:16px!important;min-height:0;cursor:pointer}
+[data-s60=library] .l30-word img,[data-s60=library] .l30-word .l30-noart{grid-row:1/3;width:48px;height:48px;min-height:0;border-radius:10px}
+[data-s60=library] .l30-word strong{font-size:17px}
+[data-s60=library] .l30-word p{margin:0;font-size:14px}
+[data-s60=library] .l30-word .l30-subtle,[data-s60=library] .l30-word .l30-btn{display:none}
+[data-s60=library] .l30-pagination{margin:0;padding:6px 0 0;display:flex;gap:8px;justify-content:center}
+[data-s60=library] details.l30-panel{display:none}
+[data-s60=library] .l30-list+.l30-empty{margin:0}
+
+/* ---- 7. 單元頁 (unit) ---- */
+[data-s60=unit] .l30-topline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+[data-s60=unit] .l30-topline>div{flex:1;min-width:0}
+[data-s60=unit] .l30-topline h1{margin:0;display:inline-block}
+[data-s60=unit] .l30-topline .q36-done{display:inline-flex;vertical-align:middle;margin-left:8px;gap:6px}
+[data-s60=unit] .l30-tag{font-size:13px}
+[data-s60=unit] .q36-start{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 12px!important}
+[data-s60=unit] .q36-start .l30-row{order:1;flex:1 1 0;min-width:0}
+[data-s60=unit] .q36-start>.s60-i{order:2;flex:none;margin:0}
+[data-s60=unit] .q36-start>.q36-rule{order:3}
+[data-s60=unit] .q36-start>h2{display:none}
+[data-s60=unit] .q36-start>p:not(.q36-rule){flex:1 1 100%;margin:0;font-size:14px;order:0}
+[data-s60=unit] .q36-start .l30-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:0}
+[data-s60=unit] .q36-start .l30-btn{padding:0 6px;min-height:48px;font-size:15px;white-space:nowrap;text-align:center;justify-content:center}
+[data-s60=unit] .q36-start>.q36-rule{flex:1 1 100%;margin:0}
+[data-s60=unit] .l30-panel:has(.l30-words){display:flex;flex-direction:column;padding:10px!important}
+[data-s60=unit] .l30-panel:has(.l30-words)>h2{display:none}
+[data-s60=unit] .l30-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start}
+[data-s60=unit] .l30-word{text-align:left;padding:8px 10px!important;display:grid;grid-template-columns:48px 1fr auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;border-radius:16px!important;min-height:0;cursor:pointer}
+[data-s60=unit] .l30-word img,[data-s60=unit] .l30-word .l30-noart{grid-row:1/3;width:48px;height:48px;min-height:0;border-radius:10px}
+[data-s60=unit] .l30-word strong{font-size:17px}
+[data-s60=unit] .l30-word p{margin:0;font-size:14px}
+[data-s60=unit] .l30-word .l30-subtle{display:none}
+[data-s60=unit] .l30-word .l30-btn{display:none}
+@media(min-width:820px){[data-s60=unit] .l30-words{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}[data-s60=unit] .l30-word .l30-btn{display:inline-flex;grid-row:1/3;grid-column:3;padding:0 10px;font-size:13px;min-height:44px}}
+[data-s60=unit] details.l30-panel{display:none}
+
+/* ---- 8. lesson / quiz screens: the "next" bar sat 70px above the bottom and covered the question ---- */
+html body .r37-legbody .l30-quiz .l30-quizactions,html body .r37-legbody .l31-lesson .l31-actions{bottom:0}
+[data-s60-quiz] .l30-quiz,[data-s60-quiz] .l31-lesson{padding-top:8px}
+
+/* ---- 9. 默書報告 (report) ---- */
+[data-s60=report]>div:not(.tabs):not(.stats){margin:0}
+[data-s60=report] h1{margin:0 0 4px}
+[data-s60=report] .p40-next{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 14px!important}
+[data-s60=report] .p40-next h2{margin:0;flex:1 1 auto}
+[data-s60=report] .p40-next>p{margin:0;flex:1 1 100%;font-size:13px}
+[data-s60=report] .p40-next .btn{flex:0 0 auto;min-height:48px}
+[data-s60=report] .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+[data-s60=report] .stat{padding:8px 6px;text-align:center;border-radius:14px}
+[data-s60=report] .stat strong{font-size:22px;line-height:1.2}
+[data-s60=report] .stat span{font-size:12px;display:block}
+[data-s60=report] .s60-scroll{display:grid;grid-template-columns:1fr;grid-auto-rows:max-content;gap:10px;align-content:start}
+[data-s60=report] .s60-scroll>.grid2{display:contents}
+[data-s60=report] .s60-scroll>*,[data-s60=report] .s60-scroll .grid2>*{margin:0!important;min-width:0}
+[data-s60=report] .s60-scroll .list li{padding:8px 0}
+@media(min-width:820px){[data-s60=report] .s60-scroll{grid-template-columns:repeat(3,minmax(0,1fr))}}
+html body .r37-legbody .s60-morebox{margin:0}
+html body .r37-legbody .s60-morebox>summary{font-weight:800;cursor:pointer;display:flex;align-items:center}
+html body .r37-legbody .s60-morebox>*:not(summary){margin-top:10px}
+
+/* ---- 10. 設定／備份 & 家長工具 (cards in columns, folded on phones) ---- */
+[data-s60=settings] h1,[data-s60=parent] h1{margin:2px 0 8px}
+[data-s60=settings] .s60-fold.card.pad,[data-s60=parent] .s60-fold{padding:12px 14px!important}
+[data-s60=settings] .field{margin-top:8px!important}
+[data-s60=settings] .field label{margin-bottom:4px}
+[data-s60=settings] .sfx-panel{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:8px}
+[data-s60=settings] .row{gap:8px}
+[data-s60=settings] .btn.full{width:100%}
+[data-s60=settings] details.v25-check>summary{font-size:15px}
+[data-s60=settings] .v25-panel>.row .btn{flex:1 1 140px}
+[data-s60=settings] .wq32-setting-row,[data-s60=settings] .wq32-select-row{margin:0}
+[data-s60=parent] .l30-topline{display:block}
+[data-s60=parent] .l30-topline h1{display:block}
+[data-s60=parent] .l30-card{display:flex;align-items:center;gap:12px;padding:12px 14px!important;min-height:0}
+[data-s60=parent] .l30-card img{width:36px;height:36px;flex:none}
+[data-s60=parent] .l30-card h2{margin:0;font-size:17px}
+[data-s60=parent] .l30-card p,[data-s60=parent] .l30-card .l30-go{display:none}
+[data-s60=parent] .l30-row{display:flex;flex-wrap:wrap;gap:8px}
+[data-s60=parent] .wq32-entry p,[data-s60=parent] .l30-muted{display:none}
+[data-s60=parent] #r3-family-entry p{display:none}
+[data-s60=settings] #r3-family-entry p{display:none}
+
+/* ---- 11. 孩子管理 / 離線教材 / 來源 ---- */
+[data-s60=children] .child-card{padding:12px 14px}
+[data-s60=children] .row.between{margin:0 0 8px}
+[data-s60=children] .row.between h1{margin:0}
+[data-s60=offline]>.row.between{align-items:center;margin:0 0 6px;gap:8px}
+[data-s60=offline]>.row.between>a.btn{display:none}
+[data-s60=offline]>.row.between>div{flex:1;min-width:0}
+[data-s60=offline]>.row.between h1{margin:0}
+[data-s60=offline]>.muted{display:none}
+[data-s60=offline] #offline-content{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
+[data-s60=offline] #offline-content .field{margin:0}
+[data-s60=offline] #offline-content .field label{display:none}
+[data-s60=offline] .offline-summary{padding:12px 14px!important;margin:0!important}
+[data-s60=offline] .offline-summary>.row.between{margin:0 0 6px}
+[data-s60=offline] .offline-summary h2{margin:0;font-size:18px}
+[data-s60=offline] .offline-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 8px}
+[data-s60=offline] .offline-counts>div{padding:6px;text-align:center}
+[data-s60=offline] .offline-counts strong{font-size:20px}
+[data-s60=offline] .offline-counts span{font-size:12px}
+[data-s60=offline] .offline-summary>p{display:none}
+[data-s60=offline] .media-actions{display:flex;gap:8px;margin:0}
+[data-s60=offline] .media-actions .btn{flex:1}
+[data-s60=offline] .offline-extra{margin-top:8px}
+[data-s60=offline] #offline-content>.row.between{margin:0;align-items:center}
+[data-s60=offline] #offline-content>.row.between h2{margin:0;font-size:17px}
+[data-s60=offline] #offline-content>p{display:none}
+[data-s60=offline] .media-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;align-content:start}
+@media(min-width:820px){
+ [data-s60=offline] #offline-content{display:grid;grid-template-columns:minmax(320px,400px) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);gap:10px 16px}
+ [data-s60=offline] #offline-content>.field{grid-column:1;grid-row:1}
+ [data-s60=offline] #offline-content>.offline-summary{grid-column:1;grid-row:2/4;align-self:start}
+ [data-s60=offline] #offline-content>.row.between{grid-column:2;grid-row:1}
+ [data-s60=offline] #offline-content>.media-list{grid-column:2;grid-row:2/4;overflow:auto;min-height:0;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+}
+[data-s60=offline] .media-word{padding:8px!important;gap:8px}
+[data-s60=credits]{padding-top:6px}
+[data-s60=credits] .card.pad{padding:14px}
+[data-s60=credits] p{font-size:14px;margin:0 0 8px}
+[data-s60=credits] a.btn{display:none}
+
+/* ---- 12. 金幣與遊戲設定 (game-settings) ---- */
+[data-s60=game-settings]>.card{padding:14px!important;display:flex;flex-direction:column;gap:10px}
+[data-s60=game-settings]>.card>*{margin:0}
+[data-s60=game-settings] .a28-eyebrow{display:none}
+[data-s60=game-settings] h1{margin:0}
+[data-s60=game-settings] .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+[data-s60=game-settings] .grid2 label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700}
+[data-s60=game-settings] .row{display:flex;flex-wrap:wrap;gap:8px}
+[data-s60=game-settings] .row .btn{flex:1 1 130px}
+[data-s60=game-settings] .row a.btn{display:none}
+[data-s60=game-settings] details>summary{font-weight:800;display:flex;align-items:center;min-height:44px;cursor:pointer}
+[data-s60=game-settings] .pg-permissions{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 12px;margin-top:8px}
+[data-s60=game-settings] .pg-permissions label{display:flex;flex-direction:column;gap:4px;font-size:14px}
+[data-s60=game-settings] .s60-rules>p{margin:8px 0 0;font-size:14px}
+
+/* ---- 13. 遊戲街機 (lobby): one head row, game cards scroll in their own container ---- */
+[data-s60=game]>.p30-lobby{display:flex;flex-direction:column;min-height:0;flex:1 1 auto;margin:0;max-width:1360px}
+[data-s60=game]>.p30-lobby>h1{display:inline-block;margin:0 0 6px;font-size:22px}
+[data-s60=game] .arx-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
+[data-s60=game] .arx-hint,[data-s60=game] .p30-sec,[data-s60=game] .p30-slogan,[data-s60=game] .p30-earn{display:none}
+[data-s60=game] .a28-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 8px;padding:0 0 2px;scrollbar-width:none;flex:none}
+[data-s60=game] .a28-tabs::-webkit-scrollbar{display:none}
+[data-s60=game] .a28-tabs .a28-btn{flex:none;min-height:44px}
+[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
+[data-s60=game] .p30-card{padding:8px!important;border-radius:18px!important;display:flex;flex-direction:column;gap:6px}
+[data-s60=game] .p30-card .p30-shot{max-height:96px;overflow:hidden;border-radius:12px;cursor:pointer}
+[data-s60=game] .p30-card h3{font-size:16px;margin:0}
+[data-s60=game] .p30-card .a28-cabinet-body{display:flex;flex-direction:column;gap:6px}
+[data-s60=game] .p30-card .arx-tg,[data-s60=game] .wq32-cabinet-buddy{display:none}
+[data-s60=game] .p30-card .a28-btn{min-height:44px;font-size:15px;padding:0 10px;white-space:normal}
+
+/* ---- 14. 詞語組合工房 (assembly) / 組合單元 ---- */
+[data-s60=assembly]>.l31-hero{padding:6px 2px!important;background:none!important;border:0!important;box-shadow:none!important;display:block;min-height:0}
+[data-s60=assembly] .l31-hero>div{display:block}
+[data-s60=assembly] .l31-eyebrow,[data-s60=assembly] .l31-samples,[data-s60=assembly] .l31-mascot{display:none}
+[data-s60=assembly] .l31-hero h1{margin:0;color:#fff}
+[data-s60=assembly] .l31-guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+[data-s60=assembly] .l31-guide>section{padding:8px 12px;border-radius:14px}
+[data-s60=assembly] .l31-guide p{margin:2px 0 0;font-size:14px}
+[data-s60=assembly] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0}
+[data-s60=assembly] .l30-search input{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=assembly] .l30-search select{flex:0 1 160px;min-width:0;width:auto}
+[data-s60=assembly]>p{margin:0;font-size:13px;color:#e3e6ff}
+[data-s60=assembly] .l31-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;padding:2px 2px 8px;margin:0}
+[data-s60=assembly] .l31-group{padding:10px 12px!important;min-height:0;display:flex;flex-direction:column;gap:4px;border-radius:16px!important}
+[data-s60=assembly] .l31-group h2{font-size:16px;margin:0;line-height:1.3}
+[data-s60=assembly] .l31-group .l31-kind{font-size:12px;padding:2px 8px;min-height:0;align-self:flex-start}
+[data-s60=assembly] .l31-group .l31-help,[data-s60=assembly] .l31-group>p,[data-s60=assembly] .l31-group .l31-card-link{display:none}
+[data-s60=assembly] .l31-group .l31-samples{display:flex;margin:0;gap:4px;min-height:0}
+[data-s60=assembly] .l31-group .l31-chip{padding:2px 8px;font-size:15px;min-height:0}
+[data-s60=assembly-unit]>.l31-kind{display:none}
+[data-s60=assembly-unit] h1{margin:0 0 6px}
+[data-s60=assembly-unit] .s60-split{display:flex;flex-direction:column;gap:10px;flex:1 1 auto;min-height:0;max-width:1180px;width:100%;margin:0 auto}
+[data-s60=assembly-unit] .l31-launch{padding:10px 12px!important;border-radius:18px;display:flex;flex-direction:column;gap:8px;margin:0}
+[data-s60=assembly-unit] .l31-launch h2{display:none}
+[data-s60=assembly-unit] .l31-launch>div:first-child{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+[data-s60=assembly-unit] .l31-launch label{font-weight:700}
+[data-s60=assembly-unit] .l31-launch select{width:auto;min-width:96px}
+[data-s60=assembly-unit] .l31-launch-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:0}
+[data-s60=assembly-unit] .l31-launch-actions .l30-btn{min-height:48px;white-space:normal}
+[data-s60=assembly-unit] .l31-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;flex:1 1 auto;min-height:0;overflow:auto;margin:0;padding:2px 2px 8px}
+[data-s60=assembly-unit] .l31-recipe{padding:10px 12px!important;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;min-height:0;border-radius:16px!important}
+[data-s60=assembly-unit] .l31-recipe>*{grid-column:1/-1}
+[data-s60=assembly-unit] .l31-recipe .l31-kind,[data-s60=assembly-unit] .l31-recipe details,[data-s60=assembly-unit] .l31-recipe .l31-target-art,[data-s60=assembly-unit] .l31-recipe>p:nth-of-type(2){display:none}
+[data-s60=assembly-unit] .l31-recipe h2{font-size:20px;margin:0;grid-column:1}
+[data-s60=assembly-unit] .l31-recipe>p{margin:0;font-size:14px}
+[data-s60=assembly-unit] .l31-recipe>.l30-btn{grid-column:1/-1}
+[data-s60=assembly-unit] .l31-formula{font-size:15px}
+@media(min-width:900px){
+ [data-s60=assembly-unit] .s60-split{flex-direction:row;align-items:stretch}
+ [data-s60=assembly-unit] .l31-launch{flex:0 0 330px;align-self:flex-start}
+}
+[data-s60=assembly-learn] .l31-help,[data-s60=assembly-learn] .l31-notice,[data-s60=assembly-learn] .l31-workbench>p,[data-s60=assembly-learn] .l31-source-card .l31-help{display:none}
+
+/* ---- 15. other legacy pages ---- */
+[data-s60=practice] .l30-topline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+[data-s60=practice] .l30-source{display:flex;gap:8px}
+[data-s60=practice] .l30-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}
+[data-s60=practice] .l30-card{padding:12px!important;min-height:0;display:flex;align-items:center;gap:10px;text-align:left}
+[data-s60=practice] .l30-card img{width:40px;height:40px;flex:none}
+[data-s60=practice] .l30-card h3{margin:0;font-size:17px}
+[data-s60=practice] .l30-card p,[data-s60=practice] .l30-card .l30-go{display:none}
+[data-s60=practice]>a.l30-btn{align-self:flex-start}
+[data-s60=companions] #wq32-gallery-page{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
+[data-s60=companions] #wq32-gallery-page>a.wq32-btn,[data-s60=companions] #wq32-gallery-page>p,[data-s60=companions] .wq32-settings{display:none}
+[data-s60=companions] .wq32-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+[data-s60=companions] .wq32-roster .wq32-btn{display:flex;flex-direction:column;align-items:center;padding:6px;min-height:0}
+[data-s60=companions] .wq32-roster img{width:56px;height:64px;object-fit:contain}
+[data-s60=companions] .wq32-profile{overflow:auto;min-height:0;flex:1 1 auto}
+[data-s60=learning-help] .l30-card p{font-size:14px}
+[data-s60=admin] .wq29-admin>*{margin-bottom:10px}
+[data-s60=admin] .s60-scroll{display:block}
+[data-s60=admin] h1{color:#fff}
+[data-s60=login] .wq29-portal{padding:12px 14px!important;margin:0 0 10px}
+[data-s60=login] .wq29-portal .wq29-eyebrow,[data-s60=login] .wq29-login .wq29-eyebrow{display:none}
+[data-s60=login] .wq29-portal h2{font-size:19px;margin:0 0 8px}
+[data-s60=login] .wq29-actions{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+[data-s60=login] .wq29-actions .btn{flex:1 1 140px;min-height:48px}
+[data-s60=login] .wq29-login{padding:14px!important}
+[data-s60=login] .card.pad>div:first-child:not([class]){display:none}
+[data-s60=login] .card h1{margin:0 0 8px;font-size:22px}
+[data-s60=login] .card>.muted{margin:0 0 10px}
+/* login / register: one form at a time on phones, side by side on wider screens */
+[data-s60=login] #p10-login{max-width:760px;margin:0 auto}
+[data-s60=login] #p10-login>.p10-back{display:none}
+[data-s60=login] .p10-login-head h1{display:flex;align-items:center;gap:8px;color:#fff;margin:0 0 6px}
+[data-s60=login] .p10-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+[data-s60=login] .p10-choice{min-height:48px;padding:6px 10px;border-radius:14px;flex-direction:row;align-items:center;justify-content:center;border-width:2px;background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+[data-s60=login] .p10-choice span{display:none}
+[data-s60=login] .p10-choice strong{font-size:16px}
+[data-s60=login] .p10-choice.on{background:#fff;color:#1d2158;border-color:#fff}
+[data-s60=login] .p10-forms{display:flex;flex-direction:column;gap:10px;margin:0;scroll-padding-top:4px}
+[data-s60=login] .p10-card{padding:14px!important}
+[data-s60=login] .p10-card h2{margin:0 0 6px}
+[data-s60=login] .p10-card .field{margin-top:8px}
+[data-s60=login] .p10-try{margin:4px 0;text-align:center}
+[data-s60=login] .p10-try a{color:#fff}
+[data-s60=login] .p10-note{margin:0 0 8px}
+@media(min-width:900px){
+ [data-s60=login] #p10-login{max-width:1000px}
+ [data-s60=login] .p10-choices{display:none}
+ [data-s60=login] .p10-forms{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+}
+
+/* ---- 16. parent gate: the card is white, the text inherited white (invisible) ---- */
+.r37-gate .card,.r37-gate .card *{color:#1d2158}
+.r37-gate .card h1,.r37-gate .card h2{color:#1d2158;text-shadow:none}
+.r37-gate .card .muted,.r37-gate .card small,.r37-gate .card p{color:#3b4272}
+.r37-gate .card .btn.primary,.r37-gate .card .btn.primary *{color:#fff}
+.r37-gate .card input{background:#fff;color:#1d2158}
+
+/* ---- 17. planet shell touches: labelled parent tabs, readable level names ---- */
+.r37-ptab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:56px}
+.r37-ptab b{font-size:13px;font-weight:800;line-height:1.1}
+.r37-nu{font-size:12px!important}
+
+/* closed <details> render nothing; make that explicit so their hidden children take no layout/measure space */
+html body .r37-legbody details:not([open])>*:not(summary){display:none!important}
+[data-s60=game] .p30-card .a28-cabinet-body>p,[data-s60=game] .p30-card .a28-cabinet-body>small,[data-s60=game] .p30-card .a28-cabinet-body .a28-en{display:none}
+
+[data-s60=assembly] .s60-scroll{display:flex;flex-direction:column;gap:10px}
+[data-s60=assembly] .s60-scroll>.l31-grid{overflow:visible}
+[data-s60=assembly] .s60-scroll>.l30-panel{margin:0;padding:10px 12px!important}
+
+/* ---- 18. 80-unit picker (learning-plan), 拼字家族, 拼字專家 ---- */
+.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
+.s60-chip{min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid #cfd4f3;background:#fff;color:#1d2158;font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-align:left;line-height:1.25}
+.s60-chip.on{border-color:hsl(var(--h,200) 75% 40%);background:hsl(var(--h,200) 80% 94%);box-shadow:0 0 0 2px hsl(var(--h,200) 75% 40%)}
+[data-s60=learning-plan]>.l30-panel{margin-bottom:10px}
+[data-s60=learning-plan] .l30-panel.s60-grow{display:flex;flex-direction:column;gap:8px;padding:10px!important}
+[data-s60=learning-plan] .l30-row{display:flex;gap:8px;flex-wrap:wrap}
+[data-s60=learning-plan] .l30-row .l30-btn{flex:1 1 150px}
+[data-s60=learning-plan] .s60-keepfit{padding:8px 12px!important}
+[data-s60=learning-plan] .s60-keepfit h2{margin:0 0 6px;font-size:16px}
+[data-s60=learning-plan] .s60-keepfit .l30-btn{margin-right:8px}
+[data-s60=learning-plan]>.l30-panel.s60-grow{flex:1 1 auto;min-height:0}
+[data-s60=family-lesson] .fg-overview,[data-s60=spelling-family] .fg-overview{gap:8px;padding:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview>.row.between{margin:0;align-items:center}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview>.row.between>a.btn,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview .eyebrow{display:none}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview h1{margin:0;color:#fff}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-hero{padding:10px 14px!important;gap:10px;margin:0;min-height:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-hero p{margin:2px 0;font-size:14px}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-bottom-actions{order:3;margin:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-grid{order:4;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;margin:0;overflow:auto}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card{min-height:0;padding:8px 10px;gap:2px}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card .small,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card .fg-status,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-card-symbol{display:none}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-adult-note{order:5;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview{gap:8px;padding:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview>.row.between{margin:0;align-items:center}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview>.row.between>a.btn,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview .eyebrow,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-kicker,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-path,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero p,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total>span{display:none}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview h1{margin:0;color:#fff}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero{padding:8px 14px!important;display:flex;align-items:center;gap:12px;margin:0;min-height:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero h2{margin:0;font-size:18px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course{padding:10px 12px!important;gap:4px;min-height:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course h2{font-size:16px;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course p{margin:0;font-size:13px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-actions{margin:0}
+[data-s60=learning-help] .l30-card h2{font-size:17px;margin:0}
+[data-s60=learning-help] .l30-card img{width:36px;height:36px}
+[data-s60=learning-help] .l30-card{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px!important}
+
+/* ---- 19. planet-shell pages: one back control, 44px world tabs, character grid ---- */
+html body.r37 .r37-bar:has(>.r37-back2)>.r37-back{display:none}
+html body.r37 .r37-bar>.r37-back2{order:-1}
+html body.r37 .r37-bar>.r37-who{min-width:0;flex:1 1 auto}
+html body.r37 .r37-worlds{overflow-x:auto;justify-content:center;gap:2px;padding:0 6px;scrollbar-width:none}
+html body.r37 .r37-worlds::-webkit-scrollbar{display:none}
+html body.r37 .r37-wtab{flex:1 1 0;min-width:0;max-width:76px;min-height:44px;padding:4px 0;justify-content:center}
+@media(min-width:380px){html body.r37 .r37-wtab{min-width:44px}}
+html body.r37 .r37-chars{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;padding:6px 12px;max-width:1100px}
+html body.r37 .r37-char{padding:8px 6px;border-radius:18px;gap:2px}
+html body.r37 .r37-char small{display:none}
+html body.r37 .r37-char button,html body.r37 .r37-char .r37-got{min-height:44px;display:inline-flex;align-items:center}
+html body.r37 .r37-hero:has(+.r37-chars){padding-bottom:0}
+html body.r37 .r37-ptab{min-width:44px}
+
+/* ---- 20. arcade dialogs: preview + achievements fit one screen ---- */
+#pg-dialog.p30-intro .wq32-guide,#pg-dialog.p30-intro .p30-goal{display:none!important}
+#pg-dialog.p30-intro .a28-preview-progress{margin:6px 0;font-size:14px}
+#pg-dialog.p30-intro .a28-preview{max-height:36vh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+#pg-dialog.p30-intro #a28-preview-canvas{max-height:calc(36vh - 34px);width:auto!important;max-width:100%;height:auto}
+#pg-dialog.p30-intro .a28-dialog-content{padding-top:8px}
+#pg-dialog.p30-intro .arx-row{margin:0 0 6px}
+#pg-dialog.p30-intro .p30-how{margin:6px 0}
+#pg-dialog.p30-intro .a28-dialog-top{padding:6px 12px}
+#pg-dialog.p30-intro .p30-actions{padding:8px 12px}
+#pg-dialog.p30-intro .a28-btn,#pg-dialog.p30-intro .btn{min-height:48px}
+#arx-ach-dlg{max-height:calc(100dvh - 24px)}
+#arx-ach-dlg .arx-dh{padding:6px 12px}
+#arx-ach-dlg .arx-dbody{display:flex;flex-direction:column;max-height:calc(100dvh - 100px);overflow:hidden}
+#arx-ach-dlg .arx-sum{margin:0 0 8px;font-size:14px}
+#arx-ach-dlg .arx-achs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none;overflow:auto;min-height:0}
+#arx-ach-dlg .arx-ach{display:flex;align-items:center;gap:8px;padding:6px 8px;min-height:56px;border-radius:14px}
+#arx-ach-dlg .arx-at{min-width:0;flex:1}
+#arx-ach-dlg .arx-at b{font-size:15px;display:block;line-height:1.25}
+#arx-ach-dlg .arx-at small{font-size:12px;display:none;line-height:1.25}
+#arx-ach-dlg .arx-ach.s60-open .arx-at small{display:block}
+#arx-ach-dlg .arx-ach{cursor:pointer}
+#arx-ach-dlg .arx-ai{font-size:22px;flex:none}
+#arx-ach-dlg .arx-ap{font-size:12px;flex:none}
+@media(min-width:700px){#arx-ach-dlg.wide{width:min(720px,92vw)}#arx-ach-dlg .arx-achs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.r37-gate .card h1:has(.s60-i){display:flex;align-items:center;gap:8px}
+.r37-gate .card .s60-i{color:#1d2158}
+/* 默書 daily quiz: step count / pause were navy on the navy sky */
+html body .r37-legbody .task-top .step-count{color:#e8ebff;font-weight:800}
+html body .r37-legbody .task-top .btn.quiet{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.1)}
+
+html body .r37-legbody .task-top .step-count{font-size:14px}
+[data-s60=playground] .card{margin:0 auto;max-width:520px}
+[data-s60=playground] .card *{color:#1d2158}
+[data-s60=playground] .card .btn.primary{color:#fff}
+[data-s60=legacy-phonics] .s60-scroll{display:block}
+
+[data-s60=login] .wq29-portal .wq29-portal-copy{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0!important}
+[data-s60=login] .wq29-portal h2{flex:1 1 140px;margin:0}
+[data-s60=login] .wq29-portal .wq29-actions{flex:0 1 auto}
+[data-s60=login] .wq29-portal .btn.big{min-height:48px;padding:0 18px}
+[data-s60=login] .wq29-portal .s60-help-text{display:none!important}
+
+html body #app [data-s60=assembly] .l31-eyebrow,html body #app [data-s60=assembly] .l31-samples,html body #app [data-s60=assembly] .l31-mascot,html body #app [data-s60=assembly] .wq32-hero-figure,html body #app [data-s60=classroom] .wq32-hero-figure,html body #app [data-s60] .wq32-hero-figure{display:none!important}
+[data-s60=offline] #offline-content>.row.between h2{color:#fff}
+html body #app [data-s60=assembly-unit]>.l31-kind{display:none!important}
+
+/* 12px floor for the small tags that were 11px */
+html body .source-tag,html body .wq32-roster small,html body .r37-df small,html body .r37-df i,html body .r37-dl,html body #app figcaption,html body .l30-tag,html body .tag{font-size:max(12px,.75rem)}
+[data-s60=login] .card a.btn[href="#kid"]{display:none}
+
+html body #app .r37-legbody .source-tag,html body #app figcaption,html body #app .wq29-portal small{font-size:12px!important}
+html body .r37-legbody input[type=checkbox]{width:52px!important;height:44px!important;min-height:44px}
+[data-s60=offline] #offline-content.s60-grow{display:flex}
+[data-s60=login] .wq29-portal figcaption{display:none}
+[data-s60=login] #p10-login.s60-grow{display:flex;flex-direction:column;overflow:hidden;max-width:1000px}
+[data-s60=login] #p10-login.s60-grow>*{flex:none}
+[data-s60=login] #p10-login.s60-grow>.p10-forms{flex:1 1 auto;min-height:0;overflow:auto}
+[data-s60=login] .p10-card .field input{min-height:44px;height:44px}
+[data-s60=login] .p10-card .field>label{margin-bottom:2px;font-size:14px}
+[data-s60=login] .p10-card h2{display:none}
+@media(min-width:900px){[data-s60=login] .p10-card h2{display:block}}
+
+html body #app .wq29-portal-art,html body #app [data-s60=login] .wq29-portal-art{display:none!important}
+
+@media(max-height:759px){
+ [data-s60=login] #p10-login.s60-grow{overflow:visible;display:block}
+ [data-s60=login] #p10-login.s60-grow>.p10-forms{overflow:visible}
+ html body .r37-legbody[data-s60=login][data-s60-fit]{display:block;overflow:auto}
+}
+
+/* lobby head: title + wallet on one row (the wallet stays, small), chips and filters below, cards scroll */
+html body .r37-legbody[data-s60=game]>.p30-lobby{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto minmax(0,1fr) auto;column-gap:10px;overflow:hidden}
+[data-s60=game]>.p30-lobby>h1{grid-column:1;grid-row:1;align-self:center}
+[data-s60=game]>.p30-lobby>.p30-top{grid-column:2;grid-row:1;margin:0 0 6px;padding:2px 10px!important;border-radius:999px!important;min-height:0}
+[data-s60=game] .p30-top .p30-wallet{display:flex;align-items:center;gap:8px;margin:0}
+[data-s60=game] .p30-top .a28-coin{width:30px!important;height:30px!important;font-size:16px!important}
+[data-s60=game] .p30-top small{display:inline;font-size:12px}
+[data-s60=game] .p30-top strong{font-size:20px!important;line-height:1}
+[data-s60=game] .p30-top strong span{font-size:12px}
+[data-s60=game]>.p30-lobby>.arx-bar{grid-column:1/-1;grid-row:2}
+[data-s60=game]>.p30-lobby>.a28-tabs{grid-column:1/-1;grid-row:3}
+[data-s60=game]>.p30-lobby>.p30-cards{grid-column:1/-1;grid-row:4}
+[data-s60=game]>.p30-lobby>details{grid-column:1/-1;grid-row:5;margin:6px 0 0}
+
+[data-s60=login] .p10-forms>.p10-try,[data-s60=login] .p10-forms>.wq29-portal{grid-column:1/-1}
 </style>
 </head>
 <body>
@@ -14588,14 +15105,32 @@ const S50_DEFAULT={minLen:3,basic:true};
 let s50Prefs=null,s50PrefsKey='',s50SkipOpen=false,s50BusyAuto=false;
 let s50Saved=null,s50Over=false,s50Review=null;   // R3.12: success card / over-120 prompt / one-by-one review state
 function s50Key(){let id='';try{id=String(accountId()||'');}catch(_){}return 'wq50-dict-prefs:'+(id||'guest');}
-function s50GetPrefs(){
+function s50Stored(){
  const k=s50Key();
  if(s50Prefs&&s50PrefsKey===k)return s50Prefs;
  let p={...S50_DEFAULT};
  try{const o=JSON.parse(localStorage.getItem(k)||'null');if(o&&typeof o==='object'){if([0,3,4,5].includes(o.minLen))p.minLen=o.minLen;if(typeof o.basic==='boolean')p.basic=o.basic;}}catch(_){}
  s50Prefs=p;s50PrefsKey=k;return p;
 }
-function s50SetPrefs(patch){const p=Object.assign(s50GetPrefs(),patch);try{localStorage.setItem(s50Key(),JSON.stringify(p));}catch(_){}return p;}
+/* R3.13: a list (one item per line) shows 不限 and no basic-word skipping until the parent chooses otherwise in this import */
+function s50IsListLayout(){
+ const live=v20.items.filter(c=>!c.excludedReason&&!(c.s50&&c.s50.dup)&&c.kind!=='sentence');
+ const n=live.filter(c=>c.s50x&&c.s50x.list).length;
+ return n>=3&&n>=live.length*0.6;
+}
+function s50GetPrefs(){
+ if(v20&&v20.s50Eff)return v20.s50Eff;
+ if(v20&&v20.items&&s50IsListLayout())return {minLen:0,basic:false};
+ return s50Stored();
+}
+function s50SetPrefs(patch){
+ const eff=Object.assign({},s50GetPrefs(),patch);
+ if(v20)v20.s50Eff=eff;
+ const p=Object.assign({},s50Stored(),patch);
+ s50Prefs=p;
+ try{localStorage.setItem(s50Key(),JSON.stringify(p));}catch(_){}
+ return eff;
+}
 const s50Letters=en=>(String(en||'').match(/[A-Za-z]/g)||[]).length;
 const s50Eligible=c=>!c.excludedReason&&c.kind!=='sentence'&&!/\s/.test(String(c.en||''));
 const s50HostExcluded=c=>!!c.excludedReason&&!c.selected;
@@ -14616,10 +15151,25 @@ function s50SaveList(){
 }
 
 /* Recompute which items the filter keeps. Hand-made choices (a change that this function did not make) always win. */
+/* a selected card must be something 儲存 can store: clean it, else leave it un-selected and say why (never a silent drop at the end) */
+function s50Sane(c){
+ if(!c.selected||validEnglish(c.en))return;
+ const t=s50Charset(c.en).replace(/^[^A-Za-z]+|[^A-Za-z.!?')]+$/g,'').trim();
+ if(t&&validEnglish(t)){
+  c.en=t;
+  const g=V20.gloss(t,v20Dictionary);
+  c.known=g.known;c.choices=g.choices;c.example=g.example;
+  if(!c.zh)c.zh=g.zh;
+  return;
+ }
+ c.selected=false;
+ c.excludedReason=c.excludedReason||'英文格式不合，請核對';
+}
 function s50Apply(){
  const P=s50GetPrefs();
  const groups=new Map();
  for(const c of v20.items){
+  try{s50Sane(c);}catch(_){}
   let m=c.s50;
   if(!m||typeof m!=='object'){m=c.s50={base:!!c.selected,sel:!!c.selected,manual:false,skip:false,dup:false};}
   else if(!!c.selected!==m.sel){m.manual=true;m.base=!!c.selected;}
@@ -14629,7 +15179,10 @@ function s50Apply(){
    const key=V20.fold(c.en);
    /* the built-in basic list also holds in / on / an / is: those short ones belong to the length pills, so 不限 keeps them */
    const basic=P.basic&&v20.common.has(key)&&!(V20.COMMON.has(key)&&s50Letters(c.en)<3);
-   m.skip=short||basic;
+   /* R3.13: a word that sat on its own line of a list is an item of the teacher's list, not a word of a text: the pills do not cut it
+    * until the parent touches them in this import */
+   const exempt=!v20.s50Eff&&c.s50x&&c.s50x.list;
+   m.skip=!exempt&&(short||basic);
   }
   const want=m.skip?false:m.base;
   if(!s50HostExcluded(c)||want){
@@ -14669,7 +15222,8 @@ function s50RenderEditor(){
  const seg=S50_LENS.map(([v,t])=>`<button type="button" data-s50="len" data-v="${v}" aria-pressed="${P.minLen===v}">${t}</button>`).join('');
  const chips=skipped.map(c=>`<button type="button" class="s50-chip" data-s50="addback" data-id="${esc(c.id)}" aria-label="加回 ${esc(c.en)}"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en)}</span></button>`).join('')
   +excluded.map(c=>`<button type="button" class="s50-chip s50-chip-odd" data-imp="restore" data-id="${esc(c.id)}" title="${esc(c.excludedReason)}" aria-label="加回 ${esc(c.en)}（${esc(c.excludedReason)}）"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en.length>24?c.en.slice(0,23)+'…':c.en)}</span></button>`).join('');
- box.innerHTML=`<div class="s50-filters">
+ const poor=v20Photo&&s50OcrPoor();
+ box.innerHTML=`${poor?`<div class="s50-retry s50-retry-2">${s50RetryHtml()}</div>`:''}<div class="s50-filters">
   <div class="s50-row"><span class="s50-lab" id="s50-lab">字母數</span><div class="s50-seg" role="group" aria-labelledby="s50-lab">${seg}</div></div>
   <button type="button" class="s50-sw" role="switch" aria-checked="${P.basic}" data-s50="basic"><span class="s50-knob" aria-hidden="true"></span><span>略過基本字<small>（the、and、you…）</small></span></button>
  </div>
@@ -14725,6 +15279,7 @@ function s50FixLabels(){
 }
 const s50PriorRW=v20RenderWords;
 v20RenderWords=function(){
+ try{s50Normalise();}catch(e){try{console.warn('s50',e);}catch(_){}}
  try{s50Apply();}catch(e){try{console.warn('s50',e);}catch(_){}}
  const r=s50PriorRW.apply(this,arguments);
  try{s50RenderEditor();s50ShrinkLong();s50FixLabels();}catch(e){try{console.warn('s50',e);}catch(_){}}
@@ -14767,6 +15322,8 @@ document.addEventListener('click',e=>{
   else if(a==='review')s50StartReview();
   else if(a==='save120'){s50Over=false;s50Commit(s50SaveList().slice(0,120));}
   else if(a==='over-back'){s50Over=false;s50FixLabels();}
+  else if(a==='retry-enh')s50Retry('enh');
+  else if(a==='retry-crop')s50Retry('crop');
   else if(a==='practice')s50Practice();
   else if(a==='again'){s50Saved=null;render();}
  }catch(err){try{console.warn('s50',err);}catch(_){}}
@@ -14787,7 +15344,8 @@ function s50Nudge(){
 }
 function s50TrySave(){
  if(v20.saving)return;
- if(v20.rawDirty){toast('原文改了，請先按「整理成可選字詞」。','bad');$('#p40-back2')?.click();return;}
+ s50Err('');
+ if(v20.rawDirty){s50Err('原文改了，請先按「整理成可選字詞」。');$('#p40-back2')?.click();return;}
  if(ocrBusy||v20FileLoading)return;
  const list=s50SaveList();
  if(!list.length){s50Nudge();return;}
@@ -14798,9 +15356,9 @@ function s50Commit(list){
  if(v20.saving||!list.length)return;
  captureImportDraft();
  const c=activeChild();
- if(!c||v20Origin&&v20Origin!==v20Owner()){toast('孩子或帳戶已切換，請重新匯入。','bad');return;}
+ if(!c||v20Origin&&v20Origin!==v20Owner()){s50Err('孩子或帳戶已切換，請重新匯入。');return;}
  const title=(importDraft.title||'').trim()||'英文默書';
- if(title.length>120){toast('名稱請用 120 字以內。','bad');$('#range-title')?.focus();return;}
+ if(title.length>120){s50Err('名稱請用 120 字以內。');$('#range-title')?.focus();return;}
  let date=String(importDraft.date||'');
  if(date){try{WQEducation.validDate(date);}catch(_){date='';}}
  const dropped=v20Selected().length-list.length;
@@ -14815,7 +15373,7 @@ function s50Commit(list){
    db.words.push({id:uid('w'),childId:c.id,rangeId:r.id,en:x.en,zh:x.zh,kind:x.kind,example:meta.choices.length===1&&meta.zh===x.zh?meta.example:'',emoji:'',createdAt:new Date().toISOString(),studySeen:0,reviewLevel:0,reviewDue:null,lastSeen:null,importEvidence:v20ValidateEvidence({mode:v20.mode,checked:true,sources})});
   }
   c.activeRangeId=r.id;db.session=null;
-  if(!save()){db=before;toast('儲存失敗。選好的字和草稿還在，請先備份再試。','bad');return;}
+  if(!save()){db=before;s50Err('儲存失敗。選好的字和草稿還在，請先備份再試。');return;}
   const wasLogged=isLoggedIn();
   clearImportDraft();
   mediaSelectedRange=r.id;mediaMessage='已加入你選定的默書內容。請核對圖片及準備讀音。';
@@ -14824,7 +15382,7 @@ function s50Commit(list){
   render();
  }catch(e){
   db=before;
-  toast('儲存失敗。原有教材沒有改動，草稿還在，請再試一次。','bad');
+  s50Err('儲存失敗。原有教材沒有改動，草稿還在，請再試一次。');
  }finally{v20.saving=false;}
 }
 /* every route into saving ends here: the host's save-range button, the old 確認加入 and the dock all mean the same thing */
@@ -14990,6 +15548,13 @@ function s50Enhance(){
  s50SeedDate();
  s50SavedCard(root);
  s50FixLabels();
+ try{s50RetryUi();}catch(_){}
+ if(!root._s50RetryObs){
+  /* p40 sets the warn / bad class on #ocr-status after it wrote the text: look again when the status changes */
+  let t=0;
+  root._s50RetryObs=new MutationObserver(()=>{clearTimeout(t);t=setTimeout(()=>{try{s50RetryUi();}catch(_){}},30);});
+  root._s50RetryObs.observe(root,{subtree:true,attributes:true,attributeFilter:['class'],childList:true,characterData:true});
+ }
  if(!root._s50Obs){
   const sc=()=>{const body=root.closest('.r37-legbody');if(body)body.scrollTop=0;s50SeedDate();s50FixLabels();};
   root._s50Obs=new MutationObserver(sc);root._s50Obs.observe(root,{attributes:true,attributeFilter:['data-p40-step']});
@@ -15002,6 +15567,487 @@ render=function(){
  try{if(lastRoute==='range-new')s50Enhance();}catch(e){try{console.warn('s50',e);}catch(_){}}
  return r;
 };
+
+/* ===== R3.13 layout reader =====================================================================================
+ * V20.candidates cuts every line into words. A school list is not a text: "go cycling", "towel 毛巾", "B. Vocabulary (10%@2%)",
+ * "accident(ally)" and "Dim Sum" are one item each. This reads the lines of a freshly parsed document as a whole (blank / junk /
+ * heading / list line / prose), and rebuilds the items of the list lines and headings once, before s50Apply sees them.
+ * Prose lines keep the core's own word items. Nothing here runs on a document the parent already worked on (item.s50 present). */
+const S50_ZH='㐀-䶿一-鿿豈-﫿　-〿＀-￯';
+const S50_ZH_CH='\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff';
+const S50_ZH_RUN=new RegExp('['+S50_ZH_CH+'](?:['+S50_ZH+']|[,;/·](?=['+S50_ZH_CH+']))*','g');
+const s50HasZh=t=>/[㐀-䶿一-鿿豈-﫿]/.test(t);
+const S50_LEAD=/^[\s ]*(?:(?:\(?\d{1,3}\s*[.)、:：]|[•●▪·*\-–—.:|]|[A-Za-z]\)|[lI|!](?=\.))+\s*)+/;
+const S50_LEAD_LABEL=/^(?:sentences?|passage|paragraph|text|dictation|example|answer)$/i;
+const S50_STRICT_HEAD=/^(?:vocabulary|dictation|sentences|recitation|syllabus|semester|phonics|bonus)$/i;
+const S50_LAYOUT_WORDS=/\b(?:vocabulary|dictation|sentences|recitation|syllabus|semester|phonics|bonus|thematic|quiz|word list|sight words|high frequency words|target vocabulary|read dictation)\b/i;
+const S50_INSTR_A=/^[*\s]*(?:please (?:study|read|write|revise|learn|complete|fill|answer|circle|underline|copy|spell|memori[sz]e|prepare)|you (?:need|have) to (?:fill|study|write|read|learn|revise|complete|answer)|here (?:is|are) (?:some|an?) examples?)\b/i;
+const S50_INSTR_B=/^[*\s]*(?:say|read|write|circle|underline|listen|look at|fill|match|tick|copy|study|revise|learn|spell|choose|complete|answer|draw|colou?r)\b.*\b(?:words?|sentences?|following|syllables?|letters?|blanks?|table|examples?|passage|text|below|above|pictures?|each)\b.*[.:]\s*$/i;
+const S50_MONTH=/\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s*,?\s*(?:\d{1,2}(?:st|nd|rd|th)?\s*,?\s*)?\d{4}\b/i;
+const S50_AUX=/\b(?:is|are|am|was|were|has|have|had|can|will|do|does|did|likes?|wants?)\b/;
+const S50_PUNCT=/[.!?,;:"“”]|(?:^|\s)['‘’]|['‘’](?:\s|$)/;
+const S50_NAME_SUFFIX=/(?:ly|ed|ing|tion|sion|ment|ness|ful|less|ous|ive|able|ible|al|ic|ent|ant|ish|ize|ise|er|est)$/i;
+const S50_FUNC=new Set('the a an and or but of to in on at for from with by as is are was were be been am it its he she they we you i me my your his her their our this that these those there here not no do does did have has had will would can could should may might must than then so if when what who how which where'.split(' '));
+const S50_ARTICLE=new Set('the a an his her my our their its your this that these those some any no'.split(' '));
+const s50Words=t=>String(t||'').trim().split(/\s+/).filter(Boolean);
+const s50Dict=k=>{try{return !!v20Dictionary.has(k);}catch(_){return false;}};
+const s50LettersOnly=t=>String(t||'').replace(/[^A-Za-z]/g,'');
+
+/* the characters validEnglish allows; everything else (% @ * & + _ [ ] …) is dropped, runs of spaces folded */
+function s50Charset(t){
+ return String(t||'').replace(/[‘]/g,"'").replace(/[^A-Za-z0-9\s'’“”".,!?;:()\-–/]+/g,' ').replace(/\s+/g,' ').trim();
+}
+/* OCR: "acap" -> "a cap", "alion" -> "a lion" when the whole is unknown and the rest is a known word */
+function s50ArticleGlue(w){
+ const k=w.toLowerCase();
+ if(w.length<4||s50Dict(k))return w;
+ if(/^an[aeiou]/i.test(w)&&w.length>=5&&s50Dict(k.slice(2)))return w.slice(0,2)+' '+w.slice(2);
+ if(/^a/i.test(w)&&s50Dict(k.slice(1))&&k.length>=4)return w.slice(0,1)+' '+w.slice(1);
+ return w;
+}
+/* syllable marks (wa'ter, Pon'to), a lone trailing apostrophe (round'), a broken hyphen (hide-and- seek) */
+function s50Tidy(t){
+ let s=String(t||'').replace(/([A-Za-z])-\s+([a-z])/g,'$1-$2');
+ s=s.replace(/\b([A-Za-z]{2,})['’‘]([A-Za-z]{2,})\b/g,(m,a,b)=>{
+  if(/^(?:s|t|ll|re|ve|d|m)$/i.test(b))return m;
+  const j=a+b;
+  return s50Dict(j.toLowerCase())||/^[A-Z][a-z]+$/.test(a)?j:m;
+ });
+ s=s.replace(/\b([A-Za-z]{3,})['’‘](?=\s|$)/g,(m,a)=>/s$/i.test(a)||!s50Dict(a.toLowerCase())?m:a);
+ return s.replace(/\s+/g,' ').trim();
+}
+/* "accident(ally)" -> accident, accidentally; "busy/business" -> busy, business; "break (breaks)"; "equip (–ped, –ment)" */
+function s50Expand(t){
+ let m=/^([A-Za-z][A-Za-z'’-]*)\(([A-Za-z]+)\)$/.exec(t);
+ if(m)return [m[1],m[1]+m[2]];
+ m=/^(.*?[A-Za-z])\s*\(([^()]*)\)$/.exec(t);
+ if(m&&/[+=→]/.test(m[2]))return [m[1]];            // "criticise (critic + ise)": a spelling hint, not a second word
+ if(m&&!/\s/.test(m[1])&&/^[A-Za-z\s,\-–—]+$/.test(m[2])){
+  const out=[m[1]];
+  for(const p of m[2].split(/\s*,\s*/).map(x=>x.trim()).filter(Boolean)){
+   const sf=/^[-–—]\s*([A-Za-z]+)$/.exec(p);
+   if(sf)out.push(m[1]+sf[1]);else if(/^[A-Za-z]+(?: [A-Za-z]+)?$/.test(p))out.push(p);
+  }
+  return out;
+ }
+ if(/^[A-Za-z]+(?:\/[A-Za-z]+)+$/.test(t))return t.split('/');
+ return [t];
+}
+/* English + Chinese in one string -> [{en, zh}]; a Latin piece takes the Chinese that follows it (zh first: the one before it) */
+function s50Pairs(t){
+ const runs=[...t.matchAll(S50_ZH_RUN)];
+ if(!runs.length)return [{en:t,zh:''}];
+ const out=[];
+ let pos=0,pendingZh='';
+ for(const r of runs){
+  const piece=t.slice(pos,r.index);
+  const en=piece.replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→(（\[]+$/g,'').trim();
+  if(en&&/[A-Za-z]/.test(en)){out.push({en,zh:r[0].replace(/[\u3000-\u303f\uff00-\uffef\s]+$/,'')});pendingZh='';}
+  else if(!en&&out.length)out[out.length-1].zh+=r[0];
+  else pendingZh=r[0];
+  pos=r.index+r[0].length;
+ }
+ const tail=t.slice(pos).replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→)）\]]+$/g,'').trim();
+ if(tail&&/[A-Za-z]/.test(tail))out.push({en:tail,zh:pendingZh});
+ return out;
+}
+function s50CleanSeg(raw){
+ let t=String(raw||'').replace(S50_LEAD,'');
+ t=t.replace(/^(?:e\.?\s?g\.?|i\.?\s?e\.?)\s+/i,'');
+ return t.replace(/[\s*·|_]+$/,'').trim();
+}
+
+/* ---- line level ---- */
+function s50HeadingWhy(t,ctx){
+ const s=t.replace(S50_LEAD,'').trim();
+ const words=s50Words(s);
+ if(!s)return '';
+ if(/[%@]/.test(t))return '版面標題（含 % 或 @）';
+ if(/^\(?\d+\s*words?\)?\.?$/i.test(s))return '字數提示';
+ if(/^[A-Z]\.\s*$/.test(s)||/^[A-Z]\.\s/.test(t.trim()))return '版面標題';
+ const letters=s50LettersOnly(s);
+ if(letters.length>=4&&letters===letters.toUpperCase()&&words.length>=2)return '全大寫標題';
+ if(/^(?:primary|p\.?)\s*\d/i.test(s)||/^\d{4}\s*[-–/]\s*\d{2,4}\b/.test(s)||/^\d{1,2}(?:st|nd|rd|th)\b/i.test(s)||S50_MONTH.test(s))return '年級或日期';
+ if(/\bschool\s*$/i.test(s)&&words.length>=3&&words.length<=7&&words.filter(w=>/^[A-Z]/.test(w)).length>=2)return '校名';
+ if(S50_INSTR_A.test(s)||S50_INSTR_B.test(s))return '指示語';
+ const lab=/^([A-Za-z][\w.]*(?:\s+[A-Z0-9][\w.]*){0,2})\s*[:：]\s*(.*)$/.exec(s);
+ if(lab&&S50_LEAD_LABEL.test(lab[1])&&words.length>=4)return '';   // "Sentence: The cat is on the mat.": the label is dropped, the sentence is kept
+ if(lab&&(words.length<=12)&&/^[A-Z]/.test(lab[1])&&!s50HasZh(lab[2]||'')&&(lab[1].split(/\s+/).length===1||lab[1].split(/\s+/).every(w=>/^[A-Z0-9]/.test(w))))return '標籤行';
+ if(/^(?:name|class|date|no|class no|ready|topic|note|remarks?)\b\s*[:：_.\d(]/i.test(s))return '姓名、班別或日期';
+ if(words.length===1&&S50_STRICT_HEAD.test(s))return '版面字';
+ if(words.length>1&&words.length<=8&&!/[.!?]$/.test(s)&&S50_LAYOUT_WORDS.test(s))return '版面標題';
+ if(/^(?:word list|unit|lesson|chapter|module|term|years?)\b.*\d/i.test(s)&&words.length<=8)return '課名或頁碼';
+ return '';
+}
+function s50SentenceLike(w,txt){return w.length>=4&&/^[A-Z]/.test(txt)&&S50_AUX.test(txt);}
+
+/* OCR: cells of a table row come as one line with single spaces when the gap is not wide enough for the core's own cut. The
+ * boxes tell: a gap of more than 0.8 x the word height is a column gap, an ordinary word space is about 0.35 x. */
+/* the boxes of a segment, clipped to it ("2.actor" starts before the segment "actor") */
+function s50TokensIn(line,sg){
+ const out=[];
+ for(const t of line.tokens||[]){
+  if(!(t.end>sg.start&&t.start<sg.end))continue;
+  const a=Math.max(t.start,sg.start),b=Math.min(t.end,sg.end);
+  out.push({text:String(line.text).slice(a,b),start:a,end:b,confidence:t.confidence,bbox:t.bbox});
+ }
+ return out;
+}
+function s50SplitByGap(line,sg){
+ const tk=s50TokensIn(line,sg).filter(t=>t.bbox);
+ if(tk.length<3||tk.length>8)return [sg];
+ /* the tallest word of the row (an ascender or a capital): "a" alone is only x-height high */
+ const hs=tk.filter(t=>(t.text.match(/[A-Za-z]/g)||[]).length>=2).map(t=>t.bbox.y1-t.bbox.y0).filter(h=>h>0).sort((a,b)=>a-b);
+ const h=hs.length?hs[hs.length-1]:0;
+ if(!h)return [sg];
+ const cuts=[];
+ for(let i=1;i<tk.length;i++)if(tk[i].bbox.x0-tk[i-1].bbox.x1>0.8*h)cuts.push(i);
+ if(!cuts.length)return [sg];
+ const out=[];let from=0;
+ for(const c of [...cuts,tk.length]){
+  const part=tk.slice(from,c);
+  if(part.length){const a=part[0].start,b=part[part.length-1].end;out.push({start:a,end:b,text:line.text.slice(a,b)});}
+  from=c;
+ }
+ return out;
+}
+const s50SegText=(sg)=>s50Tidy(s50CleanSeg(sg.text));
+/* kinds: blank | junk | head | bi (English + Chinese) | cand (a short line without sentence punctuation) | prose */
+function s50ClassifyLines(d){
+ const lines=d.lines||[];
+ const info=lines.map((line,i)=>{
+  const t=String(line.text||'');
+  const o={i,line,t,kind:'prose',why:''};
+  if(!t.trim()){o.kind='blank';return o;}
+  const s=t.replace(S50_LEAD,'').trim();
+  if(!/[A-Za-z㐀-鿿]/.test(s)||(/^[A-Za-z]?[\s\d.,\-–|]*$/.test(s)&&(s.match(/[A-Za-z]/g)||[]).length<=1&&!/^[aAI]$/.test(s))){o.kind='junk';return o;}
+  o.segs=V20.segments(line);
+  let tt=t;
+  if(d.fromOCR&&!s50HasZh(t)){
+   o.segs=o.segs.flatMap(sg=>s50SplitByGap(line,sg)).map(sg=>s50OcrSeg(line,sg)).filter(sg=>sg.text&&/[A-Za-z]/.test(sg.text));
+   tt=o.segs.map(sg=>sg.text).join('   ');
+   o.t=tt;
+   const tz=tt.replace(S50_LEAD,'').trim();
+   if(!o.segs.length||/^[A-Za-z]?[\s\d.,\-–|]*$/.test(tz)&&!/^[aAI]$/.test(tz)){o.kind='junk';return o;}
+  }
+  o.why=s50HeadingWhy(tt,d);
+  if(o.why){o.kind='head';return o;}
+  if(s50HasZh(t)){o.kind='bi';return o;}
+  const ok=o.segs.length>0&&o.segs.every(sg=>{
+   const c=s50SegText(sg),core=c.replace(/\([^()]*\)/g,' ').trim(),w=s50Words(core);
+   return w.length>=1&&w.length<=6&&!S50_PUNCT.test(core)&&!s50SentenceLike(w,core)&&/[A-Za-z]/.test(core);
+  });
+  o.kind=ok?'cand':'prose';
+  return o;
+ });
+ const zhLines=info.filter(o=>o.kind==='bi').length,contentN=info.filter(o=>!['blank','junk'].includes(o.kind)).length;
+ const bilingual=zhLines>=3&&zhLines>=contentN*0.4;
+ if(bilingual){
+  /* everything before the first Chinese line is a title or a column header */
+  const first=info.findIndex(o=>o.kind==='bi');
+  for(let j=0;j<first;j++)if(['cand','prose'].includes(info[j].kind)){info[j].kind='head';info[j].why='標題或欄名';}
+  /* a header row between tables: no Chinese, several columns of capitalised words */
+  for(const o of info)if(o.kind==='cand'&&o.segs.length>=2&&o.segs.every(sg=>/^[A-Z]/.test(s50CleanSeg(sg.text)))){o.kind='head';o.why='欄名';}
+ }
+ /* a verb table's column names (Present / Present continuous / Past): only when two of them stand close together, so that
+  * "present" or "past" alone in a vocabulary list stays a word */
+ {
+  const VC=/^(?:simple\s+)?(?:present(?:\s+continuous|\s+tense)?|past(?:\s+tense)?|future)$/i;
+  const content=info.filter(o=>!['blank','junk'].includes(o.kind));
+  const isVc=o=>o.kind==='cand'&&o.segs.length>0&&o.segs.every(sg=>VC.test(s50CleanSeg(sg.text)));
+  content.forEach((o,i)=>{
+   if(!isVc(o))return;
+   const near=content.slice(Math.max(0,i-3),i+4).filter(x=>x!==o&&isVc(x)).length>0;
+   if(near||o.segs.length>=2){o.kind='head';o.why='動詞表欄名';}
+  });
+ }
+ /* the top of a table: a title in Title Case above lower-case items, or a row of column names (Noun / Description / Places ...) */
+ {
+  const content=info.filter(o=>!['blank','junk'].includes(o.kind));
+  const top=content.slice(0,5);
+  const colWord=new Set('noun nouns verb verbs adjective adjectives adverb meaning meanings description descriptions features feature location locations places place activities activity materials fabrics body parts clothes name type example examples phrase phrases word words topic category item items column'.split(' '));
+  for(const o of top){
+   if(o.kind!=='cand')continue;
+   const ws=s50Words(s50CleanSeg(o.t)).map(w=>w.toLowerCase().replace(/[^a-z]/g,'')).filter(Boolean);
+   if(ws.length&&ws.every(w=>colWord.has(w))&&(ws.length>=2||o.segs.length>=1&&top.indexOf(o)<2&&colWord.has(ws[0])&&!/^[a-z]/.test(s50CleanSeg(o.t))))
+    {o.kind='head';o.why='欄名';}
+  }
+  const f=content[0];
+  if(f&&f.kind==='cand'&&f.segs.length===1){
+   const ws=s50Words(s50CleanSeg(f.t));
+   const next=content.slice(1,6).filter(o=>o.kind==='cand'||o.kind==='bi');
+   const lower=next.filter(o=>/^[a-z]/.test(s50CleanSeg(o.t))).length;
+   if(ws.length<=4&&ws.every(w=>/^[A-Z]/.test(w))&&next.length>=3&&lower>=3&&lower>=next.length*0.6){f.kind='head';f.why='標題';}
+  }
+ }
+ /* a run of at least two short lines is a list; a short line alone between prose lines is just a short line */
+ let j=0;
+ while(j<info.length){
+  if(info[j].kind!=='cand'){j++;continue;}
+  let k=j;
+  while(k<info.length&&(info[k].kind==='cand'||info[k].kind==='blank'||info[k].kind==='junk'))k++;
+  const run=info.slice(j,k).filter(o=>o.kind==='cand');
+  let prose=!(run.length>=2||bilingual);
+  if(!prose&&!bilingual){
+   /* wrapped prose without punctuation (a narrow column in a photo) is a run of short lines too: its lines are longer and made of
+    * function words; a list's items are 1-4 words and mostly content words */
+   const cells=run.flatMap(o=>o.segs.map(sg=>s50Words(s50SegText(sg).replace(/\([^()]*\)/g,' '))));
+   const tot=cells.reduce((a,w)=>a+w.length,0),n=cells.length||1;
+   const stop=cells.flat().filter(w=>S50_FUNC.has(w.toLowerCase().replace(/[^a-z']/g,''))).length;
+   const m=tot/n,f=stop/Math.max(1,tot);
+   if(m>=4.5||(m>=3.5&&f>=0.4))prose=true;
+   /* two or three short lines hanging off a real prose line are the ragged end of that paragraph */
+   if(!prose&&run.length<=3){
+    const around=[];
+    for(let a=j-1;a>=0;a--){if(info[a].kind==='junk')continue;around.push(info[a]);break;}
+    for(let a=k;a<info.length;a++){if(info[a].kind==='junk')continue;around.push(info[a]);break;}
+    const strong=o=>o.kind==='prose'&&(s50Words(s50CleanSeg(o.t)).length>=7||/[.!?;]/.test(s50CleanSeg(o.t).replace(/\.$/,'')));
+    if(around.some(strong))prose=true;
+   }
+  }
+  if(prose)run.forEach(o=>{o.kind='prose';});
+  j=Math.max(k,j+1);
+ }
+ return {info,bilingual};
+}
+
+/* ---- item building ---- */
+function s50Overlap(olds,line,a,b){
+ return olds.filter(c=>c.lineId===line.id&&(!c.span||(c.span[1]>a&&c.span[0]<b)));
+}
+function s50Make(d,line,seg,olds,en,zh,opt={}){
+ d.s50seq=(d.s50seq||0)+1;
+ const mini=V20.fromText(en+' | ',d.id+'-n'+d.s50seq);
+ const c=V20.candidates(mini,{mode:'list',dictionary:v20Dictionary,common:v20.common})[0];
+ if(!c)return null;
+ const src=s50Overlap(olds,line,seg.start,seg.end);
+ const tk=s50TokensIn(line,seg);
+ const conf=tk.length?tk.map(t=>t.confidence).filter(x=>Number.isFinite(x)&&x>=0):src.map(x=>x.confidenceRaw).filter(Number.isFinite);
+ const g=V20.gloss(c.en,v20Dictionary);
+ const teacher=String(zh||'').trim();
+ const sentence=/[.!?]$/.test(c.en);
+ const reasons=[];
+ if(conf.length&&Math.min(...conf)<75)reasons.push('原相這裏需要再看');
+ if(/[0-9]/.test(c.en)&&/[A-Za-z][0-9]|[0-9][A-Za-z]/.test(c.en))reasons.push('數字可能混入字母');
+ const parts=c.en.split(/[\s-]+/).filter(Boolean);
+ const allKnown=parts.length>1&&parts.every(p=>s50Dict(V20.fold(p)));
+ if(!g.known&&!sentence&&!allKnown)reasons.push('內置題庫沒有這個字，核對後可以保留');
+ if(g.choices.length>1&&!teacher)reasons.push('請選今次的意思');
+ Object.assign(c,{
+  sourceRegionId:d.id,lineId:line.id,paragraphId:line.paragraphId,sourceText:line.originalText||line.text,
+  originalText:String(seg.text||c.en).slice(0,240),zh:teacher||g.zh||'',kind:sentence?'sentence':/\s/.test(c.en)?'phrase':'word',
+  sourceTokenIds:src.flatMap(x=>x.sourceTokenIds||[]),sourceBoxes:src.flatMap(x=>x.sourceBoxes||[]),
+  confidenceRaw:conf.length?Math.min(...conf):null,reviewReasons:reasons,reviewed:false,selected:true,excludedReason:'',
+  span:[seg.start,seg.end],explicit:false,known:g.known||allKnown,choices:g.choices,example:g.example,
+  common:!/\s/.test(c.en)&&v20.common.has(V20.fold(c.en)),
+ });
+ c.s50x={list:true,zh:!!teacher};
+ return c;
+}
+/* a list line / heading that cannot be English at all is kept, but not selected */
+const S50_OK_EN=/^[A-Za-z][A-Za-z0-9'’\-./ ]*$/;
+function s50Looks(en,ocr){
+ if(!S50_OK_EN.test(en))return '不像英文單字';
+ const ws=en.split(/[\s/]+/).filter(Boolean);
+ if(!(en.match(/[A-Za-z]/g)||[]).length)return '不像英文單字';
+ if(ocr){
+  if(ws.some(w=>w.replace(/[^A-Za-z]/g,'').length>1&&!/[aeiouyAEIOUY]/.test(w)))return '不像英文單字';
+  if(ws.some(w=>/[a-z][A-Z]/.test(w)))return '不像英文單字';
+  if(en.replace(/[^A-Za-z]/g,'').length<2&&!/^(?:a|I)$/.test(en))return '太短，可能不是單字';
+ }
+ return '';
+}
+/* OCR: words after the English that are not words (Chinese read as latin noise) are cut off; so are leading marks */
+function s50NoiseWord(w,prev){
+ const core=String(w).replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9]+$/g,'');
+ if(!core)return true;
+ if(/[^A-Za-z'’\-.,/()]/.test(core))return true;
+ if(core.length<=1&&!/^[aAI]$/.test(core))return true;
+ if(core.length>=2&&core.length<=3&&core===core.toUpperCase()&&prev&&/[a-z]/.test(prev))return true;
+ if(core.length>=2&&!/[aeiouyAEIOUY]/.test(core))return true;
+ /* a short trailing word that is no word at all (Chinese read as "ae", "eR", "iLL") */
+ if(prev&&core.length<=3&&!/^[aAI]$/.test(core)&&(/[a-z][A-Z]/.test(core)||!s50Dict(core.toLowerCase())))return true;
+ return false;
+}
+function s50TrimNoise(t){
+ const ws=s50Words(t);
+ while(ws.length>1&&s50NoiseWord(ws[ws.length-1],ws[ws.length-2]))ws.pop();
+ return ws.join(' ');
+}
+/* the same on the words' boxes: a trailing word the engine itself was unsure of (confidence < 58) is not part of the item */
+function s50OcrSeg(line,sg,useConf){
+ const tk=s50TokensIn(line,sg);
+ if(!tk.length)return {start:sg.start,end:sg.end,text:s50TrimNoise(sg.text)};
+ const lowConf=t=>!!useConf&&Number.isFinite(t.confidence)&&t.confidence>=0&&t.confidence<58;
+ let a=0,b=tk.length;
+ while(b-a>1&&(s50NoiseWord(tk[b-1].text,tk[b-2].text)||lowConf(tk[b-1])))b--;
+ while(b-a>1&&(s50NoiseWord(tk[a].text,'')||lowConf(tk[a])))a++;
+ const start=tk[a].start,end=tk[b-1].end;
+ return {start,end,text:String(line.text).slice(start,end)};
+}
+function s50Rebuild(d,old){
+ const {info,bilingual}=s50ClassifyLines(d);
+ const byLine=new Map();
+ for(const c of old){(byLine.get(c.lineId)||byLine.set(c.lineId,[]).get(c.lineId)).push(c);}
+ const lineIds=new Set((d.lines||[]).map(l=>l.id));
+ const out=[];
+ const ocr=!!d.fromOCR;
+ let nList=0,nProse=0;
+ const raw=(d.lines||[]).map(l=>l.text).join('\n');
+ const offs=[];let acc=0;for(const l of d.lines||[]){offs.push(acc);acc+=String(l.text||'').length+1;}
+ const lowerSeen=new Set((raw.match(/\b[a-z]{2,}\b/g)||[]));
+ for(const o of info){
+  const olds=byLine.get(o.line.id)||[];
+  if(o.kind==='blank'||o.kind==='junk')continue;
+  if(o.kind==='head'){
+   const en=s50Tidy(s50Charset(s50CleanSeg(o.t).replace(/[%@]+/g,' ').replace(/\(\s*\d*\s*\)/g,' ')));
+   if(!(en.match(/[A-Za-z]/g)||[]).length){continue;}
+   const seg={start:0,end:o.t.length,text:o.t};
+   const c=s50Make(d,o.line,seg,olds,en.slice(0,80),'');
+   if(c){c.selected=false;c.excludedReason='可能是標題或指示：'+o.why;c.reviewReasons=[];c.s50x={list:false,head:true};out.push(c);}
+   continue;
+  }
+  if(o.kind==='bi'||o.kind==='cand'){
+   const segs=(o.segs||V20.segments(o.line)).map(sg=>ocr&&!s50HasZh(sg.text)?s50OcrSeg(o.line,sg,true):sg).filter(sg=>sg.text&&/[A-Za-z\u3400-\u9fff]/.test(sg.text));
+   for(const sg of segs){
+    const t0=s50Tidy(s50CleanSeg(sg.text));
+    if(!t0)continue;
+    const pairs=o.kind==='bi'?s50Pairs(t0):[{en:t0,zh:''}];
+    for(const pr of pairs){
+     let en=s50Tidy(s50CleanSeg(pr.en));
+     if(ocr)en=s50TrimNoise(en);
+     if(!en||!/[A-Za-z]/.test(en))continue;
+     /* the writer gave Chinese: keep the English whole (duck/goose feathers); no Chinese: split a/b and word(suffix) */
+     const forms=pr.zh||s50Dict(V20.fold(en))?[en]:s50Expand(en);   // a dictionary entry itself (his/her, o'clock) is never taken apart
+     for(let f of forms){
+      f=s50Charset(f);
+      if(ocr)f=f.split(' ').map(w=>/^[a-z][A-Z]+$/.test(w)&&s50Dict(w.toLowerCase())?w.toLowerCase():w.length>3?s50ArticleGlue(w):w).join(' ').replace(/^((?:a|an)) /i,'$1 ');
+      f=f.replace(/^[^A-Za-z]+|[^A-Za-z.!?')]+$/g,'').trim();
+      if(!f)continue;
+      const c=s50Make(d,o.line,sg,olds,f,pr.zh);
+      if(!c)continue;
+      const bad=s50Looks(c.en,ocr);
+      if(bad){c.selected=false;c.excludedReason=bad;c.reviewReasons=[];}
+      else if(ocr&&c.confidenceRaw!==null&&c.confidenceRaw<40){c.selected=false;c.excludedReason='辨認不太清楚';c.reviewReasons=[];}
+      out.push(c);nList++;
+     }
+    }
+   }
+   continue;
+  }
+  /* prose: the core's word items, tidied; names are left un-selected */
+  const here=offs[o.i];
+  const lead=/^\s*([A-Za-z]+)\s*[:：]/.exec(o.t);
+  const leadEnd=lead&&S50_LEAD_LABEL.test(lead[1])?lead[0].length:0;
+  for(const c of olds){
+   c.s50x={list:false};
+   if(leadEnd&&c.span&&c.span[1]<=leadEnd)continue;                       // the word "Sentence" of "Sentence: The cat..."
+   if(c.kind==='sentence'||c.excludedReason){out.push(c);continue;}
+   if(c.kind==='word'||c.kind==='phrase'){
+    const t=s50Tidy(c.en);
+    if(t!==c.en&&t){c.en=t;const g=V20.gloss(t,v20Dictionary);c.known=g.known;c.choices=g.choices;c.example=g.example;if(!c.zh)c.zh=g.zh;
+     c.reviewReasons=c.reviewReasons.filter(r=>!/題庫沒有/.test(r)||!g.known);}
+   }
+   if(c.kind==='word'&&c.selected&&/^[A-Z][a-z]{1,}$/.test(c.en)&&!c.known&&!S50_NAME_SUFFIX.test(c.en)&&!lowerSeen.has(c.en.toLowerCase())){
+    const a=here+(c.span?c.span[0]:0),before=raw.slice(0,a).replace(/[\s"'“‘(]+$/,'');
+    const prev=(/([A-Za-z']+)$/.exec(before)||[])[1];
+    if(!(prev&&S50_ARTICLE.has(prev.toLowerCase()))){c.selected=false;c.s50x.name=true;}
+   }
+   out.push(c);nProse++;
+  }
+ }
+ /* items of lines the reader did not see (should not happen) keep their place at the end */
+ for(const c of old)if(!lineIds.has(c.lineId)){c.s50x={list:false};out.push(c);}
+ d.s50layout=bilingual?'bilingual':nList>=3&&nList>=nProse*1.5?'list':nProse&&nList?'mixed':'text';
+ return out;
+}
+/* Called before s50Apply on every render: only a document whose items have never been through s50Apply is read. */
+function s50Normalise(){
+ if(!v20||v20.mode!=='list'||!window.WQImportCore)return;
+ for(const d of v20.documents||[]){
+  if(!d||d.s50n||!Array.isArray(d.lines))continue;
+  const idx=[];
+  v20.items.forEach((c,i)=>{if(c.sourceRegionId===d.id)idx.push(i);});
+  if(!idx.length)continue;
+  d.s50n=true;
+  const old=idx.map(i=>v20.items[i]);
+  if(old.some(c=>c.s50||c.parts||c.s50x))continue;
+  let neu;
+  try{neu=s50Rebuild(d,old);}catch(e){try{console.warn('s50 layout',e);}catch(_){}continue;}
+  const first=idx[0],set=new Set(old);
+  const rest=v20.items.filter(c=>!set.has(c));
+  const before=v20.items.slice(0,first).filter(c=>!set.has(c));
+  v20.items=before.concat(neu,rest.slice(before.length));
+ }
+}
+
+/* ===== R3.13 poor recognition: offer the two hidden helpers (straighten / more contrast) instead of a dead end ===== */
+let s50ReplaceAt=0;
+function s50OcrPoor(){
+ const docs=(v20.documents||[]).filter(d=>d&&d.fromOCR&&d.p40);
+ return docs.some(d=>d.p40.unclear||(d.p40.conf&&d.p40.conf.length&&d.p40.medConf<70)||d.p40.pre<3);
+}
+function s50RetryHtml(){
+ return '<span>辨認不清？</span><button type="button" class="btn quiet" data-s50="retry-enh">加強對比再試</button><button type="button" class="btn quiet" data-s50="retry-crop" aria-label="拉直或框選再試">拉直再試</button>';
+}
+/* step 1: under the recognition status when it ended in "unclear / nothing found / failed" */
+function s50RetryUi(){
+ const root=s50Root();if(!root)return;
+ const st=root.querySelector('#ocr-status');
+ let box=root.querySelector('#s50-retry');
+ const bad=!!(st&&v20Photo&&!ocrBusy&&(st.classList.contains('p40-warn')||st.classList.contains('p40-bad'))&&st.textContent.trim());
+ if(!bad){box?.remove();return;}
+ if(!box){
+  box=document.createElement('div');box.id='s50-retry';box.className='s50-retry';box.innerHTML=s50RetryHtml();
+  st.after(box);
+ }
+}
+function s50DropOcr(){
+ const ids=new Set((v20.documents||[]).filter(d=>d&&d.fromOCR).map(d=>d.id));
+ if(!ids.size)return;
+ v20History();v20Touch();
+ v20.documents=v20.documents.filter(d=>!ids.has(d.id));
+ v20.items=v20.items.filter(c=>!ids.has(c.sourceRegionId));
+ v20.parsedRaw=v20.documents.map(d=>d.raw).join('\n\n');
+ importDraft.raw=v20.parsedRaw;
+ const ta=$('#raw-words');if(ta)ta.value=importDraft.raw;
+ v20.s50Eff=null;
+}
+function s50Retry(mode){
+ if(!v20Photo||ocrBusy||v20FileLoading)return;
+ if(s50Step()===2)$('#p40-back2')?.click();
+ if(mode==='crop'){s50ReplaceAt=Date.now();v20Crop();return;}
+ s50ReplaceAt=Date.now();
+ const root=s50Root();
+ const cb=document.createElement('input');cb.type='checkbox';cb.id='v20-enhance';cb.hidden=true;cb.checked=true;
+ (root||document.body).append(cb);
+ try{s50AutoRun();}finally{setTimeout(()=>cb.remove(),0);}
+}
+const s50PriorUpdateOCR=updateOCR;
+updateOCR=function(){
+ const r=s50PriorUpdateOCR.apply(this,arguments);
+ try{s50RetryUi();}catch(_){}
+ return r;
+};
+const s50PriorAutoRun=s50AutoRun;
+s50AutoRun=function(){
+ if(s50ReplaceAt&&Date.now()-s50ReplaceAt<180000){
+  s50ReplaceAt=0;
+  try{s50DropOcr();}catch(e){try{console.warn('s50',e);}catch(_){}}
+ }
+ return s50PriorAutoRun.apply(this,arguments);
+};
+/* ===== a failed save is said where the parent is looking (the fixed bar), not only in a toast or a hidden line ===== */
+function s50Err(msg){
+ const dock=$('#v20-import-dock');
+ let e=$('#s50-err');
+ if(!e&&dock){
+  e=document.createElement('p');e.id='s50-err';e.className='s50-err';e.setAttribute('role','alert');
+  dock.prepend(e);
+ }
+ if(e){e.textContent=msg||'';e.hidden=!msg;}
+ if(msg)try{toast(msg,'bad');}catch(_){}
+}
 
 /* ===== R3.10 s55 - WQMorph: deterministic English word-form analysis (no DOM, no network, no AI) =====
  * window.WQMorph.analyse(word, has, posOf?) -> null | {base, form, label, derived}
@@ -15361,7 +16407,8 @@ function analyse(word,hasIn,posIn){
     else for(const x of phraseVariants(c,joinSplit))if(x.v.length>=2&&has(x.v)){r={key:x.v,kind:x.kind};break;}
     memo.set(mk,r);return r;
   }
-  const adjLike=k=>{const p=posList(k);return p?p.some(x=>x==='adj'||x==='adv'||(x==='mixed'&&ADJ_BUILTIN.has(k))):ADJ_BUILTIN.has(k);};
+  /* R3.13: a built-in adjective whose dictionary entry only carries its verb sense (close -> closer, light -> lighter) still takes -er / -est */
+  const adjLike=k=>{const p=posList(k);return (p?p.some(x=>x==='adj'||x==='adv'||(x==='mixed'&&ADJ_BUILTIN.has(k))):false)||ADJ_BUILTIN.has(k);};
   /* entries tagged only as adverb / preposition / conjunction / modal take no -s, -ed or -ing; adjectives may (complete -> completed) */
   const notAdjOnly=k=>{const p=posList(k);return !p||p.some(x=>!FUNCTION_POS.has(x));};
   const verbLike=k=>{const p=posList(k);return !p||p.some(x=>x==='v'||x==='mixed');};
@@ -15581,7 +16628,13 @@ function sameWord(a,b,hasIn,posIn){
   return la===lb||la===nb||lb===na;
 }
 
-const api={analyse,sameWord,norm,LABEL,VERSION:'55.1',IRREGULAR_VERB_ROWS:T.rows,STOP,
+/* the spelled-out form(s) of a contraction (didn't -> ['did not']); null when w is not one */
+function expansions(word){
+  const w=norm(word);
+  const ct=CONTRACTIONS[w]||(NO_APOS[w]?CONTRACTIONS[NO_APOS[w]]:null);
+  return ct?ct.slice():null;
+}
+const api={analyse,sameWord,expansions,norm,LABEL,VERSION:'55.2',IRREGULAR_VERB_ROWS:T.rows,STOP,
   irregularForms:()=>[...T.form.keys()]};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 root.WQMorph=api;
@@ -15597,6 +16650,14 @@ const s55RawHas=Map.prototype.has,s55RawGet=Map.prototype.get;
 const s55HasRaw=k=>s55RawHas.call(v20Dictionary,k);
 const s55PosOf=k=>{const e=s55RawGet.call(v20Dictionary,k);return e&&Array.isArray(e.senses)?[...new Set(e.senses.map(s=>s&&s.pos).filter(Boolean))]:null;};
 const s55Cache=new Map(),s55Synth=new Map();let s55CacheSize=-1;
+/* R3.13: an -ly adverb that is not itself a dictionary entry (softly, rudely, simply, comfortably) is the same lesson word as its
+ * adjective: the lemma is reported as a form (label "soft 的副詞") instead of a "related word". Only the plain spelling changes are
+ * accepted (soft+ly, noisy->noisily, simple->simply, comfortable->comfortably, accident+ally); chilly / silly / jolly (-ll + y) are
+ * adjectives and stay un-linked. */
+function s55AdvOk(key,base){
+ if(!/ly$/.test(key)||!base)return false;
+ return key===base+'ly'||key===base.slice(0,-1)+'ily'&&/y$/.test(base)||key===base+'ally'||key===base.slice(0,-1)+'y'&&/le$/.test(base)||key===base.slice(0,-1)+'ly'&&/ue$/.test(base);
+}
 function s55Lemma(word){
  if(typeof word!=='string'||!word||!window.WQMorph)return null;
  if(v20Dictionary.size!==s55CacheSize){s55Cache.clear();s55Synth.clear();s55CacheSize=v20Dictionary.size;}
@@ -15604,8 +16665,30 @@ function s55Lemma(word){
  if(s55Cache.has(key))return s55Cache.get(key);
  let r=null;
  try{r=window.WQMorph.analyse(key,s55HasRaw,s55PosOf);}catch(_){r=null;}
+ if(r&&r.derived&&r.form==='adv'&&!s55HasRaw(key)&&s55AdvOk(key,r.base)){
+  const sn=s55RawGet.call(v20Dictionary,r.base);
+  if(sn&&Array.isArray(sn.senses)&&sn.senses.length)r=Object.assign({},r,{derived:false,adverb:true});   // soft -> 柔軟地 (several meanings: the parent picks)
+ }
  s55Cache.set(key,r);
  return r;
+}
+/* meaning of the derived / contracted form, written from the base word's Chinese (never invented when the base has none) */
+const S55_NT={do:'不',does:'不',did:'沒有',is:'不是',are:'不是',was:'不是',were:'不是',has:'沒有',have:'沒有',had:'沒有',can:'不能',cannot:'不能',
+ could:'不能',will:'不會',would:'不會',should:'不應該',must:'不可以',need:'不需要',shall:'不會',might:'可能不'};
+const S55_ADJ_ZH={close:'近的',near:'近的'};
+const s55AdvZh=zh=>!zh||/[，,；;、]/.test(zh)||/地$/.test(zh)?zh:(/的$/.test(zh)?zh.slice(0,-1):zh)+'地';
+function s55ContrZh(key,baseZh){
+ let ex=null;
+ try{ex=window.WQMorph.expansions(key);}catch(_){}
+ const e=ex&&ex[0];
+ if(!e)return '';
+ const tag='（縮寫：'+e+'）';
+ const words=e.split(' ');
+ if(/n't$|^cannot$/.test(key))return (S55_NT[words[0]]||(baseZh?'不'+baseZh.replace(/了$/,''):'不'))+tag;
+ const suf=(/'(ll|re|ve|d|m|s)$/.exec(key)||[])[1];
+ if(key==="let's")return '讓我們'+tag;
+ const add={ll:'將會',re:'是',ve:'有',d:'會',m:'是',s:'是／有'}[suf];
+ return add?(baseZh||'')+add+tag:'';
 }
 function s55Entry(key){
  const L=s55Lemma(key);
@@ -15614,7 +16697,17 @@ function s55Entry(key){
  if(hit)return hit;
  const base=s55RawGet.call(v20Dictionary,L.base);
  if(!base||!Array.isArray(base.senses))return undefined;
- const e={key,en:key,_base:L.base,_form:L.form,_label:L.label,senses:base.senses.map(s=>Object.assign({},s,{headword:key})),examples:[]};
+ let senses=base.senses.map(s=>Object.assign({},s,{headword:key}));
+ if(L.adverb){
+  const adj=senses.filter(s=>s&&s.pos==='adj');
+  senses=(adj.length?adj:senses).map(s=>Object.assign(s,{zhHK:s55AdvZh(s.zhHK),pos:'adv'}));
+ }
+ else if(L.form==='contraction'&&senses[0]){
+  const zh=s55ContrZh(key,String(senses[0].zhHK||''));
+  if(zh)senses=[Object.assign(senses[0],{zhHK:zh})];
+ }
+ else if((L.form==='comp'||L.form==='sup')&&S55_ADJ_ZH[L.base]&&!base.senses.some(s=>s&&s.pos==='adj'))senses=senses.map(s=>Object.assign(s,{zhHK:S55_ADJ_ZH[L.base],pos:'adj'}));
+ const e={key,en:key,_base:L.base,_form:L.adverb?'adv':L.form,_label:L.label,senses,examples:[]};
  s55Synth.set(key,e);
  return e;
 }
@@ -15636,7 +16729,7 @@ function s55FillWord(w){
   if(!zh){try{zh=V20.gloss(w.en,v20Dictionary).zh||'';}catch(_){zh='';}}
   if(zh&&zh.length<=300){w.zh=zh;changed=true;}
  }
- if(!w.emoji){
+ if(!w.emoji&&!L.adverb){
   const e=d.emoji||cat.emoji||'';
   if(e&&e.length<=40&&!/[<>&]/.test(e)){w.emoji=e;changed=true;}
  }
@@ -15761,8 +16854,14 @@ function s56Apply(){
   if(!g){g=[];groups.push(g);}
   g.push(c);groupOf.set(c,g);seen.add(c.en,c);
  }
+ /* R3.13: a form table (verb table: break / breaks / breaking / broke on separate lines, three or more families with three or more
+  * forms) is a list where every form is an item the teacher chose: nothing in it is folded. Two forms of a word in a plain list
+  * (book / books) stay "same family". */
+ const allList=g=>g.every(c=>c.s50x&&c.s50x.list);
+ const formTable=groups.filter(g=>g.length>=3&&allList(g)).length>=3;
  for(const g of groups){
   if(g.length<2)continue;
+  if(formTable&&allList(g))continue;
   /* kept: the one written first. A card the parent picked by hand stays selected next to it (a tap means "add it back") */
   const rep=g[0];
   for(const c of g){
@@ -15810,6 +16909,7 @@ function s56Tag(c){
  if(!c||c.kind==='sentence')return null;
  const m=c.s50||{},en=String(c.en||'');
  if(m.learned)return {kind:'learned',text:'已學過 '+m.learned,title:'孩子的詞庫已有 '+m.learned};
+ if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（題庫沒有、句中大寫），預設沒有選；要默寫的話按一下加回'};
  if(m.root)return {kind:'root',text:'同字根 '+m.rootEn,title:en+' 與 '+m.rootEn+' 同字根（同一個字），只預選了先寫的一個；按一下可加回'};
  let L=null;
  try{L=window.s55Info&&window.s55Info(en);}catch(_){}
@@ -15822,7 +16922,13 @@ function s56Tag(c){
   const side=s56Side(en,L.base);
   return {kind:'form',text:side?s56Fit([side+'串法 '+L.base,side+' '+L.base]):s56Fit(['英美串法 '+L.base,'英美 '+L.base]),title:en+' 是 '+L.base+' 的'+(side||'另一種')+'串法'};
  }
+ if(L.form==='variant'&&/^(?:a|an|the|to)\s+\S/i.test(en))return null;   // "a bear" on a list is the teacher's item, not "another spelling of bear"
  if(L.form==='variant')return {kind:'form',text:s56Fit(['另一寫法 '+L.base,'寫法 '+L.base]),title:en+' 是 '+L.base+' 的另一種寫法'};
+ if(L.form==='contraction'){
+  let ex=null;
+  try{ex=window.WQMorph&&window.WQMorph.expansions(en);}catch(_){}
+  if(ex&&ex[0])return {kind:'form',text:s56Fit([ex[0]+' 的縮寫',ex[0]+' 縮寫']),title:en+' 是 '+ex[0]+' 的縮寫'};
+ }
  const of=S56_OF[L.form]||('的'+(L.label||'變化'));
  return {kind:'form',text:s56Fit([L.base+' '+of,L.base+' '+of.replace(/^的/,'')]),title:en+' 是 '+L.base+' '+of};
 }
@@ -15856,6 +16962,489 @@ s50FixLabels=function(){
  }catch(_){}
  return r;
 };
+
+/* R3.13 s60 - legacy pages inside the planet shell: one top bar (back, planet, voice, menu, coins), teacher cards folded to a 🔊 button,
+   plain copy, decorative icons removed, page-specific fit recipes. Layout lives in s60_legacy.css (keyed by data-s60 / data-s60-pl on .r37-legbody).
+   Nothing here changes lesson, quiz or game logic: it re-parents existing nodes, hides copy and adds small ⓘ / ⋯ controls. */
+(function(){
+ const PL={
+  english:/^(classroom|unit|library|learning|assembly|assembly-unit|assembly-learn|practice|companions|spelling-family|family-lesson|phonics|phonics-lesson)$/,
+  dictation:/^(learn|ranges|range-new|report)$/,
+  games:/^(game|game-settings)$/,
+  parent:/^(parent|children|settings|learning-report|learning-plan|learning-help|assembly-report|assembly-plan|legacy-family|legacy-phonics|offline|credits)$/,
+  account:/^(login|admin)$/};
+ const ACCOUNT={id:'account',name:'帳戶',icon:'🔐',hue:222};
+ const planetOf=route=>{for(const k in PL)if(PL[k].test(route))return k;return '';};
+ const routeNow=()=>(location.hash||'#kid').slice(1).split('?')[0];
+ const q$=(s,r)=>(r||document).querySelector(s), q$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+ const EMO=/^[\p{Extended_Pictographic}️‍\s]+/u;
+ const KEEP=/^[★☆✓✔✖✕✗●⭐❤♥🪙🔒🔓🎁🏅]/u;
+
+ /* ---- one wrapper for every legacy page (replaces s30 r37Wrap; same DOM contract: .r37-leg > .r37-bar + .r37-legbody + .r37-nav) ---- */
+ r37Wrap=function(route){
+  const pl=planetOf(route),app=$('#app');if(!pl||!app||app.querySelector(':scope>.r37-leg'))return;
+  if(route==='unit'&&typeof r37UnitLevelBtn==='function')r37UnitLevelBtn();
+  const p=pl==='account'?ACCOUNT:r37Planet(pl);
+  const back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?'#game':route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':pl==='account'?'#kid':'#p/'+pl;
+  for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href',pl==='account'?'#kid':'#p/'+pl);a.textContent='← '+p.name;}}
+  const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
+  sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="${pl==='account'?'#kid':'#p/'+pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="s60-slot"></span><button type="button" class="s60-more" aria-haspopup="true" aria-expanded="false" aria-label="更多">⋯</button><span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
+  const body=document.createElement('div');body.className='r37-legbody';body.dataset.s60=route;body.dataset.s60Pl=pl;
+  while(app.firstChild)body.appendChild(app.firstChild);
+  sec.appendChild(body);
+  sec.insertAdjacentHTML('beforeend',r37Nav(pl==='english'||pl==='games'||pl==='parent'?'p/'+pl:''));
+  app.appendChild(sec);
+  document.body.classList.add('r37','r37leg');r37Layout();
+  try{s60Tidy();}catch(_){}
+ };
+
+ /* ---- ⋯ menu: the old site header (child, sound, login, parent) folded into the single bar ---- */
+ function menuClose(){const m=q$('.s60-menu');if(m)m.remove();q$$('.s60-more').forEach(b=>b.setAttribute('aria-expanded','false'));}
+ function menuOpen(btn){
+  menuClose();
+  const child=(q$('#header-child')?.textContent||'').trim()||'孩子',snd=q$('#header-sfx'),on=snd?snd.getAttribute('aria-pressed')==='true':true,auth=(q$('#header-auth')?.textContent||'登入').trim();
+  const m=document.createElement('div');m.className='s60-menu';m.setAttribute('role','menu');
+  m.innerHTML=`<button type="button" role="menuitem" data-s60m="child">換孩子<small>${esc(child)}</small></button><button type="button" role="menuitem" data-s60m="sfx">聲音<small>${on?'開':'關'}</small></button><button type="button" role="menuitem" data-s60m="auth">${esc(auth)}</button><a role="menuitem" href="#p/parent">家長</a>${q$('#wq29-test-banner a[data-wq29-mode]')?'<a role="menuitem" data-wq29-mode="" href="'+esc(q$('#wq29-test-banner a[data-wq29-mode]').getAttribute('href'))+'">離開測試</a>':''}`;
+  (btn.closest('.r37-bar')||document.body).appendChild(m);
+  btn.setAttribute('aria-expanded','true');
+  const f=m.querySelector('button');if(f)f.focus({preventScroll:true});
+ }
+ document.addEventListener('click',e=>{
+  const more=e.target.closest?.('.s60-more');
+  if(more){e.preventDefault();e.stopPropagation();more.getAttribute('aria-expanded')==='true'?menuClose():menuOpen(more);return;}
+  const it=e.target.closest?.('[data-s60m]');
+  if(it){e.preventDefault();e.stopPropagation();const k=it.dataset.s60m;menuClose();
+   const src=k==='child'?q$('.header [data-act="switch-child"]'):k==='sfx'?q$('#header-sfx'):q$('.header [data-act="auth-toggle"]');if(src)src.click();return;}
+  if(!e.target.closest?.('.s60-menu'))menuClose();
+  const ch=e.target.closest?.('#p10-login .p10-choice');
+  if(ch){const r=ch.closest('#p10-login');r.dataset.s60Form=ch.dataset.target==='p10-login-card'?'login':'register';q$$('.p10-choice',r).forEach(c=>c.classList.toggle('on',c===ch));}
+  const ac=e.target.closest?.('#arx-ach-dlg .arx-ach');
+  if(ac){ac.classList.toggle('s60-open');}
+  const ib=e.target.closest?.('.s60-i');
+  if(ib){e.preventDefault();const host=ib.closest('[data-s60-help]')||ib.parentElement;const open=host.classList.toggle('s60-help-open');ib.setAttribute('aria-expanded',String(open));return;}
+  const fh=e.target.closest?.('.s60-fold>h2:first-child');
+  if(fh&&!e.target.closest('.s60-i')){const c=fh.parentElement;const closed=c.classList.toggle('s60-closed');fh.setAttribute('aria-expanded',String(!closed));}
+ },true);
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&q$('.s60-menu')){menuClose();return;}
+  if((e.key==='Enter'||e.key===' ')&&e.target.matches?.('.s60-fold>h2:first-child')){e.preventDefault();e.target.click();}
+ });
+
+ /* ---- helpers used by the recipes ---- */
+ function stripEmoji(root){
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const hit=[];
+  for(let n=w.nextNode();n;n=w.nextNode())hit.push(n);
+  for(const n of hit){
+   if(n.__s60)continue;
+   const el=n.parentElement;if(!el)continue;
+   if(el.closest('.r37-nav,.r37-bar,[lang="en"],.r37-nu,.s60-menu,summary.s60-keep,script,style,textarea,option'))continue;
+   const m=n.nodeValue.match(EMO);if(!m)continue;
+   const rest=n.nodeValue.slice(m[0].length);
+   if(KEEP.test(n.nodeValue.trim()))continue;
+   const whole=(el.textContent||'').replace(EMO,'').trim();
+   if(!rest.trim()&&!(n.nextSibling||n.previousSibling))continue; /* emoji-only control: that icon IS the label */
+   if(!whole||!/[A-Za-z0-9㐀-鿿]/.test(whole))continue;
+   n.nodeValue=rest;n.__s60=1;
+  }
+ }
+ function hide(el){if(el)el.classList.add('s60-off');}
+ function hideAll(sel,root){q$$(sel,root).forEach(hide);}
+ function help(host,btnHost,label){ /* fold the copy inside host behind a ⓘ in btnHost (default: host heading) */
+  if(host.dataset.s60Help)return;host.dataset.s60Help='1';
+  const b=document.createElement('button');b.type='button';b.className='s60-i';b.setAttribute('aria-expanded','false');b.setAttribute('aria-label',label||'說明');b.textContent='ⓘ';
+  const h=btnHost||host.querySelector(':scope>h2,:scope>h1,:scope>summary')||host;h.appendChild(b);
+ }
+ function fold(card,openFirst){
+  if(card.classList.contains('s60-fold'))return;
+  const h=card.querySelector(':scope>h2');if(!h)return;
+  card.classList.add('s60-fold');h.setAttribute('role','button');h.tabIndex=0;
+  const closed=!openFirst;
+  if(closed)card.classList.add('s60-closed');
+  h.setAttribute('aria-expanded',String(!closed));
+ }
+
+
+ function mk(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+ function fit(b,list){b.dataset.s60Fit='';if(list)list.dataset.s60List='';}
+ /* one scrolling region for several siblings (the only part of a fitted page that may scroll) */
+ function scrollWrap(b,nodes,cls){
+  nodes=nodes.filter(Boolean);if(!nodes.length)return null;
+  let w=q$(':scope>.s60-scroll',b);
+  if(!w){w=mk('div','s60-scroll '+(cls||''));b.appendChild(w);}
+  for(const n of nodes)if(n.parentElement!==w)w.appendChild(n);
+  w.dataset.s60List='';return w;
+ }
+ /* cards in balanced columns: an auto-height inner box (multicol on a height-limited flex child would fragment the cards) */
+ function colWrap(b,scroll){
+  let w=q$(':scope>.s60-colbox',b);if(!w){w=mk('div','s60-colbox');b.appendChild(w);}
+  for(const n of [...b.children]){
+   if(n===w||n.matches('.tabs,h1,.l30-topline,.s60-scroll'))continue;
+   if(n.matches('.grid2,.l30-grid')){[...n.children].forEach(c=>w.appendChild(c));n.classList.add('s60-off');continue;}
+   w.appendChild(n);
+  }
+  for(const g of q$$('.grid2,.l30-grid',w)){[...g.children].forEach(c=>g.parentElement.insertBefore(c,g));g.classList.add('s60-off');}
+  if(scroll){b.dataset.s60Fit='';let s=q$(':scope>.s60-scroll',b);if(!s){s=mk('div','s60-scroll');b.appendChild(s);}if(w.parentElement!==s)s.appendChild(w);s.dataset.s60List='';}
+  return w;
+ }
+ /* whole word card is the tap target (the small button inside keeps working for keyboards) */
+ function cardTap(b,sel,btnSel){
+  if(b.__s60tap)return;b.__s60tap=1;
+  b.addEventListener('click',e=>{const c=e.target.closest(sel);if(!c||e.target.closest('button,a,input,select,label'))return;const x=c.querySelector(btnSel);if(x)x.click();});
+ }
+ /* the paragraph right after a heading becomes a ⓘ */
+ function intro(root){
+  for(const h of q$$('h1',root)){
+   if(h.dataset.s60i)continue;h.dataset.s60i='1';
+   const p=h.nextElementSibling;
+   if(p&&p.tagName==='P'&&!p.querySelector('a,button,input,select')&&!p.classList.contains('s60-help-text')){
+    p.classList.add('s60-help-text');const host=h.parentElement;host.dataset.s60Help='1';
+    const b=mk('button','s60-i','ⓘ');b.type='button';b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','說明');h.appendChild(b);
+   }
+  }
+ }
+ /* card paragraphs -> ⓘ on the card heading (keep.length: selectors of status lines that must stay visible) */
+ function helpify(card,keep){
+  if(card.dataset.s60Help)return;
+  const ps=q$$(':scope>p,:scope p.small,:scope p.muted,:scope .small.muted,:scope>div>p',card).filter(p=>!p.closest('details')).filter(p=>!(keep&&p.matches(keep))&&!p.querySelector('a,button,input,select'));
+  if(!ps.length)return;
+  ps.forEach(p=>p.classList.add('s60-help-text'));
+  help(card,card.querySelector(':scope>h2'),'說明');
+ }
+ const RECIPE_TXT=(root,map)=>{ /* shorten labels without touching their node (text node only) */
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  for(let n=w.nextNode();n;n=w.nextNode()){const v=n.nodeValue.trim();if(map[v]!=null&&!n.__s60t){n.nodeValue=n.nodeValue.replace(v,map[v]);n.__s60t=1;}}
+ };
+ /* ------------------------------------------------------------------ per-page recipes */
+ const RECIPE={};
+ window.__s60Recipes=RECIPE;
+ RECIPE.classroom=b=>{fit(b,q$('.l30-grid',b));b.dataset.s60Cols='';};
+ RECIPE.library=b=>{fit(b,q$('.l30-list',b));cardTap(b,'.l30-word','[data-l30="one"]');};
+ RECIPE.unit=b=>{
+  const words=q$('.l30-words',b),panel=words&&words.closest('.l30-panel');
+  fit(b,panel);cardTap(b,'.l30-word','[data-l30="one"]');
+  const st=q$('.q36-start',b);if(st&&!st.dataset.s60Help){const r=q$('.q36-rule',st);if(r){r.classList.add('s60-help-text');help(st,st,'獎勵說明');}}
+ };
+ RECIPE.learning=b=>{b.dataset.s60Quiz='';};
+ RECIPE['assembly-learn']=b=>{b.dataset.s60Quiz='';};
+ RECIPE.report=b=>{
+  fit(b);
+  const nx=q$(':scope>.p40-next',b);if(nx)helpify(nx);
+  const cards=q$$(':scope>section.card:not(.p40-next):not(#r3-family-entry)',b);
+  const isRecent=c=>/最近作答/.test((c.querySelector(':scope>h2')?.textContent)||'');
+  const rest=[q$(':scope>.grid2',b),...cards.filter(isRecent)];
+  const more=[...q$$(':scope>details',b),...cards.filter(c=>!isRecent(c))];
+  let box=q$(':scope>.s60-scroll>.s60-morebox',b);
+  const w=scrollWrap(b,rest);
+  if(w&&more.length){if(!box){box=mk('details','card pad s60-morebox','<summary>更多紀錄</summary>');w.appendChild(box);}more.forEach(n=>{if(n.parentElement!==box)box.appendChild(n);});}
+ };
+ RECIPE.settings=b=>{
+  intro(b);
+  const tabs=q$(':scope>.tabs',b),h=q$(':scope>h1',b);
+  if(tabs&&b.firstElementChild!==tabs)b.prepend(tabs);
+  if(tabs&&h&&tabs.nextElementSibling!==h)tabs.after(h);
+  const w=colWrap(b,true);
+  q$$(':scope>section.card',w).forEach(c=>{
+   fold(c,c.id==='v25-version-panel'||/^每日學習/.test((c.querySelector(':scope>h2')?.textContent||'').trim()));
+   helpify(c,'#v25-backup-status,#voice-status,#v24-checkpoint-text,.voice-badge,#v25-inspection');
+  });
+  RECIPE_TXT(b,{'每日安排上限（含學字）':'每日上限','舊版小遊戲的每次時間':'小遊戲時長','按年級減少每次的題數':'按年級減題','固定孩子目前練習的範圍':'鎖定練習範圍','角色出場時有簡單的動畫效果':'角色動畫','每天最多新學項目':'每日新字上限'});
+ };
+ RECIPE.parent=b=>{
+  intro(b);
+  const h=q$('h1',b);if(h&&/下一步怎樣學/.test(h.textContent)&&!h.querySelector('.s60-i')){h.firstChild.nodeValue='家長工具';}
+  const w=colWrap(b,true);
+  q$$(':scope>section.card,:scope>.l30-panel,:scope>details.l30-panel',w).forEach(c=>{if(c.querySelector(':scope>h2')){fold(c,false);helpify(c);}});
+ };
+ RECIPE.children=b=>{intro(b);};
+ RECIPE.offline=b=>{
+  fit(b);intro(b);
+  const oc=q$('#offline-content',b),ml=q$('.media-list',b);
+  if(oc&&ml){oc.classList.add('s60-grow');ml.dataset.s60List='';if(ml.parentElement!==oc){}}
+ };
+ RECIPE.credits=b=>{
+  const card=q$(':scope>section.card',b);if(!card)return;
+  if(!q$(':scope>details.s60-morebox',card)){
+   const ps=q$$(':scope>p',card);const d=mk('details','s60-morebox','<summary>來源明細</summary>');
+   ps.forEach(x=>d.appendChild(x));card.appendChild(d);
+  }
+ };
+ RECIPE['game-settings']=b=>{
+  const card=q$(':scope>section.card',b);if(!card)return;
+  b.dataset.s60Fit='';card.dataset.s60List='';
+  card.querySelectorAll(':scope>p.small,:scope>p.muted').forEach(p=>{if(!p.querySelector('a,button,input,select'))p.classList.add('s60-help-text');});
+  const hr=q$(':scope>hr',card);
+  if(hr&&!q$(':scope>details.s60-rules',card)){
+   const nodes=[];for(let n=hr.nextElementSibling;n&&n.tagName!=='DETAILS';n=n.nextElementSibling)nodes.push(n);
+   const d=mk('details','s60-rules','<summary>金幣獎勵規則</summary>');nodes.forEach(n=>{if(n.tagName!=='H2')d.appendChild(n);else n.classList.add('s60-off');});
+   hr.classList.add('s60-off');card.insertBefore(d,hr.nextSibling);
+  }
+ };
+ RECIPE.game=b=>{
+  const lobby=q$('.p30-lobby',b);if(!lobby)return;
+  b.dataset.s60Fit='';lobby.classList.add('s60-grow');
+  const cards=q$('.p30-cards',lobby);if(cards)cards.dataset.s60List='';
+  cardTap(lobby,'.p30-card .p30-shot','.a28-btn[data-a28="intro"]');
+ };
+ RECIPE.assembly=b=>{
+  b.dataset.s60Fit='';b.dataset.s60Help='1';
+  const hero=q$('.l31-hero',b),h=q$('h1',b);
+  q$$('.l31-hero>div>p,.l31-hero .l31-help,.l31-guide',b).forEach(x=>x.classList.add('s60-help-text'));
+  if(h&&!q$('.s60-i',h)){const i=mk('button','s60-i','ⓘ');i.type='button';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');h.appendChild(i);}
+  const grid=q$('.l31-grid',b);
+  if(grid){const tail=[grid,...q$$(':scope>section.l30-panel,:scope>.l30-panel',b)];scrollWrap(b,tail);}
+ };
+ RECIPE['assembly-unit']=b=>{
+  b.dataset.s60Fit='';b.dataset.s60Help='1';
+  const h=q$('h1',b);
+  q$$(':scope>.l31-lead,:scope>.l31-help,.l31-launch .l31-help',b).forEach(x=>x.classList.add('s60-help-text'));
+  if(h&&!q$('.s60-i',h)){const i=mk('button','s60-i','ⓘ');i.type='button';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');h.appendChild(i);}
+  RECIPE_TXT(b,{'這次學幾個組合？':'組合數','跟着學：認識 → 組合 → 詞義 → 串字':'跟着學','收起字塊，自己串字':'自己串字','選一種方式開始':'開始'});
+  /* launch panel + recipe grid side by side on wide screens: put both in one frame, only the recipes scroll */
+  const launch=q$('.l31-launch',b),grid=q$('.l31-grid',b);
+  if(launch&&grid){let f=q$(':scope>.s60-split',b);if(!f){f=mk('div','s60-split s60-grow');b.appendChild(f);}
+   if(launch.parentElement!==f)f.appendChild(launch);if(grid.parentElement!==f)f.appendChild(grid);grid.dataset.s60List='';}
+ };
+ RECIPE['assembly-report']=b=>{intro(b);const sc=scrollWrap(b,q$$(':scope>*:not(h1):not(.tabs):not(.s60-scroll):not(.wq32-guide)',b));if(sc)b.dataset.s60Fit='';};
+ RECIPE['assembly-plan']=b=>{intro(b);};
+ RECIPE['learning-report']=b=>{intro(b);const sc=scrollWrap(b,q$$(':scope>*:not(h1):not(.tabs):not(.s60-scroll)',b));if(sc)b.dataset.s60Fit='';};
+ RECIPE['legacy-phonics']=b=>{intro(b);const sc=scrollWrap(b,q$$(':scope>*:not(h1):not(.tabs):not(.s60-scroll)',b));if(sc)b.dataset.s60Fit='';};
+ RECIPE['legacy-family']=b=>{intro(b);const sc=scrollWrap(b,q$$(':scope>*:not(h1):not(.tabs):not(.s60-scroll)',b));if(sc)b.dataset.s60Fit='';};
+ RECIPE.playground=b=>{};
+ RECIPE['learning-plan']=b=>{
+  intro(b);
+  const sel=q$('#l30-plan-unit',b);
+  if(sel&&!q$('.s60-unitgrid',b)){
+   const panel=sel.closest('.l30-panel'),row=q$(':scope>.l30-row',panel);
+   const grid=mk('div','s60-unitgrid');
+   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;c.textContent=o.textContent.replace(/\s*·\s*/,' ');if(o.selected)c.classList.add('on');grid.appendChild(c);});
+   grid.addEventListener('click',e=>{const c=e.target.closest('.s60-chip');if(!c)return;sel.value=c.dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));q$$('.s60-chip',grid).forEach(x=>x.classList.toggle('on',x===c));});
+   panel.insertBefore(grid,row||null);sel.classList.add('s60-off');
+   panel.classList.add('s60-grow');grid.dataset.s60List='';b.dataset.s60Fit='';
+   const lbl=sel.closest('label');if(lbl){lbl.classList.add('s60-off');}
+   const plan=q$('.l30-plan-grid',panel);if(plan)plan.classList.add('s60-off');
+  }
+  const p2=q$$(':scope>.l30-panel',b)[1];if(p2){p2.classList.add('s60-keepfit');q$$(':scope>p',p2).forEach(x=>x.classList.add('s60-off'));}
+ };
+
+ RECIPE['learning-help']=b=>{
+  intro(b);
+  q$$('.l30-card>p,.l30-panel>p,.wq32-entry p',b).forEach(p=>p.classList.add('s60-off'));
+  colWrap(b,true);
+ };
+ RECIPE.practice=b=>{
+  b.dataset.s60Fit='';
+  const g=q$('.l30-grid',b);if(g)g.dataset.s60List='';
+ };
+ RECIPE.companions=b=>{
+  b.dataset.s60Fit='';
+  const pg=q$('#wq32-gallery-page',b);if(!pg)return;pg.classList.add('s60-grow');
+  const prof=q$('.wq32-profile',pg);if(prof){prof.dataset.s60List='';
+   q$$('dl,.wq32-quote,:scope>div>p:not(.wq32-preview-tag)',prof).forEach(x=>x.classList.add('s60-help-text'));
+   const h=q$('h2',prof);if(h&&!q$('.s60-i',h)){prof.dataset.s60Help='1';const i=mk('button','s60-i','ⓘ');i.type='button';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');h.appendChild(i);}}
+ };
+ RECIPE.login=b=>{
+  q$$(':scope>.card.pad',b).forEach(c=>{if(!c.querySelector('#p10-login'))helpify(c);});
+  q$$('.wq29-portal p,.wq29-login>p,.wq29-portal .wq29-caption',b).forEach(p=>p.classList.add('s60-help-text'));
+  const root=q$('#p10-login',b);
+  if(root){
+   if(!root.dataset.s60Form){const f=q$('.p10-forms>section',root);root.dataset.s60Form=f&&f.id==='p10-login-card'?'login':'register';}
+   const want=root.dataset.s60Form==='login'?'p10-login-card':'p10-register-card';
+   q$$('.p10-choice',root).forEach(c=>c.classList.toggle('on',c.dataset.target===want));
+   const n=q$('.auth-note',root);if(n)n.classList.add('s60-help-text');
+   const h=q$('h1',root);if(h&&n&&!q$('.s60-i',h)){root.dataset.s60Help='1';const i=mk('button','s60-i','ⓘ');i.type='button';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');h.appendChild(i);}
+   RECIPE_TXT(root,{'第一次使用：建立帳戶':'建立帳戶','已有帳戶：登入':'登入','建立新帳戶':'建立帳戶'});
+   q$$('.p10-card .field>p',root).forEach(p=>p.classList.add('s60-help-text'));
+   b.dataset.s60Fit='';root.classList.add('s60-grow');const fm=q$('.p10-forms',root);
+   if(fm){fm.dataset.s60List='';['.p10-try','.wq29-portal'].forEach(s=>{const n=q$(s,b);if(n&&n.parentElement!==fm)fm.appendChild(n);});}
+   return;
+  }
+  /* logged in (or test session): compact portal + status card */
+  b.dataset.s60Fit='';
+  q$$('.wq29-portal p,.wq29-login>p,.wq29-portal .wq29-caption',b).forEach(p=>p.classList.add('s60-help-text'));
+ };
+ RECIPE.admin=b=>{
+  intro(b);
+  q$$('.wq29-admin>section.card,.wq29-admin>.l30-panel',b).forEach(s=>helpify(s));
+  q$$('.wq29-admin-head p',b).forEach(x=>x.classList.add('s60-off'));
+  const secs=q$$(':scope>section',b);
+  if(secs.length){const s=scrollWrap(b,secs);if(s)b.dataset.s60Fit='';}
+ };
+ const famRecipe=b=>{
+  b.dataset.s60Quiz='';
+  const ov=q$('.fg-overview',b);if(!ov)return;
+  b.dataset.s60Fit='';ov.classList.add('s60-grow');
+  const g=q$('.fg-family-grid',ov);if(g)g.dataset.s60List='';
+ };
+ RECIPE['family-lesson']=famRecipe;RECIPE['spelling-family']=famRecipe;
+ const phoRecipe=b=>{
+  b.dataset.s60Quiz='';
+  const ov=q$('.pc-overview',b);if(!ov)return;
+  b.dataset.s60Fit='';ov.classList.add('s60-grow');
+  const g=q$('.pc-course-grid',ov);if(g)g.dataset.s60List='';
+  const foot=[...q$$(':scope>p',ov),...q$$(':scope>.pc-bottom p',ov)];
+  if(foot.length&&!ov.dataset.s60Help){ov.dataset.s60Help='1';foot.forEach(x=>x.classList.add('s60-help-text'));
+   const h=q$('h1',ov);if(h){const i=mk('button','s60-i','ⓘ');i.type='button';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');h.appendChild(i);}}
+ };
+ RECIPE['phonics-lesson']=phoRecipe;RECIPE.phonics=phoRecipe;
+
+
+ /* ---- maths / olympiad dialogs (shadow DOM): same fit rules as the legacy pages ---- */
+ const WQM_CSS=`
+.wqm{height:100vh!important;height:100dvh!important;overflow:hidden!important}
+.wqm .shell{height:100%;display:flex;flex-direction:column;gap:8px;padding:6px 12px 10px!important;box-sizing:border-box;overflow:hidden;max-width:1360px;margin:0 auto}
+.wqm .shell>*{flex:none;margin-top:0!important;margin-bottom:0!important}
+.wqm .shell>.s60-fill{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;align-content:start}
+.wqm .topbar{padding:0!important;min-height:0}
+.wqm .topbar button,.wqm .nav button,.wqm .row>button{min-height:44px}
+.s60-navrow{display:flex;align-items:center;gap:8px}
+.s60-navrow>.nav{flex:1 1 auto;min-width:0;display:flex!important;flex-wrap:nowrap!important;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0!important;margin:0!important;border:0}
+.s60-navrow>.nav::-webkit-scrollbar{display:none}
+.s60-navrow>.nav button{flex:none;white-space:nowrap}
+.s60-navrow>#forest-math-slot{flex:none;margin:0!important;min-height:0!important}
+.wqm .forest-math-guide{display:none!important}
+.wqm .forest-controlbar{margin:0!important}
+.wqm .forest-controlbar>button{position:relative;width:44px;height:44px;min-height:44px;padding:0!important;border-radius:50%!important;color:transparent!important;overflow:hidden;white-space:nowrap;text-indent:-300px}
+.wqm .forest-controlbar>button::before{content:"⚙";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font-size:20px;color:#fff}
+.wqm .section-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;padding:0}
+.wqm .section-head .eyebrow,.wqm .hero .eyebrow,.wqm .hero-art,.wqm .hero>div>p,.wqm .tower>p,.wqm .shell>p.muted,.wqm .track-card p,.wqm .track-card .symbol,.wqm .grid2>.card>p.muted{display:none!important}
+.wqm .section-head h1,.wqm .hero h1,.wqm .tower h1{font-size:24px!important;line-height:1.25;margin:0!important;color:#fff!important}
+.wqm .cards:has(.track-card){grid-template-columns:repeat(2,minmax(0,1fr))}
+.wqm .shell>.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.wqm .shell>.section-head:has(+.cards .track-card),.wqm .shell>.section-head:has(+.grid2){display:none}
+.wqm .track-card{min-height:0!important}
+.wqm .stat span,.wqm .tag,.wqm .islands .tag,.wqm small,.wqm .small{font-size:12px!important}
+.wqm .wq36-home{position:relative;font-size:16px!important;color:transparent!important;overflow:hidden;white-space:nowrap;text-indent:-400px;min-width:96px}
+.wqm .wq36-home::after{position:absolute;inset:0;display:grid;place-items:center;text-indent:0;color:#fff;font-size:16px}
+.wqm .wq36-home-small{font-size:16px!important;color:transparent!important;position:relative;overflow:hidden;text-indent:-300px}
+.wqm .wq36-home-small::after{position:absolute;inset:0;display:grid;place-items:center;text-indent:0;color:#fff;font-size:15px}
+.wqm .switch input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;width:52px;height:44px;margin:0;border:0;border-radius:22px;cursor:pointer;background:radial-gradient(circle at 19px 50%,#fff 0 15px,transparent 16px) no-repeat #b9bde0}
+.wqm .switch input[type=checkbox]:checked{background:radial-gradient(circle at 33px 50%,#fff 0 15px,transparent 16px) no-repeat #2f7d6b}
+.wqm .switch{display:flex;align-items:center;gap:12px;min-height:44px}
+.wqm .section-head h2{font-size:18px;margin:0}
+.wqm .hero{padding:0!important;display:block!important;min-height:0}
+.wqm .hero .row,.wqm .tower .row{margin:6px 0 0!important;gap:8px}
+.wqm .tower{padding:10px 12px!important;min-height:0}
+.wqm .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.wqm .stat{padding:8px!important;min-height:0}
+.wqm .stat strong{font-size:22px}
+.wqm .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;grid-auto-rows:max-content;margin:0}
+.wqm .card{padding:12px!important;margin:0}
+.wqm .card h2{font-size:18px;margin:0 0 6px}
+.wqm .card h3{font-size:17px;margin:0 0 4px}
+.wqm .lesson-card>p:not(:has(.tag)),.wqm .badge-card>p,.wqm .badge-card>.note{display:none}
+.wqm .badge-card.s60-open>p,.wqm .badge-card.s60-open>.note{display:block}
+.wqm .badge-card{cursor:pointer}
+.wqm .grade-selector{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0;scrollbar-width:none}
+.wqm .grade-selector button{flex:none;min-width:48px}
+.wqm .islands{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0;scrollbar-width:none}
+.wqm .islands .tag{flex:none}
+.wqm .tool-tabs{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0;scrollbar-width:none}
+.wqm .tool-tabs button{flex:none}
+.wqm .parentview{display:block}
+.wqm .parentview .grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.wqm .parentview .grid2>.card:has(button[data-action^="term"]){display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px!important}
+.wqm .parentview .grid2>.card:has(button[data-action^="term"])>p{display:none}
+.wqm .parentview .section-head{margin:10px 0 6px}
+.wqm .parentview .card>p:not(.small){font-size:14px}
+.wqm .s60i{margin:0}
+.wqm .s60i>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:800;list-style:none}
+.wqm .s60i>summary::-webkit-details-marker{display:none}
+.wqm .unit-head{margin:10px 0 6px}
+.wqm .toolbox{padding:10px!important}
+.wqm .s60-toolbody p{display:none}
+.wqm .parentview .card:has(>p:only-child){display:none}
+.wqm .note{font-size:14px}
+@media(min-width:900px){.wqm .cards{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}}
+`;
+ let wqmBusy=false;
+ function wqmApply(){
+  const host=document.getElementById('wqm-app-host'),R=host&&host.shadowRoot;if(!R||wqmBusy)return;
+  const shell=R.querySelector('.shell');
+  wqmBusy=true;
+  try{
+   if(!R.querySelector('#s60-wqm')){const st=document.createElement('style');st.id='s60-wqm';st.textContent=WQM_CSS;R.appendChild(st);}
+   if(!shell)return;
+   const nav=shell.querySelector(':scope>.nav'),slot=shell.querySelector(':scope>#forest-math-slot');
+   if(nav&&slot&&!(nav.parentElement&&nav.parentElement.classList.contains('s60-navrow'))){const row=document.createElement('div');row.className='s60-navrow';shell.insertBefore(row,nav);row.append(nav,slot);}
+   const home=!!shell.querySelector('.nav button.active[data-action="nav:home"]');
+   shell.querySelectorAll(':scope>.s60-fill').forEach(x=>{x.classList.remove('s60-fill');delete x.dataset.s60List;});
+   if(!home){
+    const tabs=shell.querySelector(':scope>.tool-tabs');
+    if(tabs){
+     let w=shell.querySelector(':scope>.s60-toolbody');
+     if(!w){w=document.createElement('div');w.className='s60-toolbody';shell.appendChild(w);}
+     for(const n of [...shell.children]){if(n===w)continue;if(tabs.compareDocumentPosition(n)&Node.DOCUMENT_POSITION_FOLLOWING)w.appendChild(n);}
+     w.classList.add('s60-fill');w.dataset.s60List='';
+    }else{
+     const c=[...shell.children].filter(e=>e.matches('.parentview,.catalog,.cards'));
+     const f=c[c.length-1];if(f){f.classList.add('s60-fill');f.dataset.s60List='';}
+    }
+   }
+   /* long notes -> ⓘ */
+   shell.querySelectorAll('.parentview .card>p:not(.small):not(.s60-done),.parentview .card>p.small.muted:not(.s60-done)').forEach(p=>{
+    p.classList.add('s60-done');
+    if((p.textContent||'').trim().length<28||p.parentElement.closest('.s60i'))return;
+    const d=document.createElement('details');d.className='s60i';d.innerHTML='<summary aria-label="說明">ⓘ</summary>';p.parentElement.insertBefore(d,p);d.appendChild(p);
+   });
+   const SHORT={'慢速模式：不再顯示「快速亂估」提示。所有練習本來都沒有計時。':'慢速模式','高小顯示數值成績（小一至小三不顯示百分比）':'高小顯示數值成績','開啟思維之塔（奧數選修）':'開啟思維之塔','匯出目前孩子的數學資料':'匯出數學資料','匯入同一孩子的備份':'匯入備份','清除目前孩子的數學進度':'清除數學進度','重試未處理的獎勵':'重試獎勵','讀題聲音（需裝置支援）':'讀題聲音','0 次自己作答的練習紀錄 · 已掌握 0 個入門技能':'','沿用英文部分的家長確認':'家長確認'};
+   const tw=document.createTreeWalker(shell,NodeFilter.SHOW_TEXT);for(let n=tw.nextNode();n;n=tw.nextNode()){const v=n.nodeValue.trim();if(SHORT[v]){n.parentElement.title=v;n.nodeValue=SHORT[v];}}
+   shell.querySelectorAll('.parentview .card>p.small.muted').forEach(p=>{if(/排行榜|廣告/.test(p.textContent))p.style.display='none';});
+   shell.querySelectorAll('.parentview .card>.note:not(.s60-done)').forEach(p=>{p.classList.add('s60-done');if(p.parentElement.closest('.s60i'))return;const d=document.createElement('details');d.className='s60i';d.innerHTML='<summary aria-label="說明">ⓘ</summary>';p.parentElement.insertBefore(d,p);d.appendChild(p);});
+   shell.querySelectorAll('.badge-card:not([tabindex])').forEach(c=>{c.tabIndex=0;c.setAttribute('role','button');});
+   if(!R.__s60clk){R.__s60clk=1;R.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('.badge-card');if(c)c.classList.toggle('s60-open');});
+    R.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.badge-card')){e.preventDefault();e.target.classList.toggle('s60-open');}});}
+  }finally{wqmBusy=false;}
+ }
+ window.s60WqmApply=wqmApply;
+ (function(){
+  let ob=null,t2=0;
+  const watch=()=>{const host=document.getElementById('wqm-app-host'),R=host&&host.shadowRoot;if(!R){return;}
+   wqmApply();
+   if(ob)ob.disconnect();
+   ob=new MutationObserver(()=>{if(t2)return;t2=setTimeout(()=>{t2=0;if(ob)ob.disconnect();wqmApply();try{ob.observe(R,{childList:true,subtree:true});}catch(_){}} ,30);});
+   ob.observe(R,{childList:true,subtree:true});};
+  document.addEventListener('click',e=>{if(e.target.closest?.('[data-wqm-open],#wqm-launch')){[0,120,400,1000].forEach(ms=>setTimeout(watch,ms));}},true);
+ })();
+
+ /* ---- the generic tidy that runs after every render of a legacy page ---- */
+ function s60Tidy(){
+  const body=q$('.r37-legbody');if(!body)return;
+  const bar=q$('.r37-leg>.r37-bar');
+  /* teacher cards -> one 🔊 in the bar (the card stays in the DOM so the voice code keeps working) */
+  for(const g of q$$('.wq32-guide',body)){
+   if(!g.querySelector('[data-wq32="voice"]')){g.classList.add('s60-off');continue;}
+   if(bar){const slot=bar.querySelector('.s60-slot');if(slot&&!slot.contains(g)){g.classList.add('s60-guide');slot.appendChild(g);}}
+  }
+  hideAll('.wq32-voice-note,.l30-back,.wq32-hero-figure,.wq32-hint-portrait',body);
+  const route=body.dataset.s60,pl=body.dataset.s60Pl;
+  const rc=RECIPE[route];if(rc){try{rc(body);}catch(e){}}
+  if(!/^(range-new|learn)$/.test(route)){if(!/^(learning|assembly-learn|family-lesson|spelling-family|phonics-lesson|phonics)$/.test(route)){try{intro(body);}catch(e){}}stripEmoji(body);}
+  /* checkboxes / radios sit inside labels: make the whole label the tap target */
+  q$$('label',body).forEach(l=>{if(l.querySelector('input[type=checkbox],input[type=radio]'))l.classList.add('s60-check');});
+  /* parent tabs only inside the parent area */
+  body.classList.toggle('s60-notabs',pl!=='parent');
+ }
+ window.s60Tidy=s60Tidy;
+ let sched=0;
+ const app=document.getElementById('app');
+ if(app){
+  const obs=new MutationObserver(()=>{if(sched)return;sched=requestAnimationFrame(()=>{sched=0;obs.disconnect();try{
+    q$$('.r37-hub:not(.r37-leg) .r37-bar').forEach(b=>{if(!b.querySelector('.s60-more')){const c=b.querySelector('.r37-coin');const m=document.createElement('button');m.type='button';m.className='s60-more';m.setAttribute('aria-haspopup','true');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','更多');m.textContent='⋯';b.insertBefore(m,c);}});
+    q$$('.r37-gate .card').forEach(c=>{if(c.dataset.s60Help)return;
+     const ps=[...c.querySelectorAll(':scope>p')].filter(x=>!x.id&&!x.querySelector('button,a,input'));
+     ps.forEach(x=>x.classList.add('s60-help-text'));
+     const h=c.querySelector('h1,h2');
+     if(h&&ps.length){c.dataset.s60Help='1';const i=document.createElement('button');i.type='button';i.className='s60-i';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');i.textContent='ⓘ';h.appendChild(i);}
+     c.querySelectorAll('a.btn.soft').forEach(a=>a.classList.add('s60-off'));});
+    q$$('.r37-card:has(.r37-diffs)').forEach(c=>{if(c.dataset.s60Help)return;const dl=c.querySelector('.r37-dl'),h=c.querySelector('h2');
+     if(dl&&h){dl.classList.add('s60-help-text');c.dataset.s60Help='1';const i=document.createElement('button');i.type='button';i.className='s60-i';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');i.textContent='ⓘ';h.appendChild(i);}
+     c.querySelectorAll('h2').forEach(x=>{const w=document.createTreeWalker(x,NodeFilter.SHOW_TEXT);for(let n=w.nextNode();n;n=w.nextNode()){if(!n.__s60&&EMO.test(n.nodeValue)){n.nodeValue=n.nodeValue.replace(EMO,'');n.__s60=1;}}});});
+    q$$('.r37-ptab').forEach((b,i)=>{if(!b.querySelector('b')){const l=document.createElement('b');l.textContent=['難度','進度','孩子','工具'][i]||'';b.appendChild(l);}});
+    s60Tidy();}catch(_){}obs.observe(app,{childList:true,subtree:true});});});
+  obs.observe(app,{childList:true,subtree:true});
+ }
+ window.addEventListener('resize',()=>{menuClose();});
+})();
 
 installMediaEvents();
 render();

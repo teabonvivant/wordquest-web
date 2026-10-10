@@ -1,0 +1,37 @@
+{
+ "id": "08_tkokt_p3_beach",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P3 vocabulary bank - At the beach",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P3%20Vocabulary%20Bank(new).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P3",
+ "raw_text": "Theme: At the beach\n1.towel 毛巾\n2.sandcastle 沙堡壘\n3.goggles 護目鏡\n4.bucket 水桶\n5.spade 鏟子\n6.lifeguard 救生員\n7.surf 滑浪\n8.swimming suit 泳衣\n9.swimming trunks 泳褲\n10.sunbathe 曬日光浴",
+ "photo_text": "Theme: At the beach\n1.towel 毛巾\n2.sandcastle 沙堡壘\n3.goggles 護目鏡\n4.bucket 水桶\n5.spade 鏟子\n6.lifeguard 救生員\n7.surf 滑浪\n8.swimming suit 泳衣\n9.swimming trunks 泳褲\n10.sunbathe 曬日光浴",
+ "targets": [
+  "towel",
+  "sandcastle",
+  "goggles",
+  "bucket",
+  "spade",
+  "lifeguard",
+  "surf",
+  "swimming suit",
+  "swimming trunks",
+  "sunbathe"
+ ],
+ "target_zh": {
+  "towel": "毛巾",
+  "sandcastle": "沙堡壘",
+  "goggles": "護目鏡",
+  "bucket": "水桶",
+  "spade": "鏟子",
+  "lifeguard": "救生員",
+  "surf": "滑浪",
+  "swimming suit": "泳衣",
+  "swimming trunks": "泳褲",
+  "sunbathe": "曬日光浴"
+ },
+ "proper_nouns": [],
+ "notes": "English + Chinese per row, numbering glued to the word (\"1.towel\") as printed. ",
+ "target_rule": "all list items"
+}

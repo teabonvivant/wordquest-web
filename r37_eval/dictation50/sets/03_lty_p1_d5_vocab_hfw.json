@@ -1,0 +1,26 @@
+{
+ "id": "03_lty_p1_d5_vocab_hfw",
+ "type": "list",
+ "title": "Lau Tak Yung PS, P.1 English Dictation (5) 2023-24 - Vocabulary + High Frequency Words",
+ "source_url": "https://www.ltyschool.edu.hk/dev_module/upload_files/document/23-24_2nd_Term_P.1_Dict_HB.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P1",
+ "raw_text": "B. Vocabulary (10%@2%)\n1. a cap\n2. a shirt\n3. socks\n4. shoes\n5. colour\nC. High Frequency Words (10%@2%)\n1. when\n2. little\n3. jump\n4. very\n5. not",
+ "photo_text": "B. Vocabulary (10%@2%)\n1. a cap\n2. a shirt\n3. socks\n4. shoes\n5. colour\nC. High Frequency Words (10%@2%)\n1. when\n2. little\n3. jump\n4. very\n5. not",
+ "targets": [
+  "a cap",
+  "a shirt",
+  "socks",
+  "shoes",
+  "colour",
+  "when",
+  "little",
+  "jump",
+  "very",
+  "not"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

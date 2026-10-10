@@ -1,0 +1,37 @@
+{
+ "id": "06_tkokt_p2_jobs",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P2 vocabulary bank - Jobs",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P2%20Vocabulary%20Bank(new).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P2",
+ "raw_text": "Theme: Jobs\n1.dancer 舞蹈演員\n2.actor 男演員\n3.waiter 男侍應\n4.cook 廚師\n5.designer 設計師\n6.lawyer 律師\n7.librarian 圖書管理員\n8.model 模特兒\n9.pilot 飛行員\n10.singer 歌手",
+ "photo_text": "Theme: Jobs\n1.dancer 舞蹈演員\n2.actor 男演員\n3.waiter 男侍應\n4.cook 廚師\n5.designer 設計師\n6.lawyer 律師\n7.librarian 圖書管理員\n8.model 模特兒\n9.pilot 飛行員\n10.singer 歌手",
+ "targets": [
+  "dancer",
+  "actor",
+  "waiter",
+  "cook",
+  "designer",
+  "lawyer",
+  "librarian",
+  "model",
+  "pilot",
+  "singer"
+ ],
+ "target_zh": {
+  "dancer": "舞蹈演員",
+  "actor": "男演員",
+  "waiter": "男侍應",
+  "cook": "廚師",
+  "designer": "設計師",
+  "lawyer": "律師",
+  "librarian": "圖書管理員",
+  "model": "模特兒",
+  "pilot": "飛行員",
+  "singer": "歌手"
+ },
+ "proper_nouns": [],
+ "notes": "English + Chinese per row, numbering glued to the word (\"1.towel\") as printed. ",
+ "target_rule": "all list items"
+}

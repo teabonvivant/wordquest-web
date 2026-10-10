@@ -1,0 +1,10089 @@
+{
+ "kid": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#kid",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 739,
+  "content_bottom_el": "span:🎁",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 18,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 52,
+   "desc": 0,
+   "label": 40,
+   "title": 0,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "0/60 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 21,
+   "ctrl_only": 1,
+   "ctrl_label": 17,
+   "inline_decor": 3,
+   "svg": 13,
+   "img": 0,
+   "dup": [],
+   "decor": 20
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#kid"
+ },
+ "p-english": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/english",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 672,
+  "content_bottom_el": "span.r37-tn:課堂",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 18,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 41,
+   "desc": 0,
+   "label": 26,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 22,
+   "ctrl_only": 1,
+   "ctrl_label": 17,
+   "inline_decor": 4,
+   "svg": 14,
+   "img": 0,
+   "dup": [],
+   "decor": 21
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "英文星",
+  "final_hash": "#p/english"
+ },
+ "p-math": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 672,
+  "content_bottom_el": "span.r37-tn:數學島",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 16,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 38,
+   "desc": 0,
+   "label": 23,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 20,
+   "ctrl_only": 1,
+   "ctrl_label": 15,
+   "inline_decor": 4,
+   "svg": 11,
+   "img": 0,
+   "dup": [],
+   "decor": 19
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "數學星",
+  "final_hash": "#p/math"
+ },
+ "p-olympiad": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/olympiad",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 672,
+  "content_bottom_el": "span.r37-tn:思維之塔",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 16,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 38,
+   "desc": 0,
+   "label": 23,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 20,
+   "ctrl_only": 1,
+   "ctrl_label": 15,
+   "inline_decor": 4,
+   "svg": 11,
+   "img": 0,
+   "dup": [],
+   "decor": 19
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "奧數星",
+  "final_hash": "#p/olympiad"
+ },
+ "p-games": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/games",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 725,
+  "content_bottom_el": "span:⭐",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 15,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 62,
+   "desc": 0,
+   "label": 43,
+   "title": 7,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "🪙1 ×2",
+   "0/1 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 26,
+   "ctrl_only": 1,
+   "ctrl_label": 14,
+   "inline_decor": 11,
+   "svg": 11,
+   "img": 0,
+   "dup": [
+    "🪙×4"
+   ],
+   "decor": 25
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "遊戲星",
+  "final_hash": "#p/games"
+ },
+ "p-dictation": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/dictation",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 672,
+  "content_bottom_el": "span.r37-tn:補練錯題",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 17,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 41,
+   "desc": 0,
+   "label": 26,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 21,
+   "ctrl_only": 1,
+   "ctrl_label": 16,
+   "inline_decor": 4,
+   "svg": 10,
+   "img": 0,
+   "dup": [],
+   "decor": 20
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "默書星",
+  "final_hash": "#p/dictation"
+ },
+ "p-parent-diff": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/parent",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 533,
+  "content_bottom_el": "li:相似選項、更多填充、更高合格線",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 20,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 85,
+   "desc": 29,
+   "label": 39,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 15,
+    "txt": "4–5 相似選項、更多填充、更高合格線",
+    "sel": "li"
+   },
+   {
+    "u": 14,
+    "txt": "1–2 較少選項、字首提示、較少題目",
+    "sel": "li"
+   }
+  ],
+  "repeats": [
+   "3 標準 ×2"
+  ],
+  "small_font_blocks": 5,
+  "min_font": 11,
+  "small_font_sample": [
+   "6 題 · ❤❤❤❤❤ ·  11px",
+   "8 題 · ❤❤❤❤❤ ·  11px",
+   "8 題 · ❤❤❤❤ · 7 11px"
+  ],
+  "icons": {
+   "total": 45,
+   "ctrl_only": 5,
+   "ctrl_label": 35,
+   "inline_decor": 5,
+   "svg": 8,
+   "img": 0,
+   "dup": [
+    "❤×20"
+   ],
+   "decor": 40
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "家長星",
+  "final_hash": "#p/parent"
+ },
+ "p-parent-prog": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/parent",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 697,
+  "content_bottom_el": "span:🪙",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 15,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 42,
+   "desc": 0,
+   "label": 27,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "0/60 ×2",
+   "0/300 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 25,
+   "ctrl_only": 5,
+   "ctrl_label": 10,
+   "inline_decor": 10,
+   "svg": 8,
+   "img": 0,
+   "dup": [],
+   "decor": 20
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "家長星",
+  "final_hash": "#p/parent"
+ },
+ "p-parent-kids": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/parent",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 571,
+  "content_bottom_el": "span.r37-tn:孩子",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 19,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 35,
+   "desc": 0,
+   "label": 20,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 23,
+   "ctrl_only": 5,
+   "ctrl_label": 14,
+   "inline_decor": 4,
+   "svg": 9,
+   "img": 0,
+   "dup": [
+    "👦×3"
+   ],
+   "decor": 18
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "家長星",
+  "final_hash": "#p/parent"
+ },
+ "p-parent-data": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/parent",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 687,
+  "content_bottom_el": "span.r37-tn:測試中心",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 20,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 39,
+   "desc": 0,
+   "label": 24,
+   "title": 3,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 24,
+   "ctrl_only": 5,
+   "ctrl_label": 15,
+   "inline_decor": 4,
+   "svg": 8,
+   "img": 0,
+   "dup": [],
+   "decor": 19
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 145,
+  "h1_txt": "家長星",
+  "final_hash": "#p/parent"
+ },
+ "p-chars": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/chars",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 532,
+  "content_bottom_el": "button:🪙 3",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 23,
+  "tiny_count": 12,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "🪙 3",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 4",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 2",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 2",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 5",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 3",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   },
+   {
+    "txt": "🪙 8",
+    "w": 65,
+    "h": 41,
+    "sel": "button"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 113,
+   "desc": 20,
+   "label": 77,
+   "title": 4,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 10,
+    "txt": "每關第一次答錯不扣心",
+    "sel": "small"
+   },
+   {
+    "u": 10,
+    "txt": "每關第一次答錯不扣心",
+    "sel": "small"
+   }
+  ],
+  "repeats": [
+   "多一顆心 ×3",
+   "每關第一次答錯不扣心 ×2",
+   "🪙 3 ×2",
+   "五星多得 1 枚金幣 ×2",
+   "🪙 2 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 38,
+   "ctrl_only": 1,
+   "ctrl_label": 21,
+   "inline_decor": 16,
+   "svg": 7,
+   "img": 0,
+   "dup": [
+    "🪙×12"
+   ],
+   "decor": 37
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 121,
+  "h1_txt": "角色圖鑑",
+  "final_hash": "#p/chars"
+ },
+ "lv-english": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lv/english",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 646,
+  "content_bottom_el": "span.r37-nu:感受與描述",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 31,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 87,
+   "desc": 0,
+   "label": 70,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 26,
+   "ctrl_only": 2,
+   "ctrl_label": 19,
+   "inline_decor": 5,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 24
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 177,
+  "h1_txt": "未來太空站",
+  "final_hash": "#lv/english"
+ },
+ "lv-math": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lv/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 638,
+  "content_bottom_el": "span.r37-nn:6",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 29,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 41,
+   "desc": 0,
+   "label": 24,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 24,
+   "ctrl_only": 3,
+   "ctrl_label": 16,
+   "inline_decor": 5,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 21
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 177,
+  "h1_txt": "圖形太空站",
+  "final_hash": "#lv/math"
+ },
+ "lv-olympiad": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lv/olympiad",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 638,
+  "content_bottom_el": "span.r37-nn:6",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 29,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 40,
+   "desc": 0,
+   "label": 24,
+   "title": 4,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 24,
+   "ctrl_only": 3,
+   "ctrl_label": 16,
+   "inline_decor": 5,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 21
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 177,
+  "h1_txt": "謎題深淵",
+  "final_hash": "#lv/olympiad"
+ },
+ "lv-runner": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lv/runner",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 517,
+  "content_bottom_el": "span.r37-nn:1",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 21,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 31,
+   "desc": 0,
+   "label": 15,
+   "title": 4,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 23,
+   "ctrl_only": 3,
+   "ctrl_label": 15,
+   "inline_decor": 5,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 20
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 181,
+  "h1_txt": "星空宇宙",
+  "final_hash": "#lv/runner"
+ },
+ "lv-fps": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lv/fps",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 646,
+  "content_bottom_el": "span.r37-nu:感受與描述",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 31,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 91,
+   "desc": 0,
+   "label": 74,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 26,
+   "ctrl_only": 1,
+   "ctrl_label": 20,
+   "inline_decor": 5,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 25
+  },
+  "back_controls": [
+   "返回一般網站",
+   "回星系",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 177,
+  "h1_txt": "未來太空站",
+  "final_hash": "#lv/fps"
+ },
+ "play-learn": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 66,
+  "bar_bottom": 66,
+  "avail_bottom": 820,
+  "content_bottom": 627,
+  "content_bottom_el": "button.r37-go:▶ 闖關",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- header.r37-ptop"
+  ],
+  "ctrl_total": 6,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 14,
+   "desc": 0,
+   "label": 5,
+   "title": 2,
+   "content": 7,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 0,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 0,
+   "ctrl_label": 4,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 5
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 259,
+  "h1_txt": "🌱 at／an",
+  "final_hash": "#lp/play"
+ },
+ "play-mcq": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 66,
+  "bar_bottom": 66,
+  "avail_bottom": 820,
+  "content_bottom": 806,
+  "content_bottom_el": "button.r37-hintb:💡",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- header.r37-ptop"
+  ],
+  "ctrl_total": 8,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 11,
+   "desc": 0,
+   "label": 2,
+   "title": 0,
+   "content": 9,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 18,
+  "small_font_sample": [],
+  "icons": {
+   "total": 4,
+   "ctrl_only": 2,
+   "ctrl_label": 0,
+   "inline_decor": 2,
+   "svg": 1,
+   "img": 0,
+   "dup": [],
+   "decor": 2
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#lp/play"
+ },
+ "play-fb-wrong": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 66,
+  "bar_bottom": 66,
+  "avail_bottom": 820,
+  "content_bottom": 804,
+  "content_bottom_el": "button.r37-next:▶",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- header.r37-ptop"
+  ],
+  "ctrl_total": 8,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 16,
+   "desc": 0,
+   "label": 7,
+   "title": 0,
+   "content": 9,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 15,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 2,
+   "ctrl_label": 0,
+   "inline_decor": 3,
+   "svg": 1,
+   "img": 0,
+   "dup": [],
+   "decor": 3
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#lp/play"
+ },
+ "play-fill": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 66,
+  "bar_bottom": 66,
+  "avail_bottom": 820,
+  "content_bottom": 806,
+  "content_bottom_el": "button.r37-hintb:💡",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- header.r37-ptop"
+  ],
+  "ctrl_total": 6,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 4,
+   "desc": 0,
+   "label": 2,
+   "title": 0,
+   "content": 2,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 16,
+  "small_font_sample": [],
+  "icons": {
+   "total": 4,
+   "ctrl_only": 2,
+   "ctrl_label": 0,
+   "inline_decor": 2,
+   "svg": 1,
+   "img": 0,
+   "dup": [],
+   "decor": 2
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#lp/play"
+ },
+ "play-math": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 66,
+  "bar_bottom": 66,
+  "avail_bottom": 820,
+  "content_bottom": 806,
+  "content_bottom_el": "button.r37-hintb:💡",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- header.r37-ptop"
+  ],
+  "ctrl_total": 7,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 18,
+   "desc": 0,
+   "label": 5,
+   "title": 0,
+   "content": 13,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 18,
+  "small_font_sample": [],
+  "icons": {
+   "total": 2,
+   "ctrl_only": 1,
+   "ctrl_label": 0,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#lp/play"
+ },
+ "play-result": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#lp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 718,
+  "content_bottom_el": "button.r37-go:▶",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-result.win"
+  ],
+  "ctrl_total": 5,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 7,
+   "desc": 0,
+   "label": 7,
+   "title": 0,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 24,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 2,
+   "ctrl_label": 1,
+   "inline_decor": 2,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 3
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#lp/play"
+ },
+ "fps-intro": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#fps",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 586,
+  "content_bottom_el": "button.wq37-go:開始",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 2,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.wq37-ov",
+   "🔊 <- div.wq37-ov"
+  ],
+  "ctrl_total": 8,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 55,
+   "desc": 18,
+   "label": 31,
+   "title": 6,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 9,
+    "txt": "射中正確英文字泡泡!",
+    "sel": "div"
+   },
+   {
+    "u": 9,
+    "txt": "限時 30 秒 · 快答有加分",
+    "sel": "small"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 11,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 1,
+   "ctrl_label": 5,
+   "inline_decor": 7,
+   "svg": 0,
+   "img": 0,
+   "dup": [
+    "❤×3"
+   ],
+   "decor": 12
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 234,
+  "h1_txt": "字母獵場 Word Blaste",
+  "final_hash": "#fps"
+ },
+ "fps-play": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#fps",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 798,
+  "content_bottom_el": "button.wq37-btn.wq37-fire:🔫",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- canvas"
+  ],
+  "ctrl_total": 5,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 0,
+   "desc": 0,
+   "label": 0,
+   "title": 0,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 22,
+  "small_font_sample": [],
+  "icons": {
+   "total": 4,
+   "ctrl_only": 4,
+   "ctrl_label": 0,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 0
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#fps"
+ },
+ "fp-level": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#fp/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 586,
+  "content_bottom_el": "button.wq37-go:開始",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 2,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.wq37-ov",
+   "🔊 <- div.wq37-ov"
+  ],
+  "ctrl_total": 8,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 54,
+   "desc": 18,
+   "label": 31,
+   "title": 5,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 9,
+    "txt": "射中正確英文字泡泡!",
+    "sel": "div"
+   },
+   {
+    "u": 9,
+    "txt": "限時 30 秒 · 快答有加分",
+    "sel": "small"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 11,
+  "small_font_sample": [],
+  "icons": {
+   "total": 14,
+   "ctrl_only": 1,
+   "ctrl_label": 5,
+   "inline_decor": 8,
+   "svg": 0,
+   "img": 0,
+   "dup": [
+    "❤×3"
+   ],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 234,
+  "h1_txt": "🛸 自然與天氣",
+  "final_hash": "#fp/play"
+ },
+ "rn-play": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#rn/play",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 49,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 808,
+  "content_bottom_el": "button.wq37r-btn.wq37r-ctl:▲",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 7,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.wq37r-ov",
+   "▲ 上線 <- div.wq37r-ov",
+   "▼ 下線 <- div.wq37r-ov",
+   "⚡ <- div.wq37r-ov"
+  ],
+  "ctrl_total": 8,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 28,
+   "desc": 13,
+   "label": 15,
+   "title": 0,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 13,
+    "txt": "點一點轉線 · 上滑 🦘 跳 · 下滑 🛷 滑 · ⚡ 衝刺",
+    "sel": "div.wq37r-s"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 9,
+   "ctrl_only": 2,
+   "ctrl_label": 2,
+   "inline_decor": 5,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 7
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#rn/play"
+ },
+ "game-lobby": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#game",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1733,
+    "over": 1093
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2743,
+  "content_bottom_el": "p:第一次看玩法，和看沒解鎖遊戲的預覽，",
+  "need_content": 1986,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 1093,
+  "need_px": 1986,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 35,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "遊戲星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 21,
+  "ctrl_below_sample": [
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "進度、造型和規則 家長也可以看",
+    "bottom": 1736
+   }
+  ],
+  "text": {
+   "total": 438,
+   "desc": 174,
+   "label": 222,
+   "title": 30,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 9,
+  "desc_top": [
+   {
+    "u": 33,
+    "txt": "切換散射和集中的能量泡。穿過三種敵機陣形。大型敵機打到一半，會換攻擊方式。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 30,
+    "txt": "探索三座雲島，用短跳、高跳、彈簧和短衝。有安全旗幟，掉下去也不用從頭來。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 26,
+    "txt": "越過輸送帶、移動平台、會碎的平台和彈簧。收集燈芯，下到六十層。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 25,
+    "txt": "石林、峽谷、月廟，一共三段。看清橫欄和拱門，再決定跳、滑或換線。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 22,
+    "txt": "電腦對手要時間反應。用高球、扣球和短球來改變節奏。",
+    "sel": "p.p30-desc"
+   }
+  ],
+  "repeats": [
+   "已開放 ×5",
+   "未挑戰 ×5",
+   "免費測試 · 看玩法 ×5",
+   "阿峰陪你看玩法 ×3",
+   "3 枚 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 12,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 125,
+  "h1_txt": "遊戲街機",
+  "final_hash": "#game"
+ },
+ "game-intro": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#game",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1733,
+    "over": 1093
+   },
+   {
+    "sel": "dialog#pg-dialog",
+    "ch": 752,
+    "sh": 891,
+    "over": 139
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div.p30-actions",
+    "top": 707,
+    "bottom": 786,
+    "h": 79,
+    "pos": "sticky",
+    "txt": "幣 開始測試（不扣金幣）"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_ctrls": 0,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2743,
+  "content_bottom_el": "p:第一次看玩法，和看沒解鎖遊戲的預覽，",
+  "need_content": 1986,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 1093,
+  "need_px": 1986,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "pg-dialog",
+    "top": 33,
+    "bottom": 787,
+    "h": 754,
+    "scroller": {
+     "sel": "dialog#pg-dialog",
+     "over": 139,
+     "ch": 752
+    },
+    "lowest_btn_bottom": 774,
+    "units": 92,
+    "txt": "RUINS COURIER 遺跡郵差 ✕ 關閉 試玩預覽・不扣幣・不能操作 ★ ★ ★ 未挑戰 目標 500 / 1,200 / 2,200 阿峰 · 奧數同學 先看看怎樣玩。 左右滑動換跑道，輕按跳躍，向下滑動滑行。 跑完 1500 米就"
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 20,
+  "ctrl_covered_sample": [
+   "★ Admin <- dialog#pg-dialog",
+   "🔊 聲音：開 <- dialog#pg-dialog",
+   "👨‍👩‍👧 家長 <- dialog#pg-dialog",
+   "返回一般網站 <- div.a28-dialog-top"
+  ],
+  "ctrl_total": 37,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "遊戲星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 22,
+  "ctrl_below_sample": [
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "進度、造型和規則 家長也可以看",
+    "bottom": 1736
+   }
+  ],
+  "text": {
+   "total": 438,
+   "desc": 174,
+   "label": 222,
+   "title": 30,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 9,
+  "desc_top": [
+   {
+    "u": 33,
+    "txt": "切換散射和集中的能量泡。穿過三種敵機陣形。大型敵機打到一半，會換攻擊方式。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 30,
+    "txt": "探索三座雲島，用短跳、高跳、彈簧和短衝。有安全旗幟，掉下去也不用從頭來。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 26,
+    "txt": "越過輸送帶、移動平台、會碎的平台和彈簧。收集燈芯，下到六十層。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 25,
+    "txt": "石林、峽谷、月廟，一共三段。看清橫欄和拱門，再決定跳、滑或換線。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 22,
+    "txt": "電腦對手要時間反應。用高球、扣球和短球來改變節奏。",
+    "sel": "p.p30-desc"
+   }
+  ],
+  "repeats": [
+   "已開放 ×5",
+   "未挑戰 ×5",
+   "免費測試 · 看玩法 ×5",
+   "阿峰陪你看玩法 ×3",
+   "3 枚 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 13,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 125,
+  "h1_txt": "遊戲街機",
+  "final_hash": "#game"
+ },
+ "game-ach": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#game",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1733,
+    "over": 1093
+   },
+   {
+    "sel": "dialog#arx-ach-dlg",
+    "ch": 754,
+    "sh": 1126,
+    "over": 372
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_ctrls": 0,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2743,
+  "content_bottom_el": "p:第一次看玩法，和看沒解鎖遊戲的預覽，",
+  "need_content": 1986,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 1093,
+  "need_px": 1986,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "arx-ach-dlg",
+    "top": 33,
+    "bottom": 787,
+    "h": 754,
+    "scroller": {
+     "sel": "dialog#arx-ach-dlg",
+     "over": 372,
+     "ch": 754
+    },
+    "lowest_btn_bottom": 91,
+    "units": 254,
+    "txt": "🏅 成就 0/14 關閉 ⭐ 挑戰星 0 / 78 · 破紀錄 0 次 · 最高連擊 ×0 🔒 初次登場 完成 1 局街機遊戲 0/1 🔒 五款探險家 玩過 5 款不同的遊戲 0/5 🔒 三星達人 在任何一款遊戲拿到 3 顆星 0/"
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 20,
+  "ctrl_covered_sample": [
+   "★ Admin <- dialog#arx-ach-dlg",
+   "🔊 聲音：開 <- dialog#arx-ach-dlg",
+   "👨‍👩‍👧 家長 <- dialog#arx-ach-dlg",
+   "返回一般網站 <- div.arx-dh"
+  ],
+  "ctrl_total": 36,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "遊戲星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 21,
+  "ctrl_below_sample": [
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1001
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "免費測試 · 看玩法",
+    "bottom": 1583
+   },
+   {
+    "txt": "進度、造型和規則 家長也可以看",
+    "bottom": 1736
+   }
+  ],
+  "text": {
+   "total": 438,
+   "desc": 174,
+   "label": 222,
+   "title": 30,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 9,
+  "desc_top": [
+   {
+    "u": 33,
+    "txt": "切換散射和集中的能量泡。穿過三種敵機陣形。大型敵機打到一半，會換攻擊方式。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 30,
+    "txt": "探索三座雲島，用短跳、高跳、彈簧和短衝。有安全旗幟，掉下去也不用從頭來。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 26,
+    "txt": "越過輸送帶、移動平台、會碎的平台和彈簧。收集燈芯，下到六十層。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 25,
+    "txt": "石林、峽谷、月廟，一共三段。看清橫欄和拱門，再決定跳、滑或換線。",
+    "sel": "p.p30-desc"
+   },
+   {
+    "u": 22,
+    "txt": "電腦對手要時間反應。用高球、扣球和短球來改變節奏。",
+    "sel": "p.p30-desc"
+   }
+  ],
+  "repeats": [
+   "已開放 ×5",
+   "未挑戰 ×5",
+   "免費測試 · 看玩法 ×5",
+   "阿峰陪你看玩法 ×3",
+   "3 枚 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 31,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 19,
+   "svg": 7,
+   "img": 12,
+   "dup": [
+    "🔒×14"
+   ],
+   "decor": 31
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 125,
+  "h1_txt": "遊戲街機",
+  "final_hash": "#game"
+ },
+ "game-settings": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#game-settings",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 751,
+    "over": 111
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 1593,
+  "content_bottom_el": "label:燈塔深井",
+  "need_content": 836,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 111,
+  "need_px": 836,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 9,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   "auto <- h2",
+   "auto <- h2",
+   "auto <- p"
+  ],
+  "ctrl_total": 51,
+  "tiny_count": 38,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "遊戲星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab.active"
+   }
+  ],
+  "ctrl_below_fold": 26,
+  "ctrl_below_sample": [
+   {
+    "txt": "auto",
+    "bottom": 803
+   },
+   {
+    "txt": "auto",
+    "bottom": 803
+   },
+   {
+    "txt": "auto",
+    "bottom": 890
+   },
+   {
+    "txt": "auto",
+    "bottom": 890
+   },
+   {
+    "txt": "auto",
+    "bottom": 978
+   },
+   {
+    "txt": "auto",
+    "bottom": 978
+   }
+  ],
+  "text": {
+   "total": 350,
+   "desc": 273,
+   "label": 52,
+   "title": 13,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 9,
+  "desc_top": [
+   {
+    "u": 92,
+    "txt": "每次練習或測驗，全部自己答對（拿滿 5 顆星），得 1 枚金幣。用了提示、答錯，都不夠 5 顆星。每日首四組有金幣。完成第三組，再多得 1 枚。每日最多 5 枚。同一組一天只計一次。只看字卡沒有金幣。因技術問題跳過的題目，不算完整作答。",
+    "sel": "p"
+   },
+   {
+    "u": 48,
+    "txt": "每局要 1 至 4 枚金幣，按遊戲不同。每輪最多玩五局，沒有倒數計時。要再完成新的學習，才能開下一輪，或由你確認開放。",
+    "sel": "p"
+   },
+   {
+    "u": 33,
+    "txt": "難度會在下一次投幣時生效。不能中途切換難度來重設生命。暫停後，進度仍保留。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 24,
+    "txt": "訂正不會多給金幣。每款遊戲要的金幣不同，由 1 枚到 4 枚。",
+    "sel": "p"
+   },
+   {
+    "u": 22,
+    "txt": "可用 51 金幣 · 本輪已玩 0/5 局 · 今日 0/5。金幣不會過期。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 1,
+  "min_font": 11,
+  "small_font_sample": [
+   "遊戲街機 · 家長 11px"
+  ],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←",
+   "返回遊戲街機"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 242,
+  "h1_txt": "金幣與遊戲設定",
+  "final_hash": "#game-settings"
+ },
+ "arcade-stub": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#playground",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 697,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 57,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 319,
+  "content_bottom_el": "a.btn.primary:前往遊戲街機",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 5,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 34,
+   "desc": 22,
+   "label": 6,
+   "title": 6,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 22,
+    "txt": "進度和剩下的生命都保留了。請從遊戲街機重新繼續。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 16,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 0,
+   "ctrl_label": 4,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 5
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 149,
+  "h1_txt": "繼續你的遊戲",
+  "final_hash": "#playground"
+ },
+ "dict-daily-study": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learn",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 820,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 733,
+  "content_bottom_el": "p#p40-why:寫好了，就按「檢查答案」。",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 17,
+  "tiny_count": 4,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "暫停",
+    "w": 50,
+    "h": 36,
+    "sel": "button.btn.quiet"
+   },
+   {
+    "txt": "看例句",
+    "w": 1054,
+    "h": 36,
+    "sel": "summary"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 74,
+   "desc": 23,
+   "label": 31,
+   "title": 6,
+   "content": 2,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 14,
+    "txt": "先看圖和中文，再聽讀音，留意拼法。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 9,
+    "txt": "寫好了，就按「檢查答案」。",
+    "sel": "p#p40-why"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 16,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 2,
+   "dup": [
+    "🔊×3"
+   ],
+   "decor": 16
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 286,
+  "h1_txt": "看一看，聽一聽",
+  "final_hash": "#learn"
+ },
+ "dict-daily-mcq": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learn",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 820,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 733,
+  "content_bottom_el": "p#p40-why:先選一個答案，再按「檢查答案」。",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 19,
+  "tiny_count": 3,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "暫停",
+    "w": 50,
+    "h": 36,
+    "sel": "button.btn.quiet"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 66,
+   "desc": 25,
+   "label": 19,
+   "title": 5,
+   "content": 5,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 13,
+    "txt": "慢慢想。不會的話，可以按「看提示」。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 12,
+    "txt": "先選一個答案，再按「檢查答案」。",
+    "sel": "p#p40-why"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 2,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 395,
+  "h1_txt": "選出這個字",
+  "final_hash": "#learn"
+ },
+ "dict-daily-mcq-picked": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learn",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 820,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 733,
+  "content_bottom_el": "p#p40-why:選好了，就按「檢查答案」。",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 19,
+  "tiny_count": 3,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "暫停",
+    "w": 50,
+    "h": 36,
+    "sel": "button.btn.quiet"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 63,
+   "desc": 22,
+   "label": 19,
+   "title": 5,
+   "content": 5,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 13,
+    "txt": "慢慢想。不會的話，可以按「看提示」。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 9,
+    "txt": "選好了，就按「檢查答案」。",
+    "sel": "p#p40-why"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 2,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 395,
+  "h1_txt": "選出這個字",
+  "final_hash": "#learn"
+ },
+ "ranges": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#ranges",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 507,
+  "content_bottom_el": "button.btn.soft:查看",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 22,
+  "tiny_count": 8,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 98,
+   "desc": 19,
+   "label": 55,
+   "title": 12,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 19,
+    "txt": "先看清楚學校的默書範圍。核對後，才交給孩子。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [
+   "默書範圍 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 1,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 228,
+  "h1_txt": "默書範圍",
+  "final_hash": "#ranges"
+ },
+ "range-new-1": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#range-new",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "textarea#raw-words",
+    "ch": 140,
+    "sh": 164,
+    "over": 24
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 767,
+  "content_bottom_el": "button.btn.secondary:整理成可選字詞",
+  "need_content": 10,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 24,
+  "need_px": 24,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 25,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "",
+    "bottom": 767
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 101,
+   "desc": 34,
+   "label": 55,
+   "title": 0,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 22,
+    "txt": "相片只在這部裝置處理，不會上傳。請先裁走姓名、校名。",
+    "sel": "p.s50-priv"
+   },
+   {
+    "u": 12,
+    "txt": "光線夠亮、紙放平、一次拍一欄。",
+    "sel": "div#p40-tips"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#range-new"
+ },
+ "range-new-2": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#range-new",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div#v20-import-dock",
+    "top": 539,
+    "bottom": 605,
+    "h": 66,
+    "pos": "sticky",
+    "txt": "已選 4 個 下一步 →"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 644,
+  "content_bottom_el": "button.btn.quiet:編輯基本字",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 3,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   " <- button.v20-token",
+   " <- div.inner"
+  ],
+  "ctrl_total": 42,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 117,
+   "desc": 9,
+   "label": 91,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 9,
+    "txt": "找到 4 項，先選了 4 個。",
+    "sel": "div#v20-message"
+   }
+  ],
+  "repeats": [
+   "修改 ×4"
+  ],
+  "small_font_blocks": 4,
+  "min_font": 0,
+  "small_font_sample": [
+   "修改 0px",
+   "修改 0px",
+   "修改 0px"
+  ],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←",
+   "← 上一步"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 248,
+  "h1_txt": "2. 檢查單字",
+  "final_hash": "#range-new"
+ },
+ "range-new-3": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#range-new",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 656,
+    "over": 16
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div.p40-bar",
+    "top": 627,
+    "bottom": 733,
+    "h": 106,
+    "pos": "sticky",
+    "txt": "請先勾選上面的「我已對照原稿」。 ← 回上一步 儲存範圍"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 725,
+  "content_bottom_el": "button.btn.quiet:← 回上一步",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 16,
+  "need_px": 16,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 31,
+  "tiny_count": 3,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#confirm-import"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 128,
+   "desc": 23,
+   "label": 85,
+   "title": 3,
+   "content": 5,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 13,
+    "txt": "請先勾選上面的「我已對照原稿」。",
+    "sel": "p#p40-why3"
+   },
+   {
+    "u": 10,
+    "txt": "我已對照原稿，確認無誤",
+    "sel": "label.v20-check.v20-summary-check"
+   }
+  ],
+  "repeats": [
+   "修改 ×4",
+   "略過 ×4"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←",
+   "← 回上一步"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 240,
+  "h1_txt": "3. 儲存",
+  "final_hash": "#range-new"
+ },
+ "report": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#report",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 3580,
+    "over": 2940
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 3646,
+  "content_bottom_el": "button.btn.secondary:數學進度及設定",
+  "need_content": 2889,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 2940,
+  "need_px": 2940,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 26,
+  "tiny_count": 9,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "默書星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 12,
+  "ctrl_below_sample": [
+   {
+    "txt": "這些說法是甚麼意思？",
+    "bottom": 2216
+   },
+   {
+    "txt": "舊版遊戲紀錄（已停用）",
+    "bottom": 2313
+   },
+   {
+    "txt": "開啟拼字家族",
+    "bottom": 2441
+   },
+   {
+    "txt": "開啟課程",
+    "bottom": 2612
+   },
+   {
+    "txt": "最近的小測",
+    "bottom": 3221
+   },
+   {
+    "txt": "數學進度及設定",
+    "bottom": 3646
+   }
+  ],
+  "text": {
+   "total": 580,
+   "desc": 137,
+   "label": 360,
+   "title": 59,
+   "content": 12,
+   "nav": 12
+  },
+  "desc_count": 10,
+  "desc_top": [
+   {
+    "u": 29,
+    "txt": "一次備份英文、數學、奧數、遊戲和自訂的圖片音檔，也可轉入舊數學紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 24,
+    "txt": "「示範默書 Unit 3」有 12 個單字。最近自己串對 0 個，要再練 0 個。",
+    "sel": "p.muted"
+   },
+   {
+    "u": 16,
+    "txt": "暫時不用特別再練。可以隔幾天再看看。",
+    "sel": "p"
+   },
+   {
+    "u": 12,
+    "txt": "未有已儲存的家族練習紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 10,
+    "txt": "剛看過答案後答對：0 次",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "還沒練習 ×12",
+   "0/4 · 0/4 ×12",
+   "未完成 ×12",
+   "0（歷史） ×12",
+   "學習報告 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 150,
+  "h1_txt": "家庭完整備份與遊戲時間",
+  "final_hash": "#report"
+ },
+ "practice": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#practice",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 649,
+    "over": 9
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 742,
+  "content_bottom_el": "a.l30-btn.primary:完整拼字教室",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 9,
+  "need_px": 9,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 20,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 145,
+   "desc": 73,
+   "label": 55,
+   "title": 5,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 6,
+  "desc_top": [
+   {
+    "u": 16,
+    "txt": "選一種練習就可以開始。不用全部都做。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 14,
+    "txt": "用內置題庫，或者學校的默書範圍。",
+    "sel": "p"
+   },
+   {
+    "u": 11,
+    "txt": "看圖片、聽讀音，先認識意思。",
+    "sel": "p"
+   },
+   {
+    "u": 11,
+    "txt": "看圖或聽音，選出正確英文。",
+    "sel": "p"
+   },
+   {
+    "u": 11,
+    "txt": "再練最近需要幫助的詞語。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "開始 ×4"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 5,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 131,
+  "h1_txt": "選一種練習",
+  "final_hash": "#practice"
+ },
+ "classroom": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#classroom",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 8649,
+    "over": 8009
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 8692,
+  "content_bottom_el": "span:→",
+  "need_content": 7935,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 8009,
+  "need_px": 8009,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 97,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 86,
+  "ctrl_below_sample": [
+   {
+    "txt": "拼字小課 01 at／an ca",
+    "bottom": 821
+   },
+   {
+    "txt": "拼字小課 02 ap／am ca",
+    "bottom": 821
+   },
+   {
+    "txt": "拼字小課 03 en／et pe",
+    "bottom": 821
+   },
+   {
+    "txt": "拼字小課 04 in／it pi",
+    "bottom": 1125
+   },
+   {
+    "txt": "拼字小課 05 op／ot to",
+    "bottom": 1125
+   },
+   {
+    "txt": "拼字小課 06 ug／un bu",
+    "bottom": 1125
+   }
+  ],
+  "text": {
+   "total": 1668,
+   "desc": 38,
+   "label": 1586,
+   "title": 32,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 21,
+    "txt": "學相似拼法，例如 cat、hat、mat；也可以選食物、動物或學校。",
+    "sel": "p"
+   },
+   {
+    "u": 17,
+    "txt": "選一組熟悉的拼法。再一起學意思和串字。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [
+   "進入這一課 ×80",
+   "8 個詞 ×60",
+   "12 個詞 ×20"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 202,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 2,
+  "truncated_sample": [
+   "Admin 測試學生",
+   "搜尋單元或詞語"
+  ],
+  "h1_y": 151,
+  "h1_txt": "拼字教室",
+  "final_hash": "#classroom"
+ },
+ "unit": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#unit?id=U01",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1359,
+    "over": 719
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 1766,
+  "content_bottom_el": "p:比較cat與can，只換末字母；只有",
+  "need_content": 1009,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 719,
+  "need_px": 1009,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 24,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 15,
+  "ctrl_below_sample": [
+   {
+    "txt": "學這個詞",
+    "bottom": 1010
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1010
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1002
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 977
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1284
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1276
+   }
+  ],
+  "text": {
+   "total": 220,
+   "desc": 60,
+   "label": 110,
+   "title": 12,
+   "content": 26,
+   "nav": 12
+  },
+  "desc_count": 4,
+  "desc_top": [
+   {
+    "u": 23,
+    "txt": "分清at與an兩個字尾，認識換開頭會成為不同意思的詞。",
+    "sel": "p"
+   },
+   {
+    "u": 14,
+    "txt": "★ 全部答對，拿 5 顆星，就有 1 枚金幣。",
+    "sel": "p.q36-rule"
+   },
+   {
+    "u": 12,
+    "txt": "先學 8 個詞，再做 20 題考考你。",
+    "sel": "p"
+   },
+   {
+    "u": 11,
+    "txt": "準備好了，就按「開始這一課」。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [
+   "學這個詞 ×8",
+   "用中文和情境理解 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 14,
+   "ctrl_only": 0,
+   "ctrl_label": 12,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 7,
+   "dup": [],
+   "decor": 14
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 151,
+  "h1_txt": "at／an",
+  "final_hash": "#unit?id=U01"
+ },
+ "unit-start": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learning",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 888,
+    "over": 248
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div.l30-quizactions",
+    "top": 660,
+    "bottom": 733,
+    "h": 73,
+    "pos": "sticky",
+    "txt": "我已看過，下一步"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 818,
+  "content_bottom_el": "button.l30-audio:🔊 聽讀音",
+  "need_content": 61,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 248,
+  "need_px": 248,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 2,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   "🔊 聽讀音 <- a"
+  ],
+  "ctrl_total": 18,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "🔊 聽讀音",
+    "bottom": 818
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 73,
+   "desc": 17,
+   "label": 37,
+   "title": 0,
+   "content": 7,
+   "nav": 12
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 17,
+    "txt": "先看中文意思，再聽讀音。留意英文怎樣拼。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 2,
+   "dup": [
+    "🔊×3"
+   ],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#learning"
+ },
+ "library": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#library",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 2806,
+    "over": 2166
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2858,
+  "content_bottom_el": "summary:圖片與聲音來源",
+  "need_content": 2101,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 2166,
+  "need_px": 2166,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 41,
+  "tiny_count": 3,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "on",
+    "w": 24,
+    "h": 24,
+    "sel": "input#l30-pics"
+   }
+  ],
+  "ctrl_below_fold": 29,
+  "ctrl_below_sample": [
+   {
+    "txt": "學這個詞",
+    "bottom": 896
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 896
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 888
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1171
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1171
+   },
+   {
+    "txt": "學這個詞",
+    "bottom": 1204
+   }
+  ],
+  "text": {
+   "total": 370,
+   "desc": 37,
+   "label": 249,
+   "title": 6,
+   "content": 66,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 27,
+    "txt": "按意思找英文。共有 607 個詞（含不同形式和意思），其中 593 個拼法不同。",
+    "sel": "p"
+   },
+   {
+    "u": 10,
+    "txt": "找到 607 個意思 · 顯示 1–24",
+    "sel": "p.l30-muted"
+   }
+  ],
+  "repeats": [
+   "學這個詞 ×24",
+   "用中文和情境理解 ×10"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 14,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 131,
+  "h1_txt": "詞語與圖片庫",
+  "final_hash": "#library"
+ },
+ "learning": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learning",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 888,
+    "over": 248
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div.l30-quizactions",
+    "top": 660,
+    "bottom": 733,
+    "h": 73,
+    "pos": "sticky",
+    "txt": "我已看過，下一步"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 818,
+  "content_bottom_el": "button.l30-audio:🔊 聽讀音",
+  "need_content": 61,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 248,
+  "need_px": 248,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 2,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   "🔊 聽讀音 <- a"
+  ],
+  "ctrl_total": 18,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "🔊 聽讀音",
+    "bottom": 818
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 73,
+   "desc": 17,
+   "label": 37,
+   "title": 0,
+   "content": 7,
+   "nav": 12
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 17,
+    "txt": "先看中文意思，再聽讀音。留意英文怎樣拼。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 2,
+   "dup": [
+    "🔊×3"
+   ],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#learning"
+ },
+ "assembly": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#assembly",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 2580,
+    "over": 1940
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2632,
+  "content_bottom_el": "a.l30-btn:80 個拼字與生活單元",
+  "need_content": 1875,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 1940,
+  "need_px": 1940,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 4,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   "找 air、rain、bru <- a",
+   "全部玩法 加字塊，記新詞 兩 <- a",
+   "搜尋 <- a"
+  ],
+  "ctrl_total": 34,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 27,
+  "ctrl_below_sample": [
+   {
+    "txt": "找 air、rain、brunc",
+    "bottom": 827
+   },
+   {
+    "txt": "全部玩法 加字塊，記新詞 兩個詞",
+    "bottom": 827
+   },
+   {
+    "txt": "搜尋",
+    "bottom": 827
+   },
+   {
+    "txt": "加字塊，記新詞 air：用熟字塊",
+    "bottom": 1195
+   },
+   {
+    "txt": "加字塊，記新詞 ear：認出藏着",
+    "bottom": 1195
+   },
+   {
+    "txt": "加字塊，記新詞 ice：加字母，",
+    "bottom": 1195
+   }
+  ],
+  "text": {
+   "total": 815,
+   "desc": 428,
+   "label": 313,
+   "title": 62,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 37,
+  "desc_top": [
+   {
+    "u": 20,
+    "txt": "15 組主題 · 92 個組合。看懂各部分，再學新詞的意思。",
+    "sel": "p.l31-help"
+   },
+   {
+    "u": 19,
+    "txt": "用熟悉的拼法記新詞。不要把詞義隨便加起來。",
+    "sel": "p"
+   },
+   {
+    "u": 13,
+    "txt": "保留兩個完整詞，認識新的意思。",
+    "sel": "p"
+   },
+   {
+    "u": 13,
+    "txt": "選出來源詞的一部分，組成新詞。",
+    "sel": "p"
+   },
+   {
+    "u": 12,
+    "txt": "用已認識的詞和字塊，學新詞。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [
+   "本組會用到的熟悉部分 ×15",
+   "看內容與玩法 ×15",
+   "6 個組合 · 先由 2 個組合開始 ×12",
+   "兩個詞合成 ×10",
+   "加字塊，記新詞 ×4"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 2,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 2,
+  "truncated_sample": [
+   "Admin 測試學生",
+   "搜尋組合"
+  ],
+  "h1_y": 201,
+  "h1_txt": "詞語組合工房",
+  "final_hash": "#assembly"
+ },
+ "assembly-unit": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#assembly-unit?id=air",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1536,
+    "over": 896
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 1649,
+  "content_bottom_el": "p:用熟悉的字塊記拼法。新字的意思和讀音",
+  "need_content": 892,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 896,
+  "need_px": 896,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 29,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 18,
+  "ctrl_below_sample": [
+   {
+    "txt": "基本部分與教學提醒",
+    "bottom": 1010
+   },
+   {
+    "txt": "學這個組合",
+    "bottom": 1068
+   },
+   {
+    "txt": "基本部分與教學提醒",
+    "bottom": 1010
+   },
+   {
+    "txt": "學這個組合",
+    "bottom": 1068
+   },
+   {
+    "txt": "基本部分與教學提醒",
+    "bottom": 1122
+   },
+   {
+    "txt": "學這個組合",
+    "bottom": 1180
+   }
+  ],
+  "text": {
+   "total": 348,
+   "desc": 150,
+   "label": 138,
+   "title": 15,
+   "content": 33,
+   "nav": 12
+  },
+  "desc_count": 11,
+  "desc_top": [
+   {
+    "u": 27,
+    "txt": "下面會顯示新詞的拼法。看過後馬上串對，只算練習，不算隔日掌握。",
+    "sel": "p.l31-help"
+   },
+   {
+    "u": 21,
+    "txt": "用熟悉的字塊記拼法。新字的意思和讀音，要另外學。",
+    "sel": "p.l31-lead"
+   },
+   {
+    "u": 20,
+    "txt": "每次只取所選數量；這組剩餘的詞可以下次繼續。",
+    "sel": "p.l31-help"
+   },
+   {
+    "u": 17,
+    "txt": "選「跟着學」。我會陪你認識、組合，再自己串字。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 11,
+    "txt": "跟着學：認識 → 組合 → 詞義 → 串字",
+    "sel": "button.l30-btn.primary"
+   }
+  ],
+  "repeats": [
+   "加字塊，記新詞 ×7",
+   "基本部分與教學提醒 ×6",
+   "學這個組合 ×6",
+   "air ×5"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 2,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 167,
+  "h1_txt": "air：用熟字塊變新詞",
+  "final_hash": "#assembly-unit?id=air"
+ },
+ "assembly-learn": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#assembly-learn",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 912,
+    "over": 272
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   },
+   {
+    "sel": "div.l31-actions",
+    "top": 657,
+    "bottom": 733,
+    "h": 76,
+    "pos": "sticky",
+    "txt": "認識了，下一步"
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 996,
+  "content_bottom_el": "p.l31-help:會儲存這一局的字塊和草稿。 答錯不扣",
+  "need_content": 239,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 272,
+  "need_px": 272,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 2,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar",
+   "🔊 聽這個詞 <- div.l31-actions"
+  ],
+  "ctrl_total": 18,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 187,
+   "desc": 113,
+   "label": 51,
+   "title": 9,
+   "content": 2,
+   "nav": 12
+  },
+  "desc_count": 6,
+  "desc_top": [
+   {
+    "u": 36,
+    "txt": "會儲存這一局的字塊和草稿。 答錯不扣金幣。至少完成兩個不同組合，才有這一組的獎勵。",
+    "sel": "p.l31-help"
+   },
+   {
+    "u": 21,
+    "txt": "用熟悉的字塊記拼法。新字的意思和讀音，要另外學。",
+    "sel": "p.l31-notice"
+   },
+   {
+    "u": 18,
+    "txt": "字塊可以幫你記拼法；新詞的意思要另外學。",
+    "sel": "p"
+   },
+   {
+    "u": 14,
+    "txt": "看字母形狀；稍後聽新詞完整讀音。",
+    "sel": "span.l31-help"
+   },
+   {
+    "u": 12,
+    "txt": "先觀察字塊，再一步一步組合。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 1,
+   "dup": [
+    "🔊×3"
+   ],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 433,
+  "h1_txt": "先看看已認識的部分",
+  "final_hash": "#assembly-learn"
+ },
+ "companions": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#companions",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1266,
+    "over": 626
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 1318,
+  "content_bottom_el": "button.wq32-btn:查看全部角色",
+  "need_content": 561,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 626,
+  "need_px": 626,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 31,
+  "tiny_count": 5,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "英文星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   }
+  ],
+  "ctrl_below_fold": 18,
+  "ctrl_below_sample": [
+   {
+    "txt": "角色肖像",
+    "bottom": 961
+   },
+   {
+    "txt": "開心",
+    "bottom": 961
+   },
+   {
+    "txt": "自信",
+    "bottom": 961
+   },
+   {
+    "txt": "思考",
+    "bottom": 961
+   },
+   {
+    "txt": "驚訝",
+    "bottom": 961
+   },
+   {
+    "txt": "溫柔",
+    "bottom": 961
+   }
+  ],
+  "text": {
+   "total": 269,
+   "desc": 119,
+   "label": 118,
+   "title": 20,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 6,
+  "desc_top": [
+   {
+    "u": 28,
+    "txt": "六位夥伴各有工作。選一位，看看他的肖像和表情，也看看他怎樣幫你。",
+    "sel": "p"
+   },
+   {
+    "u": 27,
+    "txt": "一步一步講解四則運算和應用題。陪你整理已知資料，再想下一步。",
+    "sel": "p"
+   },
+   {
+    "u": 22,
+    "txt": "四則運算、應用題、解題示範；英文區負責學習步驟帶路。",
+    "sel": "dd"
+   },
+   {
+    "u": 18,
+    "txt": "先讀清楚題目。再按教學和提示，一步一步做。",
+    "sel": "dd"
+   },
+   {
+    "u": 13,
+    "txt": "角色出場時有簡單的動畫效果",
+    "sel": "span"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 7,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←",
+   "← 英文星"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 167,
+  "h1_txt": "認識學習夥伴",
+  "final_hash": "#companions"
+ },
+ "family-lesson": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#family-lesson",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 1380,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1486,
+  "content_bottom_el": "p:新練習的紀錄，和正式默書成績分開。",
+  "need_content": 666,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 666,
+  "clipped": true,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 21,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "🎪 f air 展覽會 另一個",
+    "bottom": 981
+   },
+   {
+    "txt": "🪑 ch air 椅子 加一組",
+    "bottom": 981
+   },
+   {
+    "txt": "↗ st air s 樓梯 留意",
+    "bottom": 981
+   },
+   {
+    "txt": "🔧 rep air 修理 較長",
+    "bottom": 1215
+   },
+   {
+    "txt": "混合再試",
+    "bottom": 1280
+   },
+   {
+    "txt": "家長看這裏",
+    "bottom": 1363
+   }
+  ],
+  "text": {
+   "total": 169,
+   "desc": 0,
+   "label": 165,
+   "title": 4,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "air ×10",
+   "未試過自己串字 ×7",
+   "加一個字母 ×3",
+   "ch ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 12,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 12
+  },
+  "back_controls": [
+   "返回一般網站",
+   "返回"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 151,
+  "h1_txt": "拼字家族",
+  "final_hash": "#family-lesson"
+ },
+ "phonics-lesson": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#phonics-lesson",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 1844,
+   "bsh": 1844,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 61,
+    "h": 61,
+    "pos": "sticky",
+    "txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 A"
+   }
+  ],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1844,
+  "content_bottom_el": "footer.footer:學霸星球 SmartQuest Pl",
+  "need_content": 1024,
+  "scroll_range_doc": 1024,
+  "scroll_range_cont": 0,
+  "need_px": 1024,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 36,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 19,
+  "ctrl_below_sample": [
+   {
+    "txt": "開始學",
+    "bottom": 1026
+   },
+   {
+    "txt": "課後小測",
+    "bottom": 1026
+   },
+   {
+    "txt": "開始學",
+    "bottom": 1026
+   },
+   {
+    "txt": "課後小測",
+    "bottom": 1026
+   },
+   {
+    "txt": "開始學",
+    "bottom": 1026
+   },
+   {
+    "txt": "課後小測",
+    "bottom": 1026
+   }
+  ],
+  "text": {
+   "total": 411,
+   "desc": 70,
+   "label": 214,
+   "title": 66,
+   "content": 61,
+   "nav": 0
+  },
+  "desc_count": 4,
+  "desc_top": [
+   {
+    "u": 37,
+    "txt": "小測沒有拼法提示。每日金幣最多五枚，小測和其他學習一起計。同一課一天只得一次金幣。",
+    "sel": "p"
+   },
+   {
+    "u": 14,
+    "txt": "每課一個拼字重點，按次序慢慢學。",
+    "sel": "p"
+   },
+   {
+    "u": 10,
+    "txt": "舊版課程已得 0 枚金幣",
+    "sel": "span"
+   },
+   {
+    "u": 9,
+    "txt": "聽一聽 · 跟着讀 · 自己串",
+    "sel": "p.eyebrow"
+   }
+  ],
+  "repeats": [
+   "待練習 ×12",
+   "已學 0 / 4 ×12",
+   "開始學 ×12",
+   "課後小測 ×12"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 13,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 0,
+   "ctrl_label": 4,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 5
+  },
+  "back_controls": [
+   "返回一般網站",
+   "返回"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 171,
+  "h1_txt": "拼字專家",
+  "final_hash": "#phonics-lesson"
+ },
+ "parent": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#parent",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 1756,
+    "over": 1116
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 1822,
+  "content_bottom_el": "button.btn.secondary:數學進度及設定",
+  "need_content": 1065,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 1116,
+  "need_px": 1116,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 29,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 19,
+  "ctrl_below_sample": [
+   {
+    "txt": "安排下一次學習 選一小課和少量詞",
+    "bottom": 1012
+   },
+   {
+    "txt": "金幣與遊戲 50 金幣。看投幣紀",
+    "bottom": 1012
+   },
+   {
+    "txt": "更多設定與舊紀錄",
+    "bottom": 1326
+   },
+   {
+    "txt": "",
+    "bottom": 1379
+   },
+   {
+    "txt": "",
+    "bottom": 1379
+   },
+   {
+    "txt": "",
+    "bottom": 1379
+   }
+  ],
+  "text": {
+   "total": 387,
+   "desc": 241,
+   "label": 93,
+   "title": 41,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 13,
+  "desc_top": [
+   {
+    "u": 39,
+    "txt": "學校範圍最近自己串對 0 項。拼字教室有 0 項通過隔日複習。兩類紀錄分開顯示，不會重複計算。",
+    "sel": "p.l30-muted"
+   },
+   {
+    "u": 29,
+    "txt": "一次備份英文、數學、奧數、遊戲和自訂的圖片音檔，也可轉入舊數學紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 24,
+    "txt": "用基本詞學新詞。可以分開看組合、詞義和自己串字的紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 21,
+    "txt": "選一小課和少量詞語。未學過的內容不會當成 0 分。",
+    "sel": "p"
+   },
+   {
+    "u": 20,
+    "txt": "拍學校範圍、上傳照片或貼文字；核對後開始練習。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 4,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 150,
+  "h1_txt": "家庭完整備份與遊戲時間",
+  "final_hash": "#parent"
+ },
+ "children": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#children",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 372,
+  "content_bottom_el": "button.btn.soft:修改年級",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 20,
+  "tiny_count": 8,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 59,
+   "desc": 0,
+   "label": 45,
+   "title": 2,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "孩子 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 4,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 207,
+  "h1_txt": "孩子",
+  "final_hash": "#children"
+ },
+ "children-add": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#children",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 636,
+  "content_bottom_el": "button.btn.primary:加入",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 23,
+  "tiny_count": 8,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 69,
+   "desc": 0,
+   "label": 51,
+   "title": 6,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 0,
+  "desc_top": [],
+  "repeats": [
+   "孩子 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 15,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 4,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 15
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 207,
+  "h1_txt": "孩子",
+  "final_hash": "#children"
+ },
+ "settings": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#settings",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 2857,
+    "over": 2217
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 2910,
+  "content_bottom_el": "p.small.muted:學霸星球 SmartQuest Pl",
+  "need_content": 2153,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 2217,
+  "need_px": 2217,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 41,
+  "tiny_count": 14,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   },
+   {
+    "txt": "",
+    "w": 347,
+    "h": 25,
+    "sel": "input#v25-check-file"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 24,
+  "ctrl_below_sample": [
+   {
+    "txt": "3 5 7 10",
+    "bottom": 1010
+   },
+   {
+    "txt": "8 10 12 15",
+    "bottom": 1098
+   },
+   {
+    "txt": "關閉聲效",
+    "bottom": 1235
+   },
+   {
+    "txt": "儲存設定",
+    "bottom": 1314
+   },
+   {
+    "txt": "⬇️ 匯出備份",
+    "bottom": 1232
+   },
+   {
+    "txt": "⬆️ 還原備份",
+    "bottom": 1291
+   }
+  ],
+  "text": {
+   "total": 689,
+   "desc": 484,
+   "label": 131,
+   "title": 62,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 22,
+  "desc_top": [
+   {
+    "u": 48,
+    "txt": "沒有可核對的備用紀錄時，會先問你是否同意，才把金幣和沒用完的時間歸零，並暫停當天的遊戲。損壞的資料會保留。",
+    "sel": "p.small"
+   },
+   {
+    "u": 47,
+    "txt": "檢查摘要只有版本、功能是否可用、主要資料大小和儲存狀態。不包含姓名、帳戶編號、密碼、教材和答案。不會自動上傳。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 46,
+    "txt": "一般還原會保留現在的金幣和遊戲用時。如果原有資料損壞，會先檢查這部裝置上的金幣備用紀錄，再還原教材。",
+    "sel": "p"
+   },
+   {
+    "u": 34,
+    "txt": "資料只存在這個瀏覽器，不會自動傳到其他裝置。換裝置或換檔案前，請先匯出備份。",
+    "sel": "p.muted"
+   },
+   {
+    "u": 29,
+    "txt": "一次備份英文、數學、奧數、遊戲和自訂的圖片音檔，也可轉入舊數學紀錄。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "設定／備份 ×2"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 16,
+   "ctrl_only": 0,
+   "ctrl_label": 13,
+   "inline_decor": 3,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 16
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 150,
+  "h1_txt": "家庭完整備份與遊戲時間",
+  "final_hash": "#settings"
+ },
+ "learning-report": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learning-report",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 721,
+    "over": 81
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 906,
+  "content_bottom_el": "p:測試帳戶的紀錄，不能用來評估真實孩子",
+  "need_content": 149,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 81,
+  "need_px": 149,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 17,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "這些數字代表甚麼？",
+    "bottom": 773
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 120,
+   "desc": 31,
+   "label": 63,
+   "title": 14,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 21,
+    "txt": "看過、認得、自己串對、隔日仍串對，是四種不同的紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 10,
+    "txt": "逐次作答詳情（最近 100 筆）",
+    "sel": "summary"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 131,
+  "h1_txt": "拼字課學習情況",
+  "final_hash": "#learning-report"
+ },
+ "learning-plan": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learning-plan",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 611,
+  "content_bottom_el": "a.l30-btn:管理學校範圍",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 17,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 472,
+   "desc": 415,
+   "label": 30,
+   "title": 15,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 3,
+  "desc_top": [
+   {
+    "u": 372,
+    "txt": "選擇小課 U01 · at／an U02 · ap／am U03 · en／et U04 · in／it U05 · op／ot U06 · ug／un U07 · ad／ag U08 · ed／eg 字尾拼法 U09 · id／ig U10 · ip／im U11 · og／ock U12 · ut／uck U13 ",
+    "sel": "label"
+   },
+   {
+    "u": 27,
+    "txt": "學校教材仍用原本的範圍和固定範圍設定。內置課程不會取代它。",
+    "sel": "p"
+   },
+   {
+    "u": 16,
+    "txt": "選一課。孩子首頁會直接顯示開始按鈕。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 131,
+  "h1_txt": "安排下一次學習",
+  "final_hash": "#learning-plan"
+ },
+ "learning-help": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#learning-help",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 786,
+    "over": 146
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 846,
+  "content_bottom_el": "p:每位角色都有自己的工作。",
+  "need_content": 89,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 146,
+  "need_px": 146,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 17,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "認識角色與顯示設定",
+    "bottom": 845
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 219,
+   "desc": 143,
+   "label": 31,
+   "title": 33,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 7,
+  "desc_top": [
+   {
+    "u": 41,
+    "txt": "學習時全部答對，拿滿 5 顆星，就有金幣。所有遊戲都可以先看預覽。每局 1 至 4 枚金幣，不會自動再扣。",
+    "sel": "p"
+   },
+   {
+    "u": 25,
+    "txt": "未有學校範圍，直接選「內置題庫」。家長可以拍照加入學校範圍。",
+    "sel": "p"
+   },
+   {
+    "u": 23,
+    "txt": "先認識意思，再做練習。可重播、看提示、暫停。答錯不扣金幣。",
+    "sel": "p"
+   },
+   {
+    "u": 19,
+    "txt": "資料只存在這部裝置，不會自動傳到其他裝置。",
+    "sel": "p"
+   },
+   {
+    "u": 15,
+    "txt": "請建立自己的帳戶，並定期下載備份。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 3,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 131,
+  "h1_txt": "第一次使用，先做這三步",
+  "final_hash": "#learning-help"
+ },
+ "assembly-report": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#assembly-report",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 654,
+    "over": 14
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 739,
+  "content_bottom_el": "p.l31-help:同一個英文詞，在遊戲解鎖時只計一次。",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 14,
+  "need_px": 14,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 16,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 146,
+   "desc": 64,
+   "label": 55,
+   "title": 15,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 3,
+  "desc_top": [
+   {
+    "u": 37,
+    "txt": "分開看：會砌字、明白意思、自己串對、隔日複習。這個頁面只供家長閱讀，不會改動孩子的紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 16,
+    "txt": "同一個英文詞，在遊戲解鎖時只計一次。",
+    "sel": "p.l31-help"
+   },
+   {
+    "u": 11,
+    "txt": "逐次作答與訂正（最近 100 筆）",
+    "sel": "summary"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 137,
+  "h1_txt": "詞語組合：孩子學得怎樣？",
+  "final_hash": "#assembly-report"
+ },
+ "assembly-plan": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#assembly-plan",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 639,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 446,
+  "content_bottom_el": "p:不會取代學校默書範圍，也不會刪除原本",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 16,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 92,
+   "desc": 47,
+   "label": 25,
+   "title": 8,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 28,
+    "txt": "不會取代學校默書範圍，也不會刪除原本的小課。只是新增工房建議。",
+    "sel": "p"
+   },
+   {
+    "u": 19,
+    "txt": "選一組熟悉的基本詞，讓孩子從兩個新詞開始。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 137,
+  "h1_txt": "安排詞語組合練習",
+  "final_hash": "#assembly-plan"
+ },
+ "legacy-family": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#legacy-family",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 357,
+  "content_bottom_el": "p:未有已儲存的家族練習紀錄。",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 13,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 6,
+  "ctrl_below_sample": [
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   },
+   {
+    "txt": "家長",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 71,
+   "desc": 36,
+   "label": 10,
+   "title": 13,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 24,
+    "txt": "以下是原有的紀錄，不會自動當作新拼字教室的掌握紀錄。",
+    "sel": "p"
+   },
+   {
+    "u": 12,
+    "txt": "未有已儲存的家族練習紀錄。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 123,
+  "h1_txt": "舊版 air 家族紀錄",
+  "final_hash": "#legacy-family"
+ },
+ "legacy-phonics": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#legacy-phonics",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "div.r37-legbody",
+    "ch": 640,
+    "sh": 872,
+    "over": 232
+   }
+  ],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 57,
+    "h": 57,
+    "pos": "sticky",
+    "txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 "
+   }
+  ],
+  "head_px": 57,
+  "nav_px": 63,
+  "legacy_header_txt": "★ Admin 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 3,
+  "bar_px": 60,
+  "bar_bottom": 117,
+  "avail_bottom": 757,
+  "content_bottom": 938,
+  "content_bottom_el": "summary:最近的小測",
+  "need_content": 181,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 232,
+  "need_px": 232,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 1,
+  "ctrl_covered_sample": [
+   "返回一般網站 <- div.r37-bar"
+  ],
+  "ctrl_total": 14,
+  "tiny_count": 2,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "家長星",
+    "w": 91,
+    "h": 29,
+    "sel": "a.r37-legt"
+   }
+  ],
+  "ctrl_below_fold": 7,
+  "ctrl_below_sample": [
+   {
+    "txt": "最近的小測",
+    "bottom": 938
+   },
+   {
+    "txt": "星系",
+    "bottom": 816
+   },
+   {
+    "txt": "英文",
+    "bottom": 816
+   },
+   {
+    "txt": "數學",
+    "bottom": 816
+   },
+   {
+    "txt": "奧數",
+    "bottom": 816
+   },
+   {
+    "txt": "遊戲",
+    "bottom": 816
+   }
+  ],
+  "text": {
+   "total": 224,
+   "desc": 21,
+   "label": 176,
+   "title": 15,
+   "content": 0,
+   "nav": 12
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 21,
+    "txt": "歷史紀錄完整保留。新課程請從首頁「拼字教室」進入。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "0/4 · 0/4 ×12",
+   "未完成 ×12",
+   "0（歷史） ×12"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 13,
+   "ctrl_only": 0,
+   "ctrl_label": 11,
+   "inline_decor": 2,
+   "svg": 7,
+   "img": 0,
+   "dup": [],
+   "decor": 13
+  },
+  "back_controls": [
+   "返回一般網站",
+   "←"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 123,
+  "h1_txt": "舊版十二課紀錄",
+  "final_hash": "#legacy-phonics"
+ },
+ "offline": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#offline",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 2558,
+   "bsh": 2558,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 61,
+    "h": 61,
+    "pos": "sticky",
+    "txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 A"
+   }
+  ],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 2558,
+  "content_bottom_el": "footer.footer:學霸星球 SmartQuest Pl",
+  "need_content": 1738,
+  "scroll_range_doc": 1738,
+  "scroll_range_cont": 0,
+  "need_px": 1738,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 54,
+  "tiny_count": 8,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#media-network-consent"
+   }
+  ],
+  "ctrl_below_fold": 35,
+  "ctrl_below_sample": [
+   {
+    "txt": "準備離線教材",
+    "bottom": 915
+   },
+   {
+    "txt": "重新檢查",
+    "bottom": 915
+   },
+   {
+    "txt": "下載來源及其他工具",
+    "bottom": 991
+   },
+   {
+    "txt": "on",
+    "bottom": 1094
+   },
+   {
+    "txt": "",
+    "bottom": 1172
+   },
+   {
+    "txt": "",
+    "bottom": 1172
+   }
+  ],
+  "text": {
+   "total": 591,
+   "desc": 140,
+   "label": 424,
+   "title": 15,
+   "content": 12,
+   "nav": 0
+  },
+  "desc_count": 6,
+  "desc_top": [
+   {
+    "u": 45,
+    "txt": "你正在用已下載的網頁檔，請保留這個檔案。額外的圖片和音檔只存在目前的瀏覽器，換裝置前請匯出教材包。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 35,
+    "txt": "同一個字可能有不同意思。請按今次默書的意思核對配圖；「because」等抽象字可選文字教學。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 25,
+    "txt": "未有音檔的聽力題可先跳過，不會計錯。 還有 6 張配圖要核對。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 15,
+    "txt": "先準備好，外出沒有網絡也可以練習。",
+    "sel": "p.muted"
+   },
+   {
+    "u": 11,
+    "txt": "核對圖片和讀音後再儲存。",
+    "sel": "p.wq32-line"
+   }
+  ],
+  "repeats": [
+   "待補生字讀音 ×12",
+   "例句音檔未存 ×12",
+   "聽讀音 ×12",
+   "補圖／讀音 ×12",
+   "配圖待核對 ×6"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 0,
+   "ctrl_label": 4,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 7,
+   "dup": [],
+   "decor": 5
+  },
+  "back_controls": [
+   "返回一般網站",
+   "返回孩子頁"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 222,
+  "h1_txt": "離線教材",
+  "final_hash": "#offline"
+ },
+ "credits": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#credits",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 764,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 61,
+    "h": 61,
+    "pos": "sticky",
+    "txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 A"
+   }
+  ],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 764,
+  "content_bottom_el": "footer.footer:學霸星球 SmartQuest Pl",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 17,
+  "tiny_count": 7,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "離線教材",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab.active"
+   },
+   {
+    "txt": "總覽",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "默書範圍",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "孩子",
+    "w": 60,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "學習報告",
+    "w": 92,
+    "h": 43,
+    "sel": "a.tab"
+   },
+   {
+    "txt": "設定／備份",
+    "w": 108,
+    "h": 43,
+    "sel": "a.tab"
+   }
+  ],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 187,
+   "desc": 154,
+   "label": 26,
+   "title": 7,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 4,
+  "desc_top": [
+   {
+    "u": 62,
+    "txt": "每個公共音檔都保留 Wikimedia 的來源、作者和授權資料。只會下載檔名標明 En-uk 的英式錄音。為了能離線播放，會轉成 24 kHz 單聲道 WAV。不會把單字拼起來冒充整句。",
+    "sel": "p"
+   },
+   {
+    "u": 53,
+    "txt": "內置 171 張固定配圖。圖案已轉成 PNG，不會下載外部字型。蘋果、書、鞋用 OpenMoji 插圖，其餘用 Noto Emoji 圖示。這些圖示不能涵蓋所有英文詞的意思。",
+    "sel": "p"
+   },
+   {
+    "u": 21,
+    "txt": "OpenMoji — HfG Schwäbisch Gmünd contributors，CC BY-SA 4.0。轉為 PNG，原色及圖形保留。",
+    "sel": "p"
+   },
+   {
+    "u": 18,
+    "txt": "Noto Emoji — Google / Noto contributors，OFL-1.1。預先繪成 PNG；未附帶字型檔。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 0,
+  "min_font": 16,
+  "small_font_sample": [],
+  "icons": {
+   "total": 5,
+   "ctrl_only": 0,
+   "ctrl_label": 4,
+   "inline_decor": 1,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 5
+  },
+  "back_controls": [
+   "返回一般網站",
+   "返回離線教材"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 229,
+  "h1_txt": "圖片與音檔來源",
+  "final_hash": "#credits"
+ },
+ "login-admin": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#login",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 992,
+   "bsh": 992,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 61,
+    "h": 61,
+    "pos": "sticky",
+    "txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 A"
+   }
+  ],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 992,
+  "content_bottom_el": "footer.footer:學霸星球 SmartQuest Pl",
+  "need_content": 172,
+  "scroll_range_doc": 172,
+  "scroll_range_cont": 0,
+  "need_px": 172,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 16,
+  "tiny_count": 1,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   }
+  ],
+  "ctrl_below_fold": 3,
+  "ctrl_below_sample": [
+   {
+    "txt": "進入遊戲街機",
+    "bottom": 829
+   },
+   {
+    "txt": "測試中心",
+    "bottom": 829
+   },
+   {
+    "txt": "登出測試帳戶",
+    "bottom": 829
+   }
+  ],
+  "text": {
+   "total": 158,
+   "desc": 83,
+   "label": 62,
+   "title": 13,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 4,
+  "desc_top": [
+   {
+    "u": 33,
+    "txt": "已用測試帳戶登入。「全部開放」可以免費試玩。切換成正常規則，可測試金幣和解鎖。",
+    "sel": "p"
+   },
+   {
+    "u": 21,
+    "txt": "我是烈烈老師。先登入你的帳戶，就能和夥伴一起學。",
+    "sel": "p.wq32-line"
+   },
+   {
+    "u": 20,
+    "txt": "電腦用鍵盤 · 手機用觸控 · 訪客可免費看玩法預覽",
+    "sel": "p.wq29-caption"
+   },
+   {
+    "u": 9,
+    "txt": "這裏只使用測試資料。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "進入遊戲街機 ×2",
+   "測試中心 ×2"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 11,
+  "small_font_sample": [
+   "遊戲入口 · 封面插畫 11px"
+  ],
+  "icons": {
+   "total": 6,
+   "ctrl_only": 0,
+   "ctrl_label": 5,
+   "inline_decor": 1,
+   "svg": 1,
+   "img": 2,
+   "dup": [],
+   "decor": 6
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 210,
+  "h1_txt": "遊戲街機，從這裏進入",
+  "final_hash": "#login"
+ },
+ "admin": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#admin",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 3373,
+   "bsh": 3373,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "visible",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [
+   {
+    "sel": "header.header",
+    "top": 0,
+    "bottom": 61,
+    "h": 61,
+    "pos": "sticky",
+    "txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 A"
+   }
+  ],
+  "head_px": 61,
+  "nav_px": 0,
+  "legacy_header_txt": "★ Admin 星系 英文 數學 奧數 遊戲 家長 👦 Admin 測試學生 🔊 聲音：開 👨‍👩‍👧 家長",
+  "legacy_header_ctrls": 9,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 3373,
+  "content_bottom_el": "footer.footer:學霸星球 SmartQuest Pl",
+  "need_content": 2553,
+  "scroll_range_doc": 2553,
+  "scroll_range_cont": 0,
+  "need_px": 2553,
+  "clipped": false,
+  "open_dialogs": [],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 91,
+  "tiny_count": 5,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "返回一般網站",
+    "w": 86,
+    "h": 28,
+    "sel": "a"
+   },
+   {
+    "txt": "重新開始測試",
+    "w": 942,
+    "h": 25,
+    "sel": "summary"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   },
+   {
+    "txt": "on",
+    "w": 20,
+    "h": 20,
+    "sel": "input"
+   }
+  ],
+  "ctrl_below_fold": 72,
+  "ctrl_below_sample": [
+   {
+    "txt": "增加 20 枚測試金幣",
+    "bottom": 973
+   },
+   {
+    "txt": "入門 標準 挑戰",
+    "bottom": 974
+   },
+   {
+    "txt": "金幣／遊戲規則設定",
+    "bottom": 961
+   },
+   {
+    "txt": "天空救援隊",
+    "bottom": 1190
+   },
+   {
+    "txt": "極速森林跑酷",
+    "bottom": 1190
+   },
+   {
+    "txt": "月光跳鈴",
+    "bottom": 1190
+   }
+  ],
+  "text": {
+   "total": 624,
+   "desc": 115,
+   "label": 453,
+   "title": 56,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 7,
+  "desc_top": [
+   {
+    "u": 32,
+    "txt": "不收金幣，也沒有五局上限。遊戲本身仍有生命和過關條件。造型可以直接試用。",
+    "sel": "p"
+   },
+   {
+    "u": 19,
+    "txt": "OCR 或語音功能，仍需要網絡、合適的裝置和權限。",
+    "sel": "p.wq29-caption"
+   },
+   {
+    "u": 18,
+    "txt": "只操作測試帳戶，不會改動孩子的學習成績。",
+    "sel": "p"
+   },
+   {
+    "u": 14,
+    "txt": "點遊戲看玩法，再按「免費開始測試」。",
+    "sel": "p"
+   },
+   {
+    "u": 13,
+    "txt": "角色出場時有簡單的動畫效果",
+    "sel": "span"
+   }
+  ],
+  "repeats": [
+   "看教學 ×12",
+   "課後小測 ×12"
+  ],
+  "small_font_blocks": 0,
+  "min_font": 12,
+  "small_font_sample": [],
+  "icons": {
+   "total": 6,
+   "ctrl_only": 0,
+   "ctrl_label": 5,
+   "inline_decor": 1,
+   "svg": 1,
+   "img": 0,
+   "dup": [],
+   "decor": 6
+  },
+  "back_controls": [
+   "返回一般網站"
+  ],
+  "truncated": 1,
+  "truncated_sample": [
+   "Admin 測試學生"
+  ],
+  "h1_y": 179,
+  "h1_txt": "組合工房測試",
+  "final_hash": "#admin"
+ },
+ "wqm-home": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 1409,
+    "over": 589
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1332,
+  "content_bottom_el": "button.quiet:設定學校進度",
+  "need_content": 512,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 589,
+  "need_px": 589,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 589,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 12,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 4,
+  "ctrl_below_sample": [
+   {
+    "txt": "前往數字島 →",
+    "bottom": 1057
+   },
+   {
+    "txt": "動手試一試 →",
+    "bottom": 1057
+   },
+   {
+    "txt": "設定學校進度",
+    "bottom": 1332
+   },
+   {
+    "txt": "基礎選題起步測試",
+    "bottom": 1332
+   }
+  ],
+  "text": {
+   "total": 273,
+   "desc": 127,
+   "label": 105,
+   "title": 41,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 8,
+  "desc_top": [
+   {
+    "u": 20,
+    "txt": "先動手，再想通。每日一小步， 學到方法，不只是答案。",
+    "sel": "p"
+   },
+   {
+    "u": 20,
+    "txt": "家長選好正在學的單元，每日練習便會優先安排。",
+    "sel": "p.muted"
+   },
+   {
+    "u": 18,
+    "txt": "拆十條、跳數線、比較分數。慢慢試，這裏不計分。",
+    "sel": "p"
+   },
+   {
+    "u": 17,
+    "txt": "跟着學校進度，練熟數感、加減乘除和分數。",
+    "sel": "p"
+   },
+   {
+    "u": 16,
+    "txt": "選一課就可以開始。每次專心做一件事。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "數學群島 ×3",
+   "教具工房 ×2"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 319,
+  "h1_txt": "今天，\n用新方法學數學。",
+  "final_hash": "#p/math"
+ },
+ "wqm-normal": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 4969,
+    "over": 4149
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 4892,
+  "content_bottom_el": "button.primary:學這一課",
+  "need_content": 4072,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 4149,
+  "need_px": 4149,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 4149,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 54,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 38,
+  "ctrl_below_sample": [
+   {
+    "txt": "學這一課",
+    "bottom": 1066
+   },
+   {
+    "txt": "5 題練習",
+    "bottom": 1066
+   },
+   {
+    "txt": "學這一課",
+    "bottom": 1066
+   },
+   {
+    "txt": "5 題練習",
+    "bottom": 1066
+   },
+   {
+    "txt": "學這一課",
+    "bottom": 1387
+   },
+   {
+    "txt": "5 題練習",
+    "bottom": 1387
+   }
+  ],
+  "text": {
+   "total": 776,
+   "desc": 11,
+   "label": 586,
+   "title": 179,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 1,
+  "desc_top": [
+   {
+    "u": 11,
+    "txt": "先看清楚題目，再想下一步。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "○ 未開始 ×21",
+   "學這一課 ×21",
+   "5 題練習 ×21",
+   "入門選段 ×13",
+   "數學群島 ×3"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 306,
+  "h1_txt": "數學群島",
+  "final_hash": "#p/math"
+ },
+ "wqm-tools": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 1361,
+    "over": 541
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1266,
+  "content_bottom_el": "button.primary:開始數線任務",
+  "need_content": 446,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 541,
+  "need_px": 541,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 541,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 46,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 5,
+  "ctrl_below_sample": [
+   {
+    "txt": "放多一粒",
+    "bottom": 916
+   },
+   {
+    "txt": "拿走一粒",
+    "bottom": 916
+   },
+   {
+    "txt": "清空",
+    "bottom": 916
+   },
+   {
+    "txt": "開始數線任務",
+    "bottom": 1266
+   },
+   {
+    "txt": "開舖試一試",
+    "bottom": 1266
+   }
+  ],
+  "text": {
+   "total": 241,
+   "desc": 100,
+   "label": 119,
+   "title": 22,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 5,
+  "desc_top": [
+   {
+    "u": 29,
+    "txt": "在 0–20 的數線跳出答案，完成 5 道加減題。不是做完題目才准玩的街機。",
+    "sel": "p"
+   },
+   {
+    "u": 28,
+    "txt": "按錢幣砌出找贖，再交給客人。適合小二以上，成績會記在數學紀錄裏。",
+    "sel": "p"
+   },
+   {
+    "u": 18,
+    "txt": "點格子放入／拿走數粒；鍵盤可用 Tab 和空白鍵。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 15,
+    "txt": "動手改一改，觀察教具中有甚麼變化。",
+    "sel": "p"
+   },
+   {
+    "u": 10,
+    "txt": "自由探索 · 不計入掌握度",
+    "sel": "span.tag"
+   }
+  ],
+  "repeats": [
+   "數學群島 ×2",
+   "教具工房 ×2",
+   "十格框 ×2"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 306,
+  "h1_txt": "教具工房",
+  "final_hash": "#p/math"
+ },
+ "wqm-parent": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/math",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 3693,
+    "over": 2873
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 3616,
+  "content_bottom_el": "button.quiet:聽英文",
+  "need_content": 2796,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 2873,
+  "need_px": 2873,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 2873,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 37,
+  "tiny_count": 4,
+  "tiny_inline": 0,
+  "tiny_sample": [
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#setting-olympiad"
+   },
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#setting-sound"
+   },
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#setting-slow"
+   },
+   {
+    "txt": "on",
+    "w": 22,
+    "h": 22,
+    "sel": "input#setting-showScore"
+   }
+  ],
+  "ctrl_below_fold": 29,
+  "ctrl_below_sample": [
+   {
+    "txt": "按技能進度安排 小1 · 1N1",
+    "bottom": 1215
+   },
+   {
+    "txt": "繁體中文 English 中英雙",
+    "bottom": 1215
+   },
+   {
+    "txt": "粵語 普通話 英式英文",
+    "bottom": 1312
+   },
+   {
+    "txt": "on",
+    "bottom": 1350
+   },
+   {
+    "txt": "on",
+    "bottom": 1404
+   },
+   {
+    "txt": "on",
+    "bottom": 1458
+   }
+  ],
+  "text": {
+   "total": 721,
+   "desc": 415,
+   "label": 215,
+   "title": 91,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 27,
+  "desc_top": [
+   {
+    "u": 52,
+    "txt": "所有資料只存在這部裝置的瀏覽器。清除瀏覽資料、換網址、換瀏覽器或更改本機檔案位置，都可能看不到原有進度。先保留備份。",
+    "sel": "p"
+   },
+   {
+    "u": 41,
+    "txt": "家長頁的「家庭完整備份」，則一次包含全部孩子、圖片和音檔。清除數學進度，不會收回已給的英文金幣。",
+    "sel": "p.small.muted"
+   },
+   {
+    "u": 25,
+    "txt": "慢速模式：不再顯示「快速亂估」提示。所有練習本來都沒有計時。",
+    "sel": "span"
+   },
+   {
+    "u": 20,
+    "txt": "0 次自己作答的練習紀錄 · 已掌握 0 個入門技能",
+    "sel": "p.muted"
+   },
+   {
+    "u": 19,
+    "txt": "高小顯示數值成績（小一至小三不顯示百分比）",
+    "sel": "span"
+   }
+  ],
+  "repeats": [
+   "聽英文 ×15",
+   "數學群島 ×2"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 306,
+  "h1_txt": "Admin 測試學生的學習週報",
+  "final_hash": "#p/math"
+ },
+ "wqm-olympiad": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/olympiad",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 1278,
+    "over": 458
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1143,
+  "content_bottom_el": "button.primary:學習與挑戰",
+  "need_content": 323,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 458,
+  "need_px": 458,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 458,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 16,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 4,
+  "ctrl_below_sample": [
+   {
+    "txt": "學習與挑戰",
+    "bottom": 842
+   },
+   {
+    "txt": "學習與挑戰",
+    "bottom": 842
+   },
+   {
+    "txt": "學習與挑戰",
+    "bottom": 1143
+   },
+   {
+    "txt": "學習與挑戰",
+    "bottom": 1143
+   }
+  ],
+  "text": {
+   "total": 296,
+   "desc": 133,
+   "label": 124,
+   "title": 39,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 7,
+  "desc_top": [
+   {
+    "u": 24,
+    "txt": "門鎖是兩位數，十位和個位相加有指定總和。怎樣一個不漏？",
+    "sel": "p"
+   },
+   {
+    "u": 22,
+    "txt": "郵差沿街派信，每次前進一樣多個門牌。下一站在哪裏？",
+    "sel": "p"
+   },
+   {
+    "u": 21,
+    "txt": "一條直線上標了幾個點，兩個點之間都能形成線段。",
+    "sel": "p"
+   },
+   {
+    "u": 19,
+    "txt": "你在隊伍中，從前面和後面數，自己都被數到了。",
+    "sel": "p"
+   },
+   {
+    "u": 17,
+    "txt": "畫圖、列表、倒推。先學方法，再嘗試不同解法。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "○ 未開始 ×5",
+   "學習與挑戰 ×5",
+   "思維之塔 ×2",
+   "策略卡 ×2"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 302,
+  "h1_txt": "思維之塔",
+  "final_hash": "#p/olympiad"
+ },
+ "wqm-cards": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/olympiad",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [
+   {
+    "sel": "dialog#wqm-dialog",
+    "ch": 820,
+    "sh": 1715,
+    "over": 895
+   }
+  ],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 1638,
+  "content_bottom_el": "div.note:衣服每一件逐一配每一條褲，總數是兩數",
+  "need_content": 818,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 895,
+  "need_px": 895,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": {
+     "sel": "dialog#wqm-dialog",
+     "over": 895,
+     "ch": 820
+    },
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 5,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 622,
+   "desc": 439,
+   "label": 127,
+   "title": 56,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 27,
+  "desc_top": [
+   {
+    "u": 31,
+    "txt": "同一主題至少兩題不用提示完成，並在小結選對方法，就能得到入門策略卡。",
+    "sel": "p.muted"
+   },
+   {
+    "u": 20,
+    "txt": "先假設全部相同，再利用差額找出另一類的數量。",
+    "sel": "p"
+   },
+   {
+    "u": 20,
+    "txt": "把全部車當成兩輪車，再按每輛多出的輪數調整。",
+    "sel": "div.note"
+   },
+   {
+    "u": 20,
+    "txt": "三種顏色，最壞先各拿一個，第4個必與某色相同。",
+    "sel": "div.note"
+   },
+   {
+    "u": 20,
+    "txt": "固定一部分，逐個改變另一部分，避免漏數和重複。",
+    "sel": "p"
+   }
+  ],
+  "repeats": [
+   "○ 未收集 · 可先閱讀 ×12"
+  ],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 回首頁 0px"
+  ],
+  "icons": {
+   "total": 1,
+   "ctrl_only": 0,
+   "ctrl_label": 1,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 1,
+   "dup": [],
+   "decor": 1
+  },
+  "back_controls": [],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": 306,
+  "h1_txt": "策略卡收集冊",
+  "final_hash": "#p/olympiad"
+ },
+ "wqm-lesson": {
+  "vw": 1180,
+  "vh": 820,
+  "hash": "#p/olympiad",
+  "title": "學霸星球 SmartQuest Planet",
+  "doc": {
+   "sh": 820,
+   "bsh": 106,
+   "sw": 1180,
+   "oy_html": "visible",
+   "oy_body": "hidden",
+   "scrollY": 0
+  },
+  "scrollers": [],
+  "bars": [],
+  "head_px": 0,
+  "nav_px": 0,
+  "legacy_header_ctrls": 0,
+  "bar_px": 0,
+  "avail_bottom": 820,
+  "content_bottom": 532,
+  "content_bottom_el": "button.tiny-link:這題可能有問題",
+  "need_content": 0,
+  "scroll_range_doc": 0,
+  "scroll_range_cont": 0,
+  "need_px": 0,
+  "clipped": false,
+  "open_dialogs": [
+   {
+    "id": "wqm-dialog",
+    "top": 0,
+    "bottom": 820,
+    "h": 820,
+    "scroller": null,
+    "lowest_btn_bottom": 0,
+    "units": 0,
+    "txt": ""
+   }
+  ],
+  "h_overflow_doc": false,
+  "h_overflow_elems": 0,
+  "h_overflow_sample": [],
+  "ctrl_covered": 0,
+  "ctrl_covered_sample": [],
+  "ctrl_total": 7,
+  "tiny_count": 0,
+  "tiny_inline": 0,
+  "tiny_sample": [],
+  "ctrl_below_fold": 0,
+  "ctrl_below_sample": [],
+  "text": {
+   "total": 71,
+   "desc": 36,
+   "label": 35,
+   "title": 0,
+   "content": 0,
+   "nav": 0
+  },
+  "desc_count": 2,
+  "desc_top": [
+   {
+    "u": 19,
+    "txt": "按「每次加相同的數」的規則：14、15、16，下一個數是？",
+    "sel": "div#stem"
+   },
+   {
+    "u": 17,
+    "txt": "先自己試一試。這道開場題不計入掌握度。",
+    "sel": "p.small.muted"
+   }
+  ],
+  "repeats": [],
+  "small_font_blocks": 1,
+  "min_font": 0,
+  "small_font_sample": [
+   "🏠 首頁 0px"
+  ],
+  "icons": {
+   "total": 2,
+   "ctrl_only": 0,
+   "ctrl_label": 2,
+   "inline_decor": 0,
+   "svg": 0,
+   "img": 0,
+   "dup": [],
+   "decor": 2
+  },
+  "back_controls": [
+   "← 返回"
+  ],
+  "truncated": 0,
+  "truncated_sample": [],
+  "h1_y": null,
+  "h1_txt": "",
+  "final_hash": "#p/olympiad"
+ },
+ "_errs": []
+}

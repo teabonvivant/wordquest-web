@@ -1,0 +1,52 @@
+{
+ "id": "16_tkokt_p4_scenic",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P4 vocabulary bank - Scenic spots (places + activities)",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P4%20Vocabulary%20Bank(new1).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P4",
+ "raw_text": "Scenic spots\nLocation   Places   Activities\nWan Chai 灣仔\ne.g. Golden Bauhinia Square 金紫荊廣場\ntake photos 拍照\nLantau Island 大嶼山\nNgong Ping Village 昂坪市集\nwatch the flag raising ceremony 觀看升旗儀式\nHong Kong Disneyland 香港迪士尼樂園\nbuy Chinese arts and crafts 購買中國的手工藝\nwatch shows 看表演\ntake photos with cartoon characters 與卡通人物拍照\nwatch parades 觀看巡遊\nbuy souvenirs 購買紀念品",
+ "photo_text": "Scenic spots\nLocation   Places   Activities\nWan Chai 灣仔\ne.g. Golden Bauhinia Square 金紫荊廣場\ntake photos 拍照\nLantau Island 大嶼山\nNgong Ping Village 昂坪市集\nwatch the flag raising ceremony 觀看升旗儀式\nHong Kong Disneyland 香港迪士尼樂園\nbuy Chinese arts and crafts 購買中國的手工藝\nwatch shows 看表演\ntake photos with cartoon characters 與卡通人物拍照\nwatch parades 觀看巡遊\nbuy souvenirs 購買紀念品",
+ "targets": [
+  "Wan Chai",
+  "Golden Bauhinia Square",
+  "take photos",
+  "Lantau Island",
+  "Ngong Ping Village",
+  "watch the flag raising ceremony",
+  "Hong Kong Disneyland",
+  "buy Chinese arts and crafts",
+  "watch shows",
+  "take photos with cartoon characters",
+  "watch parades",
+  "buy souvenirs"
+ ],
+ "target_zh": {
+  "Wan Chai": "灣仔",
+  "Golden Bauhinia Square": "金紫荊廣場",
+  "take photos": "拍照",
+  "Lantau Island": "大嶼山",
+  "Ngong Ping Village": "昂坪市集",
+  "watch the flag raising ceremony": "觀看升旗儀式",
+  "Hong Kong Disneyland": "香港迪士尼樂園",
+  "buy Chinese arts and crafts": "購買中國的手工藝",
+  "watch shows": "看表演",
+  "take photos with cartoon characters": "與卡通人物拍照",
+  "watch parades": "觀看巡遊",
+  "buy souvenirs": "購買紀念品"
+ },
+ "proper_nouns": [
+  "Wan",
+  "Chai",
+  "Lantau",
+  "Ngong",
+  "Ping",
+  "Hong",
+  "Kong",
+  "Disneyland",
+  "Bauhinia",
+  "Golden"
+ ],
+ "notes": "Place names (Wan Chai, Lantau Island...) are targets because they are items on the list. \"e.g.\" is a label on the sheet, not part of the word.",
+ "target_rule": "all list items"
+}

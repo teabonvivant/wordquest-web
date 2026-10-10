@@ -33,6 +33,8 @@ JOBS = [
     ('t13-morph-import', PY, 't13_morph_import.py'),
     ('t14-morph-ui', PY, 't14_morph_ui.py'),
     ('t15-dictation-save', PY, 't15_dictation_save.py'),
+    ('t16-dictation-real', PY, 't16_dictation_real.py'),
+    ('t17-legacy-fit', PY, 't17_legacy_fit.py'),
 ]
 if __name__ == '__main__':
     want = [a.lower() for a in sys.argv[1:]]
@@ -41,7 +43,7 @@ if __name__ == '__main__':
         if want and not any(w in name for w in want):
             continue
         t0 = time.time()
-        r = subprocess.run([exe, str(R / 'r37_tests' / file)], capture_output=True, text=True, timeout=2400)
+        r = subprocess.run([exe, str(R / 'r37_tests' / file)], capture_output=True, text=True, timeout=6000 if 't16' in file else 2400)
         out = r.stdout + r.stderr
         (E / (name + '.log')).write_text(out)
         last = [l for l in out.splitlines() if l.strip()][-1:] or ['']

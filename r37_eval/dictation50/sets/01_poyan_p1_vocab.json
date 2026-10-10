@@ -1,0 +1,26 @@
+{
+ "id": "01_poyan_p1_vocab",
+ "type": "list",
+ "title": "Po Yan Oblate PS, P.1 dictation syllabus 2021-22 (2nd sem) - B. Vocabulary",
+ "source_url": "https://www.poyan.edu.hk/CustomPage/125/%E4%B8%8BP.1_Dictation_Exam.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P1",
+ "raw_text": "B. Vocabulary 20%\n\neat\ndrink\nlaugh\ndraw\nsing\n\na skirt\ntrousers\na dress\na cap\nsocks",
+ "photo_text": "B. Vocabulary 20%\n\neat\ndrink\nlaugh\ndraw\nsing\n\na skirt\ntrousers\na dress\na cap\nsocks",
+ "targets": [
+  "eat",
+  "drink",
+  "laugh",
+  "draw",
+  "sing",
+  "a skirt",
+  "trousers",
+  "a dress",
+  "a cap",
+  "socks"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

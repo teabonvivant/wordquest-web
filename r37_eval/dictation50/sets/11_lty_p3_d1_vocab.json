@@ -1,0 +1,21 @@
+{
+ "id": "11_lty_p3_d1_vocab",
+ "type": "list",
+ "title": "Lau Tak Yung PS, P.3 English Dictation (1) 2019-20 - A. Vocabulary (school subjects)",
+ "source_url": "https://www.ltyschool.edu.hk/dev_module/upload_files/document/19-20_2nd_term_P3_Dict_Handbook.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P3",
+ "raw_text": "A. Vocabulary (20%)\n1. Chinese\n2. Computer Studies\n3. English\n4. General Studies\n5. Music",
+ "photo_text": "A. Vocabulary (20%)\n1. Chinese\n2. Computer Studies\n3. English\n4. General Studies\n5. Music",
+ "targets": [
+  "Chinese",
+  "Computer Studies",
+  "English",
+  "General Studies",
+  "Music"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

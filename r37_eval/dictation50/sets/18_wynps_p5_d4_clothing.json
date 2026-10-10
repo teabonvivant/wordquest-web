@@ -1,0 +1,26 @@
+{
+ "id": "18_wynps_p5_d4_clothing",
+ "type": "list",
+ "title": "Wong Yiu Nam PS, P.5 1st term 2023-24 - Dictation (4) A. Vocabulary (clothes, hair)",
+ "source_url": "https://www.wynps.edu.hk/it-school/php/webcms/files/upload/tinymce//english/202324_english_p5_1st_term_dictation_revision_booklets_final_1696555278.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P5",
+ "raw_text": "A. Vocabulary (40%@4%)\n1. a vest\n6. sunglasses\n2. a suit\n7. curly hair\n3. sandals\n8. straight hair\n4. gloves\n9. a round face\n5. mittens\n10. a long face",
+ "photo_text": "A. Vocabulary (40%@4%)\n1. a vest                    6. sunglasses\n2. a suit                    7. curly hair\n3. sandals                  8. straight hair\n4. gloves                   9. a round face\n5. mittens                 10. a long face",
+ "targets": [
+  "a vest",
+  "a suit",
+  "sandals",
+  "gloves",
+  "mittens",
+  "sunglasses",
+  "curly hair",
+  "straight hair",
+  "a round face",
+  "a long face"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

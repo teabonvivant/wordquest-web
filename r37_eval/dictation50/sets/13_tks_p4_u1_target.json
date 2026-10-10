@@ -1,0 +1,26 @@
+{
+ "id": "13_tks_p4_u1_target",
+ "type": "list",
+ "title": "Tung Koon School, P.4 1st term 2025-26 - Dictation 1 Unit 1 - B. Target Vocabulary",
+ "source_url": "https://www.tks.edu.hk/sites/default/files/sites/default/files/25261st/P4dict.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P4",
+ "raw_text": "B.\nTarget Vocabulary (15% @3%)\n1. do a jigsaw puzzle\n2. do karate\n3. go cycling\n4. go jogging\n5. go roller skating\n6. go skateboarding\n7. play Frisbee\n8. play the ukulele\n9. watch a concert\n10. watch a magic show",
+ "photo_text": "B.\nTarget Vocabulary (15% @3%)\n1. do a jigsaw puzzle\n2. do karate\n3. go cycling\n4. go jogging\n5. go roller skating\n6. go skateboarding\n7. play Frisbee\n8. play the ukulele\n9. watch a concert\n10. watch a magic show",
+ "targets": [
+  "do a jigsaw puzzle",
+  "do karate",
+  "go cycling",
+  "go jogging",
+  "go roller skating",
+  "go skateboarding",
+  "play Frisbee",
+  "play the ukulele",
+  "watch a concert",
+  "watch a magic show"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

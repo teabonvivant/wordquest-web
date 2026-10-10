@@ -26,8 +26,10 @@ def make_sheet():
     f = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 34)
     im = Image.new('RGB', (1100, 900), 'white')
     d = ImageDraw.Draw(im)
+    # R3.13: numbered cells of one or two words are list items (a phrase each); the in / on / an / the words that the filter tests
+    # sit in sentences, as they do on a real sheet
     lines = ["Unit 3 Dictation  Date: 15/10/2026", "1. pencil  2. ruler  3. eraser", "4. school bag  5. favourite",
-             "6. in the box  7. on the desk", "8. an apple  9. Wednesday", "10. grandmother  11. I am happy.",
+             "6. Put it in the box on the desk.", "8. I ate an apple on Wednesday.", "10. grandmother  11. I am happy.",
              "Sentence: The cat is on the mat."]
     for i, t in enumerate(lines):
         d.text((60, 60 + i * 110), t, fill='black', font=f)

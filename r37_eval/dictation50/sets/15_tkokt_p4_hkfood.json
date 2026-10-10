@@ -1,0 +1,52 @@
+{
+ "id": "15_tkokt_p4_hkfood",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P4 vocabulary bank - Hong Kong Food (Noun / meaning table)",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P4%20Vocabulary%20Bank(new1).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P4",
+ "raw_text": "Hong Kong Food\nNoun  meaning\nDim Sum 點心\nsashimi 刺身,生魚片\npizza 比薩\nsteamed ribs 蒸排骨\nsushi 壽司\ncheese cakes 芝士蛋糕\nfried spring rolls 炸春卷\ntempura 天婦羅\nraw beef noodles 生牛肉河\nroast pork 燒腩仔\nbeef noodles 熟牛肉河\nshrimp dumplings 蝦餃\nPortuguese tarts 葡撻\nbarbecue pork buns 叉燒包\nwonton 雲吞\nPeking duck 北京填鴨",
+ "photo_text": "Hong Kong Food\nNoun  meaning\nDim Sum 點心\nsashimi 刺身,生魚片\npizza 比薩\nsteamed ribs 蒸排骨\nsushi 壽司\ncheese cakes 芝士蛋糕\nfried spring rolls 炸春卷\ntempura 天婦羅\nraw beef noodles 生牛肉河\nroast pork 燒腩仔\nbeef noodles 熟牛肉河\nshrimp dumplings 蝦餃\nPortuguese tarts 葡撻\nbarbecue pork buns 叉燒包\nwonton 雲吞\nPeking duck 北京填鴨",
+ "targets": [
+  "Dim Sum",
+  "sashimi",
+  "pizza",
+  "steamed ribs",
+  "sushi",
+  "cheese cakes",
+  "fried spring rolls",
+  "tempura",
+  "raw beef noodles",
+  "roast pork",
+  "beef noodles",
+  "shrimp dumplings",
+  "Portuguese tarts",
+  "barbecue pork buns",
+  "wonton",
+  "Peking duck"
+ ],
+ "target_zh": {
+  "Dim Sum": "點心",
+  "sashimi": "刺身,生魚片",
+  "pizza": "比薩",
+  "steamed ribs": "蒸排骨",
+  "sushi": "壽司",
+  "cheese cakes": "芝士蛋糕",
+  "fried spring rolls": "炸春卷",
+  "tempura": "天婦羅",
+  "raw beef noodles": "生牛肉河",
+  "roast pork": "燒腩仔",
+  "beef noodles": "熟牛肉河",
+  "shrimp dumplings": "蝦餃",
+  "Portuguese tarts": "葡撻",
+  "barbecue pork buns": "叉燒包",
+  "wonton": "雲吞",
+  "Peking duck": "北京填鴨"
+ },
+ "proper_nouns": [
+  "Portuguese",
+  "Peking"
+ ],
+ "notes": "Table of English / Chinese pairs; heading and column labels are on the sheet. Proper names (Portuguese, Peking) are part of the list.",
+ "target_rule": "all list items"
+}

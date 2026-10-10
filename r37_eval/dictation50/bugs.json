@@ -1,0 +1,866 @@
+{
+ "phrases": {
+  "paste": {
+   "n": 148,
+   "intact": 39,
+   "split_or_lost": 109,
+   "sets_with_split": 17,
+   "intact_examples": {
+    "a cap": 3,
+    "a skirt": 2,
+    "a dress": 2,
+    "a bear": 2,
+    "a lion": 2,
+    "a panda": 2,
+    "a rabbit": 2,
+    "a tiger": 2,
+    "General Studies": 2,
+    "listen to": 2,
+    "look after": 2,
+    "a shirt": 1,
+    "a vest": 1,
+    "a suit": 1,
+    "a belt": 1,
+    "a watch": 1,
+    "a towel": 1,
+    "a purse": 1,
+    "a wallet": 1,
+    "a backpack": 1,
+    "a hairbrush": 1,
+    "a mirror": 1,
+    "a subway": 1,
+    "a tunnel": 1,
+    "a footbridge": 1,
+    "a pavement": 1,
+    "traffic lights": 1
+   },
+   "split_examples": [
+    "swimming suit",
+    "swimming trunks",
+    "fire station",
+    "shopping mall",
+    "Computer Studies",
+    "do a jigsaw puzzle",
+    "do karate",
+    "go cycling",
+    "go jogging",
+    "go roller skating",
+    "go skateboarding",
+    "play Frisbee",
+    "play the ukulele",
+    "watch a concert",
+    "watch a magic show",
+    "talk to",
+    "play with",
+    "say sorry to",
+    "shout at",
+    "argue with",
+    "fight with",
+    "laugh at",
+    "make fun of",
+    "Dim Sum",
+    "steamed ribs"
+   ]
+  },
+  "photo": {
+   "n": 148,
+   "intact": 21,
+   "split_or_lost": 127,
+   "sets_with_split": 22,
+   "intact_examples": {
+    "a skirt": 2,
+    "a dress": 2,
+    "a bear": 2,
+    "a panda": 2,
+    "listen to": 2,
+    "look after": 2,
+    "General Studies": 1,
+    "a rabbit": 1,
+    "a tiger": 1,
+    "a cap": 1,
+    "a subway": 1,
+    "a tunnel": 1,
+    "a footbridge": 1,
+    "a pavement": 1,
+    "traffic lights": 1
+   },
+   "split_examples": [
+    "a cap",
+    "a lion",
+    "a rabbit",
+    "a tiger",
+    "a shirt",
+    "swimming suit",
+    "swimming trunks",
+    "fire station",
+    "shopping mall",
+    "Computer Studies",
+    "do a jigsaw puzzle",
+    "do karate",
+    "go cycling",
+    "go jogging",
+    "go roller skating",
+    "go skateboarding",
+    "play Frisbee",
+    "play the ukulele",
+    "watch a concert",
+    "watch a magic show",
+    "talk to",
+    "play with",
+    "say sorry to",
+    "shout at",
+    "argue with"
+   ]
+  }
+ },
+ "noise_selected_by_class": {
+  "paste": {
+   "heading_or_other": 238,
+   "cjk": 68,
+   "target_fragment": 164,
+   "name": 88,
+   "basic_word": 1,
+   "number_punct": 19
+  },
+  "photo": {
+   "heading_or_other": 197,
+   "ocr_or_parse_garbage": 38,
+   "target_fragment": 156,
+   "name": 69,
+   "basic_word": 1
+  }
+ },
+ "heading_words": {
+  "paste": {
+   "vocabulary": 21,
+   "sentences": 9,
+   "dictation": 7,
+   "target": 6,
+   "theme": 5,
+   "high": 4,
+   "frequency": 4,
+   "words": 4,
+   "word": 4,
+   "read": 4,
+   "recitation": 4,
+   "verb": 4,
+   "table": 4,
+   "present": 4,
+   "past": 4,
+   "please": 3,
+   "study": 3,
+   "at last": 3,
+   "text": 3,
+   "second": 3,
+   "semester": 3,
+   "syllabus": 3,
+   "dolch": 2,
+   "sight": 2,
+   "activities": 2
+  },
+  "photo": {
+   "vocabulary": 16,
+   "sentences": 9,
+   "theme": 5,
+   "target": 5,
+   "high": 4,
+   "frequency": 4,
+   "words": 4,
+   "recitation": 4,
+   "verb": 4,
+   "table": 4,
+   "present": 4,
+   "past": 4,
+   "please": 3,
+   "study": 3,
+   "at last": 3,
+   "read": 3,
+   "text": 3,
+   "second": 3,
+   "semester": 3,
+   "dolch": 2,
+   "sight": 2,
+   "activities": 2,
+   "different": 2,
+   "places": 2,
+   "out of": 2
+  }
+ },
+ "cjk_in_english_card": {
+  "paste": {
+   "runs": 9,
+   "cards": 68,
+   "examples": [
+    "dancer 舞蹈演員",
+    "actor 男演員",
+    "waiter 男侍應",
+    "cook 廚師",
+    "designer 設計師",
+    "lawyer 律師",
+    "librarian 圖書管理員",
+    "pilot 飛行員",
+    "singer 歌手",
+    "camping 宿營",
+    "cycling 踏單車",
+    "fishing 釣魚"
+   ]
+  }
+ },
+ "sets_with_source_chinese": 10,
+ "source_zh_vs_card": {
+  "paste": {
+   "different_from_sheet": 27,
+   "same_as_sheet": 40,
+   "card_without_zh": 40,
+   "no_card": 41
+  },
+  "photo": {
+   "different_from_sheet": 25,
+   "same_as_sheet": 35,
+   "card_without_zh": 40,
+   "no_card": 48
+  }
+ },
+ "targets_hidden_as_skipped": {
+  "paste": {
+   "targets_total": 1602,
+   "hidden": 53,
+   "sets": [
+    "02",
+    "03",
+    "04",
+    "05",
+    "41",
+    "42",
+    "50"
+   ],
+   "examples": {
+    "that": 3,
+    "yes": 3,
+    "no": 3,
+    "not": 2,
+    "here": 2,
+    "be": 2,
+    "a": 1,
+    "and": 1,
+    "can": 1,
+    "for": 1,
+    "go": 1,
+    "I": 1,
+    "in": 1,
+    "is": 1,
+    "it": 1,
+    "me": 1,
+    "my": 1,
+    "one": 1,
+    "the": 1,
+    "to": 1,
+    "two": 1,
+    "up": 1,
+    "we": 1,
+    "you": 1,
+    "all": 1,
+    "am": 1,
+    "are": 1,
+    "at": 1,
+    "but": 1,
+    "did": 1
+   }
+  },
+  "photo": {
+   "targets_total": 1602,
+   "hidden": 61,
+   "sets": [
+    "02",
+    "03",
+    "04",
+    "05",
+    "07",
+    "11",
+    "30",
+    "31",
+    "35",
+    "37",
+    "41",
+    "42",
+    "43",
+    "44",
+    "50"
+   ],
+   "examples": {
+    "no": 3,
+    "not": 2,
+    "here": 2,
+    "be": 2,
+    "that": 2,
+    "yes": 2,
+    "a": 1,
+    "and": 1,
+    "can": 1,
+    "for": 1,
+    "go": 1,
+    "I": 1,
+    "in": 1,
+    "is": 1,
+    "it": 1,
+    "me": 1,
+    "my": 1,
+    "one": 1,
+    "the": 1,
+    "to": 1,
+    "two": 1,
+    "up": 1,
+    "we": 1,
+    "you": 1,
+    "all": 1,
+    "am": 1,
+    "are": 1,
+    "at": 1,
+    "but": 1,
+    "did": 1
+   }
+  }
+ },
+ "pending_review": {
+  "paste": {
+   "mean_pending": 8.4,
+   "max": [
+    "25",
+    29,
+    107
+   ],
+   "runs_with_ge10": 19,
+   "runs_with_0": 3
+  },
+  "photo": {
+   "mean_pending": 8.8,
+   "max": [
+    "24",
+    36,
+    86
+   ],
+   "runs_with_ge10": 20,
+   "runs_with_0": 4
+  }
+ },
+ "photo_edge_punct_words": {
+  "runs": 11,
+  "words": 43,
+  "examples": [
+   [
+    "02",
+    "- a lion",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    "- a rabbit",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    ". a tiger",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    ". that",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    ". yes",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    "- eight",
+    "不像英文單字"
+   ],
+   [
+    "02",
+    ". four",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ".a shirt",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". SOCKS",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". shoes",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". colour",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". when",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". little",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". Jump",
+    "不像英文單字"
+   ],
+   [
+    "03",
+    ". very",
+    "不像英文單字"
+   ]
+  ]
+ },
+ "photo_conditions": {
+  "good": 25,
+  "fair": 13,
+  "poor": 12
+ },
+ "photo_failed": [],
+ "apostrophe_cards": {
+  "FARMER'S": [
+   "農夫"
+  ],
+  "FARMER’S": [
+   "農夫"
+  ],
+  "It's": [
+   "它是或它有（縮寫）"
+  ],
+  "It’s": [
+   "它是或它有（縮寫）"
+  ],
+  "McGregor's": [
+   "(blank)"
+  ],
+  "Pon'to": [
+   "(blank)"
+  ],
+  "Prince's": [
+   "(blank)"
+  ],
+  "There’s": [
+   "那裏"
+  ],
+  "We'll": [
+   "我們"
+  ],
+  "We’ll": [
+   "我們"
+  ],
+  "You're": [
+   "你是（縮寫）"
+  ],
+  "You’re": [
+   "你是（縮寫）"
+  ],
+  "a round'": [
+   "圍繞；周圍"
+  ],
+  "around’": [
+   "圍繞；周圍"
+  ],
+  "baker's": [
+   "麵包師傅"
+  ],
+  "can’t": [
+   "不能（縮寫）"
+  ],
+  "didn't": [
+   "做了"
+  ],
+  "didn’t": [
+   "做了"
+  ],
+  "don't": [
+   "不要或不（縮寫）"
+  ],
+  "don’t": [
+   "不要或不（縮寫）"
+  ],
+  "going out.’": [
+   "(blank)"
+  ],
+  "he’s": [
+   "他"
+  ],
+  "isn’t": [
+   "不是（縮寫）"
+  ],
+  "it’s": [
+   "它是或它有（縮寫）"
+  ],
+  "shouldn’t": [
+   "應該"
+  ],
+  "they’re": [
+   "他們；她們；它們"
+  ],
+  "wa'ter": [
+   "(blank)"
+  ]
+ },
+ "unknown_classes": {
+  "photo": {
+   "ocr_error": 37,
+   "new_word": 228,
+   "form_not_recognised": 16,
+   "name": 43,
+   "phrase": 2
+  },
+  "paste": {
+   "new_word": 256,
+   "form_not_recognised": 16,
+   "name": 61,
+   "phrase": 2
+  }
+ },
+ "unknown_examples": {
+  "photo": {
+   "ocr_error": [
+    "acap",
+    "acap",
+    "litte",
+    "Lenjoy",
+    "Hite",
+    "Vocabular",
+    "undera",
+    "actu",
+    "preathe",
+    "entury",
+    "ircle",
+    "onside"
+   ],
+   "new_word": [
+    "Dolch",
+    "Pre-Primer",
+    "Dolch",
+    "Primer",
+    "model",
+    "hotpot",
+    "windsurfing",
+    "goggles",
+    "lifeguard",
+    "surf",
+    "sunbathe",
+    "church"
+   ],
+   "form_not_recognised": [
+    "following",
+    "roller",
+    "softly",
+    "patiently",
+    "impatiently",
+    "rudely",
+    "noisily",
+    "Fabrics",
+    "simply",
+    "comfortably",
+    "shortly",
+    "closer"
+   ],
+   "name": [
+    "Portuguese",
+    "Peking",
+    "Chai",
+    "Bauhinia",
+    "Lantau",
+    "Ngong",
+    "Ping",
+    "Avenue",
+    "Bauhinia",
+    "Stanley",
+    "Disneyland",
+    "Ngong"
+   ],
+   "phrase": [
+    "plenty of",
+    "train station"
+   ]
+  },
+  "paste": {
+   "new_word": [
+    "Dolch",
+    "Pre-Primer",
+    "Dolch",
+    "Primer",
+    "model",
+    "barbecue",
+    "hotpot",
+    "windsurfing",
+    "goggles",
+    "lifeguard",
+    "surf",
+    "sunbathe"
+   ],
+   "form_not_recognised": [
+    "following",
+    "roller",
+    "softly",
+    "patiently",
+    "impatiently",
+    "rudely",
+    "noisily",
+    "Fabrics",
+    "simply",
+    "comfortably",
+    "shortly",
+    "closer"
+   ],
+   "name": [
+    "Portuguese",
+    "Peking",
+    "Wan",
+    "Chai",
+    "Bauhinia",
+    "Lantau",
+    "Ngong",
+    "Ping",
+    "Disneyland",
+    "Avenue",
+    "Bauhinia",
+    "Stanley"
+   ],
+   "phrase": [
+    "plenty of",
+    "train station"
+   ]
+  }
+ },
+ "form_failures_paste": [
+  [
+   "patiently",
+   "patient",
+   "selected",
+   false,
+   2
+  ],
+  [
+   "kites",
+   "kite",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "woods",
+   "wood",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "softly",
+   "soft",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "rudely",
+   "rude",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "impatiently",
+   "impatient",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "noisily",
+   "noisy",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "arms",
+   "arm",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "lips",
+   "lip",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "legs",
+   "leg",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "eyebrows",
+   "eyebrow",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "shoulders",
+   "shoulder",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "actually",
+   "actual",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "sincerely",
+   "sincere",
+   "missing",
+   false,
+   1
+  ],
+  [
+   "simply",
+   "simple",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "comfortably",
+   "comfortable",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "shortly",
+   "short",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "closer",
+   "close",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "thing",
+   "the",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "lover",
+   "love",
+   "selected",
+   false,
+   1
+  ],
+  [
+   "badly",
+   "bad",
+   "selected",
+   false,
+   1
+  ]
+ ],
+ "layout": {
+  "paste": {
+   "dock_in_first_screen_runs": 50,
+   "runs": 50,
+   "max_screens": 6.5,
+   "pending_cards_total": 419,
+   "pending_centre_on_edit": 358
+  },
+  "photo": {
+   "dock_in_first_screen_runs": 50,
+   "runs": 50,
+   "max_screens": 6.35,
+   "pending_cards_total": 442,
+   "pending_centre_on_edit": 393
+  }
+ },
+ "desktop_runs": {
+  "04_dolch_preprimer|photo|desktop": {
+   "dock": true,
+   "screens": 1.19,
+   "cards_first_screen": 24,
+   "overflow": 0,
+   "console": []
+  },
+  "15_tkokt_p4_hkfood|photo|desktop": {
+   "dock": true,
+   "screens": 1.33,
+   "cards_first_screen": 28,
+   "overflow": 0,
+   "console": []
+  },
+  "28_potter_peter_rabbit|photo|desktop": {
+   "dock": true,
+   "screens": 1.75,
+   "cards_first_screen": 28,
+   "overflow": 0,
+   "console": []
+  },
+  "37_wynps_p5_d2_passage|photo|desktop": {
+   "dock": true,
+   "screens": 1.47,
+   "cards_first_screen": 28,
+   "overflow": 0,
+   "console": []
+  },
+  "46_poyan_p4_2223_full|photo|desktop": {
+   "dock": true,
+   "screens": 2.87,
+   "cards_first_screen": 28,
+   "overflow": 0,
+   "console": []
+  }
+ },
+ "logged_issues": [
+  [
+   "06_tkokt_p2_jobs|paste",
+   "review blocked (not valid English): cook 廚師"
+  ],
+  [
+   "07_tkokt_p2_seasons|paste",
+   "review blocked (not valid English): plant 種植"
+  ]
+ ],
+ "console": {},
+ "accept_not_savable": [],
+ "repair_not_saved": [],
+ "unresolved_targets": {},
+ "accept_saved": {
+  "runs": 90,
+  "mean_precision": 0.652,
+  "mean_recall": 0.736,
+  "runs_with_cjk_in_saved_en": [],
+  "mean_saved_without_zh": 8.3
+ }
+}

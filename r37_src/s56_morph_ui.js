@@ -83,8 +83,14 @@ function s56Apply(){
   if(!g){g=[];groups.push(g);}
   g.push(c);groupOf.set(c,g);seen.add(c.en,c);
  }
+ /* R3.13: a form table (verb table: break / breaks / breaking / broke on separate lines, three or more families with three or more
+  * forms) is a list where every form is an item the teacher chose: nothing in it is folded. Two forms of a word in a plain list
+  * (book / books) stay "same family". */
+ const allList=g=>g.every(c=>c.s50x&&c.s50x.list);
+ const formTable=groups.filter(g=>g.length>=3&&allList(g)).length>=3;
  for(const g of groups){
   if(g.length<2)continue;
+  if(formTable&&allList(g))continue;
   /* kept: the one written first. A card the parent picked by hand stays selected next to it (a tap means "add it back") */
   const rep=g[0];
   for(const c of g){
@@ -132,6 +138,7 @@ function s56Tag(c){
  if(!c||c.kind==='sentence')return null;
  const m=c.s50||{},en=String(c.en||'');
  if(m.learned)return {kind:'learned',text:'已學過 '+m.learned,title:'孩子的詞庫已有 '+m.learned};
+ if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（題庫沒有、句中大寫），預設沒有選；要默寫的話按一下加回'};
  if(m.root)return {kind:'root',text:'同字根 '+m.rootEn,title:en+' 與 '+m.rootEn+' 同字根（同一個字），只預選了先寫的一個；按一下可加回'};
  let L=null;
  try{L=window.s55Info&&window.s55Info(en);}catch(_){}
@@ -144,7 +151,13 @@ function s56Tag(c){
   const side=s56Side(en,L.base);
   return {kind:'form',text:side?s56Fit([side+'串法 '+L.base,side+' '+L.base]):s56Fit(['英美串法 '+L.base,'英美 '+L.base]),title:en+' 是 '+L.base+' 的'+(side||'另一種')+'串法'};
  }
+ if(L.form==='variant'&&/^(?:a|an|the|to)\s+\S/i.test(en))return null;   // "a bear" on a list is the teacher's item, not "another spelling of bear"
  if(L.form==='variant')return {kind:'form',text:s56Fit(['另一寫法 '+L.base,'寫法 '+L.base]),title:en+' 是 '+L.base+' 的另一種寫法'};
+ if(L.form==='contraction'){
+  let ex=null;
+  try{ex=window.WQMorph&&window.WQMorph.expansions(en);}catch(_){}
+  if(ex&&ex[0])return {kind:'form',text:s56Fit([ex[0]+' 的縮寫',ex[0]+' 縮寫']),title:en+' 是 '+ex[0]+' 的縮寫'};
+ }
  const of=S56_OF[L.form]||('的'+(L.label||'變化'));
  return {kind:'form',text:s56Fit([L.base+' '+of,L.base+' '+of.replace(/^的/,'')]),title:en+' 是 '+L.base+' '+of};
 }

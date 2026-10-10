@@ -1,0 +1,26 @@
+{
+ "id": "17_wynps_p5_d1_adverbs",
+ "type": "list",
+ "title": "Wong Yiu Nam PS, P.5 1st term 2023-24 - Fun Dictation (1) A. Vocabulary (adverbs)",
+ "source_url": "https://www.wynps.edu.hk/it-school/php/webcms/files/upload/tinymce//english/202324_english_p5_1st_term_dictation_revision_booklets_final_1696555278.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P5",
+ "raw_text": "A. Vocabulary (40%@4%)\n1. softly\n6. loudly\n2. patiently\n7. impatiently\n3. politely\n8. early\n4. rudely\n9. late\n5. quietly\n10. noisily",
+ "photo_text": "A. Vocabulary (40%@4%)\n1. softly                      6. loudly\n2. patiently                7. impatiently\n3. politely                  8. early\n4. rudely                    9. late\n5. quietly                  10. noisily",
+ "targets": [
+  "softly",
+  "patiently",
+  "politely",
+  "rudely",
+  "quietly",
+  "loudly",
+  "impatiently",
+  "early",
+  "late",
+  "noisily"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

@@ -1,0 +1,37 @@
+{
+ "id": "19_tks_p5_t1_u2_places",
+ "type": "list",
+ "title": "Tung Koon School, P.5 1st term 2025-26 - Dictation 2 Unit 2 - Target Vocabulary (Hong Kong places)",
+ "source_url": "https://www.tks.edu.hk/sites/default/files/sites/default/files/25261st/P5dict.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P5",
+ "raw_text": "B.\nTarget Vocabulary (15% @3%)\n1.\nAvenue of Stars\n6.\nOcean Park\n2.\nGolden Bauhinia Square\n7.\nStanley Market\n3.\nHong Kong Disneyland\n8.\nTai O\n4.\nHong Kong Wetland Park\n9.\nThe Hong Kong Observation Wheel\n5.\nNgong Ping Village\n10. The Peak",
+ "photo_text": "B.\nTarget Vocabulary (15% @3%)\n1. Avenue of Stars                         6. Ocean Park\n2. Golden Bauhinia Square          7. Stanley Market\n3. Hong Kong Disneyland           8. Tai O\n4. Hong Kong Wetland Park        9. The Hong Kong Observation Wheel\n5. Ngong Ping Village                10. The Peak",
+ "targets": [
+  "Avenue of Stars",
+  "Golden Bauhinia Square",
+  "Hong Kong Disneyland",
+  "Hong Kong Wetland Park",
+  "Ngong Ping Village",
+  "Ocean Park",
+  "Stanley Market",
+  "Tai O",
+  "The Hong Kong Observation Wheel",
+  "The Peak"
+ ],
+ "target_zh": {},
+ "proper_nouns": [
+  "Bauhinia",
+  "Disneyland",
+  "Ngong",
+  "Ping",
+  "Tai",
+  "Stanley",
+  "Hong",
+  "Kong",
+  "Avenue",
+  "Wetland"
+ ],
+ "notes": "Capitalised place names; they are on the dictation list, so they are targets.",
+ "target_rule": "all list items"
+}

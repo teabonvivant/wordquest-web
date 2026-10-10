@@ -1,0 +1,26 @@
+{
+ "id": "20_tks_p5_t2_u6_chores",
+ "type": "list",
+ "title": "Tung Koon School, P.5 2nd term 2025-26 - Dictation 2 Unit 6 - Target Vocabulary (chores)",
+ "source_url": "https://www.tks.edu.hk/pdf/Edict/25262nd/Dictation%20Booklet_%20English_P5_second%20term.pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P5",
+ "raw_text": "B.\nTarget Vocabulary (15% @3%)\n1.\ncook a meal\n6.\nput the toys away\n2.\ndo the grocery shopping\n7.\ntake the rubbish out\n3.\nhang the washing\n8.\ntidy up the bedroom\n4.\niron the clothes\n9.\nvacuum the rug\n5.\norder a takeaway\n10. walk the dog",
+ "photo_text": "B.\nTarget Vocabulary (15% @3%)\n1. cook a meal                           6. put the toys away\n2. do the grocery shopping          7. take the rubbish out\n3. hang the washing                    8. tidy up the bedroom\n4. iron the clothes                       9. vacuum the rug\n5. order a takeaway                    10. walk the dog",
+ "targets": [
+  "cook a meal",
+  "do the grocery shopping",
+  "hang the washing",
+  "iron the clothes",
+  "order a takeaway",
+  "put the toys away",
+  "take the rubbish out",
+  "tidy up the bedroom",
+  "vacuum the rug",
+  "walk the dog"
+ ],
+ "target_zh": {},
+ "proper_nouns": [],
+ "notes": "",
+ "target_rule": "all list items"
+}

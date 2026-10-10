@@ -1,0 +1,37 @@
+{
+ "id": "10_tkokt_p3_countryside",
+ "type": "list",
+ "title": "tkokt.edu.hk (school name not verified) P3 vocabulary bank - In the countryside",
+ "source_url": "https://www.tkokt.edu.hk/CustomPage/85/VocabularyBank/P3%20Vocabulary%20Bank(new).pdf",
+ "licence": "Public school web document (c) the school; used only as a read-only evaluation fixture, short excerpt, not for redistribution.",
+ "level": "P3",
+ "raw_text": "Theme: In the countryside\n1.enjoy 享受\n2.bicycle 腳踏車，自行車\n3.binoculars 雙筒望遠鏡\n4.woods 樹木\n5.fishing 捕魚\n6.hide-and- seek 捉迷藏\n7.hike 遠足\n8.bench 長櫈\n9.mountain 山\n10.picnic 野餐",
+ "photo_text": "Theme: In the countryside\n1.enjoy 享受\n2.bicycle 腳踏車，自行車\n3.binoculars 雙筒望遠鏡\n4.woods 樹木\n5.fishing 捕魚\n6.hide-and- seek 捉迷藏\n7.hike 遠足\n8.bench 長櫈\n9.mountain 山\n10.picnic 野餐",
+ "targets": [
+  "enjoy",
+  "bicycle",
+  "binoculars",
+  "woods",
+  "fishing",
+  "hide-and-seek",
+  "hike",
+  "bench",
+  "mountain",
+  "picnic"
+ ],
+ "target_zh": {
+  "enjoy": "享受",
+  "bicycle": "腳踏車，自行車",
+  "binoculars": "雙筒望遠鏡",
+  "woods": "樹木",
+  "fishing": "捕魚",
+  "hide-and-seek": "捉迷藏",
+  "hike": "遠足",
+  "bench": "長櫈",
+  "mountain": "山",
+  "picnic": "野餐"
+ },
+ "proper_nouns": [],
+ "notes": "English + Chinese per row, numbering glued to the word (\"1.towel\") as printed.  Item 6 is \"hide-and- seek\" (space after the hyphen) in the source text layer.",
+ "target_rule": "all list items"
+}

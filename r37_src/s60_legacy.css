@@ -1,0 +1,506 @@
+/* R3.13 s60 - legacy pages: one bar, teacher cards folded, short copy, responsive fit.
+   Every rule is scoped to body.r37 / .r37-legbody so the games, quizzes and the dictation import (s50) keep their own layout. */
+
+/* ---- 1. one top bar: the old site header is folded into the ⋯ menu ---- */
+html body.r37 .header,html body.r37 #wq29-test-banner{display:none!important}
+html body.r37 .r37-bar{padding:6px 12px;gap:8px;min-height:56px;position:relative}
+html body.r37 .r37-bar .r37-coin{padding:6px 12px;font-size:16px;white-space:nowrap;flex:none;min-height:44px;display:inline-flex;align-items:center}
+html body.r37 .r37-bar .r37-legt{min-height:44px;font-size:18px}
+html body.r37 .r37-bar .r37-who{font-size:16px;min-width:0}
+html body.r37 .r37-bar .r37-who span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s60-slot{display:flex;align-items:center}
+.s60-more{display:grid;place-items:center;flex:none;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font:inherit;font-size:24px;font-weight:900;line-height:1;cursor:pointer;padding:0 0 6px}
+.s60-more:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+.s60-menu{position:absolute;right:10px;top:calc(100% - 2px);z-index:40;min-width:190px;display:flex;flex-direction:column;background:#fff;color:#1d2158;border-radius:18px;padding:6px;box-shadow:0 14px 34px rgba(4,6,30,.55)}
+.s60-menu>*{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 14px;border:0;border-radius:12px;background:none;color:#1d2158;font:inherit;font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;text-align:left}
+.s60-menu>*:hover,.s60-menu>*:focus-visible{background:#eef0ff;outline:0}
+.s60-menu small{font-size:13px;font-weight:700;color:#5a6090;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s60-off,html body #app .s60-off,html body #app .s60-help-text.s60-off{display:none!important}
+
+/* ---- 2. teacher card -> small 🔊 button inside the bar ---- */
+html body .s60-guide{display:block!important;width:44px;height:44px;min-height:0;margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;animation:none!important;overflow:visible}
+html body .s60-guide>img,html body .s60-guide .wq32-image,html body .s60-guide .wq32-name,html body .s60-guide .wq32-line,html body .s60-guide .wq32-voice-note,html body .s60-guide .wq32-subtle{display:none!important}
+html body .s60-guide .wq32-guide-copy{display:block;margin:0;padding:0;min-width:0}
+html body .s60-guide .wq32-actions{display:block;margin:0;padding:0}
+html body .s60-guide .wq32-btn{display:none}
+html body .s60-guide .wq32-btn[data-wq32="voice"]{position:relative;display:block;width:44px;height:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:transparent;overflow:hidden;white-space:nowrap;text-indent:-300px;cursor:pointer}
+html body .s60-guide .wq32-btn[data-wq32="voice"]::before{content:"🔊";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font-size:20px;color:#fff}
+
+/* ---- 3. content area: tabs only in the parent area, 44px targets, copy folded behind ⓘ ---- */
+html body .r37-legbody .tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 10px;padding:0 0 2px;scrollbar-width:none}
+html body .r37-legbody .tabs::-webkit-scrollbar{display:none}
+html body .r37-legbody .tabs .tab{flex:none;min-height:44px;display:inline-flex;align-items:center;padding:0 16px}
+html body .r37-legbody.s60-notabs>.tabs,html body .r37-legbody.s60-notabs>#r3-family-entry{display:none}
+html body .r37-legbody :is(button,.btn,.l30-btn,select,summary,.tab){min-height:44px}
+html body .r37-legbody :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=range]),select,textarea){min-height:44px}
+html body .r37-legbody input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;width:52px;height:44px;margin:0;border:0;border-radius:22px;cursor:pointer;vertical-align:middle;
+ background:radial-gradient(circle at 19px 50%,#fff 0 15px,transparent 16px) no-repeat #b9bde0;transition:background-color .15s}
+html body .r37-legbody input[type=checkbox]:checked{background:radial-gradient(circle at 33px 50%,#fff 0 15px,transparent 16px) no-repeat hsl(var(--h,200) 70% 40%)}
+html body .r37-legbody input[type=checkbox]:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+html body .r37-legbody label.s60-check{display:flex;align-items:center;gap:12px;min-height:44px}
+.s60-i{display:inline-grid;place-items:center;min-width:44px;min-height:44px;margin:-8px -6px -8px auto;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:20px;line-height:1;cursor:pointer;opacity:.75;flex:none}
+.s60-i:hover,.s60-i:focus-visible{opacity:1}
+[data-s60-help]:not(.s60-help-open) .s60-help-text{display:none!important}
+.s60-help-text{font-size:14px}
+.s60-fold>h2:first-child{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;margin-top:0;margin-bottom:0;min-height:44px}
+.s60-fold>h2:first-child::after{content:"▾";font-size:16px;opacity:.6;transition:transform .15s}
+.s60-fold.s60-closed>h2:first-child::after{transform:rotate(-90deg)}
+.s60-fold.s60-closed>*:not(h2:first-child){display:none!important}
+.s60-fold>h2:first-child~*{margin-top:12px}
+
+/* ---- 4. page frame helpers ---- */
+html body .r37-legbody{padding:6px 14px 12px}
+html body .r37-legbody .card.pad,html body .r37-legbody .l30-panel{padding:16px}
+html body .r37-legbody h1{font-size:24px;line-height:1.25;margin:2px 0 8px}
+html body .r37-legbody h1:has(>.s60-i){display:flex;align-items:center;gap:8px}
+html body .r37-legbody .l30-eyebrow,html body .r37-legbody>.eyebrow,html body .r37-legbody .eyebrow{display:none}
+html body .r37-legbody h2{font-size:19px;line-height:1.3;margin:0 0 8px}
+html body .r37-legbody .l30-topline{margin-bottom:8px;gap:10px;align-items:center}
+/* fitted pages: fixed head, one scrolling region */
+html body .r37-legbody[data-s60-fit]{display:flex;flex-direction:column;overflow:auto}
+html body .r37-legbody[data-s60-fit]>*{flex:none;width:100%;max-width:1180px;margin:0 auto 10px;box-sizing:border-box}
+html body .r37-legbody[data-s60-fit]>[data-s60-list]{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+html body .r37-legbody[data-s60-fit]>.s60-grow{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+html body .r37-legbody[data-s60-fit]>.s60-grow>[data-s60-list]{flex:1 1 auto;min-height:0;overflow:auto}
+@media(max-height:559px){html body .r37-legbody[data-s60-fit]>[data-s60-list]{flex:none;overflow:visible}html body .r37-legbody[data-s60-fit]>.s60-grow{overflow:visible}}
+/* card columns (settings, parent, credits): 1 column on phones, 2-4 on wider screens */
+html body .r37-legbody .s60-colbox{column-width:340px;column-gap:14px;width:100%;max-width:1360px;margin:0 auto;box-sizing:border-box}
+html body .r37-legbody .s60-colbox>*{break-inside:avoid;margin:0 0 12px;max-width:none;display:block;width:auto;box-sizing:border-box}
+html body .r37-legbody>*{max-width:1360px}
+html body .r37-legbody h1,html body .r37-legbody>div>h1{color:#fff;text-shadow:0 2px 8px rgba(5,6,40,.5)}
+html body .r37-legbody .card h1,html body .r37-legbody .l30-panel h1,html body .r37-legbody .l30-empty h1{color:#1d2158;text-shadow:none}
+[data-s60=library] .l30-search label{color:#fff}
+[data-s60=library] .l30-word{text-align:left}
+
+/* ---- 5. 拼字教室 (classroom): search row + unit grid that scrolls in its own container ---- */
+[data-s60=classroom] .l30-topline{display:flex;flex-wrap:nowrap}
+[data-s60=classroom] .l30-topline>div{flex:1;min-width:0}
+[data-s60=classroom] .l30-topline h1{margin:0}
+[data-s60=classroom] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0 0 6px;align-items:center}
+[data-s60=classroom] .l30-search input{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=classroom] .l30-search select{flex:0 1 140px;min-width:0;width:auto}
+[data-s60=classroom] .l30-search .l30-btn{flex:none;padding:0 16px}
+[data-s60=classroom] p.l30-muted{margin:0 0 6px;font-size:13px;min-height:0}
+[data-s60=classroom] .l30-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;margin:0;align-content:start;padding:2px 2px 8px}
+[data-s60=classroom] .l30-unit-card{padding:8px 10px!important;min-height:64px;height:auto;overflow:visible;border-radius:16px!important;display:flex;flex-direction:column;gap:2px}
+[data-s60=classroom] .l30-unit-card .l30-miniart,[data-s60=classroom] .l30-unit-card .l30-sample,[data-s60=classroom] .l30-unit-card p,[data-s60=classroom] .l30-unit-card .l30-go{display:none}
+[data-s60=classroom] .l30-unit-card .l30-eyebrow{display:block;font-size:12px;margin:0}
+[data-s60=classroom] .l30-unit-card h3{font-size:17px;margin:0;line-height:1.25}
+[data-s60=classroom] .l30-unit-card .q36-done{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;margin:0;min-height:0;font-size:12px}
+[data-s60=classroom] .l30-unit-card .q36-tick{width:18px;height:18px;font-size:12px}
+[data-s60=classroom] .l30-empty{margin:0}
+
+/* ---- 6. 詞庫 (library) ---- */
+[data-s60=library] h1{margin:0 0 6px}
+[data-s60=library] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0 0 6px;align-items:center}
+[data-s60=library] .l30-search input[type=text],[data-s60=library] .l30-search #l30-word-q{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=library] .l30-search label{flex:none;display:flex;align-items:center;gap:8px;font-size:14px;white-space:nowrap}
+[data-s60=library] .l30-search .l30-btn{flex:none;padding:0 16px}
+[data-s60=library] p.l30-muted{margin:0 0 6px;font-size:13px}
+[data-s60=library] .l30-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;padding:2px 2px 8px}
+[data-s60=library] .l30-word{padding:8px 10px!important;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;border-radius:16px!important;min-height:0;cursor:pointer}
+[data-s60=library] .l30-word img,[data-s60=library] .l30-word .l30-noart{grid-row:1/3;width:48px;height:48px;min-height:0;border-radius:10px}
+[data-s60=library] .l30-word strong{font-size:17px}
+[data-s60=library] .l30-word p{margin:0;font-size:14px}
+[data-s60=library] .l30-word .l30-subtle,[data-s60=library] .l30-word .l30-btn{display:none}
+[data-s60=library] .l30-pagination{margin:0;padding:6px 0 0;display:flex;gap:8px;justify-content:center}
+[data-s60=library] details.l30-panel{display:none}
+[data-s60=library] .l30-list+.l30-empty{margin:0}
+
+/* ---- 7. 單元頁 (unit) ---- */
+[data-s60=unit] .l30-topline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+[data-s60=unit] .l30-topline>div{flex:1;min-width:0}
+[data-s60=unit] .l30-topline h1{margin:0;display:inline-block}
+[data-s60=unit] .l30-topline .q36-done{display:inline-flex;vertical-align:middle;margin-left:8px;gap:6px}
+[data-s60=unit] .l30-tag{font-size:13px}
+[data-s60=unit] .q36-start{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 12px!important}
+[data-s60=unit] .q36-start .l30-row{order:1;flex:1 1 0;min-width:0}
+[data-s60=unit] .q36-start>.s60-i{order:2;flex:none;margin:0}
+[data-s60=unit] .q36-start>.q36-rule{order:3}
+[data-s60=unit] .q36-start>h2{display:none}
+[data-s60=unit] .q36-start>p:not(.q36-rule){flex:1 1 100%;margin:0;font-size:14px;order:0}
+[data-s60=unit] .q36-start .l30-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:0}
+[data-s60=unit] .q36-start .l30-btn{padding:0 6px;min-height:48px;font-size:15px;white-space:nowrap;text-align:center;justify-content:center}
+[data-s60=unit] .q36-start>.q36-rule{flex:1 1 100%;margin:0}
+[data-s60=unit] .l30-panel:has(.l30-words){display:flex;flex-direction:column;padding:10px!important}
+[data-s60=unit] .l30-panel:has(.l30-words)>h2{display:none}
+[data-s60=unit] .l30-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start}
+[data-s60=unit] .l30-word{text-align:left;padding:8px 10px!important;display:grid;grid-template-columns:48px 1fr auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;border-radius:16px!important;min-height:0;cursor:pointer}
+[data-s60=unit] .l30-word img,[data-s60=unit] .l30-word .l30-noart{grid-row:1/3;width:48px;height:48px;min-height:0;border-radius:10px}
+[data-s60=unit] .l30-word strong{font-size:17px}
+[data-s60=unit] .l30-word p{margin:0;font-size:14px}
+[data-s60=unit] .l30-word .l30-subtle{display:none}
+[data-s60=unit] .l30-word .l30-btn{display:none}
+@media(min-width:820px){[data-s60=unit] .l30-words{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}[data-s60=unit] .l30-word .l30-btn{display:inline-flex;grid-row:1/3;grid-column:3;padding:0 10px;font-size:13px;min-height:44px}}
+[data-s60=unit] details.l30-panel{display:none}
+
+/* ---- 8. lesson / quiz screens: the "next" bar sat 70px above the bottom and covered the question ---- */
+html body .r37-legbody .l30-quiz .l30-quizactions,html body .r37-legbody .l31-lesson .l31-actions{bottom:0}
+[data-s60-quiz] .l30-quiz,[data-s60-quiz] .l31-lesson{padding-top:8px}
+
+/* ---- 9. 默書報告 (report) ---- */
+[data-s60=report]>div:not(.tabs):not(.stats){margin:0}
+[data-s60=report] h1{margin:0 0 4px}
+[data-s60=report] .p40-next{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 14px!important}
+[data-s60=report] .p40-next h2{margin:0;flex:1 1 auto}
+[data-s60=report] .p40-next>p{margin:0;flex:1 1 100%;font-size:13px}
+[data-s60=report] .p40-next .btn{flex:0 0 auto;min-height:48px}
+[data-s60=report] .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+[data-s60=report] .stat{padding:8px 6px;text-align:center;border-radius:14px}
+[data-s60=report] .stat strong{font-size:22px;line-height:1.2}
+[data-s60=report] .stat span{font-size:12px;display:block}
+[data-s60=report] .s60-scroll{display:grid;grid-template-columns:1fr;grid-auto-rows:max-content;gap:10px;align-content:start}
+[data-s60=report] .s60-scroll>.grid2{display:contents}
+[data-s60=report] .s60-scroll>*,[data-s60=report] .s60-scroll .grid2>*{margin:0!important;min-width:0}
+[data-s60=report] .s60-scroll .list li{padding:8px 0}
+@media(min-width:820px){[data-s60=report] .s60-scroll{grid-template-columns:repeat(3,minmax(0,1fr))}}
+html body .r37-legbody .s60-morebox{margin:0}
+html body .r37-legbody .s60-morebox>summary{font-weight:800;cursor:pointer;display:flex;align-items:center}
+html body .r37-legbody .s60-morebox>*:not(summary){margin-top:10px}
+
+/* ---- 10. 設定／備份 & 家長工具 (cards in columns, folded on phones) ---- */
+[data-s60=settings] h1,[data-s60=parent] h1{margin:2px 0 8px}
+[data-s60=settings] .s60-fold.card.pad,[data-s60=parent] .s60-fold{padding:12px 14px!important}
+[data-s60=settings] .field{margin-top:8px!important}
+[data-s60=settings] .field label{margin-bottom:4px}
+[data-s60=settings] .sfx-panel{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:8px}
+[data-s60=settings] .row{gap:8px}
+[data-s60=settings] .btn.full{width:100%}
+[data-s60=settings] details.v25-check>summary{font-size:15px}
+[data-s60=settings] .v25-panel>.row .btn{flex:1 1 140px}
+[data-s60=settings] .wq32-setting-row,[data-s60=settings] .wq32-select-row{margin:0}
+[data-s60=parent] .l30-topline{display:block}
+[data-s60=parent] .l30-topline h1{display:block}
+[data-s60=parent] .l30-card{display:flex;align-items:center;gap:12px;padding:12px 14px!important;min-height:0}
+[data-s60=parent] .l30-card img{width:36px;height:36px;flex:none}
+[data-s60=parent] .l30-card h2{margin:0;font-size:17px}
+[data-s60=parent] .l30-card p,[data-s60=parent] .l30-card .l30-go{display:none}
+[data-s60=parent] .l30-row{display:flex;flex-wrap:wrap;gap:8px}
+[data-s60=parent] .wq32-entry p,[data-s60=parent] .l30-muted{display:none}
+[data-s60=parent] #r3-family-entry p{display:none}
+[data-s60=settings] #r3-family-entry p{display:none}
+
+/* ---- 11. 孩子管理 / 離線教材 / 來源 ---- */
+[data-s60=children] .child-card{padding:12px 14px}
+[data-s60=children] .row.between{margin:0 0 8px}
+[data-s60=children] .row.between h1{margin:0}
+[data-s60=offline]>.row.between{align-items:center;margin:0 0 6px;gap:8px}
+[data-s60=offline]>.row.between>a.btn{display:none}
+[data-s60=offline]>.row.between>div{flex:1;min-width:0}
+[data-s60=offline]>.row.between h1{margin:0}
+[data-s60=offline]>.muted{display:none}
+[data-s60=offline] #offline-content{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
+[data-s60=offline] #offline-content .field{margin:0}
+[data-s60=offline] #offline-content .field label{display:none}
+[data-s60=offline] .offline-summary{padding:12px 14px!important;margin:0!important}
+[data-s60=offline] .offline-summary>.row.between{margin:0 0 6px}
+[data-s60=offline] .offline-summary h2{margin:0;font-size:18px}
+[data-s60=offline] .offline-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 8px}
+[data-s60=offline] .offline-counts>div{padding:6px;text-align:center}
+[data-s60=offline] .offline-counts strong{font-size:20px}
+[data-s60=offline] .offline-counts span{font-size:12px}
+[data-s60=offline] .offline-summary>p{display:none}
+[data-s60=offline] .media-actions{display:flex;gap:8px;margin:0}
+[data-s60=offline] .media-actions .btn{flex:1}
+[data-s60=offline] .offline-extra{margin-top:8px}
+[data-s60=offline] #offline-content>.row.between{margin:0;align-items:center}
+[data-s60=offline] #offline-content>.row.between h2{margin:0;font-size:17px}
+[data-s60=offline] #offline-content>p{display:none}
+[data-s60=offline] .media-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;align-content:start}
+@media(min-width:820px){
+ [data-s60=offline] #offline-content{display:grid;grid-template-columns:minmax(320px,400px) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);gap:10px 16px}
+ [data-s60=offline] #offline-content>.field{grid-column:1;grid-row:1}
+ [data-s60=offline] #offline-content>.offline-summary{grid-column:1;grid-row:2/4;align-self:start}
+ [data-s60=offline] #offline-content>.row.between{grid-column:2;grid-row:1}
+ [data-s60=offline] #offline-content>.media-list{grid-column:2;grid-row:2/4;overflow:auto;min-height:0;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+}
+[data-s60=offline] .media-word{padding:8px!important;gap:8px}
+[data-s60=credits]{padding-top:6px}
+[data-s60=credits] .card.pad{padding:14px}
+[data-s60=credits] p{font-size:14px;margin:0 0 8px}
+[data-s60=credits] a.btn{display:none}
+
+/* ---- 12. 金幣與遊戲設定 (game-settings) ---- */
+[data-s60=game-settings]>.card{padding:14px!important;display:flex;flex-direction:column;gap:10px}
+[data-s60=game-settings]>.card>*{margin:0}
+[data-s60=game-settings] .a28-eyebrow{display:none}
+[data-s60=game-settings] h1{margin:0}
+[data-s60=game-settings] .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+[data-s60=game-settings] .grid2 label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700}
+[data-s60=game-settings] .row{display:flex;flex-wrap:wrap;gap:8px}
+[data-s60=game-settings] .row .btn{flex:1 1 130px}
+[data-s60=game-settings] .row a.btn{display:none}
+[data-s60=game-settings] details>summary{font-weight:800;display:flex;align-items:center;min-height:44px;cursor:pointer}
+[data-s60=game-settings] .pg-permissions{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 12px;margin-top:8px}
+[data-s60=game-settings] .pg-permissions label{display:flex;flex-direction:column;gap:4px;font-size:14px}
+[data-s60=game-settings] .s60-rules>p{margin:8px 0 0;font-size:14px}
+
+/* ---- 13. 遊戲街機 (lobby): one head row, game cards scroll in their own container ---- */
+[data-s60=game]>.p30-lobby{display:flex;flex-direction:column;min-height:0;flex:1 1 auto;margin:0;max-width:1360px}
+[data-s60=game]>.p30-lobby>h1{display:inline-block;margin:0 0 6px;font-size:22px}
+[data-s60=game] .arx-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
+[data-s60=game] .arx-hint,[data-s60=game] .p30-sec,[data-s60=game] .p30-slogan,[data-s60=game] .p30-earn{display:none}
+[data-s60=game] .a28-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 8px;padding:0 0 2px;scrollbar-width:none;flex:none}
+[data-s60=game] .a28-tabs::-webkit-scrollbar{display:none}
+[data-s60=game] .a28-tabs .a28-btn{flex:none;min-height:44px}
+[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
+[data-s60=game] .p30-card{padding:8px!important;border-radius:18px!important;display:flex;flex-direction:column;gap:6px}
+[data-s60=game] .p30-card .p30-shot{max-height:96px;overflow:hidden;border-radius:12px;cursor:pointer}
+[data-s60=game] .p30-card h3{font-size:16px;margin:0}
+[data-s60=game] .p30-card .a28-cabinet-body{display:flex;flex-direction:column;gap:6px}
+[data-s60=game] .p30-card .arx-tg,[data-s60=game] .wq32-cabinet-buddy{display:none}
+[data-s60=game] .p30-card .a28-btn{min-height:44px;font-size:15px;padding:0 10px;white-space:normal}
+
+/* ---- 14. 詞語組合工房 (assembly) / 組合單元 ---- */
+[data-s60=assembly]>.l31-hero{padding:6px 2px!important;background:none!important;border:0!important;box-shadow:none!important;display:block;min-height:0}
+[data-s60=assembly] .l31-hero>div{display:block}
+[data-s60=assembly] .l31-eyebrow,[data-s60=assembly] .l31-samples,[data-s60=assembly] .l31-mascot{display:none}
+[data-s60=assembly] .l31-hero h1{margin:0;color:#fff}
+[data-s60=assembly] .l31-guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+[data-s60=assembly] .l31-guide>section{padding:8px 12px;border-radius:14px}
+[data-s60=assembly] .l31-guide p{margin:2px 0 0;font-size:14px}
+[data-s60=assembly] .l30-search{display:flex;flex-wrap:nowrap;gap:8px;margin:0}
+[data-s60=assembly] .l30-search input{flex:1 1 120px;min-width:0;width:auto}
+[data-s60=assembly] .l30-search select{flex:0 1 160px;min-width:0;width:auto}
+[data-s60=assembly]>p{margin:0;font-size:13px;color:#e3e6ff}
+[data-s60=assembly] .l31-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;padding:2px 2px 8px;margin:0}
+[data-s60=assembly] .l31-group{padding:10px 12px!important;min-height:0;display:flex;flex-direction:column;gap:4px;border-radius:16px!important}
+[data-s60=assembly] .l31-group h2{font-size:16px;margin:0;line-height:1.3}
+[data-s60=assembly] .l31-group .l31-kind{font-size:12px;padding:2px 8px;min-height:0;align-self:flex-start}
+[data-s60=assembly] .l31-group .l31-help,[data-s60=assembly] .l31-group>p,[data-s60=assembly] .l31-group .l31-card-link{display:none}
+[data-s60=assembly] .l31-group .l31-samples{display:flex;margin:0;gap:4px;min-height:0}
+[data-s60=assembly] .l31-group .l31-chip{padding:2px 8px;font-size:15px;min-height:0}
+[data-s60=assembly-unit]>.l31-kind{display:none}
+[data-s60=assembly-unit] h1{margin:0 0 6px}
+[data-s60=assembly-unit] .s60-split{display:flex;flex-direction:column;gap:10px;flex:1 1 auto;min-height:0;max-width:1180px;width:100%;margin:0 auto}
+[data-s60=assembly-unit] .l31-launch{padding:10px 12px!important;border-radius:18px;display:flex;flex-direction:column;gap:8px;margin:0}
+[data-s60=assembly-unit] .l31-launch h2{display:none}
+[data-s60=assembly-unit] .l31-launch>div:first-child{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+[data-s60=assembly-unit] .l31-launch label{font-weight:700}
+[data-s60=assembly-unit] .l31-launch select{width:auto;min-width:96px}
+[data-s60=assembly-unit] .l31-launch-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:0}
+[data-s60=assembly-unit] .l31-launch-actions .l30-btn{min-height:48px;white-space:normal}
+[data-s60=assembly-unit] .l31-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;flex:1 1 auto;min-height:0;overflow:auto;margin:0;padding:2px 2px 8px}
+[data-s60=assembly-unit] .l31-recipe{padding:10px 12px!important;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;min-height:0;border-radius:16px!important}
+[data-s60=assembly-unit] .l31-recipe>*{grid-column:1/-1}
+[data-s60=assembly-unit] .l31-recipe .l31-kind,[data-s60=assembly-unit] .l31-recipe details,[data-s60=assembly-unit] .l31-recipe .l31-target-art,[data-s60=assembly-unit] .l31-recipe>p:nth-of-type(2){display:none}
+[data-s60=assembly-unit] .l31-recipe h2{font-size:20px;margin:0;grid-column:1}
+[data-s60=assembly-unit] .l31-recipe>p{margin:0;font-size:14px}
+[data-s60=assembly-unit] .l31-recipe>.l30-btn{grid-column:1/-1}
+[data-s60=assembly-unit] .l31-formula{font-size:15px}
+@media(min-width:900px){
+ [data-s60=assembly-unit] .s60-split{flex-direction:row;align-items:stretch}
+ [data-s60=assembly-unit] .l31-launch{flex:0 0 330px;align-self:flex-start}
+}
+[data-s60=assembly-learn] .l31-help,[data-s60=assembly-learn] .l31-notice,[data-s60=assembly-learn] .l31-workbench>p,[data-s60=assembly-learn] .l31-source-card .l31-help{display:none}
+
+/* ---- 15. other legacy pages ---- */
+[data-s60=practice] .l30-topline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+[data-s60=practice] .l30-source{display:flex;gap:8px}
+[data-s60=practice] .l30-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0}
+[data-s60=practice] .l30-card{padding:12px!important;min-height:0;display:flex;align-items:center;gap:10px;text-align:left}
+[data-s60=practice] .l30-card img{width:40px;height:40px;flex:none}
+[data-s60=practice] .l30-card h3{margin:0;font-size:17px}
+[data-s60=practice] .l30-card p,[data-s60=practice] .l30-card .l30-go{display:none}
+[data-s60=practice]>a.l30-btn{align-self:flex-start}
+[data-s60=companions] #wq32-gallery-page{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
+[data-s60=companions] #wq32-gallery-page>a.wq32-btn,[data-s60=companions] #wq32-gallery-page>p,[data-s60=companions] .wq32-settings{display:none}
+[data-s60=companions] .wq32-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+[data-s60=companions] .wq32-roster .wq32-btn{display:flex;flex-direction:column;align-items:center;padding:6px;min-height:0}
+[data-s60=companions] .wq32-roster img{width:56px;height:64px;object-fit:contain}
+[data-s60=companions] .wq32-profile{overflow:auto;min-height:0;flex:1 1 auto}
+[data-s60=learning-help] .l30-card p{font-size:14px}
+[data-s60=admin] .wq29-admin>*{margin-bottom:10px}
+[data-s60=admin] .s60-scroll{display:block}
+[data-s60=admin] h1{color:#fff}
+[data-s60=login] .wq29-portal{padding:12px 14px!important;margin:0 0 10px}
+[data-s60=login] .wq29-portal .wq29-eyebrow,[data-s60=login] .wq29-login .wq29-eyebrow{display:none}
+[data-s60=login] .wq29-portal h2{font-size:19px;margin:0 0 8px}
+[data-s60=login] .wq29-actions{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+[data-s60=login] .wq29-actions .btn{flex:1 1 140px;min-height:48px}
+[data-s60=login] .wq29-login{padding:14px!important}
+[data-s60=login] .card.pad>div:first-child:not([class]){display:none}
+[data-s60=login] .card h1{margin:0 0 8px;font-size:22px}
+[data-s60=login] .card>.muted{margin:0 0 10px}
+/* login / register: one form at a time on phones, side by side on wider screens */
+[data-s60=login] #p10-login{max-width:760px;margin:0 auto}
+[data-s60=login] #p10-login>.p10-back{display:none}
+[data-s60=login] .p10-login-head h1{display:flex;align-items:center;gap:8px;color:#fff;margin:0 0 6px}
+[data-s60=login] .p10-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+[data-s60=login] .p10-choice{min-height:48px;padding:6px 10px;border-radius:14px;flex-direction:row;align-items:center;justify-content:center;border-width:2px;background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+[data-s60=login] .p10-choice span{display:none}
+[data-s60=login] .p10-choice strong{font-size:16px}
+[data-s60=login] .p10-choice.on{background:#fff;color:#1d2158;border-color:#fff}
+[data-s60=login] .p10-forms{display:flex;flex-direction:column;gap:10px;margin:0;scroll-padding-top:4px}
+[data-s60=login] .p10-card{padding:14px!important}
+[data-s60=login] .p10-card h2{margin:0 0 6px}
+[data-s60=login] .p10-card .field{margin-top:8px}
+[data-s60=login] .p10-try{margin:4px 0;text-align:center}
+[data-s60=login] .p10-try a{color:#fff}
+[data-s60=login] .p10-note{margin:0 0 8px}
+@media(min-width:900px){
+ [data-s60=login] #p10-login{max-width:1000px}
+ [data-s60=login] .p10-choices{display:none}
+ [data-s60=login] .p10-forms{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+}
+
+/* ---- 16. parent gate: the card is white, the text inherited white (invisible) ---- */
+.r37-gate .card,.r37-gate .card *{color:#1d2158}
+.r37-gate .card h1,.r37-gate .card h2{color:#1d2158;text-shadow:none}
+.r37-gate .card .muted,.r37-gate .card small,.r37-gate .card p{color:#3b4272}
+.r37-gate .card .btn.primary,.r37-gate .card .btn.primary *{color:#fff}
+.r37-gate .card input{background:#fff;color:#1d2158}
+
+/* ---- 17. planet shell touches: labelled parent tabs, readable level names ---- */
+.r37-ptab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:56px}
+.r37-ptab b{font-size:13px;font-weight:800;line-height:1.1}
+.r37-nu{font-size:12px!important}
+
+/* closed <details> render nothing; make that explicit so their hidden children take no layout/measure space */
+html body .r37-legbody details:not([open])>*:not(summary){display:none!important}
+[data-s60=game] .p30-card .a28-cabinet-body>p,[data-s60=game] .p30-card .a28-cabinet-body>small,[data-s60=game] .p30-card .a28-cabinet-body .a28-en{display:none}
+
+[data-s60=assembly] .s60-scroll{display:flex;flex-direction:column;gap:10px}
+[data-s60=assembly] .s60-scroll>.l31-grid{overflow:visible}
+[data-s60=assembly] .s60-scroll>.l30-panel{margin:0;padding:10px 12px!important}
+
+/* ---- 18. 80-unit picker (learning-plan), 拼字家族, 拼字專家 ---- */
+.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
+.s60-chip{min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid #cfd4f3;background:#fff;color:#1d2158;font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-align:left;line-height:1.25}
+.s60-chip.on{border-color:hsl(var(--h,200) 75% 40%);background:hsl(var(--h,200) 80% 94%);box-shadow:0 0 0 2px hsl(var(--h,200) 75% 40%)}
+[data-s60=learning-plan]>.l30-panel{margin-bottom:10px}
+[data-s60=learning-plan] .l30-panel.s60-grow{display:flex;flex-direction:column;gap:8px;padding:10px!important}
+[data-s60=learning-plan] .l30-row{display:flex;gap:8px;flex-wrap:wrap}
+[data-s60=learning-plan] .l30-row .l30-btn{flex:1 1 150px}
+[data-s60=learning-plan] .s60-keepfit{padding:8px 12px!important}
+[data-s60=learning-plan] .s60-keepfit h2{margin:0 0 6px;font-size:16px}
+[data-s60=learning-plan] .s60-keepfit .l30-btn{margin-right:8px}
+[data-s60=learning-plan]>.l30-panel.s60-grow{flex:1 1 auto;min-height:0}
+[data-s60=family-lesson] .fg-overview,[data-s60=spelling-family] .fg-overview{gap:8px;padding:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview>.row.between{margin:0;align-items:center}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview>.row.between>a.btn,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview .eyebrow{display:none}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-overview h1{margin:0;color:#fff}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-hero{padding:10px 14px!important;gap:10px;margin:0;min-height:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-hero p{margin:2px 0;font-size:14px}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-bottom-actions{order:3;margin:0}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-grid{order:4;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;margin:0;overflow:auto}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card{min-height:0;padding:8px 10px;gap:2px}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card .small,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-family-card .fg-status,:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-card-symbol{display:none}
+:is([data-s60=family-lesson],[data-s60=spelling-family]) .fg-adult-note{order:5;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview{gap:8px;padding:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview>.row.between{margin:0;align-items:center}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview>.row.between>a.btn,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview .eyebrow,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-kicker,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-path,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero p,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total>span{display:none}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview h1{margin:0;color:#fff}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero{padding:8px 14px!important;display:flex;align-items:center;gap:12px;margin:0;min-height:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero h2{margin:0;font-size:18px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course{padding:10px 12px!important;gap:4px;min-height:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course h2{font-size:16px;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course p{margin:0;font-size:13px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-actions{margin:0}
+[data-s60=learning-help] .l30-card h2{font-size:17px;margin:0}
+[data-s60=learning-help] .l30-card img{width:36px;height:36px}
+[data-s60=learning-help] .l30-card{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px!important}
+
+/* ---- 19. planet-shell pages: one back control, 44px world tabs, character grid ---- */
+html body.r37 .r37-bar:has(>.r37-back2)>.r37-back{display:none}
+html body.r37 .r37-bar>.r37-back2{order:-1}
+html body.r37 .r37-bar>.r37-who{min-width:0;flex:1 1 auto}
+html body.r37 .r37-worlds{overflow-x:auto;justify-content:center;gap:2px;padding:0 6px;scrollbar-width:none}
+html body.r37 .r37-worlds::-webkit-scrollbar{display:none}
+html body.r37 .r37-wtab{flex:1 1 0;min-width:0;max-width:76px;min-height:44px;padding:4px 0;justify-content:center}
+@media(min-width:380px){html body.r37 .r37-wtab{min-width:44px}}
+html body.r37 .r37-chars{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;padding:6px 12px;max-width:1100px}
+html body.r37 .r37-char{padding:8px 6px;border-radius:18px;gap:2px}
+html body.r37 .r37-char small{display:none}
+html body.r37 .r37-char button,html body.r37 .r37-char .r37-got{min-height:44px;display:inline-flex;align-items:center}
+html body.r37 .r37-hero:has(+.r37-chars){padding-bottom:0}
+html body.r37 .r37-ptab{min-width:44px}
+
+/* ---- 20. arcade dialogs: preview + achievements fit one screen ---- */
+#pg-dialog.p30-intro .wq32-guide,#pg-dialog.p30-intro .p30-goal{display:none!important}
+#pg-dialog.p30-intro .a28-preview-progress{margin:6px 0;font-size:14px}
+#pg-dialog.p30-intro .a28-preview{max-height:36vh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+#pg-dialog.p30-intro #a28-preview-canvas{max-height:calc(36vh - 34px);width:auto!important;max-width:100%;height:auto}
+#pg-dialog.p30-intro .a28-dialog-content{padding-top:8px}
+#pg-dialog.p30-intro .arx-row{margin:0 0 6px}
+#pg-dialog.p30-intro .p30-how{margin:6px 0}
+#pg-dialog.p30-intro .a28-dialog-top{padding:6px 12px}
+#pg-dialog.p30-intro .p30-actions{padding:8px 12px}
+#pg-dialog.p30-intro .a28-btn,#pg-dialog.p30-intro .btn{min-height:48px}
+#arx-ach-dlg{max-height:calc(100dvh - 24px)}
+#arx-ach-dlg .arx-dh{padding:6px 12px}
+#arx-ach-dlg .arx-dbody{display:flex;flex-direction:column;max-height:calc(100dvh - 100px);overflow:hidden}
+#arx-ach-dlg .arx-sum{margin:0 0 8px;font-size:14px}
+#arx-ach-dlg .arx-achs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none;overflow:auto;min-height:0}
+#arx-ach-dlg .arx-ach{display:flex;align-items:center;gap:8px;padding:6px 8px;min-height:56px;border-radius:14px}
+#arx-ach-dlg .arx-at{min-width:0;flex:1}
+#arx-ach-dlg .arx-at b{font-size:15px;display:block;line-height:1.25}
+#arx-ach-dlg .arx-at small{font-size:12px;display:none;line-height:1.25}
+#arx-ach-dlg .arx-ach.s60-open .arx-at small{display:block}
+#arx-ach-dlg .arx-ach{cursor:pointer}
+#arx-ach-dlg .arx-ai{font-size:22px;flex:none}
+#arx-ach-dlg .arx-ap{font-size:12px;flex:none}
+@media(min-width:700px){#arx-ach-dlg.wide{width:min(720px,92vw)}#arx-ach-dlg .arx-achs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.r37-gate .card h1:has(.s60-i){display:flex;align-items:center;gap:8px}
+.r37-gate .card .s60-i{color:#1d2158}
+/* 默書 daily quiz: step count / pause were navy on the navy sky */
+html body .r37-legbody .task-top .step-count{color:#e8ebff;font-weight:800}
+html body .r37-legbody .task-top .btn.quiet{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.1)}
+
+html body .r37-legbody .task-top .step-count{font-size:14px}
+[data-s60=playground] .card{margin:0 auto;max-width:520px}
+[data-s60=playground] .card *{color:#1d2158}
+[data-s60=playground] .card .btn.primary{color:#fff}
+[data-s60=legacy-phonics] .s60-scroll{display:block}
+
+[data-s60=login] .wq29-portal .wq29-portal-copy{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0!important}
+[data-s60=login] .wq29-portal h2{flex:1 1 140px;margin:0}
+[data-s60=login] .wq29-portal .wq29-actions{flex:0 1 auto}
+[data-s60=login] .wq29-portal .btn.big{min-height:48px;padding:0 18px}
+[data-s60=login] .wq29-portal .s60-help-text{display:none!important}
+
+html body #app [data-s60=assembly] .l31-eyebrow,html body #app [data-s60=assembly] .l31-samples,html body #app [data-s60=assembly] .l31-mascot,html body #app [data-s60=assembly] .wq32-hero-figure,html body #app [data-s60=classroom] .wq32-hero-figure,html body #app [data-s60] .wq32-hero-figure{display:none!important}
+[data-s60=offline] #offline-content>.row.between h2{color:#fff}
+html body #app [data-s60=assembly-unit]>.l31-kind{display:none!important}
+
+/* 12px floor for the small tags that were 11px */
+html body .source-tag,html body .wq32-roster small,html body .r37-df small,html body .r37-df i,html body .r37-dl,html body #app figcaption,html body .l30-tag,html body .tag{font-size:max(12px,.75rem)}
+[data-s60=login] .card a.btn[href="#kid"]{display:none}
+
+html body #app .r37-legbody .source-tag,html body #app figcaption,html body #app .wq29-portal small{font-size:12px!important}
+html body .r37-legbody input[type=checkbox]{width:52px!important;height:44px!important;min-height:44px}
+[data-s60=offline] #offline-content.s60-grow{display:flex}
+[data-s60=login] .wq29-portal figcaption{display:none}
+[data-s60=login] #p10-login.s60-grow{display:flex;flex-direction:column;overflow:hidden;max-width:1000px}
+[data-s60=login] #p10-login.s60-grow>*{flex:none}
+[data-s60=login] #p10-login.s60-grow>.p10-forms{flex:1 1 auto;min-height:0;overflow:auto}
+[data-s60=login] .p10-card .field input{min-height:44px;height:44px}
+[data-s60=login] .p10-card .field>label{margin-bottom:2px;font-size:14px}
+[data-s60=login] .p10-card h2{display:none}
+@media(min-width:900px){[data-s60=login] .p10-card h2{display:block}}
+
+html body #app .wq29-portal-art,html body #app [data-s60=login] .wq29-portal-art{display:none!important}
+
+@media(max-height:759px){
+ [data-s60=login] #p10-login.s60-grow{overflow:visible;display:block}
+ [data-s60=login] #p10-login.s60-grow>.p10-forms{overflow:visible}
+ html body .r37-legbody[data-s60=login][data-s60-fit]{display:block;overflow:auto}
+}
+
+/* lobby head: title + wallet on one row (the wallet stays, small), chips and filters below, cards scroll */
+html body .r37-legbody[data-s60=game]>.p30-lobby{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto minmax(0,1fr) auto;column-gap:10px;overflow:hidden}
+[data-s60=game]>.p30-lobby>h1{grid-column:1;grid-row:1;align-self:center}
+[data-s60=game]>.p30-lobby>.p30-top{grid-column:2;grid-row:1;margin:0 0 6px;padding:2px 10px!important;border-radius:999px!important;min-height:0}
+[data-s60=game] .p30-top .p30-wallet{display:flex;align-items:center;gap:8px;margin:0}
+[data-s60=game] .p30-top .a28-coin{width:30px!important;height:30px!important;font-size:16px!important}
+[data-s60=game] .p30-top small{display:inline;font-size:12px}
+[data-s60=game] .p30-top strong{font-size:20px!important;line-height:1}
+[data-s60=game] .p30-top strong span{font-size:12px}
+[data-s60=game]>.p30-lobby>.arx-bar{grid-column:1/-1;grid-row:2}
+[data-s60=game]>.p30-lobby>.a28-tabs{grid-column:1/-1;grid-row:3}
+[data-s60=game]>.p30-lobby>.p30-cards{grid-column:1/-1;grid-row:4}
+[data-s60=game]>.p30-lobby>details{grid-column:1/-1;grid-row:5;margin:6px 0 0}
+
+[data-s60=login] .p10-forms>.p10-try,[data-s60=login] .p10-forms>.wq29-portal{grid-column:1/-1}

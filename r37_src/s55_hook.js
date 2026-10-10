@@ -8,6 +8,14 @@ const s55RawHas=Map.prototype.has,s55RawGet=Map.prototype.get;
 const s55HasRaw=k=>s55RawHas.call(v20Dictionary,k);
 const s55PosOf=k=>{const e=s55RawGet.call(v20Dictionary,k);return e&&Array.isArray(e.senses)?[...new Set(e.senses.map(s=>s&&s.pos).filter(Boolean))]:null;};
 const s55Cache=new Map(),s55Synth=new Map();let s55CacheSize=-1;
+/* R3.13: an -ly adverb that is not itself a dictionary entry (softly, rudely, simply, comfortably) is the same lesson word as its
+ * adjective: the lemma is reported as a form (label "soft 的副詞") instead of a "related word". Only the plain spelling changes are
+ * accepted (soft+ly, noisy->noisily, simple->simply, comfortable->comfortably, accident+ally); chilly / silly / jolly (-ll + y) are
+ * adjectives and stay un-linked. */
+function s55AdvOk(key,base){
+ if(!/ly$/.test(key)||!base)return false;
+ return key===base+'ly'||key===base.slice(0,-1)+'ily'&&/y$/.test(base)||key===base+'ally'||key===base.slice(0,-1)+'y'&&/le$/.test(base)||key===base.slice(0,-1)+'ly'&&/ue$/.test(base);
+}
 function s55Lemma(word){
  if(typeof word!=='string'||!word||!window.WQMorph)return null;
  if(v20Dictionary.size!==s55CacheSize){s55Cache.clear();s55Synth.clear();s55CacheSize=v20Dictionary.size;}
@@ -15,8 +23,30 @@ function s55Lemma(word){
  if(s55Cache.has(key))return s55Cache.get(key);
  let r=null;
  try{r=window.WQMorph.analyse(key,s55HasRaw,s55PosOf);}catch(_){r=null;}
+ if(r&&r.derived&&r.form==='adv'&&!s55HasRaw(key)&&s55AdvOk(key,r.base)){
+  const sn=s55RawGet.call(v20Dictionary,r.base);
+  if(sn&&Array.isArray(sn.senses)&&sn.senses.length)r=Object.assign({},r,{derived:false,adverb:true});   // soft -> 柔軟地 (several meanings: the parent picks)
+ }
  s55Cache.set(key,r);
  return r;
+}
+/* meaning of the derived / contracted form, written from the base word's Chinese (never invented when the base has none) */
+const S55_NT={do:'不',does:'不',did:'沒有',is:'不是',are:'不是',was:'不是',were:'不是',has:'沒有',have:'沒有',had:'沒有',can:'不能',cannot:'不能',
+ could:'不能',will:'不會',would:'不會',should:'不應該',must:'不可以',need:'不需要',shall:'不會',might:'可能不'};
+const S55_ADJ_ZH={close:'近的',near:'近的'};
+const s55AdvZh=zh=>!zh||/[，,；;、]/.test(zh)||/地$/.test(zh)?zh:(/的$/.test(zh)?zh.slice(0,-1):zh)+'地';
+function s55ContrZh(key,baseZh){
+ let ex=null;
+ try{ex=window.WQMorph.expansions(key);}catch(_){}
+ const e=ex&&ex[0];
+ if(!e)return '';
+ const tag='（縮寫：'+e+'）';
+ const words=e.split(' ');
+ if(/n't$|^cannot$/.test(key))return (S55_NT[words[0]]||(baseZh?'不'+baseZh.replace(/了$/,''):'不'))+tag;
+ const suf=(/'(ll|re|ve|d|m|s)$/.exec(key)||[])[1];
+ if(key==="let's")return '讓我們'+tag;
+ const add={ll:'將會',re:'是',ve:'有',d:'會',m:'是',s:'是／有'}[suf];
+ return add?(baseZh||'')+add+tag:'';
 }
 function s55Entry(key){
  const L=s55Lemma(key);
@@ -25,7 +55,17 @@ function s55Entry(key){
  if(hit)return hit;
  const base=s55RawGet.call(v20Dictionary,L.base);
  if(!base||!Array.isArray(base.senses))return undefined;
- const e={key,en:key,_base:L.base,_form:L.form,_label:L.label,senses:base.senses.map(s=>Object.assign({},s,{headword:key})),examples:[]};
+ let senses=base.senses.map(s=>Object.assign({},s,{headword:key}));
+ if(L.adverb){
+  const adj=senses.filter(s=>s&&s.pos==='adj');
+  senses=(adj.length?adj:senses).map(s=>Object.assign(s,{zhHK:s55AdvZh(s.zhHK),pos:'adv'}));
+ }
+ else if(L.form==='contraction'&&senses[0]){
+  const zh=s55ContrZh(key,String(senses[0].zhHK||''));
+  if(zh)senses=[Object.assign(senses[0],{zhHK:zh})];
+ }
+ else if((L.form==='comp'||L.form==='sup')&&S55_ADJ_ZH[L.base]&&!base.senses.some(s=>s&&s.pos==='adj'))senses=senses.map(s=>Object.assign(s,{zhHK:S55_ADJ_ZH[L.base],pos:'adj'}));
+ const e={key,en:key,_base:L.base,_form:L.adverb?'adv':L.form,_label:L.label,senses,examples:[]};
  s55Synth.set(key,e);
  return e;
 }
@@ -47,7 +87,7 @@ function s55FillWord(w){
   if(!zh){try{zh=V20.gloss(w.en,v20Dictionary).zh||'';}catch(_){zh='';}}
   if(zh&&zh.length<=300){w.zh=zh;changed=true;}
  }
- if(!w.emoji){
+ if(!w.emoji&&!L.adverb){
   const e=d.emoji||cat.emoji||'';
   if(e&&e.length<=40&&!/[<>&]/.test(e)){w.emoji=e;changed=true;}
  }

@@ -1,7 +1,7 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "ebe00f9227708cfb44d74b8f692f11be8e5fe4f5754ba89f99c8f36602436744",
+  "appSHA256": "d67fad1bb9c9f625c427b907885158c74264ff2756686383c154156d730ba760",
   "swSHA256": "b3d04ac6e0519704fa9297a8930c5b7b246cb69f6cc77ac4f789251d8e284bcb",
   "modules": [
     "s10_shell",
@@ -9,6 +9,7 @@
     "s40_admin",
     "s50_dictation",
     "s55_morph",
-    "s56_morph_ui"
+    "s56_morph_ui",
+    "s60_legacy"
   ]
 }
