@@ -243,3 +243,13 @@ body.r37arc{background:radial-gradient(1100px 600px at 50% -10%,hsl(28 60% 34%) 
 body.r37arc main,body.r37arc #app{background:transparent!important}
 body.r37arc #app>section>h1,body.r37arc #app>section>p,body.r37arc #app>h1,body.r37arc #app>p,body.r37arc .a28-head h1,body.r37arc .a28-head p,body.r37arc .pg-head h1,body.r37arc .pg-head p{color:#fff}
 body.r37arc .footer{display:none}
+/* R3.8 FPS levels: 🎯 射擊鞏固 button on the English result screen / classroom unit page, FPS map chips */
+.r37-fpsgo{border:0;border-radius:24px;padding:10px 30px;background:linear-gradient(160deg,#ffb0c8,#e23a73);color:#fff;font:inherit;font-size:clamp(20px,4.2vh,26px);font-weight:900;cursor:pointer;box-shadow:0 6px 0 #a3194d;min-height:52px}
+.r37-fpsgo:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+.r37-legbody .r37-ulv.r37-ufps{background:linear-gradient(180deg,#ffb0c8,#e23a73)!important;color:#fff!important;box-shadow:0 4px 0 #a3194d}
+.r37-fl{display:none}
+@media(min-width:700px) and (min-height:521px){.r37-free{width:auto;padding:6px 14px}.r37-free .r37-fl{display:inline;margin-left:6px;font-size:15px;font-weight:900}}
+.r37-fhint{font-size:22px;text-decoration:none}
+@media(max-height:520px){.r37-fpsgo{padding:4px 22px;min-height:40px;font-size:20px;box-shadow:0 4px 0 #a3194d}}
+@media(max-height:520px){.r37-result{gap:6px;padding:8px 20px}.r37-result .r37-rb{font-size:48px;line-height:1.1}.r37-result .r37-st{font-size:30px}.r37-result .r37-rs{font-size:26px}.r37-result .r37-rc{padding:4px 16px;font-size:18px}.r37-result .r37-go{padding:8px 36px;font-size:22px;box-shadow:0 4px 0 #c5942b}.r37-result .r37-sec{height:52px}.r37-result .r37-ra{margin-top:2px}}
+.r37-free,.r37-free .r37-fl{color:#fff}

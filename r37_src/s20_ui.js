@@ -55,7 +55,7 @@ function r37GamesHub(){
  const m=r37Mission(),d=r37Get().day,ch=r37Char();
  const quest=m.map(x=>{const v=Math.min(x.goal,d[x.key]||0),ok=v>=x.goal,got=d.claimed.includes(x.id);return `<div class="r37-mq ${ok?'ok':''}"><span aria-hidden="true">${x.icon}</span><b>${x.name}</b><i style="--p:${Math.round(v/x.goal*100)}%"></i><em>${v}/${x.goal}</em>${got?'<span class="r37-got">✓</span>':ok?`<button type="button" data-r37="claim" data-id="${x.id}">🎁 +${x.coins}</button>`:`<span class="r37-rw">🪙${x.coins}</span>`}</div>`;}).join('');
  return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${r37Icon('🎮')}</em></span><h1>遊戲星</h1></div>
- <div class="r37-tiles r37-gt">${r37A('🕹️','遊戲街機','#game','gold big')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#fps','pink big')+r37B(ch.icon,'角色','data-r37="chars"','blue big')}</div>
+ <div class="r37-tiles r37-gt">${r37A('🕹️','遊戲街機','#game','gold big')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37B(ch.icon,'角色','data-r37="chars"','blue big')}</div>
  <div class="r37-card r37-quests"><h2>🎁 今日任務</h2>${quest}</div>${r37Nav('p/games')}</section>`;
 }
 function r37Chars(){
@@ -86,6 +86,20 @@ function r37RunMap(){
  <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${W.icon}</span><div><h1>${W.name}</h1><small>${[0,1,2].filter(s=>r37Entry('runner',w,s)?.passed).length}/3</small></div><button type="button" class="r37-dchip r37-lk r37-endless" data-r37="run-endless" aria-label="無盡模式">♾️</button><span class="r37-dchip">${ch.icon}</span></div>
  <div class="r37-path n3">${nodes}</div>${r37Nav('p/games')}</section>`;
 }
+function r37FpsMap(){
+ const worlds=R37_TRACKS.english.worlds;
+ let w=r37Mem._fw;if(!Number.isInteger(w)){w=0;for(let i=0;i<worlds.length;i++)if(r37FpsWorldOpen(i))w=i;}
+ w=Math.max(0,Math.min(worlds.length-1,w));r37Mem._fw=w;
+ const diff=r37Diff(),W=worlds[w],ut=s=>typeof LIB30!=='undefined'?(LIB30.units.get(W.units[s])?.title||''):'';
+ let curS=-1,locked=0,done=0,stars=0;
+ for(let s=0;s<10;s++){const e=r37Entry('fps',w,s);if(!r37FpsOpen(w,s))locked++;else if(curS<0&&!e?.passed)curS=s;if(e?.passed)done++;stars+=e?.best||0;}
+ const nodes=Array.from({length:10},(_,s)=>{const e=r37Entry('fps',w,s),open=r37FpsOpen(w,s),boss=s===9,t=ut(s);
+  return `<button type="button" class="r37-node ${e?.passed?'done':''} ${s===curS?'cur':''} ${open?'':'lock'} ${boss?'boss':''}" ${open?`data-r37="fps-level" data-w="${w}" data-s="${s}"`:'disabled'} aria-label="${boss?'魔王關':'第 '+(s+1)+' 關'}${t?'：'+esc(t):''}"><span class="r37-nn">${open?(boss?'👹':s+1):'🔒'}</span>${t?`<span class="r37-nu">${esc(t)}</span>`:''}${open&&e?r37Stars(e.best):'<span class="r37-st ph"></span>'}</button>`;}).join('');
+ return `<section class="r37-hub r37-map r37-fmap" style="--h:340">${r37Top('<a class="r37-back2" href="#p/games" aria-label="遊戲星">←</a>'+(locked?'<a class="r37-back2 r37-fhint" href="#lv/english" aria-label="先完成英文闖關">🔤</a>':''))}
+ <div class="r37-worlds" role="tablist">${worlds.map((x,i)=>{const o=r37FpsWorldOpen(i);return `<button type="button" role="tab" class="r37-wtab ${i===w?'on':''} ${o?'':'lock'}" data-r37="fworld" data-w="${i}" ${o?'':'disabled'}><span aria-hidden="true">${o||i===w?x.icon||'🌍':'🔒'}</span><b>${i+1}</b></button>`;}).join('')}</div>
+ <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${W.icon||'🌍'}</span><div><h1>${esc(W.name)}</h1><small>${done}/10 · ${r37Stars(Math.min(5,Math.round(stars/50*5)))}</small></div><a class="r37-dchip r37-lk r37-free" href="#fps" aria-label="自由練習" title="自由練習">🎲<span class="r37-fl">自由練習</span></a><span class="r37-dchip" title="難度">${diff.icon} ${diff.n}</span></div>
+ <div class="r37-path">${nodes}</div>${r37Nav('p/games')}</section>`;
+}
 /* ---------------------------------------------------------------------------------------------- play */
 let r37P=null,r37Timer=0;
 function r37Hearts(){return Array.from({length:r37P.maxHearts},(_,i)=>`<i class="${i<r37P.hearts?'on':''}">❤</i>`).join('');}
@@ -113,7 +127,7 @@ function r37Result(){
  const P=r37P,r=P.result;
  const coins=r.coins?`<div class="r37-rc">🪙 +${r.coins}</div>`:'';
  const nextOk=P.kind==='level'&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
- return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?(P.s===9?'🏆':'🎉'):'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.kind==='level'&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?(P.s===9?'🏆':'🎉'):'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.kind==='level'&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}${P.kind==='level'&&P.track==='english'&&r.passed&&r37EnStage(P.w,P.s).length>=4?`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">🎯 射擊鞏固</button>`:''}
  <div class="r37-ra">${nextOk?'<button type="button" class="r37-go" data-r37="level-next">▶</button>':''}<button type="button" class="r37-sec" data-r37="retry">↻</button><button type="button" class="r37-sec" data-r37="exit">🗺️</button></div></div></section>`;
 }
 function r37StartLevel(track,w,s){

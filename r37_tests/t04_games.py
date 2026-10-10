@@ -26,7 +26,7 @@ with sync_playwright() as p:
         register(pg, 'r37games', '小明')
         go(pg, '#p/games', 500)
         C.ok(pg.evaluate("!!document.querySelector('a[href=\"#game\"]')"), f'{name}: arcade tile present')
-        C.ok(pg.evaluate("!!document.querySelector('a[href=\"#fps\"]')") and pg.evaluate("!!document.querySelector('a[href=\"#lv/runner\"]')"), f'{name}: FPS and runner tiles present')
+        C.ok(pg.evaluate("!!document.querySelector('a[href=\"#lv/fps\"]')") and pg.evaluate("!!document.querySelector('a[href=\"#lv/runner\"]')"), f'{name}: FPS and runner tiles present')
         C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), f'{name}: games planet needs no page scroll')
         # arcade lobby from the planet still lists the 26-game catalogue (3 open + folded rest)
         go(pg, '#game', 900)

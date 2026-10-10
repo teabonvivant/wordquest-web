@@ -1,6 +1,6 @@
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner)|lp\/play|fps|rn\/play)$/;
-let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|fps|fp\/play|rn\/play)$/;
+let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null;
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
 function r37FpsStop(){if(r37FpsHandle){try{r37FpsHandle.destroy();}catch(_){}r37FpsHandle=null;}}
 function r37GameWords(w0,n){
@@ -17,6 +17,22 @@ function r37FpsMount(){
  r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37Get().diff,rounds:10,sound:sfxEnabled(),
   onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){d.fc=(d.fc||0)+1;coins=1;r37Save();r37AddCoins(1);}return coins;},
   onExit:()=>{r37FpsStop();location.hash='#p/games';}});
+}
+function r37FpsLvMount(){
+ const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
+ if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
+ const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
+ const opts={words:r37FpsUnitWords(w,s),difficulty:r37Get().diff,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+  onFinish:res=>r37FpsPay(w,s,res),
+  onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
+ if(s===9)opts.boss=true;
+ if(nx&&r37FpsOpen(nx.w,nx.s))opts.onNext=()=>{r37FpsSel={w:nx.w,s:nx.s,from:'#lv/fps'};r37Mem._fw=nx.w;r37Nav37('fp/play');};
+ r37FpsHandle=WQ37FPS.start(box,opts);
+}
+function r37StartFps(w,s,from){
+ if(!r37FpsOpen(w,s))return;
+ if(r37EnStage(w,s).length<4){toast('這一關還未準備好。','bad');return;}
+ r37P=null;clearTimeout(r37Timer);r37FpsSel={w,s,from:from||'#lv/fps'};r37Mem._fw=w;r37Nav37('fp/play');
 }
 function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
@@ -45,11 +61,11 @@ render=function(){
  }
  if(route==='lp/play'&&!r37P){location.replace('#kid');return;}
  if(lastRoute&&lastRoute!==route){stopSpeech();clearTimeout(r37Timer);}
- if(route!=='fps')r37FpsStop();
+ if(route!=='fps'&&route!=='fp/play')r37FpsStop();
  if(route!=='rn/play')r37RunStop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='rn/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play');
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
@@ -57,14 +73,17 @@ render=function(){
  else if(route==='p/parent'&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
+ else if(route==='lv/fps')html=r37FpsMap();
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='lp/play')html=r37Play();
  else if(route==='fps')html='<section class="r37-fps"><div id="r37-fps-box"></div></section>';
+ else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
  $('#app').innerHTML=html;
  r37Layout();
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
  if(route==='fps')r37FpsMount();
+ if(route==='fp/play')r37FpsLvMount();
  if(route==='rn/play')r37RunMount();
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
@@ -94,6 +113,7 @@ function r37UnitLevelBtn(){
  const id=new URLSearchParams((location.hash.split('?')[1]||'')).get('id'),at=id&&r37UnitAt(id),row=$('#app .q36-start .l30-row');if(!at||!row)return;
  const open=r37StageOpen('english',at.w,at.s);
  row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} 第 ${at.s+1} 關</a>`);
+ if(r37Entry('english',at.w,at.s)?.passed&&r37EnStage(at.w,at.s).length>=4)row.insertAdjacentHTML('beforeend',`<button type="button" class="l30-btn r37-ulv r37-ufps" data-r37="fps-level" data-w="${at.w}" data-s="${at.s}" data-from="#unit?id=${esc(id)}">🎯 射擊鞏固</button>`);
 }
 function r37FixNav(){
  const nav=$('#wq29-nav');if(!nav)return;
@@ -111,6 +131,8 @@ document.addEventListener('click',e=>{
  else if(a==='quiz')r37StartQuiz(el.dataset.track,el.dataset.mode);
  else if(a==='run'){r37RunSel={w:+el.dataset.w,s:+el.dataset.s};location.hash='#rn/play';}
  else if(a==='run-endless'){r37RunSel={w:Number.isInteger(r37Mem._rw)?r37Mem._rw:0,s:0,endless:true};location.hash='#rn/play';}
+ else if(a==='fps-level')r37StartFps(+el.dataset.w,+el.dataset.s,el.dataset.from);
+ else if(a==='fworld'){r37Mem._fw=+el.dataset.w;render();}
  else if(a==='rworld'){r37Mem._rw=+el.dataset.w;render();}
  else if(a==='world'){(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;render();}
  else if(a==='learn-go'&&P){P.phase='quiz';render();}

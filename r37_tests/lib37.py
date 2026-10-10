@@ -23,8 +23,10 @@ def patched_html():
     return s.replace(ANCHOR, '\nwindow.__r37=(c)=>eval(c);' + ANCHOR, 1)
 
 
-def open_page(p, w=390, h=844, touch=True):
+def open_page(p, w=390, h=844, touch=True, learn=False):
     b, ctx, pg, errs = new_page(p, w, h, touch=touch)
+    if not learn:  # R3.9 learning card off for the older flow tests; t11 covers it
+        ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
     html = patched_html()
     pg.route(URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)

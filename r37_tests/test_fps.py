@@ -27,6 +27,11 @@ SPEECH_STUB = '''window.__spoken=[];
 if(typeof window.SpeechSynthesisUtterance==='undefined'){window.SpeechSynthesisUtterance=function(t){this.text=t}}
 try{Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speak:function(u){window.__spoken.push(u.text)},cancel:function(){},getVoices:function(){return[]}}})}catch(e){}'''
 
+AC_COUNTER = '''(function(){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;window.__ac={created:0,closed:0,live:0};
+['createDynamicsCompressor','createStereoPanner','createOscillator','createBufferSource'].forEach(function(m){var o=AC.prototype[m];if(!o)return;AC.prototype[m]=function(){window.__ac[m]=(window.__ac[m]||0)+1;return o.apply(this,arguments);};});
+function W(){var c=new AC();window.__ac.created++;window.__ac.live++;var oc=c.close.bind(c);c.close=function(){if(!c.__cl){c.__cl=1;window.__ac.closed++;window.__ac.live--;}return oc();};return c;}
+W.prototype=AC.prototype;window.AudioContext=W;window.webkitAudioContext=W;})();'''
+
 def new_page(pw, touch, reduced=False):
     b = pw.chromium.launch(args=['--no-sandbox'])
     kw = dict(reduced_motion='reduce') if reduced else {}
@@ -35,11 +40,26 @@ def new_page(pw, touch, reduced=False):
     else:
         ctx = b.new_context(viewport={'width': 1440, 'height': 900}, **kw)
     ctx.add_init_script(SPEECH_STUB)
+    ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
+    ctx.add_init_script(AC_COUNTER)
     p = ctx.new_page(); errs = []
     p.on('console', lambda m: errs.append(m.text) if m.type == 'error' else None)
     p.on('pageerror', lambda e: errs.append(str(e)))
     p.goto('file://' + PAGE)
     return b, p, errs
+
+SHOOT_JS = """(want)=>{const d=WQ37FPS._debug;if(d.state!=='play')return -1;
+ const i=d.targets.findIndex(t=>t.clear&&(t.word===d.correctWord)===want);if(i<0)return -2;
+ WQ37FPS._debugTurnTo(i);WQ37FPS._debugFire(0);return 1;}"""
+
+def shoot(p, want_correct, tries=60):
+    """Aim and fire in ONE page task (a moving target cannot step out of the line of fire in between)."""
+    for _ in range(tries):
+        r = p.evaluate(SHOOT_JS, want_correct)
+        if r == 1: return
+        if r == -1: raise AssertionError('not in play state: ' + json.dumps(dbg(p), ensure_ascii=False)[:300])
+        p.wait_for_timeout(60)
+    raise AssertionError('no clear target (correct=%s): %s' % (want_correct, json.dumps(dbg(p), ensure_ascii=False)[:400]))
 
 def aim(p, want_correct):
     for _ in range(40):   # only a word not hidden behind a wall can be hit; wait for one to come into view
@@ -75,6 +95,14 @@ def test_touch(pw):
     p.wait_for_timeout(500)
     x1 = dbg(p)['player']; assert math.hypot(x1['x']-x0['x'], x1['y']-x0['y']) > 0.3, (x0, x1)
     p.evaluate('''()=>window.dispatchEvent(new PointerEvent('pointerup',{pointerType:'touch',pointerId:3,bubbles:true}))''')
+    # drag-to-look on the right half turns the camera (smoothed), the fire button stays separate
+    a0 = dbg(p)['player']['a']
+    p.evaluate('''()=>{const r=document.querySelector('.wq37-root');
+      r.dispatchEvent(new PointerEvent('pointerdown',{pointerType:'touch',pointerId:4,clientX:300,clientY:400,bubbles:true,isPrimary:true}));
+      window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'touch',pointerId:4,clientX:360,clientY:400,bubbles:true}));
+      window.dispatchEvent(new PointerEvent('pointerup',{pointerType:'touch',pointerId:4,bubbles:true}));}''')
+    p.wait_for_timeout(500)
+    a1 = dbg(p)['player']['a']; assert abs(a1 - a0) > 0.2, (a0, a1)
     p.evaluate('game.destroy()')
     assert p.evaluate('document.querySelectorAll("#c canvas").length') == 0
     assert not errs, errs
@@ -97,15 +125,17 @@ def test_desktop(pw):
     p.keyboard.press('Enter')
     p.wait_for_function("WQ37FPS._debug.state==='play'&&WQ37FPS._debug.targets.some(t=>t.clear&&t.word===WQ37FPS._debug.correctWord)")
     # correct shot
-    aim(p, True); s0 = dbg(p)['score']; p.keyboard.press('Space'); p.wait_for_timeout(150)
-    d = dbg(p); assert d['score'] > s0 and d['round'] == 2, d
+    s0 = dbg(p)['score']; aim(p, True); p.keyboard.press('Space'); p.wait_for_timeout(150)   # the real Space-key fire path
+    d = dbg(p)
+    if d['score'] <= s0:   # a bubble drifted into the line of fire between aim and key press: retry atomically
+        shoot(p, True); d = dbg(p)
+    assert d['score'] > s0 and d['round'] == 2, d
     # wrong shot reduces hearts, then two more end game
-    p.wait_for_timeout(600); aim(p, False); h0 = dbg(p)['hearts']; WQ = 'WQ37FPS._debugFire(0)'
-    p.evaluate(WQ); p.wait_for_timeout(100)
+    p.wait_for_timeout(600); h0 = dbg(p)['hearts']; shoot(p, False); p.wait_for_timeout(100)
     assert dbg(p)['hearts'] == h0 - 1
     p.screenshot(path=SHOTS + '/desktop_wrong.png')
     for _ in range(2):
-        aim(p, False); p.evaluate(WQ); p.wait_for_timeout(100)
+        shoot(p, False); p.wait_for_timeout(100)
     d = dbg(p); assert d['hearts'] == 0 and d['state'] == 'over', d
     fin = p.evaluate('finished'); assert fin, 'onFinish not called'
     for k in ('score', 'correct', 'wrong', 'rounds', 'seconds', 'stars', 'maxCombo'): assert k in fin, k
@@ -129,7 +159,7 @@ def test_win_five_stars(pw):
     b, p, errs = new_page(pw, False)
     p.evaluate('boot(3,3,{boss:false})'); p.keyboard.press('Enter'); p.wait_for_timeout(300)
     for _ in range(3):
-        aim(p, True); p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(120)
+        shoot(p, True); p.wait_for_timeout(120)
     fin = p.evaluate('finished'); assert fin and fin['stars'] == 5 and fin['correct'] == 3 and fin['maxCombo'] == 3, fin
     p.wait_for_timeout(1500); p.screenshot(path=SHOTS + '/desktop_win.png')
     p.evaluate('game.destroy()'); assert not errs, errs
@@ -142,12 +172,12 @@ def start_game(p, d, rounds, extra=None, calm=True):
     assert dbg(p)['state'] == 'play'
     if calm: cmd(p, 'calm', 1)
 def shoot_correct(p):
-    aim(p, True); s0 = dbg(p)['score']; p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(60)
+    s0 = dbg(p)['score']; shoot(p, True); p.wait_for_timeout(60)
     assert dbg(p)['score'] > s0
 def lose_all(p):
     for _ in range(3):
         if dbg(p)['state'] != 'play': break
-        aim(p, False); p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(80)
+        shoot(p, False); p.wait_for_timeout(80)
     assert dbg(p)['state'] == 'over'
 
 def test_arenas_questions_boss(pw, shots=None):
@@ -176,12 +206,12 @@ def test_arenas_questions_boss(pw, shots=None):
     p.wait_for_timeout(1700)
     if shots: p.screenshot(path='%s/%s_boss.png' % (SHOTS, shots))
     # wrong letter: boss counter-attacks (heart lost), boss hp unchanged
-    d0 = dbg(p); aim(p, False); p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(100)
+    d0 = dbg(p); shoot(p, False); p.wait_for_timeout(100)
     d1 = dbg(p); assert d1['hearts'] == d0['hearts'] - 1 and d1['boss']['hp'] == d0['boss']['hp'] and d1['boss']['idx'] == 0, (d0, d1)
     if shots: p.screenshot(path='%s/%s_boss_hit.png' % (SHOTS, shots))
     # shield absorbs the counter-attack
     cmd(p, 'shield', 1); p.wait_for_timeout(2400)
-    aim(p, False); p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(100)
+    shoot(p, False); p.wait_for_timeout(100)
     d2 = dbg(p); assert d2['hearts'] == d1['hearts'] and not d2['shield'], d2
     # right letters in order: each one damages the boss
     p.wait_for_timeout(2400); hp = d2['boss']['hp']
@@ -190,7 +220,7 @@ def test_arenas_questions_boss(pw, shots=None):
         if i == len(word) - 1: break
         shoot_correct(p); p.wait_for_timeout(120)
         assert dbg(p)['boss']['hp'] == hp - i - 1
-    aim(p, True); p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(100)
+    shoot(p, True); p.wait_for_timeout(100)
     d = dbg(p); assert d['state'] == 'over' and d['boss']['dead'] and d['boss']['hp'] == 0, d
     fin = p.evaluate('finished'); assert fin and fin['bossBeaten'] is True and fin['stars'] >= 1 and 'best' in fin, fin
     for k in ('score', 'correct', 'wrong', 'rounds', 'seconds', 'stars', 'maxCombo'): assert k in fin
@@ -217,10 +247,16 @@ def test_spitter(pw):
     # a spitter telegraphs and fires on its own
     cmd(p, 'clear'); cmd(p, 'spitter', 5, 0.3); p.wait_for_timeout(300)
     p.wait_for_function('WQ37FPS._debug.projectiles>0', timeout=4000)
-    # shooting the spitter scores
-    cmd(p, 'clear'); cmd(p, 'spitter', 5, 99); p.wait_for_timeout(100)
-    s0 = dbg(p)['score']; p.evaluate('WQ37FPS._debugFire(0)'); p.wait_for_timeout(80)
-    d = dbg(p); assert d['spitters'] == 0 and d['score'] >= s0 + 80, d
+    # shooting the spitter scores: stand at the spawn point, wait for a lane free of word bubbles, then place + fire in one task
+    cmd(p, 'clear'); cmd(p, 'place', 7.5, 12.5); cmd(p, 'shield', 1)
+    # bubbles drift at random, so instead of waiting for the lane ahead to clear, turn (in one task) to a heading free of bubbles and walls
+    s0 = dbg(p)['score']
+    hit = p.evaluate("""()=>{for(let k=0;k<63;k++){const d=WQ37FPS._debug;
+      if(d.targets.every(t=>Math.abs(t.angle)>0.22)){WQ37FPS._cmd('spitter',5,99);WQ37FPS._debugFire(0);
+        if(WQ37FPS._debug.spitters===0)return k;WQ37FPS._cmd('clear');}
+      WQ37FPS._cmd('turn',0.1);}return -1;}""")
+    p.wait_for_timeout(80)
+    d = dbg(p); assert hit >= 0 and d['spitters'] == 0 and d['score'] >= s0 + 80, (hit, d)
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
 
@@ -276,8 +312,7 @@ def test_combo_best_record(pw):
     assert mults == [1, 1, 2, 2, 2, 3], mults
     assert scores[3] - scores[2] > 200 > scores[2] - scores[1] - 100   # x2 pays more than x1
     # wrong shot: shake on, combo reset
-    sh = p.evaluate('()=>{WQ37FPS._debugFire(0);return WQ37FPS._debug.shake}'); assert sh >= 0 or True
-    aim(p, False); sh = p.evaluate('()=>{WQ37FPS._debugFire(0);return [WQ37FPS._debug.shake,WQ37FPS._debug.combo]}')
+    shoot(p, False); sh = p.evaluate('()=>[WQ37FPS._debug.shake,WQ37FPS._debug.combo]')
     assert sh[0] > 0.3 and sh[1] == 0, sh
     lose_all(p)
     fin1 = p.evaluate('finished'); assert fin1['score'] > 0 and fin1['best'] == fin1['score'] and not fin1['newRecord'], fin1
@@ -296,9 +331,9 @@ def test_combo_best_record(pw):
     b.close()
     # reduced motion: no screen shake
     b, p, errs = new_page(pw, False, reduced=True)
-    start_game(p, 1, 10); aim(p, False)
-    sh = p.evaluate('()=>{WQ37FPS._debugFire(0);const d=WQ37FPS._debug;return [d.shake,d.hearts,d.reduceMotion]}')
-    assert sh == [0, 2, True], sh
+    start_game(p, 1, 10); shoot(p, False)
+    sh = p.evaluate('()=>{const d=WQ37FPS._debug;return [d.shake,d.hearts,d.reduceMotion,d.flash]}')
+    assert sh == [0, 2, True, 0], sh
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
 
@@ -314,7 +349,7 @@ def test_touch_new_actions(pw):
     assert len(p.evaluate('__spoken')) == n0 + 1
     p.screenshot(path=SHOTS + '/mobile_listen.png')
     shoot_correct(p); p.wait_for_timeout(300); shoot_correct(p); p.wait_for_timeout(300)
-    d = dbg(p); assert d['boss'] and not d['sayVisible'], d
+    d = dbg(p); assert d['boss'] and d['sayVisible'], d   # pronunciation replay is available in every question type, boss included
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
 
@@ -340,18 +375,259 @@ def test_arenas_questions_boss_shots(p, errs, name):
     p.wait_for_timeout(1900); p.screenshot(path='%s/%s_d_boss.png' % (SHOTS, name))
     d = dbg(p); word = d['boss']['word']
     for i in range(len(word)):
-        shoot_correct(p) if i < len(word) - 1 else (aim(p, True), p.evaluate('WQ37FPS._debugFire(0)'))
+        shoot(p, True)
         p.wait_for_timeout(120)
         if i == 0: p.wait_for_timeout(300); p.screenshot(path='%s/%s_d_boss_hit.png' % (SHOTS, name))
     p.wait_for_timeout(500); p.screenshot(path='%s/%s_e_victory.png' % (SHOTS, name))
     p.wait_for_timeout(2600); p.screenshot(path='%s/%s_f_result.png' % (SHOTS, name))
     p.evaluate('game.destroy()'); assert not errs, errs
 
+
+def finish_level(p, wrong_first=False):
+    """Play a whole level-mode game with the atomic shooter (boss disabled)."""
+    if wrong_first: shoot(p, False); p.wait_for_timeout(60)
+    for _ in range(40):
+        if dbg(p)['state'] != 'play': break
+        shoot(p, True); p.wait_for_timeout(70)
+
+def test_picker(pw):
+    """Intro difficulty picker: 5 tier buttons (touch + keyboard), default = opts.difficulty, tier drives distractor count, lockDifficulty hides it."""
+    b, p, errs = new_page(pw, False)
+    p.evaluate('boot(3,10)'); p.wait_for_timeout(400)
+    assert p.locator('.wq37-tier').count() == 5
+    d = dbg(p); assert d['state'] == 'intro' and d['tier'] == 3, d
+    assert p.evaluate("document.querySelector('.wq37-tier.on').dataset.tier") == '3'
+    for bx in p.locator('.wq37-tier').all():
+        r = bx.bounding_box(); assert r['width'] >= 48 and r['height'] >= 48, r
+    expect = {1: 3, 2: 4, 3: 4, 4: 5, 5: 6}   # answer + 2/3/3/4/5 distractor words
+    for t in (1, 2, 3, 4, 5):
+        p.evaluate('game.destroy();boot(3,10)'); p.wait_for_timeout(150)
+        p.click('.wq37-tier[data-tier="%d"]' % t); p.wait_for_timeout(80)
+        assert dbg(p)['tier'] == t and dbg(p)['distractors'] == expect[t] - 1
+        assert p.evaluate("document.querySelector('.wq37-tier.on').dataset.tier") == str(t)
+        p.click('text=開始'); p.wait_for_timeout(250)
+        d = dbg(p); assert d['state'] == 'play' and d['difficulty'] == t and len(d['targets']) == expect[t], (t, d)
+    # keyboard: digit + arrows + Enter
+    p.evaluate('game.destroy();boot(3,10)'); p.wait_for_timeout(150)
+    p.keyboard.press('1'); assert dbg(p)['tier'] == 1
+    p.keyboard.press('ArrowRight'); assert dbg(p)['tier'] == 2
+    p.keyboard.press('ArrowLeft'); p.keyboard.press('ArrowLeft'); assert dbg(p)['tier'] == 1
+    p.keyboard.press('5'); p.keyboard.press('Enter'); p.wait_for_timeout(200)
+    d = dbg(p); assert d['state'] == 'play' and d['tier'] == 5 and len(d['targets']) == 6, d
+    # lockDifficulty hides the picker and keeps opts.difficulty
+    p.evaluate('game.destroy();boot(4,10,{lockDifficulty:true})'); p.wait_for_timeout(150)
+    assert p.locator('.wq37-tier').count() == 0
+    p.keyboard.press('1'); assert dbg(p)['tier'] == 4
+    p.keyboard.press('Enter'); p.wait_for_timeout(150); assert len(dbg(p)['targets']) == 5
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+    # touch: tap a tier button
+    b, p, errs = new_page(pw, True)
+    p.evaluate('boot(3,10)'); p.wait_for_timeout(400)
+    p.tap('.wq37-tier[data-tier="1"]'); p.wait_for_timeout(100)
+    assert dbg(p)['tier'] == 1
+    p.tap('text=開始'); p.wait_for_timeout(250)
+    assert len(dbg(p)['targets']) == 3
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+
+def test_level_mode(pw):
+    """Level mode: rounds == words, a missed word is re-queued once, result carries passed / accuracy / firstTryAccuracy / difficulty / perWord, next button."""
+    b, p, errs = new_page(pw, False)
+    BOOT = "boot(3,0,{mode:'level',rounds:undefined,boss:false,title:'第一單元 Fruit',onNext:function(){window.nextCalled=(window.nextCalled||0)+1}})"
+    p.evaluate(BOOT); p.wait_for_timeout(300)
+    assert 'Fruit' in p.inner_text('.wq37-card h1')
+    d = dbg(p); assert d['mode'] == 'level' and d['totalRounds'] == 8, d
+    p.keyboard.press('Enter'); p.wait_for_timeout(200); cmd(p, 'calm', 1)
+    finish_level(p, wrong_first=True)
+    d = dbg(p); assert d['state'] == 'over' and d['totalRounds'] == 9 and d['requeued'] == 1, d
+    fin = p.evaluate('finished')
+    assert fin['passed'] is True and fin['stars'] == 4 and fin['difficulty'] == 3 and fin['mode'] == 'level', fin
+    assert abs(fin['accuracy'] - 0.9) < 1e-6 and abs(fin['firstTryAccuracy'] - 0.875) < 1e-6, fin
+    pw_ = fin['perWord']; assert len(pw_) == 8 and sorted(x['en'] for x in pw_) == sorted(w[0] for w in WORDS), pw_
+    bad = [x for x in pw_ if not x['ok']]; assert len(bad) == 1 and bad[0]['tries'] == 3, pw_
+    assert all(x['tries'] == 1 and x['ok'] for x in pw_ if x['ok'] and x is not bad[0]), pw_
+    p.wait_for_timeout(1500); p.screenshot(path=SHOTS + '/desktop_level_result.png')
+    assert p.locator('.wq37-go.next').count() == 1 and 'text=再玩一次' and p.locator('text=再玩一次').count() == 1
+    assert p.locator('.wq37-words span').count() == 8
+    p.click('.wq37-go.next'); assert p.evaluate('nextCalled') == 1
+    p.click('text=再玩一次'); p.wait_for_timeout(250); assert dbg(p)['state'] == 'play' and dbg(p)['round'] == 1 and dbg(p)['totalRounds'] == 8
+    # failing: no passed flag, no next button, but retry/exit stay
+    p.evaluate('game.destroy();' + BOOT); p.keyboard.press('Enter'); p.wait_for_timeout(200); cmd(p, 'calm', 1)
+    lose_all(p); fin = p.evaluate('finished')
+    assert fin['passed'] is False and fin['stars'] <= 2 and len(fin['perWord']) == 8, fin
+    p.wait_for_timeout(1500)
+    assert p.locator('.wq37-go.next').count() == 0 and p.locator('text=再玩一次').count() == 1 and p.locator('text=返回').count() == 1
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+
+def test_free_mode_result_fields(pw):
+    """Free mode keeps its flow (10 rounds) and also reports the new result fields."""
+    b, p, errs = new_page(pw, False)
+    p.evaluate('boot(2,3,{boss:false})'); p.keyboard.press('Enter'); p.wait_for_timeout(250); cmd(p, 'calm', 1)
+    assert dbg(p)['mode'] == 'free' and dbg(p)['totalRounds'] == 3
+    for _ in range(3): shoot_correct(p); p.wait_for_timeout(100)
+    fin = p.evaluate('finished')
+    assert fin['passed'] is True and fin['stars'] == 5 and fin['accuracy'] == 1 and fin['firstTryAccuracy'] == 1 and fin['difficulty'] == 2 and len(fin['perWord']) == 3, fin
+    assert all(x['ok'] and x['tries'] == 1 for x in fin['perWord']), fin
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+
+def test_hint_and_aim_assist(pw):
+    """Tier 1-2: the answer pulses after 4s (never at tier 3+); aim assist pulls toward a word inside its cone, weaker/narrower at tier 5."""
+    b, p, errs = new_page(pw, False)
+    start_game(p, 1, 10)
+    assert dbg(p)['hinting'] is False
+    p.wait_for_timeout(4500); assert dbg(p)['hinting'] is True
+    shoot_correct(p); p.wait_for_timeout(200); assert dbg(p)['hinting'] is False
+    def pull(tier, off):
+        """Turn `off` rad away from an answer bubble (with no other bubble near the centre of view), wait, return how far the camera moved by itself."""
+        for _ in range(6):
+            p.evaluate('game.destroy();boot(%d,10)' % tier); p.keyboard.press('Enter'); p.wait_for_timeout(250); cmd(p, 'calm', 1)
+            p.wait_for_function("WQ37FPS._debug.targets.some(t=>t.clear)")
+            ok = p.evaluate("""([o])=>{const d=WQ37FPS._debug,i=d.targets.findIndex(t=>t.clear);if(i<0)return false;
+              WQ37FPS._debugTurnTo(i);WQ37FPS._cmd('turn',o);
+              const near=WQ37FPS._debug.targets.filter(t=>Math.abs(t.angle)<0.15).length;
+              window.__a0=WQ37FPS._debug.player.a;return near===(Math.abs(o)<0.15?1:0);}""", [off])
+            if ok: break
+        else:
+            raise AssertionError('could not set up the assist scenario')
+        p.wait_for_timeout(250)   # short window: the bubble's own drift barely matters yet
+        return abs(p.evaluate('WQ37FPS._debug.player.a-window.__a0'))
+    d1 = pull(1, 0.1)
+    assert d1 > 0.02, ('tier 1 aim assist should pull the camera toward the bubble', d1)
+    d5 = pull(5, 0.1)
+    assert d5 < 0.003, ('tier 5: a bubble outside its narrow cone is not pulled', d5)
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+
+def test_mute_and_audio(pw):
+    """Mute toggle (HUD + pause overlay) persists in localStorage; sound:false = no AudioContext, no mute UI; repeated enter/exit does not leak AudioContexts."""
+    b, p, errs = new_page(pw, False)
+    p.evaluate('boot(2,10)'); p.keyboard.press('Enter'); p.wait_for_timeout(250)
+    d = dbg(p); assert d['audio'] in ('running', 'suspended') and d['muted'] is False, d
+    assert p.locator('.wq37-mute').count() == 1 and p.inner_text('.wq37-mute') == '🔊'
+    # audio graph: one context, master compressor, synth voices, stereo pan; <= 12 simultaneous voices; music + SFX duck during pronunciation
+    cmd(p, 'calm', 1); shoot(p, True); p.wait_for_timeout(150)
+    ac = p.evaluate('__ac'); assert ac['created'] == 1 and ac['createDynamicsCompressor'] == 1, ac
+    if dbg(p)['audio'] == 'running':
+        assert ac.get('createOscillator', 0) > 3, ac
+        cmd(p, 'bug', 3); cmd(p, 'turn', 0.4); p.evaluate('WQ37FPS._debugFire(-0.4)'); p.wait_for_timeout(60)   # off-centre hit -> stereo pan
+        assert p.evaluate('__ac.createStereoPanner') > 0, p.evaluate('__ac')
+    mx = p.evaluate('()=>{let m=0;for(let i=0;i<40;i++){WQ37FPS._debugFire(0);m=Math.max(m,WQ37FPS._debug.voices);}return m}')
+    assert mx <= 12, mx
+    p.keyboard.press('KeyR'); p.wait_for_timeout(60); assert dbg(p)['ducked'] is True
+    p.wait_for_timeout(2600); assert dbg(p)['ducked'] is False
+    p.click('.wq37-mute'); p.wait_for_timeout(80)
+    assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '1' and dbg(p)['muted'] is True and p.inner_text('.wq37-mute') == '🔇'
+    p.keyboard.press('Escape'); p.wait_for_timeout(80); assert dbg(p)['state'] == 'paused'
+    assert p.inner_text('[data-act="mute"]') == '🔇'
+    p.click('[data-act="mute"]'); p.wait_for_timeout(50)
+    assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '0' and dbg(p)['muted'] is False and p.inner_text('[data-act="mute"]') == '🔊'
+    p.click('[data-act="mute"]'); assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '1'
+    p.click('text=繼續'); p.wait_for_timeout(80); assert dbg(p)['state'] == 'play'
+    p.evaluate('game.destroy()')
+    p.reload(); p.evaluate('boot(2,10)'); p.wait_for_timeout(200)   # the choice survives a reload
+    assert dbg(p)['muted'] is True and p.inner_text('.wq37-mute') == '🔇'
+    p.evaluate("localStorage.removeItem('wq37-fps-mute')")
+    # sound:false -> no audio at all
+    p.evaluate("game.destroy();boot(2,10,{sound:false})"); p.keyboard.press('Enter'); p.wait_for_timeout(250)
+    assert p.locator('.wq37-mute').count() == 0 and dbg(p)['audio'] is None and p.evaluate('__ac.created') == 0
+    p.evaluate('game.destroy()')
+    # leak check: 10 enter / exit cycles
+    c0 = p.evaluate('__ac.created')
+    for i in range(10):
+        p.evaluate('boot(2,10)'); p.keyboard.press('Enter'); p.wait_for_timeout(120)
+        if dbg(p)['state'] == 'play': p.evaluate('WQ37FPS._debugFire(0)')
+        assert p.evaluate('__ac.live') == 1, p.evaluate('__ac')
+        p.evaluate('game.destroy()')
+        assert p.evaluate('__ac.live') == 0 and p.evaluate('WQ37FPS._audioContexts()') == 0, p.evaluate('__ac')
+    ac = p.evaluate('__ac'); assert ac['created'] - c0 == 10 and ac['live'] == 0 and ac['closed'] == ac['created'], ac
+    p.wait_for_timeout(400); assert not errs, errs   # no timer fires after destroy
+    b.close()
+
+def test_stats_and_scale(pw):
+    """stats() reports frame timing numbers and the adaptive internal resolution stays inside its bounds (<=1.0 on touch)."""
+    for touch in (False, True):
+        b, p, errs = new_page(pw, touch)
+        p.evaluate('boot(3,10,{sound:false})'); p.keyboard.press('Enter'); p.wait_for_timeout(1800)
+        st = p.evaluate('WQ37FPS.stats()')
+        for k in ('avg', 'p95', 'max', 'scale', 'RW', 'RH'):
+            assert isinstance(st[k], (int, float)) and st[k] == st[k] and st[k] >= 0, (k, st)
+        assert st['frames'] > 20 and st['avg'] > 0 and st['p95'] >= st['avg'] * 0.5 and st['max'] >= st['p95']
+        assert 0.6 <= st['scale'] <= (1.0 if touch else 1.25), st
+        assert st['RW'] > 100 and st['RH'] > 80
+        # fixed-step bound: a long stall (hidden tab) must not fast-forward the game
+        t0 = dbg(p)['player']; p.evaluate('()=>new Promise(r=>{const e=performance.now();while(performance.now()-e<400);r()})')
+        p.wait_for_timeout(200); assert dbg(p)['state'] == 'play'
+        p.evaluate('game.destroy()'); assert WQ_NONE(p) is None
+        assert not errs, errs
+        b.close()
+
+def WQ_NONE(p): return p.evaluate('WQ37FPS.stats()')
+
+def test_fx(pw):
+    """Correct shot: letters shatter + sparks (particle pool capped); wrong shot: red puff; reduced motion uses fewer particles and no flash."""
+    counts = {}
+    for reduced in (False, True):
+        b, p, errs = new_page(pw, False, reduced=reduced)
+        start_game(p, 3, 10)
+        shoot(p, True); n_good = dbg(p)['particles']
+        p.wait_for_timeout(1400); assert dbg(p)['particles'] < n_good
+        shoot(p, False); n_bad = dbg(p)['particles']
+        counts[reduced] = (n_good, n_bad)
+        assert 0 < n_bad <= 300 and 0 < n_good <= 300, counts
+        d = dbg(p); assert d['hearts'] == 2
+        for _ in range(10): p.evaluate('()=>WQ37FPS._cmd("score",WQ37FPS._debug.score)'); p.wait_for_timeout(10)
+        p.evaluate('game.destroy()'); assert not errs, errs
+        b.close()
+    assert counts[True][0] < counts[False][0] * 0.7, counts
+
+def test_pause_visibility_resume(pw):
+    """Hiding the tab pauses; resuming does not skip time (dt clamp)."""
+    b, p, errs = new_page(pw, False)
+    start_game(p, 3, 10)
+    p.evaluate("()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'))}")
+    p.wait_for_timeout(100); assert dbg(p)['state'] == 'paused'
+    p.evaluate("()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'))}")
+    p.keyboard.press('Enter'); p.wait_for_timeout(100); assert dbg(p)['state'] == 'play'
+    p.evaluate('game.destroy()'); assert not errs, errs
+    b.close()
+
+def run_shots(pw, outdir):
+    """Screenshots for review: intro picker, play, shatter FX, boss, result (level mode with next button) at 390x844@2x touch and 1440x900."""
+    os.makedirs(outdir, exist_ok=True)
+    for name, touch in (('phone', True), ('desktop', False)):
+        b, p, errs = new_page(pw, touch)
+        BOOT = "boot(2,0,{mode:'level',rounds:undefined,boss:true,title:'第三單元 Fruit',onNext:function(){}})"
+        p.evaluate(BOOT); p.wait_for_timeout(1200)
+        p.screenshot(path='%s/%s_1_intro_picker.png' % (outdir, name))
+        p.keyboard.press('Enter') if not touch else p.tap('text=開始'); p.wait_for_timeout(300); cmd(p, 'calm', 1)
+        p.wait_for_timeout(2900); p.screenshot(path='%s/%s_2_play.png' % (outdir, name))
+        p.wait_for_function("WQ37FPS._debug.targets.some(t=>t.clear&&t.word===WQ37FPS._debug.correctWord)")
+        shoot(p, True); p.wait_for_timeout(140); p.screenshot(path='%s/%s_3_shatter.png' % (outdir, name))
+        p.wait_for_timeout(300); p.screenshot(path='%s/%s_3b_shatter_late.png' % (outdir, name))
+        finish_rounds = dbg(p)['totalRounds'] - 1
+        for _ in range(finish_rounds - 1):
+            shoot(p, True); p.wait_for_timeout(110)
+        cmd(p, 'boss'); p.wait_for_timeout(2200); p.screenshot(path='%s/%s_4_boss.png' % (outdir, name))
+        word = dbg(p)['boss']['word']
+        for i in range(len(word)):
+            shoot(p, True); p.wait_for_timeout(110)
+            if i == 0: p.wait_for_timeout(100); p.screenshot(path='%s/%s_4b_boss_hit.png' % (outdir, name))
+        p.wait_for_timeout(250); p.screenshot(path='%s/%s_5_boss_defeat.png' % (outdir, name))
+        p.wait_for_timeout(2800); p.screenshot(path='%s/%s_6_result.png' % (outdir, name))
+        p.evaluate('game.destroy()'); assert not errs, errs
+        b.close()
+
 if __name__ == '__main__':
     import sys
     with sync_playwright() as pw:
-        fns = (test_touch, test_desktop, test_win_five_stars, test_arenas_questions_boss, test_spitter, test_spawn_scaling, test_freeze, test_combo_best_record, test_touch_new_actions)
+        fns = (test_touch, test_desktop, test_win_five_stars, test_arenas_questions_boss, test_spitter, test_spawn_scaling, test_freeze, test_combo_best_record, test_touch_new_actions,
+               test_picker, test_level_mode, test_free_mode_result_fields, test_hint_and_aim_assist, test_mute_and_audio, test_stats_and_scale, test_fx, test_pause_visibility_resume)
         if '--shots' in sys.argv: fns = fns + (test_shots,)
+        if '--shots-dir' in sys.argv:
+            run_shots(pw, sys.argv[sys.argv.index('--shots-dir') + 1]); print('shots done'); sys.exit(0)
         passed = 0
         for fn in fns:
             fn(pw); passed += 1; print('PASS', fn.__name__)

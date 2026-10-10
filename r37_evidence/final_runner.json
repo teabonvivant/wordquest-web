@@ -4,7 +4,7 @@
     "file": "test_levels_math.cjs",
     "returncode": 0,
     "last_line": "PASS 236807 checks",
-    "seconds": 0
+    "seconds": 1
   },
   {
     "name": "t01-shell-levels",
@@ -23,8 +23,8 @@
   {
     "name": "t03-parent-chars",
     "file": "t03_parent_chars.py",
-    "returncode": 0,
-    "last_line": "t03: 51/51 checks passed",
+    "returncode": 1,
+    "last_line": "t03: 50/51 checks passed",
     "seconds": 38
   },
   {
@@ -32,7 +32,7 @@
     "file": "t04_games.py",
     "returncode": 0,
     "last_line": "t04: 42/42 checks passed",
-    "seconds": 62
+    "seconds": 58
   },
   {
     "name": "t05-admin-regression",
@@ -45,8 +45,8 @@
     "name": "t06-live-admin",
     "file": "t06_live_admin.py",
     "returncode": 0,
-    "last_line": "t06: 19/19 checks passed",
-    "seconds": 25
+    "last_line": "t06: 14/14 checks passed",
+    "seconds": 22
   },
   {
     "name": "t07-visual-daily",
@@ -60,27 +60,41 @@
     "file": "t08_integration_fx.py",
     "returncode": 0,
     "last_line": "t08: 78/78 checks passed",
-    "seconds": 35
+    "seconds": 34
   },
   {
     "name": "t09-arcade",
     "file": "t09_arcade.py",
     "returncode": 0,
     "last_line": "t09: 110/110 checks passed",
-    "seconds": 51
+    "seconds": 54
+  },
+  {
+    "name": "t10-fps-levels",
+    "file": "t10_fps_levels.py",
+    "returncode": 0,
+    "last_line": "t10: 104/104 checks passed",
+    "seconds": 89
   },
   {
     "name": "fps-module",
     "file": "test_fps.py",
-    "returncode": 0,
-    "last_line": "ALL PASSED 9/9",
-    "seconds": 117
+    "returncode": 1,
+    "last_line": "playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 25000ms exceeded.",
+    "seconds": 72
   },
   {
     "name": "runner-module",
     "file": "test_runner.py",
     "returncode": 0,
     "last_line": "ALL PASSED 13/13",
-    "seconds": 182
+    "seconds": 161
+  },
+  {
+    "name": "t11-learn-card",
+    "file": "t11_learn_card.py",
+    "returncode": 0,
+    "last_line": "t11: 72/72 checks passed",
+    "seconds": 56
   }
 ]

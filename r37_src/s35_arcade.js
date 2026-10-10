@@ -255,7 +255,7 @@ const WQArc=(()=>{
    return;
   }
   const q=Q.qs[Q.i],ans=Q.picked!=null;
-  d.innerHTML=`<div class="arx-dh"><h2>⚡ 生字補給 <small>${Q.i+1}/3</small></h2>${skip}</div><div class="arx-dbody"><div class="arx-big" aria-hidden="true">${esc(q.emoji)}</div><div class="arx-word"><span lang="en">${esc(q.en)}</span><button type="button" class="arx-say" data-arx="pw-say" aria-label="聽發音">🔊</button></div><p class="arx-q">這個字是甚麼意思？</p><div class="arx-opts" role="group" aria-label="選擇答案">${q.opts.map(o=>`<button type="button" class="arx-opt${ans?(o===q.ans?' ok':o===Q.picked?' bad':''):''}" data-arx="pw-opt" data-v="${esc(o)}" ${ans?'disabled':''}>${esc(o)}</button>`).join('')}</div>${ans?`<p class="arx-fb" role="status">${Q.picked===q.ans?'✅ 答對了！':'❌ 答案是「'+esc(q.ans)+'」'}</p><button type="button" class="arx-go" data-arx="pw-next">${Q.i>=Q.qs.length-1?'看結果':'下一題'}</button>`:''}</div>`;
+  d.innerHTML=`<div class="arx-dh"><h2>⚡ 生字補給 <small>${Q.i+1}/3</small></h2>${skip}</div><div class="arx-dbody"><div class="arx-big" aria-hidden="true">${esc(q.emoji)}</div><div class="arx-word"><span lang="en">${esc(q.en)}</span><button type="button" class="arx-say" data-arx="pw-say" aria-label="聽發音">🔊</button></div><p class="arx-q">這個字是甚麼意思？</p><div class="arx-opts" role="group" aria-label="選擇答案">${q.opts.map(o=>`<button type="button" class="arx-opt${ans?(o===q.ans?' ok':o===Q.picked?' bad':''):''}" data-arx="pw-opt" data-v="${esc(o)}" ${ans?'disabled':''}>${esc(o)}</button>`).join('')}</div>${ans?`<p class="arx-fb ${Q.picked===q.ans?'ok':'bad'}" role="status">${Q.picked===q.ans?'✅ 答對了！':'❌ 正確答案'}<b><span lang="en">${esc(q.en)}</span> ＝ ${esc(q.ans)}</b></p><button type="button" class="arx-go" data-arx="pw-next"${Q.picked!==q.ans&&Q.lock?' disabled':''}>${Q.i>=Q.qs.length-1?'看結果':'下一題'}</button>`:''}</div>`;
   const f=d.querySelector(ans?'[data-arx="pw-next"]':'.arx-opt');if(f)f.focus({preventScroll:true});
  }
  function pwOpen(){
@@ -280,11 +280,13 @@ const WQArc=(()=>{
  }
  function pwPick(v){
   if(!Q||Q.picked!=null||Q.i>=Q.qs.length)return;
-  Q.picked=v;if(v===Q.qs[Q.i].ans)Q.ok++;pwDraw();
+  const q=Q.qs[Q.i],qq=Q;Q.picked=v;if(v===q.ans)Q.ok++;else Q.lock=true;pwDraw();
+  try{r37Speak(q.en);}catch(_){}
+  if(Q.lock)setTimeout(()=>{if(Q!==qq||!Q.lock)return;Q.lock=false;const b=document.querySelector('#arx-pw-dlg [data-arx="pw-next"]');if(b){b.disabled=false;b.focus({preventScroll:true});}},1500);
  }
  function pwNext(){
   if(!Q||Q.picked==null)return;
-  Q.picked=null;Q.i++;
+  if(Q.lock)return;Q.picked=null;Q.i++;
   if(Q.i>=Q.qs.length)pwFinish();else pwDraw();
  }
  function pwClose(){const d=document.getElementById('arx-pw-dlg');if(d&&d.open)d.close();Q=null;}

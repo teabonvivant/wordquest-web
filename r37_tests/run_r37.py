@@ -24,8 +24,10 @@ JOBS = [
     ('t07-visual-daily', PY, 't07_visual_daily.py'),
     ('t08-integration-fx', PY, 't08_integration_fx.py'),
     ('t09-arcade', PY, 't09_arcade.py'),
+    ('t10-fps-levels', PY, 't10_fps_levels.py'),
     ('fps-module', PY, 'test_fps.py'),
     ('runner-module', PY, 'test_runner.py'),
+    ('t11-learn-card', PY, 't11_learn_card.py'),
 ]
 if __name__ == '__main__':
     want = [a.lower() for a in sys.argv[1:]]

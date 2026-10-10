@@ -1,0 +1,73 @@
+PASS fps/phone correct -> learn card for "house"
+PASS fps/phone correct card shows word + meaning ('house', '屋')
+PASS fps/phone card big and fully on screen (en 46.8px, zh 23.4px)
+PASS fps/phone Enter before 0.8s does not skip
+PASS fps/phone cannot shoot while the card is up
+PASS fps/phone correct card auto-continues to round 2
+PASS fps/phone wrong -> card shows the correct word "apple", heart lost
+PASS fps/phone wrong card: correct answer, your pick "你選了 house ＝ 屋", button locked
+PASS fps/phone wrong card fits the screen
+PASS fps/phone wrong card cannot be skipped in the first 2s
+PASS fps/phone after 2s the button unlocks, game still waits
+PASS fps/phone correct word spoken again (x2)
+PASS fps/phone "記住了" resumes the same round
+PASS fps/phone no page errors []
+PASS run/phone correct door -> learn card "apple"
+PASS run/phone card big + on screen (en 46.8px)
+PASS run/phone word spoken with the card
+PASS run/phone correct card auto-continues
+PASS run/phone wrong door -> card with correct "grape"
+PASS run/phone wrong card shows pick "dog" with meaning: 你選了 dog ＝ 狗
+PASS run/phone wrong card not skippable in first 2s
+PASS run/phone Space after 2s continues
+PASS run/phone no page errors []
+PASS fps/landscape correct -> learn card for "cat"
+PASS fps/landscape correct card shows word + meaning ('cat', '貓')
+PASS fps/landscape card big and fully on screen (en 46.8px, zh 23.4px)
+PASS fps/landscape Enter before 0.8s does not skip
+PASS fps/landscape cannot shoot while the card is up
+PASS fps/landscape correct card auto-continues to round 2
+PASS fps/landscape wrong -> card shows the correct word "grape", heart lost
+PASS fps/landscape wrong card: correct answer, your pick "你選了 cat ＝ 貓", button locked
+PASS fps/landscape wrong card fits the screen
+PASS fps/landscape wrong card cannot be skipped in the first 2s
+PASS fps/landscape after 2s the button unlocks, game still waits
+PASS fps/landscape correct word spoken again (x2)
+PASS fps/landscape "記住了" resumes the same round
+PASS fps/landscape no page errors []
+PASS run/landscape correct door -> learn card "apple"
+PASS run/landscape card big + on screen (en 46.8px)
+PASS run/landscape word spoken with the card
+PASS run/landscape correct card auto-continues
+PASS run/landscape wrong door -> card with correct "grape"
+PASS run/landscape wrong card shows pick "dog" with meaning: 你選了 dog ＝ 狗
+PASS run/landscape wrong card not skippable in first 2s
+PASS run/landscape Space after 2s continues
+PASS run/landscape no page errors []
+PASS fps/desktop correct -> learn card for "grape"
+PASS fps/desktop correct card shows word + meaning ('grape', '葡萄')
+PASS fps/desktop card big and fully on screen (en 84px, zh 38px)
+PASS fps/desktop Enter before 0.8s does not skip
+PASS fps/desktop cannot shoot while the card is up
+PASS fps/desktop correct card auto-continues to round 2
+PASS fps/desktop wrong -> card shows the correct word "dog", heart lost
+PASS fps/desktop wrong card: correct answer, your pick "你選了 apple ＝ 蘋果", button locked
+PASS fps/desktop wrong card fits the screen
+PASS fps/desktop wrong card cannot be skipped in the first 2s
+PASS fps/desktop after 2s the button unlocks, game still waits
+PASS fps/desktop correct word spoken again (x2)
+PASS fps/desktop "記住了" resumes the same round
+PASS fps/desktop no page errors []
+PASS run/desktop correct door -> learn card "apple"
+PASS run/desktop card big + on screen (en 84px)
+PASS run/desktop word spoken with the card
+PASS run/desktop correct card auto-continues
+PASS run/desktop wrong door -> card with correct "grape"
+PASS run/desktop wrong card shows pick "dog" with meaning: 你選了 dog ＝ 狗
+PASS run/desktop wrong card not skippable in first 2s
+PASS run/desktop Space after 2s continues
+PASS run/desktop no page errors []
+PASS fps reduced-motion: card has no animation
+PASS fps: losing the last heart goes to the result screen, no card left behind
+PASS fps edge no page errors []
+t11: 72/72 checks passed

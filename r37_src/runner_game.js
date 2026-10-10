@@ -140,6 +140,51 @@
   ];
 
   /* ---------- module state ---------- */
+  /* ---------- learning card: shared look with the other R3.7 game (fps_game.js / runner_game.js keep identical copies) ---------- */
+  var LC_F = '"PingFang HK","Noto Sans HK","Microsoft JhengHei","WenQuanYi Zen Hei","Noto Sans CJK TC",system-ui,sans-serif';
+  var LC_E = '"Arial Rounded MT Bold","Trebuchet MS","Noto Sans",Arial,sans-serif';
+  var LC_M = '"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif';
+  var LC_CSS =
+    '.wqlc-ov{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;padding:10px;box-sizing:border-box;background:rgba(20,14,50,.55)}' +
+    '.wqlc{width:min(520px,94%);max-height:100%;overflow:auto;box-sizing:border-box;background:#fffaf0;border:5px solid #2b1d4a;border-radius:28px;box-shadow:0 10px 0 rgba(43,29,74,.4);text-align:center;color:#2b1d4a;font-family:' + LC_F + ';animation:wqlcIn .24s cubic-bezier(.2,.9,.3,1.25)}' +
+    '.wqlc.bad{animation:wqlcIn .24s cubic-bezier(.2,.9,.3,1.25),wqlcNo .42s .24s ease-in-out}' +
+    '.wqlc-hd{padding:8px 12px;font-weight:900;font-size:clamp(22px,5.5vmin,34px);color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.25)}' +
+    '.wqlc.ok .wqlc-hd{background:#17b978}.wqlc.bad .wqlc-hd{background:#f0434f}' +
+    '.wqlc-bd{padding:clamp(6px,2.4vmin,18px) 14px clamp(8px,2.6vmin,18px);display:flex;flex-direction:column;align-items:center;gap:clamp(4px,1.2vmin,10px)}' +
+    '.wqlc-pic{font-size:clamp(46px,14vmin,104px);line-height:1.05;font-family:' + LC_M + '}' +
+    '.wqlc-ans{display:flex;flex-direction:column;align-items:center;padding:4px 24px 6px;border-radius:22px;background:#e3fbef;border:4px solid #17b978;max-width:100%;box-sizing:border-box}' +
+    '.wqlc-en{font:900 clamp(40px,12vmin,84px)/1.08 ' + LC_E + ';letter-spacing:1px;overflow-wrap:anywhere;color:#0d7a4f}' +
+    '.wqlc-zh{font-weight:900;font-size:clamp(22px,6vmin,38px);line-height:1.2}' +
+    '.wqlc-you{font-weight:800;font-size:clamp(15px,3.8vmin,20px);color:#b3202e;background:#ffe3e6;border:2px dashed #f0434f;border-radius:14px;padding:3px 12px}' +
+    '.wqlc-you s{font-family:' + LC_E + ';text-decoration-thickness:3px}' +
+    '.wqlc-row{display:flex;gap:12px;justify-content:center;align-items:center}' +
+    '.wqlc-say{width:56px;height:56px;border-radius:50%;border:4px solid #2b1d4a;background:#fff;font-size:26px;cursor:pointer;box-shadow:0 4px 0 #2b1d4a;font-family:' + LC_M + ';touch-action:manipulation;padding:0}' +
+    '.wqlc-go{min-height:56px;padding:8px 28px;border-radius:40px;border:4px solid #2b1d4a;background:#f0434f;color:#fff;font:900 22px ' + LC_F + ';cursor:pointer;box-shadow:0 5px 0 #2b1d4a;touch-action:manipulation}' +
+    '.wqlc.ok .wqlc-go{background:#17b978}' +
+    '.wqlc-go:disabled{opacity:.45;cursor:default;box-shadow:0 2px 0 #2b1d4a}' +
+    '.wqlc-go:focus-visible,.wqlc-say:focus-visible{outline:4px solid #2fa8ff;outline-offset:3px}' +
+    '.wqlc-bar{height:8px;background:rgba(43,29,74,.12)}.wqlc-bar i{display:block;height:100%;width:0;background:#ffc93c}' +
+    '@keyframes wqlcIn{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}' +
+    '@keyframes wqlcNo{0%,100%{transform:none}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}' +
+    '@media (prefers-reduced-motion:reduce){.wqlc,.wqlc.bad{animation:none}}';
+  var LC_OK = { min: 0.8, max: 2.4 }, LC_BAD = { min: 2.0, max: 8, again: 2.6 };
+  function lcEsc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  /* tests switch the card off with localStorage 'wq37-nolearn'='1'; hosts can pass opts.learnCard=false */
+  function lcEnabled(o) { if (o && o.learnCard === false) return false; try { return localStorage.getItem('wq37-nolearn') !== '1'; } catch (e) { return true; } }
+  function lcBuild(doc, ok, w, picked) {
+    if (!doc.getElementById('wqlc-css')) { var st = doc.createElement('style'); st.id = 'wqlc-css'; st.textContent = LC_CSS; (doc.head || doc.documentElement).appendChild(st); }
+    var ov = doc.createElement('div'); ov.className = 'wqlc-ov';
+    ov.innerHTML = '<div class="wqlc ' + (ok ? 'ok' : 'bad') + '" role="alertdialog" aria-live="assertive" aria-label="' + (ok ? '答對了' : '正確答案') + '">' +
+      '<div class="wqlc-hd">' + (ok ? '✔ 答對了！' : '✘ 正確答案是') + '</div><div class="wqlc-bd">' +
+      '<div class="wqlc-pic" aria-hidden="true">' + lcEsc(w.emoji || '🔤') + '</div>' +
+      '<div class="wqlc-ans"><span class="wqlc-en" lang="en">' + lcEsc(w.en) + '</span>' + (w.zh ? '<span class="wqlc-zh">' + lcEsc(w.zh) + '</span>' : '') + '</div>' +
+      (!ok && picked ? '<div class="wqlc-you">你選了 <s lang="en">' + lcEsc(picked.en) + '</s>' + (picked.zh ? ' ＝ ' + lcEsc(picked.zh) : '') + '</div>' : '') +
+      '<div class="wqlc-row"><button type="button" class="wqlc-say" data-lc="say" aria-label="再聽一次">🔊</button>' +
+      '<button type="button" class="wqlc-go" data-lc="go"' + (ok ? '' : ' disabled') + '>' + (ok ? '繼續 ▶' : '記住了 ▶') + '</button></div>' +
+      '</div><div class="wqlc-bar" aria-hidden="true"><i></i></div></div>';
+    return ov;
+  }
+
   var current = null;
   var seedOverride = null;
   var API = { start: start, modes: MODES, getBest: loadBest };
@@ -444,7 +489,41 @@
         bossPhase = 2; atkT = 1.8; kick(0.4); banner = { t: 2.2, text: '⚠ 第二階段！更快！', col: '#ff6b6b' }; sfx('bad');
       }
     }
-    function judgeGate(g) { g.judged = true; g.ok = lane === g.correctLane; g.reveal = 3; resolveGate(g, g.ok, g.x); }
+    function judgeGate(g) {
+      g.judged = true; g.ok = lane === g.correctLane; g.reveal = 3;
+      var pk = null, i;
+      for (i = 0; i < g.doors.length; i++) if (g.doors[i].lane === lane) pk = { en: g.doors[i].word, zh: '' };
+      if (pk) for (i = 0; i < words.length; i++) if (words[i].en === pk.en) pk.zh = words[i].zh;
+      resolveGate(g, g.ok, g.x); lcShow(g.ok, g.target, pk);
+    }
+    /* ----- learning card: the run freezes so the child can see, hear and remember the answer ----- */
+    var lcOn = lcEnabled(opts), lc = null;
+    function lcShow(ok, w, picked) {
+      if (!lcOn || !w || state !== 'play') return;
+      var T = ok ? LC_OK : LC_BAD;
+      state = 'learn'; toast = null; swId = null;
+      var el = lcBuild(doc, ok, w, picked);
+      lc = { ok: ok, w: w, t: 0, min: T.min, max: T.max, again: T.again || 0, el: el, bar: el.querySelector('.wqlc-bar i'), go: el.querySelector('[data-lc="go"]') };
+      el.firstChild.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
+      el.querySelector('[data-lc="say"]').addEventListener('click', function (e) { e.stopPropagation(); ensureAudio(); if (lc) speak(lc.w.en); });
+      lc.go.addEventListener('click', function (e) { e.stopPropagation(); lcDone(false); });
+      root.appendChild(el);
+      speak(w.en);
+    }
+    function lcTick(dt) {
+      if (!lc) { state = 'play'; return; }
+      var t0 = lc.t; lc.t += dt;
+      if (lc.bar) lc.bar.style.width = Math.min(100, lc.t / lc.max * 100).toFixed(1) + '%';
+      if (lc.t >= lc.min && lc.go.disabled) { lc.go.disabled = false; if (!touchMode) { try { lc.go.focus({ preventScroll: true }); } catch (e) { /* */ } } }
+      if (lc.again && t0 < lc.again && lc.t >= lc.again) speak(lc.w.en);
+      if (lc.t >= lc.max) lcDone(true);
+    }
+    function lcDone(force) {
+      if (!lc || (!force && lc.t < lc.min)) return;
+      if (lc.el.parentNode) lc.el.parentNode.removeChild(lc.el);
+      lc = null;
+      if (state === 'learn') { state = 'play'; lastT = 0; }
+    }
     function resolveGate(g, ok, endX) {
       gateIdx++; lastGateX = endX;
       var t = g.target, py = laneY(vl, L.px);
@@ -503,7 +582,7 @@
     function spellEnd(g, ok, x) {
       g.judged = true; g.ok = ok; g.reveal = 3;
       for (var i = 0; i < pickups.length; i++) if (pickups[i].kind === 'letter') pickups[i].got = true;
-      resolveGate(g, ok, x);
+      resolveGate(g, ok, x); lcShow(ok, g.target, null);
     }
     function letterPick(p) {
       var g = gate, col = p.col;
@@ -635,7 +714,7 @@
         if (landT > 0) landT -= dt; if (slideBuf > 0) slideBuf -= dt;
         ensure();
         if (gate && !gate.judged) {
-          if (gate.kind === 'spell') spellUpdate(gate);
+          if (gate.kind === 'spell') { spellUpdate(gate); if (state !== 'play') return; }
           else if (gate.kind === 'listen' && !gate.spoken && gate.x - dist < 1100) { gate.spoken = true; speak(gate.target.en); }
         }
         if (bossOn && !bossDone) {
@@ -658,7 +737,7 @@
           if (p.x < dist - 220 || p.got) { pickups.splice(i, 1); continue; }
           if (p.ly === undefined) p.ly = p.lane;
           if (magnet > 0 && p.x - dist < 520 && p.x > dist - 40 && p.kind !== 'magnet' && p.kind !== 'letter') p.ly += (lane - p.ly) * Math.min(1, dt * 9);
-          if (Math.abs(p.x - dist) < 46 && Math.abs(p.ly - lane) < 0.55) collect(p);
+          if (Math.abs(p.x - dist) < 46 && Math.abs(p.ly - lane) < 0.55) { collect(p); if (state !== 'play') return; }
         }
         if (gate && !gate.judged && gate.kind !== 'spell' && gate.x <= dist) { judgeGate(gate); if (state !== 'play') return; }
         if (finishX && dist >= finishX) endRun(true);
@@ -667,6 +746,7 @@
         if (Math.random() < dt * 4 && !reduced) confetti(6);
       } else if (state === 'over') { endT += dt; }
       else if (state === 'ready') { scr += 55 * dt; }
+      else if (state === 'learn') lcTick(dt);
       if (bossDone && state === 'play') bossT += dt;
       if (prevGate) prevGate.reveal -= dt;
       if (throwFlash > 0) throwFlash -= dt;
@@ -1110,6 +1190,12 @@
       if (k === 'p' || k === 'P' || k === 'Escape') { e.preventDefault(); if (state === 'play') pause(); else if (state === 'paused') resume(); return; }
       if (state === 'paused') { if (k === 'Enter' || k === ' ') { e.preventDefault(); resume(); } return; }
       if ((state === 'won' || state === 'over') && cardShown) { if (k === 'Enter') { e.preventDefault(); replay(); } return; }
+      if (state === 'learn') {
+        if ((k === 'Enter' || k === ' ' || code === 'Space') && !e.repeat) { e.preventDefault(); lcDone(false); }
+        else if ((k === 'r' || k === 'R') && lc) speak(lc.w.en);
+        else if (k.indexOf('Arrow') === 0) e.preventDefault();
+        return;
+      }
       if (state !== 'play') return;
       ensureAudio();
       if (k === 'ArrowUp' || k === 'w' || k === 'W') { e.preventDefault(); if (!e.repeat) changeLane(-1); }
@@ -1123,7 +1209,7 @@
     function onDown(e) {
       if (e.pointerType === 'touch') setTouch();
       ensureAudio();
-      if (e.target && e.target.closest && e.target.closest('.wq37r-ov,.wq37r-btn,.wq37r-say')) return;
+      if (e.target && e.target.closest && e.target.closest('.wq37r-ov,.wq37r-btn,.wq37r-say,.wqlc')) return;
       swId = e.pointerId; swX = sw0X = e.clientX; swY = sw0Y = e.clientY; swT = performance.now(); swAct = false;
     }
     function onMove(e) {
@@ -1141,7 +1227,7 @@
       if (e.pointerId !== swId) return; swId = null;
       if (!swAct && state === 'play' && Math.abs(e.clientX - sw0X) < 16 && Math.abs(e.clientY - sw0Y) < 16 && performance.now() - swT < 500) tapLane(e.clientY);
     }
-    function ctl(fn) { return function (e) { e.preventDefault(); e.stopPropagation(); if (e.pointerType === 'touch') setTouch(); ensureAudio(); fn(); }; }
+    function ctl(fn) { return function (e) { e.preventDefault(); e.stopPropagation(); if (e.pointerType === 'touch') setTouch(); ensureAudio(); if (state === 'learn') { if (fn === replaySay) { if (lc) speak(lc.w.en); } else lcDone(false); return; } fn(); }; }
     var onUpBtn = ctl(function () { changeLane(-1); }), onDownBtn = ctl(function () { changeLane(1); }), onDashBtn = ctl(doDash), onJumpBtn = ctl(doJump), onSlideBtn = ctl(doSlide), onSayBtn = ctl(replaySay);
     var onPauseBtn = ctl(function () { if (state === 'play') pause(); else if (state === 'paused') resume(); });
     function onVis() { if (doc.hidden) pause(); }
@@ -1198,6 +1284,7 @@
         }
         return {
           state: state, lane: lane, hearts: hearts, score: score, combo: combo, gateIndex: gateIdx, gates: N,
+          learn: lc ? { ok: lc.ok, word: lc.w.en, zh: lc.w.zh, t: lc.t, min: lc.min, max: lc.max, ready: lc.t >= lc.min } : null,
           correctWord: g && g.doors ? g.target.en : null, doors: g && g.doors ? g.doors.map(function (d) { return { lane: d.lane, word: d.word }; }) : [], gateKind: g ? g.kind : null, spell: sp,
           armed: armedNow(0), stagePassed: stagePassed, result: lastResult, boss: bossOn, bossStreak: bossStreak, coins: coins, correct: correct, wrong: wrong,
           bossHp: bossHp, bossMax: bossMax, bossPhase: bossPhase, bossDone: bossDone, attacks: atks.map(function (a) { return a.k; }), atkInfo: atks.map(function (a) { return { k: a.k, lane: a.lane, t: a.t, warn: a.warn, hi: !!a.hi }; }), bossName: B.name,
@@ -1212,6 +1299,7 @@
       _lane: function (n) { lane = clamp(n | 0, 0, 2); vl = lane; },
       _advance: advance,
       _hold: function (b) { holdGate = !!b; },
+      _learnSkip: function () { lcDone(true); },
       _god: function (b) { godMode = !!b; },
       _jump: doJump, _slide: doSlide,
       _step: function (n, ff) { for (var i = 0; i < n && state === 'play'; i++) step(1 / 60, !!ff); },
@@ -1237,6 +1325,7 @@
   API._debugJump = function () { if (current) current._jump(); };
   API._debugSlide = function () { if (current) current._slide(); };
   API._debugStep = function (n, ff) { if (current) current._step(n, ff); };
+  API._debugLearnSkip = function () { if (current) current._learnSkip(); };
   API._debugSpawn = function (k, l, ahead) { if (current) current._spawn(k, l, ahead); };
   API._debugQuiet = function (b) { if (current) current._quiet(b); };
   API._debugGive = function (k) { if (current) current._give(k); };

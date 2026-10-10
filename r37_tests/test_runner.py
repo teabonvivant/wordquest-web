@@ -41,6 +41,7 @@ def new_page(pw, touch, reduced=False):
         ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, has_touch=True, is_mobile=True, **kw)
     else:
         ctx = b.new_context(viewport={'width': 1440, 'height': 900}, **kw)
+    ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
     p = ctx.new_page(); errs = []
     p.on('console', lambda m: errs.append(m.text) if m.type == 'error' else None)
     p.on('pageerror', lambda e: errs.append(str(e)))

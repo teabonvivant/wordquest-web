@@ -131,6 +131,6 @@ with sync_playwright() as p:
     ev(pg, "r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     flawless(pg)
     C.ok(ev(pg, 'r37P.result.passed') and ev(pg, 'r37P.result.coins') == 0 and ev(pg, 'r37Coins()') == 0, 'guest can play a level; no coin is promised or stored for a guest')
-    C.ok(ev(pg, "Object.keys(localStorage).filter(k=>k.startsWith('wq37')).length") == 0, 'guest progress is not written to localStorage')
+    C.ok(ev(pg, "Object.keys(localStorage).filter(k=>k.startsWith('wq37')&&k!=='wq37-nolearn').length") == 0, 'guest progress is not written to localStorage')
     b.close()
 C.done()

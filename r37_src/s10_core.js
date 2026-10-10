@@ -71,6 +71,20 @@ function r37StageOpen(t,w,s){
  if(w>0)return !!r37Entry(t,w-1,9)?.passed;
  return true;
 }
+/* FPS level map: node (w,s) is the English unit (w,s); open once that unit is passed (classroom completion counts) or for Admin */
+function r37FpsOpen(w,s){return adminUnlocks()||!!r37Entry('english',w,s)?.passed;}
+function r37FpsWorldOpen(w){return adminUnlocks()||Array.from({length:10},(_,s)=>s).some(s=>!!r37Entry('english',w,s)?.passed);}
+function r37FpsNext(w,s){let nw=w,ns=s+1;if(ns>9){nw++;ns=0;}return nw<R37_TRACKS.english.worlds.length?{w:nw,s:ns}:null;}
+function r37FpsUnitWords(w,s){return r37EnStage(w,s).map(x=>({en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'🔤'}));}
+function r37FpsPay(w,s,res){
+ const o=r37Get(),k=r37LvKey('fps',w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=res&&res.passed!==undefined?!!res.passed:stars>=3;
+ const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
+ if(passed){if(!old.passed&&s===9)coins+=2;e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
+ r37Bump('fps');r37Save();
+ if(!isLoggedIn())coins=0;
+ if(coins)r37AddCoins(coins);
+ return coins;
+}
 function r37WorldStars(t,w){let n=0;for(let s=0;s<10;s++)n+=r37Entry(t,w,s)?.best||0;return n;}
 function r37WorldDone(t,w){let n=0;for(let s=0;s<10;s++)if(r37Entry(t,w,s)?.passed)n++;return n;}
 function r37TrackWorlds(t){return t==='english'?R37_TRACKS.english.worlds:(globalThis.WQ37Math?WQ37Math.worlds(t):[]);}

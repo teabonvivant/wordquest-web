@@ -9,7 +9,7 @@ PASS test_boss_attacks
 PASS test_powerups
 PASS test_endless
 PASS test_perks
-desktop avg frame interval 16.52 ms (60.5 fps); update+render 0.92 ms
+desktop avg frame interval 16.63 ms (60.1 fps); update+render 0.81 ms
 PASS test_fps_and_destroy
 PASS test_screenshots
 ALL PASSED 13/13

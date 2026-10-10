@@ -1,5 +1,5 @@
 PASS test_touch
-desktop avg rAF frame interval ms: 18.71 ; avg update+render ms: 0.87
+desktop avg rAF frame interval ms: 16.60 ; avg update+render ms: 1.11
 PASS test_desktop
 PASS test_win_five_stars
 PASS test_arenas_questions_boss
@@ -8,4 +8,12 @@ PASS test_spawn_scaling
 PASS test_freeze
 PASS test_combo_best_record
 PASS test_touch_new_actions
-ALL PASSED 9/9
+PASS test_picker
+PASS test_level_mode
+PASS test_free_mode_result_fields
+PASS test_hint_and_aim_assist
+PASS test_mute_and_audio
+PASS test_stats_and_scale
+PASS test_fx
+PASS test_pause_visibility_resume
+ALL PASSED 17/17
