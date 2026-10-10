@@ -28,6 +28,7 @@ JOBS = [
     ('fps-module', PY, 'test_fps.py'),
     ('runner-module', PY, 'test_runner.py'),
     ('t11-learn-card', PY, 't11_learn_card.py'),
+    ('t12-dictation-import', PY, 't12_dictation_import.py'),
 ]
 if __name__ == '__main__':
     want = [a.lower() for a in sys.argv[1:]]

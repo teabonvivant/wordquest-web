@@ -83,10 +83,16 @@ def section_flow(c, p):
     c.check('D22: name is pre-filled (默書 M月D日)', bool(__import__('re').match(r'^默書 \d{1,2}月\d{1,2}日$', title)), title, base=True)
     c.check('D22: no invented date', (pg.input_value('#range-date') or '') == '', pg.input_value('#range-date'))
     c.check('D23: photo tips are visible', pg.query_selector('#p40-tips') is not None and '光線' in (vis_text(pg, '#p40-tips') or ''), '', base=True)
+    # R3.10 (intended UI change): with no photo yet the 辨認 button is not offered at all (the camera / upload buttons are the
+    # only call to action), and with no words the next-step button is not offered; a disabled button always still says why.
     why = vis_text(pg, '#p40-why-run') or ''
-    c.check('S3-09: the disabled 辨認 button says why', pg.is_disabled('#run-ocr') and '拍照' in why, why, base=True)
+    run_vis = pg.evaluate("()=>{const e=document.querySelector('#run-ocr');return !!e&&e.getClientRects().length>0}")
+    c.check('S3-09/R3.10: no photo -> the 辨認 button is hidden (or disabled with its reason); camera and upload are offered',
+            pg.is_disabled('#run-ocr') and (not run_vis or '拍照' in why) and pg.is_visible('[data-act="open-camera"]') and pg.is_visible('[data-act="open-upload"]'), why, base=True)
     why1 = vis_text(pg, '#p40-why1') or ''
-    c.check('S3-09: the disabled next-step button says why', pg.is_disabled('#p40-next1') and len(why1) > 5, why1, base=True)
+    next_vis = pg.evaluate("()=>{const e=document.querySelector('#p40-next1');return !!e&&e.getClientRects().length>0}")
+    c.check('S3-09/R3.10: no words -> the next-step button is hidden (or disabled with its reason)',
+            pg.is_disabled('#p40-next1') and (not next_vis or len(why1) > 5), why1, base=True)
     # D11: the draft survives a reload
     pg.fill('#range-title', 'Unit 9 測試')
     pg.fill('#raw-words', 'pencil | 鉛筆\nruler | 間尺')
@@ -106,7 +112,8 @@ def section_flow(c, p):
     pg.click('[data-imp="parse"]')
     pg.wait_for_timeout(800)
     c.check('S3-09: after 整理 the check step opens by itself', vis_text(pg, '.v20-selection') is not None and vis_text(pg, '.v20-source') is None, '', base=True)
-    cl = vis_text(pg, '#p40-count') or ''
+    # R3.10 (intended UI change): the old count paragraph is replaced by the one-line summary and the fixed 已選 N 個 bar.
+    cl = (vis_text(pg, '#p40-count') or '') or ((vis_text(pg, '#v20-message') or '') + ' ' + (vis_text(pg, '#v20-import-dock') or ''))
     c.check('D4/S3-09: count line says how many are selected', '已選' in cl, cl, base=True)
     shot(pg, 'flow_step2_390')
     for _ in range(40):

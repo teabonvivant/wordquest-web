@@ -27,7 +27,7 @@ from p40_lib import Checker  # noqa: E402,F401
 
 ANCHOR = '\ninstallMediaEvents();\nrender();'
 BRIDGE = "\nwindow.__ev=(s)=>eval(s);\n"
-IMG = Path('/home/claude/audit_r35/dictation/images')
+IMG = Path(os.environ.get('P40_IMG', '/home/claude/audit_r35/dictation/images'))  # R3.10: overridable, the audit folder is not in the repo
 SHOTS = Path('/home/claude/audit_r35/r35/p40')
 SHOTS.mkdir(parents=True, exist_ok=True)
 
@@ -208,10 +208,22 @@ light | 光線
 pillow | 枕頭"""
 
 
+def open_text(pg):
+    """R3.10: the paste-text box starts collapsed on #range-new (it was open before); open it so a test can type into it."""
+    try:
+        d = pg.query_selector('#v20-text-details')
+        if d and not pg.evaluate("()=>document.querySelector('#v20-text-details').open"):
+            pg.click('#v20-text-details>summary', timeout=3000)
+            pg.wait_for_timeout(120)
+    except Exception:
+        pass
+
+
 def go_range_new(pg):
     goto(pg, '#range-new', 900)
     parent_unlock(pg)
     pg.wait_for_timeout(500)
+    open_text(pg)
 
 
 def wait_js(pg, expr, timeout=6000):
