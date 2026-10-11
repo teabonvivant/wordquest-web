@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-11",
+  "method": "SVG contact sheets rendered with Sharp and Noto Sans CJK TC; manually inspected by grade. Not browser screenshots.",
+  "units": 85,
+  "ordinary_unit_drawings": 79,
+  "exploration_illustrations": 6,
+  "reviewed": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6"
+  ],
+  "corrections": [
+    "Congruent triangular-prism bases",
+    "Decimal-point-aligned addition",
+    "Cube faces/edges/vertices illustration",
+    "Exploration notebook without unrelated example quantities"
+  ],
+  "browser_layout_verified": false
+}

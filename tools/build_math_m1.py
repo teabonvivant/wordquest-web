@@ -9,9 +9,14 @@ s=app.read_text(encoding='utf-8')
 blocks=list(re.finditer(r'<script([^>]*)>([\s\S]*?)</script>',s,re.I));originals=[b[2] for b in blocks if 'data-course-m1=' not in b[1]]
 if len(originals)!=43 or 'WordQuest Maths 0.1.2' not in originals[40]:
  raise SystemExit('Unrecognised app base. Keep a backup; reconcile upstream changes manually.')
-(S/'style_bundle.js').write_text('globalThis.WQCourseCSS='+json.dumps((S/'course_ui.css').read_text(encoding='utf-8'),ensure_ascii=False)+';\n',encoding='utf-8')
+(S/'style_bundle.js').write_text('globalThis.WQCourseCSS='+json.dumps((S/'course_ui.css').read_text(encoding='utf-8')+'\n'+(S/'course_visual.css').read_text(encoding='utf-8'),ensure_ascii=False)+';\n',encoding='utf-8')
 (S/'tools_bundle.js').write_text('globalThis.WQCourseTools='+json.dumps((S/'tools_iframe.html').read_text(encoding='utf-8'),ensure_ascii=False).replace('</script','<\\/script')+';\n',encoding='utf-8')
-names=['course_data.js','course_engine.js','tools_bundle.js','style_bundle.js','course_ui.js']
+names=['course_data.js','course_engine.js','tools_bundle.js','style_bundle.js','course_visuals.js','course_ui.js']
+# Upgrade an integrated M1 shell exactly once, preserving all other modules.
+if '<script data-course-m1="course_visuals.js">' not in s:
+ marker='<script data-course-m1="course_ui.js">'
+ if s.count(marker)!=1:raise SystemExit('Cannot locate the existing M1 UI marker.')
+ s=s.replace(marker,'<script data-course-m1="course_visuals.js"></script>\n'+marker,1)
 for name in names:
  matches=list(re.finditer(r'<script data-course-m1="'+re.escape(name)+r'">[\s\S]*?</script>',s))
  if len(matches)!=1:raise SystemExit('Integration marker mismatch: '+name)
