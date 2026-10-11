@@ -1,0 +1,29 @@
+name: Math M1 update verification
+on:
+  push:
+    branches: [update/math-m1-20261011]
+    paths: ['.github/workflows/math-m1-verify.yml']
+permissions:
+  contents: read
+jobs:
+  export-baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Export the exact R3.9 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init baseline
+          git -C baseline remote add origin https://github.com/teabonvivant/wordquest-web.git
+          git -C baseline fetch --depth=1 origin 148d146387cfb13809ddd7a8ffb26a80ebe8d50d
+          test "$(git -C baseline rev-parse FETCH_HEAD)" = 148d146387cfb13809ddd7a8ffb26a80ebe8d50d
+          git -C baseline archive --format=zip --output="$GITHUB_WORKSPACE/r39-baseline.zip" FETCH_HEAD
+          sha256sum r39-baseline.zip
+      - name: Save baseline for byte-for-byte comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: math-m1-r39-baseline
+          path: r39-baseline.zip
+          retention-days: 1
+          compression-level: 0
