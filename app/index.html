@@ -14907,17 +14907,32 @@ const gcd=(a,b)=>b?gcd(b,a%b):a;
 const calc=(s,p)=>fmt(C.evaluate(s,p).toString());
 const val=(p,k)=>Number(p[k]);
 const chunks=s=>String(s||'').split(/(?<=[。！？；])/u).map(x=>x.trim()).filter(Boolean);
-function arithmetic(a,b,op){
- const minus=op==='−',steps=[`相同數位對齊，從個位開始${minus?'減':'加'}。`],names=['個','十','百','千','萬'];
- if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0)return [];
- let carry=0,borrow=0;const n=Math.max(String(a).length,String(b).length);
- for(let i=0;i<n;i++){let x=Math.floor(a/10**i)%10,y=Math.floor(b/10**i)%10;
-  if(minus){x-=borrow;borrow=0;if(x<y){steps.push(`${names[i]}位不夠減，向左一位借1，換成10個${names[i]==='個'?'一':names[i]}。`);x+=10;borrow=1;}steps.push(`${names[i]}位：${x} − ${y} ＝ ${x-y}。${borrow?'左邊一位記得少1。':''}`);}
-  else{const total=x+y+carry;steps.push(`${names[i]}位：${x} ＋ ${y}${carry?' ＋ '+carry+'（進位）':''} ＝ ${total}。${total>=10?'寫'+total%10+'，向左進1。':''}`);carry=Math.floor(total/10);}
+function arithmeticTrace(a,b,op){
+ const minus=op==='−',names=['個','十','百','千','萬'],units=['一','十','百','千','萬'];
+ if(!Number.isInteger(a)||!Number.isInteger(b)||a<0||b<0||minus&&a<b)return {steps:[],frames:[]};
+ const n=Math.max(String(a).length,String(b).length),digits=Array.from({length:n},(_,i)=>Math.floor(a/10**i)%10),other=Array.from({length:n},(_,i)=>Math.floor(b/10**i)%10),answers=Array(n).fill(''),carries=Array(n+1).fill(''),steps=[],frames=[];
+ const add=(body,focus)=>{steps.push(body);frames.push({digits:[...digits],answers:[...answers],carries:[...carries],focus});};
+ add(`相同數位對齊，從個位開始${minus?'減':'加'}。`,0);
+ let carry=0;
+ for(let i=0;i<n;i++){
+  if(minus){
+   if(digits[i]<other[i]){
+    let source=i+1;while(source<n&&digits[source]===0)source++;
+    for(let k=source;k>i;k--){digits[k]--;digits[k-1]+=10;
+     add(`${k-1===i?names[i]+'位不夠減。':names[k-1]+'位是0，先退位。'}把1個${units[k]}換成10個${units[k-1]}：${names[k]}位剩${digits[k]}，${names[k-1]}位變成${digits[k-1]}。`,k-1);
+    }
+   }
+   answers[i]=digits[i]-other[i];add(`${names[i]}位：${digits[i]} − ${other[i]} ＝ ${answers[i]}。`,i);
+  }else{
+   const incoming=carry,total=digits[i]+other[i]+incoming;answers[i]=total%10;carry=Math.floor(total/10);if(carry)carries[i+1]=carry;
+   add(`${names[i]}位：${digits[i]} ＋ ${other[i]}${incoming?' ＋ '+incoming+'（進位）':''} ＝ ${total}。${carry?'寫'+answers[i]+'，向左進1。':''}`,i);
+  }
  }
- if(!minus&&carry)steps.push(`最高位再寫上進位的${carry}。`);
- steps.push(`${a} ${op} ${b} ＝ ${minus?a-b:a+b}。${minus?`驗算：${a-b} ＋ ${b} ＝ ${a}。`:''}`);return steps;
+ if(!minus&&carry)add(`最高位再寫上進位的${carry}。`,n);
+ add(`${a} ${op} ${b} ＝ ${minus?a-b:a+b}。${minus?`驗算：${a-b} ＋ ${b} ＝ ${a}。`:''}`,null);
+ return {steps,frames};
 }
+function arithmetic(a,b,op){return arithmeticTrace(a,b,op).steps;}
 function stepsFor(q,t,lib){const p=q.params,k=q.skill,kind=t.verification?.kind,ans=q.displayAnswer||q.answer;
  if(t.school){const values={...p,result:q.type==='fraction'?p.result:fmt(p.result)};return t.school.steps.map(s=>C.fill(s,values));}
  if(t.pedagogy==='reasoning')return chunks(q.explanation);
@@ -14986,6 +15001,7 @@ function figure(q,stage=0){const p=q.params,k=q.skill,m=q.school?.model;let out=
  else if(m==='journey'){out=rect(70,55,220,120,'#e8f5ef')+text(180,92,'路程',22)+text(180,140,`${p.distance} 公里`,31)+rect(350,55,220,120,'#fff0c8')+text(460,92,'時間',22)+text(460,140,`${p.minutes} 分鐘`,31);}
  else if(m==='packing'||m==='sharing'){const items=m==='packing'?[[p.a,'枝鉛筆'],[p.b,'塊擦膠']]:[[p.a,'張卡紙'],[p.b,'組']];out=items.map(([n,label],i)=>rect(70+280*i,65,220,122)+text(180+280*i,119,n,36)+text(180+280*i,162,label,23)).join('');}
  else if(/^[\d.]+\s*[+＋−-]\s*[\d.]+\s*=/.test(q.stem_zh)||m==='decimal-add'){const match=m==='decimal-add'?['',p.a,'＋',p.b]:q.stem_zh.match(/^([\d.]+)\s*([+＋−-])\s*([\d.]+)/),a=match[1],b=match[3],places=Math.max((a.split('.')[1]||'').length,(b.split('.')[1]||'').length),A=Number(a).toFixed(places),B=Number(b).toFixed(places),n=Math.max(A.length,B.length),x=320-(n-1)*32;
+  if(!places&&stage>0){const op=/[−-]/.test(match[2])?'−':'＋',trace=arithmeticTrace(+a,+b,op),frame=trace.frames[Math.min(stage-1,trace.frames.length-1)];if(frame){const padded=A.padStart(n,' ');out=text(320,22,op==='−'?(frame.digits.some((v,j)=>v!==Math.floor(+a/10**j)%10)?'退位後，按直式一步一步算':'相同數位對齊'):(frame.carries.some(v=>v)?'把進位的1也加上':'相同數位逐步相加'),19);for(let i=0;i<n;i++){const X=x+i*64,j=n-1-i,original=padded[i],changed=op==='−'&&original.trim()&&frame.digits[j]!==+original;out+=rect(X-26,35,52,157,j===frame.focus?'#fff0c8':'#f4f1f8');if(changed)out+=`<text data-role="regrouped" x="${X}" y="66" text-anchor="middle" font-size="29" font-weight="800" fill="#965331">${frame.digits[j]}</text>`+line(X-15,93,X+15,93);else if(frame.carries[j])out+=text(X,63,'＋'+frame.carries[j],21);out+=text(X,102,original,31)+text(X,150,B.padStart(n,' ')[i],31);if(stage<trace.steps.length&&frame.answers[j]!=='')out+=text(X,228,frame.answers[j],31);}out+=text(x-58,150,op,35)+line(x-36,173,x+(n-1)*64+32,173);if(stage>=trace.steps.length)out+=text(320,228,q.displayAnswer||q.answer,34);else if(frame.answers.every(v=>v===''))out+=text(320,228,'？',31);if(frame.carries[n])out+=text(x-64,63,'＋'+frame.carries[n],21);return wrap(out,q.objective||q.stem_zh);}}
   out=text(320,26,stage?(places?'小數點對齊':'相同數位對齊'):'直式',20);for(let i=0;i<n;i++){const X=x+i*64;out+=rect(X-26,44,52,147,stage&&i===n-Math.min(stage,n)?'#fff0c8':'#f4f1f8')+text(X,89,A.padStart(n,' ')[i],34)+text(X,143,B.padStart(n,' ')[i],34);}out+=text(x-58,143,match[2],35)+line(x-36,162,x+(n-1)*64+32,162)+text(320,229,stage>=q.workedSteps?.length?q.displayAnswer||q.answer:'？',33);
  }
  return wrap(out,q.objective||q.stem_zh);

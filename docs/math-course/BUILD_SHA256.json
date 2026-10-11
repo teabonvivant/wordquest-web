@@ -2,7 +2,7 @@
   "math_course_src/active-content.json": "b2864228bd57ecdfd80eea67ff1297e068b1335fbcb04f344da1db51afe45edb",
   "math_course_src/course_data.js": "56a582110cbbe501f1729c2d50fde5710f4bed5c95b5ce60516294c8fe51118b",
   "math_course_src/course_engine.js": "c97b9bd673fdb951f3ca8bafb51b1f7809369988a2fd976d11feeb90cbbb813f",
-  "math_course_src/course_pedagogy.js": "ecc4e9e18b67df921c5f0944bb4844966d2dfe8359a286e361879caa5abb94c0",
+  "math_course_src/course_pedagogy.js": "c03c5986463b3e01c0498df8633b9676ccc0d0be5c2b6d25c3546974768773a3",
   "math_course_src/course_ui.css": "8b35c31245ae1dc0e0ae1f1d31cdff7736d4572cb0cd0ea3c84839884ba2ff19",
   "math_course_src/course_ui.js": "d16fc7d2b110a8ec718820fa9a170f369121a591a8ef5076180087399312e285",
   "math_course_src/course_visual.css": "ba0602bdcfd8b1b03e4c6a6011f4855817791ae9a4c5099e02eb7e4432c0ff78",
@@ -13,7 +13,7 @@
   "math_course_src/style_bundle.js": "19e319eb60304615433726a263e5f3c95d5714d519c88a998a642770c247043a",
   "math_course_src/tools_bundle.js": "c47b0cf6c38de8b7cc55ad9f547d419906d8c199ae98ef0194f58fc392749898",
   "math_course_src/tools_iframe.html": "e8f72c5b452f3cd10a3bec8504dabfaf786a59117d47c983b0cb85fac112cf74",
-  "app/index.html": "ba35122062394e475314d418c40955dd4ae33e9d6146ed982ea28bf9c6ddfbac",
-  "math_course_preview.html": "699e2d08d625d26532732ed7ef0c10b86420070c1fcdd407281e8962f1404e87",
-  "app/sw.js": "4a19dcf86cfa1a5231c6ef75a6fd9e9aeac2582285b18c1919bfb494fe117abd"
+  "app/index.html": "9b4440cffe97724f5ad2380f8e8d3d5c2e32e842dfdba63720a405120e3af5e1",
+  "math_course_preview.html": "bb3147a8552c3db61699cca33dbf945bd38960bb9ad2cea1c406cbf97e09389f",
+  "app/sw.js": "1a58cfd8b99ba57b49e95b607f864cf7506b79c73b45f1566189b5994ef2af16"
 }
