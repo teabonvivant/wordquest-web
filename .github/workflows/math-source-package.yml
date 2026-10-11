@@ -1,0 +1,30 @@
+name: Maths isolated source package
+on:
+  push:
+    branches: [assistant/math-learning-20261011]
+    paths: [.github/workflows/math-source-package.yml]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: 148d146387cfb13809ddd7a8ffb26a80ebe8d50d
+          persist-credentials: false
+      - name: Record exact baseline
+        run: git rev-parse HEAD > SOURCE_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wordquest-r39-maths-baseline
+          path: |
+            app/index.html
+            app/WordQuest_Maths_Plugin_R1.html.txt
+            app/sw.js
+            app/manifest.webmanifest
+            README.md
+            SOURCE_COMMIT.txt
+          retention-days: 1
+          if-no-files-found: error
