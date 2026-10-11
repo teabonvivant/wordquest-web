@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "app/index.html": 51,
+    "math_course_preview.html": 13
+  },
+  "serviceWorker": true,
+  "original43ScriptsUnchanged": true
+}

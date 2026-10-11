@@ -1,16 +1,19 @@
 {
   "math_course_src/active-content.json": "b2864228bd57ecdfd80eea67ff1297e068b1335fbcb04f344da1db51afe45edb",
   "math_course_src/course_data.js": "56a582110cbbe501f1729c2d50fde5710f4bed5c95b5ce60516294c8fe51118b",
-  "math_course_src/course_engine.js": "ef558848a0462e8cef414e8f63addf4865651440017a3bb45da12f2a6175986b",
+  "math_course_src/course_engine.js": "c97b9bd673fdb951f3ca8bafb51b1f7809369988a2fd976d11feeb90cbbb813f",
+  "math_course_src/course_pedagogy.js": "ecc4e9e18b67df921c5f0944bb4844966d2dfe8359a286e361879caa5abb94c0",
   "math_course_src/course_ui.css": "8b35c31245ae1dc0e0ae1f1d31cdff7736d4572cb0cd0ea3c84839884ba2ff19",
-  "math_course_src/course_ui.js": "55064f46f8851c57ff3e9de5fcb74eadc2a44e1012ba8394c645cfcb42a349bc",
-  "math_course_src/course_visual.css": "9dcc881cd5cfa09439cc425e02b3c3ce9b6789b9bb5ff081884a5dfec67c8e15",
+  "math_course_src/course_ui.js": "686e71308fed96236295df9bedc9d373d35eca38743ac9c0ac16acdfabb63d45",
+  "math_course_src/course_visual.css": "ba0602bdcfd8b1b03e4c6a6011f4855817791ae9a4c5099e02eb7e4432c0ff78",
   "math_course_src/course_visuals.js": "5fdbbf0e26cb10e2e0517172f57ad32fed7e327fbc6a3239e80f3197788124af",
   "math_course_src/curriculum-map.json": "4cafaedc92fd2d48a69e4d8def6799150868371106df62c96e9a09021ee4eb1f",
-  "math_course_src/style_bundle.js": "a8ac68a717b96df1e1d30a670f5ec6447e8d461a25c7e9161ed729b0857009bc",
+  "math_course_src/school_bundle.js": "caa3919e864ba78bb74b44b7b8c4f7d9a3ba3ddbdfff4824d8ad23b1b76a94d0",
+  "math_course_src/school_content.json": "2c154348397959448decdb82cdb6c00d48d890c4d0aacd782c4ac89b20d87011",
+  "math_course_src/style_bundle.js": "19e319eb60304615433726a263e5f3c95d5714d519c88a998a642770c247043a",
   "math_course_src/tools_bundle.js": "c47b0cf6c38de8b7cc55ad9f547d419906d8c199ae98ef0194f58fc392749898",
   "math_course_src/tools_iframe.html": "e8f72c5b452f3cd10a3bec8504dabfaf786a59117d47c983b0cb85fac112cf74",
-  "app/index.html": "2127aa1f5dfce4d3cd6b19cbb9d362109577c216430a2e3cf24589fe51ebf815",
-  "math_course_preview.html": "1a0d066654ae7fe41da1c8914829eca7b2e552355ce3337a3c2734e272d7ef1e",
-  "app/sw.js": "eae9dd4699fb580579173aac82c0e625cc3ba62b846acd1db1e82d60cf49692f"
+  "app/index.html": "3435117228b12aef1b3266c93335c218dbb6a6ea99ed5bf564bd1b8f5d92bb12",
+  "math_course_preview.html": "6b04fb48b39850a13b9d435ca1e4d4e9791a430b8cc1616af9e9e8198326edb7",
+  "app/sw.js": "abe275aa1df682c8794c9f3d50bf1a69e71f0f83bef2d58936ea6ae1892f643d"
 }

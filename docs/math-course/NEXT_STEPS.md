@@ -1,12 +1,9 @@
-# NEXT_STEPS — M2
+# NEXT_STEPS — M3
 
-## 下一次開啟先做
+1. 先讀最新PROJECT_STATE、TEST_REPORT和KNOWN_ISSUES，以GitHub最新main為底本。
+2. 以390px手機、平板及桌面核對課中閱讀、分數輸入、放大圖卡與返回訂正。
+3. 取得使用者學校的一個實際課題及練習／測驗樣本，逐項比對用詞、題型、閱讀量、列式及評分準則。公開評估不能代替校本資料。
+4. 香港小學教師逐課核對範圍與示範；真實孩子試用觀察能否獨立完成。先修停住的步驟，不只增加題數。
+5. 尚欠多小題組、作圖、拖動／量度真實操作、較全面的單元題型及自由文字評分；不要稱完整校本模擬。
 
-1. 以GitHub最新main為準，讀取PROJECT_STATE及KNOWN_ISSUES。
-2. 在真實瀏覽器以390px手機、平板及桌面打開「數學 → 主題課堂」，檢查圖卡大小、按鈕、字體、朗讀及前後導覽。
-3. 帶小一至小六各一名學生試用，觀察能否自行看圖理解；按照實際卡住的地方修改，不以程式測試數量代替可用性驗收。
-4. 教師逐主題核對示例、教學深度、應用課與官方完整範圍的缺口。
-
-## 技術
-
-保留M1進度／原答案格式。修改course_visuals.js、course_visual.css或course_ui.js後執行 `python3 tools/build_math_m1.py`，再跑核心與visual_ui_test。正式部署、PWA快取更新、兩名孩子隔離及家庭備份還原仍須實機驗收。
+技術：保留既有答案及模板ID；改school_content.json、course_pedagogy.js、UI/CSS後執行build_math_m1.py及三組Node測試。瀏覽器檢查不能以Node測試替代。

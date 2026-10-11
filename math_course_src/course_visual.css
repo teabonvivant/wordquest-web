@@ -32,3 +32,63 @@
 @media print{.visitor-strip,.topic-filters,.card-pagination{display:none!important}.app{background:white}.topic-card,.visual-lesson{box-shadow:none}}
 
 .picture-tools{display:flex;justify-content:flex-end;margin-top:9px}.picture-tools .btn{min-height:44px;background:#fff;border-color:#e2d8f0;color:#6d5594}.picture-modal{width:min(880px,100%);max-height:90dvh;overflow:auto}.picture-modal h2{font-size:22px}.zoom-scroll{overflow-x:auto;background:#f7f3fc;border-radius:15px;padding:12px;margin:20px 0}.zoom-scroll .math-picture{width:100%;min-width:600px}
+
+/* M3: content comes first; classroom chrome no longer pushes the instruction below the fold. */
+.view-learn .wrap,.view-exam .wrap{max-width:1000px}
+.view-learn .top,.view-exam .top{padding:12px 0;margin:0}
+.view-learn .brand svg,.view-exam .brand svg{width:30px;height:30px}
+.view-learn .brand .small,.view-exam .brand .small{display:none}
+.view-learn .lesson-title{margin:12px 0 16px}
+.view-learn .lesson-title h1{font-size:clamp(23px,3.4vw,32px);margin:10px 0 0}
+.view-learn .learning-route{grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 16px}
+.view-learn .learning-route button{min-height:48px;padding:10px}
+.view-learn .learning-route small{display:none}
+.lesson-split{display:block;max-width:920px;margin:auto}
+.guided-lesson{padding:22px 28px}
+.guided-lesson .card-heading{margin:0 0 8px}
+.learning-focus{font-size:15px;color:#655674;margin:4px 0 10px}
+.guided-lesson .worked-question{font-size:clamp(20px,2.5vw,26px);line-height:1.65;text-align:left;margin:8px 0 12px;max-width:none}
+.guided-lesson .card-sentence{font-size:clamp(20px,2.4vw,25px);line-height:1.6;text-align:left;margin:8px 0;padding:13px 17px;background:#f3effb;border-left:5px solid #9475c8;border-radius:10px}
+.guided-figure .diagram{margin:8px 0;min-height:0;padding:8px 10px;max-height:275px;overflow:auto;background:#fff;border-radius:12px}
+.guided-figure svg{width:100%;height:auto;max-height:240px;display:block;margin:auto}
+.guided-figure:empty{display:none}
+.guided-lesson .card-pagination{gap:5px;margin:8px 0;flex-wrap:wrap}
+.guided-lesson .card-pagination button{min-width:38px;min-height:38px;width:38px;height:38px;font-size:15px}
+.guided-lesson .actions{margin-top:12px;padding-top:12px}
+.optional-tools{display:flex;gap:12px;justify-content:center;margin-top:10px}
+.fraction{display:inline-flex;vertical-align:middle;flex-direction:column;align-items:center;line-height:1.15;margin:0 .2em;min-width:1.1em;font-variant-numeric:tabular-nums}
+.fraction>span:first-child{border-bottom:1.7px solid currentColor;width:100%;text-align:center;padding:0 .1em .12em}
+.fraction>span:last-child{padding-top:.12em}
+.fraction-answer{background:#f8f6fc;border:1px solid #e0d9ee;padding:18px;border-radius:15px;margin-top:20px}
+.fraction-inputs{display:flex;gap:18px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.fraction-inputs label{display:flex;flex-direction:column;gap:5px;max-width:140px;font-size:14px}
+.fraction-inputs input{width:118px;padding:10px;border:2px solid #aa94c6;border-radius:9px;font-size:25px;text-align:center;min-height:48px;background:#fff;color:#293458}
+.fraction-pair{display:flex;flex-direction:column;gap:8px}
+.fraction-pair>label:first-child{padding-bottom:9px;border-bottom:2px solid #655083}
+.result>summary{cursor:pointer;font-weight:750;font-size:19px;min-height:44px;padding:10px 0;list-style-position:inside;line-height:1.6}
+.result:not([open]){padding-top:12px;padding-bottom:12px}
+.results .result .diagram{max-height:280px;overflow:auto}
+.results .result .diagram svg{max-height:240px;width:100%}
+.view-learn .footer{margin-top:15px}
+.view-exam .side{font-size:16px}
+@media(max-width:600px){
+ .view-learn .wrap,.view-exam .wrap{padding:0 12px}
+ .guided-lesson{padding:16px 14px}
+ .view-learn .top{padding:8px 0}
+ .view-learn .lesson-title{margin:10px 0}
+ .view-learn .learning-route{gap:6px}
+ .view-learn .learning-route button{font-size:16px;gap:4px;min-height:46px}
+ .view-learn .learning-route button span{display:none}
+ .guided-lesson .worked-question{font-size:20px;line-height:1.6}
+ .guided-figure svg{min-width:0;max-height:185px}
+ .guided-figure .diagram{padding:0;max-height:215px}
+ .guided-lesson .card-sentence{font-size:20px;padding:11px 12px}
+ .lesson-actions{position:sticky;bottom:0;background:#fff;padding-bottom:10px;z-index:2;border-top:1px solid #eee8f4}
+ .lesson-actions .btn{min-height:48px;font-size:16px;padding:10px 13px}
+ .learning-focus{font-size:14px}
+ .fraction-inputs{gap:12px}
+}
+.guided-lesson .picture-tools{margin:0;justify-content:flex-end}
+.guided-lesson .picture-tools .btn{font-size:14px;min-height:44px}
+.guided-lesson .card-pagination button{min-width:44px;min-height:44px;width:44px;height:44px}
+.zoom-scroll .diagram svg{min-width:640px;width:100%;max-height:none}

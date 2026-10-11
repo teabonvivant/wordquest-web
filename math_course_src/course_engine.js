@@ -8,7 +8,7 @@ const signature=q=>q.stem_zh+'|'+q.answer+'|'+(q.remainder??'');
 function initial(grade=1){return {version:1,grade,serial:0,learning:null,exam:null,history:[],practice:[],lessons:{},reviews:{},journal:{},rewarded:[],exposures:[]};}
 function state(s){if(!s.courseM1)s.courseM1=initial();return s.courseM1;}
 function unit(code){const u=U.get(code);assert(u,'找不到這個課堂。');return u;}
-function question(lib,r){return B.generate(lib,r.template,r.seed);}
+function question(lib,r){const q=B.generate(lib,r.template,r.seed);return root.WQCoursePedagogy?root.WQCoursePedagogy.enrich(q,lib):q;}
 function cleanInput(a={}){const o={value:'',expression:'',unit:'',remainder:''};for(const[k,max]of [['value',60],['expression',240],['unit',20],['remainder',60]]){const v=a[k]??'';assert(typeof v==='string'||typeof v==='number','答案格式不正確。');assert(String(v).length<=max,'答案太長，請保留最需要的資料。');o[k]=String(v);}return o;}
 function validate(v,lib){
  if(v===undefined)return;
@@ -35,13 +35,11 @@ function validate(v,lib){
  if(v.exam){const x=v.exam;obj(x);assert(B.safeId(x.id),'測驗編號不正確。');assert(['draft','submitted'].includes(x.status),'測驗狀態不正確。');num(x.grade,1,6);num(x.part,0,2);str(x.kind,24);time(x.at);arr(x.units,20);assert(x.units.length>0&&new Set(x.units).size===x.units.length,'選擇的單元重複。');x.units.forEach(c=>assert(unit(c).grade===x.grade&&unit(c).category!=='F','測驗年級或單元不正確。'));arr(x.refs,20);assert(x.refs.length>0,'測驗沒有題目。');x.refs.forEach(r=>{rf(r);assert(x.units.includes(lib.skills.get((lib.templates.get(r.template)||lib.archived.get(r.template)).skill).unit),'測驗混入未選擇的單元。');});arr(x.inputs,20);assert(x.inputs.length===x.refs.length,'測驗答案數量對不上。');x.inputs.forEach(cleanInput);num(x.index,0,x.refs.length-1);num(x.requested,1,20);}
 }
 function nextSeed(c){c.serial++;assert(c.serial<1e9,'出題紀錄已滿，請先匯出備份。');return (Math.imul(c.serial,2654435761)+12345)>>>0;}
-function build(s,lib,{codes,part=0,count=5,exclude=[],focus=null}={}){
+function build(s,lib,{codes,part=0,count=5,exclude=[],focus=null,templateIds=null}={}){
  const c=state(s);assert(Array.isArray(codes)&&codes.length>0&&codes.length<=20,'請選擇課題。');assert(Number.isInteger(count)&&count>=1&&count<=20,'題數須為1至20。');
- const pools=codes.map(code=>{unit(code);return [...lib.templates.values()].filter(t=>lib.skills.get(t.skill)?.unit===code&&lib.skills.get(t.skill)?.track==='normal'&&(!focus||t.skill===focus)&&(part!==1||t.difficulty<=2));});
- const used=new Set(exclude),out=[];let failures=0,turn=0;
- while(out.length<count&&failures<1600){const pool=pools[turn++%pools.length];if(!pool.length){failures++;continue;}const seed=nextSeed(c);let t=pool[c.serial%pool.length];
-  // The second chapter includes a reasoning item when available, not only bigger operands.
-  if(part===2&&turn<=pools.length)t=pool.find(x=>x.pedagogy==='reasoning')||t;
+ const pools=codes.map(code=>{unit(code);const allowed=templateIds||(!focus&&root.WQCoursePedagogy?.ids(code,part));return [...lib.templates.values()].filter(t=>lib.skills.get(t.skill)?.unit===code&&lib.skills.get(t.skill)?.track==='normal'&&(!focus||t.skill===focus)&&(!allowed||allowed.includes(t.id))&&t.pedagogy!=='reasoning');});
+ const used=new Set(exclude),out=[],cursor=pools.map(()=>0);let failures=0,turn=0;
+ while(out.length<count&&failures<1600){const pi=turn++%pools.length,pool=pools[pi];if(!pool.length){failures++;continue;}const seed=nextSeed(c),t=pool[cursor[pi]++%pool.length];
   const q=B.generate(lib,t.id,seed),sig=signature(q);if(used.has(sig)){failures++;continue;}used.add(sig);out.push(ref(q));failures=0;
  }
  return out;
@@ -49,15 +47,17 @@ function build(s,lib,{codes,part=0,count=5,exclude=[],focus=null}={}){
 function startLearning(s,lib,code,part=1,now=Date.now()){
  const c=state(s),u=unit(code);assert(!c.exam||c.exam.status==='submitted','請先完成或取消目前的小測。');assert([1,2].includes(part),'課堂編號不正確。');
  const key=code+'-'+part;c.lessons[key]={...(c.lessons[key]||{}),seenAt:now};c.grade=u.grade;
- const examples=u.category==='F'?[]:build(s,lib,{codes:[code],part,count:2});
- const banned=examples.map(r=>signature(question(lib,r)));const refs=u.category==='F'?[]:build(s,lib,{codes:[code],part,count:3,exclude:banned});
- c.learning={unit:code,part,step:0,at:now,examples,refs,index:0,inputs:refs.map(()=>cleanInput()),hints:refs.map(()=>0),checked:refs.map(()=>false),first:refs.map(()=>null)};
+ const templateIds=u.category==='F'?[]:root.WQCoursePedagogy?.ids(code,part);
+ const examples=u.category==='F'?[]:templateIds?.length?templateIds.map(template=>({template,seed:nextSeed(c)})):build(s,lib,{codes:[code],part,count:2});
+ const banned=examples.map(r=>signature(question(lib,r)));const refs=u.category==='F'?[]:build(s,lib,{codes:[code],part,count:Math.max(3,(templateIds?.length||1)*2),exclude:banned,templateIds});
+ c.learning={unit:code,part,step:0,at:now,examples,refs,index:0,inputs:refs.map(()=>cleanInput()),hints:refs.map(()=>0),checked:refs.map(()=>false),first:refs.map(()=>null),syllabus:'HK-M3.0',templateIds:templateIds||[]};
  return c.learning;
 }
 function verdict(q,input){const a=cleanInput(input),m=B.mark(q,a);const pending=m.code==='PROCESS'&&m.parts?.value&&m.parts?.unit;
  return {ref:ref(q),input:a,correct:!!m.correct,credit:m.credit||0,code:m.code||(m.correct?'CORRECT':'RECHECK'),pending:!!pending,hint:0,message:!a.value.trim()?'這題還未作答。':m.message};
 }
 function practice(s,lib,input,now=Date.now()){
+ assert(String(input?.value??'').trim(),'先填上答案，或按「給我提示」一起做。');
  const c=state(s),l=c.learning;assert(l&&l.refs.length,'先打開課堂練習。');const i=l.index,q=question(lib,l.refs[i]),v=verdict(q,input);assert(l.checked[i]!==true,'本題已記下，請前往下一題。');
  l.inputs[i]=cleanInput(input);v.hint=l.hints[i];const isFirst=!l.first[i];
  if(isFirst){l.first[i]=clone(v);const rec={...clone(v),id:'c1p'+nextSeed(c),at:now,independent:v.hint===0};c.practice.push(rec);c.practice=c.practice.slice(-1000);
@@ -69,13 +69,14 @@ function practice(s,lib,input,now=Date.now()){
  if(l.checked.every(Boolean))c.lessons[l.unit+'-'+l.part]={...(c.lessons[l.unit+'-'+l.part]||{}),practiceAt:now};
  return v;
 }
-function startExam(s,lib,{codes,grade,part=0,count=10,kind='selected',focus=null}={},now=Date.now()){
+function startExam(s,lib,{codes,grade,part=0,count=10,kind='selected',focus=null,templateIds=null}={},now=Date.now()){
  const c=state(s);assert(!c.exam||c.exam.status==='submitted','已有未交卷的測驗，請先繼續或取消。');
  assert([1,2,3,4,5,6].includes(grade),'請選擇年級。');codes=[...new Set(codes)];codes.forEach(x=>assert(unit(x).grade===grade&&unit(x).category!=='F','請選擇同一年級的普通數學課題。'));
  const examples=c.learning?.examples||[];const banned=[...c.exposures,...examples.map(r=>signature(question(lib,r)))];
- let refs=build(s,lib,{codes,part,count,exclude:banned,focus});let rehearsal=false;
+ if(kind==='chapter'&&c.learning?.syllabus==='HK-M3.0')templateIds=c.learning.templateIds;
+ let refs=build(s,lib,{codes,part,count,exclude:banned,focus,templateIds});let rehearsal=false;
  const covered=()=>codes.every(code=>refs.some(r=>lib.skills.get(question(lib,r).skill).unit===code));
- if(!covered()){refs=build(s,lib,{codes,part,count,focus});rehearsal=true;}assert(refs.length&&covered(),'部分課題未能選出題目，請減少主題或增加題數。');
+ if(!covered()){refs=build(s,lib,{codes,part,count,focus,templateIds});rehearsal=true;}assert(refs.length&&covered(),'部分課題未能選出題目，請減少主題或增加題數。');
  c.exam={id:'c1e'+nextSeed(c),grade,part,kind,units:codes,requested:count,rehearsal,refs,inputs:refs.map(()=>cleanInput()),index:0,status:'draft',at:now};return c.exam;
 }
 function draft(s,input){const x=state(s).exam;assert(x?.status==='draft','這份測驗已交卷，不能覆寫原答案。');x.inputs[x.index]=cleanInput(input);}
