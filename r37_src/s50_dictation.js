@@ -7,6 +7,7 @@ const S50_LENS=[[0,'不限'],[3,'3+'],[4,'4+'],[5,'5+']];
 const S50_DEFAULT={minLen:3,basic:true};
 let s50Prefs=null,s50PrefsKey='',s50SkipOpen=false,s50BusyAuto=false;
 let s50Saved=null,s50Over=false,s50Review=null;   // R3.12: success card / over-120 prompt / one-by-one review state
+let s50AuthOpen=false,s50AuthArmed=false,s50Hold=0,s50Pend=null;   // R3.15: visitor card open / login page opened from it / sign-in in flight / one deferred save
 function s50Key(){let id='';try{id=String(accountId()||'');}catch(_){}return 'wq50-dict-prefs:'+(id||'guest');}
 function s50Stored(){
  const k=s50Key();
@@ -174,6 +175,9 @@ function s50FixLabels(){
   dock.dataset.s50Over=s50Over?'1':'0';
   const ov=$('#s50-over');
   if(ov){ov.hidden=!s50Over;const t=ov.querySelector('[data-s50="save120"]');if(t)t.textContent='儲存前 120 個';}
+  const au=$('#s50-auth'),le=$('#s50-lease');
+  if(au)au.hidden=!(s50AuthOpen&&!isLoggedIn());
+  if(le)le.hidden=!(isLoggedIn()&&!v23HasLease());
  }
  const msg=$('#v20-message');
  if(msg&&v20.items.length&&!v20.rawDirty)msg.textContent=`共 ${raw} 項，已選 ${n} 個`;
@@ -229,6 +233,9 @@ document.addEventListener('click',e=>{
   else if(a==='retry-crop')s50Retry('crop');
   else if(a==='practice')s50Practice();
   else if(a==='again'){s50Saved=null;render();}
+  else if(a==='auth-login'||a==='auth-register')s50GoSignIn(a==='auth-register');
+  else if(a==='auth-cancel'){s50AuthOpen=false;s50FixLabels();}
+  else if(a==='auth-back'){s50AuthArmed=false;go('range-new');}
  }catch(err){try{console.warn('s50',err);}catch(_){}}
 });
 document.addEventListener('toggle',e=>{
@@ -252,11 +259,13 @@ function s50TrySave(){
  if(ocrBusy||v20FileLoading)return;
  const list=s50SaveList();
  if(!list.length){s50Nudge();return;}
+ if(!s50Gate())return;
  if(list.length>120){s50Over=true;s50FixLabels();return;}
  s50Commit(list);
 }
 function s50Commit(list){
  if(v20.saving||!list.length)return;
+ if(!s50Gate())return;
  captureImportDraft();
  const c=activeChild();
  if(!c||v20Origin&&v20Origin!==v20Owner()){s50Err('孩子或帳戶已切換，請重新匯入。');return;}
@@ -276,17 +285,120 @@ function s50Commit(list){
    db.words.push({id:uid('w'),childId:c.id,rangeId:r.id,en:x.en,zh:x.zh,kind:x.kind,example:meta.choices.length===1&&meta.zh===x.zh?meta.example:'',emoji:'',createdAt:new Date().toISOString(),studySeen:0,reviewLevel:0,reviewDue:null,lastSeen:null,importEvidence:v20ValidateEvidence({mode:v20.mode,checked:true,sources})});
   }
   c.activeRangeId=r.id;db.session=null;
-  if(!save()){db=before;s50Err('儲存失敗。選好的字和草稿還在，請先備份再試。');return;}
-  const wasLogged=isLoggedIn();
+  if(!save()||!s50Landed(r.id,list.length)){db=before;s50Err('儲存失敗，沒有寫入。選好的字和草稿還在，請先備份再試。');return;}
   clearImportDraft();
   mediaSelectedRange=r.id;mediaMessage='已加入你選定的默書內容。請核對圖片及準備讀音。';
-  s50Saved={rid:r.id,n:list.length,title,dropped,trial:!wasLogged};
-  s50Over=false;s50Review=null;
+  s50Saved={rid:r.id,n:list.length,title,dropped};
+  s50Over=false;s50Review=null;s50Pend=null;
   render();
+  if(!s50Root())toast(`已儲存 ${list.length} 個字。`);     // the parent unlock ran out in this very instant: the host drew its gate over the card
  }catch(e){
   db=before;
   s50Err('儲存失敗。原有教材沒有改動，草稿還在，請再試一次。');
  }finally{v20.saving=false;}
+}
+/* ===== R3.15 save landing: 儲存 never pretends =====================================================================
+ * Three things must be true before anything is written, and each one that is missing is said where the parent is looking while the
+ * draft stays: signed in (a visitor's save would vanish), the parent unlock (else the host swaps the page for its password screen
+ * after the write) and the edit lease (another tab owns the account). A deferred save (s50Pend) runs once when the page is back. */
+const S50_PEND_MS={lease:15000,parent:900000,auth:900000};
+function s50Gate(){
+ if(!isLoggedIn()){
+  captureImportDraft();
+  s50AuthOpen=true;s50Over=false;s50FixLabels();
+  try{$('#s50-auth [data-s50="auth-login"]')?.focus({preventScroll:true});}catch(_){}
+  return false;
+ }
+ if(!v23ParentAllowed()){
+  captureImportDraft();                  // the inputs go away with the page: keep the name and the date
+  s50Pend={kind:'parent',born:Date.now()};
+  s50Over=false;
+  render();                              // the host draws its parent password screen for #range-new; the list stays in memory
+  return false;
+ }
+ if(!v23HasLease()){
+  s50FixLabels();
+  const le=$('#s50-lease');
+  if(le){try{le.scrollIntoView({block:'nearest'});}catch(_){}le.classList.remove('s50-flash');void le.offsetWidth;le.classList.add('s50-flash');}
+  return false;
+ }
+ return true;
+}
+/* the stored copy really holds the new range and all its words (a save() that said true is not taken on trust) */
+function s50Landed(rid,n){
+ try{
+  const o=JSON.parse(localStorage.getItem(dbKey())||'null');
+  return !!o&&o.ranges.some(x=>x.id===rid)&&o.words.filter(w=>w.rangeId===rid).length===n;
+ }catch(_){return false;}
+}
+function s50GoSignIn(reg){
+ captureImportDraft();
+ s50AuthOpen=false;s50AuthArmed=true;
+ go('login');
+ if(reg)setTimeout(()=>{const c=$('#p10-register-card');if(c){try{c.scrollIntoView({block:'start'});}catch(_){}$('#register-name')?.focus({preventScroll:true});}},400);
+}
+/* sign in / register while the visitor's list is on the page: the list survives (the host's clearImportDraft is held off) and, when
+ * the login page was opened from the 儲存 card, the save is made once afterwards */
+async function s50AuthRun(fn,self,args){
+ if(isLoggedIn()||!v20.items.length)return fn.apply(self,args);
+ const auto=s50AuthArmed&&lastRoute==='login',was=accountId();
+ s50Hold++;
+ try{return await fn.apply(self,args);}
+ finally{
+  s50Hold--;
+  try{if(isLoggedIn()&&accountId()!==was)s50AfterAuth(auto);}catch(e){try{console.warn('s50',e);}catch(_){}}
+ }
+}
+function s50AfterAuth(auto){
+ s50AuthOpen=false;s50AuthArmed=false;
+ v20Origin=v20Owner();                    // the list now belongs to this account's child
+ if(!auto)return;
+ /* the password was just typed for this very save: that is the parent check (the host clears the unlock on every sign-in) */
+ v23ParentOwner=v23Owner();v23ParentUntil=performance.now()+300000;
+ s50Pend={kind:'auth',born:Date.now()};
+ go('range-new');
+}
+const s50PriorLogin=loginAccount;
+loginAccount=async function(){return s50AuthRun(s50PriorLogin,this,arguments);};
+const s50PriorRegister=registerAccount;
+registerAccount=async function(){return s50AuthRun(s50PriorRegister,this,arguments);};
+/* 在這個分頁編輯 is the host's own button (data-v23="acquire"); pressing it also asks for the save to be made once the lease is ours */
+window.addEventListener('click',e=>{
+ const b=e.target.closest&&e.target.closest('#s50-lease [data-v23="acquire"]');
+ if(b&&lastRoute==='range-new')s50Pend={kind:'lease',born:Date.now()};
+},true);
+function s50Tick(){
+ if(lastRoute!=='login')s50AuthArmed=false;
+ if(lastRoute==='login'&&s50AuthArmed&&!$('#s50-auth-note')){
+  const n=s50SaveList().length;
+  const head=$('#app .p10-login-head')||$('#app').firstElementChild;
+  if(head){
+   const d=document.createElement('div');
+   d.id='s50-auth-note';d.className='s50-auth-note';d.setAttribute('role','status');
+   d.innerHTML=`<span>登入或建立帳戶後，會自動儲存剛才選好的 ${n} 個字。</span><button type="button" class="btn quiet" data-s50="auth-back">取消，返回選字</button>`;
+   head.after(d);
+  }
+ }
+ if(lastRoute!=='range-new'){s50AuthOpen=false;s50Pend=null;return;}
+ if(!s50Pend)return;
+ if(Date.now()-s50Pend.born>(S50_PEND_MS[s50Pend.kind]||60000)){s50Pend=null;return;}
+ if(s50Pend.kind==='parent'){
+  const pw=$('#v23-parent-password');
+  if(pw&&!$('#s50-gate-note')){
+   const p=document.createElement('p');
+   p.id='s50-gate-note';p.className='small';p.setAttribute('role','status');
+   p.textContent=`輸入後會自動儲存剛才選好的 ${s50SaveList().length} 個字。`;
+   (pw.closest('section')?.querySelector('label')||pw).before(p);
+  }
+ }
+ if(s50Pend.fired||!s50Root()||!isLoggedIn())return;       // the password screen (or the login page) is still showing: wait
+ if(s50Step()!==2||!v20.items.length){s50Pend=null;return;}
+ const mine=s50Pend;mine.fired=true;
+ setTimeout(()=>{
+  if(s50Pend!==mine)return;
+  s50Pend=null;
+  if(lastRoute==='range-new'&&s50Root())s50TrySave();
+ },0);
 }
 /* every route into saving ends here: the host's save-range button, the old 確認加入 and the dock all mean the same thing */
 saveRange=function(){return s50TrySave();};
@@ -346,7 +458,11 @@ v20SaveEdit=function(id){
 
 /* starting a new import (or a discarded draft) retires the success card; s50Commit sets it after its own clear */
 const s50PriorClear=clearImportDraft;
-clearImportDraft=function(){s50Saved=null;s50Over=false;s50Review=null;return s50PriorClear.apply(this,arguments);};
+clearImportDraft=function(){
+ if(s50Hold>0)return;                  // R3.15: a visitor signing in keeps the list (the host clears the draft on every sign-in)
+ s50Saved=null;s50Over=false;s50Review=null;s50AuthOpen=false;s50Pend=null;
+ return s50PriorClear.apply(this,arguments);
+};
 
 const s50PriorPhoto=updateImportPhoto;
 updateImportPhoto=function(){
@@ -421,6 +537,14 @@ function s50Dock(root){
   ov.id='s50-over';ov.className='s50-over';ov.hidden=true;ov.setAttribute('role','alert');
   ov.innerHTML='<span>只儲存前 120 個？</span><button type="button" class="btn quiet" data-s50="over-back">返回</button><button type="button" class="btn primary" data-s50="save120">儲存前 120 個</button>';
   inner.before(ov);
+  /* R3.15: what is missing before a save can land - a sign-in (visitor) or the edit lease (a second tab) */
+  const au=document.createElement('div');
+  au.id='s50-auth';au.className='s50-gate';au.hidden=true;au.setAttribute('role','alert');
+  au.innerHTML='<strong>先登入才可儲存</strong><span>選好的字會保留，登入後自動儲存。</span><div class="s50-gate-btns"><button type="button" class="btn quiet" data-s50="auth-cancel">取消</button><button type="button" class="btn secondary" data-s50="auth-register">建立帳戶</button><button type="button" class="btn primary" data-s50="auth-login">登入</button></div>';
+  const le=document.createElement('div');
+  le.id='s50-lease';le.className='s50-gate';le.hidden=true;le.setAttribute('role','alert');
+  le.innerHTML='<strong>這個分頁暫時不能儲存</strong><span>另一個分頁正在編輯這個帳戶。選好的字會保留。</span><div class="s50-gate-btns"><button type="button" class="btn primary" data-v23="acquire">在這個分頁編輯</button></div>';
+  inner.before(au,le);
  }
 }
 function s50SavedCard(root){
@@ -430,7 +554,7 @@ function s50SavedCard(root){
  if(card)return;
  card=document.createElement('section');
  card.id='s50-saved';card.className='card s50-saved';card.setAttribute('role','status');
- card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.trial?'<p class="small muted">試玩範圍，離開後不會儲存。</p>':''}${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
+ card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
  (root.querySelector('#p40-steps')||root.firstElementChild).after(card);
 }
 function s50Enhance(){
@@ -468,6 +592,7 @@ render=function(){
  if((location.hash||'#kid').slice(1).split('?')[0]!=='range-new')s50Saved=null;
  const r=s50PriorRender.apply(this,arguments);
  try{if(lastRoute==='range-new')s50Enhance();}catch(e){try{console.warn('s50',e);}catch(_){}}
+ try{s50Tick();}catch(e){try{console.warn('s50',e);}catch(_){}}
  return r;
 };
 

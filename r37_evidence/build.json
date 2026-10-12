@@ -1,13 +1,14 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "8e3a8ce93f1826048dbee7c5d6c1f328af80c0ec5273f9deb492680bc3f9fcfc",
+  "appSHA256": "f5e296226f75c80cc1d80302a3af439d0b08e7bcc163019bd743697d48d55401",
   "swSHA256": "1c69b07770dac53f078b826e5742aecf8579876a255ccac1225231fcec8d7853",
   "modules": [
     "s10_shell",
     "s20_modes",
     "s40_admin",
     "s50_dictation",
+    "s52_device",
     "s55_morph",
     "s56_morph_ui",
     "s60_legacy"

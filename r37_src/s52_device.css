@@ -1,0 +1,4 @@
+/* R3.15 s52: the 記住這部裝置 tick above the sign-in / create-account buttons */
+html body .s52-rem{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;min-height:44px;margin:6px 0 8px;font-size:16px;font-weight:700;cursor:pointer}
+html body .s52-rem input{width:24px;height:24px;margin:0;flex:none;accent-color:#136f74}
+html body .s52-rem small{font-size:13px;font-weight:400;color:#5b6770}

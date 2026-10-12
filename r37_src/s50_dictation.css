@@ -168,3 +168,15 @@ html body #import-v20 .s50-retry .btn{min-height:44px;padding:0 10px;font-size:1
 html body #import-v20 .s50-retry-2{margin:0 0 6px}
 html body #import-v20 .s50-err{margin:0 0 6px;padding:8px 10px;border-radius:10px;background:#fde8e4;border:1.5px solid #b3261e;color:#7a1410;font-size:15px;font-weight:800}
 html body #import-v20 .s50-err[hidden]{display:none!important}
+
+/* ---- R3.15: save landing - the sign-in / edit-lease cards above the bar, and the notes on the login and password screens ---- */
+html body #import-v20 .s50-gate{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 6px;padding:8px 10px;border-radius:12px;background:#fff6dc;border:1.5px solid #b45309;color:#5a2d00}
+html body #import-v20 .s50-gate[hidden]{display:none!important}
+html body #import-v20 .s50-gate strong{flex:1 1 100%;font-size:16px;font-weight:800}
+html body #import-v20 .s50-gate span{flex:1 1 100%;font-size:14px}
+html body #import-v20 .s50-gate-btns{flex:1 1 100%;display:flex;gap:8px;justify-content:flex-end;margin-top:2px}
+html body #import-v20 .s50-gate .btn{flex:1 1 0;min-width:0;min-height:48px;font-size:16px;font-weight:800;padding:0 8px;white-space:nowrap}
+html body #import-v20 .s50-gate.s50-flash{outline:3px solid var(--s50-amber);outline-offset:1px}
+html body .s50-auth-note{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 10px;padding:8px 12px;border-radius:12px;background:#fff6dc;border:1.5px solid #b45309;color:#5a2d00;font-size:15px;font-weight:700}
+html body .s50-auth-note .btn{min-height:44px;font-size:15px;font-weight:800}
+html body #s50-gate-note{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:#fff6dc;border:1.5px solid #b45309;color:#5a2d00;font-weight:700}
