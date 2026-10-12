@@ -21,7 +21,7 @@ function r37Nav(active){
 }
 function r37Home(){
  const m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)).length,prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
- const ring=p=>{const q=prog[p.id];if(!q)return '';return `<span class="r37-pp" style="--p:${Math.round(q.done/Math.max(1,q.total)*100)}"><b>${q.done}/${q.total}</b></span>`;};
+ const ring=p=>{if(p.id==='math')return '<span class="r37-pp" style="--p:0"><b>85主題</b></span>';const q=prog[p.id];if(!q)return '';return `<span class="r37-pp" style="--p:${Math.round(q.done/Math.max(1,q.total)*100)}"><b>${q.done}/${q.total}</b></span>`;};
  return `<section class="r37-gx">${r37Top()}
  <div class="r37-sys"><div class="r37-sun" aria-hidden="true"><span>★</span><small>學霸星球</small></div><i class="r37-orbit o1"></i><i class="r37-orbit o2"></i><i class="r37-orbit o3"></i>
  ${R37_PLANETS.map((p,i)=>`<a class="r37-planet" href="#p/${p.id}" data-pl="${p.id}" style="--h:${p.hue};--x:${p.x}%;--y:${p.y}%;--d:${(i*.7).toFixed(1)}s"><span class="r37-orb"><em aria-hidden="true">${r37Icon(p.icon)}</em></span><span class="r37-pn">${p.name}</span>${ring(p)}</a>`).join('')}</div>
@@ -37,8 +37,8 @@ function r37Hub(id){
   tiles=r37A('🏆','闖關','#lv/english','gold big')+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('🔊','拼音','#learning')+r37A('📖','詞庫','#library');
   extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.done}/${q.total}</b></div>`;
  }else if(id==='math'){
-  tiles=r37A('🏆','闖關','#lv/math','gold big')+quiz('math')+r37B('🏝️','數學島','data-wqm-open="home"')+r37B('🧮','教具工房','data-wqm-open="tools"');
-  extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(r37TrackProgress('math').stars/Math.max(1,r37TrackProgress('math').max)*5)))}<b>${r37TrackProgress('math').done}/${r37TrackProgress('math').total}</b></div>`;
+  tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big')+r37B('✅','考考自己','data-wqm-open="assessment"','blue')+r37B('🔁','再練一練','data-wqm-open="review"','green')+r37B('🧮','動手學數學','data-wqm-open="normal"');
+  extra='<p class="r37-prog">小一至小六 · 每個主題兩課 · 先學會，再試用</p>';
  }else if(id==='olympiad'){
   tiles=r37A('🏆','闖關','#lv/olympiad','gold big')+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
   extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(r37TrackProgress('olympiad').stars/Math.max(1,r37TrackProgress('olympiad').max)*5)))}<b>${r37TrackProgress('olympiad').done}/${r37TrackProgress('olympiad').total}</b></div>`;

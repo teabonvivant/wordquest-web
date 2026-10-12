@@ -74,6 +74,7 @@ render=function(){
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
  else if(route==='lv/fps')html=r37FpsMap();
+ else if(route==='lv/math')html=r37Hub('math');
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='dz')html=r37DzHome();

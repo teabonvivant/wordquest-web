@@ -8,7 +8,7 @@ Base text is `git show <R36_COMMIT>:app/index.html`. Patch modules r37_src/patch
 apply(s, ctx) -> str and optionally apply_sw(s, ctx); ctx.once(s, a, b) replaces exactly one occurrence or raises.
 """
 from pathlib import Path
-import argparse, hashlib, importlib.util, json, re, subprocess
+import argparse, hashlib, importlib.util, json, re, subprocess, sys
 
 R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
@@ -59,10 +59,19 @@ def build(only=None, out=None, base_only=False):
         applied.append(m.MODULE_ID)
     if not base_only:
         s = s.replace('R3.6.0', 'R3.7.0')
-        sw = sw.replace("-3.6.0'", "-3.7.0'")
+        sw = sw.replace("-3.6.0'", "-3.14-math-m3.2'")
+        if out == R and not only:
+            for anchor, names in (('<script>/* WordQuest Maths 0.1.2', ['course_data.js']),
+                                  ('<script>/* Separate subject storage', ['course_engine.js']),
+                                  ('<!-- WQM_PLUGIN_END_0_1_2 -->', ['tools_bundle.js', 'style_bundle.js', 'course_ui.js'])):
+                assert s.count(anchor) == 1, anchor
+                s = s.replace(anchor, ''.join(f'<script data-course-m1="{n}"></script>\n' for n in names) + anchor, 1)
     (out / 'app').mkdir(parents=True, exist_ok=True)
     (out / 'app/index.html').write_text(s)
     (out / 'app/sw.js').write_text(sw)
+    if out == R and not only and not base_only:
+        subprocess.run([sys.executable, str(R / 'tools/build_math_m1.py')], check=True)
+        s = (R / 'app/index.html').read_text()
     if out == R and not only and not base_only:
         (R / 'r37_evidence').mkdir(exist_ok=True)
         (R / 'r37_evidence/build.json').write_text(json.dumps({
