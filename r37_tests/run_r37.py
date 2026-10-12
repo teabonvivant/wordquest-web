@@ -35,6 +35,7 @@ JOBS = [
     ('t15-dictation-save', PY, 't15_dictation_save.py'),
     ('t16-dictation-real', PY, 't16_dictation_real.py'),
     ('t17-legacy-fit', PY, 't17_legacy_fit.py'),
+    ('t18-dictation-study', PY, 't18_dictation_study.py'),
 ]
 if __name__ == '__main__':
     want = [a.lower() for a in sys.argv[1:]]

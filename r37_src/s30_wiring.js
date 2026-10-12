@@ -1,5 +1,5 @@
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|fps|fp\/play|rn\/play)$/;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|dz|fps|fp\/play|rn\/play)$/;
 let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null;
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
 function r37FpsStop(){if(r37FpsHandle){try{r37FpsHandle.destroy();}catch(_){}r37FpsHandle=null;}}
@@ -76,6 +76,7 @@ render=function(){
  else if(route==='lv/fps')html=r37FpsMap();
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
+ else if(route==='dz')html=r37DzHome();
  else if(route==='lp/play')html=r37Play();
  else if(route==='fps')html='<section class="r37-fps"><div id="r37-fps-box"></div></section>';
  else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
@@ -88,6 +89,7 @@ render=function(){
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
+  if(q.mode==='cells'){const el=document.querySelector('.r37-cell');if(el)el.focus({preventScroll:true});}
   if(q.autoPlay&&q.audio)r37Speak(q.audio);
  }
  showSaveIssue();
@@ -140,8 +142,11 @@ document.addEventListener('click',e=>{
  else if(a==='next')r37Next();
  else if(a==='hint'&&P){P.hintShown=true;render();}
  else if(a==='speak')r37Speak(el.dataset.t);
+ else if(a==='qspeak'&&P&&P.qs[P.i])r37Speak(P.qs[P.i].audio);
+ else if(a==='dz-go')r37DzStart(+el.dataset.g,+el.dataset.l||0);
+ else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
- else if(a==='retry'&&P){if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
+ else if(a==='retry'&&P){if(P.kind==='dz')r37DzStart(P.dz.g,P.dz.lvl,true);else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
  else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}r37StartLevel(P.track,w,s);}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}r37Get().diff=+el.dataset.n;r37Save();render();}
  else if(a==='ptab'){r37Mem._ptab=el.dataset.k;render();}
@@ -152,13 +157,16 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('submit',e=>{
  if(!e.target.closest?.('[data-r37-form]'))return;e.preventDefault();
- const el=$('#r37-in');if(el)r37Answer(el.value);
+ const el=$('#r37-in');if(el)r37Answer(el.value);else r37DzSubmit();
 });
+document.addEventListener('input',e=>{if(e.target.classList?.contains('r37-cell')&&!e.isComposing)r37DzCellInput(e.target,e);});
+document.addEventListener('keydown',e=>{if(e.target.classList?.contains('r37-cell'))r37DzCellKey(e.target,e);});
+document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cell'))e.target.select();});
 document.addEventListener('keydown',e=>{
  const P=r37P;if(!P||lastRoute!=='lp/play'||e.ctrlKey||e.metaKey||e.altKey)return;
  if(e.key==='Escape'){r37Exit();return;}
  if(P.phase==='learn'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();P.phase='quiz';render();return;}
- if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="retry"]')?.click();return;}
+ if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="dz-next"],[data-r37="retry"]')?.click();return;}
  if(P.phase!=='quiz')return;
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}
  const q=P.qs[P.i],typing=document.activeElement&&document.activeElement.id==='r37-in';

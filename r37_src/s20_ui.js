@@ -43,7 +43,8 @@ function r37Hub(id){
   tiles=r37A('🏆','闖關','#lv/olympiad','gold big')+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
   extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(r37TrackProgress('olympiad').stars/Math.max(1,r37TrackProgress('olympiad').max)*5)))}<b>${r37TrackProgress('olympiad').done}/${r37TrackProgress('olympiad').total}</b></div>`;
  }else if(id==='dictation'){
-  tiles=r37B('▶️','今日默書','data-act="start-daily"','gold big')+r37B('✅','選擇題','data-act="start-practice" data-type="mcq"','blue')+r37B('✍️','填充題','data-act="start-practice" data-type="fill"','green')+r37B('🔁','補練錯題','data-act="practice-weak"')+r37A('📝','默書範圍','#ranges')+r37A('📊','報告','#report');
+  const dzR=latestRange(),dzS=dzR&&rangeWords(dzR.id).some(w=>w.kind==='sentence');
+  tiles=r37A('📖','學習','#dz','gold big')+(dzS?r37B('🗒️','句子','data-act="start-daily"'):'')+r37B('🔁','補練錯題','data-act="practice-weak"')+r37A('📝','默書範圍','#ranges')+r37A('📊','報告','#report');
  }else if(id==='games'){
   return r37GamesHub();
  }else if(id==='parent'){
@@ -106,25 +107,28 @@ function r37Hearts(){return Array.from({length:r37P.maxHearts},(_,i)=>`<i class=
 function r37Pips(){return r37P.qs.map((q,i)=>`<i class="${i<r37P.i?(r37P.res[i]?'ok':'bad'):i===r37P.i?'cur':''}"></i>`).join('');}
 function r37Play(){
  const P=r37P;if(!P)return r37Home();
- const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
+ const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip">${R37_DZ_LV[P.dz.lvl-1]}</span>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
  if(P.phase==='learn'){
-  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
+  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn ${P.kind==='dz'?'dz':''}">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">${P.kind==='dz'?'▶ 開始測驗（第 '+P.dz.lvl+' 級）':'▶ 闖關'}</button></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
  let body='';
- const aud=q.audio?`<button type="button" class="r37-spk" data-r37="speak" data-t="${esc(q.audio)}" aria-label="聽">${r37Icon('🔊')}</button>`:'';
+ const aud=q.audio?`<button type="button" class="r37-spk" ${q.noleak?'data-r37="qspeak"':`data-r37="speak" data-t="${esc(q.audio)}"`} aria-label="聽">${r37Icon('🔊')}</button>`:'';
  if(q.mode==='mcq'){
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
+ }else if(q.mode==='cells'){
+  body=r37DzCellsBody(q,fb,aud);
  }else{
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
- const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span aria-hidden="true">${fb.ok?'🎉':'💭'}</span><div><b>${fb.ok?P.praise:'答案：'+esc(q.answer)}</b>${!fb.ok&&q.explain?`<small>${esc(q.explain)}</small>`:''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
+ const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span aria-hidden="true">${fb.ok?'🎉':'💭'}</span><div><b>${fb.ok?P.praise:'答案：'+(q.dz&&q.dz.lvl>1?r37DzAns(q,fb):esc(q.answer))}</b>${!fb.ok?(q.dz&&q.dz.lvl>1?r37DzYou(q,fb):q.explain?`<small>${esc(q.explain)}</small>`:''):''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
   :`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint">💡</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
  return `<section class="r37-play">${top}<div class="r37-stage ${q.mode==='fill'?'fill':''} ${fb?(fb.ok?'ok':'shake'):''}">${P.kind==='level'?`<div class="r37-ptitle">${P.title}</div>`:''}${body}</div>${foot}</section>`;
 }
 function r37Result(){
  const P=r37P,r=P.result;
+ if(P.kind==='dz')return r37DzResult();
  const coins=r.coins?`<div class="r37-rc">🪙 +${r.coins}</div>`:'';
  const nextOk=P.kind==='level'&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
  return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?(P.s===9?'🏆':'🎉'):'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.kind==='level'&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}${P.kind==='level'&&P.track==='english'&&r.passed&&r37EnStage(P.w,P.s).length>=4?`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">🎯 射擊鞏固</button>`:''}
@@ -151,11 +155,13 @@ function r37Answer(value){
  const q=P.qs[P.i],ok=r37Check(q,value);
  if(!String(value).trim())return;
  P.fb={ok,value:String(value).trim()};P.res[P.i]=ok;
+ if(q.dz)r37DzRecord(q,P.fb.value,ok);
  if(ok){P.correct++;r37Bump('correct');if(P.track==='english')r37Bump('enok');playSfx('correct');r37Cheer();}
  else{if(P.kind==='level'){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}playSfx('wrong');}
  if(P.hintShown)P.hinted++;
  render();
  try{r37FxAnswer(ok);}catch(_){}
+ if(!ok&&q.dz)r37Speak(q.audio);
  if(ok){clearTimeout(r37Timer);r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},750);}
 }
 function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][P.correct%5];}
@@ -170,7 +176,7 @@ function r37Finish(){
  const P=r37P,D=R37_DIFF[P.diff-1],total=P.qs.length,answered=P.i>=total?total:P.i,correct=P.correct;
  const failedLife=P.hearts<=0&&P.kind==='level',ratio=correct/total;
  const stars=failedLife?Math.min(1,r37StarsFor(correct,total,P.hinted>0)):r37StarsFor(correct,total,P.hinted>0);
- const passed=P.kind==='level'?(!failedLife&&ratio>=D.pass):ratio>=D.pass;
+ const passed=P.kind==='level'?(!failedLife&&ratio>=D.pass):ratio>=(P.kind==='dz'?.75:D.pass);
  let coins=0;
  if(P.kind==='level'){
   const o=r37Get(),k=r37LvKey(P.track,P.w,P.s),old=o.lv[k]||{best:0},boss=P.s===9;
@@ -181,6 +187,7 @@ function r37Finish(){
   if(firstPass)r37Bump('levels');
   r37Save();
  }else{
+  if(P.kind==='dz')r37DzSave(P,stars,passed);
   const d=r37Get().day;d.qc=d.qc||0;
   if(stars===5&&d.qc<3){coins+=1;d.qc++;if(r37Char().perk==='coin')coins+=1;r37Bump('five');}
   r37Save();
@@ -191,7 +198,7 @@ function r37Finish(){
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
- if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P?'#p/'+P.track:'#kid';
+ if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P&&P.kind==='dz'?'#dz':P?'#p/'+P.track:'#kid';
 }
 function r37Speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=typeof britishVoices==='function'?britishVoices()[0]:null;if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
 /* ---------------------------------------------------------------------------------------------- parent */

@@ -36,7 +36,8 @@ with sync_playwright() as p:
     C.ok(pg.evaluate("!!document.querySelector('[href=\"#lv/english\"]')"), 'English region has a level-mode tile')
     go(pg, '#p/dictation')
     C.ok(not pg.evaluate("!!document.querySelector('[href=\"#lv/dictation\"]')"), 'dictation region has no level mode')
-    C.ok(pg.evaluate("document.querySelectorAll('[data-act=\"start-practice\"]').length") == 2, 'dictation region offers exactly 2 test modes')
+    C.ok(pg.evaluate("(()=>{const a=document.querySelector('.r37-tiles [href=\"#dz\"]');return !!a&&a.textContent.includes('學習');})()"), 'dictation region has the 學習 entry (#dz)')
+    C.ok(pg.evaluate("document.querySelectorAll('[data-act=\"start-practice\"],[data-act=\"start-daily\"]').length") == 0, 'dictation region no longer lists the separate daily / mcq / fill tiles')
 
     # ---- English level data rules ----
     d = ev(pg, """(()=>{const out={};

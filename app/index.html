@@ -1389,6 +1389,40 @@ body.r37arc .footer{display:none}
 @media(max-height:520px){.r37-result{gap:6px;padding:8px 20px}.r37-result .r37-rb{font-size:48px;line-height:1.1}.r37-result .r37-st{font-size:30px}.r37-result .r37-rs{font-size:26px}.r37-result .r37-rc{padding:4px 16px;font-size:18px}.r37-result .r37-go{padding:8px 36px;font-size:22px;box-shadow:0 4px 0 #c5942b}.r37-result .r37-sec{height:52px}.r37-result .r37-ra{margin-top:2px}}
 .r37-free,.r37-free .r37-fl{color:#fff}
 
+/* R3.14 dictation study: group cards, learn grid, letter cells */
+.r37-dzh{position:relative;z-index:2;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 14px 6px;font-weight:900;font-size:clamp(18px,3vh,26px)}
+.r37-dzh b{max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.r37-dzh em{font-style:normal;padding:2px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.72em}
+.r37-dzg{position:relative;z-index:2;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:min-content;align-content:start;gap:12px;padding:6px 14px 14px;max-width:1100px;width:100%;margin:0 auto}
+.r37-dzc{min-width:0;display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:24px;background:linear-gradient(160deg,#fff,#eef0ff);color:#1d2158;box-shadow:0 6px 0 rgba(0,0,0,.25),0 12px 24px rgba(0,0,0,.25)}
+.r37-dzm{display:flex;align-items:center;gap:10px;min-height:52px;padding:2px;border:0;border-radius:16px;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.r37-dzn{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#ffd15c;color:#4a3000;font-weight:900;font-size:24px}
+.r37-dzp{flex:1;min-width:0;font-weight:800;font-size:15px;line-height:1.25;color:#555a9a;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.r37-dzl{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.r37-dzb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:54px;padding:4px 2px;border:2px solid #d6d9f2;border-radius:14px;background:#fff;color:#1d2158;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.r37-dzb span{font-size:22px;line-height:1.1}.r37-dzb b{font-size:12px;color:#8a6a00;white-space:nowrap}
+.r37-dzb.rec{border-color:#ffb71c;background:#fff6c9}.r37-dzb.done{border-color:#5fe08d;background:#dcffe8}
+.r37-dzm:focus-visible,.r37-dzb:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+.r37-dzc:active{transform:scale(.98)}
+.r37-learn.dz{grid-template-columns:repeat(2,1fr);gap:8px}
+.r37-learn.dz .r37-wc{flex-direction:column;justify-content:center;gap:2px;padding:8px 6px;border-radius:20px}
+.r37-learn.dz .r37-wem{font-size:clamp(26px,5.4vh,50px)}.r37-learn.dz .r37-wc b{font-size:clamp(18px,3vh,28px);word-break:break-word;text-align:center}.r37-learn.dz .r37-wc span:last-child{font-size:clamp(15px,2.3vh,21px);text-align:center}
+@media(min-width:521px){.r37-learn.dz{grid-template-columns:repeat(4,1fr);gap:12px}.r37-learn.dz .r37-wc{padding:12px 6px}}
+@media(max-height:520px){.r37-learn.dz{grid-template-columns:repeat(4,1fr);gap:6px}.r37-learn.dz .r37-wc{flex-direction:row;padding:4px 8px;gap:6px}.r37-learn.dz .r37-wem{font-size:24px}.r37-dzg{grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:8px}}
+.r37-cf{flex-direction:column;align-items:center;gap:14px}
+.r37-cells{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;width:100%}
+.r37-cw{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:100%}
+.r37-cl,.r37-cell{display:grid;place-items:center;width:clamp(24px,min(calc((min(100vw,760px) - 56px)/var(--n,8) - 6px),9vh),60px);height:clamp(48px,8.6vh,80px);border-radius:14px;font-family:inherit;font-weight:900;font-size:clamp(24px,4.8vh,42px);text-align:center}
+.r37-cl{background:rgba(255,255,255,.14);color:#fff}
+.r37-cell{padding:0;border:3px solid #ffd15c;background:#fff;color:#1d2158;caret-color:transparent}
+.r37-cell:focus{outline:0;border-color:#4d57d6;box-shadow:0 0 0 4px rgba(255,209,92,.55)}
+.r37-cell.ok{border-color:#5fe08d;background:#dcffe8}.r37-cell.bad{border-color:#ff8a9a;background:#ffe3e7}
+.r37-cf .r37-ok{min-width:140px}
+.r37-ans{display:block;font-size:clamp(28px,4.8vh,40px);letter-spacing:.08em;line-height:1.2;word-break:break-word}
+.r37-ans i,.r37-you i{font-style:normal}.r37-ans i.ok,.r37-you i.ok{color:#a8ffcb}.r37-ans i.bad,.r37-you i.bad{color:#ffe066;text-decoration:underline;text-underline-offset:4px}
+.r37-you{font-size:16px!important;letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){.r37-dzc{transition:none}.r37-dzc:active{transform:none}}
+@media(min-width:700px){.r37-dzg{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:16px}.r37-dzc{flex:0 0 clamp(220px,24%,300px)}.r37-dzn{width:52px;height:52px;font-size:28px;border-radius:16px}.r37-dzp{font-size:18px}.r37-dzb{min-height:64px}.r37-dzb span{font-size:28px}.r37-dzb b{font-size:14px}.r37-dzh{font-size:clamp(22px,3.2vh,32px)}.r37-ptitle{font-size:24px}}
+
 /* R3.8 Arcade+ styles (s35_arcade.js). Prefix arx-. Touch targets >= 44px; animations only when motion is allowed. */
 /* ---- lobby reskin inside the planet shell: readable white text on the dark sky, white cards stay white ---- */
 .r37-leg[data-pl=games] .p30-lobby>h1,.r37-leg[data-pl=games] .p30-sec h2{color:#fff;text-shadow:0 2px 10px rgba(5,6,40,.55)}
@@ -14317,7 +14351,8 @@ function r37Hub(id){
   tiles=r37A('🏆','闖關','#lv/olympiad','gold big')+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
   extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(r37TrackProgress('olympiad').stars/Math.max(1,r37TrackProgress('olympiad').max)*5)))}<b>${r37TrackProgress('olympiad').done}/${r37TrackProgress('olympiad').total}</b></div>`;
  }else if(id==='dictation'){
-  tiles=r37B('▶️','今日默書','data-act="start-daily"','gold big')+r37B('✅','選擇題','data-act="start-practice" data-type="mcq"','blue')+r37B('✍️','填充題','data-act="start-practice" data-type="fill"','green')+r37B('🔁','補練錯題','data-act="practice-weak"')+r37A('📝','默書範圍','#ranges')+r37A('📊','報告','#report');
+  const dzR=latestRange(),dzS=dzR&&rangeWords(dzR.id).some(w=>w.kind==='sentence');
+  tiles=r37A('📖','學習','#dz','gold big')+(dzS?r37B('🗒️','句子','data-act="start-daily"'):'')+r37B('🔁','補練錯題','data-act="practice-weak"')+r37A('📝','默書範圍','#ranges')+r37A('📊','報告','#report');
  }else if(id==='games'){
   return r37GamesHub();
  }else if(id==='parent'){
@@ -14380,25 +14415,28 @@ function r37Hearts(){return Array.from({length:r37P.maxHearts},(_,i)=>`<i class=
 function r37Pips(){return r37P.qs.map((q,i)=>`<i class="${i<r37P.i?(r37P.res[i]?'ok':'bad'):i===r37P.i?'cur':''}"></i>`).join('');}
 function r37Play(){
  const P=r37P;if(!P)return r37Home();
- const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
+ const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip">${R37_DZ_LV[P.dz.lvl-1]}</span>`:`<span class="r37-dchip">${D.icon}</span>`}</header>`;
  if(P.phase==='learn'){
-  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">▶ 闖關</button></div></section>`;
+  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn ${P.kind==='dz'?'dz':''}">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">${P.kind==='dz'?'▶ 開始測驗（第 '+P.dz.lvl+' 級）':'▶ 闖關'}</button></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
  let body='';
- const aud=q.audio?`<button type="button" class="r37-spk" data-r37="speak" data-t="${esc(q.audio)}" aria-label="聽">${r37Icon('🔊')}</button>`:'';
+ const aud=q.audio?`<button type="button" class="r37-spk" ${q.noleak?'data-r37="qspeak"':`data-r37="speak" data-t="${esc(q.audio)}"`} aria-label="聽">${r37Icon('🔊')}</button>`:'';
  if(q.mode==='mcq'){
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
+ }else if(q.mode==='cells'){
+  body=r37DzCellsBody(q,fb,aud);
  }else{
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
- const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span aria-hidden="true">${fb.ok?'🎉':'💭'}</span><div><b>${fb.ok?P.praise:'答案：'+esc(q.answer)}</b>${!fb.ok&&q.explain?`<small>${esc(q.explain)}</small>`:''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
+ const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span aria-hidden="true">${fb.ok?'🎉':'💭'}</span><div><b>${fb.ok?P.praise:'答案：'+(q.dz&&q.dz.lvl>1?r37DzAns(q,fb):esc(q.answer))}</b>${!fb.ok?(q.dz&&q.dz.lvl>1?r37DzYou(q,fb):q.explain?`<small>${esc(q.explain)}</small>`:''):''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
   :`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint">💡</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
  return `<section class="r37-play">${top}<div class="r37-stage ${q.mode==='fill'?'fill':''} ${fb?(fb.ok?'ok':'shake'):''}">${P.kind==='level'?`<div class="r37-ptitle">${P.title}</div>`:''}${body}</div>${foot}</section>`;
 }
 function r37Result(){
  const P=r37P,r=P.result;
+ if(P.kind==='dz')return r37DzResult();
  const coins=r.coins?`<div class="r37-rc">🪙 +${r.coins}</div>`:'';
  const nextOk=P.kind==='level'&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
  return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?(P.s===9?'🏆':'🎉'):'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.kind==='level'&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}${P.kind==='level'&&P.track==='english'&&r.passed&&r37EnStage(P.w,P.s).length>=4?`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">🎯 射擊鞏固</button>`:''}
@@ -14425,11 +14463,13 @@ function r37Answer(value){
  const q=P.qs[P.i],ok=r37Check(q,value);
  if(!String(value).trim())return;
  P.fb={ok,value:String(value).trim()};P.res[P.i]=ok;
+ if(q.dz)r37DzRecord(q,P.fb.value,ok);
  if(ok){P.correct++;r37Bump('correct');if(P.track==='english')r37Bump('enok');playSfx('correct');r37Cheer();}
  else{if(P.kind==='level'){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}playSfx('wrong');}
  if(P.hintShown)P.hinted++;
  render();
  try{r37FxAnswer(ok);}catch(_){}
+ if(!ok&&q.dz)r37Speak(q.audio);
  if(ok){clearTimeout(r37Timer);r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},750);}
 }
 function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][P.correct%5];}
@@ -14444,7 +14484,7 @@ function r37Finish(){
  const P=r37P,D=R37_DIFF[P.diff-1],total=P.qs.length,answered=P.i>=total?total:P.i,correct=P.correct;
  const failedLife=P.hearts<=0&&P.kind==='level',ratio=correct/total;
  const stars=failedLife?Math.min(1,r37StarsFor(correct,total,P.hinted>0)):r37StarsFor(correct,total,P.hinted>0);
- const passed=P.kind==='level'?(!failedLife&&ratio>=D.pass):ratio>=D.pass;
+ const passed=P.kind==='level'?(!failedLife&&ratio>=D.pass):ratio>=(P.kind==='dz'?.75:D.pass);
  let coins=0;
  if(P.kind==='level'){
   const o=r37Get(),k=r37LvKey(P.track,P.w,P.s),old=o.lv[k]||{best:0},boss=P.s===9;
@@ -14455,6 +14495,7 @@ function r37Finish(){
   if(firstPass)r37Bump('levels');
   r37Save();
  }else{
+  if(P.kind==='dz')r37DzSave(P,stars,passed);
   const d=r37Get().day;d.qc=d.qc||0;
   if(stars===5&&d.qc<3){coins+=1;d.qc++;if(r37Char().perk==='coin')coins+=1;r37Bump('five');}
   r37Save();
@@ -14465,7 +14506,7 @@ function r37Finish(){
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
- if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P?'#p/'+P.track:'#kid';
+ if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P&&P.kind==='dz'?'#dz':P?'#p/'+P.track:'#kid';
 }
 function r37Speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=typeof britishVoices==='function'?britishVoices()[0]:null;if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
 /* ---------------------------------------------------------------------------------------------- parent */
@@ -14484,6 +14525,133 @@ function r37ParentHub(){
   body=`<div class="r37-tiles">${r37A('⚙️','設定／備份','#settings')+r37A('🔐',isLoggedIn()?'登出':'登入','#login')+r37A('📴','離線教材','#offline')+r37A('🖼️','圖片來源','#credits')+(isTestAdmin()?r37A('🧪','測試中心','#admin'):'')}</div>`;
  }
  return `<section class="r37-hub" style="--h:46">${r37Top()}<div class="r37-hero"><span class="r37-bigorb"><em aria-hidden="true">${r37Icon('👪')}</em></span><h1>家長星</h1></div><div class="r37-ptabs" role="tablist">${tabs}</div>${body}${r37Nav('p/parent')}</section>`;
+}
+
+/* R3.14 s22 - dictation study: groups of 8 words, learn cards, then three quiz levels (choice, fill the letters, full spelling). */
+const R37_DZ_LV=['✅','🧩','✍️'],R37_DZ_NAMES=['選擇','補字母','默寫'];
+function r37DzData(){
+ const r=latestRange();if(!r)return {rid:'',title:'',words:[],groups:[]};
+ const seen=new Set(),words=rangeWords(r.id).filter(w=>w.kind!=='sentence'&&/\p{L}/u.test(String(w.en||''))&&!seen.has(norm(w.en))&&seen.add(norm(w.en)));
+ const groups=[];for(let i=0;i<words.length;i+=8)groups.push(words.slice(i,i+8));
+ return {rid:r.id,title:r.title||'',words,groups};
+}
+function r37DzQuizWords(D,g){
+ const learn=D.groups[g]||[],quiz=[...learn];
+ for(let k=g-1;k>=0&&quiz.length<8;k--)for(const w of D.groups[k]){if(quiz.length>=8)break;quiz.push(w);}
+ return {learn,quiz};
+}
+function r37DzBest(rid,g){const e=((r37Get().dz||{})[rid]||{})[g]||{};return [e.l1|0,e.l2|0,e.l3|0];}
+function r37DzRec(b){const i=b.findIndex(n=>n<3);return i<0?2:i;}
+function r37DzMask(en){
+ const ch=[...en],letters=ch.map((c,i)=>/\p{L}/u.test(c)?i:-1).filter(i=>i>=0),cand=letters.filter(i=>i>0&&ch[i-1]!==' ');
+ const pool=cand.length?cand:letters,k=letters.length<=3?1:Math.max(1,Math.round(cand.length*.45));
+ return new Set(r37Shuf(pool,r37Rng(r37Hash('dz2|'+norm(en)))).slice(0,Math.min(k,pool.length)));
+}
+function r37DzMcq(w,k,D,rng){
+ const en=w.en.trim(),zh=String(w.zh||'').trim(),kind=zh?['zh2en','listen','en2zh'][k%3]:'listen',zhOpt=kind==='en2zh';
+ const used=new Set([zhOpt?zh:norm(en)]),opts=[];
+ const take=x=>{const v=zhOpt?String(x.zh||'').trim():String(x.en).trim();if(!v||used.has(zhOpt?v:norm(v))||(kind==='zh2en'&&String(x.zh||'').trim()===zh))return;used.add(zhOpt?v:norm(v));opts.push(v);};
+ for(const x of r37Shuf(D.words.filter(x=>x!==w),rng)){if(opts.length>=3)break;take(x);}
+ if(opts.length<3){
+  const near=r37EnPool().filter(x=>Math.abs(x.en.length-en.length)<=2&&(!zhOpt||x.zh)).map(x=>({x,d:r37Edit(x.en,en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,20).map(o=>o.x);
+  for(const x of r37Shuf(near,rng)){if(opts.length>=3)break;take(x);}
+ }
+ const answer=zhOpt?zh:en,base={mode:'mcq',kind,answer,options:r37Shuf([answer,...opts],rng),audio:en,explain:(zh?zh+' = ':'')+en,word:en,lang:zhOpt?'zh':'en',dz:{wid:w.id,lvl:1,type:kind==='listen'?'listenChoice':'meaning'}};
+ if(kind==='zh2en')return Object.assign(base,{prompt:zh,emoji:r37Emoji(en)});
+ if(kind==='en2zh')return Object.assign(base,{prompt:en,emoji:r37Emoji(en)});
+ return Object.assign(base,{prompt:'🔊',emoji:'',autoPlay:true});
+}
+function r37DzCell(w,lvl){
+ const en=w.en.trim(),zh=String(w.zh||'').trim();
+ const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Emoji(en),word:en,answer:en,accept:[en],audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
+ if(lvl===2)q.hide=[...r37DzMask(en)].sort((a,b)=>a-b);
+ return q;
+}
+function r37DzQs(D,g,lvl,seed){
+ const rng=r37Rng(r37Hash('dz|'+D.rid+'|'+g+'|'+lvl+'|'+seed));
+ return r37Shuf(r37DzQuizWords(D,g).quiz,rng).map((w,k)=>lvl===1?r37DzMcq(w,k,D,rng):r37DzCell(w,lvl));
+}
+function r37DzStart(g,lvl,skipLearn){
+ if(window.WQR3&&!WQR3.canStudy())return;
+ const D=r37DzData(),learn=D.groups[g];if(!learn)return;
+ lvl=lvl||r37DzRec(r37DzBest(D.rid,g))+1;
+ const qs=r37DzQs(D,g,lvl,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
+ if(!skipLearn){try{v24Expose(learn.map(w=>w.en));}catch(_){}}
+ r37P={kind:'dz',track:'dictation',diff:r37Get().diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:'📖 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
+ r37Nav37('lp/play');
+}
+function r37DzRecord(q,value,ok){
+ if(!isLoggedIn()||!q.dz)return;
+ const w=db.words.find(x=>x.id===q.dz.wid);if(!w)return;
+ try{if(q.dz.lvl===2)v24Expose([w.en]);recordAttempt(w,q.dz.type,ok,value,q.answer,'默書學習',{src:'dz',lvl:q.dz.lvl});save();}catch(_){}
+}
+function r37DzSave(P,stars,passed){
+ const {rid,g,lvl}=P.dz;if(lvl===3&&!passed)return;
+ const o=r37Get();o.dz=o.dz||{};
+ const R=o.dz[rid]=o.dz[rid]||{},e=R[g]=R[g]||{};
+ e['l'+lvl]=Math.max(e['l'+lvl]|0,stars);e.at=new Date().toISOString();
+}
+function r37DzHome(){
+ const D=r37DzData(),top=r37Top('<a class="r37-back2" href="#p/dictation" aria-label="默書星">←</a>');
+ if(!D.groups.length)return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">📝</div><b>請家長先加入默書範圍</b><a class="r37-go" href="#ranges">📝 默書範圍</a></div></div>${r37Nav('p/dictation')}</section>`;
+ const cards=D.groups.map((ws,g)=>{
+  const b=r37DzBest(D.rid,g),rec=r37DzRec(b);
+  return `<article class="r37-dzc" data-g="${g}"><button type="button" class="r37-dzm" data-r37="dz-go" data-g="${g}" data-l="0" aria-label="第 ${g+1} 組，${ws.length} 個字"><span class="r37-dzn">${g+1}</span><span class="r37-dzp" lang="en">${ws.slice(0,3).map(w=>esc(w.en)).join(' · ')}</span></button><div class="r37-dzl">${[1,2,3].map(l=>`<button type="button" class="r37-dzb ${rec===l-1?'rec':''} ${b[l-1]>=3?'done':''}" data-r37="dz-go" data-g="${g}" data-l="${l}" data-stars="${b[l-1]}" aria-label="第 ${l} 級 ${R37_DZ_NAMES[l-1]}，${b[l-1]} 星"><span aria-hidden="true">${r37Icon(R37_DZ_LV[l-1])}</span><b>${l} ★${b[l-1]}</b></button>`).join('')}</div></article>`;
+ }).join('');
+ return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-dzh"><span aria-hidden="true">📖</span><b>${esc(D.title)}</b><em>${D.words.length}</em></div><div class="r37-dzg">${cards}</div>${r37Nav('p/dictation')}</section>`;
+}
+function r37DzCellsBody(q,fb,aud){
+ const ch=[...q.answer],hide=new Set(q.hide),typed=fb?[...fb.value]:[],out=[];let cur=[];
+ ch.forEach((c,i)=>{
+  if(c===' '){out.push(`<span class="r37-cw">${cur.join('')}</span>`);cur=[];return;}
+  if(!hide.has(i)){cur.push(`<span class="r37-cl">${esc(c)}</span>`);return;}
+  const t=typed[i]||'',cls=fb?(norm(t)===norm(c)?'ok':'bad'):'';
+  cur.push(`<input class="r37-cell ${cls}" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-ci="${i}" data-v="${esc(t)}" value="${esc(t)}" aria-label="第 ${i+1} 個字母" ${fb?'disabled':''}>`);
+ });
+ out.push(`<span class="r37-cw">${cur.join('')}</span>`);
+ return `<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}">${esc(q.prompt)}</div>${aud}</div><form class="r37-fill r37-cf" data-r37-form="1"><div class="r37-cells" lang="en" style="--n:${Math.max(...q.answer.split(' ').map(x=>[...x].length))}">${out.join('')}</div><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
+}
+function r37DzDiff(exp,got){
+ const a=[...norm(exp)],b=[...norm(got)];
+ if(a.length===b.length)return {a:a.map((c,i)=>c===b[i]),b:b.map((c,i)=>c===a[i])};
+ const m=a.length,n=b.length,d=Array.from({length:m+1},()=>Array(n+1).fill(0));
+ for(let i=m-1;i>=0;i--)for(let j=n-1;j>=0;j--)d[i][j]=a[i]===b[j]?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
+ const ma=Array(m).fill(false),mb=Array(n).fill(false);let i=0,j=0;
+ while(i<m&&j<n){if(a[i]===b[j]){ma[i]=mb[j]=true;i++;j++;}else if(d[i+1][j]>=d[i][j+1])i++;else j++;}
+ return {a:ma,b:mb};
+}
+function r37DzMark(text,flags){
+ const raw=[...text],chars=raw.length===flags.length?raw:[...norm(text)];
+ return chars.map((c,i)=>c===' '?' ':`<i class="${flags[i]?'ok':'bad'}">${esc(c)}</i>`).join('');
+}
+function r37DzAns(q,fb){const d=r37DzDiff(q.answer,fb.value);return `<span class="r37-ans" lang="en">${r37DzMark(q.answer,d.a)}</span>`;}
+function r37DzYou(q,fb){const d=r37DzDiff(q.answer,fb.value),t=norm(fb.value);return `<small class="r37-you">你寫：<span lang="en">${r37DzMark(t,d.b)}</span></small>`;}
+function r37DzResult(){
+ const P=r37P,r=P.result,{g,lvl,n}=P.dz,coins=r.coins?`<div class="r37-rc">🪙 +${r.coins}</div>`:'';
+ const next=lvl<3?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="第 ${lvl+1} 級">▶ ${r37Icon(R37_DZ_LV[lvl])}</button>`:g<n-1?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="下一組">▶ 📖 ${g+2}</button>`:'';
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?'🎉':'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}
+ <div class="r37-ra">${next}<button type="button" class="r37-sec" data-r37="retry" aria-label="重做">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="組別">🗺️</button></div></div></section>`;
+}
+function r37DzSubmit(){
+ const P=r37P;if(!P||P.phase!=='quiz'||P.fb)return;
+ const q=P.qs[P.i];if(q.mode!=='cells')return;
+ const cells=[...document.querySelectorAll('.r37-cell')],empty=cells.find(c=>!c.value);
+ if(empty){empty.focus();return;}
+ const ch=[...q.answer];cells.forEach(c=>{ch[+c.dataset.ci]=c.value;});
+ r37Answer(ch.join(''));
+}
+function r37DzCellInput(c,e){
+ const cells=[...document.querySelectorAll('.r37-cell')],i=cells.indexOf(c),v=[...c.value].filter(x=>/\p{L}/u.test(x));
+ if(!v.length){c.value=c.dataset.v||'';return;}
+ if(e&&e.inputType==='insertFromPaste'&&v.length>1){v.slice(0,cells.length-i).forEach((x,k)=>{cells[i+k].value=x;cells[i+k].dataset.v=x;});const t=cells[Math.min(cells.length-1,i+v.length)];t.focus();t.select();return;}
+ c.value=v[v.length-1];c.dataset.v=c.value;
+ const nx=cells[i+1];if(nx){nx.focus();nx.select();}
+}
+function r37DzCellKey(c,e){
+ const cells=[...document.querySelectorAll('.r37-cell')],i=cells.indexOf(c);
+ if(e.key==='Backspace'&&!c.value&&i>0){e.preventDefault();const p=cells[i-1];p.value='';p.dataset.v='';p.focus();}
+ else if(e.key==='ArrowLeft'&&i>0){e.preventDefault();cells[i-1].focus();cells[i-1].select();}
+ else if(e.key==='ArrowRight'&&i<cells.length-1){e.preventDefault();cells[i+1].focus();cells[i+1].select();}
 }
 
 /* R3.8 s25 - visual effects: living starfield, planet warp, answer bursts, combo text, result celebration. All off under prefers-reduced-motion. */
@@ -14577,7 +14745,7 @@ document.addEventListener('click',e=>{
 },true);
 
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|fps|fp\/play|rn\/play)$/;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|dz|fps|fp\/play|rn\/play)$/;
 let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null;
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
 function r37FpsStop(){if(r37FpsHandle){try{r37FpsHandle.destroy();}catch(_){}r37FpsHandle=null;}}
@@ -14654,6 +14822,7 @@ render=function(){
  else if(route==='lv/fps')html=r37FpsMap();
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
+ else if(route==='dz')html=r37DzHome();
  else if(route==='lp/play')html=r37Play();
  else if(route==='fps')html='<section class="r37-fps"><div id="r37-fps-box"></div></section>';
  else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
@@ -14666,6 +14835,7 @@ render=function(){
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
+  if(q.mode==='cells'){const el=document.querySelector('.r37-cell');if(el)el.focus({preventScroll:true});}
   if(q.autoPlay&&q.audio)r37Speak(q.audio);
  }
  showSaveIssue();
@@ -14718,8 +14888,11 @@ document.addEventListener('click',e=>{
  else if(a==='next')r37Next();
  else if(a==='hint'&&P){P.hintShown=true;render();}
  else if(a==='speak')r37Speak(el.dataset.t);
+ else if(a==='qspeak'&&P&&P.qs[P.i])r37Speak(P.qs[P.i].audio);
+ else if(a==='dz-go')r37DzStart(+el.dataset.g,+el.dataset.l||0);
+ else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
- else if(a==='retry'&&P){if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
+ else if(a==='retry'&&P){if(P.kind==='dz')r37DzStart(P.dz.g,P.dz.lvl,true);else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
  else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}r37StartLevel(P.track,w,s);}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}r37Get().diff=+el.dataset.n;r37Save();render();}
  else if(a==='ptab'){r37Mem._ptab=el.dataset.k;render();}
@@ -14730,13 +14903,16 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('submit',e=>{
  if(!e.target.closest?.('[data-r37-form]'))return;e.preventDefault();
- const el=$('#r37-in');if(el)r37Answer(el.value);
+ const el=$('#r37-in');if(el)r37Answer(el.value);else r37DzSubmit();
 });
+document.addEventListener('input',e=>{if(e.target.classList?.contains('r37-cell')&&!e.isComposing)r37DzCellInput(e.target,e);});
+document.addEventListener('keydown',e=>{if(e.target.classList?.contains('r37-cell'))r37DzCellKey(e.target,e);});
+document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cell'))e.target.select();});
 document.addEventListener('keydown',e=>{
  const P=r37P;if(!P||lastRoute!=='lp/play'||e.ctrlKey||e.metaKey||e.altKey)return;
  if(e.key==='Escape'){r37Exit();return;}
  if(P.phase==='learn'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();P.phase='quiz';render();return;}
- if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="retry"]')?.click();return;}
+ if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="dz-next"],[data-r37="retry"]')?.click();return;}
  if(P.phase!=='quiz')return;
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}
  const q=P.qs[P.i],typing=document.activeElement&&document.activeElement.id==='r37-in';
