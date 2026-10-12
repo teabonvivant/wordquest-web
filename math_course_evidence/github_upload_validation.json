@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-11",
+  "base_commit": "148d146387cfb13809ddd7a8ffb26a80ebe8d50d",
+  "source_files_sha256_verified": 40,
+  "existing_base_blobs_verified": 4,
+  "core_tests_passed": 15,
+  "generated_answer_cases_passed": 15400,
+  "inline_scripts_passed": 48,
+  "service_worker_syntax_passed": true,
+  "browser_tests_rerun": false,
+  "browser_limitation": "Playwright and Chromium are not installed in the upload environment. Existing browser evidence retained from source package.",
+  "deployment_verified": false
+}

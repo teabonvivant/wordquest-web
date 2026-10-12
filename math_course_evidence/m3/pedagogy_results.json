@@ -1,0 +1,35 @@
+{
+  "environment": "Node VM, production engine and content. Not student research or browser layout QA.",
+  "passed": 7,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "Every new chapter models every question family it can test; no untaught family in practice or chapter exam",
+      "passed": true
+    },
+    {
+      "name": "Regression: P3 first fraction lesson only represents fractions; comparison and addition are explicitly taught in lesson 2",
+      "passed": true
+    },
+    {
+      "name": "Meaningful calculation traces: borrowing across zero and carrying, rather than only final answer",
+      "passed": true
+    },
+    {
+      "name": "Original school-format examples use correct independent arithmetic and non-empty figures",
+      "passed": true
+    },
+    {
+      "name": "Decimal word answers are displayed as decimals; P3 fractions keep the taught denominator",
+      "passed": true
+    },
+    {
+      "name": "Empty practice checks preserve both question and first-attempt record",
+      "passed": true
+    },
+    {
+      "name": "Existing submitted answers remain immutable and historical template IDs still regenerate",
+      "passed": true
+    }
+  ]
+}

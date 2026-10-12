@@ -1,0 +1,96 @@
+{
+  "environment": "Chromium 144.0.7559.96; offline set_content; simulated in-memory Web Storage; no real student data. Native disk persistence / HTTP / PWA / real devices NOT tested.",
+  "passed": 22,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "Standalone launches and shows true empty history",
+      "pass": true
+    },
+    {
+      "name": "All six grades show two chapters per actual report unit",
+      "pass": true
+    },
+    {
+      "name": "Real star manipulative completion records participation, not marks",
+      "pass": true
+    },
+    {
+      "name": "Hinted practice teaches on error and freezes original answer",
+      "pass": true
+    },
+    {
+      "name": "Parent creates isolated profile without copying visitor answers",
+      "pass": true
+    },
+    {
+      "name": "Test has no hints or solutions before submission",
+      "pass": true
+    },
+    {
+      "name": "Previous/next keeps draft answers unchanged",
+      "pass": true
+    },
+    {
+      "name": "Reopening from serialized storage restores identical draft questions and answers",
+      "pass": true
+    },
+    {
+      "name": "Blank-answer confirmation shows exact unanswered count",
+      "pass": true
+    },
+    {
+      "name": "Submission saves all answers including blanks and gives per-question explanations",
+      "pass": true
+    },
+    {
+      "name": "Zero correct on five questions does not falsely call it a short test",
+      "pass": true
+    },
+    {
+      "name": "Wrong-question page links to relearning and new retry",
+      "pass": true
+    },
+    {
+      "name": "Exploration saves free-response journal without extra test score",
+      "pass": true
+    },
+    {
+      "name": "P6 pie-chart activity does not require hand drawing",
+      "pass": true
+    },
+    {
+      "name": "390px mobile main screen has no horizontal document overflow",
+      "pass": true
+    },
+    {
+      "name": "390px mobile practice fields fit",
+      "pass": true
+    },
+    {
+      "name": "Actual R3.9 math hub shows new mode buttons",
+      "pass": true
+    },
+    {
+      "name": "Actual host launches integrated course through real button",
+      "pass": true
+    },
+    {
+      "name": "Olympiad still opens original preserved module",
+      "pass": true
+    },
+    {
+      "name": "English hub still renders after returning from math",
+      "pass": true
+    },
+    {
+      "name": "Arcade entry still renders",
+      "pass": true
+    },
+    {
+      "name": "No uncaught JavaScript errors in these tested paths",
+      "pass": true
+    }
+  ],
+  "pageErrors": []
+}

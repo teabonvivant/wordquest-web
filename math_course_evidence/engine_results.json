@@ -1,0 +1,67 @@
+{
+  "testsPassed": 15,
+  "testsFailed": 0,
+  "generatedSeedCases": 16680,
+  "cases": [
+    {
+      "name": "85 official topics, 170 chapters, 79 ordinary and 6 exploration",
+      "passed": true
+    },
+    {
+      "name": "Legacy template IDs remain available for historical generation",
+      "passed": true
+    },
+    {
+      "name": "All active normal templates generate at 40 real deterministic seeds; canonical answers grade correctly",
+      "passed": true
+    },
+    {
+      "name": "Every ordinary topic can open both chapters and produce a scoped test, including small-pool fallback",
+      "passed": true
+    },
+    {
+      "name": "P1 subtraction never borrows; P1 basic add/sub use valid one-digit decomposition",
+      "passed": true
+    },
+    {
+      "name": "P2 arithmetic constraints differ between 2N2 and 2N5",
+      "passed": true
+    },
+    {
+      "name": "P6 percentage tasks exclude discount and interest; use versioned new models",
+      "passed": true
+    },
+    {
+      "name": "P3 accepts unsimplified fractions; P4+ require simplest and accept improper or mixed",
+      "passed": true
+    },
+    {
+      "name": "Hinted first practice answers remain assisted; feedback cannot overwrite the first attempt",
+      "passed": true
+    },
+    {
+      "name": "Exam answers persist before marking; blank/invalid answers are recorded at submission",
+      "passed": true
+    },
+    {
+      "name": "Submitting twice is idempotent for history, attempts and reward ledger",
+      "passed": true
+    },
+    {
+      "name": "Wrong answers produce teaching links and cannot be cleared by same-day correction",
+      "passed": true
+    },
+    {
+      "name": "Cross-grade/F exploration/malformed refs are rejected without resetting source",
+      "passed": true
+    },
+    {
+      "name": "Stored examination draft survives JSON round-trip with identical questions and answers",
+      "passed": true
+    },
+    {
+      "name": "Exploration notes have no automatic score, mastery or coin",
+      "passed": true
+    }
+  ]
+}

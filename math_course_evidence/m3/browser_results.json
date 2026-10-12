@@ -1,0 +1,57 @@
+{
+  "dateHK": "2026-10-12",
+  "mode": "Live public GitHub Pages, Chrome cloud browser, desktop 1364x936, visitor session",
+  "url": "https://teabonvivant.github.io/wordquest-web/app/index.html#p/math",
+  "deployedRuntimeCommit": "d4f33bb17fbdab3d9033a9daf597ea5c2effb692",
+  "githubPagesRun": 38154339143,
+  "githubPagesConclusion": "success",
+  "observations": [
+    {
+      "case": "Main maths entry opens the M3 classroom",
+      "result": "pass",
+      "evidence": "Maths star → 主題課堂; footer 逐步學數學 HK-M3, new chapter titles visible."
+    },
+    {
+      "case": "P3 fraction teaching matches practice and assessment",
+      "result": "pass",
+      "evidence": "Worked example 3/4, practice 1/6 and 3/5, assessment 4/5 and 1/5. First lesson consistently asks shaded fraction, no unit-fraction comparison."
+    },
+    {
+      "case": "Blank practice does not consume attempt",
+      "result": "pass",
+      "evidence": "Same first practice question and editable inputs remain; asks learner to fill or request hint."
+    },
+    {
+      "case": "Fraction field editing and partial draft",
+      "result": "pass",
+      "evidence": "Separate numerator and denominator; numerator alone survived next/back, denominator could then be completed."
+    },
+    {
+      "case": "Wrong practice retains original response",
+      "result": "pass",
+      "evidence": "Entered 1/99 for 1/6: original disabled inputs retained; correct answer and denominator/numerator steps visible."
+    },
+    {
+      "case": "Progressive hint and resolved message",
+      "result": "pass",
+      "evidence": "Final runtime: empty-input notice disappears after hint request; second hint has two real steps and no punctuation-only item."
+    },
+    {
+      "case": "Submit and result review",
+      "result": "pass",
+      "evidence": "Answered two of five: submission warns 3 blank. Result 1/5, original 1/99 retained, correct 4/5, diagram and worked steps; other items collapsed."
+    },
+    {
+      "case": "Column regrouping diagram",
+      "result": "pass",
+      "evidence": "Final runtime 30−28 step 2 shows original 3 and 0 crossed out, regrouped 2 and 10; matching short sentence and focused column. Screenshot saved."
+    }
+  ],
+  "limits": [
+    "Visitor test data only, not real student records.",
+    "Submission flow checked on initial M3 runtime 97a0f35; final d4f33bb rechecked blank/hint/regrouping changes, no change to engine or submission code.",
+    "No mobile/tablet touch or device speech verification.",
+    "No real persistent storage, backup/restore or cross-device verification.",
+    "No school-specific samples, teacher review or child learning-outcome study."
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "environment": "Same offline Chromium and simulated Web Storage as browser_test.py. Tool render/reset/check smoke only, not all mathematical actions exhaustively tested.",
+  "passed": 32,
+  "failed": 0,
+  "cases": [
+    {
+      "unit": "1N1",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "1N1",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "1M2",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "1M2",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "1M3",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "1M3",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "1M4",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "1M4",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "2N3",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "2N3",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "2N6",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "2N6",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "2D1",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "2D1",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "3N5",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "3N5",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "3M3",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "3M3",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "4N7",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "4N7",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "4M2",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "4M2",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "5A2",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "5A2",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "5M2",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "5M2",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "6N3",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "6N3",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "6M1",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "6M1",
+      "part": 2,
+      "pass": true
+    },
+    {
+      "unit": "6S1",
+      "part": 1,
+      "pass": true
+    },
+    {
+      "unit": "6S1",
+      "part": 2,
+      "pass": true
+    }
+  ],
+  "pageErrors": []
+}

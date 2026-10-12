@@ -1,0 +1,43 @@
+{
+  "environment": "Node VM: production renderers and event handlers with a DOM stub; no browser, screenshot, storage or layout verification",
+  "passed": 9,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "All 79 ordinary units have specific pictures; all 170 chapters produce bounded cards",
+      "passed": true
+    },
+    {
+      "name": "Every grade and every category retains its real lesson destinations",
+      "passed": true
+    },
+    {
+      "name": "All 170 chapters and ordinary learning steps render without fallback errors",
+      "passed": true
+    },
+    {
+      "name": "Card navigation returns to the same teaching point without making mastery or reward records",
+      "passed": true
+    },
+    {
+      "name": "Worked examples reveal only on request and reset when moving between examples",
+      "passed": true
+    },
+    {
+      "name": "Wrong feedback retains the correct answer, explanation, hint status and original answer",
+      "passed": true
+    },
+    {
+      "name": "Active assessments do not gain picture-teaching answers or reveal controls",
+      "passed": true
+    },
+    {
+      "name": "Exploration journals and existing family state survive visual navigation",
+      "passed": true
+    },
+    {
+      "name": "Rebuilt full app and standalone contain the exact current visual module before the UI",
+      "passed": true
+    }
+  ]
+}

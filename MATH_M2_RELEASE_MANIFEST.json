@@ -1,0 +1,113 @@
+{
+  "release": "R3.9 + HK-M2 picture classroom",
+  "base_commit": "a05fa6ee4bfccc0e29f36db2149b410a9cb33db7",
+  "deployment": "not verified",
+  "preserves": "Existing student state, original answers, question banks, English, Olympiad and arcade modules",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2378,
+      "sha256": "8790ec8ca154d087f3e048488578528aa615506ff8a62fb5c4686da0cf64d43c"
+    },
+    {
+      "path": "README_MATH_M2.md",
+      "bytes": 2378,
+      "sha256": "8790ec8ca154d087f3e048488578528aa615506ff8a62fb5c4686da0cf64d43c"
+    },
+    {
+      "path": "START_HERE.html",
+      "bytes": 1042,
+      "sha256": "69bec7f9aca243916a8997f641e1867b4a75fcb9e5930ad200e757c15697d24d"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 14209334,
+      "sha256": "2127aa1f5dfce4d3cd6b19cbb9d362109577c216430a2e3cf24589fe51ebf815"
+    },
+    {
+      "path": "app/sw.js",
+      "bytes": 1907,
+      "sha256": "eae9dd4699fb580579173aac82c0e625cc3ba62b846acd1db1e82d60cf49692f"
+    },
+    {
+      "path": "docs/math-course/BUILD_SHA256.json",
+      "bytes": 1435,
+      "sha256": "71dc32038846f7c3f9da2bdc8dca6196dcdcc6740c1498d671e792e435653672"
+    },
+    {
+      "path": "docs/math-course/CHANGELOG.md",
+      "bytes": 3130,
+      "sha256": "913e4e0587eaeb46c023523853e8c095e5cfd4c2af08c62d769c70e1f04b25c6"
+    },
+    {
+      "path": "docs/math-course/KNOWN_ISSUES.md",
+      "bytes": 2842,
+      "sha256": "24dab082973ace5e35ba3a3b86f5625320bec5c3bddfa901770a3cb82c83bc25"
+    },
+    {
+      "path": "docs/math-course/NEXT_STEPS.md",
+      "bytes": 801,
+      "sha256": "dfd5487c3dbcae568f1c2c920c90067a7d5e6798b147f2182ea3350fa1e36c1b"
+    },
+    {
+      "path": "docs/math-course/PROJECT_STATE.md",
+      "bytes": 2710,
+      "sha256": "03fa8b0d119b0d9044e1cfc7f0bc28cbf0c57886fb6d734c106499548638c094"
+    },
+    {
+      "path": "docs/math-course/TEST_REPORT.md",
+      "bytes": 4024,
+      "sha256": "dc74eecb45dc57e9e46870a298b53b116152aab020b143e42f06ff8eae625968"
+    },
+    {
+      "path": "math_course_evidence/m2/syntax_results.json",
+      "bytes": 138,
+      "sha256": "df86074848987988ca870fae108966058973e6225318cfb263f8c261f4cd33f9"
+    },
+    {
+      "path": "math_course_evidence/m2/ui_results.json",
+      "bytes": 1371,
+      "sha256": "cfb29dd04fc48ba851b38190281f3f3f52c866bd6a56b8f9f92cf5f03ed64117"
+    },
+    {
+      "path": "math_course_evidence/m2/visual_review.json",
+      "bytes": 566,
+      "sha256": "691ef1108afb137b4a0493ab45637b721b27de66cd2c22ede199c5e5e853f0c0"
+    },
+    {
+      "path": "math_course_preview.html",
+      "bytes": 1987802,
+      "sha256": "1a0d066654ae7fe41da1c8914829eca7b2e552355ce3337a3c2734e272d7ef1e"
+    },
+    {
+      "path": "math_course_src/course_ui.js",
+      "bytes": 53478,
+      "sha256": "55064f46f8851c57ff3e9de5fcb74eadc2a44e1012ba8394c645cfcb42a349bc"
+    },
+    {
+      "path": "math_course_src/course_visual.css",
+      "bytes": 13193,
+      "sha256": "9dcc881cd5cfa09439cc425e02b3c3ce9b6789b9bb5ff081884a5dfec67c8e15"
+    },
+    {
+      "path": "math_course_src/course_visuals.js",
+      "bytes": 33440,
+      "sha256": "5fdbbf0e26cb10e2e0517172f57ad32fed7e327fbc6a3239e80f3197788124af"
+    },
+    {
+      "path": "math_course_src/style_bundle.js",
+      "bytes": 25198,
+      "sha256": "a8ac68a717b96df1e1d30a670f5ec6447e8d461a25c7e9161ed729b0857009bc"
+    },
+    {
+      "path": "math_course_tests/visual_ui_test.cjs",
+      "bytes": 7819,
+      "sha256": "3d257fd9223c7d8c89d479279e6526c7d2a3ba9d61641f007cb670f7b736be1e"
+    },
+    {
+      "path": "tools/build_math_m1.py",
+      "bytes": 3012,
+      "sha256": "2b3ed533120b8fe6bf02ff98edcd9c00e74ee8d1cdc85de5e9f7605a7196b64f"
+    }
+  ]
+}

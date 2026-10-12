@@ -1,0 +1,512 @@
+{
+  "release": "R3.9 + HK-M1",
+  "baseCommit": "148d146387cfb13809ddd7a8ffb26a80ebe8d50d",
+  "status": "GitHub integration; deployment not verified",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2259,
+      "sha256": "b59cb0803e3f24a98000a0d6245f2766d58b9c27cec3d32cd22f895e9dcaf8f6"
+    },
+    {
+      "path": "README_MATH_M1.md",
+      "bytes": 2259,
+      "sha256": "b59cb0803e3f24a98000a0d6245f2766d58b9c27cec3d32cd22f895e9dcaf8f6"
+    },
+    {
+      "path": "START_HERE.html",
+      "bytes": 1051,
+      "sha256": "6ba70281bb64abfde599d188e4fc5725caae321d54da843948a0a31dd6f474c6"
+    },
+    {
+      "path": "START_WINDOWS.cmd",
+      "bytes": 129,
+      "sha256": "8854a8b2b08741868c0d9fd721c751e191c13ec3736ec4c2a0d503383a51c3a6"
+    },
+    {
+      "path": "app/WordQuest_Maths_Plugin_R1.html.txt",
+      "bytes": 317351,
+      "sha256": "ca587d2670694c127d3872789906c9181eb5f7d699b72e5bd0db40ffe1e266b3"
+    },
+    {
+      "path": "app/afeng-animation.html",
+      "bytes": 5460,
+      "sha256": "72ea358a9e010e6f844854ead77b09c44fa08b3d2cb0f11bf3b7c39dc4304430"
+    },
+    {
+      "path": "app/afeng-rig.js",
+      "bytes": 9118,
+      "sha256": "22697a0707ad650d4849d4a540dc6995c44c0bd13bdd3153a66044c6ee6ab890"
+    },
+    {
+      "path": "app/assets/forest/a-feng/concept-original.png",
+      "bytes": 2326995,
+      "sha256": "8f417caa20b338ffd0fb5f7320f00de91b615316ad13dbf4edc14d5a8903f453"
+    },
+    {
+      "path": "app/assets/forest/a-feng/face0.webp",
+      "bytes": 2766,
+      "sha256": "c758486bae35e86cc82fd491e60fb4d173d1299394990da0ee4442d8aa7c63d4"
+    },
+    {
+      "path": "app/assets/forest/a-feng/face1.webp",
+      "bytes": 2370,
+      "sha256": "21367b6a4b1fb8145494777159d84cfa17b08697b223f926ebd12f10f9b12474"
+    },
+    {
+      "path": "app/assets/forest/a-feng/face2.webp",
+      "bytes": 2452,
+      "sha256": "947d2386d1de225c6e40a43591dd91e1e4f47a4720709868ec199d7a05e3f398"
+    },
+    {
+      "path": "app/assets/forest/a-feng/face3.webp",
+      "bytes": 2660,
+      "sha256": "409fb8f05a7be84cca3dc048fc42943b79efa64dfaf8b2553485f745eab47927"
+    },
+    {
+      "path": "app/assets/forest/a-feng/face4.webp",
+      "bytes": 2678,
+      "sha256": "deb2e2f61881fc2b01500066cafa2e8a47ca4303255bf8fd196874946f0e158e"
+    },
+    {
+      "path": "app/assets/forest/a-feng/front.webp",
+      "bytes": 20392,
+      "sha256": "9ad261ae65a6f545236e1a13cee69691c13386281c80137572855ce6d6c24047"
+    },
+    {
+      "path": "app/assets/forest/a-feng/sheet.webp",
+      "bytes": 274134,
+      "sha256": "2affc9720863c21d64193c028e956f406e22d360caa6420cba6fcbb47d2caa32"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/concept-original.png",
+      "bytes": 2455623,
+      "sha256": "96e7d07fd0b63910ea844e463046b26d5af508e360c084381cde0df8618594a5"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/face0.webp",
+      "bytes": 3286,
+      "sha256": "ee9aea42afba0c6253da65b3f639516896f81a28462c6f1f77062acdad752447"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/face1.webp",
+      "bytes": 3242,
+      "sha256": "98d21286aa6ca0f60261579a94c62f4ddc5d23f0e4636d378d553393e8d57eb4"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/face2.webp",
+      "bytes": 3494,
+      "sha256": "0fb6959fdc5bf1332a2819b6259a2a76a710ff817791f40a38a270e5cec39404"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/face3.webp",
+      "bytes": 3074,
+      "sha256": "3e98c7e734d534165a7da2fb5f2bb2b47c4cd82cd070f16216bb21fbd3b1405d"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/face4.webp",
+      "bytes": 3176,
+      "sha256": "dbb3c0d32e7f43d87a825a2353998f8773a23ca147cc9ddfe3927a05aab7ffbe"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/front.webp",
+      "bytes": 25862,
+      "sha256": "054070635509c9a0d149aba11689fe7d67ced5b57dbb01bc8e691697582a7c95"
+    },
+    {
+      "path": "app/assets/forest/bo-bo/sheet.webp",
+      "bytes": 303840,
+      "sha256": "c9f758592a6fd915ad2c5aa388387ade5b17c3607ee650e7ee60cf65485ee062"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/concept-original.png",
+      "bytes": 2408893,
+      "sha256": "fb3cb6afb95e5f6771c6bf90a710ef3e94b2afd9979f26d8f22a3bdaccdb61bd"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/face0.webp",
+      "bytes": 4248,
+      "sha256": "c66e60080c35fb6b948e8e2433f926129914de9c45c694da0177d4d3af3c1e5e"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/face1.webp",
+      "bytes": 4216,
+      "sha256": "525d6b1f468e547dba2754436b44cd8c96a48f52a8a74477e7e820a03acae157"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/face2.webp",
+      "bytes": 4024,
+      "sha256": "db7fea9a6d9226d85b36f509a064f5b7bfa58463cb177c1e03e504d063cec430"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/face3.webp",
+      "bytes": 3854,
+      "sha256": "c9e957d9e6d294c10aba7ee126b21fedadfcf39e2f9d593906eb9b7e9d2620fb"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/face4.webp",
+      "bytes": 4018,
+      "sha256": "97ee55ccb68249302507c3176dedd6ec3f557dd0ff3462867f91ebd318ce3839"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/front.webp",
+      "bytes": 24502,
+      "sha256": "31b9808f87f9b3a9e43673a1da72adbaf7a98aeed658c93f6df27e6685e0fa7b"
+    },
+    {
+      "path": "app/assets/forest/ci-ci/sheet.webp",
+      "bytes": 300314,
+      "sha256": "e3929ccc8c78582b7e51f46a91be57cd15721bf3034d5604d290a56ba01d3e02"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/concept-original.png",
+      "bytes": 2411976,
+      "sha256": "5fd9a3d0ed1295716c138aca9d56752f47115ad991aaa2d925386f65ca03bdc2"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/face0.webp",
+      "bytes": 4366,
+      "sha256": "7d066b47ad7e535b5bd5e57589c6fedb6d1dc3391e3890283e96dae38b7c0d0c"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/face1.webp",
+      "bytes": 4428,
+      "sha256": "d12e800c007dca2228322afcdf659eb874e5dfd6a20a8283a360c575f0c7b445"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/face2.webp",
+      "bytes": 4432,
+      "sha256": "c1c55614f2186273f5d8c188131042d3dad95c4f3ef0710ceac10e4a908318db"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/face3.webp",
+      "bytes": 4528,
+      "sha256": "b3ba18c8c80928caf03d2e88aa8557d84946bc0ce423c57e28b48cad8594538a"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/face4.webp",
+      "bytes": 4030,
+      "sha256": "92d753d0eabfbccecd77df46e07476ac88c7c0973b4d7c4ec8f500416f75edda"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/front.webp",
+      "bytes": 22400,
+      "sha256": "29dd607f1976b9ace9695ce31b71d9e9d5c1e8a5a044de263abb0f6874c1e7fe"
+    },
+    {
+      "path": "app/assets/forest/lie-lie/sheet.webp",
+      "bytes": 285218,
+      "sha256": "906405b9b4388fd794da7329fe829a6373de008a6314e3a1a72fed518d1d3f56"
+    },
+    {
+      "path": "app/assets/forest/manifest.json",
+      "bytes": 17140,
+      "sha256": "2e775d92c66ca825d68bbccc380a9ac53141c372178a3285bb3c6940e3b44ba6"
+    },
+    {
+      "path": "app/assets/forest/tang-li/concept-original.png",
+      "bytes": 2515436,
+      "sha256": "78e77c482f5108a8e8624c1ff626bc6786d7b675478e471f96dea30e72bf2534"
+    },
+    {
+      "path": "app/assets/forest/tang-li/face0.webp",
+      "bytes": 4384,
+      "sha256": "4920d86e612690a0c71dbe0082767f1f5576d600a5f1f80a794941adf901101c"
+    },
+    {
+      "path": "app/assets/forest/tang-li/face1.webp",
+      "bytes": 4110,
+      "sha256": "31c98a6958e5d807ec87ea78241b2581e7d7caeccb5893b9fb0b473e4efd7ab5"
+    },
+    {
+      "path": "app/assets/forest/tang-li/face2.webp",
+      "bytes": 4704,
+      "sha256": "9ce17b4ac1f1b182cb6d103c4b6b583941fc119cf64b658c0bed8ffbfc05291a"
+    },
+    {
+      "path": "app/assets/forest/tang-li/face3.webp",
+      "bytes": 4246,
+      "sha256": "4af2a71a625c32c2d7725925a5a248ce630440cce3f72745529a6263d5417e57"
+    },
+    {
+      "path": "app/assets/forest/tang-li/face4.webp",
+      "bytes": 4102,
+      "sha256": "f8b47c4c372d5b0cf4e1b86b45c540febf6137832a6a20a5e0fa7b5faf54fffe"
+    },
+    {
+      "path": "app/assets/forest/tang-li/front.webp",
+      "bytes": 24950,
+      "sha256": "5b921eba78c6ac41d640b3c4560b95fdd17d916ddd09f52f8803c969ff6cd65f"
+    },
+    {
+      "path": "app/assets/forest/tang-li/sheet.webp",
+      "bytes": 321710,
+      "sha256": "f35c3e367c5d2c9c38f9af3e4043379d6c5cbead7aac367508a43be523e0312b"
+    },
+    {
+      "path": "app/assets/forest/you-you/concept-original.png",
+      "bytes": 2373534,
+      "sha256": "483a9ce59488b1c954c28c54de51b8d3349734237c8de2cf7bb615fb68b38c88"
+    },
+    {
+      "path": "app/assets/forest/you-you/face0.webp",
+      "bytes": 3950,
+      "sha256": "6eb3e72cdc3d7d05c518b10b08c87f8e38c700fc281bdb77b38a6da67da42951"
+    },
+    {
+      "path": "app/assets/forest/you-you/face1.webp",
+      "bytes": 3764,
+      "sha256": "abd22d7d2d475c017f2b4f63a588ee782389b57900776a17873ebb190e8b74be"
+    },
+    {
+      "path": "app/assets/forest/you-you/face2.webp",
+      "bytes": 3760,
+      "sha256": "3b342a5dcab07522644173749a1c51f357d7692fc26a19a33a7bc62882a3b946"
+    },
+    {
+      "path": "app/assets/forest/you-you/face3.webp",
+      "bytes": 3978,
+      "sha256": "85d11d56ac96f6a4ecd1d69542e96c73e567795c131f06e6adb385eea33444ab"
+    },
+    {
+      "path": "app/assets/forest/you-you/face4.webp",
+      "bytes": 3922,
+      "sha256": "0c73b0ae428ad989a9c6550554465c1b7d5a233644ea2020a852291cb933d920"
+    },
+    {
+      "path": "app/assets/forest/you-you/front.webp",
+      "bytes": 23290,
+      "sha256": "4a474f03ed9414e12fc696af3a33fcf86a60d2143728793399f5c3c646fa4c8c"
+    },
+    {
+      "path": "app/assets/forest/you-you/sheet.webp",
+      "bytes": 288074,
+      "sha256": "48dade5080bcdda669b2427fea5aed3d84ef1f7548e56d29f5a8ba0e1a5c4519"
+    },
+    {
+      "path": "app/device-check.html",
+      "bytes": 3338,
+      "sha256": "e4de2108640d53587fce667c0b901808c32c7155f077542f9665e46f993581ab"
+    },
+    {
+      "path": "app/device-check.js",
+      "bytes": 12111,
+      "sha256": "2682422a62a0affc0db90138881c5b46c2223b2befb0cd4ed26cbe7a6820cc53"
+    },
+    {
+      "path": "app/icons/icon-192.png",
+      "bytes": 6619,
+      "sha256": "6b3962588fb7e6ab072e83e9eb118c6039783407c683ea50fa8c9d730788d1e0"
+    },
+    {
+      "path": "app/icons/icon-512.png",
+      "bytes": 16261,
+      "sha256": "69b02c5078a1dbf040fe2e6e2a1cbeff9fac2983d1a32f1ea527e9b58c8fee10"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 14158200,
+      "sha256": "aaf41723a687d77ebdf169ceaa7cbfc66c59c1577289f7db0fdf36f17c7abfd7"
+    },
+    {
+      "path": "app/manifest.webmanifest",
+      "bytes": 752,
+      "sha256": "d53147e42dae33985274f8d247034a4d8625b89fbada9abf1111990b21771f54"
+    },
+    {
+      "path": "app/sw.js",
+      "bytes": 1907,
+      "sha256": "9ca1815dba064d28708892938df7382688a64a072497a1430842415773c3bff9"
+    },
+    {
+      "path": "docs/math-course/BUILD_SHA256.json",
+      "bytes": 1221,
+      "sha256": "b47c44e7a65ba37c255f837ef3e3fde36f258814cd058d8a39c6e29be934ddbc"
+    },
+    {
+      "path": "docs/math-course/CHANGELOG.md",
+      "bytes": 2575,
+      "sha256": "c7385cc8a4531315d1b78d78098c966f3256e0b1317a3175d9025727fd672659"
+    },
+    {
+      "path": "docs/math-course/CONTENT_CHANGES.json",
+      "bytes": 1700,
+      "sha256": "4b8dd2ef85f0dd2c42027886d48a530e5c8760c2eca0824d389a3f0acc620a5d"
+    },
+    {
+      "path": "docs/math-course/KNOWN_ISSUES.md",
+      "bytes": 2275,
+      "sha256": "cf21f2b8ee8d9b8053ac2d84e97b8dacfe2ec586ee8c17e2c1ff5eeef1e5aff4"
+    },
+    {
+      "path": "docs/math-course/NEXT_STEPS.md",
+      "bytes": 1061,
+      "sha256": "ef9dfba1365d480c506918fb595003961ab888b9af5aaf953350a1417713333c"
+    },
+    {
+      "path": "docs/math-course/PROJECT_STATE.md",
+      "bytes": 2081,
+      "sha256": "d17cca6c815382840b99b78184ef49bcec7711d4666c7d506a80d54e04b3338d"
+    },
+    {
+      "path": "docs/math-course/TEST_REPORT.md",
+      "bytes": 2862,
+      "sha256": "a99be016d927189a5d93019eb7489a79cae7083817fbec893402a0e046c255a8"
+    },
+    {
+      "path": "docs/math-course/UPSTREAM_README.md",
+      "bytes": 7183,
+      "sha256": "a6b0b43b3b8683af8b1bcdeefe528512f1948da3c64a5e7b5dc3d7c2c387b51c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 714,
+      "sha256": "b98bfb4451b0d6e1ccb8b8aaf18c5021b954bc80939ff8b9a84925f226f698ee"
+    },
+    {
+      "path": "math_course_evidence/browser_results.json",
+      "bytes": 2555,
+      "sha256": "90cce4bdd9d8e32484729884a71070800b5fb974c63ffd882a72bc7d7d0184f0"
+    },
+    {
+      "path": "math_course_evidence/desktop_feedback.png",
+      "bytes": 120389,
+      "sha256": "8edc4840477bff67daac70312b53a8c0b65b0be561ff36057dc96bbcac494b4e"
+    },
+    {
+      "path": "math_course_evidence/desktop_map.png",
+      "bytes": 114814,
+      "sha256": "8e3bed489b3a0612e4f046e00c7e55967d34ba614c425d3d588bf98facb88723"
+    },
+    {
+      "path": "math_course_evidence/desktop_tool.png",
+      "bytes": 116478,
+      "sha256": "9ac414625c0efd9b681bbf59c2e52601eab3a0408134fba3fcf7017b34eca2eb"
+    },
+    {
+      "path": "math_course_evidence/engine_results.json",
+      "bytes": 2037,
+      "sha256": "311fe6ed25028b32fabc8a797cc9c03a3fc2db8674cbe333f06100affcc8cf4c"
+    },
+    {
+      "path": "math_course_evidence/full_app_math.png",
+      "bytes": 116689,
+      "sha256": "b1de9fa8844a9987f9dca26b48bf817826d63c8676b29588d09eef43d680e1bc"
+    },
+    {
+      "path": "math_course_evidence/initial_desktop.png",
+      "bytes": 116677,
+      "sha256": "67eb678c63d4b765d1bb924ab060340d09ad351e06a747d1e7890e08c015dce5"
+    },
+    {
+      "path": "math_course_evidence/initial_tool.png",
+      "bytes": 108258,
+      "sha256": "3c85616a598f1ef943fda8ddbd3a14b9db78973d8c18b01e9f1179708ecb73d9"
+    },
+    {
+      "path": "math_course_evidence/mobile_map.png",
+      "bytes": 67667,
+      "sha256": "78b17f960545e2de0bc9af6a91efad40ba14538ab626e863186ce3651a0fa234"
+    },
+    {
+      "path": "math_course_evidence/mobile_practice.png",
+      "bytes": 56486,
+      "sha256": "380e395c667809ee6e3e5e79e561df9a3ff43ba93efab7b25ad4d19ea4b36936"
+    },
+    {
+      "path": "math_course_evidence/syntax_results.json",
+      "bytes": 49,
+      "sha256": "336988c668f31c65e199f2ac55524aefb8d9c4e47787261fe4084dda9ebf5df9"
+    },
+    {
+      "path": "math_course_evidence/tools_results.json",
+      "bytes": 2484,
+      "sha256": "08332bf46a5ff8d0c36d38aa97d4ef5176ccf737c6898e0040f13314a9c3c634"
+    },
+    {
+      "path": "math_course_preview.html",
+      "bytes": 1936703,
+      "sha256": "7a0b262f64d84ca28422bc807be5f5d198294a4faece1cb3da2ca67f61196139"
+    },
+    {
+      "path": "math_course_src/active-content.json",
+      "bytes": 1450435,
+      "sha256": "b2864228bd57ecdfd80eea67ff1297e068b1335fbcb04f344da1db51afe45edb"
+    },
+    {
+      "path": "math_course_src/course_data.js",
+      "bytes": 929084,
+      "sha256": "56a582110cbbe501f1729c2d50fde5710f4bed5c95b5ce60516294c8fe51118b"
+    },
+    {
+      "path": "math_course_src/course_engine.js",
+      "bytes": 13598,
+      "sha256": "ef558848a0462e8cef414e8f63addf4865651440017a3bb45da12f2a6175986b"
+    },
+    {
+      "path": "math_course_src/course_ui.css",
+      "bytes": 11931,
+      "sha256": "8b35c31245ae1dc0e0ae1f1d31cdff7736d4572cb0cd0ea3c84839884ba2ff19"
+    },
+    {
+      "path": "math_course_src/course_ui.js",
+      "bytes": 49074,
+      "sha256": "d9563d19ae135cf75a1151e7e1633b2d912ade5b89f8228be5b1ff3a12982918"
+    },
+    {
+      "path": "math_course_src/curriculum-map.json",
+      "bytes": 220618,
+      "sha256": "4cafaedc92fd2d48a69e4d8def6799150868371106df62c96e9a09021ee4eb1f"
+    },
+    {
+      "path": "math_course_src/style_bundle.js",
+      "bytes": 11963,
+      "sha256": "e575d33a9ec18771b53a2d8c8f6a4281cd3a56daf1c4b16825e48e22eacc623a"
+    },
+    {
+      "path": "math_course_src/tools_bundle.js",
+      "bytes": 247841,
+      "sha256": "c47b0cf6c38de8b7cc55ad9f547d419906d8c199ae98ef0194f58fc392749898"
+    },
+    {
+      "path": "math_course_src/tools_iframe.html",
+      "bytes": 233035,
+      "sha256": "e8f72c5b452f3cd10a3bec8504dabfaf786a59117d47c983b0cb85fac112cf74"
+    },
+    {
+      "path": "math_course_tests/browser_test.py",
+      "bytes": 8751,
+      "sha256": "35e7b501f8bd764920b06662dd1873f55ece5510f12e06bf9ca2735704914bfa"
+    },
+    {
+      "path": "math_course_tests/engine_test.cjs",
+      "bytes": 8030,
+      "sha256": "d9acf5a9dbfd217d55e600963f0eb3154e96aacc347defdb2f91f2247851a057"
+    },
+    {
+      "path": "math_course_tests/tools_test.py",
+      "bytes": 2558,
+      "sha256": "cdcad00d3763c5ca4264e4f15d296c7b68dc9abfc7d72a0b9e7e9b76892ada4d"
+    },
+    {
+      "path": "server/local_server.mjs",
+      "bytes": 9572,
+      "sha256": "25b19c7933bebc1ee2767381321dd30b12805f4380943e16247087d1ed8117d6"
+    },
+    {
+      "path": "tools/build_math_m1.py",
+      "bytes": 2579,
+      "sha256": "98e08c46889bd5a6f6c9b23b762c862e700196ee2b5a3b09788efaca783a59d6"
+    },
+    {
+      "path": "tools/serve.ps1",
+      "bytes": 4952,
+      "sha256": "0b172a958561cbeae2358a3604adfee86683384d1f2fdce3ea983cb8b517be0a"
+    },
+    {
+      "path": "math_course_evidence/github_upload_validation.json",
+      "bytes": 519,
+      "sha256": "3d50fb518f136e9cdcd07b0f1ea61259008db896b5070ea9f12d5ac34c4cc176"
+    }
+  ]
+}
