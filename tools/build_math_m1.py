@@ -9,12 +9,32 @@ s=app.read_text(encoding='utf-8')
 blocks=list(re.finditer(r'<script([^>]*)>([\s\S]*?)</script>',s,re.I));originals=[b[2] for b in blocks if 'data-course-m1=' not in b[1]]
 if len(originals)!=43 or 'WordQuest Maths 0.1.2' not in originals[40]:
  raise SystemExit('Unrecognised app base. Keep a backup; reconcile upstream changes manually.')
-(S/'style_bundle.js').write_text('globalThis.WQCourseCSS='+json.dumps((S/'course_ui.css').read_text(encoding='utf-8')+'\n'+(S/'course_visual.css').read_text(encoding='utf-8'),ensure_ascii=False)+';\n',encoding='utf-8')
+(S/'style_bundle.js').write_text('globalThis.WQCourseCSS='+json.dumps('\n'.join((S/n).read_text(encoding='utf-8') for n in ['course_ui.css','course_visual.css','classroom.css']),ensure_ascii=False)+';\n',encoding='utf-8')
+classroom={}
+for band in ['lower','upper']:
+ incoming=json.loads((S/f'classroom-{band}.json').read_text(encoding='utf-8'))['lessons']
+ if classroom.keys()&incoming.keys():raise SystemExit('Duplicate classroom chapter')
+ classroom.update(incoming)
+course=(S/'course_data.js').read_text(encoding='utf-8');start=course.index('WQCourseData=')+len('WQCourseData=')
+course_data,_=json.JSONDecoder().raw_decode(course[start:])
+expected={u['code']+'-'+str(p) for u in course_data['units'] for p in [1,2]}
+if set(classroom)!=expected:raise SystemExit('Classroom coverage mismatch: '+str(expected-set(classroom)))
+for key,p in classroom.items():
+ if not p.get('modelSteps'):p['modelSteps']=[x for x in re.findall(r'[^。！？]+[。！？]?',p['explain']['model']) if x.strip()]
+ r=p['readiness'];choices=[x['id'] for x in r['choices']]
+ if r['answer'] not in choices or len(set(choices))!=len(choices):raise SystemExit('Invalid readiness: '+key)
+ if not p.get('diagram',{}).get('svg') or not p.get('toolTask') or not p.get('explain',{}).get('model'):raise SystemExit('Incomplete classroom: '+key)
+(S/'classroom_bundle.js').write_text('globalThis.WQClassroomData='+json.dumps({'version':'HK-M4','lessons':classroom},ensure_ascii=False)+';\n'+'globalThis.WQClassroomCopy='+json.dumps(json.loads((S/'classroom-copy.json').read_text(encoding='utf-8')),ensure_ascii=False)+';\n',encoding='utf-8')
 (S/'school_bundle.js').write_text('/* Generated from school_content.json. Additive IDs preserve historical questions. */\n'+
  'globalThis.WQSchoolData='+json.dumps(json.loads((S/'school_content.json').read_text(encoding='utf-8')),ensure_ascii=False)+';\n'+
  'globalThis.WQMathData.templates.push(...globalThis.WQSchoolData.templates);\n',encoding='utf-8')
 (S/'tools_bundle.js').write_text('globalThis.WQCourseTools='+json.dumps((S/'tools_iframe.html').read_text(encoding='utf-8'),ensure_ascii=False).replace('</script','<\\/script')+';\n',encoding='utf-8')
-names=['course_data.js','school_bundle.js','course_pedagogy.js','course_engine.js','tools_bundle.js','style_bundle.js','course_visuals.js','course_ui.js']
+names=['course_data.js','school_bundle.js','course_pedagogy.js','course_engine.js','tools_bundle.js','style_bundle.js','course_visuals.js','classroom_bundle.js','classroom_ui.js','course_ui.js']
+for name in ['classroom_bundle.js','classroom_ui.js']:
+ if '<script data-course-m1="'+name+'">' not in s:
+  marker='<script data-course-m1="course_ui.js">'
+  if s.count(marker)!=1:raise SystemExit('Cannot locate classroom integration marker.')
+  s=s.replace(marker,'<script data-course-m1="'+name+'"></script>\n'+marker,1)
 for name in ['school_bundle.js','course_pedagogy.js']:
  if '<script data-course-m1="'+name+'">' not in s:
   marker='<script data-course-m1="course_engine.js">'
@@ -36,7 +56,7 @@ head=old[:old.index('<script>')]
 texts=[originals[37].replace('globalThis.WQM_INTEGRATED=true;','globalThis.WQM_INTEGRATED=false;'),originals[38],(S/'course_data.js').read_text(encoding='utf-8'),originals[39],originals[40]]
 texts += [(S/n).read_text(encoding='utf-8') for n in ['school_bundle.js','course_pedagogy.js','course_engine.js']]
 texts += [originals[41]]
-texts += [(S/n).read_text(encoding='utf-8') for n in ['tools_bundle.js','style_bundle.js','course_visuals.js','course_ui.js']]
+texts += [(S/n).read_text(encoding='utf-8') for n in ['tools_bundle.js','style_bundle.js','course_visuals.js','classroom_bundle.js','classroom_ui.js','course_ui.js']]
 preview.write_text(head+'\n'.join('<script>\n'+t.replace('</script','<\\/script')+'\n</script>' for t in texts)+'\n</body></html>',encoding='utf-8')
 manifest={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(S.iterdir()) if p.is_file()}
 for p in [app,preview,R/'app/sw.js']:manifest[str(p.relative_to(R))]=hashlib.sha256(p.read_bytes()).hexdigest()

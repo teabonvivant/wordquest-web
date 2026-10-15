@@ -1,6 +1,6 @@
 {
   "environment": "Node VM, production engine and content. Not student research or browser layout QA.",
-  "passed": 7,
+  "passed": 9,
   "failed": 0,
   "cases": [
     {
@@ -29,6 +29,14 @@
     },
     {
       "name": "Existing submitted answers remain immutable and historical template IDs still regenerate",
+      "passed": true
+    },
+    {
+      "name": "Fraction division reasoning and numeric figures use valid equal units",
+      "passed": true
+    },
+    {
+      "name": "Every active chapter template figure has finite output for representative seeds",
       "passed": true
     }
   ]

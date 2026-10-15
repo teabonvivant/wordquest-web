@@ -1,0 +1,1289 @@
+{
+  "version": "HK-M4",
+  "counts": {
+    "units": 44,
+    "chapters": 88,
+    "gradedChapters": 82,
+    "explorationChapters": 6,
+    "activeTemplateReferences": 84,
+    "uniqueActiveTemplates": 84
+  },
+  "chapters": [
+    {
+      "chapter": "4N1-1",
+      "title": "兩位數相乘",
+      "templates": [
+        "4N1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第45頁；[S3] 第1頁。",
+      "boundary": "最大位數組合為三位數乘兩位數，因數位置可交換；不能把三位數乘三位數當成本單位的普遍要求。"
+    },
+    {
+      "chapter": "4N1-2",
+      "title": "兩位數相乘",
+      "templates": [
+        "4N1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第45頁；[S3] 第1頁。",
+      "boundary": "最大位數組合為三位數乘兩位數，因數位置可交換；不能把三位數乘三位數當成本單位的普遍要求。"
+    },
+    {
+      "chapter": "4N2-1",
+      "title": "除以兩位數",
+      "templates": [
+        "4N2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第46頁；[S3] 第2頁。",
+      "boundary": "本課程的整數範圍不含負整數；不要求判別方法的正式證明。4、6、8、9的整除判別不屬本單位所列要求，不能自行補為小四必學內容。"
+    },
+    {
+      "chapter": "4N2-2",
+      "title": "除以兩位數",
+      "templates": [
+        "4N2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第46頁；[S3] 第2頁。",
+      "boundary": "本課程的整數範圍不含負整數；不要求判別方法的正式證明。4、6、8、9的整除判別不屬本單位所列要求，不能自行補為小四必學內容。"
+    },
+    {
+      "chapter": "4N3-1",
+      "title": "找指定的倍數",
+      "templates": [
+        "4N3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第46–47頁；[S3] 第3頁。",
+      "boundary": "處理正整數，不納入0作倍數等延伸情況。1既不是質數，也不是合成數；因數要有系統地找全，不能只找出其中若干個。"
+    },
+    {
+      "chapter": "4N3-2",
+      "title": "找指定的倍數",
+      "templates": [
+        "4N3.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第46–47頁；[S3] 第3頁。",
+      "boundary": "處理正整數，不納入0作倍數等延伸情況。1既不是質數，也不是合成數；因數要有系統地找全，不能只找出其中若干個。"
+    },
+    {
+      "chapter": "4N4-1",
+      "title": "共同響起的時間",
+      "templates": [
+        "4N4.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第47頁；[S3] 第4頁。",
+      "boundary": "限兩個數；不要求三個數的最小公倍數或最大公因數，不要求正式證明短除法，也不要求「HCF×LCM等於兩數之積」的關係。"
+    },
+    {
+      "chapter": "4N4-2",
+      "title": "用公因數找最多的相同禮包",
+      "templates": [
+        "4N4.PACK.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第47頁；[S3] 第4頁。",
+      "boundary": "限兩個數；不要求三個數的最小公倍數或最大公因數，不要求正式證明短除法，也不要求「HCF×LCM等於兩數之積」的關係。"
+    },
+    {
+      "chapter": "4N5-1",
+      "title": "括號先算",
+      "templates": [
+        "4N5.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第47–49頁；[S3] 第5–6頁。",
+      "boundary": "沿用約定運算次序；可有分開的括號，不設括號套括號。不要求使用「正比例」術語；較複雜應用可分步計算，並非必須寫成一條長算式。"
+    },
+    {
+      "chapter": "4N5-2",
+      "title": "括號先算",
+      "templates": [
+        "4N5.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第47–49頁；[S3] 第5–6頁。",
+      "boundary": "沿用約定運算次序；可有分開的括號，不設括號套括號。不要求使用「正比例」術語；較複雜應用可分步計算，並非必須寫成一條長算式。"
+    },
+    {
+      "chapter": "4N6-1",
+      "title": "帶分數轉假分數",
+      "templates": [
+        "4N6.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第49–50頁；[S3] 第7–8頁。",
+      "boundary": "分數答案須約至最簡；大於1的答案可用最簡假分數或最簡帶分數表示，兩種形式皆可。異分母加減在5N2處理，不能提前納為本單位要求。"
+    },
+    {
+      "chapter": "4N6-2",
+      "title": "帶分數轉假分數",
+      "templates": [
+        "4N6.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第49–50頁；[S3] 第7–8頁。",
+      "boundary": "分數答案須約至最簡；大於1的答案可用最簡假分數或最簡帶分數表示，兩種形式皆可。異分母加減在5N2處理，不能提前納為本單位要求。"
+    },
+    {
+      "chapter": "4N7-1",
+      "title": "十分位與百分位",
+      "templates": [
+        "4N7.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "decimal",
+      "scopeSource": "[S1] 第50–51頁；[S3] 第9頁。",
+      "boundary": "小數概念可達四個小數位，但加減位數限制另按4N8。分數連結限分母為100的因數等所列情況；不把量度記錄擴成繁複多級化聚，時間單位化聚另在6M4。"
+    },
+    {
+      "chapter": "4N7-2",
+      "title": "十分位與百分位",
+      "templates": [
+        "4N7.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "decimal",
+      "scopeSource": "[S1] 第50–51頁；[S3] 第9頁。",
+      "boundary": "小數概念可達四個小數位，但加減位數限制另按4N8。分數連結限分母為100的因數等所列情況；不把量度記錄擴成繁複多級化聚，時間單位化聚另在6M4。"
+    },
+    {
+      "chapter": "4N8-1",
+      "title": "小數加法對齊",
+      "templates": [
+        "4N8.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第51–52頁；[S3] 第10頁。",
+      "boundary": "小數只限一位或兩位；對齊後涉及的數位數目不可超過3N4的四位限制。不是只檢查每個輸入數各有幾位；課程明列某些對齊後超限的計算不包括在內。"
+    },
+    {
+      "chapter": "4N8-2",
+      "title": "列式計算小數長度",
+      "templates": [
+        "4N8.RIBBON.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第51–52頁；[S3] 第10頁。",
+      "boundary": "小數只限一位或兩位；對齊後涉及的數位數目不可超過3N4的四位限制。不是只檢查每個輸入數各有幾位；課程明列某些對齊後超限的計算不包括在內。"
+    },
+    {
+      "chapter": "4M1-1",
+      "title": "長方形周界",
+      "templates": [
+        "4M1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第52頁；[S3] 第11頁。",
+      "boundary": "原文第52頁附有不要求求周界的圖形，出圖時須核對該頁圖示，不以摘要代替圖形判斷。此單位可涉及多於五個數，不能誤套一般四則算式的五數上限；仍須避免繁複計算。"
+    },
+    {
+      "chapter": "4M1-2",
+      "title": "計算圍欄所需長度",
+      "templates": [
+        "4M1.GARDEN.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第52頁；[S3] 第11頁。",
+      "boundary": "原文第52頁附有不要求求周界的圖形，出圖時須核對該頁圖示，不以摘要代替圖形判斷。此單位可涉及多於五個數，不能誤套一般四則算式的五數上限；仍須避免繁複計算。"
+    },
+    {
+      "chapter": "4M2-1",
+      "title": "方格與面積",
+      "templates": [
+        "4M2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "area",
+      "scopeSource": "[S1] 第53–54頁；[S3] 第12–13頁。",
+      "boundary": "不包括平方厘米和平方米之間的化聚；可從長方形面積及已知邊求另一邊。計算可超過五個數，但不宜繁複。"
+    },
+    {
+      "chapter": "4M2-2",
+      "title": "用長乘闊求鋪滿的面積",
+      "templates": [
+        "4M2.FLOOR.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "area",
+      "scopeSource": "[S1] 第53–54頁；[S3] 第12–13頁。",
+      "boundary": "不包括平方厘米和平方米之間的化聚；可從長方形面積及已知邊求另一邊。計算可超過五個數，但不宜繁複。"
+    },
+    {
+      "chapter": "4S1-1",
+      "title": "菱形與四邊形關係",
+      "templates": [
+        "4S1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第54–55頁；[S3] 第14頁。",
+      "boundary": "所有正方形都是長方形及菱形；正方形、長方形、菱形都是平行四邊形。可用分類圖展示，不要求學生製作温氏圖或樹形圖，也不要求「包含關係」術語。命題不可把這些名稱一律設為互相排斥。"
+    },
+    {
+      "chapter": "4S1-2",
+      "title": "菱形與四邊形關係",
+      "templates": [
+        "4S1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第54–55頁；[S3] 第14頁。",
+      "boundary": "所有正方形都是長方形及菱形；正方形、長方形、菱形都是平行四邊形。可用分類圖展示，不要求學生製作温氏圖或樹形圖，也不要求「包含關係」術語。命題不可把這些名稱一律設為互相排斥。"
+    },
+    {
+      "chapter": "4S2-1",
+      "title": "把長方形分割",
+      "templates": [
+        "4S2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第55頁；[S3] 第15頁。",
+      "boundary": "保留動手操作及推理的學習內容；不用把未列明的「對角線」術語或公式加為考核要求。"
+    },
+    {
+      "chapter": "4S2-2",
+      "title": "把長方形分割",
+      "templates": [
+        "4S2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第55頁；[S3] 第15頁。",
+      "boundary": "保留動手操作及推理的學習內容；不用把未列明的「對角線」術語或公式加為考核要求。"
+    },
+    {
+      "chapter": "4S3-1",
+      "title": "八個方向",
+      "templates": [
+        "4S3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第55頁；[S3] 第16頁。",
+      "boundary": "依闡釋配合已學直角處理轉向，不提前加入方位角、三位數方位角或座標式定位。"
+    },
+    {
+      "chapter": "4S3-2",
+      "title": "看校園地圖，找方向",
+      "templates": [
+        "4S3.MAP-DIRECTION.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第55頁；[S3] 第16頁。",
+      "boundary": "依闡釋配合已學直角處理轉向，不提前加入方位角、三位數方位角或座標式定位。"
+    },
+    {
+      "chapter": "4D1-1",
+      "title": "棒形圖的刻度",
+      "templates": [
+        "4D1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第56頁；[S3] 第17頁。",
+      "boundary": "一格代表10、50或100個單位；近似值處理包括最接近的十位、百位。可使用資訊科技製圖，但仍需理解刻度、數量及選取方式。"
+    },
+    {
+      "chapter": "4D1-2",
+      "title": "棒形圖的刻度",
+      "templates": [
+        "4D1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第56頁；[S3] 第17頁。",
+      "boundary": "一格代表10、50或100個單位；近似值處理包括最接近的十位、百位。可使用資訊科技製圖，但仍需理解刻度、數量及選取方式。"
+    },
+    {
+      "chapter": "4F1-1",
+      "title": "先選方法，再動手",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第57頁；[S3] 第18頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    },
+    {
+      "chapter": "4F1-2",
+      "title": "用例子說清楚",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第57頁；[S3] 第18頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    },
+    {
+      "chapter": "5N1-1",
+      "title": "四捨五入至千位",
+      "templates": [
+        "5N1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第58頁；[S3] 第19頁。",
+      "boundary": "本單位處理數感及近似值，不自動擴大既有乘除運算的位數上限。圖表數據的「萬」等表示方式另與5D1配合。"
+    },
+    {
+      "chapter": "5N1-2",
+      "title": "四捨五入至千位",
+      "templates": [
+        "5N1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第58頁；[S3] 第19頁。",
+      "boundary": "本單位處理數感及近似值，不自動擴大既有乘除運算的位數上限。圖表數據的「萬」等表示方式另與5D1配合。"
+    },
+    {
+      "chapter": "5N2-1",
+      "title": "異分母分數相加",
+      "templates": [
+        "5N2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第59頁；[S3] 第20頁。",
+      "boundary": "當運算涉及三個分數，各分母不大於12；不可誤說所有兩分數題也必須同一上限。不要求先教授三個數的LCM。結果為分數時約至最簡，大於1的最簡假分數及帶分數均可。"
+    },
+    {
+      "chapter": "5N2-2",
+      "title": "通分後解決分數應用",
+      "templates": [
+        "5N2.RIBBON.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第59頁；[S3] 第20頁。",
+      "boundary": "當運算涉及三個分數，各分母不大於12；不可誤說所有兩分數題也必須同一上限。不要求先教授三個數的LCM。結果為分數時約至最簡，大於1的最簡假分數及帶分數均可。"
+    },
+    {
+      "chapter": "5N3-1",
+      "title": "分數乘法",
+      "templates": [
+        "5N3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第60頁；[S3] 第21頁。",
+      "boundary": "三個分數相乘不應包含多於一個帶分數，應避免繁複計算；結果須約至最簡，大於1可用最簡假分數或最簡帶分數。"
+    },
+    {
+      "chapter": "5N3-2",
+      "title": "分數乘法",
+      "templates": [
+        "5N3.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第60頁；[S3] 第21頁。",
+      "boundary": "三個分數相乘不應包含多於一個帶分數，應避免繁複計算；結果須約至最簡，大於1可用最簡假分數或最簡帶分數。"
+    },
+    {
+      "chapter": "5N4-1",
+      "title": "小數乘整數",
+      "templates": [
+        "5N4.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第60–61頁；[S3] 第22頁。",
+      "boundary": "除「乘10、100、1000或0.1、0.01、0.001」六種情況外，一般小數乘法的因數只用一位或兩位小數；數字位數不得超過三位數乘兩位數的規模。不能只用「最多兩位小數」作唯一出題檢查。"
+    },
+    {
+      "chapter": "5N4-2",
+      "title": "計算小數單價的總費用",
+      "templates": [
+        "5N4.PRICE.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第60–61頁；[S3] 第22頁。",
+      "boundary": "除「乘10、100、1000或0.1、0.01、0.001」六種情況外，一般小數乘法的因數只用一位或兩位小數；數字位數不得超過三位數乘兩位數的規模。不能只用「最多兩位小數」作唯一出題檢查。"
+    },
+    {
+      "chapter": "5N5-1",
+      "title": "分數除法",
+      "templates": [
+        "5N5.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第62–64頁；[S3] 第23–24頁。",
+      "boundary": "三個分數的連除或乘除混合不應多於一個帶分數；不要求使用比的冒號記法。按分數反求原數的應用配合5A2或6A1。小學不要求「甲比乙多／少幾分之幾」或由新舊數值求分數變化。"
+    },
+    {
+      "chapter": "5N5-2",
+      "title": "分數除法",
+      "templates": [
+        "5N5.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第62–64頁；[S3] 第23–24頁。",
+      "boundary": "三個分數的連除或乘除混合不應多於一個帶分數；不要求使用比的冒號記法。按分數反求原數的應用配合5A2或6A1。小學不要求「甲比乙多／少幾分之幾」或由新舊數值求分數變化。"
+    },
+    {
+      "chapter": "5A1-1",
+      "title": "把小故事寫成代數式",
+      "templates": [
+        "5A1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第64頁；[S3] 第25頁。",
+      "boundary": "只涉及一個未知量；理解3x可表示3×x、x×3或x+x+x，x/3可表示x÷3。這是首個正式代數範疇單位，不擴展為多未知數代數運算。"
+    },
+    {
+      "chapter": "5A1-2",
+      "title": "把小故事寫成代數式",
+      "templates": [
+        "5A1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第64頁；[S3] 第25頁。",
+      "boundary": "只涉及一個未知量；理解3x可表示3×x、x×3或x+x+x，x/3可表示x÷3。這是首個正式代數範疇單位，不擴展為多未知數代數運算。"
+    },
+    {
+      "chapter": "5A2-1",
+      "title": "一步方程",
+      "templates": [
+        "5A2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "balance",
+      "scopeSource": "[S1] 第65–66頁；[S3] 第26頁。",
+      "boundary": "a、b、c為整數，a不等於0；沿用小學整數範圍。建立方程須呈現題目數量關係，不以先算完答案再寫成「x＝算式」代替建立方程。不可自行加入分式方程或未知數在分母的題目。"
+    },
+    {
+      "chapter": "5A2-2",
+      "title": "一步方程",
+      "templates": [
+        "5A2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "balance",
+      "scopeSource": "[S1] 第65–66頁；[S3] 第26頁。",
+      "boundary": "a、b、c為整數，a不等於0；沿用小學整數範圍。建立方程須呈現題目數量關係，不以先算完答案再寫成「x＝算式」代替建立方程。不可自行加入分式方程或未知數在分母的題目。"
+    },
+    {
+      "chapter": "5M1-1",
+      "title": "三角形面積",
+      "templates": [
+        "5M1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第66頁；[S3] 第27頁。",
+      "boundary": "不要求「凸四邊形」術語。闡釋建議由三角形或梯形面積反求邊長的應用宜在6A1處理；此屬教學安排，不應改述為所有逆向面積題一律禁止。可超過五個數，但應避免繁複計算。"
+    },
+    {
+      "chapter": "5M1-2",
+      "title": "看垂直高度求三角形面積",
+      "templates": [
+        "5M1.FLAG.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第66頁；[S3] 第27頁。",
+      "boundary": "不要求「凸四邊形」術語。闡釋建議由三角形或梯形面積反求邊長的應用宜在6A1處理；此屬教學安排，不應改述為所有逆向面積題一律禁止。可超過五個數，但應避免繁複計算。"
+    },
+    {
+      "chapter": "5M2-1",
+      "title": "長方體體積",
+      "templates": [
+        "5M2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "cubes",
+      "scopeSource": "[S1] 第67頁；[S3] 第28頁。",
+      "boundary": "本單位不包括立方厘米與立方米的化聚，也不包括由正方體體積求邊長。可超過五個數；容量與體積的進一步關係在6M2處理。"
+    },
+    {
+      "chapter": "5M2-2",
+      "title": "用分層方法求體積",
+      "templates": [
+        "5M2.BOX.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "cubes",
+      "scopeSource": "[S1] 第67頁；[S3] 第28頁。",
+      "boundary": "本單位不包括立方厘米與立方米的化聚，也不包括由正方體體積求邊長。可超過五個數；容量與體積的進一步關係在6M2處理。"
+    },
+    {
+      "chapter": "5S1-1",
+      "title": "半徑與直徑",
+      "templates": [
+        "5S1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第68頁；[S3] 第29頁。",
+      "boundary": "此單位須在5S2之前。圓周長及圓面積公式分別在6M3、6M5處理；小五的圓不能自動擴展至小六計算。"
+    },
+    {
+      "chapter": "5S1-2",
+      "title": "從直徑找半徑",
+      "templates": [
+        "5S1.CIRCLE-RADIUS.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第68頁；[S3] 第29頁。",
+      "boundary": "此單位須在5S2之前。圓周長及圓面積公式分別在6M3、6M5處理；小五的圓不能自動擴展至小六計算。"
+    },
+    {
+      "chapter": "5S2-1",
+      "title": "摸一摸面、稜和頂",
+      "templates": [
+        "5S2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第68–70頁；[S3] 第30頁。",
+      "boundary": "角柱、圓柱只研究與底平行的截面；不要求「均勻截面」術語。長方體概念採用非正方體例子；只要求認識而非必須製作圓柱摺紙圖樣。不要求球的最大截面；面、稜、頂點數的一般關係屬5E2增潤。"
+    },
+    {
+      "chapter": "5S2-2",
+      "title": "摸一摸面、稜和頂",
+      "templates": [
+        "5S2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第68–70頁；[S3] 第30頁。",
+      "boundary": "角柱、圓柱只研究與底平行的截面；不要求「均勻截面」術語。長方體概念採用非正方體例子；只要求認識而非必須製作圓柱摺紙圖樣。不要求球的最大截面；面、稜、頂點數的一般關係屬5E2增潤。"
+    },
+    {
+      "chapter": "5D1-1",
+      "title": "複合棒形圖",
+      "templates": [
+        "5D1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第70–71頁；[S3] 第31頁。",
+      "boundary": "一格代表1000、10000或100000個單位；避免「13千」「1萬3000」「3十萬」等原文指出的不恰當圖表數據寫法。需要理解圖例及不同資料組別，不能只評核單棒讀數。"
+    },
+    {
+      "chapter": "5D1-2",
+      "title": "複合棒形圖",
+      "templates": [
+        "5D1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第70–71頁；[S3] 第31頁。",
+      "boundary": "一格代表1000、10000或100000個單位；避免「13千」「1萬3000」「3十萬」等原文指出的不恰當圖表數據寫法。需要理解圖例及不同資料組別，不能只評核單棒讀數。"
+    },
+    {
+      "chapter": "5F1-1",
+      "title": "為問題選工具",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第71頁；[S3] 第32頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    },
+    {
+      "chapter": "5F1-2",
+      "title": "說明並改進方法",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第71頁；[S3] 第32頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    },
+    {
+      "chapter": "6N1-1",
+      "title": "小數除法",
+      "templates": [
+        "6N1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第73–74頁；[S3] 第33–34頁。",
+      "boundary": "除「除以10、100、1000或0.1、0.01、0.001」六種情況外，須在有需要時把除數調整為整數後，檢查被除數的數字位數不多於三、除數不多於二。混合題的乘法亦須符合5N4；不是任意位數的小數長除法。"
+    },
+    {
+      "chapter": "6N1-2",
+      "title": "小數除法",
+      "templates": [
+        "6N1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第73–74頁；[S3] 第33–34頁。",
+      "boundary": "除「除以10、100、1000或0.1、0.01、0.001」六種情況外，須在有需要時把除數調整為整數後，檢查被除數的數字位數不多於三、除數不多於二。混合題的乘法亦須符合5N4；不是任意位數的小數長除法。"
+    },
+    {
+      "chapter": "6N2-1",
+      "title": "分數化小數",
+      "templates": [
+        "6N2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第74–75頁；[S3] 第35頁。",
+      "boundary": "分數結果須約至最簡。計算可能遇到不能有限寫完的小數，但不要求「循環小數」的概念或術語，不應自行加入循環小數化分數。"
+    },
+    {
+      "chapter": "6N2-2",
+      "title": "分數化小數",
+      "templates": [
+        "6N2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第74–75頁；[S3] 第35頁。",
+      "boundary": "分數結果須約至最簡。計算可能遇到不能有限寫完的小數，但不要求「循環小數」的概念或術語，不應自行加入循環小數化分數。"
+    },
+    {
+      "chapter": "6N3-1",
+      "title": "百分數的意義",
+      "templates": [
+        "6N3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "percent",
+      "scopeSource": "[S1] 第75頁；[S3] 第36頁。",
+      "boundary": "化為分數時用最簡形式；「一成等於10%」不屬本課程要求。不能把認識百分數直接等同已要求折扣或利息。"
+    },
+    {
+      "chapter": "6N3-2",
+      "title": "百分數的意義",
+      "templates": [
+        "6N3.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "percent",
+      "scopeSource": "[S1] 第75頁；[S3] 第36頁。",
+      "boundary": "化為分數時用最簡形式；「一成等於10%」不屬本課程要求。不能把認識百分數直接等同已要求折扣或利息。"
+    },
+    {
+      "chapter": "6N4-1",
+      "title": "部分、全部與百分比",
+      "templates": [
+        "6N4.PART.M3",
+        "6N4.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第75–76頁；[S3] 第37頁。",
+      "boundary": "不包括折扣、利息；不包括求一數比另一數大／小百分之幾，也不包括由原值、現值反算百分變化。由百分數和部分數值求原數在6A1處理。"
+    },
+    {
+      "chapter": "6N4-2",
+      "title": "增加或減少後的數量",
+      "templates": [
+        "6N4.R3-T2.C1",
+        "6N4.R3-T3.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第75–76頁；[S3] 第37頁。",
+      "boundary": "不包括折扣、利息；不包括求一數比另一數大／小百分之幾，也不包括由原值、現值反算百分變化。由百分數和部分數值求原數在6A1處理。"
+    },
+    {
+      "chapter": "6A1-1",
+      "title": "兩步方程",
+      "templates": [
+        "6A1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第77–78頁；[S3] 第38頁。",
+      "boundary": "a、b、c可為整數、分數、小數或百分數；d、e須為整數；a、d、e不等於0，最後一類另須d≠e。含未知量的項只在等號同一邊，不加入兩邊均有未知量或多未知數方程。"
+    },
+    {
+      "chapter": "6A1-2",
+      "title": "兩步方程",
+      "templates": [
+        "6A1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第77–78頁；[S3] 第38頁。",
+      "boundary": "a、b、c可為整數、分數、小數或百分數；d、e須為整數；a、d、e不等於0，最後一類另須d≠e。含未知量的項只在等號同一邊，不加入兩邊均有未知量或多未知數方程。"
+    },
+    {
+      "chapter": "6M1-1",
+      "title": "量角器要對準哪裏？",
+      "templates": [
+        "6M1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "angle",
+      "scopeSource": "[S1] 第78頁；[S3] 第39頁。",
+      "boundary": "量度及繪畫範圍在0°與360°之間，不包括兩個端點。認識周角概念與要求量畫360°是不同事情；不把本單位延伸成未列明的角度定理訓練。"
+    },
+    {
+      "chapter": "6M1-2",
+      "title": "量角器要對準哪裏？",
+      "templates": [
+        "6M1.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "angle",
+      "scopeSource": "[S1] 第78頁；[S3] 第39頁。",
+      "boundary": "量度及繪畫範圍在0°與360°之間，不包括兩個端點。認識周角概念與要求量畫360°是不同事情；不把本單位延伸成未列明的角度定理訓練。"
+    },
+    {
+      "chapter": "6M2-1",
+      "title": "立方厘米與毫升",
+      "templates": [
+        "6M2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第79頁；[S3] 第40頁。",
+      "boundary": "排水活動需處理能完全浸沒、且不會溶於水等合適物件。計算可超過五個數。5M2對立方單位化聚的限制不能被誤引為「整個小學都不認識體積與容量的換算」。"
+    },
+    {
+      "chapter": "6M2-2",
+      "title": "用水面上升求物件體積",
+      "templates": [
+        "6M2.DISPLACE.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第79頁；[S3] 第40頁。",
+      "boundary": "排水活動需處理能完全浸沒、且不會溶於水等合適物件。計算可超過五個數。5M2對立方單位化聚的限制不能被誤引為「整個小學都不認識體積與容量的換算」。"
+    },
+    {
+      "chapter": "6M3-1",
+      "title": "圓周與直徑",
+      "templates": [
+        "6M3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第79–80頁；[S3] 第41頁。",
+      "boundary": "不包括以圓心角求弧長。部分圓的周界須連同直邊，不能把弧長當周界。本單位不受5N4及6N1一般小數乘除位數限制，可超過五個數，但避免繁複計算。"
+    },
+    {
+      "chapter": "6M3-2",
+      "title": "圓周與直徑",
+      "templates": [
+        "6M3.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第79–80頁；[S3] 第41頁。",
+      "boundary": "不包括以圓心角求弧長。部分圓的周界須連同直邊，不能把弧長當周界。本單位不受5N4及6N1一般小數乘除位數限制，可超過五個數，但避免繁複計算。"
+    },
+    {
+      "chapter": "6M4-1",
+      "title": "路程、時間與速率",
+      "templates": [
+        "6M4.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第80–81頁；[S3] 第42–43頁。",
+      "boundary": "時間化聚按所列單名數處理；時間應用不同時涉及小時、分鐘和秒。m/s與km/h之間的化聚不包括在內；不包括追趕題。可超過五個數，但不能藉此加入繁複的競賽行程題。"
+    },
+    {
+      "chapter": "6M4-2",
+      "title": "統一時間單位後求速率",
+      "templates": [
+        "6M4.JOURNEY.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第80–81頁；[S3] 第42–43頁。",
+      "boundary": "時間化聚按所列單名數處理；時間應用不同時涉及小時、分鐘和秒。m/s與km/h之間的化聚不包括在內；不包括追趕題。可超過五個數，但不能藉此加入繁複的競賽行程題。"
+    },
+    {
+      "chapter": "6M5-1",
+      "title": "圓的面積",
+      "templates": [
+        "6M5.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第82–83頁；[S3] 第44頁。",
+      "boundary": "不要求由圓面積求直徑或半徑，也不要求一般扇形面積；不能把容許的半圓等情況擴成任意圓心角的扇形公式。一般小數乘除位數限制不適用，可超過五個數，但避免繁複計算。"
+    },
+    {
+      "chapter": "6M5-2",
+      "title": "圓的面積",
+      "templates": [
+        "6M5.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第82–83頁；[S3] 第44頁。",
+      "boundary": "不要求由圓面積求直徑或半徑，也不要求一般扇形面積；不能把容許的半圓等情況擴成任意圓心角的扇形公式。一般小數乘除位數限制不適用，可超過五個數，但避免繁複計算。"
+    },
+    {
+      "chapter": "6S1-1",
+      "title": "對稱軸",
+      "templates": [
+        "6S1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "symmetry",
+      "scopeSource": "[S1] 第83頁；[S3] 第45頁。",
+      "boundary": "判別以圖形外形為準，不需要兼顧物件表面的花紋。旋轉對稱屬6E1增潤，不應併入所有學生均需完成的軸對稱考核。"
+    },
+    {
+      "chapter": "6S1-2",
+      "title": "看圖找對稱軸",
+      "templates": [
+        "6S1.SYMMETRY-READ.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "symmetry",
+      "scopeSource": "[S1] 第83頁；[S3] 第45頁。",
+      "boundary": "判別以圖形外形為準，不需要兼顧物件表面的花紋。旋轉對稱屬6E1增潤，不應併入所有學生均需完成的軸對稱考核。"
+    },
+    {
+      "chapter": "6D1-1",
+      "title": "平均數不是最大值",
+      "templates": [
+        "6D1.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第84頁；[S3] 第46頁。",
+      "boundary": "可涉及多於五個數。平均數因極端數據而產生的局限等進一步討論不屬此小學單位要求，不自行加入中位數、眾數等其他統計量。"
+    },
+    {
+      "chapter": "6D1-2",
+      "title": "由平均數找回缺少數據",
+      "templates": [
+        "6D1.MISSING.M3"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第84頁；[S3] 第46頁。",
+      "boundary": "可涉及多於五個數。平均數因極端數據而產生的局限等進一步討論不屬此小學單位要求，不自行加入中位數、眾數等其他統計量。"
+    },
+    {
+      "chapter": "6D2-1",
+      "title": "折線圖的變化",
+      "templates": [
+        "6D2.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第84–85頁；[S3] 第47頁。",
+      "boundary": "沒有沿用棒形圖的固定一格數值清單；闡釋不建議在同一折線圖放多於兩組數據。要理解變化趨勢，不只是讀單一點。"
+    },
+    {
+      "chapter": "6D2-2",
+      "title": "折線圖的變化",
+      "templates": [
+        "6D2.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第84–85頁；[S3] 第47頁。",
+      "boundary": "沒有沿用棒形圖的固定一格數值清單；闡釋不建議在同一折線圖放多於兩組數據。要理解變化趨勢，不只是讀單一點。"
+    },
+    {
+      "chapter": "6D3-1",
+      "title": "圓形圖的百分比",
+      "templates": [
+        "6D3.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第85頁；[S3] 第48頁。",
+      "boundary": "以角度提供資料時，角度限30°或45°的倍數；百分數資料及計算應簡單。不要求學生量圖中角度後才計算，也不要求用紙筆自行製作圓形圖。"
+    },
+    {
+      "chapter": "6D3-2",
+      "title": "圓形圖的百分比",
+      "templates": [
+        "6D3.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第85頁；[S3] 第48頁。",
+      "boundary": "以角度提供資料時，角度限30°或45°的倍數；百分數資料及計算應簡單。不要求學生量圖中角度後才計算，也不要求用紙筆自行製作圓形圖。"
+    },
+    {
+      "chapter": "6D4-1",
+      "title": "圖表表達是否恰當",
+      "templates": [
+        "6D4.R3-T1.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第85頁；[S3] 第49頁。",
+      "boundary": "課程要求判斷表達是否合適，不能以讀取數字題完全取代。圖表資料的使用及解說須準確，不可用不實圖像誤導。"
+    },
+    {
+      "chapter": "6D4-2",
+      "title": "圖表表達是否恰當",
+      "templates": [
+        "6D4.R3-T2.C1"
+      ],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第85頁；[S3] 第49頁。",
+      "boundary": "課程要求判斷表達是否合適，不能以讀取數字題完全取代。圖表資料的使用及解說須準確，不可用不實圖像誤導。"
+    },
+    {
+      "chapter": "6F1-1",
+      "title": "把問題變得清楚",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "a",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第86頁；[S3] 第50頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    },
+    {
+      "chapter": "6F1-2",
+      "title": "檢查、解釋、再改進",
+      "templates": [],
+      "status": "authored",
+      "diagram": "quantity-specific SVG; equal units or explicitly labelled relationship map",
+      "readinessKey": "b",
+      "tool": "on-screen-scratchboard",
+      "scopeSource": "[S1] 第86頁；[S3] 第50頁。",
+      "boundary": "這是課程列明的進階學習單位，不是另外一套奧數課程，也不是獨立、割裂的十小時課題。不能因名稱有「進階」便把它等同選修增潤。 2026年數學建模微調的擬議推行安排，另見本報告版本說明。"
+    }
+  ],
+  "issues": [
+    {
+      "id": "UP-01",
+      "severity": "teaching",
+      "source": "math_course_src/course_pedagogy.js:stepsFor kind=fractionDivide; course_data.js 5N5.R3-T1.C1,5N5.R3-T2.C1",
+      "finding": "Starts with multiply-reciprocal rule, without connecting division to equal-size groups. Source explanation says 分子分母同乘後約分, which confuses multiplying fractions with forming an equivalent fraction.",
+      "replacement": "First show3/4÷1/8:6/8 contains six1/8 groups. Generalise same-denominator (ae)/(be) ÷ (bc)/(be)=ae/bc, hence multiply e/c. Replace ambiguous wording with 分子相乘、分母相乘，最後約分.",
+      "answerKeyChange": false,
+      "resolution": "Implemented tightly scoped stepsFor fractionDivide and5N5 same-whole common-denominator SVG in course_pedagogy.js."
+    },
+    {
+      "id": "UP-02",
+      "severity": "coverage",
+      "source": "school_content.json plans6M1;course_data.js6M1.R3-T1.C1,T2.C1;tools_iframe.html angle",
+      "finding": "Every active question asks alignment/setup facts. A turntable changes angle but does not practise selecting inner vs outer protractor scale.",
+      "replacement": "Add a diagram with visible0-start and both scales; ask a concrete reading, e.g.60° vs120°. Keep old IDs as historical; add new template ID, teach it before testing. Retain explicit turntable limitation.",
+      "answerKeyChange": false
+    },
+    {
+      "id": "UP-03",
+      "severity": "scope-mismatch",
+      "source": "tools_iframe.html DATA5A2 lessons[1].config={a:2,b:3,c:11};school_content.json5A2 part2",
+      "finding": "Tool mission2x+3=11 requires two steps; active chapter practices onlyx+a=b.",
+      "replacement": "For exact one-step alignment change tool config to{a:1,b:3,c:11} and adjust mission text; alternatively visibly label two-step extension and keep it outside one-step mastery. Classroom pack currently describes actual existing button sequence.",
+      "answerKeyChange": false,
+      "resolution": "Parent aligning config to a1,b3,c11; pack task updated to x=8."
+    },
+    {
+      "id": "UP-04",
+      "severity": "diagram",
+      "source": "course_pedagogy.js:figure m=triangle (5M1.FLAG.M3)",
+      "finding": "Fixed triangle coordinates depict base405px,height156px for every generated base and height. The changing length labels therefore do not share a scale.",
+      "replacement": "Choose f=min(maxWidth/base,maxHeight/height), plot base*f and height*f with perpendicular foot; retain right-angle mark. Do not use a fixed picture with changing dimension labels.",
+      "answerKeyChange": false
+    },
+    {
+      "id": "UP-05",
+      "severity": "accessibility",
+      "source": "course_pedagogy.js:figure m=jug|displacement;bar and many labels",
+      "finding": "Generated diagrams use17–23px SVG labels. This conflicts with independent child reading target24px+. Narrow small subunits can become unreadable on mobile.",
+      "replacement": "Use24px+ labels and larger viewBox/vertical stacking for two jugs. For fraction units show grouped bars with a legible count, preserving equal partitions.",
+      "answerKeyChange": false
+    },
+    {
+      "id": "UP-06",
+      "severity": "teaching",
+      "source": "course_pedagogy.js:stepsFor fractionMultiply;course_data.js5N3.R3-T1.C1,T2.C1",
+      "finding": "Procedural multiply-numerators/denominators steps do not explain why number of equal parts multiplies.",
+      "replacement": "Use2×3 equal grid, select1/2 then1/3 of selected half:1 of6 equal parts. Link denominator product to total equal cells.",
+      "answerKeyChange": false
+    },
+    {
+      "id": "UP-07",
+      "severity": "scope",
+      "source": "school_content.json plans upper grade units overall",
+      "finding": "41 assessed units have only narrow chapter scopes. E.g.4N3 tests designated multiples but official unit also includes factors, primes and composites;6M5 tests full circle only. M4 pack does not turn these active scopes into full official-unit coverage.",
+      "replacement": "Keep chapter-scope notice. Broaden by new explained and practised templates in a later explicit content expansion; never claim official unit completion from the present scores.",
+      "answerKeyChange": false
+    },
+    {
+      "id": "UP-08",
+      "severity": "teaching",
+      "source": "tools_iframe.html 5S2 original detail;course_data.js5S2.R3-T1.C1,T2.C1",
+      "finding": "Instructions rely on external objects to touch/rotate/count. No linked tool exists for mapOnly5S2.",
+      "replacement": "Provide visible dashed hidden edges and group top4,bottom4,connectors4; scratchboard permits marking each edge once without parental help.",
+      "answerKeyChange": false
+    }
+  ],
+  "sources": [
+    {
+      "title": "EDB小學數學科學習內容（2017）",
+      "url": "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/ma/curr/pmc2017_tc.pdf",
+      "verified": "Opened live PDF; upper-stage aims include quantities, dimensions, geometry and data; detailed per-unit boundaries cross-checked against existing sourced DATA."
+    },
+    {
+      "title": "IES systematic mathematics intervention practice guide",
+      "url": "https://ies.ed.gov/ncee/wwc/practiceguide/26",
+      "use": "Parent-provided systematic-instruction approach: explicit model, linked representation, guided attempt, diagnostic feedback."
+    }
+  ],
+  "validation": {
+    "jsonParse": true,
+    "svgXmlParse": 88,
+    "minSvgFont": 24,
+    "scriptOrForeignObjectOrExternalRefs": 0,
+    "readinessChoices": 2,
+    "readinessKeys": "a for part1,b for part2; checked using explicit per-topic arithmetic/definition rationale",
+    "scope": "All44 actual upper units, both parts, including6 ungraded F chapters",
+    "templateReview": "Every active upper template ID examined, plus source params, expr, explanations and related figure/steps branches. No definite existing arithmetic answer-key error found in this review; this is not an exhaustive seed test.",
+    "progressiveModelSteps": 88,
+    "childModelMaxSentences": 3,
+    "formalFractionDivisionProof": "Teacher notes only; children use concrete sixth-eighth grouping example.",
+    "scopeNotice": "88 authored chapters are not a claim of complete official-unit coverage or human teacher approval."
+  },
+  "missionAlignment": {
+    "sources": [
+      "tools_iframe.html DATA",
+      "course_data.js WQCourseData.units",
+      "curriculum-map.json units"
+    ],
+    "lessons": [
+      "1M4-1",
+      "3N5-2",
+      "5A2-2"
+    ],
+    "fields": [
+      "config",
+      "mission",
+      "goals",
+      "intro",
+      "steps"
+    ],
+    "verified": true,
+    "legacyOnlyDifferences": [
+      {
+        "lesson": "1M4-1",
+        "ids": [
+          "1M4-1-practice-1",
+          "1M4-1-test-1"
+        ],
+        "difference": "Old local question IDs still ask half-past times. Preserved IDs/answers; not part of current M4 active template scope or iframe play flow."
+      },
+      {
+        "lesson": "5A2-2",
+        "ids": [
+          "5A2-2-practice-1",
+          "5A2-2-practice-2",
+          "5A2-2-test-1",
+          "5A2-2-test-2"
+        ],
+        "difference": "Old local question IDs still cover two-step equations. Preserved for historical source integrity; not current M4 active question templates."
+      }
+    ],
+    "visibilityEvidence": "tools_iframe.html CSS hides [data-action=tab]; c1-tool-init sets state.tab=play. Embedded page is a tool mission, not current assessment question source. school_content.json plans and versioned templates remain canonical for M4 practice/test.",
+    "fractionDivisionDiagramBounds": {
+      "maximumDenominator": 81,
+      "maximumRectangles": 162,
+      "maximumSelectedUnitsPerRow": 27,
+      "finite": true
+    },
+    "final3N5Scope": "Only compare unit fractions using the same-size whole (1/3>1/5), and add same-denominator fractions (1/4+2/4=3/4). Removed the newly added subtraction step from all3 metadata sources; historical question IDs/answers remain intact."
+  }
+}
