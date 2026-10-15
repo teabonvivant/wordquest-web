@@ -1,8 +1,8 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "9c63ee2f25b1a394a61959034a3d9e0841c99a454ab00627403a38dbb5e6f872",
-  "swSHA256": "1c69b07770dac53f078b826e5742aecf8579876a255ccac1225231fcec8d7853",
+  "appSHA256": "b4883e8e28e21b42cdceb6978bc309568f4ffea24d53a99dc0b2bbb0ec00646d",
+  "swSHA256": "843864b6b5e84148de7732ff33ab6697f4b7ab57c85f951361257ba84813ddc0",
   "modules": [
     "s10_shell",
     "s20_modes",

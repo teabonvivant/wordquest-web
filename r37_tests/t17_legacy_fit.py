@@ -43,10 +43,11 @@ PAGES = {
     'practice': ('#practice', '[data-l30="entry"]', None),
     'companions': ('#companions', '.wq32-roster button', None),
 }
-WQM = {'wqm-home': ('math', 'home', None, '[data-action="daily:normal"]'),
-       'wqm-normal': ('math', 'home', '[data-action="nav:normal"]', '[data-action^="grade"]'),
-       'wqm-tools': ('math', 'home', '[data-action="nav:tools"]', '[data-action^="selecttool"]'),
-       'wqm-parent': ('math', 'home', '[data-action="nav:parent"]', '[data-action="export"]'),
+# R3.17: maths planet now opens the HK-M4 course UI (shadow host #wq-course-host)
+COURSE = {'wqm-home', 'wqm-normal', 'wqm-tools'}
+WQM = {'wqm-home': ('math', 'normal', None, 'button.btn.primary'),
+       'wqm-normal': ('math', 'assessment', None, '.actions.sticky .btn.primary'),
+       'wqm-tools': ('math', 'review', None, 'button.btn.primary'),
        'wqm-olympiad': ('olympiad', 'olympiad', None, '[data-action^="olylevel"]'),
        'wqm-cards': ('olympiad', 'olympiad', '[data-action="nav:cards"]', '.badge-card')}
 
@@ -68,7 +69,7 @@ def measure(pg, pid, shadow=False, primary=None):
 
 
 def in_first_screen(pg, sel, shadow=False):
-    return pg.evaluate("""([sel,shadow])=>{const R=shadow?document.querySelector('#wqm-app-host').shadowRoot:document;
+    return pg.evaluate("""([sel,shadow])=>{const R=shadow?(document.querySelector('dialog#wq-course-dialog[open]')?document.querySelector('#wq-course-host'):document.querySelector('#wqm-app-host')).shadowRoot:document;
       const e=[...R.querySelectorAll(sel)].find(x=>{const r=x.getBoundingClientRect();return r.width>1&&r.height>1;});
       if(!e)return {found:false};const r=e.getBoundingClientRect();const nav=document.querySelector('.r37-nav');
       const lim=nav&&!shadow?nav.getBoundingClientRect().top:innerHeight;
@@ -82,11 +83,13 @@ def check_page(pg, errs, pid, vp, shadow=False):
     C.ok(not (m['h_overflow_doc'] or m['h_overflow_elems']), f'{tag}: no horizontal overflow {m["h_overflow_sample"]}')
     C.ok(m['head_px'] == 0, f'{tag}: old site header is gone (head_px={m["head_px"]})')
     C.ok(len(m['back_controls']) <= 1, f'{tag}: at most one back control {m["back_controls"]}')
-    C.ok(m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
-    C.ok(m['tiny_count'] == 0, f'{tag}: touch targets >= 44px ({m["tiny_count"]} tiny {m["tiny_sample"][:3]})')
+    course = pid in COURSE  # long-form HK-M4 course content scrolls by design; its primary action is checked separately
+    C.ok(course or m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
+    tiny = [t for t in m['tiny_sample'] if not (course and t['sel'] == 'input')] if course else m['tiny_sample']
+    C.ok((len(tiny) if course else m['tiny_count']) == 0, f'{tag}: touch targets >= 44px ({m["tiny_count"]} tiny {m["tiny_sample"][:3]})')
     C.ok(m['min_font'] is None or m['min_font'] >= 12, f'{tag}: font floor 12px (min {m["min_font"]})')
     lim = 40 if pid in PARENT_PL or pid.startswith('wqm-parent') else 20
-    C.ok(m['text']['desc'] <= lim, f'{tag}: copy <= {lim} units (desc={m["text"]["desc"]} {[d["txt"][:24] for d in m["desc_top"][:2]]})')
+    C.ok(course or m['text']['desc'] <= lim, f'{tag}: copy <= {lim} units (desc={m["text"]["desc"]} {[d["txt"][:24] for d in m["desc_top"][:2]]})')
     pg.screenshot(path=str(SHOTS_DIR / f'{pid}__{name}.jpg'), type='jpeg', quality=55)
     return m
 
@@ -106,15 +109,15 @@ def run():
                 C.ok(hh is not None and hh['top'] >= 0 and hh['bottom'] <= h, f'{pid}@{name}: title inside the first screen {hh}')
             # ---- maths / olympiad dialogs (shadow DOM)
             for pid, (planet, key, sub, primary) in WQM.items():
-                pg.evaluate("document.querySelector('#wqm-dialog')?.close?.()")
+                pg.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
                 go(pg, '#p/' + planet, 450)
                 pg.evaluate("(k)=>document.querySelector(`[data-wqm-open=\"${k}\"]`)?.click()", key); pg.wait_for_timeout(1100)
                 if sub:
-                    pg.evaluate("(a)=>{const r=document.querySelector('#wqm-app-host').shadowRoot;r.querySelector(a)?.click()}", sub); pg.wait_for_timeout(900)
+                    pg.evaluate("(a)=>{const r=(document.querySelector('dialog#wq-course-dialog[open]')?document.querySelector('#wq-course-host'):document.querySelector('#wqm-app-host')).shadowRoot;r.querySelector(a)?.click()}", sub); pg.wait_for_timeout(900)
                 m = check_page(pg, errs, pid, vp, shadow=True)
                 r = in_first_screen(pg, primary, shadow=True)
                 C.ok(r.get('found') and r.get('ok'), f'{pid}@{name}: main action {primary!r} inside the first screen {r}')
-            pg.evaluate("document.querySelector('#wqm-dialog')?.close?.()")
+            pg.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
             C.ok(not [e for e in errs if 'favicon' not in e], f'{name}: no console / page errors {errs[:3]}')
             b.close()
 

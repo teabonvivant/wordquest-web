@@ -5,7 +5,7 @@ const CJK=/[㐀-鿿豈-﫿　-〿＀-￯]/g;
 const EMO=/\p{Extended_Pictographic}/gu;
 const units=s=>{s=String(s||'');const c=(s.match(/[㐀-鿿豈-﫿]/g)||[]).length;const w=(s.replace(/[㐀-鿿豈-﫿]/g,' ').match(/[A-Za-z0-9][A-Za-z0-9'’\-]*/g)||[]).length;return c+w;};
 const vis=e=>{const cs=getComputedStyle(e);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0)return false;const r=e.getBoundingClientRect();if(r.width<2||r.height<2)return false;if(r.right<0||r.left>vw+2||r.bottom<-2)return false;return true;};
-const SH=!!(opts&&opts.shadow);const R=SH?document.querySelector('#wqm-app-host').shadowRoot:document;
+const SH=!!(opts&&opts.shadow);const R=SH?(document.querySelector('dialog#wq-course-dialog[open]')?document.querySelector('#wq-course-host'):document.querySelector('#wqm-app-host')).shadowRoot:document;
 const app=SH?(R.querySelector('.wqm')||[...R.children].find(c=>c.tagName!=='STYLE')):(document.querySelector('#app')||document.body);
 const all=[...(SH?R:document.body).querySelectorAll('*')].filter(e=>!['SCRIPT','STYLE','NOSCRIPT','LINK','META','TEMPLATE','PATH','CIRCLE','RECT','G','DEFS','LINE','POLYGON','USE','STOP','LINEARGRADIENT','RADIALGRADIENT','ELLIPSE','TEXT','TSPAN','CLIPPATH','POLYLINE','MASK','FILTER'].includes(e.tagName.toUpperCase()));
 // hidden ancestors cache
@@ -95,7 +95,7 @@ for(const c of ctrlInfo){const r=c.r;const cx=r.left+r.width/2,cy=r.top+r.height
   const root=SH?R:document;const t=root.elementFromPoint?root.elementFromPoint(cx,cy):null;
   if(t&&!(t===c.e||c.e.contains(t)||t.contains(c.e))){covered++;if(covS.length<4)covS.push(c.txt.slice(0,14)+' <- '+sel(t));}}
 out.ctrl_covered=covered;out.ctrl_covered_sample=covS;
-out.ctrl_total=ctrlInfo.length;out.tiny_count=tiny.length;out.tiny_inline=inlineTiny;out.tiny_sample=tiny.slice(0,8);
+out.ctrl_total=ctrlInfo.length;out.tiny_count=tiny.length;out.tiny_inline=inlineTiny;out.tiny_sample=tiny.slice(0,60);
 out.ctrl_below_fold=below.length;out.ctrl_below_sample=below.slice(0,6);
 // primary action
 if(opts&&opts.primary){const pe=[...document.querySelectorAll(opts.primary)].filter(isVis);if(pe.length){const r=pe[0].getBoundingClientRect();out.primary={sel:opts.primary,bottom:Math.round(r.bottom+scrollY),in_view:(r.bottom+scrollY)<=availBottom+1&&r.top>=-1,txt:(pe[0].innerText||'').trim().slice(0,12)};}else out.primary={sel:opts.primary,missing:true};}

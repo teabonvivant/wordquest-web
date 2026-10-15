@@ -72,6 +72,13 @@
 - **失敗明示**：`save()` 回傳 false、或寫入後讀回的儲存副本沒有這個範圍及字詞時，顯示「儲存失敗，沒有寫入」，草稿保留，不顯示成功卡。
 - 測試：`t19_save_landing.py`（截圖目錄用 `T19_SHOTS` 指定）。
 
+### R3.17 合併 HK-M4 數學課堂及修正
+
+- 合併 GitHub `2b2319a`（Codex HK-M4 數學課堂，170 章）；以 `build_r37.py` 重建，Codex 新增內容全數保留。Service worker 快取名改為 `-3.16-math-m4`，令已安裝用戶取得新版。
+- 數學「考考自己」：「開始小測」列改為黏底（`.actions.sticky`），手機不用拉 3 屏才見按鈕；`course_visual.css` 11px 小字提升至 12px；`summary` 觸控高度 44px。
+- `t17_legacy_fit.py` 改測新數學課堂（`#wq-course-host`）的主要按鈕；長篇課堂內容不套用「一屏放得下／字數」規則。
+- 新增 `t21_webkit_smoke.py`：WebKit（Safari 引擎）iPhone／iPad／桌面主要畫面冒煙測試。仍未做真機測試。
+
 ## 重建與測試
 
 ```sh

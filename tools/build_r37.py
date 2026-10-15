@@ -59,7 +59,7 @@ def build(only=None, out=None, base_only=False):
         applied.append(m.MODULE_ID)
     if not base_only:
         s = s.replace('R3.6.0', 'R3.7.0')
-        sw = sw.replace("-3.6.0'", "-3.14-math-m3.2'")
+        sw = sw.replace("-3.6.0'", "-3.16-math-m4'")
         if out == R and not only:
             for anchor, names in (('<script>/* WordQuest Maths 0.1.2', ['course_data.js']),
                                   ('<script>/* Separate subject storage', ['course_engine.js']),

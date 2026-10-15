@@ -1,1 +1,6 @@
-t13: 75/75 checks passed
+  FAIL saveRange stored the six words (R3.12: no confirm tick is needed any more)
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t13_morph_import.py", line 101, in <module>
+    C.ok(W['books']['zh'] == '書', f'saved books has Chinese ({W["books"]["zh"]!r})')
+         ~^^^^^^^^^
+KeyError: 'books'

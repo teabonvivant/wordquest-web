@@ -1,2 +1,3 @@
   (WQ_ADMIN_PW not set - success checks skipped)
-t06: 14/14 checks passed
+  FAIL public test area: no console errors ['CONSOLE Failed to load resource: net::ERR_NAME_NOT_RESOLVED']
+t06: 13/14 checks passed

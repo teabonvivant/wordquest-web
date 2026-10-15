@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib37 import *  # noqa: E402,F401,F403
+from wq33 import unlock_parent  # noqa: E402
 
 C = Checker('t13')
 NOT_IN_BANK = '內置題庫沒有這個字'
@@ -87,6 +88,7 @@ with sync_playwright() as p:
       const mine=v20.items.find(c=>c.en==='boxes');if(mine){mine.zh='盒子（家長寫的）';}
       v20Origin=v20Owner();importDraft.title='t13 forms';
       return v20.items.map(c=>[c.en,c.zh]);})"""
+    go(pg, '#range-new', 600); unlock_parent(pg); go(pg, '#range-new', 600)  # R3.15: saving needs a live parent unlock (t19 covers the gate itself)
     SAVE_ITEMS = ['books', 'ran', 'color', 'boxes', 'carelessly', 'blorp']
     pre = pg.evaluate("(a)=>window.__r37(a[0])(a[1])", [SETUP, SAVE_ITEMS])
     C.ok(len(pre) == len(SAVE_ITEMS), f'six items prepared ({pre})')

@@ -1,0 +1,1212 @@
+{
+  "version": "HK-M4",
+  "scope": {
+    "grades": [
+      1,
+      2,
+      3
+    ],
+    "units": 41,
+    "chapters": 82,
+    "plannedScoredChapters": 76,
+    "ungradedExplorationChapters": 6,
+    "claim": "逐章教學補充及現有題型審查，非官方完整課程認證。"
+  },
+  "sources": [
+    {
+      "url": "https://www.edb.gov.hk/attachment/tc/curriculum-development/kla/ma/curr/pmc2017_tc.pdf",
+      "status": "Web fetch timeout; boundaries taken from current repository unit scope/boundary/source fields; parent has reviewed EDB curriculum page."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "1N1-1",
+      "templates": [
+        "1N1.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "stars",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1N1-2",
+      "templates": [
+        "1N1.5-T2.C1",
+        "1N1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "stars",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1N2-1",
+      "templates": [
+        "1N2.STORY.ADD.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1N2-2",
+      "templates": [
+        "1N2.STORY.SUB.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1N3-1",
+      "templates": [
+        "1N3.2-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1N3-2",
+      "templates": [
+        "1N3.2-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1N4-1",
+      "templates": [
+        "1N4.1-T1.C1",
+        "1N4.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1N4-2",
+      "templates": [
+        "1N4.4-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1M1-1",
+      "templates": [
+        "1M1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1M1-2",
+      "templates": [
+        "1M1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1M2-1",
+      "templates": [
+        "1M2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "coins",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1M2-2",
+      "templates": [
+        "1M2.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "coins",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1M3-1",
+      "templates": [
+        "1M3.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "ruler",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1M3-2",
+      "templates": [
+        "1M3.READ.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "ruler",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1M4-1",
+      "templates": [
+        "1M4.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "clock",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1M4-2",
+      "templates": [
+        "1M4.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "clock",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "1S1-1",
+      "templates": [
+        "1S1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1S1-2",
+      "templates": [
+        "1S1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1S2-1",
+      "templates": [
+        "1S2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1S2-2",
+      "templates": [
+        "1S2.POLYGON.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1S3-1",
+      "templates": [
+        "1S3.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1S3-2",
+      "templates": [
+        "1S3.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1F1-1",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "1F1-2",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N1-1",
+      "templates": [
+        "2N1.2-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N1-2",
+      "templates": [
+        "2N1.3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N2-1",
+      "templates": [
+        "2N2.3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N2-2",
+      "templates": [
+        "2N2.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N3-1",
+      "templates": [
+        "2N3.GROUPS.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "groups",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2N3-2",
+      "templates": [
+        "2N3.STORY.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "groups",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2N4-1",
+      "templates": [
+        "2N4.2-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N4-2",
+      "templates": [
+        "2N4.2-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2M3-1",
+      "templates": [
+        "2M3.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2M3-2",
+      "templates": [
+        "2M3.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N5-1",
+      "templates": [
+        "2N5.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N5-2",
+      "templates": [
+        "2N5.CHANGE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2N6-1",
+      "templates": [
+        "2N6.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "sharing",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2N6-2",
+      "templates": [
+        "2N6.2-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "sharing",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2M1-1",
+      "templates": [
+        "2M1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2M1-2",
+      "templates": [
+        "2M1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2M2-1",
+      "templates": [
+        "2M2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2M2-2",
+      "templates": [
+        "2M2.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S1-1",
+      "templates": [
+        "2S1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S1-2",
+      "templates": [
+        "2S1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S2-1",
+      "templates": [
+        "2S2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S2-2",
+      "templates": [
+        "2S2.ANGLE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S3-1",
+      "templates": [
+        "2S3.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S3-2",
+      "templates": [
+        "2S3.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S4-1",
+      "templates": [
+        "2S4.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2S4-2",
+      "templates": [
+        "2S4.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2D1-1",
+      "templates": [
+        "2D1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "pictograph",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2D1-2",
+      "templates": [
+        "2D1.COMPARE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "pictograph",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "2F1-1",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "2F1-2",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N1-1",
+      "templates": [
+        "3N1.2-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N1-2",
+      "templates": [
+        "3N1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N2-1",
+      "templates": [
+        "3N2.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N2-2",
+      "templates": [
+        "3N2.STORY.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N3-1",
+      "templates": [
+        "3N3.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N3-2",
+      "templates": [
+        "3N3.SHARE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N4-1",
+      "templates": [
+        "3N4.3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N4-2",
+      "templates": [
+        "3N4.SHOP.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3N5-1",
+      "templates": [
+        "3N5.1-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "fraction",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "3N5-2",
+      "templates": [
+        "3N5.3-T2.C1",
+        "3N5.CAKE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "fraction",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "3M1-1",
+      "templates": [
+        "3M1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M1-2",
+      "templates": [
+        "3M1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M2-1",
+      "templates": [
+        "3M2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M2-2",
+      "templates": [
+        "3M2.TIMETABLE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M3-1",
+      "templates": [
+        "3M3.JUG.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "capacity",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "3M3-2",
+      "templates": [
+        "3M3.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": "capacity",
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。"
+      ]
+    },
+    {
+      "id": "3M4-1",
+      "templates": [
+        "3M4.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M4-2",
+      "templates": [
+        "3M4.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M5-1",
+      "templates": [
+        "3M5.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3M5-2",
+      "templates": [
+        "3M5.SCALE.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3S1-1",
+      "templates": [
+        "3S1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3S1-2",
+      "templates": [
+        "3S1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3S2-1",
+      "templates": [
+        "3S2.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3S2-2",
+      "templates": [
+        "3S2.TRIANGLE-CLASS.M3"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3D1-1",
+      "templates": [
+        "3D1.R3-T1.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3D1-2",
+      "templates": [
+        "3D1.R3-T2.C1"
+      ],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3F1-1",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    },
+    {
+      "id": "3F1-2",
+      "templates": [],
+      "diagram": true,
+      "readinessAnswerChecked": true,
+      "tool": null,
+      "notes": [
+        "本課只涵蓋已列出的示範及題型，並非整個官方單元的完整教材。",
+        "無評分探索活動；不由一次操作判定掌握，不另作獨立完整課程聲稱。",
+        "原版此主題只有教具構思，沒有獨立可操作教具；以上任務使用課堂圖與例題，不假設存在拖拉或旋轉按鈕。"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "file": "math_course_src/tools_iframe.html",
+      "function": "DATA 1M4.lessons[0]",
+      "severity": "teaching-scope",
+      "problem": "Whole-hour active templates paired with half-hour tool mission 3:30.",
+      "replacement": {
+        "mission": "把時鐘調到3時正；先看長針，再看短針。",
+        "config": {
+          "minutes": 120,
+          "target": 180,
+          "step": 60
+        }
+      }
+    },
+    {
+      "file": "math_course_src/tools_iframe.html",
+      "function": "DATA 3N5.lessons[1]",
+      "severity": "teaching-scope",
+      "problem": "Equivalent fraction tool mission is unmodelled extension; active plan instead requires same-numerator comparison and same-denominator addition.",
+      "replacement": {
+        "mission": "把紙條平均分成4份，先塗1份，再塗另外2份；說出1/4＋2/4＝3/4。",
+        "config": {
+          "den": 4,
+          "selected": 0,
+          "targetDen": 4,
+          "targetNum": 3
+        }
+      },
+      "integration": "When adopting replacement, update classroom-lower.json 3N5-2 toolTask third line to 按「檢查小任務」，再用本課示範比較同樣大整體的1/3和1/5。"
+    },
+    {
+      "file": "math_course_src/course_pedagogy.js",
+      "function": "figure triangle-class",
+      "severity": "legibility",
+      "problem": "Triangle side labels font size23 and various model captions18-23 are too small for independent younger readers.",
+      "replacement": "Set all diagram explanatory labels >=24; preserve coordinates and verify no overlap."
+    },
+    {
+      "file": "math_course_src/school_content.json",
+      "function": "plans",
+      "severity": "coverage",
+      "problem": "F1 exploration chapters absent from scored plans; no fabricated question templates added.",
+      "replacement": "Render six F1 classroom packs as ungraded exploration with no scored mastery gate."
+    }
+  ],
+  "validation": {
+    "packSchema": 82,
+    "xmlDiagrams": 82,
+    "safeDiagrams": 82,
+    "readinessChoicesAndAnswers": 82,
+    "activeTemplateInventoryReviewed": 79,
+    "reviewMethod": "Read every active lower-primary template stem, params, answer, constraints and diagram mapping alongside pedagogical dispatch. Readiness numerical/shape results independently checked against fixed diagram data. Runtime generation and browser QA remain parent integration work."
+  },
+  "scopeChecks": [
+    "1N4-1 models both non-carry and carry addition.",
+    "2N2-2 carries ones to tens only, matching active template constraint.",
+    "2N5-1 models ones borrowing without unsupported crossing-zero subtraction.",
+    "3N3-1 explicitly models remainder and checks remainder<divisor.",
+    "Compound-unit question families model multiply then add.",
+    "3D1 diagrams and worked values use scale1 to match current active templates.",
+    "3N5.3 uses original a,b constrained a<b; no undefined-variable maths defect confirmed."
+  ],
+  "readinessRevision": {
+    "chapters": 82,
+    "answerLeakage": "Removed solved expressions, result captions, classification names and answer-bearing alt text; retained numeric givens/axis ticks/denominations.",
+    "teachingDiagrams": 82,
+    "topicSpecificFields": [
+      "explain.prompt",
+      "teacher.lookFor",
+      "teacher.extension",
+      "toolTask for non-live topics",
+      "connections"
+    ],
+    "extraFractionComparison": "3N5-2 comparisonDiagram shows 1/3 vs1/5 on equal whole bars.",
+    "checks": {
+      "readinessXml": 82,
+      "teachingXml": 82,
+      "teachingHasGeometricQuantityShapes": 82,
+      "minimumExplicitFontSize": 24,
+      "readinessNoSolvedEqualityText": 82,
+      "plainSvgRootNoNamespacePrefix": 164,
+      "nonLiveTasks": "Exact numbers and pointing/grouping/measurement actions authored per chapter."
+    }
+  },
+  "crossReview": {
+    "scope": "Focused read-only review of upper quantity/geometry/division explanations; two authorized pack corrections applied.",
+    "corrections": [
+      {
+        "chapters": [
+          "6M2-1",
+          "6M2-2"
+        ],
+        "keys": [
+          "explain.model",
+          "explain.modelSteps"
+        ],
+        "change": "Explicit separate sufficiently large measuring vessel for displacement; label both before/after values in millilitres. The 12mL capacity example is no longer implied to hold100mL."
+      },
+      {
+        "chapters": [
+          "5N3-1",
+          "5N3-2"
+        ],
+        "keys": [
+          "diagram.svg",
+          "diagram.alt"
+        ],
+        "change": "Six equal cells: top row marks1/2, dashed left column marks1/3, orange overlap marks1/6; model meanings are visually distinguishable."
+      }
+    ],
+    "validation": {
+      "correctedSvgXml": 2,
+      "arithmetic": [
+        "3×2×2＝12立方厘米＝12毫升",
+        "130−100＝30毫升＝30立方厘米",
+        "1/2×1/3＝1/6"
+      ],
+      "regionCheck": "Top row contains3 of6 cells; left column2 of6; intersection1 of6.",
+      "renderingLimit": "XML and geometry semantics checked; live browser QA remains parent integration work."
+    },
+    "additionalFinding": "course_pedagogy.figure numerical5N5.R3 branch should guard finite a,b,c,e, because library5N5.WHY.C1 has no params; current school plans only select numerical templates."
+  },
+  "readinessRetryReview": {
+    "chapters": 82,
+    "change": "Replace repeated generic retry with prerequisite-specific first action and misconception cue. Hints refer to the actual readiness prompt and picture, preserve correct answer keys, and avoid directly naming the numerical answer.",
+    "examples": {
+      "3N5": "Count all equal parts, including uncoloured parts, rather than coloured parts only.",
+      "2N3": "Count one group, not all groups.",
+      "1M2": "Add denominations, not coin count.",
+      "3D1": "Read the adjacent axis ticks, not a guessed scale."
+    },
+    "checks": {
+      "all82NonEmpty": true,
+      "genericKnownDataRetryRemoved": true,
+      "promptsAndKeysUnchanged": true
+    }
+  },
+  "readinessAltReview": {
+    "chapters": 82,
+    "change": "Restore precise mathematical givens, layout, labels and marks in accessible alt text; omit computed totals, solved expressions and classification results. Count tasks use individual positions/groups rather than a summed total.",
+    "orientationRepair": "1S3 readiness now visibly retains the person label and upward facing arrow; prior caption stripping removed these needed givens.",
+    "validation": "All82 readiness SVGs parse asXML; prompts and answer keys retained."
+  }
+}
