@@ -182,7 +182,7 @@ with sync_playwright() as p:
     play_english(pg, correct=True)
     C.ok(pg.evaluate("!!document.querySelector('.r37-result.win')") and pg.evaluate("!!document.querySelector('.r37-fpsgo[data-w=\"0\"][data-s=\"0\"]')"), 'passed English level: 🎯 射擊鞏固 button for the same unit')
     txt = pg.evaluate("document.querySelector('.r37-fpsgo').textContent")
-    C.ok('🎯' in txt and '射擊鞏固' in txt, f'button label {txt!r}')
+    C.ok('射擊鞏固' in txt and pg.evaluate("!!document.querySelector('.r37-fpsgo svg')"), f'button label {txt!r} with its duotone target icon')
     C.ok(fits(pg, '.r37-fpsgo') and no_scroll(pg), 'result screen with 🎯 fits the phone')
     pg.screenshot(path=str(SHOTS_B / 'en_result_fps_390x844.png'))
     pg.click('.r37-fpsgo'); pg.wait_for_timeout(400)

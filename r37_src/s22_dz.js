@@ -48,7 +48,7 @@ function r37DzStart(g,lvl,skipLearn){
  lvl=lvl||r37DzRec(r37DzBest(D.rid,g))+1;
  const qs=r37DzQs(D,g,lvl,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
  if(!skipLearn){try{v24Expose(learn.map(w=>w.en));}catch(_){}}
- r37P={kind:'dz',track:'dictation',diff:r37Get().diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:'📖 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
+ r37P={kind:'dz',track:'dictation',diff:r37Get().diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:r37Icon('📖')+' 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
  r37Nav37('lp/play');
 }
 function r37DzRecord(q,value,ok){
@@ -64,12 +64,12 @@ function r37DzSave(P,stars,passed){
 }
 function r37DzHome(){
  const D=r37DzData(),top=r37Top('<a class="r37-back2" href="#p/dictation" aria-label="默書星">←</a>');
- if(!D.groups.length)return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">📝</div><b>請家長先加入默書範圍</b><a class="r37-go" href="#ranges">📝 默書範圍</a></div></div>${r37Nav('p/dictation')}</section>`;
+ if(!D.groups.length)return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">${r37Icon('📝')}</div><b>請家長先加入默書範圍</b><a class="r37-go" href="#ranges">${r37Icon('📝')}默書範圍</a></div></div>${r37Nav('p/dictation')}</section>`;
  const cards=D.groups.map((ws,g)=>{
   const b=r37DzBest(D.rid,g),rec=r37DzRec(b);
   return `<article class="r37-dzc" data-g="${g}"><button type="button" class="r37-dzm" data-r37="dz-go" data-g="${g}" data-l="0" aria-label="第 ${g+1} 組，${ws.length} 個字"><span class="r37-dzn">${g+1}</span><span class="r37-dzp" lang="en">${ws.slice(0,3).map(w=>esc(w.en)).join(' · ')}</span></button><div class="r37-dzl">${[1,2,3].map(l=>`<button type="button" class="r37-dzb ${rec===l-1?'rec':''} ${b[l-1]>=3?'done':''}" data-r37="dz-go" data-g="${g}" data-l="${l}" data-stars="${b[l-1]}" aria-label="第 ${l} 級 ${R37_DZ_NAMES[l-1]}，${b[l-1]} 星"><span aria-hidden="true">${r37Icon(R37_DZ_LV[l-1])}</span><b>${l} ★${b[l-1]}</b></button>`).join('')}</div></article>`;
  }).join('');
- return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-dzh"><span aria-hidden="true">📖</span><b>${esc(D.title)}</b><em>${D.words.length}</em></div><div class="r37-dzg">${cards}</div>${r37Nav('p/dictation')}</section>`;
+ return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-dzh"><span aria-hidden="true">${r37Icon('📖')}</span><b>${esc(D.title)}</b><em>${D.words.length}</em></div><div class="r37-dzg">${cards}</div>${r37Nav('p/dictation')}</section>`;
 }
 function r37DzCellsBody(q,fb,aud){
  const ch=[...q.answer],hide=new Set(q.hide),typed=fb?[...fb.value]:[],out=[];let cur=[];
@@ -98,10 +98,10 @@ function r37DzMark(text,flags){
 function r37DzAns(q,fb){const d=r37DzDiff(q.answer,fb.value);return `<span class="r37-ans" lang="en">${r37DzMark(q.answer,d.a)}</span>`;}
 function r37DzYou(q,fb){const d=r37DzDiff(q.answer,fb.value),t=norm(fb.value);return `<small class="r37-you">你寫：<span lang="en">${r37DzMark(t,d.b)}</span></small>`;}
 function r37DzResult(){
- const P=r37P,r=P.result,{g,lvl,n}=P.dz,coins=r.coins?`<div class="r37-rc">🪙 +${r.coins}</div>`:'';
- const next=lvl<3?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="第 ${lvl+1} 級">▶ ${r37Icon(R37_DZ_LV[lvl])}</button>`:g<n-1?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="下一組">▶ 📖 ${g+2}</button>`:'';
- return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r.passed?'🎉':'💫'}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}
- <div class="r37-ra">${next}<button type="button" class="r37-sec" data-r37="retry" aria-label="重做">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="組別">🗺️</button></div></div></section>`;
+ const P=r37P,r=P.result,{g,lvl,n}=P.dz,coins=r.coins?`<div class="r37-rc">${r37Icon('🪙')}+${r.coins}</div>`:'';
+ const next=lvl<3?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="第 ${lvl+1} 級">▶ ${r37Icon(R37_DZ_LV[lvl])}</button>`:g<n-1?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="下一組">▶ ${r37Icon('📖')}${g+2}</button>`:'';
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r37Icon(r.passed?'🎉':'⭐')}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}
+ <div class="r37-ra">${next}<button type="button" class="r37-sec" data-r37="retry" aria-label="重做">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="組別">${r37Icon('🗺️')}</button></div></div></section>`;
 }
 function r37DzSubmit(){
  const P=r37P;if(!P||P.phase!=='quiz'||P.fb)return;

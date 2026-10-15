@@ -39,7 +39,7 @@ const r37Fx=(()=>{
  }
  function coinFly(from,n=1){
   if(r37Calm()||!from)return;const r=from.getBoundingClientRect(),tx=innerWidth-40,ty=30;
-  for(let i=0;i<Math.min(5,n*2+1);i++){const el=document.createElement('span');el.className='r37-flycoin';el.textContent='🪙';el.style.left=(r.left+r.width/2)+'px';el.style.top=(r.top+r.height/2)+'px';document.body.appendChild(el);
+  for(let i=0;i<Math.min(5,n*2+1);i++){const el=document.createElement('span');el.className='r37-flycoin';el.innerHTML=r37Icon('🪙');el.style.left=(r.left+r.width/2)+'px';el.style.top=(r.top+r.height/2)+'px';document.body.appendChild(el);
    el.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:`translate(${tx-r.left-r.width/2}px,${ty-r.top-r.height/2}px) scale(.5)`,opacity:.2}],{duration:700,delay:i*90,easing:'cubic-bezier(.5,0,.3,1)',fill:'forwards'}).onfinish=()=>el.remove();}
  }
  return {burst,text,confetti,coinFly,st,get count(){return parts.length;}};
@@ -56,29 +56,16 @@ function r37FxResult(r){
  if(r.coins)setTimeout(()=>r37Fx.coinFly(document.querySelector('.r37-rc'),r.coins),450);
 }
 if(typeof l30Bridge==='function'){const r37L30Bridge=l30Bridge;l30Bridge=function(a,w){const out=r37L30Bridge.apply(this,arguments);try{if(a&&!a.technical&&a.mode!=='study')r37FxAnswer(!!a.exact);}catch(_){}return out;};}
-/* living sky behind planet screens: twinkles, shooting stars, gentle parallax */
+/* sky layer behind planet screens (R3.16): twinkling dots are pure CSS on .r37-sky; no canvas loop, no shooting stars, no parallax. Not attached under reduced motion. */
 const r37Sky=(()=>{
- let cv=null,cx=null,stars=[],raf=0,t0=0,shoot=null,tx=0,ty=0,ox=0,oy=0,host=null;
- addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*14;ty=(e.clientY/innerHeight-.5)*10;},{passive:true});
- function build(){const w=cv.clientWidth,h=cv.clientHeight,d=Math.min(2,devicePixelRatio||1);cv.width=w*d;cv.height=h*d;cx.setTransform(d,0,0,d,0,0);
-  const n=Math.round(w*h/5200);stars=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,z:.3+Math.random()*.7,p:Math.random()*6.28,s:.5+Math.random()*1.4,c:Math.random()<.15?'#ffe9a8':Math.random()<.2?'#bfe6ff':'#ffffff'}));}
- function frame(t){
-  raf=0;if(!cv||!cv.isConnected)return;const w=cv.clientWidth,h=cv.clientHeight;ox+=(tx-ox)*.05;oy+=(ty-oy)*.05;
-  cx.clearRect(0,0,w,h);
-  for(const s of stars){const a=.35+.65*Math.abs(Math.sin(t/1000*s.z*1.6+s.p));cx.globalAlpha=a;cx.fillStyle=s.c;cx.beginPath();cx.arc((s.x+ox*s.z+w)%w,(s.y+oy*s.z+h)%h,s.s*s.z+.3,0,7);cx.fill();}
-  if(!shoot&&t-t0>3500+Math.random()*4000){t0=t;shoot={x:Math.random()*w*.7,y:Math.random()*h*.4,l:0};}
-  if(shoot){shoot.l+=.025;const L=shoot.l,x=shoot.x+L*w*.5,y=shoot.y+L*h*.25,g=cx.createLinearGradient(x-90,y-45,x,y);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(255,255,255,.9)');cx.globalAlpha=Math.max(0,1-L);cx.strokeStyle=g;cx.lineWidth=2;cx.beginPath();cx.moveTo(x-90,y-45);cx.lineTo(x,y);cx.stroke();if(L>=1)shoot=null;}
-  cx.globalAlpha=1;raf=requestAnimationFrame(frame);
- }
+ let el=null;
  function attach(){
-  host=document.querySelector('#app>.r37-gx,#app>.r37-hub');
-  if(!host||r37Calm()){if(cv)cv.remove();return;}
-  if(!cv){cv=document.createElement('canvas');cv.className='r37-sky';cv.setAttribute('aria-hidden','true');cx=cv.getContext('2d');}
-  if(cv.parentNode!==host){host.prepend(cv);build();}
-  if(!raf)raf=requestAnimationFrame(frame);
+  const host=document.querySelector('#app>.r37-gx,#app>.r37-hub');
+  if(!host||r37Calm()){if(el)el.remove();return;}
+  if(!el){el=document.createElement('div');el.className='r37-sky';el.setAttribute('aria-hidden','true');}
+  if(el.parentNode!==host)host.prepend(el);
  }
- addEventListener('resize',()=>{if(cv&&cv.isConnected)build();});
- return {attach,get on(){return !!(cv&&cv.isConnected&&raf);}};
+ return {attach,get on(){return !!(el&&el.isConnected);}};
 })();
 /* planet warp: zoom into the tapped planet, then navigate */
 document.addEventListener('click',e=>{

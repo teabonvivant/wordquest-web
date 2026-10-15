@@ -23,7 +23,7 @@
   const back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?'#game':route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':pl==='account'?'#kid':'#p/'+pl;
   for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href',pl==='account'?'#kid':'#p/'+pl);a.textContent='← '+p.name;}}
   const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
-  sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="${pl==='account'?'#kid':'#p/'+pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="s60-slot"></span><button type="button" class="s60-more" aria-haspopup="true" aria-expanded="false" aria-label="更多">⋯</button><span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
+  sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="${pl==='account'?'#kid':'#p/'+pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="s60-slot"></span><button type="button" class="s60-more" aria-haspopup="true" aria-expanded="false" aria-label="更多">⋯</button>${r37Coin()}</div>`;
   const body=document.createElement('div');body.className='r37-legbody';body.dataset.s60=route;body.dataset.s60Pl=pl;
   while(app.firstChild)body.appendChild(app.firstChild);
   sec.appendChild(body);

@@ -69,7 +69,7 @@ render=function(){
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
- else if(route==='p/parent'&&!isLoggedIn())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">🔒</div><b>家長請先登入</b><a class="r37-go" href="#login">登入</a></div></div>'+r37Nav('p/parent')+'</section>';
+ else if(route==='p/parent'&&!isLoggedIn())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">'+r37Icon('🔒')+'</div><b>家長請先登入</b><a class="r37-go" href="#login">登入</a></div></div>'+r37Nav('p/parent')+'</section>';
  else if(route==='p/parent'&&!v23ParentAllowed())html='<section class="r37-hub">'+r37Top()+'<div class="r37-gate">'+v23Gate()+'</div>'+r37Nav('p/parent')+'</section>';
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
@@ -103,7 +103,7 @@ function r37Wrap(route){
  const p=r37Planet(pl),back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':'#p/'+pl;
  for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href','#p/'+pl);a.textContent='← '+p.name;}}
  const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
- sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="#p/${pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="r37-coin" title="金幣">🪙 ${isLoggedIn()?r37Coins():0}</span></div>`;
+ sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="#p/${pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a>${r37Coin()}</div>`;
  const body=document.createElement('div');body.className='r37-legbody';while(app.firstChild)body.appendChild(app.firstChild);
  sec.appendChild(body);sec.insertAdjacentHTML('beforeend',r37Nav(pl==='english'||pl==='games'||pl==='parent'?'p/'+pl:''));app.appendChild(sec);
  document.body.classList.add('r37','r37leg');r37Layout();

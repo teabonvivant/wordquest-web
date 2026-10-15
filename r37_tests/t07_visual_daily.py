@@ -19,7 +19,7 @@ with sync_playwright() as playwright:
         page.goto(URL)
         page.wait_for_timeout(1200)
         go(page, '#kid')
-        C.ok(page.locator('.r37-planet svg').count() == 6, name + ': six vector planet icons')
+        C.ok(page.locator('.r37-planet .r37-badge svg').count() == 6, name + ': six vector planet icons')
         C.ok(fits(page, '.r37-planet,.r37-nav'), name + ': home controls fit')
         for route in ['#p/english', '#p/math', '#p/olympiad', '#p/games', '#p/dictation']:
             go(page, route)

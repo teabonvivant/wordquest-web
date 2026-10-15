@@ -4,17 +4,18 @@
 /* ---- 1. one top bar: the old site header is folded into the ⋯ menu ---- */
 html body.r37 .header,html body.r37 #wq29-test-banner{display:none!important}
 html body.r37 .r37-bar{padding:6px 12px;gap:8px;min-height:56px;position:relative}
-html body.r37 .r37-bar .r37-coin{padding:6px 12px;font-size:16px;white-space:nowrap;flex:none;min-height:44px;display:inline-flex;align-items:center}
+html body.r37 .r37-bar .r37-coin{padding:0 12px;font-size:16px;white-space:nowrap;flex:none;min-height:44px;display:inline-flex;align-items:center}
 html body.r37 .r37-bar .r37-legt{min-height:44px;font-size:18px}
 html body.r37 .r37-bar .r37-who{font-size:16px;min-width:0}
 html body.r37 .r37-bar .r37-who span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .s60-slot{display:flex;align-items:center}
-.s60-more{display:grid;place-items:center;flex:none;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font:inherit;font-size:24px;font-weight:900;line-height:1;cursor:pointer;padding:0 0 6px}
-.s60-more:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
-.s60-menu{position:absolute;right:10px;top:calc(100% - 2px);z-index:40;min-width:190px;display:flex;flex-direction:column;background:#fff;color:#1d2158;border-radius:18px;padding:6px;box-shadow:0 14px 34px rgba(4,6,30,.55)}
-.s60-menu>*{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 14px;border:0;border-radius:12px;background:none;color:#1d2158;font:inherit;font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;text-align:left}
-.s60-menu>*:hover,.s60-menu>*:focus-visible{background:#eef0ff;outline:0}
-.s60-menu small{font-size:13px;font-weight:700;color:#5a6090;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s60-more{display:grid;place-items:center;flex:none;width:48px;height:48px;border:1px solid var(--r37-line,rgba(255,255,255,.16));border-radius:50%;color:transparent;font:inherit;font-size:16px;text-indent:-200px;line-height:1;cursor:pointer;padding:0;overflow:hidden;white-space:nowrap;
+ background:radial-gradient(circle at 30% 50%,#eef1ff 0 2.2px,transparent 2.6px),radial-gradient(circle at 50% 50%,#eef1ff 0 2.2px,transparent 2.6px),radial-gradient(circle at 70% 50%,#eef1ff 0 2.2px,transparent 2.6px),var(--r37-card,#141a46);box-shadow:0 3px 0 var(--r37-shade,#070a26)}
+.s60-more:focus-visible{outline:3px solid #ffc94a;outline-offset:2px}
+.s60-menu{position:absolute;right:10px;top:calc(100% - 2px);z-index:40;min-width:190px;display:flex;flex-direction:column;background:#141a46;border:1px solid rgba(255,255,255,.2);color:#f4f6ff;border-radius:20px;padding:6px;box-shadow:0 4px 0 #070a26,0 14px 24px rgba(2,4,20,.5)}
+.s60-menu>*{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 14px;border:0;border-radius:14px;background:none;color:#f4f6ff;font:inherit;font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;text-align:left}
+.s60-menu>*:hover,.s60-menu>*:focus-visible{background:#2a3282;outline:0}
+.s60-menu small{font-size:13px;font-weight:700;color:#c3cbf7;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .s60-off,html body #app .s60-off,html body #app .s60-help-text.s60-off{display:none!important}
 
 /* ---- 2. teacher card -> small 🔊 button inside the bar ---- */
@@ -38,7 +39,7 @@ html body .r37-legbody input[type=checkbox]{-webkit-appearance:none;appearance:n
 html body .r37-legbody input[type=checkbox]:checked{background:radial-gradient(circle at 33px 50%,#fff 0 15px,transparent 16px) no-repeat hsl(var(--h,200) 70% 40%)}
 html body .r37-legbody input[type=checkbox]:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
 html body .r37-legbody label.s60-check{display:flex;align-items:center;gap:12px;min-height:44px}
-.s60-i{display:inline-grid;place-items:center;min-width:44px;min-height:44px;margin:-8px -6px -8px auto;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:20px;line-height:1;cursor:pointer;opacity:.75;flex:none}
+.s60-i{display:inline-grid;place-items:center;min-width:48px;min-height:48px;margin:-10px -8px -10px auto;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:20px;line-height:1;cursor:pointer;opacity:.75;flex:none}
 .s60-i:hover,.s60-i:focus-visible{opacity:1}
 [data-s60-help]:not(.s60-help-open) .s60-help-text{display:none!important}
 .s60-help-text{font-size:14px}
@@ -406,16 +407,14 @@ html body .r37-legbody details:not([open])>*:not(summary){display:none!important
 html body.r37 .r37-bar:has(>.r37-back2)>.r37-back{display:none}
 html body.r37 .r37-bar>.r37-back2{order:-1}
 html body.r37 .r37-bar>.r37-who{min-width:0;flex:1 1 auto}
-html body.r37 .r37-worlds{overflow-x:auto;justify-content:center;gap:2px;padding:0 6px;scrollbar-width:none}
-html body.r37 .r37-worlds::-webkit-scrollbar{display:none}
-html body.r37 .r37-wtab{flex:1 1 0;min-width:0;max-width:76px;min-height:44px;padding:4px 0;justify-content:center}
-@media(min-width:380px){html body.r37 .r37-wtab{min-width:44px}}
+html body.r37 .r37-worlds{justify-content:center;gap:4px;padding:0 6px}
+html body.r37 .r37-wtab{flex:1 1 0;min-width:48px;min-height:48px;padding:4px 2px;justify-content:center}
 html body.r37 .r37-chars{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;padding:6px 12px;max-width:1100px}
 html body.r37 .r37-char{padding:8px 6px;border-radius:18px;gap:2px}
 html body.r37 .r37-char small{display:none}
 html body.r37 .r37-char button,html body.r37 .r37-char .r37-got{min-height:44px;display:inline-flex;align-items:center}
 html body.r37 .r37-hero:has(+.r37-chars){padding-bottom:0}
-html body.r37 .r37-ptab{min-width:44px}
+html body.r37 .r37-ptab{min-width:48px}
 
 /* ---- 20. arcade dialogs: preview + achievements fit one screen ---- */
 #pg-dialog.p30-intro .wq32-guide,#pg-dialog.p30-intro .p30-goal{display:none!important}
@@ -504,3 +503,14 @@ html body .r37-legbody[data-s60=game]>.p30-lobby{display:grid;grid-template-colu
 [data-s60=game]>.p30-lobby>details{grid-column:1/-1;grid-row:5;margin:6px 0 0}
 
 [data-s60=login] .p10-forms>.p10-try,[data-s60=login] .p10-forms>.wq29-portal{grid-column:1/-1}
+
+/* ---- R3.16: gate cards (parent confirm, login prompts) use the same dark card system as the hubs ---- */
+html body.r37 .r37-gate .card{border:1px solid transparent;border-radius:22px;color:#f4f6ff;
+ background:linear-gradient(160deg,#1b2160,#141a46 80%) padding-box,linear-gradient(150deg,hsl(var(--h,222) 80% 76%/.55),rgba(255,255,255,.08) 50%,hsl(var(--h,222) 70% 60%/.3)) border-box;box-shadow:0 4px 0 #070a26}
+html body.r37 .r37-gate .card :is(h1,h2,h3,p,label,.muted,.small){color:#f4f6ff}
+html body.r37 .r37-gate .card :is(.muted,.small,.s60-help-text){color:#c3cbf7}
+html body.r37 .r37-gate .card .s60-i{color:#f4f6ff;opacity:.9}
+html body.r37 .r37-gate .card .btn.primary,html body.r37 .r37-gate .card button.primary{background:#ffc94a;border-color:#ffc94a;color:#3b2600;box-shadow:0 4px 0 #b97d0c;min-height:48px;border-radius:999px;font-weight:900}
+html body.r37 .r37-gate .card .btn.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #b97d0c}
+html body.r37 .r37-gate .card .btn.soft{background:#2a3282;border-color:rgba(255,255,255,.2);color:#fff}
+html body.r37 .r37-legbody :is(.l30-card,.card,.l30-panel,.l31-hero,.l31-lesson,.l30-quiz,.l30-empty,.fg-entry-card){border-radius:22px}

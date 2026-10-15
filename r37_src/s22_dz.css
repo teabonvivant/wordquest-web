@@ -1,16 +1,16 @@
 /* R3.14 dictation study: group cards, learn grid, letter cells */
-.r37-dzh{position:relative;z-index:2;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 14px 6px;font-weight:900;font-size:clamp(18px,3vh,26px)}
+.r37-dzh{position:relative;z-index:2;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 14px 6px;font-weight:900;font-size:clamp(18px,3vh,26px)}.r37-dzh>span{display:grid;font-size:1.4em}
 .r37-dzh b{max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.r37-dzh em{font-style:normal;padding:2px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.72em}
 .r37-dzg{position:relative;z-index:2;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:min-content;align-content:start;gap:12px;padding:6px 14px 14px;max-width:1100px;width:100%;margin:0 auto}
-.r37-dzc{min-width:0;display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:24px;background:linear-gradient(160deg,#fff,#eef0ff);color:#1d2158;box-shadow:0 6px 0 rgba(0,0,0,.25),0 12px 24px rgba(0,0,0,.25)}
+.r37-dzc{min-width:0;display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:24px;border:1px solid transparent;background:linear-gradient(160deg,var(--r37-card2,#1b2160),var(--r37-card,#141a46) 80%) padding-box,linear-gradient(150deg,hsl(var(--h,340) 80% 76%/.55),rgba(255,255,255,.08) 50%,hsl(var(--h,340) 70% 60%/.3)) border-box;color:#f4f6ff;box-shadow:0 4px 0 var(--r37-shade,#070a26)}
 .r37-dzm{display:flex;align-items:center;gap:10px;min-height:52px;padding:2px;border:0;border-radius:16px;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.r37-dzn{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#ffd15c;color:#4a3000;font-weight:900;font-size:24px}
-.r37-dzp{flex:1;min-width:0;font-weight:800;font-size:15px;line-height:1.25;color:#555a9a;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.r37-dzn{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:hsl(var(--h,340) 62% 38%);border:1px solid hsl(var(--h,340) 85% 78%/.7);color:#fff;font-weight:900;font-size:24px;font-variant-numeric:tabular-nums}
+.r37-dzp{flex:1;min-width:0;font-weight:800;font-size:15px;line-height:1.25;color:#c3cbf7;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .r37-dzl{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.r37-dzb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:54px;padding:4px 2px;border:2px solid #d6d9f2;border-radius:14px;background:#fff;color:#1d2158;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.r37-dzb span{font-size:22px;line-height:1.1}.r37-dzb b{font-size:12px;color:#8a6a00;white-space:nowrap}
-.r37-dzb.rec{border-color:#ffb71c;background:#fff6c9}.r37-dzb.done{border-color:#5fe08d;background:#dcffe8}
-.r37-dzm:focus-visible,.r37-dzb:focus-visible{outline:3px solid #ffd15c;outline-offset:2px}
+.r37-dzb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:54px;padding:4px 2px;border:2px solid rgba(255,255,255,.18);border-radius:14px;background:#0f143b;color:#f4f6ff;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.r37-dzb span{display:grid;font-size:24px;line-height:1.1}.r37-dzb b{font-size:12px;color:#ffc94a;white-space:nowrap;font-variant-numeric:tabular-nums}
+.r37-dzb.rec{border-color:#ffc94a;background:#2a2610}.r37-dzb.done{border-color:#5fe08d;background:#0f2a2a}
+.r37-dzm:focus-visible,.r37-dzb:focus-visible{outline:3px solid #ffc94a;outline-offset:2px}
 .r37-dzc:active{transform:scale(.98)}
 .r37-learn.dz{grid-template-columns:repeat(2,1fr);gap:8px}
 .r37-learn.dz .r37-wc{flex-direction:column;justify-content:center;gap:2px;padding:8px 6px;border-radius:20px}
