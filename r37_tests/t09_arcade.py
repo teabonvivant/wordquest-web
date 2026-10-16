@@ -218,9 +218,10 @@ def flow_suite(p, w, h, touch, tag):
     C.ok(len(rows) == 26 and all(r['stars'] == 3 and r['chip'] and r['tg'] for r in rows), f'{tag}: lobby shows a 3-star row + best chip on all 26 cards ({len(rows)})')
     C.ok(len({r['id'] for r in rows}) == 26, f'{tag}: 26 distinct games')
     col = pg.evaluate("""()=>{const c=s=>{const e=document.querySelector(s);return e?getComputedStyle(e).color:''};const bg=e=>getComputedStyle(document.querySelector(e)).backgroundColor;
-      return {h1:c('.p30-lobby>h1'),sec:c('.p30-sec h2'),card:bg('.p30-card')}}""")
+      return {h1:c('.p30-lobby>h1'),sec:c('.p30-sec h2'),card:bg('.p30-card'),ct:c('.p30-card h3')}}""")
     C.ok(col['h1'] == 'rgb(255, 255, 255)' and col['sec'] == 'rgb(255, 255, 255)', f'{tag}: lobby title and section heading are white on the dark planet {col}')
-    C.ok(col['card'] == 'rgb(255, 255, 255)', f'{tag}: cards stay white')
+    lum=lambda t:sum(int(x) for x in __import__('re').findall(r'\d+',t)[:3])
+    C.ok(col['card'] and lum(col['card']) < 300 and lum(col['ct']) > 600, f'{tag}: R3.18 cards are dark glass with light titles {col}')
     C.ok(pg.evaluate("!!document.querySelector('.r37-leg[data-pl=games] .arx-bar [data-arx=ach]')"), f'{tag}: achievements button in the lobby header')
     sizes = pg.evaluate("[...document.querySelectorAll('.arx-btn,.arx-chip')].map(e=>{const r=e.getBoundingClientRect();return [Math.round(r.width),Math.round(r.height)]})")
     C.ok(all(wd >= 44 and ht >= 44 for wd, ht in sizes), f'{tag}: lobby controls >= 44px {sizes}')

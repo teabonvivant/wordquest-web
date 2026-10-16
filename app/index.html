@@ -1838,6 +1838,24 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 .r37-result.hasmiss .r37-st{font-size:32px}.r37-result.hasmiss .r37-rs{font-size:32px}.r37-result.hasmiss .r37-rn{font-size:18px}
 .r37-result.hasmiss .r37-miss ul{max-height:min(28vh,260px)}
 .r37-result.hasmiss .r37-sec{width:52px;height:56px}
+/* R3.18 merge: sentence + syllable chips use the dark-glass tokens; dictation learn page with syllable rows keeps the start button on a 390x844 phone */
+.r37-exl{min-height:44px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:#f4f6ff}
+.r37-sy{border:1px solid rgba(255,201,74,.4);background:rgba(255,201,74,.14);color:#ffe7a3}
+@media(max-height:700px){.r37-exl{min-height:44px}}
+@media(max-width:520px) and (min-height:521px){
+ .r37-learn.dz{gap:6px}
+ .r37-learn.dz .r37-wc{min-height:0;padding:4px 6px}
+ .r37-learn.dz .r37-wem{width:36px;height:36px;border-radius:11px;font-size:24px}
+ .r37-learn.dz .r37-wem .r37-svg,.r37-learn.dz .r37-wem .r37-ic{width:26px;height:26px;font-size:26px}
+ .r37-learn.dz .r37-wc b{font-size:clamp(18px,2.7vh,24px)}
+ .r37-learn.dz .r37-wc .r37-wcb>span:last-child{font-size:clamp(14px,2vh,18px)}
+}
+@media(max-width:520px) and (max-height:700px){
+ .r37-learn:not(.dz) .r37-wem{width:44px;height:44px;border-radius:12px;font-size:28px}
+ .r37-learn:not(.dz) .r37-wem .r37-svg,.r37-learn:not(.dz) .r37-wem .r37-ic{width:30px;height:30px;font-size:30px}
+ .r37-learn:not(.dz) .r37-wc{min-height:0}
+ .r37-learn:not(.dz) .r37-wcb{min-height:44px;padding:2px}
+}
 
 /* R3.8 Arcade+ styles (s35_arcade.js). Prefix arx-. Touch targets >= 44px; animations only when motion is allowed. */
 /* ---- lobby reskin inside the planet shell: readable white text on the dark sky, white cards stay white ---- */
@@ -15216,8 +15234,8 @@ const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'�
 let r37ImgMap=null;
 function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.words.values())if(x.image&&/^[0-9a-f-]+$/.test(x.image))r37ImgMap[x.form]=String.fromCodePoint(...x.image.split('-').map(h=>parseInt(h,16)));}catch(_){}}return r37ImgMap[en]||'';}
 /* T14: function / abstract words get no picture (a wrong picture is a wrong anchor); a few unit pictures are replaced; unit picture beats dictionary */
-const R37_NOPIC=new Set(['short','high','much','tip','pop','lot','get','went','them','her','this','that','these','those','there','then','the','a','an','is','are','was','were','be','been','am','do','does','did','have','has','had','will','would','could','shall','should','may','might','must','of','to','in','on','at','by','for','with','from','and','or','but','not','no','yes','if','so','as','it','he','she','we','you','they','me','him','us','my','your','his','its','our','their','who','what','when','where','why','how','which','some','any','all','one','very','too','just','also','more','most','many','such','than','only','even','still','again','here','now','out','up','down','off','over','back','much','lot','get','go','come','make','take','put','let','say','said']);
-const R37_EMOFIX={mat:'🧺',jump:'🦘',star:'⭐'};
+const R37_NOPIC=new Set(['mat','short','high','much','tip','pop','lot','get','went','them','her','this','that','these','those','there','then','the','a','an','is','are','was','were','be','been','am','do','does','did','have','has','had','will','would','could','shall','should','may','might','must','of','to','in','on','at','by','for','with','from','and','or','but','not','no','yes','if','so','as','it','he','she','we','you','they','me','him','us','my','your','his','its','our','their','who','what','when','where','why','how','which','some','any','all','one','very','too','just','also','more','most','many','such','than','only','even','still','again','here','now','out','up','down','off','over','back','much','lot','get','go','come','make','take','put','let','say','said']);
+const R37_EMOFIX={jump:'🦘',star:'⭐'};
 function r37Emoji(en){
  if(R37_NOPIC.has(en)||R37_NOEMO.has(en))return '';
  if(R37_EMOFIX[en])return R37_EMOFIX[en];

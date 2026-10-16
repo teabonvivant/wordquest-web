@@ -170,7 +170,7 @@ with sync_playwright() as p:
     miss = ev(pg, "(()=>{const o=[];for(let w=0;w<8;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en)&&!R37_NOPIC.has(x.en))o.push(x.en);return o})()")
     C.ok(len(miss) <= 25, f'English level words (80 units x 8): every concrete word has a picture, missing {len(miss)}: {miss[:8]}')
     fx = ev(pg, "({star:r37Emoji('star'),mat:r37Emoji('mat'),jump:r37Emoji('jump'),short:r37Emoji('short'),high:r37Emoji('high'),tip:r37Emoji('tip'),cat:r37Emoji('cat')})")
-    C.ok(fx['star'] == '\u2b50' and fx['mat'] == '\U0001f9fa' and fx['jump'] == '\U0001f998' and not fx['short'] and not fx['high'] and not fx['tip'] and fx['cat'], f'T14: star is a star (not a coin), mat/jump fixed, abstract words have no picture {fx}')
+    C.ok(fx['star'] == '\u2b50' and not fx['mat'] and fx['jump'] == '\U0001f998' and not fx['short'] and not fx['high'] and not fx['tip'] and fx['cat'], f'T14: star is a star (not a coin), mat has no picture (no true mat emoji), jump fixed, abstract words have no picture {fx}')
     # ---- classroom <-> level sync ----
     ev(pg, "(()=>{const o=r37Get();o.lv['english:0:4']={best:4,passed:true,at:new Date().toISOString()};r37Save();})()")
     C.ok(bool(ev(pg, "l30UnitDone('U05')")), 'a passed level stage marks its classroom unit as learned')

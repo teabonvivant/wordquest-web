@@ -113,3 +113,21 @@
 .r37-result.hasmiss .r37-st{font-size:32px}.r37-result.hasmiss .r37-rs{font-size:32px}.r37-result.hasmiss .r37-rn{font-size:18px}
 .r37-result.hasmiss .r37-miss ul{max-height:min(28vh,260px)}
 .r37-result.hasmiss .r37-sec{width:52px;height:56px}
+/* R3.18 merge: sentence + syllable chips use the dark-glass tokens; dictation learn page with syllable rows keeps the start button on a 390x844 phone */
+.r37-exl{min-height:44px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:#f4f6ff}
+.r37-sy{border:1px solid rgba(255,201,74,.4);background:rgba(255,201,74,.14);color:#ffe7a3}
+@media(max-height:700px){.r37-exl{min-height:44px}}
+@media(max-width:520px) and (min-height:521px){
+ .r37-learn.dz{gap:6px}
+ .r37-learn.dz .r37-wc{min-height:0;padding:4px 6px}
+ .r37-learn.dz .r37-wem{width:36px;height:36px;border-radius:11px;font-size:24px}
+ .r37-learn.dz .r37-wem .r37-svg,.r37-learn.dz .r37-wem .r37-ic{width:26px;height:26px;font-size:26px}
+ .r37-learn.dz .r37-wc b{font-size:clamp(18px,2.7vh,24px)}
+ .r37-learn.dz .r37-wc .r37-wcb>span:last-child{font-size:clamp(14px,2vh,18px)}
+}
+@media(max-width:520px) and (max-height:700px){
+ .r37-learn:not(.dz) .r37-wem{width:44px;height:44px;border-radius:12px;font-size:28px}
+ .r37-learn:not(.dz) .r37-wem .r37-svg,.r37-learn:not(.dz) .r37-wem .r37-ic{width:30px;height:30px;font-size:30px}
+ .r37-learn:not(.dz) .r37-wc{min-height:0}
+ .r37-learn:not(.dz) .r37-wcb{min-height:44px;padding:2px}
+}
