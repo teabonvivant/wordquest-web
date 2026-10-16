@@ -58,6 +58,12 @@ def build(only=None, out=None, base_only=False):
             sw = m.apply_sw(sw, ctx)
         applied.append(m.MODULE_ID)
     if not base_only:
+        # R3.18: English content overrides (examples, meanings, blend groups) read by r37_src/s10_core.js
+        fix = R / 'r37_src/en_content_r318.json'
+        if fix.exists():
+            body = json.dumps(json.loads(fix.read_text()), ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+            # inside the host script (a new <script> block would change the block count build_math_m1.py checks)
+            s = once(s, '<script data-wq28="host">', f'<script data-wq28="host">\nglobalThis.WQ37EnFix={body};')
         s = s.replace('R3.6.0', 'R3.7.0')
         sw = sw.replace("-3.6.0'", "-3.16-math-m4'")
         if out == R and not only:

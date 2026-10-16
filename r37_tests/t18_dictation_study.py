@@ -209,7 +209,7 @@ with L.sync_playwright() as p:
     answer(pg, wrong=True)
     fb = pg.evaluate("""(()=>{const f=document.querySelector('.r37-fb.bad');return f?{ans:f.querySelector('.r37-ans').textContent.replace(/\\s+/g,' ').trim(),bad:f.querySelectorAll('.r37-ans i.bad').length,you:!!f.querySelector('.r37-you'),
       cellBad:document.querySelectorAll('.r37-cell.bad').length,spoken:true}:null})()""")
-    C.ok(fb and fb['ans'] == ans and fb['bad'] >= 1 and fb['cellBad'] >= 1 and fb['you'], f'level 2 wrong: big correct answer, wrong letters coloured {fb}')
+    C.ok(fb and fb['ans'].replace('·', '') == ans and fb['bad'] >= 1 and fb['cellBad'] >= 1 and fb['you'], f'level 2 wrong (R3.18: the answer is shown by syllable, el·e·phant): big correct answer, wrong letters coloured {fb}')
     shot(pg, 'phone', 'l2_wrong')
     pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
     res = play(pg)
@@ -241,7 +241,7 @@ with L.sync_playwright() as p:
     pg.fill('#r37-in', ans[0] + ans[2:])
     pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.bad', timeout=3000)
     fb = pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');return {ans:f.querySelector('.r37-ans').textContent.replace(/\\s+/g,' ').trim(),bad:f.querySelectorAll('.r37-ans i.bad').length,you:f.querySelector('.r37-you')?.textContent||''};})()")
-    C.ok(fb['ans'] == ans and fb['bad'] == 1 and fb['you'].startswith('你寫'), f'level 3 wrong: answer shown big, the one missing letter coloured {fb}')
+    C.ok(fb['ans'].replace('·', '') == ans and fb['bad'] == 1 and fb['you'].startswith('你寫'), f'level 3 wrong: answer shown big, the one missing letter coloured {fb}')
     shot(pg, 'phone', 'l3_wrong')
     pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
     # 8 questions: 1 right + 1 wrong done; remaining 6 -> force 5 right, 1 wrong => 6/8 pass

@@ -1,9 +1,9 @@
 /* R3.7 s10 - planet shell core: progress store, difficulty, English level words, question adapters. Runs inside the app closure (host code). */
 const R37_DIFF=[
- {n:1,icon:'🌱',name:'萌芽',hearts:5,qs:6,pass:.5,opts:3,scaffold:'first',hint:true},
- {n:2,icon:'🌿',name:'起步',hearts:5,qs:8,pass:.6,opts:4,scaffold:'blanks',hint:true},
- {n:3,icon:'🌳',name:'標準',hearts:4,qs:8,pass:.7,opts:4,scaffold:'none',hint:true},
- {n:4,icon:'🔥',name:'挑戰',hearts:3,qs:10,pass:.8,opts:4,scaffold:'none',hint:true,near:true},
+ {n:1,icon:'🌱',name:'萌芽',hearts:5,qs:6,pass:.67,opts:3,scaffold:'first',hint:true},
+ {n:2,icon:'🌿',name:'起步',hearts:5,qs:8,pass:.75,opts:4,scaffold:'blanks',hint:true},
+ {n:3,icon:'🌳',name:'標準',hearts:4,qs:8,pass:.8,opts:4,scaffold:'none',hint:true},
+ {n:4,icon:'🔥',name:'挑戰',hearts:3,qs:10,pass:.85,opts:4,scaffold:'none',hint:true,near:true},
  {n:5,icon:'🚀',name:'極速',hearts:3,qs:12,pass:.9,opts:4,scaffold:'none',hint:false,near:true}
 ];
 const r37U=(p,a)=>Array.from({length:10},(_,i)=>p+String(a+i).padStart(2,'0'));
@@ -41,7 +41,14 @@ function r37Get(){
  if(!o||typeof o!=='object'||Array.isArray(o))o={};
  if(!o.lv||typeof o.lv!=='object'||Array.isArray(o.lv))o.lv={};
  if(o.enV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('english:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.enOld={n,st};o.enV=2;}
- if(![1,2,3,4,5].includes(o.diff))o.diff=3;
+ if(!o.diffs||typeof o.diffs!=='object'||Array.isArray(o.diffs)){const d=[1,2,3,4,5].includes(o.diff)?o.diff:3;o.diffs={english:d,math:d,olympiad:d};}
+ for(const t of ['english','math','olympiad'])if(![1,2,3,4,5].includes(o.diffs[t]))o.diffs[t]=3;
+ delete o.diff;
+ /* r37Get().diff stays as the English level for older callers (legacy practice options); it is not saved */
+ Object.defineProperty(o,'diff',{get(){return o.diffs.english;},set(v){if([1,2,3,4,5].includes(+v))o.diffs.english=+v;},enumerable:false,configurable:true});
+ if(!Array.isArray(o.miss))o.miss=[];
+ if(!Array.isArray(o.wrong))o.wrong=[];
+ for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
  if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
@@ -49,7 +56,10 @@ function r37Get(){
  return r37Mem[k]=o;
 }
 function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
-function r37Diff(){return R37_DIFF[r37Get().diff-1];}
+/* difficulty is stored per subject (diffs.english / math / olympiad); games and dictation follow the English setting */
+const r37DiffT=t=>t==='math'||t==='olympiad'?t:'english';
+function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
+function r37Diff(t){return R37_DIFF[r37DiffN(t)-1];}
 function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];}
 function r37Coins(){return activeChild()?.stars||0;}
 function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
@@ -91,6 +101,33 @@ function r37TrackWorlds(t){return t==='english'?R37_TRACKS.english.worlds:(globa
 function r37TrackProgress(t){const W=r37TrackWorlds(t).length;let done=0,stars=0;for(let w=0;w<W;w++){done+=r37WorldDone(t,w);stars+=r37WorldStars(t,w);}return {done,total:W*10,stars,max:W*50};}
 function r37StarsFor(correct,total,hinted){const r=total?correct/total:0;if(correct===total&&!hinted)return 5;if(r>=.9)return 4;if(r>=.75)return 3;if(r>=.5)return 2;return 1;}
 
+/* ---- R3.18 English content overrides (r37_src/en_content_r318.json -> globalThis.WQ37EnFix): example sentences, meanings, blend groups ---- */
+(function r37ApplyEnFix(){
+ const F=globalThis.WQ37EnFix;if(!F)return;
+ try{
+  for(const [id,x] of Object.entries(F.ex||{})){const w=LIB30.words.get(id);if(w&&!w.example)w.example=x;}
+  for(const [id,f] of Object.entries(F.fix||{})){const w=LIB30.words.get(id);if(!w)continue;if(f.zh)w.meaning=f.zh;if('image' in f)w.image=f.image;if(f.example)w.example=f.example;}
+ }catch(_){}
+ try{
+  const B=F.blend,G=globalThis.WQ31Library;if(!B||!G)return;
+  for(const r of B.extra||[]){if(G.recipes.has(r.id))continue;r.group=B.core.includes(r.id)?'blend':B.extId;G.recipes.set(r.id,r);try{G.data.recipes.push(r);}catch(_){}}
+  const g=G.groups.get('blend');if(!g)return;
+  for(const id of B.ext)if(G.recipes.get(id))G.recipes.get(id).group=B.extId;
+  g.recipes=B.core.filter(id=>G.recipes.has(id));
+  const x=Object.assign({},g,{id:B.extId,title:B.extTitle,recipes:B.ext.filter(id=>G.recipes.has(id))});
+  G.groups.set(B.extId,x);try{G.data.groups.push(x);}catch(_){}
+ }catch(_){}
+})();
+/* meanings that share one Chinese gloss (high / tall = 高的): a fill-in answer with either word is right */
+let r37SynMap=null;
+const r37ZhKey=zh=>String(zh||'').replace(/（[^）]*）/g,'').trim();
+function r37Syns(en,zh){
+ if(!r37SynMap){r37SynMap={};try{for(const x of LIB30.words.values()){const k=r37ZhKey(x.meaning);if(!k)continue;(r37SynMap[k]=r37SynMap[k]||new Set()).add(x.form);}}catch(_){}}
+ const set=r37SynMap[r37ZhKey(zh)];return set?[...set].filter(x=>x!==en):[];
+}
+/* a word whose picture would teach another meaning (chest 胸膛 / die 死 / lot 很多) shows no picture */
+const R37_NOEMO=new Set(['chest','die','lot']);
+
 /* ---- English words per stage: 5 worlds by difficulty band, 10 stages of 3 words each ---- */
 let r37Pool=null;
 function r37EnPool(){
@@ -110,14 +147,25 @@ function r37EnBand(w){const p=r37EnPool(),n=p.length,a=Math.floor(w*n/5),b=Math.
 const r37UW={};
 function r37UnitWords(uid){
  if(r37UW[uid])return r37UW[uid];const u=typeof LIB30!=='undefined'&&LIB30.units.get(uid);if(!u)return [];
- return r37UW[uid]=u.words.map(k=>LIB30.words.get(k)).filter(Boolean).map(x=>({en:x.form,zh:x.meaning,pos:'',sc:x.form.length,img:x.image||'',ex:x.example||''}));
+ const fo=u.focus||{};
+ return r37UW[uid]=u.words.map(k=>LIB30.words.get(k)).filter(Boolean).map(x=>{const f=fo[x.id];return {en:x.form,zh:x.meaning,pos:'',sc:x.form.length,img:x.image||'',ex:x.example||'',fi:f&&Array.isArray(f.indices)?f.indices:[],fl:f?f.label:''};});
 }
 function r37EnStage(w,s){return r37UnitWords(r37UnitId(w,s));}
 function r37EnWorldPool(w){return (R37_TRACKS.english.worlds[w]?.units||[]).flatMap(r37UnitWords);}
 function r37EnReview(w,s){const out=[];for(let x=0;x<s;x++)out.push(...r37EnStage(w,x));return out;}
-function r37EnChunks(words){return [words.slice(0,3),words.slice(3,6),words.slice(6)].filter(c=>c.length);}
-function r37EnDistractors(word,pool,n,near,rng){
+function r37EnChunks(words){const out=[];for(let i=0;i<words.length;i+=3)out.push(words.slice(i,i+3));return out;}
+function r37UnitSentence(w,s){try{return (LIB30.units.get(r37UnitId(w,s))||{}).sentence||'';}catch(_){return '';}}
+function r37Hl(en,idx){const set=new Set(idx||[]);return [...en].map((c,i)=>set.has(i)?`<i class="r37-fx">${esc(c)}</i>`:esc(c)).join('');}
+function r37EnDistractors(word,pool,n,near,rng,unit){
  const cand=pool.filter(x=>x.en!==word.en&&x.zh!==word.zh);
+ if(unit&&unit.length){
+  /* contrast words from the same unit (cat / can / fan): the unit's own target is what gets tested. Levels 4-5 (near) take the closest spellings first */
+  const same=unit.filter(x=>x.en!==word.en&&x.zh!==word.zh),want=Math.min(same.length,n);
+  const head=near?same.map(x=>({x,d:r37Edit(x.en,word.en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,want).map(o=>o.x):r37Shuf(same,rng).slice(0,want);
+  if(head.length>=n)return head.slice(0,n);
+  const used=new Set(head.map(x=>x.en));
+  return head.concat(r37EnDistractors(word,pool.filter(x=>!used.has(x.en)),n-head.length,near,rng));
+ }
  let ranked;
  if(near)ranked=cand.map(x=>({x,d:r37Edit(x.en,word.en)+(x.pos===word.pos?-.5:0)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,24).map(o=>o.x);
  else ranked=cand.filter(x=>x.pos===word.pos&&Math.abs(x.sc-word.sc)<=3);
@@ -133,7 +181,7 @@ function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.w
 const R37_NOPIC=new Set(['short','high','much','tip','pop','lot','get','went','them','her','this','that','these','those','there','then','the','a','an','is','are','was','were','be','been','am','do','does','did','have','has','had','will','would','could','shall','should','may','might','must','of','to','in','on','at','by','for','with','from','and','or','but','not','no','yes','if','so','as','it','he','she','we','you','they','me','him','us','my','your','his','its','our','their','who','what','when','where','why','how','which','some','any','all','one','very','too','just','also','more','most','many','such','than','only','even','still','again','here','now','out','up','down','off','over','back','much','lot','get','go','come','make','take','put','let','say','said']);
 const R37_EMOFIX={mat:'🧺',jump:'🦘',star:'⭐'};
 function r37Emoji(en){
- if(R37_NOPIC.has(en))return '';
+ if(R37_NOPIC.has(en)||R37_NOEMO.has(en))return '';
  if(R37_EMOFIX[en])return R37_EMOFIX[en];
  let d='';try{d=(dictionary[en]&&dictionary[en].emoji)||'';}catch(_){}
  if(d==='🪙'&&!/^(coin|coins|money|gold)$/.test(en))d='';
@@ -142,33 +190,47 @@ function r37Emoji(en){
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */
+/* one English question for word wd of the given kind: zh2en | en2zh | listen (choice), fill | fill-listen (typed) */
+function r37EnBuild(wd,kind,c){
+ const D=c.D,rng=c.rng,emoji=R37_NOEMO.has(wd.en)?'':r37Emoji(wd.en),ck=c.ck;
+ const syn=r37Syns(wd.en,wd.zh),zhShort=r37ZhKey(wd.zh);
+ if(kind==='fill'||kind==='fill-listen'){
+  const listen=kind==='fill-listen';
+  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
+ }
+ const nOpt=D.opts-1,seenZ=new Set([wd.zh]),seenE=new Set([wd.en]),ds=[];
+ for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.near,rng,c.unit)){if(ds.length>=nOpt)break;if(seenZ.has(x.zh)||seenE.has(x.en))continue;seenZ.add(x.zh);seenE.add(x.en);ds.push(x);}
+ const opts=r37Shuf([wd,...ds],rng),info={};
+ const q={mode:'mcq',kind,answer:wd.en,audio:wd.en,word:wd.en,ck,zhOf:wd.zh};
+ if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,lang:'en',info});}
+ if(kind==='en2zh'){opts.forEach(o=>{info[o.zh]=o.en;});return Object.assign(q,{prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,hint:'第一個字是「'+(zhShort[0]||wd.zh[0])+'」',explain:wd.en+' = '+wd.zh,lang:'zh',info});}
+ opts.forEach(o=>{info[o.en]=o.zh;});
+ return Object.assign(q,{kind:'listen',prompt:'🔊',emoji:'',options:opts.map(o=>o.en),autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,lang:'en',info});
+}
 function r37EnQuestions(w,s,diff,seed){
  const D=R37_DIFF[diff-1],rng=r37Rng(r37Hash('en-q|'+w+'|'+s+'|'+diff+'|'+seed)),stage=r37EnStage(w,s),pool=r37EnPool(),wp=r37EnWorldPool(w);
- const near=wp.length>20?wp:pool,chunks=r37EnChunks(stage);
+ const near=wp.length>20?wp:pool,chunks=r37EnChunks(stage),ctx={D,rng,near,unit:stage};
  const N=s===9?Math.max(D.qs,12):Math.max(D.qs,stage.length),qs=[];
  const fillShare=diff===5?[0,1,1,0,1]:diff===1?[0,0,1]:[0,1];
  const order=[],cks=[];chunks.forEach((c,i)=>{for(const x of r37Shuf(c,rng)){order.push(x);cks.push(i);}});
  const extra=r37Shuf(s===9?[...stage,...r37EnReview(w,9)]:stage,rng);
  for(let k=0;k<N;k++){
-  const wd=k<order.length?order[k]:extra[(k-order.length)%extra.length],ck=k<order.length?cks[k]:chunks.length-1,mode=fillShare[k%fillShare.length]?'fill':'mcq',emoji=r37Emoji(wd.en);
-  if(mode==='mcq'){
-   const kind=['zh2en','en2zh','listen'][(diff===1?[0,2]:[0,1,2])[k%(diff===1?2:3)]];
-   const nOpt=D.opts-1,ds=r37EnDistractors(wd,near,nOpt,D.near,rng);
-   const opts=r37Shuf([wd,...ds],rng);
-   if(kind==='zh2en')qs.push({mode,kind,prompt:wd.zh,emoji,options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,word:wd.en,lang:'en',ck});
-   else if(kind==='en2zh')qs.push({mode,kind,prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,audio:wd.en,hint:'按 🔊 聽一聽',explain:wd.en+' = '+wd.zh,word:wd.en,lang:'zh',ck});
-   else qs.push({mode,kind,prompt:'🔊',emoji:'',options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,word:wd.en,lang:'en',ck});
-  }else{
-   const listen=k%3===2&&diff>=2;
-   qs.push({mode,kind:listen?'fill-listen':'fill',prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en],audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,ck});
-  }
+  const wd=k<order.length?order[k]:extra[(k-order.length)%extra.length],ck=k<order.length?cks[k]:chunks.length-1,mode=fillShare[k%fillShare.length]?'fill':'mcq';
+  let kind;
+  if(mode==='mcq')kind=['zh2en','en2zh','listen'][(diff===1?[0,2]:[0,1,2])[k%(diff===1?2:3)]];
+  else kind=k%3===2&&diff>=2?'fill-listen':'fill';
+  /* words from earlier units (boss stage) contrast with their own unit, not the boss unit */
+  const own=stage.some(x=>x.en===wd.en);
+  qs.push(r37EnBuild(wd,kind,Object.assign({},ctx,{ck,unit:own?stage:(r37UnitOf(w,wd)||stage)})));
  }
  return qs;
 }
+function r37UnitOf(w,wd){const W=R37_TRACKS.english.worlds[w];if(!W)return null;for(const u of W.units){const ws=r37UnitWords(u);if(ws.some(x=>x.en===wd.en))return ws;}return null;}
 function r37MathQuestions(track,w,s,diff,seed){
  if(!globalThis.WQ37Math)return [];
  const D=R37_DIFF[diff-1],n=s===9?Math.max(D.qs,10):D.qs;
- return WQ37Math.make(track,w,s,n,diff,seed).map(q=>({mode:q.mode,kind:'math',prompt:q.q,options:q.options,answer:q.answer,accept:q.accept,hint:q.hint,explain:q.explain,mq:q}));
+ const avoid=(r37Get().recent[track]||[]).slice(-30);
+ return WQ37Math.make(track,w,s,n,diff,seed,avoid).map(q=>({mode:q.mode,kind:'math',prompt:q.q,options:q.options,answer:q.answer,accept:q.accept,hint:q.hint,explain:q.explain,skill:q.skill,mq:q}));
 }
 function r37QuizQuestions(track,mode,n,diff,seed){
  const out=[],seen=new Set(),open=[],rng=r37Rng(r37Hash('quiz|'+track+'|'+seed));
@@ -183,9 +245,25 @@ function r37QuizQuestions(track,mode,n,diff,seed){
  }
  return out;
 }
-function r37Check(q,input){
- const v=String(input??'').trim();if(!v)return false;
- if(q.mq&&globalThis.WQ37Math)return WQ37Math.check(q.mq,v);
- if(q.mode==='mcq')return v===q.answer;
- return norm(v)===norm(q.answer)||(q.accept||[]).some(a=>norm(a)===norm(v));
+/* ---- judging: value, form (maths 3/4 for 0.75), capitals, spaces/hyphens, synonyms ---- */
+const r37Apos=x=>String(x==null?'':x).replace(/[‘’ʼ′`´]/g,"'");
+function r37Judge(q,input){
+ const raw=String(input??'').trim();
+ if(!raw)return {ok:false,why:'empty'};
+ if(q.mq&&globalThis.WQ37Math){
+  const d=WQ37Math.checkDetail?WQ37Math.checkDetail(q.mq,raw):{ok:WQ37Math.check(q.mq,raw)};
+  return d.ok?{ok:true}:{ok:false,why:d.why||'wrong',msg:d.msg||''};
+ }
+ if(q.mode==='mcq')return {ok:raw===q.answer};
+ const v=r37Apos(raw),a=r37Apos(q.answer),nv=norm(v),na=norm(a);
+ if(nv===na){
+  if(q.cs&&!q.dz&&v.replace(/\s+/g,' ').trim()!==a.replace(/\s+/g,' ').trim())return {ok:false,why:'case',msg:'字對了，留意大小寫'};
+  return {ok:true};
+ }
+ const hit=(q.accept||[]).find(x=>norm(r37Apos(x))===nv);
+ if(hit)return hit===q.answer?{ok:true}:{ok:true,syn:hit};
+ const strip=x=>norm(x).replace(/[\s-]+/g,'');
+ if(!q.dz&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
+ return {ok:false,why:'wrong'};
 }
+function r37Check(q,input){return r37Judge(q,input).ok;}

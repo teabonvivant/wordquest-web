@@ -53,7 +53,7 @@ with sync_playwright() as p:
     for n in (1, 2, 3, 4, 5):
         pg.click(f'.r37-df[data-n="{n}"]'); pg.wait_for_timeout(200)
         C.ok(ev(pg, 'r37Get().diff') == n and pg.evaluate("document.querySelector('.r37-df.on')?.dataset.n") == str(n), f'level {n} selected and shown')
-        C.ok(ev(pg, f"JSON.parse(localStorage.getItem(r37Key())).diff") == n, f'level {n} is saved')
+        C.ok(ev(pg, f"JSON.parse(localStorage.getItem(r37Key())).diffs.english") == n, f'level {n} is saved')
         # the level engine and the older practice flows both follow it
         qs = ev(pg, "r37EnQuestions(0,2,r37Get().diff,5).length")
         # R3.8: a stage is a classroom unit, so every one of its 8 words is asked at least once
@@ -86,12 +86,12 @@ with sync_playwright() as p:
     pg.click('[data-r37="pick"][data-id="panda"]'); pg.wait_for_timeout(200)
     C.ok(ev(pg, 'r37Get().pick') == 'panda', 'owned characters can be switched')
     # panda: one extra heart; rabbit: first wrong answer is free
-    ev(pg, "r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+    ev(pg, "r37Get().wrong=[];r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     h = ev(pg, 'r37P.hearts'); mh = ev(pg, 'r37P.maxHearts')
     C.ok(h == ev(pg, 'R37_DIFF[2].hearts') + 1 == mh, f'panda gives one extra heart ({h})')
     ev(pg, 'r37P=null')
     ev(pg, "r37Get().pick='rabbit'")
-    ev(pg, "r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+    ev(pg, "r37Get().wrong=[];r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     h0 = ev(pg, 'r37P.hearts'); wrong_once(pg)
     C.ok(ev(pg, 'r37P.hearts') == h0, 'rabbit: the first wrong answer costs no heart')
     wrong_once(pg)
@@ -100,7 +100,7 @@ with sync_playwright() as p:
     # fox: five stars pays one extra coin
     ev(pg, "r37Get().chars.push('fox');r37Get().pick='fox';r37Get().lv={}")
     c0 = ev(pg, 'r37Coins()')
-    ev(pg, "r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+    ev(pg, "r37Get().wrong=[];r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     flawless(pg)
     C.ok(ev(pg, 'r37Coins()') == c0 + 2, f'fox: flawless stage = 1 + 1 coins ({c0}->{ev(pg, "r37Coins()")})')
     ev(pg, 'r37P=null')
@@ -128,7 +128,7 @@ with sync_playwright() as p:
     # ---- guests: playable, but nothing is stored ----
     b, ctx, pg, errs = open_page(p, 390, 844, True)
     pg.goto(URL); pg.wait_for_timeout(1000)
-    ev(pg, "r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+    ev(pg, "r37Get().wrong=[];r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     flawless(pg)
     C.ok(ev(pg, 'r37P.result.passed') and ev(pg, 'r37P.result.coins') == 0 and ev(pg, 'r37Coins()') == 0, 'guest can play a level; no coin is promised or stored for a guest')
     C.ok(ev(pg, "Object.keys(localStorage).filter(k=>k.startsWith('wq37')&&k!=='wq37-nolearn').length") == 0, 'guest progress is not written to localStorage')

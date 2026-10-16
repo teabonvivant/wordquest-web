@@ -33,6 +33,7 @@ def pass_en(pg, w, s, best=4):
 
 def play_english(pg, correct=True):
     """One English level through real clicks (learn screens, answers); correct=False drains the hearts."""
+    ev(pg, 'r37Get().wrong=[]')   # R3.18: old wrong words would open a warm-up first
     pg.click('.r37-node.cur'); pg.wait_for_timeout(300)
     pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     total = ev(pg, 'r37P.qs.length'); hearts = ev(pg, 'r37P.hearts')

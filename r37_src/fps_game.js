@@ -454,6 +454,7 @@
     '.wq37-stars i{font-style:normal;color:#3A4180;text-shadow:none}' +
     '.wq37-rec{display:inline-block;margin:4px 0;padding:4px 16px;border-radius:30px;background:rgba(255,201,74,.16);border:1px solid ' + GOLD + ';color:' + GOLD + ';font:900 18px ' + EFONT + '}' +
     '.wq37-stat{display:flex;gap:8px;justify-content:center;margin:8px 0}.wq37-stat div{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 2px;font-weight:900;font-size:20px;color:#F4F6FF}.wq37-stat span{display:block;font-size:14px;font-weight:700;color:#AEB8E8}' +
+    '.wq37-miss{display:flex;flex-direction:column;gap:6px;margin:8px 0;max-height:46vh;overflow-y:auto}.wq37-mw{display:flex;align-items:center;gap:10px;padding:6px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);text-align:left}.wq37-mw b{font:900 22px ' + EFONT + ';letter-spacing:.04em;color:#FFC94A}.wq37-mw span{flex:1;font-weight:800;color:#C3CBF7}' +
     '.wq37-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:6px 0}.wq37-words span{padding:3px 9px;border-radius:14px;font:800 14px ' + EFONT + ';background:rgba(23,185,120,.18);border:1px solid #3ddc97;color:#C9FBE3}.wq37-words span.bad{background:rgba(255,107,129,.16);border-color:#FF6B81;color:#FFD3DA}' +
     '.wq37-opt{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0;font-size:16px;font-weight:800;color:#F4F6FF}' +
     '.wq37-opt input{width:130px;height:32px;accent-color:' + GOLD + '}' +
@@ -559,6 +560,7 @@
     var jx = 0, jy = 0, joyId = null, joyOx = 0, joyOy = 0, lookId = null, lookX = 0, lookPend = 0;
     var touchMode = false, dragging = false, lockDenied = false, wasLocked = false;
     var shake = 0, flash = 0, flashCi = 0, hint = null, gunBob = 0, recoil = 0, cool = 0, muzzle = 0, hitM = 0, dmgV = 0, comboT = 0, comboM = 1, stepAcc = 0, turnV = 0, sens = loadSens();
+    var missCardUp = false, missCardDone = false;
     var avgMs = 0, introA = 0, resultShown = false, overT = 0, lastResult = null, finishedCalled = false;
     var ro = null, sayShown = false, muted = loadMute(), timers = [], hinting = false, aimLock = 0;
     var PJ = { x: 0, y: 0, depth: 0, size: 0 };
@@ -1091,7 +1093,7 @@
         if (!pool.length) { pool = shuffle(words.map(function (_, i) { return i; })); if (pool[pool.length - 1] === last) pool.reverse(); }
         last = pool.pop(); order.push(last);
       }
-      resultShown = false; finishedCalled = false; lastResult = null; overT = 0; hint = null; shake = 0; flash = 0; dmgV = 0; comboT = 0; hinting = false; promptSig = -1;
+      resultShown = false; missCardUp = false; missCardDone = false; finishedCalled = false; lastResult = null; overT = 0; hint = null; shake = 0; flash = 0; dmgV = 0; comboT = 0; hinting = false; promptSig = -1;
       startRound(true);
     }
     function enterArena(w, first) {
@@ -1224,7 +1226,7 @@
     }
     function bossCounter() {
       var B = G.boss;
-      B.atk = 0.9; B.reveal = true; G.combo = 0;
+      B.atk = 0.9; B.reveal = true; G.combo = 0; B.wrongShot = true;
       hint = { text: '怪獸反擊!要射字母「' + B.letters[B.idx] + '」', t: 2.4, e: null };
       setFlash(0, 0.5); SFX.roar();
       loseHeart('boss');
@@ -1593,7 +1595,7 @@
       if (shown !== sayShown) { sayShown = shown; sayBtn.classList.toggle('on', shown); }
       if (state === 'over') {
         overT -= dt;
-        if (overT <= 0 && !resultShown) showResult();
+        if (overT <= 0 && !resultShown && !missCardUp) { if (!missCardDone && bossMissed().length) showMissCard(); else showResult(); }
       }
     }
 
@@ -1724,6 +1726,29 @@
       var sl = ovEl.querySelector('[data-role="sens"]');
       if (sl) sl.addEventListener('input', function () { sens = clamp(sl.value / 100, 0.4, 2.5); saveSens(sens); });
     }
+    /* after the boss: the words spelt wrong in this level, with the right spelling (and syllables when the host gives opts.syllables) */
+    function bossMissed() {
+      var out = [], seen = {}, i, w;
+      if (!G.boss) return out;
+      for (i = 0; i < PW.length; i++) if (PW[i].asked && PW[i].miss > 0 && !seen[PW[i].en]) { seen[PW[i].en] = 1; out.push(PW[i].en); }
+      if (G.boss.wrongShot && G.boss.w && !seen[G.boss.w.en]) out.push(G.boss.w.en);
+      return out.map(function (en) {
+        for (var k = 0; k < words.length; k++) if (words[k].en === en) { w = words[k]; break; }
+        return { en: en, zh: w && w.zh || '' };
+      });
+    }
+    function showMissCard() {
+      missCardUp = true; missCardDone = true;
+      var list = bossMissed(), h = '<h2>這關拼錯的字</h2><div class="wq37-miss">', i, sy;
+      for (i = 0; i < list.length && i < 8; i++) {
+        sy = list[i].en;
+        try { if (typeof opts.syllables === 'function') sy = String(opts.syllables(list[i].en) || sy); } catch (e) { /* */ }
+        h += '<div class="wq37-mw"><b lang="en">' + escHtml(sy) + '</b><span>' + escHtml(list[i].zh) + '</span></div>';
+      }
+      h += '</div><button class="wq37-go" data-act="cont">繼續</button>';
+      showOv(h, { cont: function () { missCardUp = false; showResult(); } });
+      try { if (canHear() && list[0]) speak(list[0].en); } catch (e) { /* */ }
+    }
     function showResult() {
       resultShown = true; var r = lastResult, acc = Math.round(100 * r.accuracy), st = '', i;
       for (i = 1; i <= 5; i++) st += i <= r.stars ? '★' : '<i>★</i>';
@@ -1771,6 +1796,7 @@
         return;
       }
       if (c === 'KeyM' && soundOn && !e.repeat) { setMuted(!muted); return; }
+      if (state === 'over' && missCardUp && (c === 'Enter' || c === 'Space')) { e.preventDefault(); missCardUp = false; showResult(); return; }
       if (state === 'over' && resultShown && c === 'Enter') { e.preventDefault(); beginPlay(); return; }
       if (state === 'paused' && (c === 'Enter' || c === 'KeyP' || c === 'Escape')) { e.preventDefault(); resume(); return; }
       if (state === 'learn') {
