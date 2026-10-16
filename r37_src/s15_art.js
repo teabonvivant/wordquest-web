@@ -62,7 +62,20 @@ const R37_ART={
  '⚓':{h:200,s:'<circle class="a" cx="32" cy="12" r="5"/><path d="M32 17v39M20 28h24M10 38c0 11 10 18 22 18s22-7 22-18M10 38l-3 6M54 38l3 6"/>'},
  '🛸':{h:285,s:'<path class="w" d="M20 30a12 12 0 0 1 24 0z"/><ellipse class="a" cx="32" cy="35" rx="26" ry="10"/><path d="M20 30a12 12 0 0 1 24 0"/><path d="M18 46l-4 8m18-6v8m18-10 4 8" stroke-width="3"/><path d="M18 36h.01M32 39h.01M46 36h.01" stroke="#fff" stroke-width="5"/>'},
  '🌈':{h:310,s:'<path class="sa" d="M6 48a26 26 0 0 1 52 0" stroke-width="7"/><path d="M14 48a18 18 0 0 1 36 0" stroke="#fff" stroke-opacity=".85" stroke-width="6"/><path class="sb" d="M21 48a11 11 0 0 1 22 0" stroke-width="6"/>'},
- '🌌':{h:255,s:'<ellipse class="a" cx="32" cy="32" rx="26" ry="11" transform="rotate(-30 32 32)"/><ellipse class="w" cx="32" cy="32" rx="9" ry="4" transform="rotate(-30 32 32)" stroke="none"/><path d="M12 12h.01M52 50h.01M50 14h.01M14 52h.01" stroke-width="5"/>'}
+ '🌌':{h:255,s:'<ellipse class="a" cx="32" cy="32" rx="26" ry="11" transform="rotate(-30 32 32)"/><ellipse class="w" cx="32" cy="32" rx="9" ry="4" transform="rotate(-30 32 32)" stroke="none"/><path d="M12 12h.01M52 50h.01M50 14h.01M14 52h.01" stroke-width="5"/>'},
+ '📷':'<path class="a" d="M8 20h12l4-7h16l4 7h12v33H8z"/><path class="b" d="M8 44h48v9H8z" stroke="none"/><circle class="w" cx="32" cy="35" r="10"/><circle class="b" cx="32" cy="35" r="5"/><path d="M8 20h12l4-7h16l4 7h12v33H8z"/><path class="h" d="M13 27h6"/>',
+ '📅':'<rect class="a" x="8" y="12" width="48" height="44" rx="9"/><path class="b" d="M8 28h48v-7a9 9 0 0 0-9-9H17a9 9 0 0 0-9 9z" stroke="none"/><path d="M20 7v11M44 7v11M8 28h48"/><circle class="w" cx="22" cy="38" r="3" stroke="none"/><circle class="w" cx="32" cy="38" r="3" stroke="none"/><circle class="w" cx="42" cy="38" r="3" stroke="none"/><circle class="w" cx="22" cy="48" r="3" stroke="none"/><circle class="w" cx="32" cy="48" r="3" stroke="none"/>',
+ '❤️':'<path class="heart" d="M32 56C14 43 7 33 7 22a13 13 0 0 1 25-5 13 13 0 0 1 25 5c0 11-7 21-25 34z" stroke="none"/><path class="h" d="M15 22a8 8 0 0 1 6-6"/>',
+ '🏅':'<path class="b" d="M20 6h10l4 14H24zM44 6H34l-4 14h10z" stroke="none"/><circle class="y" cx="32" cy="40" r="17"/><circle cx="32" cy="40" r="17"/><path class="w" d="m32 31 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z" stroke="none"/>',
+ '▶':'<path class="a" d="M16 10l38 22-38 22z"/><path class="h" d="M21 17l8 5"/>',
+ '↻':'<path d="M52 32a20 20 0 1 1-6-14"/><path d="M50 8v12H38"/>',
+ '✕':'<path d="M16 16l32 32M48 16 16 48" stroke-width="5"/>',
+ '←':'<path d="M54 32H12M28 16 12 32l16 16" stroke-width="5"/>',
+ '✓':'<path d="m14 33 12 12 24-28" stroke-width="6"/>',
+ '🔎':'<circle class="a" cx="27" cy="27" r="17"/><path d="M40 40l16 16" stroke-width="6"/><circle cx="27" cy="27" r="17"/><path class="h" d="M17 22a11 11 0 0 1 8-7"/>',
+ '🧑‍🏫':'<circle class="w" cx="32" cy="20" r="11"/><path class="a" d="M10 56V47c0-10 10-15 22-15s22 5 22 15v9z"/>',
+ '⚠️':'<path class="y" d="M32 8 58 54H6z"/><path d="M32 8 58 54H6z"/><path d="M32 26v14M32 46h.01" stroke-width="4"/>',
+ 'ℹ️':'<circle class="a" cx="32" cy="32" r="24"/><path d="M32 29v16M32 20h.01" stroke-width="5"/>'
 };
 
 const R37_WORD_ART={
@@ -78,6 +91,6 @@ function r37Ic(body,h){return `<svg class="r37-ic r37-svg" viewBox="0 0 64 64" f
 /* flat word illustrations: unchanged R3.7 art (dark line, light fills) */
 function r37Svg(body){return `<svg class="r37-svg" viewBox="0 0 64 64" fill="none" stroke="#273559" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;}
 function r37Icon(icon){const a=R37_ART[icon];if(!a)return esc(icon);return typeof a==='string'?r37Ic(a):r37Ic(a.s,a.h);}
-function r37WordArt(word){return R37_WORD_ART[word]?r37Svg(R37_WORD_ART[word]):esc(r37Emoji(word)||'🔊');}
+function r37WordArt(word){if(R37_WORD_ART[word])return r37Svg(R37_WORD_ART[word]);const e=r37Emoji(word);return e?esc(e):r37Icon('🔊');}
 /* brand mark: gold star on one orbit arc (the arc passes behind the star on top, in front of it below) */
 function r37Logo(){return '<svg class="r37-logo" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M7 31C9 19 22 10 40 12" fill="none" stroke="#7C5CFF" stroke-width="3.4" stroke-linecap="round"/><path d="m24 8 4.6 9.6 10.4 1.5-7.6 7.3 1.9 10.4L24 31.8l-9.3 5 1.9-10.4L9 18.1l10.4-1.5z" fill="#FFC94A"/><path d="m24 8 4.6 9.6-4.6 3.1-4.6-4.1z" fill="#FFE9A0"/><path d="M5 33c6 8 23 10 36-1" fill="none" stroke="#3EE6D0" stroke-width="3.4" stroke-linecap="round"/><circle cx="41" cy="31" r="3.4" fill="#3EE6D0"/></svg>';}

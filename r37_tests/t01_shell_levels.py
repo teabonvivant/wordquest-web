@@ -166,8 +166,11 @@ with sync_playwright() as p:
     C.ok(len(mq) == 8 and set(mq) <= {'meaning', 'listenChoice'}, f'選擇題 drill: 8 questions, choice types only {mq}')
     C.ok(len(fq) == 8 and set(fq) <= {'spell', 'listenSpell', 'cloze'}, f'填充題 drill: 8 questions, fill types only {fq}')
     C.ok(not errs, f'no console errors in the whole run {errs[:3]}')
-    miss = ev(pg, "(()=>{const o=[];for(let w=0;w<8;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en))o.push(x.en);return o})()")
-    C.ok(len(miss) <= 40, f'English level words (80 units x 8) nearly all have a picture, missing {len(miss)}: {miss[:8]}')
+    # R3.18 T14: function / abstract words are deliberately without a picture; every other word still has one
+    miss = ev(pg, "(()=>{const o=[];for(let w=0;w<8;w++)for(let s=0;s<10;s++)for(const x of r37EnStage(w,s))if(!r37Emoji(x.en)&&!R37_NOPIC.has(x.en))o.push(x.en);return o})()")
+    C.ok(len(miss) <= 25, f'English level words (80 units x 8): every concrete word has a picture, missing {len(miss)}: {miss[:8]}')
+    fx = ev(pg, "({star:r37Emoji('star'),mat:r37Emoji('mat'),jump:r37Emoji('jump'),short:r37Emoji('short'),high:r37Emoji('high'),tip:r37Emoji('tip'),cat:r37Emoji('cat')})")
+    C.ok(fx['star'] == '\u2b50' and fx['mat'] == '\U0001f9fa' and fx['jump'] == '\U0001f998' and not fx['short'] and not fx['high'] and not fx['tip'] and fx['cat'], f'T14: star is a star (not a coin), mat/jump fixed, abstract words have no picture {fx}')
     # ---- classroom <-> level sync ----
     ev(pg, "(()=>{const o=r37Get();o.lv['english:0:4']={best:4,passed:true,at:new Date().toISOString()};r37Save();})()")
     C.ok(bool(ev(pg, "l30UnitDone('U05')")), 'a passed level stage marks its classroom unit as learned')

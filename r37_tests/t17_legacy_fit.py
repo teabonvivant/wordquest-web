@@ -84,7 +84,8 @@ def check_page(pg, errs, pid, vp, shadow=False):
     C.ok(m['head_px'] == 0, f'{tag}: old site header is gone (head_px={m["head_px"]})')
     C.ok(len(m['back_controls']) <= 1, f'{tag}: at most one back control {m["back_controls"]}')
     course = pid in COURSE  # long-form HK-M4 course content scrolls by design; its primary action is checked separately
-    C.ok(course or m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
+    # R3.18: the arcade lobby (#game) scrolls as one page by design (s35: whole-page scroll, sticky progress bar), so it is exempt from the one-screen rule
+    C.ok(course or pid == 'game' or m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
     tiny = [t for t in m['tiny_sample'] if not (course and t['sel'] == 'input')] if course else m['tiny_sample']
     C.ok((len(tiny) if course else m['tiny_count']) == 0, f'{tag}: touch targets >= 44px ({m["tiny_count"]} tiny {m["tiny_sample"][:3]})')
     C.ok(m['min_font'] is None or m['min_font'] >= 12, f'{tag}: font floor 12px (min {m["min_font"]})')

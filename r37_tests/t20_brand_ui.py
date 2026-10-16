@@ -129,7 +129,7 @@ with sync_playwright() as p:
           const nu=l&&l.querySelector('.r37-nu');
           return {trail:!!vis,segs:vis?vis.querySelectorAll('path').length:0,lit:vis?vis.querySelectorAll('path.lit').length:0,
             done:d?st(d):null,cur:c?st(c):null,lock:l?st(l):null,lockIcon:!!(l&&l.querySelector('svg.r37-ic')),
-            doneStars:d?d.querySelectorAll('.r37-st i.on').length:0,
+            doneStars:d?d.querySelectorAll('.r37-st3 i.on').length:0,
             nuColor:nu?cs(nu).color:null,lockBg:l?cs(l).backgroundColor:null,
             ndone:document.querySelectorAll('.r37-node.done').length,ncur:document.querySelectorAll('.r37-node.cur').length,nlock:document.querySelectorAll('.r37-node.lock').length,
             curColor:c?cs(c).color:null}}""")
@@ -137,13 +137,13 @@ with sync_playwright() as p:
         # every segment joins node i to node i+1 (centre to centre), in stage order, including the turns
         seg = pg.evaluate("""()=>{const p=document.querySelector('.r37-path'),ns=[...p.querySelectorAll(':scope>.r37-node')],ps=[...p.querySelectorAll(':scope>.r37-trail path')];
           const c=n=>[n.offsetLeft+n.offsetWidth/2,n.offsetTop+n.offsetHeight/2];
-          return {n:ns.length,m:ps.length,ok:ps.every((e,i)=>{const d=(e.getAttribute('d')||'').match(/-?[\\d.]+/g);if(!d||d.length<4)return false;const a=c(ns[i]),b=c(ns[i+1]);
-            return Math.abs(+d[0]-a[0])<2&&Math.abs(+d[1]-a[1])<2&&Math.abs(+d[2]-b[0])<2&&Math.abs(+d[3]-b[1])<2;})}}""")
-        C.ok(seg['m'] == seg['n'] - 1 and seg['ok'], f'{name}: path segments = nodes-1, each ends on its two stage centres {seg}')
+          return {n:ns.length,m:ps.length,ok:ps.every((e,i)=>{const d=(e.getAttribute('d')||'').match(/-?[\\d.]+/g);if(!d||d.length<4)return false;const a=c(ns[i]),b=c(ns[i+1]),L=d.length;
+            return Math.abs(+d[0]-a[0])<2&&Math.abs(+d[1]-a[1])<2&&Math.abs(+d[L-2]-b[0])<2&&Math.abs(+d[L-1]-b[1])<2;})}}""")
+        C.ok(seg['m'] == seg['n'] - 1 and seg['ok'], f'{name}: path segments = nodes-1, each (a cubic curve since R3.18) ends on its two stage centres {seg}')
         C.ok(info['lit'] == 2, f'{name}: finished stages light their outgoing segment ({info["lit"]})')
         C.ok(info['ndone'] == 2 and info['ncur'] == 1 and info['nlock'] == 7, f'{name}: 2 done / 1 current / 7 locked')
         C.ok(len({info['done']['bg'], info['cur']['bg'], info['lock']['bg']}) == 3, f'{name}: three states have different fills')
-        C.ok(info['lockIcon'] and info['lock']['bs'].startswith('dashed') and info['doneStars'] >= 4, f'{name}: locked = lock icon + dashed edge; done shows stars')
+        C.ok(info['lockIcon'] and info['lock']['bs'].startswith('dashed') and info['doneStars'] >= 1, f'{name}: locked = lock icon + dashed edge; done shows stars')
         cr = ratio(rgb(info['nuColor']), rgb(info['lockBg']))
         C.ok(cr >= 4.5, f'{name}: locked label contrast {cr:.1f}:1')
         # focus ring + first-screen fit

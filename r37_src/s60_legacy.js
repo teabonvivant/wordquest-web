@@ -441,6 +441,53 @@
   document.addEventListener('click',e=>{if(e.target.closest?.('[data-wqm-open],#wqm-launch')){[0,120,400,1000].forEach(ms=>setTimeout(watch,ms));}},true);
  })();
 
+ /* ---- R3.18 D04: sticker / emoji entrances become vector icons; the picture must match the label ---- */
+ const ICONMAP=[[/選擇題/,'✅'],[/填充題/,'✍️'],[/重溫|錯字|補練/,'🔁'],[/學新詞|新詞|選擇內容|拼字教室/,'📖'],[/完成一小組|所有練習/,'✅'],[/加入默書範圍|拍照|默書範圍|範圍/,'📷'],
+  [/看孩子|學得怎樣|報告|進度/,'📊'],[/安排|下一次|計劃/,'📅'],[/金幣|遊戲|看進度/,'🎮']];
+ const EMOONLY=/^[\p{Extended_Pictographic}‍️]+$/u;
+ function iconFor(txt){for(const [re,k] of ICONMAP)if(re.test(txt))return k;return '';}
+ function swapIcons(root){
+  for(const img of q$$('.l30-card>img,.l30-card>.wq32-image',root)){
+   if(img.dataset.s60ico)continue;
+   const card=img.closest('.l30-card'),txt=((card.querySelector('h2,h3,strong,b')||card).textContent||'').replace(/\s+/g,' ');
+   const k=iconFor(txt)||'📖';
+   const sp=document.createElement('span');sp.className='s60-ico';sp.setAttribute('aria-hidden','true');sp.innerHTML=r37Icon(k);
+   img.dataset.s60ico='1';img.replaceWith(sp);
+  }
+  for(const el of q$$('.arx-btn,.arx-chip',root)){ /* arcade lobby badge / star chips: leading emoji -> vector icon */
+   if(el.dataset.s60ico)continue;
+   const t=el.firstChild&&el.firstChild.nodeType===3?el.firstChild:null,m=t&&t.nodeValue.match(/^\s*(🏅|⭐)\s*/u);
+   if(!m)continue;
+   el.dataset.s60ico='1';t.nodeValue=t.nodeValue.slice(m[0].length);
+   const sp=document.createElement('span');sp.className='s60-ico-sm';sp.setAttribute('aria-hidden','true');sp.innerHTML=r37Icon(m[1]);el.insertBefore(sp,el.firstChild);
+  }
+  for(const el of q$$('.p10-ti,.ico',root)){
+   if(el.dataset.s60ico)continue;
+   const t=(el.textContent||'').trim();if(!t||!EMOONLY.test(t))continue;
+   el.dataset.s60ico='1';el.setAttribute('aria-hidden','true');el.innerHTML=r37Icon(t);
+  }
+ }
+ /* ---- L05: #ranges with only the demo range gets an empty state with one clear next step ---- */
+ function rangesEmpty(root,route){
+  if(route!=='ranges')return;
+  const cards=q$$('.range-card',root),real=cards.filter(c=>c.dataset.range!=='r_demo');
+  let box=q$('.s60-empty',root);
+  if(real.length){if(box)box.remove();return;}
+  if(box||!cards.length)return;
+  const host=q$('.stack',root)||root;
+  box=mk('div','s60-empty',`<span class="s60-empty-art" aria-hidden="true">${r37Icon('📝')}</span><h2>加入第一份默書</h2><a class="btn primary" href="#range-new">＋ 加入第一份默書</a>`);
+  host.after(box);
+ }
+ /* ---- M06: a 28px fade + thin scrollbar show that a fixed frame has more below ---- */
+ function flagScroll(e){
+  if(!e||!e.isConnected)return;
+  const more=e.scrollHeight-e.clientHeight>8&&e.scrollHeight-e.scrollTop-e.clientHeight>8;
+  if(more)e.dataset.s60More='';else delete e.dataset.s60More;
+ }
+ function scrollFlags(){q$$('.r37-legbody,.r37-legbody [data-s60-list]').forEach(flagScroll);}
+ document.addEventListener('scroll',e=>{const t=e.target;if(t&&t.nodeType===1&&t.matches&&t.matches('.r37-legbody,.r37-legbody [data-s60-list]'))flagScroll(t);},true);
+ window.addEventListener('resize',()=>{try{scrollFlags();}catch(_){}});
+
  /* ---- the generic tidy that runs after every render of a legacy page ---- */
  function s60Tidy(){
   const body=q$('.r37-legbody');if(!body)return;
@@ -454,7 +501,8 @@
   const route=body.dataset.s60,pl=body.dataset.s60Pl;
   const rc=RECIPE[route];if(rc){try{rc(body);}catch(e){}}
   if(!/^(range-new|learn)$/.test(route)){if(!/^(learning|assembly-learn|family-lesson|spelling-family|phonics-lesson|phonics)$/.test(route)){try{intro(body);}catch(e){}}stripEmoji(body);}
-  /* checkboxes / radios sit inside labels: make the whole label the tap target */
+  try{swapIcons(body);rangesEmpty(body,route);scrollFlags();}catch(e){}
+ /* checkboxes / radios sit inside labels: make the whole label the tap target */
   q$$('label',body).forEach(l=>{if(l.querySelector('input[type=checkbox],input[type=radio]'))l.classList.add('s60-check');});
   /* parent tabs only inside the parent area */
   body.classList.toggle('s60-notabs',pl!=='parent');

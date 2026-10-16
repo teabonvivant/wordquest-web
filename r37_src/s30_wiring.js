@@ -188,3 +188,91 @@ window.addEventListener('resize',()=>{try{r37Layout();}catch(_){}});
  document.addEventListener('click',e=>{if(e.target.closest?.('[data-wqm-open],#wqm-launch')){setTimeout(apply,0);setTimeout(apply,400);}},true);
  globalThis.r38WqmTheme=apply;
 })();
+/* R3.18 D01 / D02 / L03: the maths dialogs (HK-M4 course, thinking tower / strategy cards) join the galaxy shell without touching their source:
+   - the dialog gets the nebula backdrop; the app's own header is hidden and replaced by the shell bar (back, planet title, coin) and the bottom
+     navigation, both living in the dialog's light DOM (they survive every re-render of the shadow root);
+   - styles are injected from outside into each shadow root; the course content sits on one 24px paper card floating on the stars;
+   - the primary button is the one gold CTA, selected states use the shell indigo, headings 900. */
+(()=>{
+ const COMMON=`
+:host{display:block}
+h1,h2,h3{font-weight:900;letter-spacing:.02em}
+.stat b,.stat strong,.stat span,.badge-n,.num,.solution,.qnav button,.card-pagination button,.choice,.answer-input,.field input,.wallet,table{font-variant-numeric:tabular-nums}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #ffc94a;outline-offset:3px}
+`;
+ const COURSE=COMMON+`
+.app{background:transparent!important;background-image:none!important;min-height:0!important}
+.wrap{width:calc(100% - 24px);max-width:1180px;margin:76px auto 96px!important;padding:12px 14px 22px!important;background:#faf7f0;border-radius:24px;box-shadow:0 10px 30px rgba(2,4,24,.45),0 0 0 1px rgba(255,255,255,.35)}
+@media(min-width:760px){.wrap{padding:16px 26px 30px!important}}
+.top{display:none!important}
+.nav{padding-top:6px}
+.eyebrow{color:#5a5170!important}.footer,.small.muted,.muted.small,.small{color:#555a6e}
+.btn.primary,.btn.sun{background:#ffc94a!important;border:0!important;color:#3b2600!important;box-shadow:0 4px 0 #c48a00!important;min-height:52px;font-weight:900}
+.btn.primary:hover:not(:disabled),.btn.sun:hover:not(:disabled){background:#ffd466!important;color:#3b2600!important}
+.btn.primary:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #c48a00!important}
+.grades button.active,.nav button.active,.steps button.active,.learning-route button.active,.topic-filters button.active,.card-pagination button.active{background:#2a3282!important;border-color:#1b2160!important;color:#fff!important}
+.learning-route button.active small{background:#ffc94a;color:#3b2600}
+`;
+ const WQM=COMMON+`
+.wqm{background:transparent!important}
+.wqm .topbar{display:none!important}
+.wqm .shell{padding:70px 12px 84px!important}
+.wqm .primary{background:#ffc94a!important;border:0!important;color:#3b2600!important;box-shadow:0 4px 0 #c48a00!important;min-height:52px;font-weight:900}
+.wqm .primary:hover:not(:disabled){background:#ffd466!important;color:#3b2600!important}
+.wqm .primary:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #c48a00!important}
+.wqm .grade-selector .selected,.wqm .step.current,.wqm .nav button.active,.wqm .tower button.selected{background:#2a3282!important;border-color:rgba(255,255,255,.5)!important;color:#fff!important}
+.wqm .tower button.selected{background:#ffc94a!important;color:#3b2600!important;border-color:#c48a00!important}
+.wqm .card,.wqm .stat,.wqm .notice,.wqm .badge-card,.wqm .track-card{background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94))!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:20px!important;color:#f4f6ff!important;box-shadow:0 4px 0 #070a26}
+.wqm .card :is(h1,h2,h3,p,strong,b,li,label,summary),.wqm .stat :is(strong,b){color:#f4f6ff!important}
+.wqm .card .muted,.wqm .card .small,.wqm .stat span,.wqm .card p.muted{color:#c3cbf7!important}
+.wqm .tag{background:rgba(255,255,255,.1)!important;border-color:rgba(255,255,255,.22)!important;color:#f4f6ff!important}
+.wqm .lesson-card button:not(.primary),.wqm .badge-card button:not(.primary){background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#f4f6ff}
+.wqm .badge-card.locked{opacity:.8}
+.wqm .tower button{background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.22)!important;color:#f4f6ff!important}
+.wqm .tower button:hover:not(:disabled){background:rgba(255,255,255,.16)!important}
+.wqm .note{background:rgba(255,201,74,.12)!important;border-left-color:#ffc94a!important;color:#f4f6ff!important}
+.wqm .note *{color:inherit}
+.wqm :is(.secondary,.section-head>button,.shell>.row>button,.grade-selector button:not(.selected),.islands button){background:#2a3282!important;border:1px solid rgba(255,255,255,.35)!important;color:#fff!important;box-shadow:none}
+`;
+ const DLG={'wq-course-dialog':{host:'wq-course-host',close:'[data-c1="close"]',css:COURSE,planet:'math',title:'數學星'},
+            'wqm-dialog':{host:'wqm-app-host',close:'[data-action="close"]',css:WQM,planet:'olympiad',title:'奧數星'}};
+ function titleFor(d,cfg){
+  if(d.id==='wqm-dialog'){const sub=d.querySelector('#wqm-app-host')?.shadowRoot?.querySelector('.brand small')?.textContent||'';return /奧數/.test(sub)?{planet:'olympiad',title:'奧數星'}:{planet:'math',title:'數學星'};}
+  return {planet:cfg.planet,title:cfg.title};
+ }
+ function skin(d){
+  const cfg=DLG[d.id];if(!cfg)return;
+  const host=document.getElementById(cfg.host),R=host&&host.shadowRoot;
+  if(R&&!R.querySelector('#r318-skin')){const st=document.createElement('style');st.id='r318-skin';st.textContent=cfg.css;R.appendChild(st);}
+  const t=titleFor(d,cfg),p=r37Planet(t.planet)||r37Planet('math');
+  let sh=d.querySelector(':scope>.r37-dshell');
+  if(!sh){
+   sh=document.createElement('div');sh.className='r37-dshell';sh.style.setProperty('--h',p.hue);
+   d.appendChild(sh);
+  }
+  const key=t.planet+'|'+(isLoggedIn()?r37Coins():0)+'|'+(activeChild()?.id||'');
+  if(sh.dataset.k!==key){
+   sh.dataset.k=key;sh.style.setProperty('--h',p.hue);
+   sh.innerHTML=`<div class="r37-bar"><button type="button" class="r37-back2" data-r37dlg="close" aria-label="返回">←</button><span class="r37-legt"><span aria-hidden="true">${r37Icon(p.icon)}</span>${t.title}</span>${r37Coin()}</div>${r37Nav('p/'+t.planet)}`;
+  }
+ }
+ function closeDlg(d){
+  const cfg=DLG[d.id],R=cfg&&document.getElementById(cfg.host)?.shadowRoot,b=R&&R.querySelector(cfg.close);
+  if(b)b.click();else{try{d.close();}catch(_){}}
+  if(d.open){try{d.close();}catch(_){}}
+ }
+ function sweep(){document.querySelectorAll('dialog#wq-course-dialog,dialog#wqm-dialog').forEach(d=>{if(d.open)skin(d);});}
+ document.addEventListener('click',e=>{
+  const c=e.target.closest?.('[data-r37dlg="close"]');
+  if(c){e.preventDefault();const d=c.closest('dialog');if(d)closeDlg(d);return;}
+  const nav=e.target.closest?.('dialog .r37-dshell .r37-nav a');
+  if(nav){const d=nav.closest('dialog');if(d){const h=nav.getAttribute('href');if(h==='#'+(location.hash||'#kid').slice(1)){e.preventDefault();closeDlg(d);}else setTimeout(()=>{if(d.open)closeDlg(d);},0);}return;}
+  if(e.target.closest?.('[data-wqm-open],#wqm-launch'))[0,60,200,500,1200].forEach(ms=>setTimeout(sweep,ms));
+ },true);
+ addEventListener('hashchange',()=>{document.querySelectorAll('dialog#wqm-dialog[open]').forEach(closeDlg);});
+ new MutationObserver(()=>sweep()).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['open']});
+ document.addEventListener('DOMContentLoaded',sweep);
+ /* the bar follows the app: coin / who may change while a dialog is open */
+ setInterval(()=>{try{sweep();}catch(_){}},1500);
+ globalThis.r318DialogSkin=sweep;
+})();

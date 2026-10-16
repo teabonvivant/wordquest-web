@@ -127,7 +127,7 @@ with sync_playwright() as p:
     # exit returns to the FPS map; the map now shows the node as done with 5 stars
     ev(pg, f"{LAST}.onExit()"); pg.wait_for_timeout(400)
     C.ok(ev(pg, 'location.hash') == '#lv/fps' and pg.evaluate("document.querySelector('.r37-node[data-s=\"0\"]').classList.contains('done')"), 'exit returns to #lv/fps; node shows done')
-    C.ok(pg.evaluate("document.querySelectorAll('.r37-node[data-s=\"0\"] .r37-st i.on').length") == 5, 'node shows 5 stars')
+    C.ok(pg.evaluate("document.querySelectorAll('.r37-node[data-s=\"0\"] .r37-st3 i.on').length") == 3, 'node shows 3 gold stars for a 5-star result (R3.18: map nodes use a 3-star summary)')
     C.ok(ev(pg, '__fpsDestroyed') >= 1, 'engine handle destroyed on exit')
 
     # next: when the following English unit is passed, onNext starts that FPS level

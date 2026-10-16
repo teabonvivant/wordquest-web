@@ -145,7 +145,7 @@ html body.r37arc .a28-overlaycard{background:linear-gradient(160deg,rgba(30,38,9
 html body.r37arc .a28-overlaycard :is(h2,h3,p,small,.wq34-goal,.wq34-how,.p30-t,.p30-k,.wq34-best,.arx-next,.arx-cap,.arx-row,.arx-tg,.wq34-line,.wq34-line b,.wq34-line span){color:#F4F6FF!important}
 html body.r37arc .a28-overlaycard :is(.p30-k,.arx-tg,.wq34-best,.arx-cap){color:#C9D0F5!important}
 html body.r37arc .a28-overlaycard>small,html body.r37arc .a28-overlaycard .wq34-run,html body.r37arc .a28-overlaycard .wq34-meta{background:rgba(255,201,74,.12)!important;border:1px solid rgba(255,201,74,.45)!important;color:#FFE9A8!important;border-radius:12px}
-html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycard .arx-pwstat{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important}
+html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycard .wq34-goal,html body.r37arc .a28-overlaycard .arx-best,html body.r37arc .a28-overlaycard .arx-pwstat{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important}
 html body.r37arc .a28-overlaycard .wq34-new,html body.r37arc .a28-overlaycard .arx-new{background:rgba(255,201,74,.16)!important;color:#FFC94A!important;border:1px solid #FFC94A}
 html body.r37arc .a28-overlaycard .arx-rec,html body.r37arc .a28-overlaycard .arx-rec.first{background:rgba(255,201,74,.14)!important;color:#FFC94A!important;border:1px solid #FFC94A;box-shadow:none}
 html body.r37arc .a28-overlaycard .arx-rec :is(b,span){color:#FFC94A!important}

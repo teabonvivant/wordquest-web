@@ -12,18 +12,18 @@ const R37_TRACKS={english:{name:'英文',icon:'🔤',worlds:[
  {name:'冰晶雪山',icon:'🏔️',units:r37U('U',41)},{name:'星空城堡',icon:'🏰',units:r37U('U',51)},{name:'生活海港',icon:'⚓',units:r37U('T',1)},{name:'未來太空站',icon:'🛸',units:r37U('T',11)}]},
  math:{name:'數學',icon:'🔢'},olympiad:{name:'奧數',icon:'🧩'}};
 const R37_CHARS=[
- {id:'panda',icon:'🐼',name:'熊貓',cost:0,perk:'heart',desc:'多一顆心'},
- {id:'rabbit',icon:'🐰',name:'小兔',cost:3,perk:'shield',desc:'每關第一次答錯不扣心'},
- {id:'fox',icon:'🦊',name:'小狐',cost:4,perk:'coin',desc:'五星多得 1 枚金幣'},
- {id:'cat',icon:'🐱',name:'小貓',cost:2,perk:'',desc:''},
- {id:'penguin',icon:'🐧',name:'企鵝',cost:2,perk:'',desc:''},
- {id:'owl',icon:'🦉',name:'貓頭鷹',cost:5,perk:'heart',desc:'多一顆心'},
- {id:'tiger',icon:'🐯',name:'小虎',cost:3,perk:'',desc:''},
- {id:'dragon',icon:'🐲',name:'小龍',cost:8,perk:'shield',desc:'每關第一次答錯不扣心'},
- {id:'unicorn',icon:'🦄',name:'獨角獸',cost:8,perk:'coin',desc:'五星多得 1 枚金幣'},
- {id:'robot',icon:'🤖',name:'機械人',cost:6,perk:'',desc:''},
- {id:'alien',icon:'👽',name:'外星人',cost:6,perk:'',desc:''},
- {id:'astro',icon:'🧑‍🚀',name:'太空人',cost:10,perk:'heart',desc:'多一顆心'}
+ {id:'panda',img:'assets/r318/ch_panda.webp',icon:'🐼',name:'熊貓',cost:0,perk:'heart',desc:'多一顆心'},
+ {id:'rabbit',img:'assets/r318/ch_rabbit.webp',icon:'🐰',name:'小兔',cost:3,perk:'shield',desc:'每關第一次答錯不扣心'},
+ {id:'fox',img:'assets/r318/ch_fox.webp',icon:'🦊',name:'小狐',cost:4,perk:'coin',desc:'五星多得 1 枚金幣'},
+ {id:'cat',img:'assets/r318/ch_cat.webp',icon:'🐱',name:'小貓',cost:2,perk:'',desc:''},
+ {id:'penguin',img:'assets/r318/ch_penguin.webp',icon:'🐧',name:'企鵝',cost:2,perk:'',desc:''},
+ {id:'owl',img:'assets/r318/ch_owl.webp',icon:'🦉',name:'貓頭鷹',cost:5,perk:'heart',desc:'多一顆心'},
+ {id:'tiger',img:'assets/r318/ch_tiger.webp',icon:'🐯',name:'小虎',cost:3,perk:'',desc:''},
+ {id:'dragon',img:'assets/r318/ch_dragon.webp',icon:'🐲',name:'小龍',cost:8,perk:'shield',desc:'每關第一次答錯不扣心'},
+ {id:'unicorn',img:'assets/r318/ch_unicorn.webp',icon:'🦄',name:'獨角獸',cost:8,perk:'coin',desc:'五星多得 1 枚金幣'},
+ {id:'robot',img:'assets/r318/ch_robot.webp',icon:'🤖',name:'機械人',cost:6,perk:'',desc:''},
+ {id:'alien',img:'assets/r318/ch_alien.webp',icon:'👽',name:'外星人',cost:6,perk:'',desc:''},
+ {id:'astro',img:'assets/r318/ch_astro.webp',icon:'🧑‍🚀',name:'太空人',cost:10,perk:'heart',desc:'多一顆心'}
 ];
 const R37_MISSIONS=[
  {id:'lv',icon:'🏆',name:'過 2 關',key:'levels',goal:2,coins:2},
@@ -129,7 +129,16 @@ const R37_UEMO={"pet":"🐾","win":"🏆","sit":"🪑","hit":"🎯","kit":"🧰"
 const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️',mean:'💬',past:'⏪',pour:'🫗',term:'🏫',crutch:'🩼',square:'⛲',turnip:'🥔',ceiling:'🏠',issue:'❓',mostly:'📊',squeeze:'🍋',colander:'🥣',fault:'🌍',denote:'👉',funnel:'🔻',kidney:'🫘',newton:'🍎',solute:'🧂',tackle:'💪',vertex:'🔺',anaemia:'🩸',concede:'🤝',convert:'🔄',deprive:'🚫',excerpt:'📑',pension:'👴',relieve:'😌',unlikely:'🙅',cauliflower:'🥦',compound:'⚗️',digitise:'💾',hardship:'😣',workload:'📚',bandwidth:'📶',encounter:'👋',fieldwork:'🧭',mandatory:'❗',perimeter:'📐',reference:'📖',undertake:'📋',withstand:'🛡️',capability:'🦾',decorative:'🎀',generosity:'💝',livelihood:'💼',persuasive:'🗣️',proportion:'🥧',surrounding:'🏞️',behavioural:'🙋',controversy:'⚡',credibility:'✅',prospective:'🔭',unavoidable:'⛔',reproduction:'🐣',irresistible:'🍩'};
 let r37ImgMap=null;
 function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.words.values())if(x.image&&/^[0-9a-f-]+$/.test(x.image))r37ImgMap[x.form]=String.fromCodePoint(...x.image.split('-').map(h=>parseInt(h,16)));}catch(_){}}return r37ImgMap[en]||'';}
-function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}catch(_){return R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}}
+/* T14: function / abstract words get no picture (a wrong picture is a wrong anchor); a few unit pictures are replaced; unit picture beats dictionary */
+const R37_NOPIC=new Set(['short','high','much','tip','pop','lot','get','went','them','her','this','that','these','those','there','then','the','a','an','is','are','was','were','be','been','am','do','does','did','have','has','had','will','would','could','shall','should','may','might','must','of','to','in','on','at','by','for','with','from','and','or','but','not','no','yes','if','so','as','it','he','she','we','you','they','me','him','us','my','your','his','its','our','their','who','what','when','where','why','how','which','some','any','all','one','very','too','just','also','more','most','many','such','than','only','even','still','again','here','now','out','up','down','off','over','back','much','lot','get','go','come','make','take','put','let','say','said']);
+const R37_EMOFIX={mat:'🧺',jump:'🦘',star:'⭐'};
+function r37Emoji(en){
+ if(R37_NOPIC.has(en))return '';
+ if(R37_EMOFIX[en])return R37_EMOFIX[en];
+ let d='';try{d=(dictionary[en]&&dictionary[en].emoji)||'';}catch(_){}
+ if(d==='🪙'&&!/^(coin|coins|money|gold)$/.test(en))d='';
+ return r37UnitEmoji(en)||R37_EMO[en]||R37_UEMO[en]||d||'';
+}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */

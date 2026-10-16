@@ -514,3 +514,109 @@ html body.r37 .r37-gate .card .btn.primary,html body.r37 .r37-gate .card button.
 html body.r37 .r37-gate .card .btn.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #b97d0c}
 html body.r37 .r37-gate .card .btn.soft{background:#2a3282;border-color:rgba(255,255,255,.2);color:#fff}
 html body.r37 .r37-legbody :is(.l30-card,.card,.l30-panel,.l31-hero,.l31-lesson,.l30-quiz,.l30-empty,.fg-entry-card){border-radius:22px}
+
+/* ================================================================================================
+   21. R3.18 one card / button system for every legacy page (D03 + M18 + M04 + M06 + M07 + M03)
+   card: dark glass token; primary button: gold #ffc94a / ink #3b2600 / 4px edge #c48a00 / >=52px;
+   secondary: glass outline; danger: #ff6b81 outline; form fields: 48px glass with SVG chevron.
+   Only the dictation answer / quiz content cards (white reading surface) are kept light: see .s60-read.
+   ================================================================================================ */
+html body.r37 #app .r37-legbody{color:#f4f6ff;--tk-card:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));--tk-line:rgba(255,255,255,.14);--tk-muted:#c3cbf7}
+/* --- cards --- */
+html body.r37 #app .r37-legbody :is(.p30-fold,details.p30-fold,.card,.l30-card,.l30-panel,.l30-hero,.l31-hero,.l31-group,.l31-recipe,.l31-launch,.l31-lesson,.l30-quiz,.l30-empty,.l30-word,.l30-unit-card,.l30-source,
+ .fg-entry-card,.fg-hero,.fg-family-card,.fg-adult-note,.pc-hero,.pc-course,.p10-hero,.p10-dict,.p10-tile,.p10-card,.wq29-portal,.wq29-login,.wq32-entry,.wq32-profile,.wq32-settings,
+ .stat,.range-card,.notice,.sfx-panel,.v25-check,.v25-panel,.offline-summary,.media-word,.child-card,.p30-card,.a28-cabinet,#p10-more,details.l30-panel,.wq32-portrait-stage,.picture,.asset-picture,
+ .v20-source,.p40-next,.l31-guide>section,.stats>div,.offline-counts>div,.l31-chip){
+ background:var(--tk-card)!important;border:1px solid var(--tk-line)!important;border-radius:20px!important;color:#f4f6ff!important;box-shadow:0 4px 0 #070a26!important}
+html body.r37 #app .r37-legbody :is(.l30-unit-card,.l30-word,.fg-family-card,.l31-chip,.stat,.offline-counts>div,.media-word){border-radius:16px!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody .l30-card:is(a,button):active,html body.r37 #app .r37-legbody .l30-unit-card:active,html body.r37 #app .r37-legbody .p10-tile:active{transform:translateY(2px)}
+/* text inside cards */
+html body.r37 #app .r37-legbody :is(h1,h2,h3,h4,p,li,dt,dd,td,th,label,strong,b,summary,figcaption,span,div,small):not(.btn):not(button):not(.l30-btn):not(.tag):not(.chip):not(.source-tag):not(.pill):not(.q36-cost){color:inherit}
+html body.r37 #app .r37-legbody :is(.muted,.small,.l30-muted,.l30-subtle,.hint,.l30-sample,.l30-tag,.sub,.eyebrow,.l30-eyebrow,p.small,.s60-help-text,figcaption,.q36-rule,.stat span){color:var(--tk-muted)!important}
+html body.r37 #app .r37-legbody a:not(.btn):not(.l30-btn):not(.l30-card):not(.l30-unit-card):not(.p10-tile):not(.tab):not(.l31-group):not(.s60-i){color:#ffe08a}
+html body.r37 #app .r37-legbody :is(h1,h2,h3){color:#fff!important;text-shadow:none}
+html body.r37 #app .r37-legbody table{color:inherit}html body.r37 #app .r37-legbody :is(th,td){border-color:rgba(255,255,255,.14)!important;background:transparent!important}
+html body.r37 #app .r37-legbody :is(hr){border-color:rgba(255,255,255,.14)}
+/* chips / tags */
+html body.r37 #app .r37-legbody :is(.chip,.tag,.l30-tag,.p10-chip,.q36-cost,.p40-name,.fg-part,.source-tag,.pill,.badge,.l30-kind,.l31-kind,.span.tag){
+ background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.2)!important;color:#f4f6ff!important;border-radius:999px;box-shadow:none!important}
+html body.r37 #app .r37-legbody .p10-chip.coin,html body.r37 #app .r37-legbody .q36-cost{border-color:rgba(255,201,74,.6)!important;color:#ffe08a!important}
+/* --- buttons --- */
+html body.r37 #app .r37-legbody :is(.btn,.l30-btn,.wq32-btn,.a28-btn,.arx-btn,button.btn,a.btn){
+ background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.22)!important;color:#f4f6ff!important;border-radius:16px!important;box-shadow:none!important;min-height:48px;font-weight:800;text-shadow:none!important;text-decoration:none}
+html body.r37 #app .r37-legbody :is(.btn,.l30-btn,.wq32-btn,.a28-btn):hover:not(:disabled){background:rgba(255,255,255,.14)!important}
+html body.r37 #app .r37-legbody :is(.btn.primary,.l30-btn.primary,.btn.big.primary,.l30-go,.btn.primary.a28-btn,.a28-btn.primary,button.primary,a.primary,.wq29-enter,#wq29-enter-games,.p10-dict-btn,.l30-btn.r37-ulv){
+ background:#ffc94a!important;border:0!important;color:#3b2600!important;box-shadow:0 4px 0 #c48a00!important;min-height:52px;border-radius:16px!important;font-weight:900}
+html body.r37 #app .r37-legbody :is(.btn.primary,.l30-btn.primary,.btn.big.primary,.l30-go,.a28-btn.primary,button.primary,a.primary,.p10-dict-btn):active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #c48a00!important}
+html body.r37 #app .r37-legbody :is(.btn.primary,.l30-btn.primary,button.primary):disabled{background:#8a7a4a!important;color:#2b2000!important;box-shadow:none!important;opacity:.7}
+html body.r37 #app .r37-legbody :is(.btn.danger,.l30-btn.danger,button.danger,.btn.warn){background:transparent!important;border:1.5px solid #ff6b81!important;color:#ffa0ae!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody :is(.btn.soft,.btn.secondary,.btn.quiet,.l30-btn.small,.l30-btn.quiet){background:rgba(255,255,255,.08)!important;color:#f4f6ff!important;border:1px solid rgba(255,255,255,.22)!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody :is(.btn,.l30-btn):disabled{opacity:.5}
+/* the ⋯ button keeps its own dots */
+html body.r37 #app .r37-legbody .s60-more{box-shadow:0 3px 0 #070a26}
+/* tabs (parent area) and chips that pick things */
+html body.r37 #app .r37-legbody a.tab,html body.r37 #app .r37-legbody button.tab,html body.r37 #app .r37-legbody .s60-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#f4f6ff;border-radius:999px;font-weight:800;box-shadow:none}
+html body.r37 #app .r37-legbody :is(a.tab.active,a.tab[aria-current],button.tab.active,.tab.on,.tab.current){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
+html body.r37 #app .r37-legbody .s60-chip.on{background:rgba(255,201,74,.16);border-color:#ffc94a;box-shadow:0 0 0 1px #ffc94a;color:#fff}
+html body.r37 #app .r37-legbody [aria-pressed="true"]:is(button,a):not(.btn):not(.primary):not(.l30-btn){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
+/* --- form fields (M04) --- */
+html body.r37 #app .r37-legbody :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]):not([type=file]):not([type=color]),select,textarea){
+ min-height:48px;border-radius:14px;background-color:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#f4f6ff;font-size:16px;padding:0 14px;box-shadow:none;-webkit-appearance:none;appearance:none}
+html body.r37 #app .r37-legbody textarea{padding:12px 14px;min-height:96px}
+html body.r37 #app .r37-legbody select{padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5' fill='none' stroke='%23f4f6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+html body.r37 #app .r37-legbody select option{background:#141a46;color:#f4f6ff}
+html body.r37 #app .r37-legbody ::placeholder{color:#9aa5ea;opacity:1}
+html body.r37 #app .r37-legbody :is(input,select,textarea):focus-visible{outline:3px solid #ffc94a;outline-offset:2px;border-color:#ffc94a}
+html body.r37 #app .r37-legbody :is(input,select,textarea):disabled{opacity:.6}
+html body.r37 #app .r37-legbody input[type=checkbox]{background-color:#4a5090}
+/* --- ⓘ help buttons: 44px target, same glass circle as the back button (M07) --- */
+html body.r37 #app .r37-legbody .s60-i{min-width:44px;min-height:44px;width:44px;height:44px;margin:-8px -6px -8px auto;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#f4f6ff;font-size:20px;opacity:1;display:inline-grid;place-items:center;padding:0}
+html body.r37 #app .r37-legbody .s60-i:hover,html body.r37 #app .r37-legbody .s60-i:focus-visible{background:rgba(255,255,255,.16)}
+html body.r37 #app .r37-legbody h1:has(>.s60-i),html body.r37 #app .r37-legbody h2:has(>.s60-i){display:flex;align-items:center;gap:8px}
+/* --- scroll hint: a 28px fade at the bottom while there is more, thin scrollbars (M06) --- */
+html body.r37 #app .r37-legbody,html body.r37 #app .r37-legbody [data-s60-list],html body.r37 #app .r37-legbody .s60-scroll{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.35) transparent;overscroll-behavior:contain}
+html body.r37 #app .r37-legbody::-webkit-scrollbar,html body.r37 #app .r37-legbody [data-s60-list]::-webkit-scrollbar{width:4px;height:4px}
+html body.r37 #app .r37-legbody::-webkit-scrollbar-thumb,html body.r37 #app .r37-legbody [data-s60-list]::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:4px}
+html body.r37 #app .r37-legbody[data-s60-more]::after{content:"";position:sticky;bottom:-1px;display:block;height:28px;margin-top:-28px;flex:none;pointer-events:none;background:linear-gradient(180deg,rgba(7,10,38,0),rgba(7,10,38,.92));z-index:5}
+/* --- one 44px+ toast above the nav (M03) --- */
+html body.r37 #toast{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:min(92vw,420px);text-align:center;background:rgba(11,16,48,.94)!important;color:#f4f6ff!important;border:1px solid rgba(255,255,255,.2);border-radius:16px;box-shadow:0 4px 0 #070a26;bottom:calc(var(--r37-nav,62px) + 24px + env(safe-area-inset-bottom))!important;z-index:9000;font-weight:800}
+html body.r37 #toast.bad{border-color:#ff6b81}
+/* --- icons that replace stickers / emoji: 32px glyph on a 48px glass disc (D04) --- */
+.s60-ico{display:inline-grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:32px}
+.s60-ico .r37-ic{width:32px;height:32px;font-size:32px}
+html body.r37 #app .r37-legbody .l30-card>.s60-ico,html body.r37 #app .r37-legbody .l30-card>img+.s60-ico{margin-right:2px}
+/* --- legacy dictation hub (#learn): the page is dark; big tiles keep a vector icon --- */
+html body.r37 #app .r37-legbody .p10-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#f4f6ff}
+html body.r37 #app .r37-legbody .p10-ti{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.08);font-size:44px}
+html body.r37 #app .r37-legbody .p10-ti .r37-ic{width:44px;height:44px;font-size:44px}
+html body.r37 #app .r37-legbody .p10-hero h1,html body.r37 #app .r37-legbody .p10-hero h2{color:#fff!important}
+/* practice: four tiles stay compact (D04 acceptance <=160px) */
+[data-s60=practice] .l30-grid{grid-auto-rows:minmax(0,160px)}
+[data-s60=practice] .l30-card{max-height:160px}
+/* white reading surface: only where long answer content lives */
+html body.r37 #app .r37-legbody .s60-read{background:#fffdf5!important;color:#1d2158!important;border:1px solid rgba(255,255,255,.55)!important;border-radius:20px!important}
+html body.r37 #app .r37-legbody .s60-read :is(h1,h2,h3,p,li,span,div,label,strong,b,small){color:#1d2158!important}
+html body.r37 #app .r37-legbody .s60-read :is(input,select,textarea){background:#fff;color:#1d2158;border-color:#cfd4ff}
+
+/* long tail found by the t23 contrast scan */
+html body.r37 #app .r37-legbody :is(.q36-done,.media-tags span,.arx-chip,.arx-best,.l30-badge,.l31-badge,.q36-done .q36-tick){background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.2)!important;color:#f4f6ff!important;border-radius:999px}
+html body.r37 #app .r37-legbody .arx-chip b{color:#ffe08a!important}
+html body.r37 #app .r37-legbody .q36-cost i{color:#3b2600!important;font-style:normal}
+html body.r37 #app .r37-legbody :is(.hue0,.hue1,.hue2,.hue3,.hue4,.hue5,.pc-number){color:#1d2158!important;font-weight:900}
+html body.r37 #app .r37-legbody .l30-source button{background:transparent;border:1px solid rgba(255,255,255,.22);color:#c3cbf7;box-shadow:none;border-radius:999px;min-height:44px;font-weight:800}
+html body.r37 #app .r37-legbody .l30-source button[aria-pressed="true"]{background:#2a3282;color:#fff;border-color:rgba(255,255,255,.5)}
+html body.r37 #app .r37-legbody #p40-tips span,html body.r37 #app .r37-legbody .p40-tips span{color:#c3cbf7!important}
+html body.r37 #app .r37-legbody .a28-thumb{background:#141a46!important}
+/* voice 🔊 only where reading aloud is the point (english / dictation pages) (M01) */
+.r37-leg[data-pl=parent] .s60-slot,.r37-leg[data-pl=account] .s60-slot,.r37-leg[data-pl=games] .s60-slot{display:none}
+html body.r37 #app .r37-legbody .s60-guide,html body .s60-guide .wq32-btn[data-wq32="voice"]{border:1px solid rgba(255,255,255,.22)}
+/* inner scrolling lists fade out at the bottom while there is more */
+html body.r37 #app .r37-legbody [data-s60-list][data-s60-more]{-webkit-mask-image:linear-gradient(#000 calc(100% - 28px),transparent);mask-image:linear-gradient(#000 calc(100% - 28px),transparent)}
+/* empty state (#ranges) */
+.s60-empty{display:flex;flex-direction:column;align-items:center;gap:12px;margin:22px auto 6px;padding:22px 18px;max-width:420px;text-align:center}
+.s60-empty-art{display:grid;place-items:center;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.16),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.18)}
+.s60-empty-art .r37-ic{width:60px;height:60px;font-size:60px}
+.s60-empty h2{margin:0;font-size:20px;color:#fff}
+html body.r37 #app .r37-legbody .q36-done{background:rgba(95,224,141,.14)!important;border-color:rgba(95,224,141,.5)!important}
+.s60-ico-sm{display:inline-grid;vertical-align:middle;margin-right:4px}.s60-ico-sm .r37-ic{width:20px;height:20px;font-size:20px}
+html body.r37 .r37-gate .card :is(input:not([type=checkbox]):not([type=radio]),select){background:rgba(255,255,255,.08);color:#f4f6ff;border:1px solid rgba(255,255,255,.22);min-height:48px;border-radius:14px;padding:0 14px}

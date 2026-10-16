@@ -9,7 +9,7 @@
 .r37-dzl{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .r37-dzb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:54px;padding:4px 2px;border:2px solid rgba(255,255,255,.18);border-radius:14px;background:#0f143b;color:#f4f6ff;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .r37-dzb span{display:grid;font-size:24px;line-height:1.1}.r37-dzb b{font-size:12px;color:#ffc94a;white-space:nowrap;font-variant-numeric:tabular-nums}
-.r37-dzb.rec{border-color:#ffc94a;background:#2a2610}.r37-dzb.done{border-color:#5fe08d;background:#0f2a2a}
+.r37-dzb.rec{border-color:#ffc94a;background:rgba(255,201,74,.14)}.r37-dzb.done{border-color:#5fe08d;background:#0f2a2a}
 .r37-dzm:focus-visible,.r37-dzb:focus-visible{outline:3px solid #ffc94a;outline-offset:2px}
 .r37-dzc:active{transform:scale(.98)}
 .r37-learn.dz{grid-template-columns:repeat(2,1fr);gap:8px}
@@ -22,12 +22,17 @@
 .r37-cw{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:100%}
 .r37-cl,.r37-cell{display:grid;place-items:center;width:clamp(24px,min(calc((min(100vw,760px) - 56px)/var(--n,8) - 6px),9vh),60px);height:clamp(48px,8.6vh,80px);border-radius:14px;font-family:inherit;font-weight:900;font-size:clamp(24px,4.8vh,42px);text-align:center}
 .r37-cl{background:rgba(255,255,255,.14);color:#fff}
-.r37-cell{padding:0;border:3px solid #ffd15c;background:#fff;color:#1d2158;caret-color:transparent}
-.r37-cell:focus{outline:0;border-color:#4d57d6;box-shadow:0 0 0 4px rgba(255,209,92,.55)}
-.r37-cell.ok{border-color:#5fe08d;background:#dcffe8}.r37-cell.bad{border-color:#ff8a9a;background:#ffe3e7}
+.r37-cell{padding:0;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#f4f6ff;caret-color:transparent}
+.r37-cell:focus{outline:0;border-color:#ffc94a;box-shadow:0 0 0 4px rgba(255,201,74,.35)}
+.r37-cell.ok{border-color:#5fe08d;background:rgba(95,224,141,.2)}.r37-cell.bad{border-color:#a994ff;background:rgba(75,58,150,.55)}
 .r37-cf .r37-ok{min-width:140px}
 .r37-ans{display:block;font-size:clamp(28px,4.8vh,40px);letter-spacing:.08em;line-height:1.2;word-break:break-word}
-.r37-ans i,.r37-you i{font-style:normal}.r37-ans i.ok,.r37-you i.ok{color:#a8ffcb}.r37-ans i.bad,.r37-you i.bad{color:#ffe066;text-decoration:underline;text-underline-offset:4px}
+.r37-ans i,.r37-you i{font-style:normal}.r37-ans i.ok,.r37-you i.ok{color:#a8ffcb}.r37-ans i.bad,.r37-you i.bad{color:#ffc94a;text-decoration:underline;text-underline-offset:4px}
 .r37-you{font-size:16px!important;letter-spacing:.06em}
 @media(prefers-reduced-motion:reduce){.r37-dzc{transition:none}.r37-dzc:active{transform:none}}
 @media(min-width:700px){.r37-dzg{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:16px}.r37-dzc{flex:0 0 clamp(220px,24%,300px)}.r37-dzn{width:52px;height:52px;font-size:28px;border-radius:16px}.r37-dzp{font-size:18px}.r37-dzb{min-height:64px}.r37-dzb span{font-size:28px}.r37-dzb b{font-size:14px}.r37-dzh{font-size:clamp(22px,3.2vh,32px)}.r37-ptitle{font-size:24px}}
+/* R3.18: eight word cards + the start button always fit a 390x844 phone */
+.r37-learn.dz .r37-wem{width:48px;height:48px;font-size:30px;border-radius:14px}
+.r37-learn.dz .r37-wem .r37-svg,.r37-learn.dz .r37-wem .r37-ic{width:34px;height:34px;font-size:34px}
+.r37-learn.dz .r37-wc{min-height:0}
+@media(max-height:520px){.r37-learn.dz .r37-wem{width:40px;height:40px}}
