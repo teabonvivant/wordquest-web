@@ -620,3 +620,66 @@ html body.r37 #app .r37-legbody [data-s60-list][data-s60-more]{-webkit-mask-imag
 html body.r37 #app .r37-legbody .q36-done{background:rgba(95,224,141,.14)!important;border-color:rgba(95,224,141,.5)!important}
 .s60-ico-sm{display:inline-grid;vertical-align:middle;margin-right:4px}.s60-ico-sm .r37-ic{width:20px;height:20px;font-size:20px}
 html body.r37 .r37-gate .card :is(input:not([type=checkbox]):not([type=radio]),select){background:rgba(255,255,255,.08);color:#f4f6ff;border:1px solid rgba(255,255,255,.22);min-height:48px;border-radius:14px;padding:0 14px}
+
+/* ================================================================================================
+   R3.19 ui: companions portrait, phonics counter, word cards, checkbox, summary arrows, tab fades, toast, bar title
+   ================================================================================================ */
+/* N03: the portrait stage is capped and clipped; the name / role text flows below it in light ink */
+[data-s60=companions] .wq32-profile{display:flex;flex-direction:column;gap:8px}
+[data-s60=companions] .wq32-portrait-stage{position:relative;flex:none;overflow:hidden;min-height:0;height:min(240px,34vh);max-height:min(240px,34vh);margin:0;display:grid;place-items:center}
+[data-s60=companions] .wq32-portrait-stage img{position:static;width:auto;height:auto;max-width:calc(100% - 12px);max-height:calc(100% - 12px);object-fit:contain}
+[data-s60=companions] .wq32-profile .wq32-preview-tag,[data-s60=companions] .wq32-profile h2{position:static;color:#F4F6FF!important}
+[data-s60=companions] .wq32-profile .wq32-preview-tag{margin:0;font-size:14px;font-weight:800;color:#C9D0F5!important}
+[data-s60=companions] .wq32-profile h2{display:flex;align-items:center;gap:8px;margin:0;font-size:20px}
+[data-s60=companions] .wq32-profile .s60-i{position:relative;z-index:3;flex:none}
+/* N06: phonics counter and hint card share one row */
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero{height:auto!important;min-height:56px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero>div:first-child{flex:1 1 auto;min-width:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero::before,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero::after,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview::before,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview::after{content:none;display:none}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total{flex:none;display:flex;flex-direction:row;align-items:baseline;gap:6px;margin:0;padding:0;border:0;position:static}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total strong{font-size:28px;line-height:1;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total strong small{font-size:15px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total span{font-size:13px;line-height:1.2}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total span:nth-of-type(n+2){display:none}
+/* N07: a word never breaks inside itself (man -> m / an) */
+[data-s60=unit] .l30-word strong,[data-s60=library] .l30-word strong,[data-s60=unit] .l30-word strong *,[data-s60=library] .l30-word strong *{white-space:nowrap;overflow-wrap:normal;word-break:keep-all;hyphens:none}
+[data-s60=unit] .l30-word,[data-s60=library] .l30-word{grid-template-columns:48px minmax(0,1fr)}
+[data-s60=unit] .l30-word strong,[data-s60=library] .l30-word strong{font-size:clamp(16px,4.4vw,17px);min-width:0;overflow:hidden;text-overflow:clip}
+/* N09: checkboxes are drawn (a 24px box centred in a 44px touch area), not the white native block */
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;width:44px!important;height:44px!important;min-width:44px;min-height:44px!important;margin:-10px;padding:0;border:0;border-radius:12px;background:center/44px 44px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect x='10' y='10' width='24' height='24' rx='7' fill='%23ffffff' fill-opacity='.08' stroke='%23ffffff' stroke-opacity='.55' stroke-width='2'/%3E%3C/svg%3E");cursor:pointer}
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]:checked{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect x='10' y='10' width='24' height='24' rx='7' fill='%23FFC94A' stroke='%23FFC94A' stroke-width='2'/%3E%3Cpath d='m16 22.5 4.2 4.2L28.5 18' fill='none' stroke='%233B2600' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]:focus-visible{outline:3px solid #FFC94A;outline-offset:-4px}
+html body.r37 #app .r37-legbody label.s60-check{padding:0 4px;color:#F4F6FF;font-weight:800;overflow:hidden}
+/* N11: every <summary> shows an arrow that turns when the block opens */
+html body.r37 #app .r37-legbody details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;cursor:pointer}
+html body.r37 #app .r37-legbody details>summary::-webkit-details-marker{display:none}
+html body.r37 #app .r37-legbody details>summary::after{content:"";flex:none;width:22px;height:22px;background:center/22px 22px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23C3CBF7' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");transition:transform .2s ease}
+html body.r37 #app .r37-legbody details[open]>summary::after{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){html body.r37 #app .r37-legbody details>summary::after{transition:none}}
+/* N12 / D08: chip rows that scroll fade out on the right and snap to the chips */
+html body.r37 #app .r37-legbody .tabs{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:30px;scrollbar-width:none}
+html body.r37 #app .r37-legbody .tabs::-webkit-scrollbar{display:none}
+html body.r37 #app .r37-legbody .tabs>*{scroll-snap-align:start;flex:none}
+/* M03: one toast, as wide as its text, above the nav; never taller than two lines */
+html body.r37 #toast{width:max-content;max-width:min(92vw,420px);padding:10px 16px;font-size:15px;line-height:1.35;bottom:calc(var(--r37-nav,62px) + 19px + env(safe-area-inset-bottom))!important;pointer-events:none}
+/* M01: the bar title stays on one line; the 🔊 slot exists only where something is read aloud */
+html body.r37 .r37-bar .r37-legt{flex:1 1 auto;min-width:0;margin-right:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r37-leg .s60-slot{display:none}
+.r37-leg:has(>.r37-legbody:is([data-s60=unit],[data-s60=assembly-unit])) .s60-slot{display:revert}
+/* N14: the test-environment banner is a 26px dark strip (one line), not a 48-80px cream block */
+html body #wq29-test-banner{position:fixed;left:0;right:0;top:0;z-index:9400;display:flex;align-items:center;justify-content:center;gap:8px;height:26px;min-height:0;margin:0;padding:0 10px;border:0;border-radius:0;background:rgba(11,16,48,.92);color:#C9D0F5;font-size:12px;line-height:26px;white-space:nowrap;overflow:hidden;box-shadow:none}
+html body #wq29-test-banner>*{margin:0;padding:0;font-size:12px;line-height:26px;color:inherit;min-width:0;overflow:hidden;text-overflow:ellipsis}
+html body #wq29-test-banner strong{color:#FFC94A;flex:none}
+html body #wq29-test-banner a{color:#C9D0F5;flex:none;text-decoration:underline}
+html body:has(#wq29-test-banner):not(.r37leg):not(.r37){padding-top:26px}
+/* N18: landscape phones - subtitles and card padding fold away, the page's main button docks above the nav */
+@media(max-height:480px) and (orientation:landscape){
+ html body.r37 #app .r37-legbody{padding:2px 12px 8px}
+ html body.r37 #app .r37-legbody>.l30-topline p,html body.r37 #app .r37-legbody>.l30-topline .l30-muted,html body.r37 #app .r37-legbody>.l30-muted,html body.r37 #app .r37-legbody>p:not(.l30-eyebrow){display:none}
+ html body.r37 #app .r37-legbody :is(.l30-card,.card,.l30-panel,.stat,.range-card){padding-top:8px!important;padding-bottom:8px!important}
+ [data-s60=practice] .l30-grid{grid-auto-rows:minmax(0,88px)}[data-s60=practice] .l30-card{max-height:88px}
+ [data-s60=practice]>a.l30-btn.primary,[data-s60=practice]>.l30-btn.primary:last-child{position:sticky;bottom:0;z-index:6;margin-top:8px;box-shadow:0 -8px 12px rgba(7,10,38,.7),0 4px 0 #C48A00}
+ [data-s60=report] .p40-next{position:sticky;bottom:0;z-index:6;padding:6px 0;background:linear-gradient(180deg,rgba(7,10,38,0),rgba(7,10,38,.92) 40%)}
+ [data-s60=parent] .s60-colbox{gap:8px}[data-s60=parent] .s60-colbox>*{min-height:0}
+}
+@media(min-width:1024px) and (min-height:560px){html body.r37 #toast{bottom:calc(var(--r37-nav,62px) + 46px)!important}}

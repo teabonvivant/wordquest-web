@@ -528,3 +528,12 @@
  }
  window.addEventListener('resize',()=>{menuClose();});
 })();
+
+/* R3.19 N10: the maths course / thinking-tower hero keeps its copy above the decorative arc (style injected into both shadow roots) */
+(()=>{
+ const CSS='.hero p{text-wrap:balance}.hero>div:first-child{position:relative;z-index:2}.hero::before,.hero::after,.hero-pal{pointer-events:none}.hero p{padding-right:56px}';
+ const skin=()=>{for(const id of ['wq-course-host','wqm-app-host']){const R=document.getElementById(id)&&document.getElementById(id).shadowRoot;
+  if(R&&!R.querySelector('#r319-skin')){const s=document.createElement('style');s.id='r319-skin';s.textContent=CSS;R.appendChild(s);}}};
+ const iv=setInterval(()=>{if(document.querySelector('dialog[open]'))skin();},600);
+ void iv;
+})();

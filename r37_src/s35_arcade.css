@@ -188,3 +188,66 @@ html body.r37arc .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overl
 }
 .arx-sheet-bk{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,6,30,.55)}
 @media(prefers-reduced-motion:reduce){.arx-hb,.arx-sheet-bk{transition:none}}
+
+/* =====================================================================================================================
+   R3.19 ui: phone play zone (D07), whole-page lobby (D08), glass intro dialog (M18), once-only rotate hint (M13),
+   desktop canvas that leaves the controls on the first screen (N13), uniform lobby thumbnails.
+   ===================================================================================================================== */
+/* ---- D07 phone, portrait: full-bleed canvas at the top of a >= 380px play zone, the touch keys sit in the zone's lower part, the live goal is a big card ---- */
+@media(max-width:700px){
+ body.r37arc.arcade28 #app{padding-left:0;padding-right:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead,body.r37arc .a28-play.arx-play:not(.r2-immersive) .wq34-rotate{margin-left:10px;margin-right:10px}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport{border-radius:0;background:rgba(11,16,48,.5)!important}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){flex:none;height:clamp(380px,50dvh,440px);min-height:380px;align-items:center!important;justify-content:flex-start!important;padding:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-touch-controls{position:relative;left:auto;right:auto;bottom:auto;z-index:3;margin:-86px 10px 0;height:76px;gap:8px;align-items:center;justify-content:center}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-touch-controls{display:none}
+ body.r37arc .a28-play.arx-play .a28-touch-key{min-height:64px;flex:1 1 0;max-width:92px;background:rgba(255,255,255,.14)}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer{display:flex;flex:1 1 auto;margin:0 10px;min-height:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer>span{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.4;padding:12px 14px;font-size:20px;font-weight:900;color:#F4F6FF;border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));border:1px solid rgba(255,255,255,.14)}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-game-footer{display:none}
+}
+/* ---- N13 desktop: the canvas gives way so keys and goal stay on the first screen; the companion strip steps aside with the hint ---- */
+@media(min-width:701px) and (min-height:620px){
+ body.r37arc .a28-play:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){height:calc(100dvh - 410px);max-height:595px;min-height:340px}
+ body.r37arc .a28-play.arx-hint-off:not(.r2-immersive) .wq32-gamebar{display:none}
+ body.r37arc .a28-play.arx-hint-off:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){height:calc(100dvh - 335px)}
+}
+/* ---- M13: the result / ready card's main button never looks disabled (a "locked" variant is still pressable) ---- */
+html body.r37arc .a28-overlaycard .a28-btn.a33-locked:not(:disabled){opacity:1}
+/* ---- M18: intro dialog = glass dark card + gold call to action ---- */
+html body #pg-dialog.a28-dialog{background:linear-gradient(160deg,rgba(30,38,96,.97),rgba(18,24,68,.97))!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+html body #pg-dialog.a28-dialog::backdrop{background:rgba(5,6,30,.7)}
+html body #pg-dialog .a28-dialog-top,html body #pg-dialog .p30-actions{background:transparent!important;border:0}
+html body #pg-dialog :is(h2,h3,p,span,strong,small,div):not(.a28-preview *):not(.arx-best):not(.arx-stars *):not(.a28-coin):not(button *){color:#F4F6FF}
+html body #pg-dialog .a28-eyebrow,html body #pg-dialog .p30-k,html body #pg-dialog .arx-tg,html body #pg-dialog .p30-fine{color:#C9D0F5!important}
+html body #pg-dialog .arx-stars i{color:#3A4180}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body #pg-dialog .arx-best{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.18)}
+html body #pg-dialog .arx-best:not(.none){background:rgba(255,201,74,.16);color:#FFC94A;border-color:#FFC94A}
+html body #pg-dialog .a28-preview-progress,html body #pg-dialog .p30-goal{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14);color:#F4F6FF!important;border-radius:12px}
+html body #pg-dialog .p30-close{background:rgba(255,255,255,.1)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:999px}
+html body #pg-dialog .p30-close span{color:#F4F6FF}
+html body #pg-dialog .a28-preview{background:#0b1030;border-radius:14px;overflow:hidden}
+html body #pg-dialog .p30-actions .btn.primary,html body #pg-dialog .p30-actions .a28-btn.primary{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important;border-radius:16px;min-height:52px;font-weight:900}
+html body #pg-dialog .p30-actions .btn.primary :is(span,strong){color:#3B2600}
+html body #pg-dialog .p30-actions .btn:not(.primary){background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:16px}
+/* ---- D08: the lobby is one page: the bar and the nav stick, everything between scrolls with the page ---- */
+body.r37leg:has(.r37-legbody[data-s60=game]){overflow-y:auto!important;overflow-x:hidden}
+.r37-leg:has(>.r37-legbody[data-s60=game]){position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;min-height:100dvh;overflow:visible!important;display:flex;flex-direction:column}
+.r37-leg:has(>.r37-legbody[data-s60=game])>.r37-bar{position:sticky;top:0;z-index:30;background:rgba(7,10,38,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.r37-leg:has(>.r37-legbody[data-s60=game])>.r37-nav{position:sticky;bottom:0;z-index:30}
+html body .r37-legbody[data-s60=game]{overflow:visible!important;flex:1 0 auto!important;height:auto!important;min-height:0}
+html body .r37-legbody[data-s60=game][data-s60-more]::after{display:none}
+/* same single fade + snap for the category row at every width */
+html body .r37-legbody[data-s60=game] .a28-tabs{padding-right:34px}
+/* ---- uniform lobby thumbnails: the live canvas picture in one frame (10:7, 14px radius, inner shade, chips in the same corner) ---- */
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot{position:relative;aspect-ratio:10/7;max-height:none!important;overflow:hidden;border-radius:14px;background:#0b1030;padding:0;margin:0}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb,html body .r37-legbody[data-s60=game] .p30-card .p30-shot canvas{display:block;width:100%!important;height:100%!important;object-fit:cover;border-radius:inherit}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),inset 0 -26px 22px -14px rgba(7,10,38,.6),inset 0 6px 12px -8px rgba(255,255,255,.18)}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb{position:absolute;inset:0;width:100%;height:100%}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>:is(.p30-badge,.q36-cost){position:absolute;bottom:6px;top:auto;z-index:2;display:inline-flex;align-items:center;gap:4px;min-height:24px;padding:0 9px;border-radius:999px;font-size:13px;font-weight:800;line-height:1;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.22)!important}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.p30-badge{left:6px;right:auto}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.q36-cost{right:6px;left:auto;background:rgba(7,10,38,.8)!important}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.q36-cost i{display:inline-block;width:12px;height:12px;border-radius:50%;background:#FFC94A!important;border:2px solid #C48A00!important;font-size:12px!important;color:transparent!important;box-sizing:border-box}
+html body .r37-legbody[data-s60=game] .p30-card h3{min-height:1.3em;line-height:1.3;color:#F4F6FF}
+html body .r37-legbody[data-s60=game] .p30-card{padding:8px!important;gap:8px}

@@ -587,3 +587,58 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 }
 /* desktop answer screen: the card and its options sit together in the middle */
 @media(min-width:1024px) and (min-height:640px){.r37-stage{justify-content:center}.r37-opts{margin-top:8px}.r37-stage>.r37-go{margin-top:12px}}
+
+/* ================================================================================================
+   R3.19 ui: hub tiles on short phones, map nodes that never overlap, companion reaction, hint label
+   ================================================================================================ */
+/* M02: games hub is a clean 2 x 2 on phones (the last tile no longer spans a whole row) */
+@media(max-width:520px){.r37-gt .r37-tile.big:first-child~.r37-tile:last-child:nth-child(even){grid-column:span 1}}
+/* odd tile count anywhere: the last one takes the whole row instead of leaving a hole */
+@media(max-width:520px){.r37-tiles:not(.r37-gt):not(:has(>.r37-tile.big:first-child))>.r37-tile:last-child:nth-child(odd):not(:first-child){grid-column:1/-1}}
+/* N05: 360x640 - tiles keep their content (icon 32px, label clear of the picture); the area scrolls rather than squashing */
+@media(max-width:700px) and (max-height:700px) and (min-height:521px){
+ .r37-tiles{overflow-y:auto;overscroll-behavior:contain;align-content:start;grid-auto-rows:minmax(84px,auto);gap:8px;padding:6px 14px 10px;scrollbar-width:none}
+ .r37-tile{gap:3px;padding:6px 6px 8px;justify-content:center}
+ .r37-ti{font-size:32px;width:1.5em;height:1.5em}
+ .r37-tn{font-size:16px;line-height:1.2}
+ .r37-tile .r37-ts{font-size:13px;margin-top:0}
+ .r37-tile.gold{display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;align-items:center;column-gap:12px;row-gap:0;min-height:112px;padding:10px 14px}
+ .r37-tile.gold>.r37-ti{grid-row:1/3;grid-column:1;font-size:36px}
+ .r37-tile.gold>.r37-tn{grid-column:2;grid-row:1;align-self:end;font-size:21px;white-space:nowrap}
+ .r37-tile.gold>.r37-ts{grid-column:2;grid-row:2;align-self:start;padding-top:2px}
+ .r37-tile.gold>.r37-tn:last-child{grid-row:1/3;align-self:center}
+ .r37-tpl{max-width:38%;height:96%;right:-12%;bottom:-18%}
+ .r37-gt{grid-auto-rows:minmax(84px,1fr)}
+ .r37-gt .r37-tile{padding:6px 10px}
+ .r37-gt .r37-ti{font-size:30px;width:1.45em;height:1.45em}
+ .r37-gt .r37-tile.gold{display:flex;flex-direction:row;min-height:0;padding:6px 10px;gap:8px}
+ .r37-gt .r37-tile.gold>.r37-tn{font-size:17px;white-space:nowrap}
+ .r37-gt .r37-tile.gold .r37-tpl{height:88%;max-width:27%;right:-12%;bottom:-26%}
+ .r37-gt .r37-tn{font-size:17px;white-space:nowrap}
+}
+/* N04: 360x640 map - 64px nodes in a scrolling trail, never squeezed into one screen */
+@media(max-width:560px) and (max-height:700px) and (min-height:521px){
+ .r37-path{container-type:normal;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;align-content:start}
+ .r37-path:not(.n3){grid-template-rows:repeat(5,auto);gap:30px 6px;padding-top:14px;padding-bottom:34px}
+ .r37-path:not(.n3) .r37-node{width:64px;height:64px;max-width:none;max-height:none;aspect-ratio:auto;justify-self:center}
+ .r37-path:not(.n3) .r37-nn{font-size:26px}
+ .r37-path.n3{grid-template-rows:repeat(3,auto);gap:34px;padding-top:12px;padding-bottom:40px}
+ .r37-path.n3>.r37-node:nth-of-type(n){width:88px;height:88px;min-height:72px}
+ .r37-trail{height:100%}
+}
+/* D14: the hint button says what it is */
+.r37-hintb{min-width:96px;min-height:48px;gap:6px}
+.r37-hintb b{font-size:15px;font-weight:800;line-height:1}
+/* item 8: companion reactions - correct = hop + star dust, wrong = a gentle head-tilt and soft sway; <= 300ms, off under reduced motion */
+.r37-comp{position:relative}
+.r37-comp.ok .r37-compav{animation:r37chop .3s var(--r37-ease) both}
+.r37-comp.no .r37-compav{animation:r37ctilt .3s ease-in-out both;transform-origin:50% 90%}
+.r37-comp.ok::after{content:"";position:absolute;left:-10px;top:-10px;width:84px;height:84px;pointer-events:none;border-radius:50%;
+ background:radial-gradient(3px 3px at 14% 30%,#ffe9a8 90%,transparent),radial-gradient(2.5px 2.5px at 50% 4%,#fff 90%,transparent),radial-gradient(3px 3px at 88% 26%,#ffc94a 90%,transparent),radial-gradient(2.5px 2.5px at 96% 66%,#fff 90%,transparent),radial-gradient(3px 3px at 74% 94%,#ffe9a8 90%,transparent),radial-gradient(2.5px 2.5px at 8% 76%,#ffc94a 90%,transparent);
+ animation:r37cdust .3s ease-out both}
+@keyframes r37chop{0%{transform:translateY(0) scale(1)}45%{transform:translateY(-9px) scale(1.08)}100%{transform:translateY(0) scale(1)}}
+@keyframes r37ctilt{0%{transform:rotate(0)}30%{transform:rotate(-9deg) translateX(-2px)}65%{transform:rotate(5deg) translateX(2px)}100%{transform:rotate(0)}}
+@keyframes r37cdust{0%{transform:scale(.55);opacity:0}30%{opacity:1}100%{transform:scale(1.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){.r37-comp.ok .r37-compav,.r37-comp.no .r37-compav,.r37-comp.ok::after{animation:none!important}.r37-comp.ok::after{opacity:0}}
+.r37-wtitle small{white-space:nowrap}
+@media(max-width:420px){.r37-wtitle{gap:8px;padding:6px 12px}.r37-wtitle small{gap:4px}.r37-wtitle small .r37-st{font-size:15px}.r37-wtitle h1{font-size:22px}}

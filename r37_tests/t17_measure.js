@@ -32,6 +32,7 @@ out.list_containers=LISTS.length;
 const bars=[];
 for(const e of all){const cs=getComputedStyle(e);if(cs.position!=='fixed'&&cs.position!=='sticky')continue;if(!isVis(e))continue;const r=e.getBoundingClientRect();if(r.width<vw*0.3||r.height<20||r.height>vh*0.6)continue;
   if(e.tagName==='CANVAS')continue;
+  if(e.classList&&e.classList.contains('r37-bar'))continue; // R3.19: the arcade lobby scrolls as one page, so the shell's own single bar is sticky; it is not the old site header
   bars.push({sel:sel(e),top:Math.round(r.top),bottom:Math.round(r.bottom),h:Math.round(r.height),pos:cs.position,txt:(e.innerText||'').replace(/\s+/g,' ').trim().slice(0,30)});}
 out.bars=bars;
 const topBars=bars.filter(b=>b.top<=4&&b.bottom<vh*0.5), botBars=bars.filter(b=>b.bottom>=vh-4&&b.top>vh*0.5);

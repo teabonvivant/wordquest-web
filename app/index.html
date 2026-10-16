@@ -1723,6 +1723,61 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 /* desktop answer screen: the card and its options sit together in the middle */
 @media(min-width:1024px) and (min-height:640px){.r37-stage{justify-content:center}.r37-opts{margin-top:8px}.r37-stage>.r37-go{margin-top:12px}}
 
+/* ================================================================================================
+   R3.19 ui: hub tiles on short phones, map nodes that never overlap, companion reaction, hint label
+   ================================================================================================ */
+/* M02: games hub is a clean 2 x 2 on phones (the last tile no longer spans a whole row) */
+@media(max-width:520px){.r37-gt .r37-tile.big:first-child~.r37-tile:last-child:nth-child(even){grid-column:span 1}}
+/* odd tile count anywhere: the last one takes the whole row instead of leaving a hole */
+@media(max-width:520px){.r37-tiles:not(.r37-gt):not(:has(>.r37-tile.big:first-child))>.r37-tile:last-child:nth-child(odd):not(:first-child){grid-column:1/-1}}
+/* N05: 360x640 - tiles keep their content (icon 32px, label clear of the picture); the area scrolls rather than squashing */
+@media(max-width:700px) and (max-height:700px) and (min-height:521px){
+ .r37-tiles{overflow-y:auto;overscroll-behavior:contain;align-content:start;grid-auto-rows:minmax(84px,auto);gap:8px;padding:6px 14px 10px;scrollbar-width:none}
+ .r37-tile{gap:3px;padding:6px 6px 8px;justify-content:center}
+ .r37-ti{font-size:32px;width:1.5em;height:1.5em}
+ .r37-tn{font-size:16px;line-height:1.2}
+ .r37-tile .r37-ts{font-size:13px;margin-top:0}
+ .r37-tile.gold{display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;align-items:center;column-gap:12px;row-gap:0;min-height:112px;padding:10px 14px}
+ .r37-tile.gold>.r37-ti{grid-row:1/3;grid-column:1;font-size:36px}
+ .r37-tile.gold>.r37-tn{grid-column:2;grid-row:1;align-self:end;font-size:21px;white-space:nowrap}
+ .r37-tile.gold>.r37-ts{grid-column:2;grid-row:2;align-self:start;padding-top:2px}
+ .r37-tile.gold>.r37-tn:last-child{grid-row:1/3;align-self:center}
+ .r37-tpl{max-width:38%;height:96%;right:-12%;bottom:-18%}
+ .r37-gt{grid-auto-rows:minmax(84px,1fr)}
+ .r37-gt .r37-tile{padding:6px 10px}
+ .r37-gt .r37-ti{font-size:30px;width:1.45em;height:1.45em}
+ .r37-gt .r37-tile.gold{display:flex;flex-direction:row;min-height:0;padding:6px 10px;gap:8px}
+ .r37-gt .r37-tile.gold>.r37-tn{font-size:17px;white-space:nowrap}
+ .r37-gt .r37-tile.gold .r37-tpl{height:88%;max-width:27%;right:-12%;bottom:-26%}
+ .r37-gt .r37-tn{font-size:17px;white-space:nowrap}
+}
+/* N04: 360x640 map - 64px nodes in a scrolling trail, never squeezed into one screen */
+@media(max-width:560px) and (max-height:700px) and (min-height:521px){
+ .r37-path{container-type:normal;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;align-content:start}
+ .r37-path:not(.n3){grid-template-rows:repeat(5,auto);gap:30px 6px;padding-top:14px;padding-bottom:34px}
+ .r37-path:not(.n3) .r37-node{width:64px;height:64px;max-width:none;max-height:none;aspect-ratio:auto;justify-self:center}
+ .r37-path:not(.n3) .r37-nn{font-size:26px}
+ .r37-path.n3{grid-template-rows:repeat(3,auto);gap:34px;padding-top:12px;padding-bottom:40px}
+ .r37-path.n3>.r37-node:nth-of-type(n){width:88px;height:88px;min-height:72px}
+ .r37-trail{height:100%}
+}
+/* D14: the hint button says what it is */
+.r37-hintb{min-width:96px;min-height:48px;gap:6px}
+.r37-hintb b{font-size:15px;font-weight:800;line-height:1}
+/* item 8: companion reactions - correct = hop + star dust, wrong = a gentle head-tilt and soft sway; <= 300ms, off under reduced motion */
+.r37-comp{position:relative}
+.r37-comp.ok .r37-compav{animation:r37chop .3s var(--r37-ease) both}
+.r37-comp.no .r37-compav{animation:r37ctilt .3s ease-in-out both;transform-origin:50% 90%}
+.r37-comp.ok::after{content:"";position:absolute;left:-10px;top:-10px;width:84px;height:84px;pointer-events:none;border-radius:50%;
+ background:radial-gradient(3px 3px at 14% 30%,#ffe9a8 90%,transparent),radial-gradient(2.5px 2.5px at 50% 4%,#fff 90%,transparent),radial-gradient(3px 3px at 88% 26%,#ffc94a 90%,transparent),radial-gradient(2.5px 2.5px at 96% 66%,#fff 90%,transparent),radial-gradient(3px 3px at 74% 94%,#ffe9a8 90%,transparent),radial-gradient(2.5px 2.5px at 8% 76%,#ffc94a 90%,transparent);
+ animation:r37cdust .3s ease-out both}
+@keyframes r37chop{0%{transform:translateY(0) scale(1)}45%{transform:translateY(-9px) scale(1.08)}100%{transform:translateY(0) scale(1)}}
+@keyframes r37ctilt{0%{transform:rotate(0)}30%{transform:rotate(-9deg) translateX(-2px)}65%{transform:rotate(5deg) translateX(2px)}100%{transform:rotate(0)}}
+@keyframes r37cdust{0%{transform:scale(.55);opacity:0}30%{opacity:1}100%{transform:scale(1.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){.r37-comp.ok .r37-compav,.r37-comp.no .r37-compav,.r37-comp.ok::after{animation:none!important}.r37-comp.ok::after{opacity:0}}
+.r37-wtitle small{white-space:nowrap}
+@media(max-width:420px){.r37-wtitle{gap:8px;padding:6px 12px}.r37-wtitle small{gap:4px}.r37-wtitle small .r37-st{font-size:15px}.r37-wtitle h1{font-size:22px}}
+
 /* R3.14 dictation study: group cards, learn grid, letter cells */
 .r37-dzh{position:relative;z-index:2;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 14px 6px;font-weight:900;font-size:clamp(18px,3vh,26px)}.r37-dzh>span{display:grid;font-size:1.4em}
 .r37-dzh b{max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.r37-dzh em{font-style:normal;padding:2px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.72em}
@@ -1856,6 +1911,18 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
  .r37-learn:not(.dz) .r37-wc{min-height:0}
  .r37-learn:not(.dz) .r37-wcb{min-height:44px;padding:2px}
 }
+
+/* ---- R3.19 ui ---- */
+/* N15: three level buttons stay >= 44px wide on 360px phones */
+.r37-dzb{min-width:44px;min-height:56px}
+.r37-dzl{gap:6px}
+@media(max-width:380px){.r37-dzl{gap:4px}.r37-dzc{padding:8px}}
+/* N17: the level chip in the dictation quiz bar names itself */
+.r37-ptop .r37-dchip b{font-size:14px;font-weight:900;white-space:nowrap}
+/* N16: difficulty chips and summaries use vector icons */
+.r37-dsub small{display:inline-flex;align-items:center;gap:3px}.r37-dsub small .r37-ic{font-size:18px}
+.r37-df small .r37-hs{display:inline-flex;gap:1px;vertical-align:middle}
+.r37-hs .r37-ic{width:12px;height:12px;font-size:12px}.r37-hs .r37-ic .heart{fill:var(--r37-danger,#ff6b81)}.r37-hs .r37-ic .h{display:none}
 
 /* R3.8 Arcade+ styles (s35_arcade.js). Prefix arx-. Touch targets >= 44px; animations only when motion is allowed. */
 /* ---- lobby reskin inside the planet shell: readable white text on the dark sky, white cards stay white ---- */
@@ -2047,6 +2114,69 @@ html body.r37arc .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overl
 }
 .arx-sheet-bk{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,6,30,.55)}
 @media(prefers-reduced-motion:reduce){.arx-hb,.arx-sheet-bk{transition:none}}
+
+/* =====================================================================================================================
+   R3.19 ui: phone play zone (D07), whole-page lobby (D08), glass intro dialog (M18), once-only rotate hint (M13),
+   desktop canvas that leaves the controls on the first screen (N13), uniform lobby thumbnails.
+   ===================================================================================================================== */
+/* ---- D07 phone, portrait: full-bleed canvas at the top of a >= 380px play zone, the touch keys sit in the zone's lower part, the live goal is a big card ---- */
+@media(max-width:700px){
+ body.r37arc.arcade28 #app{padding-left:0;padding-right:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead,body.r37arc .a28-play.arx-play:not(.r2-immersive) .wq34-rotate{margin-left:10px;margin-right:10px}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport{border-radius:0;background:rgba(11,16,48,.5)!important}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){flex:none;height:clamp(380px,50dvh,440px);min-height:380px;align-items:center!important;justify-content:flex-start!important;padding:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-touch-controls{position:relative;left:auto;right:auto;bottom:auto;z-index:3;margin:-86px 10px 0;height:76px;gap:8px;align-items:center;justify-content:center}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-touch-controls{display:none}
+ body.r37arc .a28-play.arx-play .a28-touch-key{min-height:64px;flex:1 1 0;max-width:92px;background:rgba(255,255,255,.14)}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer{display:flex;flex:1 1 auto;margin:0 10px;min-height:0}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer>span{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.4;padding:12px 14px;font-size:20px;font-weight:900;color:#F4F6FF;border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));border:1px solid rgba(255,255,255,.14)}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-game-footer{display:none}
+}
+/* ---- N13 desktop: the canvas gives way so keys and goal stay on the first screen; the companion strip steps aside with the hint ---- */
+@media(min-width:701px) and (min-height:620px){
+ body.r37arc .a28-play:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){height:calc(100dvh - 410px);max-height:595px;min-height:340px}
+ body.r37arc .a28-play.arx-hint-off:not(.r2-immersive) .wq32-gamebar{display:none}
+ body.r37arc .a28-play.arx-hint-off:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){height:calc(100dvh - 335px)}
+}
+/* ---- M13: the result / ready card's main button never looks disabled (a "locked" variant is still pressable) ---- */
+html body.r37arc .a28-overlaycard .a28-btn.a33-locked:not(:disabled){opacity:1}
+/* ---- M18: intro dialog = glass dark card + gold call to action ---- */
+html body #pg-dialog.a28-dialog{background:linear-gradient(160deg,rgba(30,38,96,.97),rgba(18,24,68,.97))!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+html body #pg-dialog.a28-dialog::backdrop{background:rgba(5,6,30,.7)}
+html body #pg-dialog .a28-dialog-top,html body #pg-dialog .p30-actions{background:transparent!important;border:0}
+html body #pg-dialog :is(h2,h3,p,span,strong,small,div):not(.a28-preview *):not(.arx-best):not(.arx-stars *):not(.a28-coin):not(button *){color:#F4F6FF}
+html body #pg-dialog .a28-eyebrow,html body #pg-dialog .p30-k,html body #pg-dialog .arx-tg,html body #pg-dialog .p30-fine{color:#C9D0F5!important}
+html body #pg-dialog .arx-stars i{color:#3A4180}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body #pg-dialog .arx-best{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.18)}
+html body #pg-dialog .arx-best:not(.none){background:rgba(255,201,74,.16);color:#FFC94A;border-color:#FFC94A}
+html body #pg-dialog .a28-preview-progress,html body #pg-dialog .p30-goal{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14);color:#F4F6FF!important;border-radius:12px}
+html body #pg-dialog .p30-close{background:rgba(255,255,255,.1)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:999px}
+html body #pg-dialog .p30-close span{color:#F4F6FF}
+html body #pg-dialog .a28-preview{background:#0b1030;border-radius:14px;overflow:hidden}
+html body #pg-dialog .p30-actions .btn.primary,html body #pg-dialog .p30-actions .a28-btn.primary{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important;border-radius:16px;min-height:52px;font-weight:900}
+html body #pg-dialog .p30-actions .btn.primary :is(span,strong){color:#3B2600}
+html body #pg-dialog .p30-actions .btn:not(.primary){background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:16px}
+/* ---- D08: the lobby is one page: the bar and the nav stick, everything between scrolls with the page ---- */
+body.r37leg:has(.r37-legbody[data-s60=game]){overflow-y:auto!important;overflow-x:hidden}
+.r37-leg:has(>.r37-legbody[data-s60=game]){position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;min-height:100dvh;overflow:visible!important;display:flex;flex-direction:column}
+.r37-leg:has(>.r37-legbody[data-s60=game])>.r37-bar{position:sticky;top:0;z-index:30;background:rgba(7,10,38,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.r37-leg:has(>.r37-legbody[data-s60=game])>.r37-nav{position:sticky;bottom:0;z-index:30}
+html body .r37-legbody[data-s60=game]{overflow:visible!important;flex:1 0 auto!important;height:auto!important;min-height:0}
+html body .r37-legbody[data-s60=game][data-s60-more]::after{display:none}
+/* same single fade + snap for the category row at every width */
+html body .r37-legbody[data-s60=game] .a28-tabs{padding-right:34px}
+/* ---- uniform lobby thumbnails: the live canvas picture in one frame (10:7, 14px radius, inner shade, chips in the same corner) ---- */
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot{position:relative;aspect-ratio:10/7;max-height:none!important;overflow:hidden;border-radius:14px;background:#0b1030;padding:0;margin:0}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb,html body .r37-legbody[data-s60=game] .p30-card .p30-shot canvas{display:block;width:100%!important;height:100%!important;object-fit:cover;border-radius:inherit}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),inset 0 -26px 22px -14px rgba(7,10,38,.6),inset 0 6px 12px -8px rgba(255,255,255,.18)}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb{position:absolute;inset:0;width:100%;height:100%}
+html body .r37-legbody[data-s60=game] .p30-card .p30-shot>.a28-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>:is(.p30-badge,.q36-cost){position:absolute;bottom:6px;top:auto;z-index:2;display:inline-flex;align-items:center;gap:4px;min-height:24px;padding:0 9px;border-radius:999px;font-size:13px;font-weight:800;line-height:1;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.22)!important}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.p30-badge{left:6px;right:auto}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.q36-cost{right:6px;left:auto;background:rgba(7,10,38,.8)!important}
+html body #app .r37-legbody[data-s60=game] .p30-card .p30-shot>.q36-cost i{display:inline-block;width:12px;height:12px;border-radius:50%;background:#FFC94A!important;border:2px solid #C48A00!important;font-size:12px!important;color:transparent!important;box-sizing:border-box}
+html body .r37-legbody[data-s60=game] .p30-card h3{min-height:1.3em;line-height:1.3;color:#F4F6FF}
+html body .r37-legbody[data-s60=game] .p30-card{padding:8px!important;gap:8px}
 </style>
 <style id="wq37-s50-css">
 /* R3.10 s50: dictation upload page (#range-new). Everything is scoped to #import-v20; selectors carry `html body` weight
@@ -2871,6 +3001,69 @@ html body.r37 #app .r37-legbody [data-s60-list][data-s60-more]{-webkit-mask-imag
 html body.r37 #app .r37-legbody .q36-done{background:rgba(95,224,141,.14)!important;border-color:rgba(95,224,141,.5)!important}
 .s60-ico-sm{display:inline-grid;vertical-align:middle;margin-right:4px}.s60-ico-sm .r37-ic{width:20px;height:20px;font-size:20px}
 html body.r37 .r37-gate .card :is(input:not([type=checkbox]):not([type=radio]),select){background:rgba(255,255,255,.08);color:#f4f6ff;border:1px solid rgba(255,255,255,.22);min-height:48px;border-radius:14px;padding:0 14px}
+
+/* ================================================================================================
+   R3.19 ui: companions portrait, phonics counter, word cards, checkbox, summary arrows, tab fades, toast, bar title
+   ================================================================================================ */
+/* N03: the portrait stage is capped and clipped; the name / role text flows below it in light ink */
+[data-s60=companions] .wq32-profile{display:flex;flex-direction:column;gap:8px}
+[data-s60=companions] .wq32-portrait-stage{position:relative;flex:none;overflow:hidden;min-height:0;height:min(240px,34vh);max-height:min(240px,34vh);margin:0;display:grid;place-items:center}
+[data-s60=companions] .wq32-portrait-stage img{position:static;width:auto;height:auto;max-width:calc(100% - 12px);max-height:calc(100% - 12px);object-fit:contain}
+[data-s60=companions] .wq32-profile .wq32-preview-tag,[data-s60=companions] .wq32-profile h2{position:static;color:#F4F6FF!important}
+[data-s60=companions] .wq32-profile .wq32-preview-tag{margin:0;font-size:14px;font-weight:800;color:#C9D0F5!important}
+[data-s60=companions] .wq32-profile h2{display:flex;align-items:center;gap:8px;margin:0;font-size:20px}
+[data-s60=companions] .wq32-profile .s60-i{position:relative;z-index:3;flex:none}
+/* N06: phonics counter and hint card share one row */
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero{height:auto!important;min-height:56px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero>div:first-child{flex:1 1 auto;min-width:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero::before,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-hero::after,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview::before,:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-overview::after{content:none;display:none}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total{flex:none;display:flex;flex-direction:row;align-items:baseline;gap:6px;margin:0;padding:0;border:0;position:static}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total strong{font-size:28px;line-height:1;margin:0}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total strong small{font-size:15px}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total span{font-size:13px;line-height:1.2}
+:is([data-s60=phonics-lesson],[data-s60=phonics]) .pc-course-total span:nth-of-type(n+2){display:none}
+/* N07: a word never breaks inside itself (man -> m / an) */
+[data-s60=unit] .l30-word strong,[data-s60=library] .l30-word strong,[data-s60=unit] .l30-word strong *,[data-s60=library] .l30-word strong *{white-space:nowrap;overflow-wrap:normal;word-break:keep-all;hyphens:none}
+[data-s60=unit] .l30-word,[data-s60=library] .l30-word{grid-template-columns:48px minmax(0,1fr)}
+[data-s60=unit] .l30-word strong,[data-s60=library] .l30-word strong{font-size:clamp(16px,4.4vw,17px);min-width:0;overflow:hidden;text-overflow:clip}
+/* N09: checkboxes are drawn (a 24px box centred in a 44px touch area), not the white native block */
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]{-webkit-appearance:none;appearance:none;flex:none;width:44px!important;height:44px!important;min-width:44px;min-height:44px!important;margin:-10px;padding:0;border:0;border-radius:12px;background:center/44px 44px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect x='10' y='10' width='24' height='24' rx='7' fill='%23ffffff' fill-opacity='.08' stroke='%23ffffff' stroke-opacity='.55' stroke-width='2'/%3E%3C/svg%3E");cursor:pointer}
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]:checked{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Crect x='10' y='10' width='24' height='24' rx='7' fill='%23FFC94A' stroke='%23FFC94A' stroke-width='2'/%3E%3Cpath d='m16 22.5 4.2 4.2L28.5 18' fill='none' stroke='%233B2600' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+html body.r37 #app :is(.r37-legbody,.r37-gate) input[type=checkbox]:focus-visible{outline:3px solid #FFC94A;outline-offset:-4px}
+html body.r37 #app .r37-legbody label.s60-check{padding:0 4px;color:#F4F6FF;font-weight:800;overflow:hidden}
+/* N11: every <summary> shows an arrow that turns when the block opens */
+html body.r37 #app .r37-legbody details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;cursor:pointer}
+html body.r37 #app .r37-legbody details>summary::-webkit-details-marker{display:none}
+html body.r37 #app .r37-legbody details>summary::after{content:"";flex:none;width:22px;height:22px;background:center/22px 22px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23C3CBF7' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");transition:transform .2s ease}
+html body.r37 #app .r37-legbody details[open]>summary::after{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){html body.r37 #app .r37-legbody details>summary::after{transition:none}}
+/* N12 / D08: chip rows that scroll fade out on the right and snap to the chips */
+html body.r37 #app .r37-legbody .tabs{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:30px;scrollbar-width:none}
+html body.r37 #app .r37-legbody .tabs::-webkit-scrollbar{display:none}
+html body.r37 #app .r37-legbody .tabs>*{scroll-snap-align:start;flex:none}
+/* M03: one toast, as wide as its text, above the nav; never taller than two lines */
+html body.r37 #toast{width:max-content;max-width:min(92vw,420px);padding:10px 16px;font-size:15px;line-height:1.35;bottom:calc(var(--r37-nav,62px) + 19px + env(safe-area-inset-bottom))!important;pointer-events:none}
+/* M01: the bar title stays on one line; the 🔊 slot exists only where something is read aloud */
+html body.r37 .r37-bar .r37-legt{flex:1 1 auto;min-width:0;margin-right:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r37-leg .s60-slot{display:none}
+.r37-leg:has(>.r37-legbody:is([data-s60=unit],[data-s60=assembly-unit])) .s60-slot{display:revert}
+/* N14: the test-environment banner is a 26px dark strip (one line), not a 48-80px cream block */
+html body #wq29-test-banner{position:fixed;left:0;right:0;top:0;z-index:9400;display:flex;align-items:center;justify-content:center;gap:8px;height:26px;min-height:0;margin:0;padding:0 10px;border:0;border-radius:0;background:rgba(11,16,48,.92);color:#C9D0F5;font-size:12px;line-height:26px;white-space:nowrap;overflow:hidden;box-shadow:none}
+html body #wq29-test-banner>*{margin:0;padding:0;font-size:12px;line-height:26px;color:inherit;min-width:0;overflow:hidden;text-overflow:ellipsis}
+html body #wq29-test-banner strong{color:#FFC94A;flex:none}
+html body #wq29-test-banner a{color:#C9D0F5;flex:none;text-decoration:underline}
+html body:has(#wq29-test-banner):not(.r37leg):not(.r37){padding-top:26px}
+/* N18: landscape phones - subtitles and card padding fold away, the page's main button docks above the nav */
+@media(max-height:480px) and (orientation:landscape){
+ html body.r37 #app .r37-legbody{padding:2px 12px 8px}
+ html body.r37 #app .r37-legbody>.l30-topline p,html body.r37 #app .r37-legbody>.l30-topline .l30-muted,html body.r37 #app .r37-legbody>.l30-muted,html body.r37 #app .r37-legbody>p:not(.l30-eyebrow){display:none}
+ html body.r37 #app .r37-legbody :is(.l30-card,.card,.l30-panel,.stat,.range-card){padding-top:8px!important;padding-bottom:8px!important}
+ [data-s60=practice] .l30-grid{grid-auto-rows:minmax(0,88px)}[data-s60=practice] .l30-card{max-height:88px}
+ [data-s60=practice]>a.l30-btn.primary,[data-s60=practice]>.l30-btn.primary:last-child{position:sticky;bottom:0;z-index:6;margin-top:8px;box-shadow:0 -8px 12px rgba(7,10,38,.7),0 4px 0 #C48A00}
+ [data-s60=report] .p40-next{position:sticky;bottom:0;z-index:6;padding:6px 0;background:linear-gradient(180deg,rgba(7,10,38,0),rgba(7,10,38,.92) 40%)}
+ [data-s60=parent] .s60-colbox{gap:8px}[data-s60=parent] .s60-colbox>*{min-height:0}
+}
+@media(min-width:1024px) and (min-height:560px){html body.r37 #toast{bottom:calc(var(--r37-nav,62px) + 46px)!important}}
 </style>
 </head>
 <body>
@@ -15379,6 +15572,13 @@ const R37_ART={
  '🐲':{h:150,s:'<path class="b" d="m12 28-6-14 14 6zM52 28l6-14-14 6z"/><path class="a" d="M12 32c0-11 9-18 20-18s20 7 20 18v6c0 9-9 16-20 16s-20-7-20-16z"/><circle class="w" cx="24" cy="30" r="4"/><circle class="w" cx="40" cy="30" r="4"/><path d="M27 44h10m-11-4h.01M38 40h.01"/>'},
  '♾️':'<path class="sa" d="M32 32c-6-10-22-10-22 0s16 10 22 0 16-10 22 0-16 10-22 0z" stroke-width="9"/><path d="M32 32c-6-10-22-10-22 0s16 10 22 0 16-10 22 0-16 10-22 0z" stroke-width="3.5"/>',
  '🎲':'<rect class="a" x="9" y="9" width="46" height="46" rx="11"/><path class="h" d="M16 22a8 8 0 0 1 6-7"/><path d="M22 22h.01M42 22h.01M32 32h.01M22 42h.01M42 42h.01" stroke="#fff" stroke-width="6"/>',
+ '🍰':{h:335,s:'<path class="b" d="M8 36h48v14a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6z"/><path class="a" d="M8 36c0-12 10-20 24-20s24 8 24 20z"/><path d="M8 36h48M16 46h32"/><path class="y" d="M32 16V9m0 0a3 3 0 1 0 .01 0"/><path class="h" d="M16 30a15 12 0 0 1 8-8"/>'},
+ '🌊':{h:200,s:'<path class="a" d="M6 20c8-8 14 8 26 0s18 8 26 0v32H6z" stroke="none"/><path class="b" d="M6 38c8-8 14 8 26 0s18 8 26 0v14H6z" stroke="none"/><path d="M6 20c8-8 14 8 26 0s18 8 26 0M6 38c8-8 14 8 26 0s18 8 26 0"/><path class="h" d="M12 26c3-2 5-1 7 1"/>'},
+ '⚡':'<path class="y" d="M36 5 14 36h14l-4 23 26-33H35z"/><path class="h" d="M30 14 20 30"/>',
+ '🕵️':{h:260,s:'<path class="b" d="M10 28h44l-4-6H14z"/><path class="a" d="M18 22c1-10 7-15 14-15s13 5 14 15z"/><path d="M10 28h44"/><circle class="w" cx="32" cy="40" r="11"/><path d="M26 38h4m4 0h4M27 45c3 3 7 3 10 0"/><path class="h" d="M22 17c1-4 4-7 7-8"/><path class="a" d="M16 58c2-8 8-6 16-6s14-2 16 6z"/>'},
+ '🏭':{h:25,s:'<rect class="a" x="6" y="30" width="52" height="26" rx="4"/><path class="b" d="M6 30l14-10v10l14-10v10l14-10v10z" stroke="none"/><path d="M6 30l14-10v10l14-10v10l14-10v10"/><rect class="b" x="46" y="8" width="8" height="22" rx="2"/><path d="M16 42h6m6 0h6m6 0h6M20 56v-8h8v8"/><path class="h" d="M12 38h3"/>'},
+ '🎡':{h:290,s:'<circle class="a" cx="32" cy="28" r="20"/><circle class="b" cx="32" cy="28" r="5"/><circle cx="32" cy="28" r="20"/><path d="M32 8v40M12 28h40M18 14l28 28M46 14 18 42"/><path d="M20 58l12-30 12 30"/><path class="h" d="M17 22a16 16 0 0 1 8-9"/>'},
+ '🔮':{h:275,s:'<circle class="a" cx="32" cy="26" r="20"/><path class="b" d="M12 30a20 20 0 0 0 40 0c-6 6-14 9-20 9s-14-3-20-9z" stroke="none"/><circle cx="32" cy="26" r="20"/><path class="b" d="M16 54h32l-6-10H22z"/><path d="M16 54h32M22 44h20"/><path class="y" d="m32 14 2.4 5 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" stroke="none"/><path class="h" d="M19 20a15 15 0 0 1 9-9"/>'},
  '🏝️':{h:170,s:'<path class="b" d="M8 52c8-10 40-10 48 0z"/><path d="M32 46c0-12 1-22 6-30"/><path class="a" d="M38 16c-6-8-16-6-22 0 8-3 14-1 22 0zM38 16c8-8 16-6 20 0-8-3-14-1-20 0zM38 16c-2 8 4 14 8 16-1-6-3-12-8-16z"/>'},
  '🌲':{h:150,s:'<path class="a" d="M32 6 18 26h7L14 42h10L11 56h42L40 42h10L39 26h7z"/><path class="b" d="M32 6l14 20h-7l11 16H40l13 14H32z" stroke="none"/><path d="M32 6 18 26h7L14 42h10L11 56h42L40 42h10L39 26h7zM32 56v4"/>'},
  '🏜️':{h:35,s:'<circle class="w" cx="47" cy="17" r="7"/><path class="b" d="M4 54c10-14 22-14 30-4 8-8 16-8 26 4z"/><path class="a" d="M24 52V22a4.5 4.5 0 0 1 9 0v30z"/><path d="M24 36h-6a3 3 0 0 1-3-3v-6M33 30h5a3 3 0 0 0 3-3v-5"/>'},
@@ -15594,7 +15794,7 @@ function r37Pips(){
 }
 function r37Play(){
  const P=r37P;if(!P)return r37Home();
- const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">${r37Icon('✕')}</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip">${r37Icon(R37_DZ_LV[P.dz.lvl-1])}</span>`:`<span class="r37-dchip">${r37Icon(D.icon)}</span>`}</header>`;
+ const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">${r37Icon('✕')}</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip" role="img" aria-label="第 ${P.dz.lvl} 級：${R37_DZ_NAMES[P.dz.lvl-1]}">${r37Icon(R37_DZ_LV[P.dz.lvl-1])}<b>第 ${P.dz.lvl} 級</b></span>`:`<span class="r37-dchip">${r37Icon(D.icon)}</span>`}</header>`;
  if(P.phase==='learn'){
   const card=w=>`<div class="r37-wc${P.kind==='dz'?'':' r37-wcx'}"><button type="button" class="r37-wcb" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${w.fi&&w.fi.length?r37Hl(w.en,w.fi):esc(w.en)}</b><span>${esc(w.zh)}</span></button>${P.kind==='dz'?r37SylRow(w.en):''}${P.kind!=='dz'&&w.ex?`<button type="button" class="r37-exl" lang="en" data-r37="speak" data-t="${esc(w.ex)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(w.ex)}</button>`:''}</div>`;
   const sent=P.kind!=='dz'&&P.sentence?`<button type="button" class="r37-us" lang="en" data-r37="speak" data-t="${esc(P.sentence)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(P.sentence)}</button>`:'';
@@ -15616,7 +15816,7 @@ function r37Play(){
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
  const nudge=!fb&&P.nudge?`<div class="r37-nudge" role="status"><span aria-hidden="true">${r37Icon('💡')}</span><b>${esc(P.nudge.msg)}</b></div>`:'';
- const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
+ const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}<b>提示</b></button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
  const bubble=fb?(fb.ok?P.praise:'再試試看，你可以的'):(P.hintShown?'慢慢想，不用急':'選出正確的答案');
  const comp=`<div class="r37-comp ${fb?(fb.ok?'ok':'no'):''}"><span class="r37-compav">${r37ChImg(r37Char())}</span><span class="r37-bub" role="status">${esc(bubble)}</span></div>`;
  const title=q.warm?P.warmTitle:P.kind==='level'?P.title:'';
@@ -15919,11 +16119,11 @@ function r37ParentHub(){
  let body='';
  if(tab==='diff'){
   const sub=['english','math','olympiad'].includes(r37Mem._dsub)?r37Mem._dsub:'english',cur=o.diffs[sub],T=R37_TRACKS[sub];
-  const subs=['english','math','olympiad'].map(k=>`<button type="button" class="r37-dsub ${sub===k?'on':''}" data-r37="dsub" data-k="${k}" aria-pressed="${sub===k}"><span aria-hidden="true">${r37Icon(R37_TRACKS[k].icon)}</span><b>${R37_TRACKS[k].name}</b><small>${R37_DIFF[o.diffs[k]-1].icon}${o.diffs[k]}</small></button>`).join('');
+  const subs=['english','math','olympiad'].map(k=>`<button type="button" class="r37-dsub ${sub===k?'on':''}" data-r37="dsub" data-k="${k}" aria-pressed="${sub===k}"><span aria-hidden="true">${r37Icon(R37_TRACKS[k].icon)}</span><b>${R37_TRACKS[k].name}</b><small>${r37Icon(R37_DIFF[o.diffs[k]-1].icon)}${o.diffs[k]}</small></button>`).join('');
   const note=sub==='english'
    ?`<li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格</li><li><b>3</b> 標準：沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字、填充題更多；<b>5</b> 沒有提示${cur===5?'（目前）':''}</li><li>題數是每個生字至少考 1 題；答錯的詞 3 題後換題型補考，合格＝每個詞最後一次答對，星星按第一次答對率計</li>`
    :`<li><b>題數、心數、合格線</b>跟上面一樣；難度改變的是<b>數字大小與步驟數</b></li><li><b>1–2</b> 較小的數、較少步驟</li><li><b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）</li><li><b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
-  body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題 · ${'❤'.repeat(d.hearts)} · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
+  body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題 · <span class="r37-hs" aria-label="${d.hearts} 顆心">${r37Icon('❤️').repeat(d.hearts)}</span> · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
   <ul class="r37-dl">${note}</ul></div>${today}`;
  }else if(tab==='prog'){
   body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><span>${r37Icon('✅')}</span><b>${o.day.correct}</b></div></div>`:'');
@@ -16904,8 +17104,17 @@ const WQArc=(()=>{
   }
   el.insertAdjacentHTML('beforeend','<div class="arx-sheet-bk" data-arx="menu-close"></div>');
   /* the companion strip and the rotate hint step aside 3 s after the screen opens; the rotate hint then stays off for the session */
-  setTimeout(()=>{if(!el.isConnected)return;el.classList.add('arx-hint-off');try{sessionStorage.setItem('wq34.rot','1');}catch(_){}},3000);
+  /* the rotate hint is shown once per session: a later screen opens with it already folded away */
+  let seen=false;try{seen=sessionStorage.getItem('wq34.rot')==='1';}catch(_){}
+  if(seen)el.classList.add('arx-hint-off');
+  else{const mark=()=>{if(el.querySelector('.wq34-rotate')){try{sessionStorage.setItem('wq34.rot','1');}catch(_){}}};   /* shown now = shown once: no later screen repeats it */
+   mark();[150,500,1000].forEach(t=>setTimeout(mark,t));}
+  setTimeout(()=>{if(!el.isConnected)return;const was=el.classList.contains('arx-hint-off');el.classList.add('arx-hint-off');try{sessionStorage.setItem('wq34.rot','1');}catch(_){}if(!was)fit();},3000);
  }
+ /* the canvas is sized from its zone (r2Fit): ask for a refit whenever the zone changes (card closes, hint folds) */
+ function fit(){try{window.dispatchEvent(new Event('resize'));}catch(_){}}
+ const prevOverlay=pgOverlay;
+ pgOverlay=function(){const out=prevOverlay.apply(this,arguments);try{fit();}catch(_){}return out;};
  function menuToggle(el,on){
   const p=el.closest('.a28-play');if(!p)return;
   const open=on===undefined?!p.classList.contains('arx-menu-open'):on;
@@ -19513,6 +19722,15 @@ s50FixLabels=function(){
   obs.observe(app,{childList:true,subtree:true});
  }
  window.addEventListener('resize',()=>{menuClose();});
+})();
+
+/* R3.19 N10: the maths course / thinking-tower hero keeps its copy above the decorative arc (style injected into both shadow roots) */
+(()=>{
+ const CSS='.hero p{text-wrap:balance}.hero>div:first-child{position:relative;z-index:2}.hero::before,.hero::after,.hero-pal{pointer-events:none}.hero p{padding-right:56px}';
+ const skin=()=>{for(const id of ['wq-course-host','wqm-app-host']){const R=document.getElementById(id)&&document.getElementById(id).shadowRoot;
+  if(R&&!R.querySelector('#r319-skin')){const s=document.createElement('style');s.id='r319-skin';s.textContent=CSS;R.appendChild(s);}}};
+ const iv=setInterval(()=>{if(document.querySelector('dialog[open]'))skin();},600);
+ void iv;
 })();
 
 installMediaEvents();

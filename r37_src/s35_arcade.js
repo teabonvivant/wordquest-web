@@ -333,8 +333,17 @@ const WQArc=(()=>{
   }
   el.insertAdjacentHTML('beforeend','<div class="arx-sheet-bk" data-arx="menu-close"></div>');
   /* the companion strip and the rotate hint step aside 3 s after the screen opens; the rotate hint then stays off for the session */
-  setTimeout(()=>{if(!el.isConnected)return;el.classList.add('arx-hint-off');try{sessionStorage.setItem('wq34.rot','1');}catch(_){}},3000);
+  /* the rotate hint is shown once per session: a later screen opens with it already folded away */
+  let seen=false;try{seen=sessionStorage.getItem('wq34.rot')==='1';}catch(_){}
+  if(seen)el.classList.add('arx-hint-off');
+  else{const mark=()=>{if(el.querySelector('.wq34-rotate')){try{sessionStorage.setItem('wq34.rot','1');}catch(_){}}};   /* shown now = shown once: no later screen repeats it */
+   mark();[150,500,1000].forEach(t=>setTimeout(mark,t));}
+  setTimeout(()=>{if(!el.isConnected)return;const was=el.classList.contains('arx-hint-off');el.classList.add('arx-hint-off');try{sessionStorage.setItem('wq34.rot','1');}catch(_){}if(!was)fit();},3000);
  }
+ /* the canvas is sized from its zone (r2Fit): ask for a refit whenever the zone changes (card closes, hint folds) */
+ function fit(){try{window.dispatchEvent(new Event('resize'));}catch(_){}}
+ const prevOverlay=pgOverlay;
+ pgOverlay=function(){const out=prevOverlay.apply(this,arguments);try{fit();}catch(_){}return out;};
  function menuToggle(el,on){
   const p=el.closest('.a28-play');if(!p)return;
   const open=on===undefined?!p.classList.contains('arx-menu-open'):on;

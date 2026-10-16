@@ -131,3 +131,15 @@
  .r37-learn:not(.dz) .r37-wc{min-height:0}
  .r37-learn:not(.dz) .r37-wcb{min-height:44px;padding:2px}
 }
+
+/* ---- R3.19 ui ---- */
+/* N15: three level buttons stay >= 44px wide on 360px phones */
+.r37-dzb{min-width:44px;min-height:56px}
+.r37-dzl{gap:6px}
+@media(max-width:380px){.r37-dzl{gap:4px}.r37-dzc{padding:8px}}
+/* N17: the level chip in the dictation quiz bar names itself */
+.r37-ptop .r37-dchip b{font-size:14px;font-weight:900;white-space:nowrap}
+/* N16: difficulty chips and summaries use vector icons */
+.r37-dsub small{display:inline-flex;align-items:center;gap:3px}.r37-dsub small .r37-ic{font-size:18px}
+.r37-df small .r37-hs{display:inline-flex;gap:1px;vertical-align:middle}
+.r37-hs .r37-ic{width:12px;height:12px;font-size:12px}.r37-hs .r37-ic .heart{fill:var(--r37-danger,#ff6b81)}.r37-hs .r37-ic .h{display:none}
