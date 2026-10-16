@@ -28252,7 +28252,19 @@
   "misconceptions": {
     "RECHECK": {
       "name": "再看清楚題目",
-      "remedy": "把已知數和要求的數分開，再用教具試一次。"
+      "remedy": "把已知數和要求的數分開寫出來。"
+    },
+    "PATTERN_LAST": {
+      "name": "你答了最後一項",
+      "remedy": "要再加一次差，才是下一個數。"
+    },
+    "PATTERN_STEP": {
+      "name": "你找到差了",
+      "remedy": "下一步要把差加到最後一項。"
+    },
+    "GIVEN_NUMBER": {
+      "name": "你答了題目裏的數",
+      "remedy": "要的是計算的結果，不是題目給的數。"
     },
     "COUNT_SKIP": {
       "name": "點數時漏了物件",

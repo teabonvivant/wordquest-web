@@ -37,6 +37,8 @@ const r37Day=()=>dayKey();
 function r37Key(){return 'wq37-'+(WQ_TEST_MODE?'t-':'')+(isLoggedIn()?accountId():'guest')+'-'+(activeChild()?.id||'x');}
 function r37Get(){
  const k=r37Key();
+ /* R3.19: another child on the same device never inherits the map cursor or a half-played level of the previous child */
+ if(r37Mem._wk!==k){const first=r37Mem._wk===undefined;r37Mem._wk=k;if(!first){r37Mem._w=null;delete r37Mem._rw;delete r37Mem._fw;try{if(r37P&&r37P.key&&r37P.key!==k)r37P=null;}catch(_){}}}
  let o=r37Mem[k]||null;try{if(!o&&isLoggedIn())o=JSON.parse(localStorage.getItem(k)||'null');}catch(_){}
  if(!o||typeof o!=='object'||Array.isArray(o))o={};
  if(!o.lv||typeof o.lv!=='object'||Array.isArray(o.lv))o.lv={};
@@ -118,13 +120,29 @@ function r37StarsFor(correct,total,hinted){const r=total?correct/total:0;if(corr
   G.groups.set(B.extId,x);try{G.data.groups.push(x);}catch(_){}
  }catch(_){}
 })();
-/* meanings that share one Chinese gloss (high / tall = 高的): a fill-in answer with either word is right */
-let r37SynMap=null;
+/* R3.19 N02: a fill-in answer is also right for a real synonym (high / tall = 高的), from a checked list only. Words that merely share a gloss are not
+   synonyms: cat / cats, tooth / teeth, jump / jumped are forms of one word, so the typed form is marked "another form" (no heart lost, one more try) */
+const R37_SYN_PAIRS=[['angry','mad'],['rock','stone'],['close','shut'],['lorry','truck'],['boat','ship'],['dish','plate'],['bicycle','bike'],['road','way'],['high','tall']];
+const R37_FORM_TAG=/（(?:複數|單數|單顆|單隻|[^）]*過去式)[^）]*）/;
+let r37SynMap=null,r37FormMap=null;
 const r37ZhKey=zh=>String(zh||'').replace(/（[^）]*）/g,'').trim();
-function r37Syns(en,zh){
- if(!r37SynMap){r37SynMap={};try{for(const x of LIB30.words.values()){const k=r37ZhKey(x.meaning);if(!k)continue;(r37SynMap[k]=r37SynMap[k]||new Set()).add(x.form);}}catch(_){}}
- const set=r37SynMap[r37ZhKey(zh)];return set?[...set].filter(x=>x!==en):[];
+function r37SynInit(){
+ r37SynMap={};r37FormMap={};
+ const ok=new Set();for(const [a,b] of R37_SYN_PAIRS){ok.add(a+'|'+b);ok.add(b+'|'+a);}
+ const by={},tagged=new Set();
+ try{for(const x of LIB30.words.values()){const k=r37ZhKey(x.meaning);if(!k)continue;(by[k]=by[k]||new Set()).add(x.form);if(R37_FORM_TAG.test(String(x.meaning)))tagged.add(x.form);}}catch(_){}
+ for(const set of Object.values(by)){
+  const a=[...set];
+  for(const x of a)for(const y of a){
+   if(x===y)continue;
+   if(ok.has(x+'|'+y))(r37SynMap[x]=r37SynMap[x]||[]).push(y);
+   else if(tagged.has(x)||tagged.has(y))(r37FormMap[x]=r37FormMap[x]||[]).push(y);
+  }
+ }
 }
+function r37Syns(en){if(!r37SynMap)r37SynInit();return (r37SynMap[en]||[]).slice();}
+/* other forms of the same word (cat -> cats): the typed one is not a synonym, it gets the "another form" hint */
+function r37FormMates(en){if(!r37SynMap)r37SynInit();return (r37FormMap[en]||[]).slice();}
 /* a word whose picture would teach another meaning (chest 胸膛 / die 死 / lot 很多) shows no picture */
 const R37_NOEMO=new Set(['chest','die','lot']);
 
@@ -157,10 +175,10 @@ function r37EnChunks(words){const out=[];for(let i=0;i<words.length;i+=3)out.pus
 function r37UnitSentence(w,s){try{return (LIB30.units.get(r37UnitId(w,s))||{}).sentence||'';}catch(_){return '';}}
 function r37Hl(en,idx){const set=new Set(idx||[]);return [...en].map((c,i)=>set.has(i)?`<i class="r37-fx">${esc(c)}</i>`:esc(c)).join('');}
 function r37EnDistractors(word,pool,n,near,rng,unit){
- const cand=pool.filter(x=>x.en!==word.en&&x.zh!==word.zh);
+ const wk=r37ZhKey(word.zh),cand=pool.filter(x=>x.en!==word.en&&r37ZhKey(x.zh)!==wk);
  if(unit&&unit.length){
   /* contrast words from the same unit (cat / can / fan): the unit's own target is what gets tested. Levels 4-5 (near) take the closest spellings first */
-  const same=unit.filter(x=>x.en!==word.en&&x.zh!==word.zh),want=Math.min(same.length,n);
+  const same=unit.filter(x=>x.en!==word.en&&r37ZhKey(x.zh)!==wk),want=Math.min(same.length,n);
   const head=near?same.map(x=>({x,d:r37Edit(x.en,word.en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,want).map(o=>o.x):r37Shuf(same,rng).slice(0,want);
   if(head.length>=n)return head.slice(0,n);
   const used=new Set(head.map(x=>x.en));
@@ -179,7 +197,7 @@ let r37ImgMap=null;
 function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.words.values())if(x.image&&/^[0-9a-f-]+$/.test(x.image))r37ImgMap[x.form]=String.fromCodePoint(...x.image.split('-').map(h=>parseInt(h,16)));}catch(_){}}return r37ImgMap[en]||'';}
 /* T14: function / abstract words get no picture (a wrong picture is a wrong anchor); a few unit pictures are replaced; unit picture beats dictionary */
 const R37_NOPIC=new Set(['mat','short','high','much','tip','pop','lot','get','went','them','her','this','that','these','those','there','then','the','a','an','is','are','was','were','be','been','am','do','does','did','have','has','had','will','would','could','shall','should','may','might','must','of','to','in','on','at','by','for','with','from','and','or','but','not','no','yes','if','so','as','it','he','she','we','you','they','me','him','us','my','your','his','its','our','their','who','what','when','where','why','how','which','some','any','all','one','very','too','just','also','more','most','many','such','than','only','even','still','again','here','now','out','up','down','off','over','back','much','lot','get','go','come','make','take','put','let','say','said']);
-const R37_EMOFIX={jump:'🦘',star:'⭐'};
+const R37_EMOFIX={jump:'🦘',jumped:'🦘',play:'⚽',played:'⚽',star:'⭐'};
 function r37Emoji(en){
  if(R37_NOPIC.has(en)||R37_NOEMO.has(en))return '';
  if(R37_EMOFIX[en])return R37_EMOFIX[en];
@@ -193,13 +211,13 @@ function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1
 /* one English question for word wd of the given kind: zh2en | en2zh | listen (choice), fill | fill-listen (typed) */
 function r37EnBuild(wd,kind,c){
  const D=c.D,rng=c.rng,emoji=R37_NOEMO.has(wd.en)?'':r37Emoji(wd.en),ck=c.ck;
- const syn=r37Syns(wd.en,wd.zh),zhShort=r37ZhKey(wd.zh);
+ const syn=r37Syns(wd.en),forms=r37FormMates(wd.en),zhShort=r37ZhKey(wd.zh);
  if(kind==='fill'||kind==='fill-listen'){
   const listen=kind==='fill-listen';
-  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
+  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,forms,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
  }
- const nOpt=D.opts-1,seenZ=new Set([wd.zh]),seenE=new Set([wd.en]),ds=[];
- for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.near,rng,c.unit)){if(ds.length>=nOpt)break;if(seenZ.has(x.zh)||seenE.has(x.en))continue;seenZ.add(x.zh);seenE.add(x.en);ds.push(x);}
+ const nOpt=D.opts-1,seenZ=new Set([r37ZhKey(wd.zh)]),seenE=new Set([wd.en]),ds=[];
+ for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.near,rng,c.unit)){if(ds.length>=nOpt)break;if(seenZ.has(r37ZhKey(x.zh))||seenE.has(x.en))continue;seenZ.add(r37ZhKey(x.zh));seenE.add(x.en);ds.push(x);}
  const opts=r37Shuf([wd,...ds],rng),info={};
  const q={mode:'mcq',kind,answer:wd.en,audio:wd.en,word:wd.en,ck,zhOf:wd.zh};
  if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,lang:'en',info});}
@@ -241,7 +259,7 @@ function r37QuizQuestions(track,mode,n,diff,seed){
   const qs=(track==='english'?r37EnQuestions(w,s,diff,seed+k):r37MathQuestions(track,w,s,diff,seed+k)).filter(q=>mode==='mix'||q.mode===mode);
   if(!qs.length)continue;
   const q=qs[Math.floor(rng()*qs.length)],key=q.mode+'|'+q.prompt+'|'+q.answer;
-  if(!seen.has(key)){seen.add(key);out.push(q);}
+  if(!seen.has(key)){seen.add(key);q.lw=w;q.ls=s;out.push(q);}
  }
  return out;
 }
@@ -257,13 +275,14 @@ function r37Judge(q,input){
  if(q.mode==='mcq')return {ok:raw===q.answer};
  const v=r37Apos(raw),a=r37Apos(q.answer),nv=norm(v),na=norm(a);
  if(nv===na){
-  if(q.cs&&!q.dz&&v.replace(/\s+/g,' ').trim()!==a.replace(/\s+/g,' ').trim())return {ok:false,why:'case',msg:'字對了，留意大小寫'};
+  if(q.cs&&v.replace(/\s+/g,' ').trim()!==a.replace(/\s+/g,' ').trim())return {ok:false,why:'case',msg:'字對了，留意大小寫'};
   return {ok:true};
  }
  const hit=(q.accept||[]).find(x=>norm(r37Apos(x))===nv);
  if(hit)return hit===q.answer?{ok:true}:{ok:true,syn:hit};
+ if(!q.dz&&(q.forms||[]).some(x=>norm(r37Apos(x))===nv))return {ok:false,why:'inflect',msg:`「${v.trim()}」字對了，但形式不對：留意單數／複數或時態，再試一次`};
  const strip=x=>norm(x).replace(/[\s-]+/g,'');
- if(!q.dz&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
+ if((!q.dz||q.dz.lvl===3)&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
  return {ok:false,why:'wrong'};
 }
 function r37Check(q,input){return r37Judge(q,input).ok;}

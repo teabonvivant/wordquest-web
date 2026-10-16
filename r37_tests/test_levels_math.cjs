@@ -183,4 +183,8 @@ ok(cnt.size>=300,'計數樂園 distinct questions in 960 draws '+cnt.size);
 // example card must teach a different instance of the same skill
 for(const tr of W)for(let wi=0;wi<6;wi++){const a=M.make(tr,wi,9,12,3,1);a.forEach(q=>ok(q.ex.q!==q.q,'example differs'))}
 
+// R3.19 N22: skills that had only a handful of stems now have many (before: liars 7, squares 15, segments 15, frac-dec 12 over 40 seeds x diff 1/3/5)
+{const by={};for(const tr of W)for(let wi=0;wi<6;wi++)for(let si=0;si<10;si++)for(let sd=1;sd<=40;sd++)for(const d of [1,3,5])for(const q of M.make(tr,wi,si,8,d,sd*977)){(by[q.skill]=by[q.skill]||new Set()).add(q.q)}
+ ok(by.liars.size>=100,'liars stems '+by.liars.size);ok(by.squares.size>=25,'squares stems '+by.squares.size);ok(by.segments.size>=22,'segments stems '+by.segments.size);ok(by['frac-dec'].size>=40,'frac-dec stems '+by['frac-dec'].size);
+ console.log('variety (distinct stems): liars',by.liars.size,'squares',by.squares.size,'segments',by.segments.size,'frac-dec',by['frac-dec'].size);}
 console.log(`PASS ${n} checks`);
