@@ -4790,7 +4790,7 @@
         "打開教具，按本題的數字試一試。",
         "把第一個數分成十和一，第二個數也一樣；先合個位。"
       ],
-      "explanation": "{a} + {b} = {n}。個位滿十時，要把一個十交給十位。",
+      "explanation": "{a} + {b} = {n}。個位相加不夠十，不用進位。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -4849,7 +4849,7 @@
         "打開教具，按本題的數字試一試。",
         "把第一個數分成十和一，第二個數也一樣；先合個位。"
       ],
-      "explanation": "{a} + {b} = {n}。個位滿十時，要把一個十交給十位。",
+      "explanation": "{a} + {b} = {n}。個位滿十，要把一個十交給十位。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -4909,7 +4909,7 @@
         "打開教具，按本題的數字試一試。",
         "把第一個數分成十和一，第二個數也一樣；先合個位。"
       ],
-      "explanation": "{a} + {b} = {n}。個位滿十時，要把一個十交給十位。",
+      "explanation": "{a} + {b} = {n}。個位滿十，要把一個十交給十位，再把十位加起來。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -5616,7 +5616,7 @@
         "打開教具，按本題的數字試一試。",
         "每一步記下進位，不要只寫個位答案。"
       ],
-      "explanation": "{a} + {b} = {n}。從個位起逐位相加，再檢查所有進位。",
+      "explanation": "{a} + {b} = {n}。從個位起逐位相加；每一位都不夠十，這題沒有進位。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -5679,7 +5679,7 @@
         "打開教具，按本題的數字試一試。",
         "每一步記下進位，不要只寫個位答案。"
       ],
-      "explanation": "{a} + {b} = {n}。從個位起逐位相加，再檢查所有進位。",
+      "explanation": "{a} + {b} = {n}。從個位起逐位相加；個位滿十，向十位進1，十位要加上這個1。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -5742,7 +5742,7 @@
         "打開教具，按本題的數字試一試。",
         "每一步記下進位，不要只寫個位答案。"
       ],
-      "explanation": "{a} + {b} = {n}。從個位起逐位相加，再檢查所有進位。",
+      "explanation": "{a} + {b} = {n}。從個位起逐位相加；個位和十位都滿十，要進位兩次，每次都加到左邊一位。",
       "visual": "blocks",
       "speech_yue": "{a} + {b} = ？",
       "difficulty_note": {
@@ -5966,6 +5966,18 @@
         },
         "n": {
           "expr": "a*b"
+        },
+        "z": {
+          "expr": "floor(1/(a*b+1))"
+        },
+        "note": {
+          "lookup": {
+            "from": "z",
+            "values": [
+              "",
+              "有一個乘數是 0，所以積是 0：0 組，或每組 0 個，合共都是 0 個。"
+            ]
+          }
         }
       },
       "constraints": [],
@@ -5990,7 +6002,7 @@
         "打開教具，按本題的數字試一試。",
         "把乘法暫時寫成重複加法，看看總數。"
       ],
-      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。如果其中一個乘數是 0，積就是 0。",
+      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。{note}",
       "visual": "array",
       "speech_yue": "{a} × {b} = ？",
       "difficulty_note": {
@@ -6019,6 +6031,18 @@
         },
         "n": {
           "expr": "a*b"
+        },
+        "z": {
+          "expr": "floor(1/(a*b+1))"
+        },
+        "note": {
+          "lookup": {
+            "from": "z",
+            "values": [
+              "",
+              "有一個乘數是 0，所以積是 0：0 組，或每組 0 個，合共都是 0 個。"
+            ]
+          }
         }
       },
       "constraints": [],
@@ -6043,7 +6067,7 @@
         "打開教具，按本題的數字試一試。",
         "把乘法暫時寫成重複加法，看看總數。"
       ],
-      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。如果其中一個乘數是 0，積就是 0。",
+      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。{note}",
       "visual": "array",
       "speech_yue": "{a} × {b} = ？",
       "difficulty_note": {
@@ -6072,6 +6096,18 @@
         },
         "n": {
           "expr": "a*b"
+        },
+        "z": {
+          "expr": "floor(1/(a*b+1))"
+        },
+        "note": {
+          "lookup": {
+            "from": "z",
+            "values": [
+              "",
+              "有一個乘數是 0，所以積是 0：0 組，或每組 0 個，合共都是 0 個。"
+            ]
+          }
         }
       },
       "constraints": [],
@@ -6096,7 +6132,7 @@
         "打開教具，按本題的數字試一試。",
         "把乘法暫時寫成重複加法，看看總數。"
       ],
-      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。如果其中一個乘數是 0，積就是 0。",
+      "explanation": "{b} 組，每組有 {a} 個，合共有 {n} 個。{note}",
       "visual": "array",
       "speech_yue": "{a} × {b} = ？",
       "difficulty_note": {
@@ -6161,7 +6197,7 @@
         "打開教具，按本題的數字試一試。",
         "由最大的數位開始，把各位代表的數加起來。"
       ],
-      "explanation": "千、百、十、個位依次排好，就是 {n}；沒有的數位用 0 佔位。",
+      "explanation": "千、百、十、個位依次排好，就是 {n}。",
       "visual": "place",
       "speech_yue": "{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -6225,7 +6261,7 @@
         "打開教具，按本題的數字試一試。",
         "由最大的數位開始，把各位代表的數加起來。"
       ],
-      "explanation": "千、百、十、個位依次排好，就是 {n}；沒有的數位用 0 佔位。",
+      "explanation": "千、百、十、個位依次排好，就是 {n}；十位沒有，用 0 佔位。",
       "visual": "place",
       "speech_yue": "{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -6288,7 +6324,7 @@
         "打開教具，按本題的數字試一試。",
         "由最大的數位開始，把各位代表的數加起來。"
       ],
-      "explanation": "千、百、十、個位依次排好，就是 {n}；沒有的數位用 0 佔位。",
+      "explanation": "千、百、十、個位依次排好，就是 {n}；百位和十位都沒有，要用 0 佔位。",
       "visual": "place",
       "speech_yue": "{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -6894,7 +6930,7 @@
         "打開教具，按本題的數字試一試。",
         "把每一位拆開表示，留意 0 不是可以隨意刪去的數字。"
       ],
-      "explanation": "從萬位排到個位，得到 {n}。沒有數量的數位仍要寫 0。",
+      "explanation": "從萬位排到個位，得到 {n}。",
       "visual": "place",
       "speech_yue": "{w} 個萬、{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -6960,7 +6996,7 @@
         "打開教具，按本題的數字試一試。",
         "把每一位拆開表示，留意 0 不是可以隨意刪去的數字。"
       ],
-      "explanation": "從萬位排到個位，得到 {n}。沒有數量的數位仍要寫 0。",
+      "explanation": "從萬位排到個位，得到 {n}。十位沒有數量，仍要寫 0。",
       "visual": "place",
       "speech_yue": "{w} 個萬、{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -7025,7 +7061,7 @@
         "打開教具，按本題的數字試一試。",
         "把每一位拆開表示，留意 0 不是可以隨意刪去的數字。"
       ],
-      "explanation": "從萬位排到個位，得到 {n}。沒有數量的數位仍要寫 0。",
+      "explanation": "從萬位排到個位，得到 {n}。百位和十位沒有數量，仍要寫 0。",
       "visual": "place",
       "speech_yue": "{w} 個萬、{k} 個千、{h} 個百、{t} 個十和 {o} 個一，是多少？",
       "difficulty_note": {
@@ -12176,9 +12212,9 @@
         }
       },
       "constraints": [],
-      "stem_zh": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "stem_zh": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "stem_en": "Write {a} and {c}/{b} as an improper fraction.",
-      "speech_yue": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "speech_yue": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "answer": {
         "expr": "a+c/b",
         "formats": [
@@ -12193,7 +12229,7 @@
         "分子是 {a} × {b} + {c}，分母仍是 {b}。",
         "最後按同一方法計算，並檢查有沒有漏掉任何一項。"
       ],
-      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。分數答案約至最簡；大於1時，最簡假分數和最簡帶分數都可以。",
+      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。{c} 和 {b} 沒有公因數，這個假分數已經是最簡分數。",
       "visual": "",
       "verification": {
         "kind": "mixedFraction"
@@ -12235,9 +12271,9 @@
         }
       },
       "constraints": [],
-      "stem_zh": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "stem_zh": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "stem_en": "Write {a} and {c}/{b} as an improper fraction.",
-      "speech_yue": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "speech_yue": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "answer": {
         "expr": "a+c/b",
         "formats": [
@@ -12252,7 +12288,7 @@
         "分子是 {a} × {b} + {c}，分母仍是 {b}。",
         "最後按同一方法計算，並檢查有沒有漏掉任何一項。"
       ],
-      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。分數答案約至最簡；大於1時，最簡假分數和最簡帶分數都可以。",
+      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。{c} 和 {b} 沒有公因數，這個假分數已經是最簡分數。",
       "visual": "",
       "verification": {
         "kind": "mixedFraction"
@@ -12294,9 +12330,9 @@
         }
       },
       "constraints": [],
-      "stem_zh": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "stem_zh": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "stem_en": "Write {a} and {c}/{b} as an improper fraction.",
-      "speech_yue": "把 {a} 又 {c}/{b} 約成最簡分數；可用假分數或帶分數作答。",
+      "speech_yue": "把帶分數 {a} 又 {c}/{b} 寫成假分數。",
       "answer": {
         "expr": "a+c/b",
         "formats": [
@@ -12311,7 +12347,7 @@
         "分子是 {a} × {b} + {c}，分母仍是 {b}。",
         "最後按同一方法計算，並檢查有沒有漏掉任何一項。"
       ],
-      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。分數答案約至最簡；大於1時，最簡假分數和最簡帶分數都可以。",
+      "explanation": "分子是 {a} × {b} + {c}，分母仍是 {b}。 答案是 {r3Answer}。{c} 和 {b} 沒有公因數，這個假分數已經是最簡分數。",
       "visual": "",
       "verification": {
         "kind": "mixedFraction"

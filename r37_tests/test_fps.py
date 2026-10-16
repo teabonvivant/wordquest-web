@@ -478,7 +478,7 @@ def test_hint_and_aim_assist(pw):
     b, p, errs = new_page(pw, False)
     start_game(p, 1, 10)
     assert dbg(p)['hinting'] is False
-    p.wait_for_timeout(4500); assert dbg(p)['hinting'] is True
+    p.wait_for_function('WQ37FPS._debug.hinting === true', timeout=9000)   # 4 s of play time; frame time in slow headless runs stretches it
     shoot_correct(p); p.wait_for_timeout(200); assert dbg(p)['hinting'] is False
     def pull(tier, off):
         """Turn `off` rad away from an answer bubble (with no other bubble near the centre of view), wait, return how far the camera moved by itself."""
@@ -506,7 +506,7 @@ def test_mute_and_audio(pw):
     b, p, errs = new_page(pw, False)
     p.evaluate('boot(2,10)'); p.keyboard.press('Enter'); p.wait_for_timeout(250)
     d = dbg(p); assert d['audio'] in ('running', 'suspended') and d['muted'] is False, d
-    assert p.locator('.wq37-mute').count() == 1 and p.inner_text('.wq37-mute') == '🔊'
+    assert p.locator('.wq37-mute').count() == 0   # R3.18: the sound switch lives in the pause menu only (the HUD keeps just the replay button)
     # audio graph: one context, master compressor, synth voices, stereo pan; <= 12 simultaneous voices; music + SFX duck during pronunciation
     cmd(p, 'calm', 1); shoot(p, True); p.wait_for_timeout(150)
     ac = p.evaluate('__ac'); assert ac['created'] == 1 and ac['createDynamicsCompressor'] == 1, ac
@@ -518,17 +518,17 @@ def test_mute_and_audio(pw):
     assert mx <= 12, mx
     p.keyboard.press('KeyR'); p.wait_for_timeout(60); assert dbg(p)['ducked'] is True
     p.wait_for_timeout(2600); assert dbg(p)['ducked'] is False
-    p.click('.wq37-mute'); p.wait_for_timeout(80)
-    assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '1' and dbg(p)['muted'] is True and p.inner_text('.wq37-mute') == '🔇'
     p.keyboard.press('Escape'); p.wait_for_timeout(80); assert dbg(p)['state'] == 'paused'
-    assert p.inner_text('[data-act="mute"]') == '🔇'
+    assert p.inner_text('[data-act="mute"]') == '🔊'
+    p.click('[data-act="mute"]'); p.wait_for_timeout(80)
+    assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '1' and dbg(p)['muted'] is True and p.inner_text('[data-act="mute"]') == '🔇'
     p.click('[data-act="mute"]'); p.wait_for_timeout(50)
     assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '0' and dbg(p)['muted'] is False and p.inner_text('[data-act="mute"]') == '🔊'
     p.click('[data-act="mute"]'); assert p.evaluate("localStorage.getItem('wq37-fps-mute')") == '1'
     p.click('text=繼續'); p.wait_for_timeout(80); assert dbg(p)['state'] == 'play'
     p.evaluate('game.destroy()')
     p.reload(); p.evaluate('boot(2,10)'); p.wait_for_timeout(200)   # the choice survives a reload
-    assert dbg(p)['muted'] is True and p.inner_text('.wq37-mute') == '🔇'
+    assert dbg(p)['muted'] is True
     p.evaluate("localStorage.removeItem('wq37-fps-mute')")
     # sound:false -> no audio at all
     p.evaluate("game.destroy();boot(2,10,{sound:false})"); p.keyboard.press('Enter'); p.wait_for_timeout(250)

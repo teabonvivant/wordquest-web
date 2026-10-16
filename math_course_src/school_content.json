@@ -977,11 +977,13 @@
       },
       "2": {
         "templates": [
-          "4N6.R3-T2.C1"
+          "4N6.R3-T2.C1",
+          "4N6.SIMPLIFY.M3"
         ],
-        "title": "帶分數轉假分數",
+        "title": "帶分數轉假分數；約成最簡分數",
         "goals": [
-          "帶分數轉假分數"
+          "帶分數轉假分數",
+          "約成最簡分數"
         ],
         "scope": "只練本課已示範的題型；完整單元另見家長手冊。"
       }
@@ -3664,6 +3666,90 @@
           "所以共有 {answer} 條對稱軸"
         ],
         "model": "symmetry-read",
+        "unit": ""
+      }
+    },
+    {
+      "id": "4N6.SIMPLIFY.M3",
+      "skill": "4N6.R3",
+      "difficulty": 2,
+      "type": "fraction",
+      "params": {
+        "idx": {
+          "int": [
+            0,
+            5
+          ]
+        },
+        "sn": {
+          "lookup": {
+            "from": "idx",
+            "values": [
+              1,
+              3,
+              2,
+              3,
+              5,
+              3
+            ]
+          }
+        },
+        "sd": {
+          "lookup": {
+            "from": "idx",
+            "values": [
+              4,
+              4,
+              5,
+              5,
+              6,
+              7
+            ]
+          }
+        },
+        "g": {
+          "pick": [
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "a": {
+          "expr": "sn*g"
+        },
+        "b": {
+          "expr": "sd*g"
+        }
+      },
+      "constraints": [],
+      "stem_zh": "把 {a}/{b} 約成最簡分數。",
+      "stem_en": "Simplify {a}/{b} to its simplest form.",
+      "speech_yue": "把 {a}/{b} 約成最簡分數。",
+      "answer": {
+        "expr": "sn/sd",
+        "formats": [
+          "fraction"
+        ],
+        "simplest": true
+      },
+      "distractors": [],
+      "hints": [
+        "找出分子和分母都能被整除的數，再把兩個數同時除。"
+      ],
+      "explanation": "{a} 和 {b} 都能被 {g} 整除。分子和分母同除以 {g}：{a} ÷ {g} ＝ {sn}，{b} ÷ {g} ＝ {sd}。所以 {a}/{b} ＝ {sn}/{sd}，{sn} 和 {sd} 沒有公因數，已是最簡分數。",
+      "visual": "m3:simplify",
+      "curriculumRevision": "HK-M4",
+      "school": {
+        "objective": "把分數約成最簡分數",
+        "part": 2,
+        "format": "填充題",
+        "steps": [
+          "{a} 和 {b} 都能被 {g} 整除",
+          "分子和分母同除以 {g}：{a} ÷ {g} ＝ {sn}，{b} ÷ {g} ＝ {sd}",
+          "{sn} 和 {sd} 沒有公因數，所以 {a}/{b} ＝ {sn}/{sd}，已是最簡分數"
+        ],
+        "model": "simplify",
         "unit": ""
       }
     }

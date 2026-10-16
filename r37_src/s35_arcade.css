@@ -83,3 +83,108 @@
 @media(max-width:700px){.arx-stars{font-size:22px}.arx-tg{font-size:12px}}
 @media(max-height:550px) and (orientation:landscape){.a28-overlaycard .arx-row{display:none}.a28-overlaycard .arx-pw{min-height:44px!important;font-size:15px!important;padding:4px 10px!important}.a28-overlaycard .arx-res{gap:3px}.arx-rec{padding:4px 10px}.arx-rec b{font-size:17px}.arx-rec span{font-size:13px}.arx-stars.big{font-size:28px}.arx-next{font-size:13px!important}.arx-pwstat{font-size:13px;padding:3px 8px}.arx-combo{top:38px}.arx-shield{top:38px}}
 @media(prefers-reduced-motion:reduce){.arx-combo.hit,.arx-toast{animation:none}}
+
+/* =====================================================================================================================
+   R3.18 games polish (D05-D08, M13). Tokens shared with the app shell: card = linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94)),
+   1px rgba(255,255,255,.14), 20px radius, text #F4F6FF; primary button = #FFC94A, text #3B2600, 4px #C48A00 bottom edge.
+   ===================================================================================================================== */
+/* ---- D08 lobby: the whole page scrolls (no inner box), duplicate coin pill gone, one summary strip, gold CTA ---- */
+html body .r37-legbody[data-s60=game]{overflow-y:auto!important;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;display:block!important}
+html body .r37-legbody[data-s60=game]>.p30-lobby{display:block!important;overflow:visible!important;height:auto!important;max-height:none!important;flex:none!important;padding-bottom:20px}
+html body .r37-legbody[data-s60=game] .p30-cards{overflow:visible!important;max-height:none!important;height:auto!important;flex:none!important;padding:2px 2px 12px}
+html body .r37-legbody[data-s60=game] .p30-top,html body .r37-legbody[data-s60=game] .p30-wallet{display:none!important}
+html body .r37-legbody[data-s60=game]>.p30-lobby>h1{display:block;margin:2px 0 8px}
+html body .r37-legbody[data-s60=game] .arx-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin:0 0 10px;padding:4px 6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+html body .r37-legbody[data-s60=game] .arx-bar .arx-btn{min-height:44px;padding:4px 14px;background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.22);box-shadow:none;font-size:16px}
+html body .r37-legbody[data-s60=game] .arx-bar .arx-chip{background:transparent;color:#FFC94A;font-size:16px}
+/* category row: scroll-snap + a soft fade on the right edge so a cut-off chip reads as "more" */
+html body .r37-legbody[data-s60=game] .a28-tabs{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:28px;margin-bottom:10px}
+html body .r37-legbody[data-s60=game] .a28-tabs .a28-btn{scroll-snap-align:start}
+html body .r37-legbody[data-s60=game] .a28-tabs .a28-btn.primary{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important}
+html body .r37-legbody[data-s60=game] .a28-tabs .a28-btn.soft{background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.2)!important;box-shadow:none!important}
+/* card call-to-action */
+html body .r37-legbody[data-s60=game] .p30-card [data-a28=intro],html body .r37-legbody[data-s60=game] .p30-card [data-a28=buy]{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;border-radius:14px;box-shadow:none!important;font-weight:900}
+html body .r37-legbody[data-s60=game] .p30-card [data-a28=intro]:disabled,html body .r37-legbody[data-s60=game] .p30-card [data-a28=buy]:disabled{opacity:.55}
+html body .r37-legbody[data-s60=game]>.p30-lobby>details{margin:8px 0 0}
+@media(prefers-reduced-motion:reduce){html body .r37-legbody[data-s60=game] .a28-tabs{scroll-behavior:auto}}
+
+/* ---- D05/D06/D07 in-play screen (body.r37arc = route playground; text colours were dark-on-dark) ---- */
+body.r37arc .a28-play,body.r37arc .a28-play .a28-playhead h1{color:#E8ECFF}
+body.r37arc .a28-play .a28-playhead h1{font-size:22px;font-weight:900;line-height:1.25}
+body.r37arc .a28-play .a28-eyebrow,body.r37arc .a28-play .a28-playhead p{color:#AEB8E8;font-size:14px;font-weight:600}
+body.r37arc .a28-play #a28-live-stat,body.r37arc .a28-play #pg-hint,body.r37arc .a28-play .small.muted,body.r37arc .a28-play .a28-game-footer>span{color:#C9D0F5;font-size:15px;font-weight:700}
+body.r37arc .a28-play .r2-audio summary{color:#E8ECFF;font-weight:800}
+body.r37arc .a28-play .r2-audio{color:#E8ECFF;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));border:1px solid rgba(255,255,255,.14);border-radius:20px}
+body.r37arc .a28-play .r2-audio label,body.r37arc .a28-play .r2-audio p{color:#E8ECFF}
+body.r37arc .a28-play .a28-playstats>:not(.arx-hb){background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.18)!important;color:#E8ECFF!important;font-weight:800;font-size:15px;min-height:40px;display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;white-space:nowrap}
+/* the old cream top bar goes away while playing (r37 bar style = the compact head below) */
+body.r37arc.pg-active .header,body.r37arc .header{display:none!important}
+body.r37arc.arcade28 #app{padding-top:10px}
+.arx-hb{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#E8ECFF;display:inline-grid;place-items:center;flex:none;padding:0;cursor:pointer;font:inherit}
+.arx-hb svg{width:22px;height:22px;display:block;pointer-events:none}
+.arx-hb:focus-visible{outline:3px solid #FFC94A;outline-offset:2px}
+.arx-hb.arx-pause,.arx-hb.arx-more{display:none}
+body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead{display:flex;align-items:center;gap:10px;min-height:60px;margin:0 0 10px;padding:6px 10px;border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));border:1px solid rgba(255,255,255,.14)}
+body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead>div:not(.a28-playstats){flex:1 1 auto;min-width:0}
+body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead .a28-playstats{display:flex;align-items:center;gap:6px;flex:none}
+.r2-immersive .arx-hb{display:none!important}
+.r2-immersive .a28-playstats>*{font-size:14px!important}
+body.r37arc .a28-play .wq32-gamebar{background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94))!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:20px;color:#E8ECFF}
+body.r37arc .a28-play .wq32-gamebar :is(strong,p,span){color:#E8ECFF!important}
+body.r37arc .a28-play .wq32-gamebar .wq32-game-state{color:#AEB8E8!important;font-size:14px}
+body.r37arc .a28-play .wq34-rotate{background:rgba(255,201,74,.14)!important;border:1px solid #FFC94A;color:#FFC94A;border-radius:14px}
+body.r37arc .a28-play .wq34-rotate :is(.wq34-rot-text,span){color:#FFE9A8!important;font-size:15px;font-weight:700}
+body.r37arc .a28-play .wq34-rotate button{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.28);border-radius:12px}
+body.r37arc .a28-play .a28-touch-key{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.28);box-shadow:0 3px 0 rgba(0,0,0,.35);font-weight:900;font-size:22px;border-radius:16px}
+body.r37arc .a28-play .a28-touch-key[data-a28key=action]{background:#FFC94A;color:#3B2600;border:0;border-bottom:4px solid #C48A00;box-shadow:none}
+body.r37arc .a28-play .a28-touch-key:active{transform:translateY(2px)}
+body.r37arc .a28-play .a28-game-footer .btn,html body.r37arc .a28-play.r2-immersive .a28-game-footer .btn{background:rgba(255,255,255,.1)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:14px;font-weight:800}
+body.r37arc .a28-play .a28-playstats{flex-wrap:nowrap!important;max-width:none!important;min-width:0}
+/* the replay-the-rules chips and the ready card use the same glass card + gold button */
+html body.r37arc .a28-overlaycard{background:linear-gradient(160deg,rgba(30,38,96,.96),rgba(18,24,68,.96))!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important;border-radius:20px!important;box-shadow:0 12px 32px rgba(0,0,0,.4)!important}
+html body.r37arc .a28-overlaycard :is(h2,h3,p,small,.wq34-goal,.wq34-how,.p30-t,.p30-k,.wq34-best,.arx-next,.arx-cap,.arx-row,.arx-tg,.wq34-line,.wq34-line b,.wq34-line span){color:#F4F6FF!important}
+html body.r37arc .a28-overlaycard :is(.p30-k,.arx-tg,.wq34-best,.arx-cap){color:#C9D0F5!important}
+html body.r37arc .a28-overlaycard>small,html body.r37arc .a28-overlaycard .wq34-run,html body.r37arc .a28-overlaycard .wq34-meta{background:rgba(255,201,74,.12)!important;border:1px solid rgba(255,201,74,.45)!important;color:#FFE9A8!important;border-radius:12px}
+html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycard .arx-pwstat{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important}
+html body.r37arc .a28-overlaycard .wq34-new,html body.r37arc .a28-overlaycard .arx-new{background:rgba(255,201,74,.16)!important;color:#FFC94A!important;border:1px solid #FFC94A}
+html body.r37arc .a28-overlaycard .arx-rec,html body.r37arc .a28-overlaycard .arx-rec.first{background:rgba(255,201,74,.14)!important;color:#FFC94A!important;border:1px solid #FFC94A;box-shadow:none}
+html body.r37arc .a28-overlaycard .arx-rec :is(b,span){color:#FFC94A!important}
+html body.r37arc .a28-overlaycard .arx-stars i{color:#3A4180}html body.r37arc .a28-overlaycard .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body.r37arc .a28-overlaycard .btn.primary,html body.r37arc .a28-overlaycard .a28-btn.a33-locked{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important;border-radius:16px;min-height:52px;font-weight:900}
+html body.r37arc .a28-overlaycard .a28-btn.a33-locked{opacity:.6}
+html body.r37arc .a28-overlaycard .btn.soft,html body.r37arc .a28-overlaycard .btn.secondary,html body.r37arc .a28-overlaycard .btn.quiet,html body.r37arc .a28-overlaycard .arx-pw{background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:16px}
+html body.r37arc .a28-overlaycard .arx-pw small{color:#C9D0F5}
+html body.r37arc .a28-play:not(.r2-immersive) .a28-viewport.p30-below .pg-overlay{background:rgba(11,16,48,.55)!important}
+html body.r37arc .a28-play:not(.r2-immersive) .a28-viewport.p30-below .a28-overlaycard{background:linear-gradient(160deg,rgba(30,38,96,.96),rgba(18,24,68,.96))!important;box-shadow:none!important}
+
+/* ---- phones: >= 58vh play zone, 48px head, hints collapse after 3 s, function buttons live in the ⋯ sheet ---- */
+@media(max-width:700px){
+ body.r37arc.arcade28 #app{padding:8px 10px calc(10px + env(safe-area-inset-bottom))}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive){display:flex;flex-direction:column;gap:8px;position:relative;min-height:calc(100dvh - 18px)}
+ body.r37arc .a28-play.arx-play .a28-playhead{min-height:56px;margin:0}
+ body.r37arc .a28-play.arx-play .a28-playhead .a28-eyebrow,body.r37arc .a28-play.arx-play .a28-playhead p{display:none}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead h1{font-size:18px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead>div:not(.a28-playstats){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}   /* the canvas HUD already names the game; the title stays for screen readers */
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-playhead .a28-playstats{margin-left:auto}
+ .arx-hb.arx-pause,.arx-hb.arx-more{display:inline-grid}
+ body.r37arc .a28-play.arx-play .wq32-gamebar{display:none}
+ body.r37arc .a28-play.arx-play .wq34-rotate{min-height:40px;padding:2px 6px 2px 12px;margin:0;border-radius:14px}
+ body.r37arc .a28-play.arx-play .wq34-rotate button{min-width:44px;min-height:40px}
+ body.r37arc .a28-play.arx-play.arx-hint-off .wq34-rotate{display:none}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport{flex:1 1 auto;min-height:58vh;background:rgba(11,16,48,.5)!important;border-radius:20px}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-viewport:has(#pg-overlay[hidden]){justify-content:center!important;padding-bottom:92px}
+ /* touch controls dock at the bottom of the play zone while the game runs; with a card open they flow normally */
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-touch-controls{position:absolute;left:0;right:0;bottom:calc(56px + env(safe-area-inset-bottom));z-index:3}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-touch-controls{display:none}
+ body.r37arc .a28-play.arx-play .a28-touch-key{min-height:56px}
+ /* footer: only the live stat stays; buttons, hint and audio open as a sheet from ⋯ */
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer{margin:0;display:block}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer>div,body.r37arc .a28-play.arx-play:not(.r2-immersive) #pg-hint,body.r37arc .a28-play.arx-play:not(.r2-immersive) .r2-audio{display:none}
+ body.r37arc .a28-play.arx-play:not(.r2-immersive) .a28-game-footer>span{display:block;padding:4px 6px;min-height:40px;line-height:32px}
+ body.r37arc .a28-play.arx-play.arx-menu-open:not(.r2-immersive) .a28-game-footer>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;padding:12px;border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.98),rgba(18,24,68,.98));border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 32px rgba(0,0,0,.5)}
+ body.r37arc .a28-play.arx-play.arx-menu-open:not(.r2-immersive) .a28-game-footer>div .btn{min-height:48px;font-size:16px;background:rgba(255,255,255,.1)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important}
+ body.r37arc .a28-play.arx-play.arx-menu-open:not(.r2-immersive) .r2-audio{display:block;position:fixed;left:10px;right:10px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:60;max-height:36vh;overflow:auto}
+ body.r37arc .a28-play.arx-play.arx-menu-open .arx-sheet-bk{display:block}
+}
+.arx-sheet-bk{display:none;position:fixed;inset:0;z-index:55;background:rgba(5,6,30,.55)}
+@media(prefers-reduced-motion:reduce){.arx-hb,.arx-sheet-bk{transition:none}}

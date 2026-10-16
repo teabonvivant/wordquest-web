@@ -16,7 +16,7 @@ with sync_playwright() as p:
               return {pl:s.dataset.pl,body:b.children.length,navBottom:Math.round(n.bottom),vh:innerHeight,scroll:getComputedStyle(b).overflowY,home:[...b.querySelectorAll('a')].some(a=>a.getAttribute('href')==='#kid'&&/返回首頁/.test(a.textContent))}}""")
             C.ok(info and info['pl'] == pl, f'{name} {route}: rendered inside the {pl} planet shell ({info})')
             C.ok(info and info['body'] > 0 and info['scroll'] == 'auto', f'{name} {route}: original content kept in a scrollable planet body')
-            C.ok(info and abs(info['navBottom'] - info['vh']) <= 2, f'{name} {route}: planet nav pinned to the bottom')
+            C.ok(info and 0 <= info['vh'] - info['navBottom'] <= 16, f'{name} {route}: planet nav pinned to the bottom (R3.16 desktop capsule sits 12px up)')
             C.ok(info and not info['home'], f'{name} {route}: no "返回首頁" link left that leaves the planet')
         go(pg, '#classroom', 500)
         pg.click('.r37-leg .r37-back2'); pg.wait_for_timeout(500)
@@ -24,10 +24,10 @@ with sync_playwright() as p:
         go(pg, '#kid', 400)
         C.ok(pg.evaluate("!document.body.classList.contains('r37leg')&&!document.querySelector('.r37-leg')"), f'{name}: planet pages drop the legacy wrapper')
         # maths dialog themed
-        go(pg, '#p/math', 500); pg.click('[data-wqm-open="home"]'); pg.wait_for_timeout(1200)
+        go(pg, '#p/olympiad', 500); pg.click('[data-wqm-open="olympiad"]'); pg.wait_for_timeout(1200)
         th = pg.evaluate("(()=>{const r=document.getElementById('wqm-app-host')?.shadowRoot;if(!r)return null;const w=r.querySelector('.wqm'),h=r.querySelector('.wq36-home');return {style:!!r.querySelector('#r38-wqm'),bg:getComputedStyle(w).backgroundImage.includes('gradient'),home:getComputedStyle(h,'::after').content}})()")
-        C.ok(th and th['style'] and th['bg'], f'{name}: maths dialog uses the planet space theme {th}')
-        C.ok(th and '回星球' in th['home'] or (th and '星球' in th['home']), f'{name}: maths back button says it returns to the planet')
+        C.ok(th and th['style'] and th['bg'], f'{name}: olympiad dialog uses the planet space theme {th}')
+        C.ok(th and '回星球' in th['home'] or (th and '星球' in th['home']), f'{name}: olympiad back button says it returns to the planet')
         C.ok(not errs, f'{name}: no runtime errors {errs[:2]}')
         b.close()
     # ---- effects with motion on ----

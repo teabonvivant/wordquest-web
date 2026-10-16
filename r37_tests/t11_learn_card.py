@@ -43,7 +43,10 @@ CARD = """()=>{const c=document.querySelector('.wqlc');if(!c)return null;const r
   area:r.width*r.height/(innerWidth*innerHeight),anim:getComputedStyle(c).animationName}}"""
 
 
-def card(p): return p.evaluate(CARD)
+def card(p):
+    # measure the settled card: the 0.24 s scale-in animation is still running 150 ms after the answer (and stretches on a busy machine)
+    p.evaluate("()=>Promise.all(document.getAnimations().filter(a=>a.effect&&a.effect.target&&a.effect.target.closest&&a.effect.target.closest('.wqlc')).map(a=>a.finished.catch(()=>0)))")
+    return p.evaluate(CARD)
 
 
 def fps_flow(pw, w, h, name, touch):

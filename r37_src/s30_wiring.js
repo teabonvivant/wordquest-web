@@ -38,7 +38,7 @@ function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
  const diff=r37Get().diff,ch=r37Char();
- r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
+ r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
   onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('fps');return 0;}const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
@@ -74,7 +74,6 @@ render=function(){
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
  else if(route==='lv/fps')html=r37FpsMap();
- else if(route==='lv/math')html=r37Hub('math');
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='dz')html=r37DzHome();

@@ -225,7 +225,7 @@ const WQArc=(()=>{
  const priorOverlay=pgOverlay;
  pgOverlay=function(){
   const out=priorOverlay.apply(this,arguments);
-  try{if(pgGame&&pgMeta&&gameIds().includes(pgMeta.id))runOf(pgGame,pgMeta.id);decorateCard();ensureLoop();paint(pgGame);}catch(e){console.error('Arcade+ card',e);}
+  try{if(pgGame&&pgMeta&&gameIds().includes(pgMeta.id))runOf(pgGame,pgMeta.id);playUi();decorateCard();tidyCard();ensureLoop();paint(pgGame);}catch(e){console.error('Arcade+ card',e);}
   return out;
  };
 
@@ -318,9 +318,49 @@ const WQArc=(()=>{
   const t=e.target;if(t&&t.tagName==='DIALOG'&&(t.id==='arx-ach-dlg'||t.id==='arx-pw-dlg'))t.close();
  });
  function lobbyDirty(){for(const c of document.querySelectorAll('[data-cabinet]'))if(!c.querySelector('.arx-row'))return true;const l=document.querySelector('.p30-lobby,.a28-lobby');return !!l&&!l.querySelector('.arx-bar');}
+ /* ---------------------------------------------------------------- R3.18 play screen: compact head, ⋯ sheet, hints collapse after 3 s */
+ const HB={back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  pause:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></svg>',
+  more:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>'};
+ function playUi(){
+  const el=document.querySelector('.a28-play');
+  if(!el||el.classList.contains('arx-play'))return;
+  el.classList.add('arx-play');
+  const head=el.querySelector('.a28-playhead'),stats=head&&head.querySelector('.a28-playstats');
+  if(head){
+   head.insertAdjacentHTML('afterbegin',`<button type="button" class="arx-hb arx-back" data-arx="back" aria-label="儲存並返回">${HB.back}</button>`);
+   if(stats)stats.insertAdjacentHTML('beforeend',`<button type="button" class="arx-hb arx-pause" data-arx="pause" aria-label="暫停">${HB.pause}</button><button type="button" class="arx-hb arx-more" data-arx="menu" aria-haspopup="true" aria-expanded="false" aria-label="更多選項">${HB.more}</button>`);
+  }
+  el.insertAdjacentHTML('beforeend','<div class="arx-sheet-bk" data-arx="menu-close"></div>');
+  /* the companion strip and the rotate hint step aside 3 s after the screen opens; the rotate hint then stays off for the session */
+  setTimeout(()=>{if(!el.isConnected)return;el.classList.add('arx-hint-off');try{sessionStorage.setItem('wq34.rot','1');}catch(_){}},3000);
+ }
+ function menuToggle(el,on){
+  const p=el.closest('.a28-play');if(!p)return;
+  const open=on===undefined?!p.classList.contains('arx-menu-open'):on;
+  p.classList.toggle('arx-menu-open',open);
+  p.querySelector('.arx-more')?.setAttribute('aria-expanded',open?'true':'false');
+ }
+ document.addEventListener('click',e=>{
+  const t=e.target&&e.target.closest&&e.target.closest('[data-arx="back"],[data-arx="pause"],[data-arx="menu"],[data-arx="menu-close"],.arx-menu-open .a28-game-footer .a28-btn');
+  if(!t)return;
+  const p=t.closest('.a28-play');if(!p)return;
+  const a=t.dataset.arx;
+  if(a==='back')p.querySelector('[data-a28="leave"]')?.click();
+  else if(a==='pause'){p.querySelector('[data-a28="pause"]')?.click();}
+  else if(a==='menu')menuToggle(t);
+  else if(a==='menu-close')menuToggle(t,false);
+  else menuToggle(t,false);   /* a sheet button was used: close the sheet, the button's own handler still runs */
+ });
+ /* a stray one-letter line under a card title (an engine reason string) is noise, not information */
+ function tidyCard(){
+  const c=document.querySelector('#pg-overlay .a28-overlaycard');if(!c)return;
+  const h=c.querySelector(':scope>h2'),p=h&&h.nextElementSibling;
+  if(p&&p.tagName==='P'&&!p.className&&(p.textContent||'').trim().length<=2)p.remove();
+ }
  function afterRender(){
   if(lastRoute==='game'||document.querySelector('.p30-lobby,.a28-lobby'))decorateLobby();
-  if(lastRoute==='playground'){mount();decorateCard();ensureLoop();}
+  if(lastRoute==='playground'){playUi();mount();decorateCard();tidyCard();ensureLoop();}
   else pwClose();
  }
  const priorRender=render;

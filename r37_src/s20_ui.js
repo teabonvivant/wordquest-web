@@ -67,7 +67,7 @@ function r37Hub(id){
   tiles=r37A('🏆','闖關','#lv/english','gold big','english')+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('🔊','拼音','#learning')+r37A('📖','詞庫','#library');
   extra=`<div class="r37-prog">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.done}/${q.total}</b></div>`;
  }else if(id==='math'){
-  tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big','math')+r37B('✅','考考自己','data-wqm-open="assessment"','blue')+r37B('🔁','再練一練','data-wqm-open="review"','green')+r37B('🧮','動手學數學','data-wqm-open="normal"');
+  tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big','math')+r37A('🏆','闖關','#lv/math','gold')+quiz('math')+r37B('📝','考考自己','data-wqm-open="assessment"')+r37B('🔁','再練一練','data-wqm-open="review"');
   extra='<p class="r37-prog">小一至小六 · 每個主題兩課 · 先學會，再試用</p>';
  }else if(id==='olympiad'){
   tiles=r37A('🏆','闖關','#lv/olympiad','gold big','olympiad')+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');

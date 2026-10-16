@@ -121,7 +121,8 @@ def test_touch(pw):
     for i in range(5):
         for j in range(i + 1, 5):
             a, c2 = boxes[i], boxes[j]
-            assert a['x'] + a['width'] <= c2['x'] or c2['x'] + c2['width'] <= a['x'], (i, j, a, c2)
+            # R3.18: dash sits above the right thumb group, so overlap is judged on the rectangle, not on x alone
+            assert (a['x'] + a['width'] <= c2['x'] or c2['x'] + c2['width'] <= a['x'] or a['y'] + a['height'] <= c2['y'] or c2['y'] + c2['height'] <= a['y']), (i, j, a, c2)
     p.tap('.wq37r-up'); assert dbg(p)['lane'] == 1
     p.tap('.wq37r-down'); assert dbg(p)['lane'] == 2
     p.tap('.wq37r-jump'); assert dbg(p)['airborne']

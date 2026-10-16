@@ -66,15 +66,13 @@ with sync_playwright() as p:
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(200)
     ev(pg, 'r37Get().diff=3')
 
-    # the old maths dialog is still reachable from the planet, and 回首頁 lands on the galaxy
+    # R3.17: 數學星 opens the HK-M4 classroom (course dialog) and keeps 闖關 next to it
     go(pg, '#p/math')
-    pg.click('[data-wqm-open="home"]'); pg.wait_for_timeout(1200)
-    C.ok(pg.evaluate("!!document.getElementById('wqm-dialog')?.open||!!document.querySelector('#wqm-dialog[open]')"), 'maths island dialog opens from the 數學星')
-    home = pg.evaluate("(()=>{const r=document.getElementById('wqm-app-host')?.shadowRoot;return !!r&&r.querySelectorAll('button').length>3})()")
-    C.ok(home, 'maths dialog has content')
-    pg.evaluate("(()=>{const d=document.getElementById('wqm-app-host');const root=d.shadowRoot;const b=[...root.querySelectorAll('button')].find(x=>x.textContent.includes('回首頁'));if(b)b.click();})()")
-    pg.wait_for_timeout(900)
-    C.ok(ev(pg, 'location.hash') == '#kid' and pg.evaluate("!!document.querySelector('.r37-gx')"), '回首頁 from maths lands on the planet home')
+    C.ok(pg.evaluate("!!document.querySelector('a[href=\"#lv/math\"]')"), '數學星 has a 闖關 entry')
+    pg.click('[data-wqm-open="normal"]'); pg.wait_for_timeout(1500)
+    C.ok(pg.evaluate("!!document.querySelector('dialog#wq-course-dialog[open]')"), 'maths classroom dialog opens from the 數學星')
+    C.ok(pg.evaluate("(()=>{const r=document.getElementById('wq-course-host')?.shadowRoot;return !!r&&r.querySelectorAll('button').length>3})()"), 'maths classroom has content')
+    pg.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
     C.ok(not errs, f'no console errors {errs[:3]}')
     b.close()
 C.done()

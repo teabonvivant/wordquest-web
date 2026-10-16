@@ -20,9 +20,11 @@ course_data,_=json.JSONDecoder().raw_decode(course[start:])
 expected={u['code']+'-'+str(p) for u in course_data['units'] for p in [1,2]}
 if set(classroom)!=expected:raise SystemExit('Classroom coverage mismatch: '+str(expected-set(classroom)))
 for key,p in classroom.items():
- if not p.get('modelSteps'):p['modelSteps']=[x for x in re.findall(r'[^。！？]+[。！？]?',p['explain']['model']) if x.strip()]
- r=p['readiness'];choices=[x['id'] for x in r['choices']]
+ if not p.get('modelSteps'):p['modelSteps']=p['explain'].get('modelSteps') or [x for x in re.findall(r'[^。！？]+[。！？]?',p['explain']['model']) if x.strip()]
+ if ''.join(p['modelSteps'])!=p['explain']['model'] or p['explain']['model'][-1] in '；，、：（':raise SystemExit('Model must be the complete joined steps: '+key)
+ r=p['readiness'];choices=[x['id'] for x in r['choices']];texts=[x['text'] for x in r['choices']]
  if r['answer'] not in choices or len(set(choices))!=len(choices):raise SystemExit('Invalid readiness: '+key)
+ if not 3<=len(choices)<=4 or len(set(texts))!=len(texts):raise SystemExit('Readiness needs 3-4 distinct choices: '+key)
  if not p.get('diagram',{}).get('svg') or not p.get('toolTask') or not p.get('explain',{}).get('model'):raise SystemExit('Incomplete classroom: '+key)
 (S/'classroom_bundle.js').write_text('globalThis.WQClassroomData='+json.dumps({'version':'HK-M4','lessons':classroom},ensure_ascii=False)+';\n'+'globalThis.WQClassroomCopy='+json.dumps(json.loads((S/'classroom-copy.json').read_text(encoding='utf-8')),ensure_ascii=False)+';\n',encoding='utf-8')
 (S/'school_bundle.js').write_text('/* Generated from school_content.json. Additive IDs preserve historical questions. */\n'+

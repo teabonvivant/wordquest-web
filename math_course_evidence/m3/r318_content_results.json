@@ -1,0 +1,59 @@
+{
+  "environment": "Node VM, production content and engine. Not student research.",
+  "passed": 13,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "Every classroom model ends with a full sentence, never a clause fragment (T07)",
+      "passed": true
+    },
+    {
+      "name": "Same-chapter lessons 1 and 2 have different readiness, explain prompt, model, misconception and look-for (T08)",
+      "passed": true
+    },
+    {
+      "name": "Lesson 2 of the 44 P4-P6 chapters has its own teaching diagram that matches its model (T08)",
+      "passed": true
+    },
+    {
+      "name": "Readiness has 3-4 distinct options, answer id exists and is unique (T09)",
+      "passed": true
+    },
+    {
+      "name": "P4-P6 readiness asks a prerequisite of its own, not a recycled primary-school fact (T09)",
+      "passed": true
+    },
+    {
+      "name": "P4-P6 explain prompts are specific: no two of the 88 lessons share one (T23)",
+      "passed": true
+    },
+    {
+      "name": "Readiness numeric answers are recomputed independently (T09)",
+      "passed": true
+    },
+    {
+      "name": "Every numeric readiness answer is restated in its explanation text",
+      "passed": true
+    },
+    {
+      "name": "Every plain arithmetic equation written in the teaching text is true (self-check of 170 lessons)",
+      "passed": true
+    },
+    {
+      "name": "Mixed-number conversion stems say \"write as an improper fraction\", never \"reduce to simplest form\" (T24)",
+      "passed": true
+    },
+    {
+      "name": "4N6 simplification template asks real reductions with correct simplest answers (T24)",
+      "passed": true
+    },
+    {
+      "name": "Template explanations only mention carrying / zero place holders when the numbers need them (T28)",
+      "passed": true
+    },
+    {
+      "name": "Every chapter still has non-empty, finite practice figures after the template edits",
+      "passed": true
+    }
+  ]
+}
