@@ -1,7 +1,7 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "01126b0ce60d5eb3d06bd036b9685187781f1b73096d10005b6d7f67152e551f",
+  "appSHA256": "57c209ff78aff4e5f88b950cdc6d65e384693ed88c5d89094cf9363f43fb3c0d",
   "swSHA256": "6535dd31437ce680fed07c8a81b42fd8c85b7a740c412dfecb6b19002a3a044f",
   "modules": [
     "s10_shell",
@@ -11,6 +11,7 @@
     "s52_device",
     "s55_morph",
     "s56_morph_ui",
+    "s58_mathmark",
     "s60_legacy"
   ]
 }

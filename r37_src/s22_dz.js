@@ -4,7 +4,7 @@ const R37_DZ_LV=['✅','🧩','✍️'],R37_DZ_NAMES=['選擇','補字母','默�
 /* ---- syllables (R3.18, T06): words of 7+ letters are shown and masked in whole syllables.
    Order: teaching list -> WQ31 compound / chunk recipe -> rule table (suffix, silent e, vowel groups, consonant cluster split). ---- */
 const R37_SYL_EX={};
-`beau·ti·ful fa·vour·ite be·cause el·e·phant um·brel·la com·pu·ter dic·tion·ar·y hos·pi·tal choc·o·late break·fast birth·day to·mor·row yes·ter·day to·geth·er re·mem·ber af·ter·noon sand·wich res·tau·rant veg·e·ta·ble kan·ga·roo di·no·saur straw·ber·ry but·ter·fly grand·moth·er grand·fa·ther won·der·ful im·por·tant dif·fer·ent in·ter·est·ing li·brar·y class·room play·ground home·work su·per·mar·ket tel·e·vi·sion tel·e·phone ad·ven·ture ham·bur·ger sau·sage pine·ap·ple wa·ter·mel·on py·ja·mas cal·en·dar Feb·ru·ar·y Sat·ur·day Wednes·day Thurs·day Sep·tem·ber Oc·to·ber No·vem·ber De·cem·ber spa·ghet·ti sun·flower rain·bow foot·ball bas·ket·ball moun·tain neigh·bour some·times ev·ery·one ev·ery·thing pos·si·ble care·ful·ly de·li·cious ex·er·cise ex·cit·ed ques·tion ed·u·ca·tion in·for·ma·tion cel·e·brate hol·i·day com·fort·a·ble vo·cab·u·lar·y bi·cy·cle hap·pi·ness un·hap·py un·kind·ly ex·cuse·me al·pha·bet air·port air·plane aer·o·plane`.split(/\s+/).forEach(x=>{R37_SYL_EX[x.replace(/·/g,'').toLowerCase()]=x.toLowerCase();});
+`small·er small·est re·write Eng·lish noo·dles week·end base·ball skate·board pal·ette sur·prised beau·ti·ful fa·vour·ite be·cause el·e·phant um·brel·la com·pu·ter dic·tion·ar·y hos·pi·tal choc·o·late break·fast birth·day to·mor·row yes·ter·day to·geth·er re·mem·ber af·ter·noon sand·wich res·tau·rant veg·e·ta·ble kan·ga·roo di·no·saur straw·ber·ry but·ter·fly grand·moth·er grand·fa·ther won·der·ful im·por·tant dif·fer·ent in·ter·est·ing li·brar·y class·room play·ground home·work su·per·mar·ket tel·e·vi·sion tel·e·phone ad·ven·ture ham·bur·ger sau·sage pine·ap·ple wa·ter·mel·on py·ja·mas cal·en·dar Feb·ru·ar·y Sat·ur·day Wednes·day Thurs·day Sep·tem·ber Oc·to·ber No·vem·ber De·cem·ber spa·ghet·ti sun·flower rain·bow foot·ball bas·ket·ball moun·tain neigh·bour some·times ev·ery·one ev·ery·thing pos·si·ble care·ful·ly de·li·cious ex·er·cise ex·cit·ed ques·tion ed·u·ca·tion in·for·ma·tion cel·e·brate hol·i·day com·fort·a·ble vo·cab·u·lar·y bi·cy·cle hap·pi·ness un·hap·py un·kind·ly ex·cuse·me al·pha·bet air·port air·plane aer·o·plane`.split(/\s+/).forEach(x=>{R37_SYL_EX[x.replace(/·/g,'').toLowerCase()]=x.toLowerCase();});
 const R37_SYL_ON3=new Set(['str','spr','scr','spl','thr','shr','sch','squ']);
 const R37_SYL_ON2=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr','tw','sw','sc','sk','sl','sm','sn','sp','st','th','sh','ch','ph','wh','kn','wr','qu','gn']);
 const R37_SYL_FLUID=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr']);
@@ -13,6 +13,11 @@ let r37SylRecipes=null;
 function r37SylRecipe(w){
  if(!r37SylRecipes){r37SylRecipes={};try{for(const r of globalThis.WQ31Library.recipes.values())if(r.parts&&r.parts.length>1&&r.parts.every(x=>x.length>=2)&&(r.kind==='compound'||r.kind==='chunk'))r37SylRecipes[r.form]=r.parts;}catch(_){}}
  return r37SylRecipes[w]||null;
+}
+let r37KnownSet=null;
+function r37KnownWord(x){
+ if(!r37KnownSet){r37KnownSet=new Set();try{for(const e of r37EnPool())r37KnownSet.add(e.en);}catch(_){}try{for(const w of LIB30.words.values())r37KnownSet.add(String(w.form).toLowerCase());}catch(_){}}
+ return r37KnownSet.has(x);
 }
 function r37SylRule(w){
  const isV=i=>{const c=w[i];if('aeiou'.includes(c))return !(c==='u'&&i>0&&w[i-1]==='q');if(c==='y')return i>0;if(c==='w')return i>0&&'aeiou'.includes(w[i-1]);return false;};
@@ -23,6 +28,9 @@ function r37SylRule(w){
   if(suf==='ing'&&/([^aeiouylsfz])\1$/.test(stem)){suf=stem.slice(-1)+'ing';stem=stem.slice(0,-1);}
   const a=r37SylRule(stem);return a.concat([suf]);
  }
+ /* R3.19: stem + er / est where the stem is a word of its own that ends in a double consonant (small·er, not smal·ler); let·ter stays let·ter because "lett" is no word */
+ const me=/^(.{3,}?)(er|est)$/.exec(w);
+ if(me&&/([^aeiou])\1$/.test(me[1])&&r37KnownWord(me[1]))return r37SylRule(me[1]).concat([me[2]]);
  const md=/^(.{3,}[td])ed$/.exec(w);
  if(md)return r37SylRule(md[1]).concat(['ed']);
  let end=w.length;
@@ -123,7 +131,7 @@ function r37DzMcq(w,k,D,rng){
 }
 function r37DzCell(w,lvl){
  const en=w.en.trim(),zh=String(w.zh||'').trim();
- const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Emoji(en),word:en,answer:en,accept:[en],audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
+ const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Emoji(en),word:en,answer:en,accept:[en],cs:/[A-Z]/.test(en),audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
  if(lvl===2){
   const m=r37DzMaskSyl(en);
   if(m){q.hide=[...m.hide].sort((a,b)=>a-b);q.syl=m.ranges.map(r=>[r.from,r.to]);}
@@ -141,13 +149,20 @@ function r37DzStart(g,lvl,skipLearn){
  lvl=lvl||r37DzRec(r37DzBest(D.rid,g))+1;
  const qs=r37DzQs(D,g,lvl,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
  if(!skipLearn){try{v24Expose(learn.map(w=>w.en));}catch(_){}}
- r37P={kind:'dz',track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:r37Icon('📖')+' 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
+ r37P={kind:'dz',key:r37Key(),track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:r37Icon('📖')+' 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
  r37Nav37('lp/play');
 }
 function r37DzRecord(q,value,ok){
  if(!isLoggedIn()||!q.dz)return;
  const w=db.words.find(x=>x.id===q.dz.wid);if(!w)return;
- try{if(q.dz.lvl===2)v24Expose([w.en]);recordAttempt(w,q.dz.type,ok,value,q.answer,'默書學習',{src:'dz',lvl:q.dz.lvl});save();}catch(_){}
+ try{
+  if(q.dz.lvl===2)v24Expose([w.en]);
+  const lv0=w.reviewLevel,due0=w.reviewDue;
+  recordAttempt(w,q.dz.type,ok,value,q.answer,'默書學習',{src:'dz',lvl:q.dz.lvl,nudged:q.nudged||''});
+  /* R3.19: right only after a capital / space reminder = assisted, not "spelt it on my own" */
+  if(ok&&q.nudged){const a=db.attempts[db.attempts.length-1];if(a){a.assisted=true;w.reviewLevel=lv0;w.reviewDue=due0;}}
+  save();
+ }catch(_){}
 }
 /* spaced revisit (T17): 3 stars on level 3 schedules a full-spelling revisit after 1, then 3, then 7 days.
    Pass -> next step; fail -> try again tomorrow. Stars already earned are never taken away. */
@@ -181,7 +196,7 @@ function r37DzReview(g){
  const target=Math.min(6,grp.length+nw.filter(w=>!grp.includes(w)).length);
  for(const w of r37Shuf(grp.filter(w=>!words.includes(w)),rng)){if(words.length>=target)break;words.push(w);}
  const qs=r37Shuf(words,rng).map(w=>r37DzCell(w,3));
- r37P={kind:'dz',track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:r37Icon('🔁')+' 第 '+(g+1)+' 組重溫',praise:'做得好！',learn:[],dz:{rid:D.rid,g,lvl:3,n:D.groups.length,rv:true},log:[],miss:{},nudge:null};
+ r37P={kind:'dz',key:r37Key(),track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:r37Icon('🔁')+' 第 '+(g+1)+' 組重溫',praise:'做得好！',learn:[],dz:{rid:D.rid,g,lvl:3,n:D.groups.length,rv:true},log:[],miss:{},nudge:null};
  r37Nav37('lp/play');
 }
 const r37DayMs=86400000;
@@ -201,7 +216,7 @@ function r37DzCellsBody(q,fb,aud){
   if(c===' '){out.push(`<span class="r37-cw">${cur.join('')}</span>`);cur=[];return;}
   if(starts.has(i)&&i>0&&ch[i-1]!==' '&&/[A-Za-z]/.test(ch[i-1]))cur.push('<span class="r37-sd" aria-hidden="true">·</span>');
   if(!hide.has(i)){cur.push(`<span class="r37-cl">${esc(c)}</span>`);return;}
-  const t=typed[i]||'',cls=fb?(norm(t)===norm(c)?'ok':'bad'):'';
+  const t=typed[i]||'',cls=fb?(t===c||(norm(t)===norm(c)&&!/\p{Lu}/u.test(c))?'ok':'bad'):'';
   cur.push(`<input class="r37-cell ${cls}" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-ci="${i}" data-v="${esc(t)}" value="${esc(t)}" aria-label="第 ${i+1} 個字母" ${fb?'disabled':''}>`);
  });
  out.push(`<span class="r37-cw">${cur.join('')}</span>`);

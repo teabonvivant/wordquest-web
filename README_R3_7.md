@@ -112,6 +112,17 @@
 - **射擊（T30）**：打完 BOSS 後，若這關有拼錯的字（含 BOSS 字母射錯），先彈「這關拼錯的字」卡（正確拼法＋音節）再顯示結果。
 - 測試：`t24_learning_loop.py`、`t25_dz_syllable.py`、`test_en_content.cjs`；`t18` 的掩碼斷言改為音節規則，`t03`／`t02` 的難度斷言改為按科目。
 
+### R3.19 eng 教學邏輯（r319-eng）
+
+- **N02 詞形變化不是同義詞**：`r37Syns` 只認白名單 9 組真同義（angry/mad、rock/stone、close/shut、lorry/truck、boat/ship、dish/plate、bicycle/bike、road/way、high/tall）。cat/cats、tooth/teeth、jump/jumped 等 14 組同中文詞形（中文釋義帶「複數／單顆／過去式」）用 `r37FormMates`：填充題輸入另一個形式 → `why:'inflect'`，提示「這是「cat」的另一個形式，題目要「貓」」，不扣心、可重答一次（與數學 form 提示同一模式）。選項干擾項改用 `r37ZhKey` 比對，lot／much 不會同時出現。
+- **T02 補完**：數學／奧數 `o.miss` 有讀取者——下次進同一世界，先做最多 3 個舊錯技能的熱身（用同技能的新題，每世界每日一次，`o.warm[track][w]`，限時 75 秒、不扣心、不計星，答對即移出）。「考考自己」答錯也寫入 `wrong`／`miss`（題目帶 `lw/ls` 世界關卡）。報告頁（默書星學習報告）與家長星「進度」分頁有「闖關錯題」卡（英文詞／中文／次數；數學題幹＋答案＋次數），`r37WrongHTML`。
+- **T03**：沒有課堂碼的技能，結果頁出「再看例題」鈕（`data-r37="ex-again"`），以例題卡重開 `q.ex`，卡上只有「返回結果」。
+- **提示不算獨立掌握**：用過提示才答對只算半分（不會是 5 星、不能清除補考；結果頁註明），`recordAttempt` 該筆標 `assisted`（詞彙熟練度不升、複習日不推遲）；大小寫／空格／詞形提醒後才答對同樣標 `assisted`。
+- **同一部裝置多個孩子**：`r37Get` 在孩子（storage key）改變時清除地圖游標與上一位孩子未完成的關卡（`r37P.key`）；闖關進度、錯題、難度本來就按 `wq37-<帳戶>-<孩子>` 分開。重新整理／舊存檔：key 沿用、缺的欄位補上、舊 `diff` 複製到三科（`t27` 驗證）。
+- **T06**：`R37_SYL_EX` 加 10 詞（small·er、small·est、re·write、Eng·lish、noo·dles、week·end、base·ball、skate·board、pal·ette、sur·prised）；規則補「詞幹是詞且以雙子音收尾＋er／est」。**T12**：默書 L2／L3 `cs`（大寫）＋`space`（L3）提醒，重答一次得半分。**T22**（`patches/s58_mathmark.py`）：`WQMathCore.mark` 對數列題答最後一項／差分別回 `PATTERN_LAST`／`PATTERN_STEP`，奧數題抄題中數字回 `GIVEN_NUMBER`；`RECHECK` 不再說「用教具」（有教具的技能才附「再用教具試一次」）。**N20** `jumped`／`played` 圖示跟基本詞；**N21** get 例句、lap＝膝上。**N22** 變體：liars 7→567、squares 15→33、segments 15→27、frac-dec 12→61（40 種子×難度 1/3/5）。
+- **N19**：P4–P6 74 課 `toolTask` 依該課 `modelSteps` 改寫成「操作→觀察→解釋」3 句；88 課 `connections` 句尾換成本課特有的關聯句。來源 `math_course_src/classroom-upper.json`，`tools/build_r37.py`（會跑 `build_math_m1.py`）寫進 `app/index.html`。測試 `math_course_tests/r319_toolTask_test.cjs`。
+- 測試：`t27_r319_teach.py`、`test_math_mark.cjs`、`r319_toolTask_test.cjs`；新增樣式 `r37_src/s27_teach.css`（併入 `patches/s10_shell.py`）。
+
 ## 重建與測試
 
 ```sh

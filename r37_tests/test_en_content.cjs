@@ -43,6 +43,8 @@ ok(byForm('die')[0].meaning === '死', 'die = 死');
 ok(byForm('lot')[0].meaning.startsWith('很多'), 'lot = 很多 (a lot)');
 ok(byForm('yam')[0].meaning === '番薯', 'yam = 番薯');
 ok(byForm('chip')[0].meaning === '薯片', 'chip = 薯片');
+ok(byForm('lap')[0].meaning === '膝上', 'lap = 膝上');
+ok(/\bI get a gift\b/.test(words.get(byForm('get')[0].id).example), 'get example teaches 取得, not get up');
 const unit = new Set(d30.units.flatMap(u => u.words));
 ok([...unit].every(id => !/（英式/.test(words.get(id).meaning)), 'no （英式…） note in a meaning');
 const core = fix.blend.core, ext = fix.blend.ext;

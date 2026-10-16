@@ -56,6 +56,7 @@ render=function(){
   document.body.classList.remove('r37','r37-playing','r37leg');document.body.classList.toggle('r37arc',/^(playground|arcade-play|gameplay)$/.test(route));r37FpsStop();r37RunStop();
   const out=r37PriorRender.apply(this,arguments);
   try{r37FixNav();}catch(_){}
+  try{r37ReportExtra(route);}catch(_){}
   try{r37Wrap(route);}catch(_){}
   return out;
  }
@@ -137,7 +138,8 @@ document.addEventListener('click',e=>{
  else if(a==='fworld'){r37Mem._fw=+el.dataset.w;render();}
  else if(a==='rworld'){r37Mem._rw=+el.dataset.w;render();}
  else if(a==='world'){(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;render();}
- else if(a==='learn-go'&&P){P.phase='quiz';render();}
+ else if(a==='learn-go'&&P){if(P.exBack){P.exBack=false;P.phase='result';}else P.phase='quiz';render();}
+ else if(a==='ex-again'&&P){const l=((P.result||{}).lessons||[])[+el.dataset.i];if(l&&l.ex){P.exq=l.ex;P.exBack=true;P.phase='example';render();}}
  else if(a==='pick-opt'&&P)r37Answer(el.dataset.v);
  else if(a==='next')r37Next();
  else if(a==='hint'&&P){P.hintShown=true;render();}
@@ -169,7 +171,7 @@ document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cel
 document.addEventListener('keydown',e=>{
  const P=r37P;if(!P||lastRoute!=='lp/play'||e.ctrlKey||e.metaKey||e.altKey)return;
  if(e.key==='Escape'){r37Exit();return;}
- if((P.phase==='learn'||P.phase==='example')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();P.phase='quiz';render();return;}
+ if((P.phase==='learn'||P.phase==='example')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if(P.exBack){P.exBack=false;P.phase='result';}else P.phase='quiz';render();return;}
  if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="dz-next"],[data-r37="retry"]')?.click();return;}
  if(P.phase!=='quiz')return;
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}

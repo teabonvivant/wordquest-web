@@ -179,7 +179,7 @@ function r37Play(){
  }
  if(P.phase==='example'){
   const x=P.exq||{};
-  return `<section class="r37-play">${top}<div class="r37-stage"><div class="r37-ptitle">${P.title}</div><div class="r37-excard" role="region" aria-label="例題"><h2><span aria-hidden="true">${r37Icon('💡')}</span>先看一題例子</h2><div class="r37-exq">${esc(x.q||'')}</div><div class="r37-exa">答案：<b>${esc(x.answer||'')}</b></div><p class="r37-exe">${esc(x.explain||'')}</p>${x.tip?`<p class="r37-ext">${esc(x.tip)}</p>`:''}</div><div class="r37-exb"><button type="button" class="r37-go" data-r37="learn-go">${r37Icon('▶')}<span>我試試</span></button><button type="button" class="r37-sec2" data-r37="learn-go" data-skip="1">略過</button></div></div></section>`;
+  return `<section class="r37-play">${top}<div class="r37-stage"><div class="r37-ptitle">${P.title}</div><div class="r37-excard" role="region" aria-label="例題"><h2><span aria-hidden="true">${r37Icon('💡')}</span>先看一題例子</h2><div class="r37-exq">${esc(x.q||'')}</div><div class="r37-exa">答案：<b>${esc(x.answer||'')}</b></div><p class="r37-exe">${esc(x.explain||'')}</p>${x.tip?`<p class="r37-ext">${esc(x.tip)}</p>`:''}</div><div class="r37-exb">${P.exBack?`<button type="button" class="r37-go" data-r37="learn-go">${r37Icon('▶')}<span>返回結果</span></button>`:`<button type="button" class="r37-go" data-r37="learn-go">${r37Icon('▶')}<span>我試試</span></button><button type="button" class="r37-sec2" data-r37="learn-go" data-skip="1">略過</button>`}</div></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
@@ -204,10 +204,11 @@ function r37FbHTML(P,q,fb){
  const lock=!fb.ok&&fb.lock>Date.now(),dzFill=q.dz&&q.dz.lvl>1,fillEn=q.mode==='fill'&&!q.mq&&!q.dz;
  let head,sub='';
  if(fb.ok){
-  if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
+  if(fb.hint)head=`答對了！不過用了提示，只算半分；下一題試試自己想`;
+  else if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
   else if(fb.syn)head=`也對！這一題要寫的是 <span lang="en">${esc(q.answer)}</span>（${esc(r37ZhKey(q.zhOf))}），<span lang="en">${esc(fb.syn)}</span> 亦是${esc(r37ZhKey(q.zhOf))}`;
   else head=esc(P.praise);
-  if(!fb.part&&!fb.syn&&q.word&&!q.dz&&R37_DIFF[P.diff-1].n<5)sub=`<small><span lang="en">${esc(q.word)}</span> ＝ ${esc(q.zhOf||'')}</small>`;
+  if(!fb.part&&!fb.syn&&!fb.hint&&q.word&&!q.dz&&R37_DIFF[P.diff-1].n<5)sub=`<small><span lang="en">${esc(q.word)}</span> ＝ ${esc(q.zhOf||'')}</small>`;
  }else{
   head='再試一次，答案是 '+(dzFill?r37DzAns(q,fb):fillEn?r37DzAns(q,fb):esc(q.answer));
   if(dzFill)sub=r37DzYou(q,fb);
@@ -220,7 +221,7 @@ function r37FbHTML(P,q,fb){
    }
   }
  }
- return `<div class="r37-fb ${fb.ok?(fb.part?'part':'ok'):'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'⭐':'💭')}</span><div><b>${head}</b>${sub}</div><button type="button" class="r37-next" data-r37="next" aria-label="下一題" ${lock?'disabled aria-disabled="true"':''}>▶</button></div>`;
+ return `<div class="r37-fb ${fb.ok?(fb.part||fb.hint?'part':'ok'):'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'⭐':'💭')}</span><div><b>${head}</b>${sub}</div><button type="button" class="r37-next" data-r37="next" aria-label="下一題" ${lock?'disabled aria-disabled="true"':''}>▶</button></div>`;
 }
 function r37MissHTML(r){
  const items=(r.missed||[]).slice(0,8);if(!items.length)return '';
@@ -246,8 +247,9 @@ function r37Result(){
   const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
   if(nextOk)next=act('r37-go','data-r37="level-next"','▶','下一關');
   if(P.kind==='level'&&P.track==='english'&&r.passed&&!P.redo&&r37EnStage(P.w,P.s).length>=4)extra=`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`;
-  note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題答錯，再試一次！':'再試一次！'}</p>`:''):'';
-  lessons=(r.lessons||[]).map(l=>act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂')).join('');
+  note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題未答對'+(r.hintedFix?'（用了提示答對的不算自己答對）':'')+'，再試一次！':'再試一次！'}</p>`:''):'';
+ if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題用了提示才答對，只算半分</p>`;
+  lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
  }
  const exitLabel=P.kind==='dz'?'組別':P.kind==='level'?'地圖':'返回';
@@ -264,6 +266,24 @@ function r37WarmWords(w,n=3){
  const o=r37Get(),day=r37Day();
  if(o.warm.en&&o.warm.en[w]===day)return [];
  return o.wrong.filter(x=>x.w===w&&x.n>0).sort((a,b)=>(b.n-a.n)||(a.at-b.at)).slice(0,n);
+}
+/* R3.19 T02: maths / olympiad warm-up. Up to 3 skills missed in this world before come back as NEW questions of the same skill (once a day per world);
+   a right answer takes that skill off the wrong list */
+function r37WarmMiss(track,w,n=3){
+ const o=r37Get(),day=r37Day();
+ if(o.warm[track]&&o.warm[track][w]===day)return [];
+ const by={};
+ for(const m of o.miss){if(m.t!==track||m.w!==w||!m.sk)continue;const b=by[m.sk]=by[m.sk]||{n:0,at:0,m};b.n++;if(m.at>=b.at){b.at=m.at;b.m=m;}}
+ return Object.values(by).sort((a,b)=>b.n-a.n||b.at-a.at).slice(0,n).map(b=>b.m);
+}
+function r37WarmMathQs(track,w,diff,seed){
+ const out=[];if(!globalThis.WQ37Math)return out;
+ for(const m of r37WarmMiss(track,w)){
+  let c=null;
+  for(let k=0;k<8&&!c;k++){try{c=WQ37Math.make(track,m.w,m.s,6,diff,seed+k*7+1,[m.q,...(r37Get().recent[track]||[]).slice(-30)]).find(x=>x.skill===m.sk&&x.q!==m.q)||null;}catch(_){c=null;}}
+  if(c)out.push({mode:c.mode,kind:'math',prompt:c.q,options:c.options,answer:c.answer,accept:c.accept,hint:c.hint,explain:c.explain,skill:c.skill,mq:c,warm:true,warmSk:m.sk,warmW:m.w});
+ }
+ return out;
 }
 function r37StartLevel(track,w,s,opts){
  opts=opts||{};
@@ -286,12 +306,12 @@ function r37StartLevel(track,w,s,opts){
   const rng=r37Rng(r37Hash('warm|'+seed+'|'+w)),stage=r37EnStage(w,s),wp=r37EnWorldPool(w),near=wp.length>20?wp:r37EnPool();
   for(const x of r37WarmWords(w)){const wd=r37Lookup(w,s,x.en);if(!wd)continue;
    const q=r37EnBuild(wd,'zh2en',{D,rng,near,unit:r37UnitOf(w,wd)||stage});q.warm=true;warm.push(q);}
- }
+ }else if(track!=='english'&&!opts.redo)warm.push(...r37WarmMathQs(track,w,diff,seed));
  const first=qs[0]&&qs[0].ck!==undefined?qs[0].ck:0;
  r37P={kind:'level',track,w,s,diff,qs:[...warm,...qs],nq0:qs.length,nWarm:warm.length,i:0,res:[],hearts:D.hearts+(ch.perk==='heart'?1:0),maxHearts:D.hearts+(ch.perk==='heart'?1:0),shield:ch.perk==='shield',correct:0,hinted:0,
-  phase:track==='english'&&!warm.length?'learn':'quiz',chunks,ck:first,learn:chunks[first]||[],sentence:track==='english'?r37UnitSentence(w,s):'',fb:null,hintShown:false,title,warmTitle:r37Icon('🔥')+' 熱身 · 上次錯過的字',praise:'做得好！',
-  log:[],miss:{},redo:!!opts.redo,exShown:false,nudge:null,warmEnd:warm.length?Date.now()+30000:0};
- if(warm.length){const o=r37Get();(o.warm.en=o.warm.en||{})[w]=r37Day();r37Save();}
+  phase:track==='english'&&!warm.length?'learn':'quiz',chunks,ck:first,learn:chunks[first]||[],sentence:track==='english'?r37UnitSentence(w,s):'',fb:null,hintShown:false,title,warmTitle:r37Icon('🔥')+(track==='english'?' 熱身 · 上次錯過的字':' 熱身 · 上次錯過的題型'),praise:'做得好！',
+  log:[],miss:{},redo:!!opts.redo,exShown:false,nudge:null,warmEnd:warm.length?Date.now()+(track==='english'?30000:75000):0,key:r37Key()};
+ if(warm.length){const o=r37Get(),wk=track==='english'?'en':track;(o.warm[wk]=o.warm[wk]||{})[w]=r37Day();r37Save();}
  else r37MaybeExample();
  r37Nav37('lp/play');
 }
@@ -306,7 +326,7 @@ function r37MaybeExample(){
 function r37StartQuiz(track,mode){
  const diff=r37DiffN(track),qs=r37QuizQuestions(track,mode,R37_DIFF[diff-1].qs,diff,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
  if(!qs.length){toast('這部分還未準備好。','bad');return;}
- r37P={kind:'quiz',track,mode,diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:'',praise:'答對了！',log:[],miss:{},nq0:qs.length,nudge:null};
+ r37P={kind:'quiz',key:r37Key(),track,mode,diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:'',praise:'答對了！',log:[],miss:{},nq0:qs.length,nudge:null};
  r37Nav37('lp/play');
 }
 function r37Nav37(h){if(location.hash==='#'+h)render();else location.hash='#'+h;}
@@ -331,21 +351,25 @@ function r37Retest(P,q){
  return null;
 }
 function r37NoteWrong(P,q,value){
- const o=r37Get(),now=Date.now();
+ const o=r37Get(),now=Date.now(),w=P.w!==undefined?P.w:q.lw,s=P.s!==undefined?P.s:q.ls;
  if(q.word){
   const k=o.wrong.findIndex(x=>x.en===q.word);
-  if(k>=0){o.wrong[k].n++;o.wrong[k].at=now;o.wrong[k].w=P.w;o.wrong[k].s=P.s;}
-  else{o.wrong.push({en:q.word,zh:q.zhOf||'',w:P.w,s:P.s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}
+  if(k>=0){o.wrong[k].n++;o.wrong[k].at=now;o.wrong[k].w=w;o.wrong[k].s=s;}
+  else{o.wrong.push({en:q.word,zh:q.zhOf||'',w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}
  }else if(q.mq){
-  o.miss.push({t:P.track,sk:q.mq.skill||'',q:q.mq.q,a:q.answer,at:now,w:P.w,s:P.s});if(o.miss.length>60)o.miss.shift();
+  o.miss.push({t:P.track,sk:q.mq.skill||'',q:q.mq.q,a:q.answer,at:now,w,s});if(o.miss.length>60)o.miss.shift();
  }
  r37Save();
 }
-function r37RecordEn(P,q,value,ok,src){
+function r37RecordEn(P,q,value,ok,src,hinted){
  if(!isLoggedIn()||!q.word)return;
  try{
   const c=activeChild(),w=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(q.word));if(!w)return;
-  recordAttempt(w,R37_EN_TYPE[q.kind]||'meaning',ok,value,q.answer,'闖關',{src,track:P.track,w:P.w,s:P.s});save();
+  const lv0=w.reviewLevel,due0=w.reviewDue;
+  recordAttempt(w,R37_EN_TYPE[q.kind]||'meaning',ok,value,q.answer,'闖關',{src,track:P.track,w:P.w!==undefined?P.w:q.lw,s:P.s!==undefined?P.s:q.ls,hinted:!!hinted});
+  /* R3.19: a right answer given after the hint is assisted - it does not count towards "typed it on my own" and does not push the review date out */
+  if(hinted&&ok){const a=db.attempts[db.attempts.length-1];if(a){a.assisted=true;w.reviewLevel=lv0;w.reviewDue=due0;}}
+  save();
  }catch(_){}
 }
 function r37Answer(value){
@@ -353,34 +377,46 @@ function r37Answer(value){
  const q=P.qs[P.i],v=String(value??'').trim();
  if(!v)return;
  const j=r37Judge(q,v);
- /* right value, wrong form (3/4 for 0.75, a lower-case name, a missing space): no heart lost, one more try */
- if(!j.ok&&(j.why==='form'||j.why==='case'||j.why==='space')&&!q.nudged&&!q.dz){
+ /* right value, wrong form (3/4 for 0.75, a lower-case name, a missing space, cats for cat): no heart lost, one more try */
+ if(!j.ok&&(j.why==='form'||j.why==='case'||j.why==='space'||j.why==='inflect')&&!q.nudged&&(!q.dz||j.why==='case'||j.why==='space')){
   q.nudged=j.why;P.nudge={msg:j.msg||'答案的寫法不對，請再寫一次',why:j.why,value:v};render();
   const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
   return;
  }
- const credit=j.ok?(q.nudged==='case'?.5:1):0,ok=credit>0;
+ const hinted=!!P.hintShown;
+ let credit=j.ok?(q.nudged==='case'?.5:1):0;
+ /* R3.19: a right answer after the hint counts half and is not independent mastery (no 5 stars, cannot clear a retest, vocabulary stays "assisted") */
+ if(credit>0&&hinted&&!q.dz)credit=Math.min(credit,.5);
+ const ok=credit>0,hintRight=ok&&hinted&&!q.dz;
  P.nudge=null;
- P.fb={ok,value:v,part:ok&&credit<1,syn:j.syn||''};P.res[P.i]=ok;
+ P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight};P.res[P.i]=ok;
+ if(hintRight){q.hintedRight=true;if(!q.warm)P.hintedRight=(P.hintedRight||0)+1;}
  if(q.dz)r37DzRecord(q,P.fb.value,ok);
  const key=r37QKey(q);
  if(!q.dz){
   P.log.push({key,ok,value:v,retest:!!q.retest,warm:!!q.warm});
   if(q.warm){
-   const o=r37Get(),k=o.wrong.findIndex(x=>x.en===q.word);
-   if(k>=0){if(ok)o.wrong.splice(k,1);else{o.wrong[k].n++;o.wrong[k].at=Date.now();}r37Save();}
-   r37RecordEn(P,q,v,ok,'warm');
+   const o=r37Get();
+   if(q.mq){
+    /* maths warm-up: an independent right answer takes the skill off the wrong list; a wrong one keeps it */
+    if(ok&&!hintRight)o.miss=o.miss.filter(m=>!(m.t===P.track&&m.w===q.warmW&&m.sk===q.warmSk));
+    r37Save();
+   }else{
+    const k=o.wrong.findIndex(x=>x.en===q.word);
+    if(k>=0){if(ok&&!hintRight)o.wrong.splice(k,1);else if(!ok){o.wrong[k].n++;o.wrong[k].at=Date.now();}r37Save();}
+    r37RecordEn(P,q,v,ok,'warm',hinted||!!q.nudged);
+   }
   }else{
    if(!q.retest){P.correct+=credit;}
-   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':'lv');
+   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':P.kind==='quiz'?'quiz':'lv',hinted||!!q.nudged);
    if(!ok){
     if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhOf||'',skill:q.mq&&q.mq.skill||'',n:0};
     P.miss[key].n++;
-    if(P.kind==='level')r37NoteWrong(P,q,v);
-   }else if(q.retest&&P.miss[key])P.miss[key].fixed=true;
+    if(P.kind==='level'||P.kind==='quiz')r37NoteWrong(P,q,v);
+   }else if(q.retest&&P.miss[key]){if(hintRight)P.miss[key].hintedFix=true;else P.miss[key].fixed=true;}
    if(q.mq&&q.mq.q){const rc=r37Get().recent,a=rc[P.track]=rc[P.track]||[];a.push(q.mq.q);if(a.length>30)a.splice(0,a.length-30);r37Save();}
   }
- }else if(ok)P.correct++;
+ }else if(ok)P.correct+=credit;
  if(ok){if(!q.warm){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
  else{
   if(P.kind==='level'&&!q.warm){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
@@ -395,7 +431,7 @@ function r37Answer(value){
  if(!ok&&(q.dz||q.word))r37Speak(q.audio);
  if(ok){
   clearTimeout(r37Timer);
-  const showWord=!q.dz&&q.word&&!q.warm&&R37_DIFF[P.diff-1].n<5,wait=P.fb.part||P.fb.syn?1400:showWord?880:750;
+  const showWord=!q.dz&&q.word&&!q.warm&&R37_DIFF[P.diff-1].n<5,wait=P.fb.part||P.fb.syn||P.fb.hint?1400:showWord?880:750;
   r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},wait);
  }
 }
@@ -432,8 +468,10 @@ function r37Finish(){
  if(P.kind==='level'&&P.track!=='english'&&!P.redo){
   const cnt={};for(const e of P.log)if(!e.ok&&!e.warm){const m=P.miss[e.key];const sk=m&&m.skill;if(sk)cnt[sk]=(cnt[sk]||0)+1;}
   const lessonOf=sk=>{try{return WQ37Math.skillLesson?WQ37Math.skillLesson(sk):'';}catch(_){return '';}};
-  const ranked=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([sk,n])=>({sk,n,code:lessonOf(sk)})).filter(x=>x.code);
-  for(const x of ranked){if((x.n>=2||!passed)&&!lessons.some(l=>l.code===x.code))lessons.push(x);if(lessons.length>=2)break;}
+  /* R3.19 T03: a skill with no lesson of its own gets 再看例題 (the worked example again) instead of nothing */
+  const exOf=sk=>{const m=Object.values(P.miss).find(m=>m.skill===sk&&m.q&&m.q.mq&&m.q.mq.ex);return m?m.q.mq.ex:null;};
+  const ranked=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([sk,n])=>({sk,n,code:lessonOf(sk),ex:exOf(sk)})).filter(x=>x.code||x.ex);
+  for(const x of ranked){if((x.n>=2||!passed)&&!lessons.some(l=>x.code?l.code===x.code:l.sk===x.sk))lessons.push(x);if(lessons.length>=2)break;}
  }
  let coins=0;
  if(P.kind==='level'&&!P.redo){
@@ -453,7 +491,7 @@ function r37Finish(){
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
  const list=missed.map(m=>m.en?{en:m.en,zh:m.zh,you:m.value,fixed:m.fixed,kind:m.kind,key:m.key}:{q:m.q.prompt,answer:m.q.answer,you:m.value,fixed:m.fixed,key:m.key,skill:m.skill});
- P.result={stars,passed,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
+ P.result={stars,passed,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
@@ -489,6 +527,25 @@ function r37OpenLesson(code,track){
  }catch(_){return false;}
 }
 /* ---------------------------------------------------------------------------------------------- parent */
+/* R3.19 T02: 闖關錯題 - what the child missed in 闖關 / 考考自己 (English words with count, maths stems with the answer and count). Shown on the report page and the parent progress tab */
+function r37WrongHTML(){
+ const o=r37Get(),by={};
+ const en=o.wrong.filter(x=>x.en).slice().sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,12);
+ for(const m of o.miss){const k=m.t+'|'+m.q,b=by[k]=by[k]||{t:m.t,q:m.q,a:m.a,n:0,at:0};b.n++;b.at=Math.max(b.at,m.at||0);}
+ const ma=Object.values(by).sort((a,b)=>(b.n-a.n)||(b.at-a.at));
+ const grp=(title,items)=>items.length?`<h3>${title}</h3><ul>${items.join('')}</ul>`:'';
+ const enLi=en.map(x=>`<li><b lang="en">${esc(x.en)}</b><span>${esc(x.zh||'')}</span><em>${x.n} 次</em></li>`);
+ const mLi=t=>ma.filter(x=>x.t===t).slice(0,10).map(x=>`<li class="m"><span class="r319-q">${esc(x.q)}</span><span class="r319-a">答案：<b>${esc(x.a)}</b></span><em>${x.n} 次</em></li>`);
+ const none=!enLi.length&&!ma.length;
+ return `<section class="r319-wrong" id="r319-wrong" aria-label="闖關錯題"><h2>闖關錯題</h2>${none?'<p class="r319-empty">暫時沒有闖關錯題。</p>':grp('英文',enLi)+grp('數學',mLi('math'))+grp('奧數',mLi('olympiad'))}</section>`;
+}
+/* the report page is the old dictation report: append the card once after it has rendered */
+function r37ReportExtra(route){
+ if(route!=='report')return;
+ const root=document.getElementById('app');if(!root||root.querySelector('#r319-wrong'))return;
+ const stats=root.querySelector('.stats');if(!stats)return;
+ stats.insertAdjacentHTML('afterend',r37WrongHTML());
+}
 function r37ParentHub(){
  const o=r37Get(),tab=r37Mem._ptab||'diff',c=activeChild();
  const tabs=[['diff','🎚️','難度'],['prog','📊','進度'],['kids','👦','孩子'],['data','🛠️','工具']].map(([k,i,l])=>`<button type="button" class="r37-ptab ${tab===k?'on':''}" data-r37="ptab" data-k="${k}" aria-label="${l}">${r37Icon(i)}<b>${l}</b></button>`).join('');
@@ -503,7 +560,7 @@ function r37ParentHub(){
   body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題 · ${'❤'.repeat(d.hearts)} · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
   <ul class="r37-dl">${note}</ul></div>${today}`;
  }else if(tab==='prog'){
-  body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><span>${r37Icon('✅')}</span><b>${o.day.correct}</b></div></div>`:'');
+  body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+r37WrongHTML()+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><span>${r37Icon('✅')}</span><b>${o.day.correct}</b></div></div>`:'');
  }else if(tab==='kids'){
   body=`<div class="r37-tiles">${r37A('👦','孩子','#children')+r37A('📝','默書範圍','#ranges')+r37A('📊','學習報告','#report')+r37A('🏆','學習計劃','#learning-plan')}</div>`;
  }else{

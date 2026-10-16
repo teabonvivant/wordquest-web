@@ -1,10 +1,10 @@
 {
-  "math_course_src/active-content.json": "b35d69bcebcb42037864290f724f0d500d3a0419f02783c9ec4349d3eaedfa5b",
+  "math_course_src/active-content.json": "7e667184ed9e942572264762f86c12394a333a9cd512d5f71dd349889a92295b",
   "math_course_src/classroom-copy.json": "9700db0918180f8283cb1673d5d557a646eaabed0a86940d629e78f26a91527e",
   "math_course_src/classroom-lower.json": "a460ed41076b529fef1f5f9819488e5887bd295f53744f46dc0bc81c47c405fc",
-  "math_course_src/classroom-upper.json": "ee966acb724304212fcfed4bdec6c99a5e37ba0c757284ce54fe46b95ffc2153",
+  "math_course_src/classroom-upper.json": "06735114735f12c4d062c64ebe1425dfefe70b08006ba7b5c1eb64717a19a647",
   "math_course_src/classroom.css": "31439d129017d74ac64edc65fc7f132fd8e51ca01e2ba62ecb821d36c5792984",
-  "math_course_src/classroom_bundle.js": "e4a5ad75e43b1499d3765546b2012c8bc56c472d364f2a1413a389fb720916bf",
+  "math_course_src/classroom_bundle.js": "1079da4e318a144273c468fa1056699c38e92b688210cbff23b10e631f945935",
   "math_course_src/classroom_ui.js": "ccd56012ad1146cbd2f180cb9995b873d30344cace5711bf4fb75e6e17bb9e30",
   "math_course_src/course_data.js": "09929a13e68b7821a36f9db7370526749b2d5894b3b60e8acbc1d0d87fc17220",
   "math_course_src/course_engine.js": "c97b9bd673fdb951f3ca8bafb51b1f7809369988a2fd976d11feeb90cbbb813f",
@@ -19,7 +19,7 @@
   "math_course_src/style_bundle.js": "08508f783a43e0cb1ae34adf49f73e2b0d31960365150e68d99a894a071bfa5f",
   "math_course_src/tools_bundle.js": "6371ab794d93ca8d11ccc3151c69e6adb1c4e714e237f88c569340105dfe8fb2",
   "math_course_src/tools_iframe.html": "6a91edbbce034fb4bae3aa065913680082cb56aa11e7c0bb5da4a63eebf36029",
-  "app/index.html": "01126b0ce60d5eb3d06bd036b9685187781f1b73096d10005b6d7f67152e551f",
-  "math_course_preview.html": "f8f43a3150fb3a4a07bbe5143b116b7ad3a6abb675fcc061a47dbd5cd721cec0",
+  "app/index.html": "57c209ff78aff4e5f88b950cdc6d65e384693ed88c5d89094cf9363f43fb3c0d",
+  "math_course_preview.html": "436adea68ac1f95baa89877cea7dc90d4a950b6ef5f523deee55726bfeb7b765",
   "app/sw.js": "6535dd31437ce680fed07c8a81b42fd8c85b7a740c412dfecb6b19002a3a044f"
 }
