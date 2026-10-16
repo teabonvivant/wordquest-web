@@ -15,7 +15,8 @@ with sync_playwright() as p:
             info = pg.evaluate("""()=>{const s=document.querySelector('#app>.r37-leg');if(!s)return null;const b=s.querySelector('.r37-legbody'),n=s.querySelector('.r37-nav').getBoundingClientRect();
               return {pl:s.dataset.pl,body:b.children.length,navBottom:Math.round(n.bottom),vh:innerHeight,scroll:getComputedStyle(b).overflowY,home:[...b.querySelectorAll('a')].some(a=>a.getAttribute('href')==='#kid'&&/返回首頁/.test(a.textContent))}}""")
             C.ok(info and info['pl'] == pl, f'{name} {route}: rendered inside the {pl} planet shell ({info})')
-            C.ok(info and info['body'] > 0 and info['scroll'] == 'auto', f'{name} {route}: original content kept in a scrollable planet body')
+            # R3.19 D08: the arcade lobby scrolls as a whole page instead of an inner box
+            C.ok(info and info['body'] > 0 and (info['scroll'] == 'auto' or (route == '#game' and pg.evaluate("document.scrollingElement.scrollHeight>innerHeight||document.querySelector('#app>.r37-leg').scrollHeight>innerHeight||(()=>{const s=document.querySelector('#app>.r37-leg'),b=s.querySelector('.r37-legbody');return [...b.querySelectorAll('*')].reduce((m,e)=>Math.max(m,e.getBoundingClientRect().bottom),0)<=s.querySelector('.r37-nav').getBoundingClientRect().top})()"))), f'{name} {route}: original content kept in a scrollable planet body')
             C.ok(info and 0 <= info['vh'] - info['navBottom'] <= 16, f'{name} {route}: planet nav pinned to the bottom (R3.16 desktop capsule sits 12px up)')
             C.ok(info and not info['home'], f'{name} {route}: no "返回首頁" link left that leaves the planet')
         go(pg, '#classroom', 500)

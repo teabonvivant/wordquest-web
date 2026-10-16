@@ -270,7 +270,12 @@ with sync_playwright() as p:
         ev(pg, "r37Mem._fw=0")
         go(pg, '#lv/fps', 500)
         C.ok(no_scroll(pg), f'{name}: FPS map needs no scroll')
-        C.ok(fits(pg, '.r37-node') and fits(pg, '.r37-wtab') and fits(pg, '.r37-wtitle'), f'{name}: map nodes, tabs and title inside the screen')
+        if name == 'small':
+            # R3.19 N04: on 360x640 the node path scrolls inside the map (nodes stay 44px+ and never overlap)
+            inner = pg.evaluate("(()=>{const p=document.querySelector('.r37-path');return !!p&&getComputedStyle(p).overflowY==='auto'})()")
+            C.ok(inner and fits(pg, '.r37-path') and fits(pg, '.r37-wtab') and fits(pg, '.r37-wtitle'), f'{name}: map area, tabs and title inside the screen; nodes scroll inside the map')
+        else:
+            C.ok(fits(pg, '.r37-node') and fits(pg, '.r37-wtab') and fits(pg, '.r37-wtitle'), f'{name}: map nodes, tabs and title inside the screen')
         C.ok(pg.evaluate("""()=>{const bar=document.querySelector('.r37-bar'),k=document.querySelector('.r37-coin').getBoundingClientRect(),h=document.querySelector('.r37-fhint').getBoundingClientRect();return k.right<=innerWidth+1&&h.right<=k.left+1&&h.width>=30;}"""), f'{name}: top bar (hint icon + coins) not squeezed')
         C.ok(pg.evaluate("""()=>[...document.querySelectorAll('.r37-wtitle .r37-lk,.r37-wtitle .r37-dchip')].every(e=>{const r=e.getBoundingClientRect();return r.right<=innerWidth+1&&r.width>0})"""), f'{name}: header chips inside the width')
         if name in ('phone', 'desktop'):

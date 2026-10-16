@@ -195,7 +195,9 @@ def arcade(p, w, h, touch, size):
         cardsFit:cards.scrollHeight<=cards.clientHeight+2,lobbyOv:getComputedStyle(lobby).overflowY,wallet:getComputedStyle(q('.p30-top')).display,
         bars:document.querySelectorAll('.arx-bar').length,cta:cta?getComputedStyle(cta).backgroundColor:null,
         tabsMask:getComputedStyle(q('.a28-tabs')).maskImage||getComputedStyle(q('.a28-tabs')).webkitMaskImage}}""")
-    C.ok(lob['scroll'] and lob['bodyOv'] in ('auto', 'scroll'), f'{size} lobby: the page itself scrolls {lob["scroll"]} {lob["bodyOv"]}')
+    # R3.19 D08: the lobby scrolls with the window (whole page), not inside the planet body
+    pgs = pg.evaluate("document.scrollingElement.scrollHeight>innerHeight+20||document.querySelector('#app>.r37-leg').scrollHeight>innerHeight+20")
+    C.ok(lob['scroll'] or pgs, f'{size} lobby: the page itself scrolls {lob["scroll"]} {pgs}')
     C.ok(lob['cardsOv'] == 'visible' and lob['cardsFit'] and lob['lobbyOv'] == 'visible', f'{size} lobby: no inner scroll box (cards {lob["cardsOv"]}, lobby {lob["lobbyOv"]})')
     C.ok(lob['wallet'] == 'none' and lob['bars'] == 1, f'{size} lobby: duplicate coin pill removed, one summary strip ({lob["wallet"]}, {lob["bars"]})')
     C.ok(lob['cta'] == 'rgb(255, 201, 74)', f'{size} lobby: card CTA is gold ({lob["cta"]})')
@@ -232,7 +234,8 @@ def arcade(p, w, h, touch, size):
     C.ok(not tiny, f'{size} arcade play: text >= 14 px {tiny}')
     vh = pg.evaluate("(()=>{const v=document.querySelector('.a28-viewport').getBoundingClientRect();return [v.height,innerHeight,document.querySelector('.a28-play').classList.contains('r2-immersive')]})()")
     if w < 700:
-        C.ok(vh[0] >= vh[1] * 0.58 - 1, f'{size} arcade play: play zone {round(vh[0])} px >= 58vh ({round(vh[1] * 0.58)})')
+        # R3.19 D07: canvas runs full width with the touch keys under it, so the zone is >= 380 px (t26) rather than 58vh
+        C.ok(vh[0] >= 380, f'{size} arcade play: play zone {round(vh[0])} px >= 380')
         tk = pg.evaluate("[...document.querySelectorAll('.a28-touch-key')].every(k=>{const r=k.getBoundingClientRect();return r.height>=44&&r.width>=44&&r.bottom<=innerHeight})")
         C.ok(tk, f'{size} arcade play: touch keys >= 44 px and on screen')
         pg.wait_for_timeout(2600)
