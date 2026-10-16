@@ -280,7 +280,7 @@ function r37Judge(q,input){
  }
  const hit=(q.accept||[]).find(x=>norm(r37Apos(x))===nv);
  if(hit)return hit===q.answer?{ok:true}:{ok:true,syn:hit};
- if(!q.dz&&(q.forms||[]).some(x=>norm(r37Apos(x))===nv))return {ok:false,why:'inflect',msg:`這是「${q.answer}」的另一個形式，題目要「${q.zhOf||q.answer}」`};
+ if(!q.dz&&(q.forms||[]).some(x=>norm(r37Apos(x))===nv))return {ok:false,why:'inflect',msg:`「${v.trim()}」字對了，但形式不對：留意單數／複數或時態，再試一次`};
  const strip=x=>norm(x).replace(/[\s-]+/g,'');
  if((!q.dz||q.dz.lvl===3)&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
  return {ok:false,why:'wrong'};
