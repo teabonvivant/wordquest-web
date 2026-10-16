@@ -1560,6 +1560,83 @@ p.r37-prog{flex:1 1 100%;max-width:560px;margin:0;padding:4px 12px;border-radius
 @media(prefers-reduced-motion:reduce){.r37-dzc{transition:none}.r37-dzc:active{transform:none}}
 @media(min-width:700px){.r37-dzg{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:16px}.r37-dzc{flex:0 0 clamp(220px,24%,300px)}.r37-dzn{width:52px;height:52px;font-size:28px;border-radius:16px}.r37-dzp{font-size:18px}.r37-dzb{min-height:64px}.r37-dzb span{font-size:28px}.r37-dzb b{font-size:14px}.r37-dzh{font-size:clamp(22px,3.2vh,32px)}.r37-ptitle{font-size:24px}}
 
+/* ---- R3.18 learning loop: learn-card sentences, example card, nudge, missed-answers card, redo / lesson buttons, revisit badge, syllables ---- */
+.r37-learn .r37-wc{flex-direction:column;align-items:stretch;justify-content:center;gap:4px;padding:8px 8px;cursor:default}
+.r37-wcb{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 2px;border:0;border-radius:18px;background:none;color:inherit;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+@media(max-width:520px){.r37-learn:not(.dz) .r37-wcb{flex-direction:row;justify-content:space-around;width:100%}}
+.r37-wcb:focus-visible,.r37-exl:focus-visible,.r37-us:focus-visible,.r37-sy:focus-visible,.r37-ms:focus-visible,.r37-redo:focus-visible,.r37-lesson:focus-visible,.r37-dzrv:focus-visible,.r37-dsub:focus-visible{outline:3px solid #ffc94a;outline-offset:2px}
+.r37-fx{font-style:normal;color:#e0245e;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.r37-exl{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:4px 10px;border:0;border-radius:14px;background:#eef2ff;color:#2a3170;font:inherit;font-size:15px;font-weight:700;line-height:1.3;text-align:center;cursor:pointer}
+.r37-exl .r37-ic{font-size:18px;flex:none}
+.r37-us{display:flex;align-items:center;justify-content:center;gap:8px;max-width:100%;min-height:44px;padding:6px 16px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(255,255,255,.12);color:#f4f6ff;font:inherit;font-size:17px;font-weight:800;line-height:1.3;cursor:pointer}
+.r37-us .r37-ic{font-size:22px;flex:none}
+@media(max-height:560px){.r37-exl,.r37-us{display:none}}
+/* example card (maths / olympiad: the first time a skill appears) */
+.r37-excard{width:min(100%,520px);display:flex;flex-direction:column;gap:8px;padding:16px 18px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));color:#f4f6ff;text-align:left}
+.r37-excard h2{display:flex;align-items:center;gap:8px;margin:0;font-size:18px;color:#ffc94a}.r37-excard h2 .r37-ic{font-size:24px}
+.r37-exq{font-size:clamp(20px,3.4vh,26px);font-weight:900;line-height:1.35}
+.r37-exa{font-size:18px;font-weight:700}.r37-exa b{color:#ffc94a;font-size:1.15em}
+.r37-exe{margin:0;font-size:17px;line-height:1.5;color:#e6eaff}
+.r37-ext{margin:0;padding:8px 12px;border-radius:12px;background:rgba(255,201,74,.14);color:#ffe9a8;font-size:16px;font-weight:700;line-height:1.4}
+.r37-exb{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.r37-sec2{min-height:56px;padding:0 24px;border:1px solid rgba(255,255,255,.28);border-radius:20px;background:rgba(255,255,255,.12);color:#f4f6ff;font:inherit;font-size:20px;font-weight:800;cursor:pointer}
+/* "right value, wrong form" nudge and the part-credit / picked lines of the feedback bar */
+.r37-nudge{display:flex;align-items:center;justify-content:center;gap:10px;max-width:min(100%,520px);padding:10px 16px;border:1px solid rgba(255,201,74,.55);border-radius:16px;background:rgba(255,201,74,.16);color:#fff2c4;font-size:18px;font-weight:800;line-height:1.35;text-align:left}
+.r37-nudge .r37-ic{font-size:24px;flex:none}
+.r37-fb.part{background:#8a6a00}
+.r37-fb .r37-picked{margin-top:2px;font-weight:700;opacity:1}
+.r37-next[disabled]{opacity:.45;cursor:not-allowed}
+/* missed-answers card on the result page */
+.r37-miss{width:min(100%,520px);display:flex;flex-direction:column;gap:6px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));color:#f4f6ff;text-align:left}
+.r37-miss h2{display:flex;align-items:center;gap:8px;margin:0;font-size:17px;color:#fff}.r37-miss h2 .r37-ic{font-size:22px}.r37-miss h2 em{font-style:normal;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.16);font-size:14px}
+.r37-miss ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;max-height:min(34vh,320px);overflow-y:auto;overscroll-behavior:contain}
+.r37-miss li{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;min-height:44px;font-size:17px}
+.r37-miss li b{font-size:19px;white-space:nowrap}.r37-miss li span{color:#c3cbf7;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r37-miss li span{flex:1 1 0;min-width:0}.r37-miss li .r37-mk{margin-left:auto}.r37-miss li small{flex:0 0 100%;padding-left:52px;margin-top:-6px;color:#ffe066;font-size:14px;font-weight:700}
+.r37-miss li.m{display:grid;grid-template-columns:minmax(0,1fr) auto auto}.r37-miss li.m .r37-mqq{color:#f4f6ff;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:15px;line-height:1.3}
+.r37-miss li.m b{color:#ffc94a}.r37-miss li.m small{grid-column:1/-1;padding-left:0;margin-top:0}
+.r37-ms{width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer}
+.r37-mk{font-style:normal;color:#7ef0b0;font-weight:900}
+@media(max-height:620px){.r37-miss ul{max-height:26vh}.r37-miss li{min-height:40px}}
+.r37-result.hasmiss{gap:8px}
+.r37-ra{flex-wrap:wrap;justify-content:center}
+.r37-redo,.r37-lesson{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 20px;border-radius:20px;font:inherit;font-size:19px;font-weight:900;cursor:pointer}
+.r37-redo{border:0;background:#ffc94a;color:#3b2600;box-shadow:0 4px 0 #c48a00}
+.r37-lesson{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#f4f6ff}
+.r37-redo .r37-ic,.r37-lesson .r37-ic{font-size:24px}
+/* parent difficulty: one row per subject */
+.r37-dsubs{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+.r37-dsub{display:flex;align-items:center;gap:6px;min-height:48px;padding:4px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);color:#f4f6ff;font:inherit;font-weight:800;cursor:pointer}
+.r37-dsub.on{border-color:#ffc94a;background:rgba(255,201,74,.18)}.r37-dsub .r37-ic{font-size:22px}.r37-dsub small{opacity:.85}
+/* dictation: revisit badge and syllables */
+.r37-dzc.due{border-color:#ffc94a}
+.r37-dzrv{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;border-radius:14px;background:#ffc94a;color:#3b2600;font:inherit;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 #c48a00}
+.r37-dzrv .r37-ic{font-size:20px}
+.r37-sylrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px;font-weight:900}
+.r37-sy{min-height:36px;min-width:36px;padding:2px 8px;border:0;border-radius:10px;background:#e6ecff;color:#1d2158;font:inherit;font-size:clamp(16px,2.6vh,22px);font-weight:900;cursor:pointer}
+.r37-sw{padding:0 6px;color:#555a9a}
+.r37-sd{color:#8a90d6;font-weight:900;padding:0 1px}
+.r37-cells .r37-sd{align-self:center;color:rgba(255,255,255,.55);font-size:22px}
+.r37-sy2{display:inline-block;padding:0 3px;border-radius:8px}.r37-sy2.bad{background:rgba(255,224,102,.16);box-shadow:inset 0 -3px 0 #ffe066}
+/* dictation learn cards: keep eight cards (with syllable rows) on one phone screen */
+.r37-learn.dz .r37-wc{gap:2px;padding:6px 6px}
+.r37-learn.dz .r37-wcb{gap:2px;padding:2px;min-height:44px}
+.r37-learn.dz .r37-sylrow{gap:0;flex-wrap:wrap;line-height:1}
+.r37-learn.dz .r37-sy{min-height:32px;min-width:30px;padding:0 6px;font-size:clamp(15px,2.2vh,19px);border-radius:9px}
+.r37-learn.dz .r37-sd{padding:0}
+.r37-learn.dz{gap:6px}
+.r37-learn.dz .r37-wc{padding:4px 6px}
+.r37-learn.dz .r37-wem{font-size:clamp(24px,4vh,44px)}
+.r37-learn.dz .r37-wcb{min-height:40px}
+/* short phones (360x640, 320x568): three learn cards + start button on one screen */
+@media(max-height:700px){.r37-us{display:none}.r37-wcx .r37-wem{font-size:clamp(28px,5.2vh,40px)}.r37-exl{min-height:34px;font-size:14px;padding:2px 8px}.r37-learn .r37-wc{padding:4px 6px}.r37-learn:not(.dz){gap:6px}}
+
+/* a result page with a missed-answers card: smaller badge / stars so card and buttons stay on one screen */
+.r37-result.hasmiss .r37-rb{font-size:44px;line-height:1}.r37-result.hasmiss .r37-rb .r37-ic{font-size:1em}
+.r37-result.hasmiss .r37-st{font-size:32px}.r37-result.hasmiss .r37-rs{font-size:32px}.r37-result.hasmiss .r37-rn{font-size:18px}
+.r37-result.hasmiss .r37-miss ul{max-height:min(28vh,260px)}
+.r37-result.hasmiss .r37-sec{width:52px;height:56px}
+
 /* R3.8 Arcade+ styles (s35_arcade.js). Prefix arx-. Touch targets >= 44px; animations only when motion is allowed. */
 /* ---- lobby reskin inside the planet shell: readable white text on the dark sky, white cards stay white ---- */
 .r37-leg[data-pl=games] .p30-lobby>h1,.r37-leg[data-pl=games] .p30-sec h2{color:#fff;text-shadow:0 2px 10px rgba(5,6,40,.55)}
@@ -1707,7 +1784,7 @@ html body.r37arc .a28-overlaycard{background:linear-gradient(160deg,rgba(30,38,9
 html body.r37arc .a28-overlaycard :is(h2,h3,p,small,.wq34-goal,.wq34-how,.p30-t,.p30-k,.wq34-best,.arx-next,.arx-cap,.arx-row,.arx-tg,.wq34-line,.wq34-line b,.wq34-line span){color:#F4F6FF!important}
 html body.r37arc .a28-overlaycard :is(.p30-k,.arx-tg,.wq34-best,.arx-cap){color:#C9D0F5!important}
 html body.r37arc .a28-overlaycard>small,html body.r37arc .a28-overlaycard .wq34-run,html body.r37arc .a28-overlaycard .wq34-meta{background:rgba(255,201,74,.12)!important;border:1px solid rgba(255,201,74,.45)!important;color:#FFE9A8!important;border-radius:12px}
-html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycard .arx-pwstat{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important}
+html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycard .wq34-goal,html body.r37arc .a28-overlaycard .arx-best,html body.r37arc .a28-overlaycard .arx-pwstat{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#F4F6FF!important}
 html body.r37arc .a28-overlaycard .wq34-new,html body.r37arc .a28-overlaycard .arx-new{background:rgba(255,201,74,.16)!important;color:#FFC94A!important;border:1px solid #FFC94A}
 html body.r37arc .a28-overlaycard .arx-rec,html body.r37arc .a28-overlaycard .arx-rec.first{background:rgba(255,201,74,.14)!important;color:#FFC94A!important;border:1px solid #FFC94A;box-shadow:none}
 html body.r37arc .a28-overlaycard .arx-rec :is(b,span){color:#FFC94A!important}
@@ -4595,123 +4672,160 @@ const N=(r,p,lo,hi)=>{if(hi<=lo)return lo;const sp=hi-lo,t=Math.min(hi,lo+Math.m
 const gcd=(a,b)=>b?gcd(b,a%b):a;
 const fx=x=>String(Math.round(x*1e6)/1e6);
 const fr=(a,b)=>{const g=gcd(a,b);a/=g;b/=g;return b===1?String(a):a+'/'+b};
-const NM=['小明','小美','阿強','小欣','家豪','詩婷'],IT=[['糖果','粒'],['貼紙','張'],['彈珠','粒'],['書籤','張'],['卡片','張']];
+// names carry a pronoun so a girl's name never gets 「他」 (toString gives the name, so ${m} still works in templates)
+const P=(n,p)=>({n,p,toString(){return n}});
+const NM=[P('小明','他'),P('小美','她'),P('阿強','他'),P('小欣','她'),P('家豪','他'),P('詩婷','她')],IT=[['糖果','粒'],['貼紙','張'],['彈珠','粒'],['書籤','張'],['卡片','張']];
 const nm=r=>pk(r,NM);
-const o=(sk,q,a,h,e,w,calc,acc)=>({sk,q,a:String(a),h,e,w:w||[],calc,acc:acc||[]});
+// o(skill, stem, answer, hint, explain, wrongs, calc, accept, form): form 'dec' | 'simplest' = the question asks for that written form
+const o=(sk,q,a,h,e,w,calc,acc,form)=>({sk,q,a:String(a),h,e,w:w||[],calc,acc:acc||[],form:form||null});
 const spread=(r,k,m,d)=>{for(let t=0;t<60;t++){const v=[];let s=0;for(let i=0;i<k-1;i++){const x=m+ri(r,-d,d);v.push(x);s+=x}const l=k*m-s;if(l>=1&&l<=Math.max(100,m+d*2))return v.concat(l)}const v=Array(k).fill(m);v[0]=m+1;v[1]=m-1;return v};
 const CN=['','一','二','三','四','五','六','七','八','九'];
 const mul=n=>{const a=[];for(let i=n;i>1;i--)a.push(i);a.push(1);return a.join('*')};
+const fact=n=>{let v=1;for(let i=2;i<=n;i++)v*=i;return v};
+const X=a=>a.join('×');
 
+// ── explanation helpers: a method sentence first, then the working ──
+const place=n=>{const s=String(n),p=[];for(let i=0;i<s.length;i++){const d=+s[i];if(d)p.push(d*Math.pow(10,s.length-1-i))}return p};
+const addHow=(a,b)=>{
+  const s=a+b,o1=a%10,gap=10-o1;
+  if(b<10&&o1+b>=10){const rest=b-gap;return `${a}＋${b}：先湊成整十，${a}＋${gap}＝${a+gap}${rest?`，再加餘下的 ${rest}，得 ${s}`:`，得 ${s}`}。`}
+  if(b<10)return `${a}＋${b}：個位 ${o1}＋${b}＝${o1+b}，十位不變，得 ${s}。`;
+  const ps=place(b);let acc=a;
+  return `${a}＋${b}：把 ${b} 拆成 ${ps.join('＋')}，`+ps.map((x,i)=>{acc+=x;return `${i?'再':'先'}加 ${x} 得 ${acc}`}).join('，')+'。';
+};
+const subHow=(a,b)=>{
+  const s=a-b,o1=a%10;
+  if(b<10&&o1>=b)return `${a}－${b}：個位 ${o1}－${b}＝${o1-b}，十位不變，得 ${s}。`;
+  if(b<10)return `${a}－${b}：個位不夠減，先減 10 再把多減的 ${10-b} 加回去：${a}－10＝${a-10}，${a-10}＋${10-b}＝${s}。`;
+  const ps=place(b);let acc=a;
+  return `${a}－${b}：把 ${b} 拆成 ${ps.join('＋')}，`+ps.map((x,i)=>{acc-=x;return `${i?'再':'先'}減 ${x} 得 ${acc}`}).join('，')+'。';
+};
+const mulHow=(a,b)=>{
+  const s=a*b,ps=place(a);
+  if(ps.length===1){const z=String(a).length-1;return z?`${a}×${b}：先算 ${a/Math.pow(10,z)}×${b}＝${a/Math.pow(10,z)*b}，再補回 ${z} 個 0，得 ${s}。`:`${a}×${b}＝${s}。`}
+  return `${a}×${b}：把 ${a} 拆成 ${ps.join('＋')}，分別乘 ${b}：${ps.map(x=>x+'×'+b).join('＋')}＝${ps.map(x=>x*b).join('＋')}＝${s}。`;
+};
+const timesHow=(a,b)=>{
+  const s=a*b;
+  if(b<=5)return `${a}×${b} 就是 ${b} 個 ${a} 相加：${Array(b).fill(a).join('＋')}＝${s}。`;
+  return `${a}×${b}：把 ${b} 拆成 5＋${b-5}，${a}×5＝${a*5}，${a}×${b-5}＝${a*(b-5)}，相加 ${a*5}＋${a*(b-5)}＝${s}。`;
+};
+const lastCycle=b=>{const c=[];let v=b%10;while(!c.includes(v)){c.push(v);v=v*b%10}return c};
+
+// Template order inside a world = order of the LINE tables below (index = position in the array).
 const MATH=[
-[ // P1-2: add/sub within 20 and 100
-(r,p)=>{const a=N(r,p,2,70),b=N(r,p,1,99-a),s=a+b;return o('add',`${a}＋${b}＝？`,s,'先加整十，再加個位。',`${a}＋${b}＝${s}。`,[s+10,s-10,s+1,s-1,Math.abs(a-b)],`${a}+${b}`)},
-(r,p)=>{const a=N(r,p,4,99),b=N(r,p,1,a-1),s=a-b;return o('sub',`${a}－${b}＝？`,s,'由大數減去小數，留意個位夠不夠減。',`${a}－${b}＝${s}。`,[s+10,s-10,s+1,s-1,a+b],`${a}-${b}`)},
-(r,p)=>{const a=N(r,p,1,60),b=N(r,p,2,99-a),c=a+b;return o('missing',`☐＋${b}＝${c}，☐ 是多少？`,a,'想想：總數減去已知的一份。',`☐＝${c}－${b}＝${a}。`,[c+b,b,a+1,a-1],`${c}-${b}`)},
-(r,p)=>{const [i,u]=pk(r,IT),m=nm(r),a=N(r,p,5,80);if(r()<.5){const b=N(r,p,1,99-a);return o('story',`${m}有 ${a} ${u}${i}，媽媽再給他 ${b} ${u}，現在一共有多少${u}？`,a+b,'「再給」即是加多一些。',`${a}＋${b}＝${a+b}。`,[a-b>0?a-b:a+b+1,a+b+1,a+b-1,a+b+10],`${a}+${b}`)}const b=N(r,p,1,a-1);return o('story',`${m}有 ${a} ${u}${i}，送了 ${b} ${u}給同學，還剩下多少${u}？`,a-b,'「送出」即是減去。',`${a}－${b}＝${a-b}。`,[a+b,a-b+1,a-b-1,a-b+10],`${a}-${b}`)},
-(r,p)=>{const a=N(r,p,3,50),b=N(r,p,2,99-a),c=N(r,p,1,a+b-1),s=a+b-c;return o('add-sub',`${a}＋${b}－${c}＝？`,s,'由左至右，先加後減。',`${a}＋${b}＝${a+b}，${a+b}－${c}＝${s}。`,[a+b+c,a+b,s+1,s-1,Math.abs(a-b)-c>0?Math.abs(a-b)-c:s+10],`${a}+${b}-${c}`)},
-(r,p)=>{const k=N(r,p,2,10),m=N(r,p,2,10),f=pk(r,[['🍎','🍌','水果'],['⭐','🌙','圖案'],['🐱','🐶','動物']]),s=k+m;return o('count',`數一數：${f[0].repeat(k)} 和 ${f[1].repeat(m)}，一共有多少個${f[2]}？`,s,'分別數兩行，再加起來。',`${k}＋${m}＝${s}。`,[s+1,s-1,Math.abs(k-m),s+2],`${k}+${m}`)}
+[ // W1 P1-2: add/sub within 20 and 100.  0 add, 1 sub, 2 missing, 3 story, 4 add-sub, 5 count, 6 within20
+(r,p)=>{const a=N(r,p,2,70),b=N(r,p,1,99-a),s=a+b;return o('add',`${a}＋${b}＝？`,s,'先加整十，再加個位。',addHow(a,b),[s+10,s-10,s+1,s-1,Math.abs(a-b)],`${a}+${b}`)},
+(r,p)=>{const a=N(r,p,4,99),b=N(r,p,1,a-1),s=a-b;return o('sub',`${a}－${b}＝？`,s,'由大數減去小數，留意個位夠不夠減。',subHow(a,b),[s+10,s-10,s+1,s-1,a+b],`${a}-${b}`)},
+(r,p)=>{const a=N(r,p,1,60),b=N(r,p,2,99-a),c=a+b;return o('missing',`☐＋${b}＝${c}，☐ 是多少？`,a,'想想：總數減去已知的一份。',`缺少的一份＝總數－已知的一份：${c}－${b}＝${a}。檢查：${a}＋${b}＝${c}。`,[c+b,b,a+1,a-1],`${c}-${b}`)},
+(r,p)=>{const [i,u]=pk(r,IT),m=nm(r),a=N(r,p,5,80);if(r()<.5){const b=N(r,p,1,99-a);return o('story',`${m}有 ${a} ${u}${i}，媽媽再給${m.p} ${b} ${u}，現在一共有多少${u}？`,a+b,'「再給」即是加多一些。',`「再給」是增加，用加法：${a}＋${b}＝${a+b}，現在一共有 ${a+b} ${u}。`,[a-b>0?a-b:a+b+1,a+b+1,a+b-1,a+b+10],`${a}+${b}`)}const b=N(r,p,1,a-1);return o('story',`${m}有 ${a} ${u}${i}，送了 ${b} ${u}給同學，還剩下多少${u}？`,a-b,'「送出」即是減去。',`「送了」是減少，用減法：${a}－${b}＝${a-b}，還剩下 ${a-b} ${u}。`,[a+b,a-b+1,a-b-1,a-b+10],`${a}-${b}`)},
+(r,p)=>{const a=N(r,p,3,50),b=N(r,p,2,99-a),c=N(r,p,1,a+b-1),s=a+b-c;return o('add-sub',`${a}＋${b}－${c}＝？`,s,'由左至右，先加後減。',`由左至右，先算加法：${a}＋${b}＝${a+b}，再減 ${c}：${a+b}－${c}＝${s}。`,[a+b+c,a+b,s+1,s-1,Math.abs(a-b)-c>0?Math.abs(a-b)-c:s+10],`${a}+${b}-${c}`)},
+(r,p)=>{const k=N(r,p,2,10),m=N(r,p,2,10),f=pk(r,[['🍎','🍌','水果'],['⭐','🌙','圖案'],['🐱','🐶','動物']]),s=k+m;return o('count',`數一數：${f[0].repeat(k)} 和 ${f[1].repeat(m)}，一共有多少個${f[2]}？`,s,'分別數兩行，再加起來。',`先分別數出兩行：${k} 個和 ${m} 個，合起來用加法：${k}＋${m}＝${s}。`,[s+1,s-1,Math.abs(k-m),s+2],`${k}+${m}`)},
+(r,p)=>{if(r()<.5){const a=N(r,p,2,18),b=N(r,p,1,20-a),s=a+b;return o('within20',`${a}＋${b}＝？`,s,'20 以內加法：能湊成 10 就先湊十。',s<=10?`${a}＋${b}：由 ${a} 再往上數 ${b} 個，合起來是 ${s}（${a}＋${b}＝${s}）。`:addHow(a,b),[s+1,s-1,s+10,Math.abs(a-b),s+2],`${a}+${b}`)}
+  const a=N(r,p,3,20),b=N(r,p,1,a-1),s=a-b,e=a>10&&b>a-10?`${a}－${b}：先減到 10，${a}－${a-10}＝10，再減餘下的 ${b-(a-10)}，10－${b-(a-10)}＝${s}。`:`${a}－${b}：想「${b} 加幾等於 ${a}」，${b}＋${s}＝${a}，所以 ${a}－${b}＝${s}。`;
+  return o('within20',`${a}－${b}＝？`,s,`想想：${b} 加幾等於 ${a}？`,e,[s+1,s-1,a+b,s+10,b],`${a}-${b}`)}
 ],
-[ // P2: two-digit add/sub, intro multiplication
-(r,p)=>{const a=N(r,p,10,90),b=N(r,p,10,99),s=a+b;return o('add2',`${a}＋${b}＝？`,s,'先加十位，再加個位，留意進位。',`${a}＋${b}＝${s}。`,[s+10,s-10,s+1,s-1,s+100],`${a}+${b}`)},
-(r,p)=>{const a=N(r,p,20,99),b=N(r,p,10,a-1),s=a-b;return o('sub2',`${a}－${b}＝？`,s,'個位不夠減時要退位。',`${a}－${b}＝${s}。`,[s+10,s-10,s+1,s-1,a+b],`${a}-${b}`)},
-(r,p)=>{const x=pk(r,[2,5,10,3,4].slice(0,2+Math.round(3*p.s))),y=N(r,p,2,10),s=x*y;return o('times',`${x}×${y}＝？`,s,`想想 ${x} 個 ${x} 個地數。`,`${x}×${y}＝${s}。`,[x+y,s+x,s-x,x*(y+1)],`${x}*${y}`)},
-(r,p)=>{const a=pk(r,[2,5,10,3,4].slice(0,2+Math.round(3*p.s))),b=N(r,p,2,9),it=pk(r,[['枝','筆'],['粒','糖'],['個','橡皮擦'],['本','簿']]),s=a*b;return o('times-story',`每盒有 ${a} ${it[0]}${it[1]}，${b} 盒共有多少${it[0]}${it[1]}？`,s,'每盒數量 × 盒數。',`${a}×${b}＝${s}。`,[a+b,s+a,s-a,s+b],`${a}*${b}`)},
-(r,p)=>{const a=N(r,p,2,25),k=N(r,p,3,7),s=a*k;return o('repeat-add',`${Array(k).fill(a).join('＋')}＝？`,s,`一共加了 ${k} 次，可以用乘法。`,`${a}×${k}＝${s}。`,[s+a,s-a,a+k,s+10],Array(k).fill(a).join('+'))},
-(r,p)=>{const a=N(r,p,10,60),b=N(r,p,10,99-a),c=N(r,p,5,a+b-1),s=a+b-c;return o('add-sub2',`${a}＋${b}－${c}＝？`,s,'先算前兩個數，再減。',`${a}＋${b}＝${a+b}，再減 ${c} 得 ${s}。`,[a+b+c,a+b,s+10,s-10,s+1],`${a}+${b}-${c}`)},
-(r,p)=>{const a=N(r,p,10,95),s=100-a;return o('to100',`${a}＋☐＝100，☐ 是多少？`,s,'想想：先補到下一個整十，再補到 100。',`100－${a}＝${s}。`,[s+10,s-10,s+1,s-1],`100-${a}`)}
+[ // W2 P2: two-digit add/sub, intro multiplication.  0 add2, 1 sub2, 2 times, 3 times-story, 4 repeat-add, 5 add-sub2, 6 to100
+(r,p)=>{const a=N(r,p,10,90),b=N(r,p,10,99),s=a+b;return o('add2',`${a}＋${b}＝？`,s,'先加十位，再加個位，留意進位。',addHow(a,b),[s+10,s-10,s+1,s-1,s+100],`${a}+${b}`)},
+(r,p)=>{const a=N(r,p,20,99),b=N(r,p,10,a-1),s=a-b;return o('sub2',`${a}－${b}＝？`,s,'個位不夠減時要退位。',subHow(a,b),[s+10,s-10,s+1,s-1,a+b],`${a}-${b}`)},
+(r,p)=>{const x=pk(r,[2,5,10,3,4].slice(0,2+Math.round(3*p.s))),y=N(r,p,2,10),s=x*y;return o('times',`${x}×${y}＝？`,s,`想想 ${x} 個 ${x} 個地數。`,timesHow(x,y),[x+y,s+x,s-x,x*(y+1)],`${x}*${y}`)},
+(r,p)=>{const a=pk(r,[2,5,10,3,4].slice(0,2+Math.round(3*p.s))),b=N(r,p,2,9),it=pk(r,[['枝','筆'],['粒','糖'],['個','橡皮擦'],['本','簿']]),s=a*b;return o('times-story',`每盒有 ${a} ${it[0]}${it[1]}，${b} 盒共有多少${it[0]}${it[1]}？`,s,'每盒數量 × 盒數。',`每盒 ${a}，${b} 盒就是 ${b} 個 ${a} 相加，用乘法：${a}×${b}＝${s}，共 ${s} ${it[0]}${it[1]}。`,[a+b,s+a,s-a,s+b],`${a}*${b}`)},
+(r,p)=>{const a=N(r,p,2,25),k=N(r,p,3,7),s=a*k;return o('repeat-add',`${Array(k).fill(a).join('＋')}＝？`,s,`一共加了 ${k} 次，可以用乘法。`,`相同的數加了 ${k} 次，可以寫成乘法：${a}×${k}＝${s}。`,[s+a,s-a,a+k,s+10],Array(k).fill(a).join('+'))},
+(r,p)=>{const a=N(r,p,10,60),b=N(r,p,10,99-a),c=N(r,p,5,a+b-1),s=a+b-c;return o('add-sub2',`${a}＋${b}－${c}＝？`,s,'先算前兩個數，再減。',`由左至右，先算加法：${a}＋${b}＝${a+b}，再減 ${c}：${a+b}－${c}＝${s}。`,[a+b+c,a+b,s+10,s-10,s+1],`${a}+${b}-${c}`)},
+(r,p)=>{const a=N(r,p,10,95),s=100-a,m=Math.ceil(a/10)*10,c1=m-a;return o('to100',`${a}＋☐＝100，☐ 是多少？`,s,'想想：先補到下一個整十，再補到 100。',c1&&m<100?`先補到整十：${a}＋${c1}＝${m}，再由 ${m} 補到 100 要 ${100-m}，一共補 ${c1}＋${100-m}＝${s}。`:`缺少的數＝100－已有的數：100－${a}＝${s}。`,[s+10,s-10,s+1,s-1],`100-${a}`)}
 ],
-[ // P3: times tables, division, multi-digit
-(r,p)=>{const a=N(r,p,2,12),b=N(r,p,2,9),s=a*b;return o('times',`${a}×${b}＝？`,s,'用九九乘法表。',`${a}×${b}＝${s}。`,[s+a,s-a,s+b,s-b,a+b],`${a}*${b}`)},
-(r,p)=>{const b=N(r,p,2,9),q=N(r,p,2,12),s=b*q;return o('div',`${s}÷${b}＝？`,q,`想想 ${b} 乘幾等於 ${s}。`,`${b}×${q}＝${s}，所以 ${s}÷${b}＝${q}。`,[q+1,q-1,s-b,b],`${s}/${b}`)},
-(r,p)=>{const a=N(r,p,12,999),b=N(r,p,2,9),s=a*b;return o('mul-multi',`${a}×${b}＝？`,s,'把多位數拆開，逐位乘，再相加。',`${a}×${b}＝${s}。`,[s+b*10,s-b*10,s+100,s-100,a+b],`${a}*${b}`)},
-(r,p)=>{const a=N(r,p,120,9000);if(r()<.5){const b=N(r,p,100,9000-1),s=a+b;return o('add-multi',`${a}＋${b}＝？`,s,'從個位開始逐位加，留意進位。',`${a}＋${b}＝${s}。`,[s+100,s-100,s+10,s-10,s+1000],`${a}+${b}`)}const b=N(r,p,100,a-1),s=a-b;return o('sub-multi',`${a}－${b}＝？`,s,'從個位開始逐位減，留意退位。',`${a}－${b}＝${s}。`,[s+100,s-100,s+10,s-10,a+b],`${a}-${b}`)},
-(r,p)=>{const b=N(r,p,2,9),q=N(r,p,2,12),m=ri(r,1,b-1),a=b*q+m;if(r()<.5)return o('remainder',`${a}÷${b} 的餘數是多少？`,m,'先找最接近而不超過的倍數。',`${a}＝${b}×${q}＋${m}，餘數是 ${m}。`,[q,m+1,b-m,m-1>0?m-1:m+2],`${a}%${b}`);return o('quotient',`${a}÷${b} 的商（不計餘數）是多少？`,q,'找出最大的倍數而不超過被除數。',`${a}＝${b}×${q}＋${m}，商是 ${q}。`,[q+1,q-1,m,q+2],`(${a}-${m})/${b}`)},
-(r,p)=>{const a=N(r,p,3,25),b=N(r,p,2,9),c=N(r,p,1,a*b-1),m=nm(r),s=a*b-c;return o('story2',`${m}買了 ${b} 包糖，每包有 ${a} 粒，然後送出 ${c} 粒，還剩下多少粒？`,s,'先求一共有多少粒。',`${a}×${b}＝${a*b}，${a*b}－${c}＝${s}。`,[a*b+c,a*b,s+1,s-1,a+b-c>0?a+b-c:s+2],`${a}*${b}-${c}`)},
-(r,p)=>{const b=N(r,p,2,9),q=N(r,p,3,30),t=b*q,m=nm(r);return o('share',`${m}有 ${t} 張貼紙，平均分給 ${b} 個人，每人分到多少張？`,q,'平均分用除法。',`${t}÷${b}＝${q}。`,[q+1,q-1,t-b,b],`${t}/${b}`)}
+[ // W3 P3: times tables, division, multi-digit.  0 times, 1 div, 2 mul-multi, 3 add/sub-multi, 4 remainder/quotient, 5 story2, 6 share
+(r,p)=>{const hi=p.stage>=3?12:9,a=N(r,p,2,hi),b=N(r,p,2,9),s=a*b;return o('times',`${a}×${b}＝？`,s,'用九九乘法表。',timesHow(a,b),[s+a,s-a,s+b,s-b,a+b],`${a}*${b}`)},
+(r,p)=>{const b=N(r,p,2,9),q=N(r,p,2,12),s=b*q;return o('div',`${s}÷${b}＝？`,q,`想想 ${b} 乘幾等於 ${s}。`,`除法是乘法倒轉：想 ${b} 乘幾等於 ${s}，${b}×${q}＝${s}，所以 ${s}÷${b}＝${q}。`,[q+1,q-1,s-b,b],`${s}/${b}`)},
+(r,p)=>{const a=N(r,p,12,999),b=N(r,p,2,9),s=a*b;return o('mul-multi',`${a}×${b}＝？`,s,'把多位數拆開，逐位乘，再相加。',mulHow(a,b),[s+b*10,s-b*10,s+100,s-100,a+b],`${a}*${b}`)},
+(r,p)=>{const a=N(r,p,120,9000);if(r()<.5){const b=N(r,p,100,9000-1),s=a+b;return o('add-multi',`${a}＋${b}＝？`,s,'從個位開始逐位加，留意進位。',addHow(a,b),[s+100,s-100,s+10,s-10,s+1000],`${a}+${b}`)}const b=N(r,p,100,a-1),s=a-b;return o('sub-multi',`${a}－${b}＝？`,s,'從個位開始逐位減，留意退位。',subHow(a,b),[s+100,s-100,s+10,s-10,a+b],`${a}-${b}`)},
+(r,p)=>{const b=N(r,p,2,9),q=N(r,p,2,12),m=ri(r,1,b-1),a=b*q+m;if(r()<.5)return o('remainder',`${a}÷${b} 的餘數是多少？`,m,'先找最接近而不超過的倍數。',`找最接近而不超過 ${a} 的 ${b} 的倍數：${b}×${q}＝${b*q}，${a}－${b*q}＝${m}，餘數是 ${m}（比 ${b} 小）。`,[q,m+1,b-m,m-1>0?m-1:m+2],`${a}%${b}`);return o('quotient',`${a}÷${b} 的商（不計餘數）是多少？`,q,'找出最大的倍數而不超過被除數。',`找最大的倍數而不超過 ${a}：${b}×${q}＝${b*q}（${b}×${q+1}＝${b*(q+1)} 就超過了），所以商是 ${q}，餘 ${m}。`,[q+1,q-1,m,q+2],`(${a}-${m})/${b}`)},
+(r,p)=>{const a=N(r,p,3,25),b=N(r,p,2,9),c=N(r,p,1,a*b-1),m=nm(r),s=a*b-c;return o('story2',`${m}買了 ${b} 包糖，每包有 ${a} 粒，然後送出 ${c} 粒，還剩下多少粒？`,s,'先求一共有多少粒。',`分兩步：先求一共有多少粒，${a}×${b}＝${a*b}；再減去送出的 ${c} 粒，${a*b}－${c}＝${s}。`,[a*b+c,a*b,s+1,s-1,a+b-c>0?a+b-c:s+2],`${a}*${b}-${c}`)},
+(r,p)=>{const b=N(r,p,2,9),q=N(r,p,3,30),t=b*q,m=nm(r);return o('share',`${m}有 ${t} 張貼紙，平均分給 ${b} 個人，每人分到多少張？`,q,'平均分用除法。',`平均分用除法：${t}÷${b}＝${q}，每人分到 ${q} 張。檢查：${b}×${q}＝${t}。`,[q+1,q-1,t-b,b],`${t}/${b}`)}
 ],
-[ // P4: fractions and decimals intro
-(r,p)=>{const d=N(r,p,3,12),a=ri(r,1,d-2),b=ri(r,1,d-1-a);return o('frac-add',`${a}/${d}＋${b}/${d}＝？（答案寫成最簡分數，例如 3/4）`,fr(a+b,d),'分母相同，只加分子。',`(${a}＋${b})/${d}＝${a+b}/${d}，化簡得 ${fr(a+b,d)}。`,[`${a+b}/${2*d}`,`${a*b}/${d}`,`${a+b+1}/${d}`,`${a+b}/${d+1}`],null,[`${a+b}/${d}`])},
-(r,p)=>{const d=N(r,p,3,12),a=ri(r,2,d-1),b=ri(r,1,a-1);return o('frac-sub',`${a}/${d}－${b}/${d}＝？（答案寫成最簡分數，例如 3/4）`,fr(a-b,d),'分母相同，只減分子。',`(${a}－${b})/${d}＝${a-b}/${d}，化簡得 ${fr(a-b,d)}。`,[`${a-b}/${d*2}`,`${a-b}/${d-1<2?d+1:d-1}`,`${a+b}/${d}`,`${a-b+1}/${d}`],null,[`${a-b}/${d}`])},
-(r,p)=>{const d=pk(r,[2,3,4,5,6,8,10].slice(0,3+Math.round(4*p.s))),k=N(r,p,2,12),t=d*k,n=ri(r,1,d-1),s=n*k;return o('frac-of',`${t} 個蘋果的 ${n}/${d} 是多少個？`,s,`先求 1/${d} 是多少。`,`${t}÷${d}＝${k}，${k}×${n}＝${s}。`,[k,t-s,s+k,s-k>0?s-k:s+1],`${t}/${d}*${n}`)},
-(r,p)=>{const u=p.s>.6?100:10,dg=u===10?1:2,hi=u===10?60:600,A=N(r,p,1,hi),B=N(r,p,1,hi),f=x=>(x/u).toFixed(dg),s=fx((A+B)/u);return o('dec-add',`${f(A)}＋${f(B)}＝？`,s,'小數點要對齊，再逐位相加。',`${f(A)}＋${f(B)}＝${s}。`,[(A+B)/u+1,(A+B)/u-.1*(u===10?1:.1),(A+B)/(u*10),A+B],`${fx(A/u)}+${fx(B/u)}`,[f(A+B)])},
-(r,p)=>{const u=p.s>.6?100:10,dg=u===10?1:2,hi=u===10?99:900,A=N(r,p,5,hi),B=N(r,p,1,A-1),f=x=>(x/u).toFixed(dg),s=fx((A-B)/u);return o('dec-sub',`${f(A)}－${f(B)}＝？`,s,'小數點要對齊，留意退位。',`${f(A)}－${f(B)}＝${s}。`,[(A-B)/u+1,(A-B)/u+(u===10?.1:.01),(A-B)/(u*10),A-B],`${fx(A/u)}-${fx(B/u)}`,[f(A-B)])},
-(r,p)=>{const L=[[1,2],[1,4],[3,4],[1,5],[2,5],[3,5],[4,5],[1,8],[3,8],[1,20],[7,20],[9,20]],l=L.slice(0,3+Math.round(p.s*(L.length-3))),[a,b]=pk(r,l);return o('frac-dec',`${a}/${b} 化成小數是多少？`,fx(a/b),`試試把分母變成 10 或 100，或做 ${a}÷${b}。`,`${a}÷${b}＝${fx(a/b)}。`,[a/b*10,a/b/10,b/a<1?b/a:a/b+.1,a/b+.1],null,[`${a}/${b}`])},
-(r,p)=>{const b=N(r,p,2,9),a=ri(r,1,b-1),k=N(r,p,2,6);return o('frac-eq',`${a}/${b}＝☐/${b*k}，☐ 是多少？`,a*k,'分母乘幾倍，分子也乘幾倍。',`${b}×${k}＝${b*k}，所以分子 ${a}×${k}＝${a*k}。`,[a+k,a,a*k+1,a*k-1],`${a}*${k}`)}
+[ // W4 P4: fractions and decimals intro.  0 frac-add, 1 frac-sub, 2 frac-of, 3 dec-add, 4 dec-sub, 5 frac-dec, 6 frac-eq
+(r,p)=>{const d=N(r,p,3,12),a=ri(r,1,d-2),b=ri(r,1,d-1-a),g=gcd(a+b,d);return o('frac-add',`${a}/${d}＋${b}/${d}＝？（答案寫成最簡分數，例如 3/4）`,fr(a+b,d),'分母相同，只加分子。',`分母相同（都是 ${d} 份），只把分子相加：${a}＋${b}＝${a+b}，得 ${a+b}/${d}；${g>1?`分子分母同除以 ${g}，化簡得 ${fr(a+b,d)}`:'已經是最簡分數，不用再化簡'}。`,[`${a+b}/${2*d}`,`${a*b}/${d}`,`${a+b+1}/${d}`,`${a+b}/${d+1}`],null,null,'simplest')},
+(r,p)=>{const d=N(r,p,3,12),a=ri(r,2,d-1),b=ri(r,1,a-1),g=gcd(a-b,d);return o('frac-sub',`${a}/${d}－${b}/${d}＝？（答案寫成最簡分數，例如 3/4）`,fr(a-b,d),'分母相同，只減分子。',`分母相同（都是 ${d} 份），只把分子相減：${a}－${b}＝${a-b}，得 ${a-b}/${d}；${g>1?`分子分母同除以 ${g}，化簡得 ${fr(a-b,d)}`:'已經是最簡分數，不用再化簡'}。`,[`${a-b}/${d*2}`,`${a-b}/${d-1<2?d+1:d-1}`,`${a+b}/${d}`,`${a-b+1}/${d}`],null,null,'simplest')},
+(r,p)=>{const d=pk(r,[2,3,4,5,6,8,10].slice(0,3+Math.round(4*p.s))),k=N(r,p,2,12),t=d*k,n=ri(r,1,d-1),s=n*k;return o('frac-of',`${t} 個蘋果的 ${n}/${d} 是多少個？`,s,`先求 1/${d} 是多少。`,`先求 1 份：把 ${t} 平均分成 ${d} 份，${t}÷${d}＝${k}；再取 ${n} 份：${k}×${n}＝${s}。`,[k,t-s,s+k,s-k>0?s-k:s+1],`${t}/${d}*${n}`)},
+(r,p)=>{const u=p.s>.6?100:10,dg=u===10?1:2,hi=u===10?60:600,A=N(r,p,1,hi),B=N(r,p,1,hi),f=x=>(x/u).toFixed(dg),s=fx((A+B)/u),un=u===10?'0.1':'0.01';return o('dec-add',`${f(A)}＋${f(B)}＝？`,s,'小數點要對齊，再逐位相加。',`小數點對齊再加：${f(A)} 是 ${A} 個 ${un}，${f(B)} 是 ${B} 個 ${un}，合共 ${A}＋${B}＝${A+B} 個 ${un}，即 ${s}。`,[(A+B)/u+1,(A+B)/u-.1*(u===10?1:.1),(A+B)/(u*10),A+B],`${fx(A/u)}+${fx(B/u)}`,[f(A+B)])},
+(r,p)=>{const u=p.s>.6?100:10,dg=u===10?1:2,hi=u===10?99:900,A=N(r,p,5,hi),B=N(r,p,1,A-1),f=x=>(x/u).toFixed(dg),s=fx((A-B)/u),un=u===10?'0.1':'0.01';return o('dec-sub',`${f(A)}－${f(B)}＝？`,s,'小數點要對齊，留意退位。',`小數點對齊再減：${f(A)} 是 ${A} 個 ${un}，${f(B)} 是 ${B} 個 ${un}，相差 ${A}－${B}＝${A-B} 個 ${un}，即 ${s}。`,[(A-B)/u+1,(A-B)/u+(u===10?.1:.01),(A-B)/(u*10),A-B],`${fx(A/u)}-${fx(B/u)}`,[f(A-B)])},
+(r,p)=>{const L=[[1,2],[1,4],[3,4],[1,5],[2,5],[3,5],[4,5],[1,8],[3,8],[1,20],[7,20],[9,20]],l=L.slice(0,3+Math.round(p.s*(L.length-3))),[a,b]=pk(r,l),pw=[10,100,1000].find(x=>x%b===0);return o('frac-dec',`${a}/${b} 化成小數是多少？（答案寫成小數）`,fx(a/b),`試試把分母變成 10 或 100，或做 ${a}÷${b}。`,`把分母 ${b} 變成 ${pw}：分子分母同乘 ${pw/b}，${a}/${b}＝${a*pw/b}/${pw}＝${fx(a/b)}。（也可以做除法：${a}÷${b}＝${fx(a/b)}）`,[a/b*10,a/b/10,b/a<1?b/a:a/b+.1,a/b+.1],null,null,'dec')},
+(r,p)=>{const b=N(r,p,2,9),a=ri(r,1,b-1),k=N(r,p,2,6);return o('frac-eq',`${a}/${b}＝☐/${b*k}，☐ 是多少？`,a*k,'分母乘幾倍，分子也乘幾倍。',`分母由 ${b} 變成 ${b*k}，乘了 ${k}；分數的值不變，分子也要乘 ${k}：${a}×${k}＝${a*k}。`,[a+k,a,a*k+1,a*k-1],`${a}*${k}`)}
 ],
-[ // P5: decimals, percent, average
-(r,p)=>{const A=N(r,p,12,99),c=N(r,p,2,9),s=fx(A*c/10);return o('dec-mul',`${(A/10).toFixed(1)}×${c}＝？`,s,'先當作整數乘，再放回小數點。',`${A}×${c}＝${A*c}，放回小數點得 ${s}。`,[A*c/100,A*c,A*c/10+1,A*c/10-1],`${A/10}*${c}`,[(A*c/10).toFixed(1)])},
-(r,p)=>{const Q=N(r,p,2,60),c=N(r,p,2,9),A=Q*c,s=fx(Q/10);return o('dec-div',`${(A/10).toFixed(1)}÷${c}＝？`,s,'先當作整數除，再放回小數點。',`${A}÷${c}＝${Q}，放回小數點得 ${s}。`,[Q/100,Q,Q/10+1,Q/10+.1],`${A/10}/${c}`,[(Q/10).toFixed(1)])},
-(r,p)=>{const pc=pk(r,[10,50,20,25,5,30,40,75,60,15].slice(0,4+Math.round(6*p.s))),m=100/gcd(pc,100),N0=m*ri(r,1,2+Math.round(p.s*9)),s=N0*pc/100;return o('percent-of',`${N0} 的 ${pc}% 是多少？`,s,`${pc}% 即是 ${pc}/100。`,`${N0}×${pc}÷100＝${s}。`,[N0*pc,N0-s,N0+s,s*10],`${N0}*${pc}/100`)},
-(r,p)=>{const b=pk(r,[2,4,5,10,20,25,50].slice(0,3+Math.round(4*p.s))),a=ri(r,1,b-1),s=a*100/b;return o('frac-pct',`${a}/${b} 等於百分之幾？（答案只寫數字，單位：%）`,s,'把分母化成 100。',`${a}/${b}＝${s}/100＝${s}%。`,[a*b,s/10,100-s,s+10],`${a}*100/${b}`)},
-(r,p)=>{const k=ri(r,3,3+Math.round(3*p.s)),m=N(r,p,5,90),v=spread(r,k,m,Math.min(m-1,2+Math.round(10*p.s)));return o('mean',`某同學 ${k} 次測驗的分數是：${v.join('、')}。平均分是多少？`,m,'平均數＝總和 ÷ 項數。',`總和 ${k*m}，${k*m}÷${k}＝${m}。`,[k*m,m+1,m-1,Math.max(...v)],`(${v.join('+')})/${k}`)},
-(r,p)=>{const P=10*N(r,p,3,60),z=pk(r,[9,8,5,7,6].slice(0,2+Math.round(3*p.s))),s=P*z/10;return o('discount',`原價 $${P} 的貨品打${CN[z]}折出售，售價是多少元？（答案只寫數字）`,s,`${CN[z]}折即是原價的 ${z}/10。`,`${P}×${z}÷10＝${s}。`,[P*(10-z)/10,P-z,P*z/100,s+10],`${P}*${z}/10`)},
-(r,p)=>{const k=ri(r,3,3+Math.round(2*p.s)),m=N(r,p,40,90),v=spread(r,k,m,Math.min(15,2+Math.round(10*p.s))),f=v.slice(0,k-1),l=v[k-1],nn=nm(r);return o('mean-missing',`${nn}前 ${k-1} 次測驗的分數是 ${f.join('、')}。若 ${k} 次測驗的平均分是 ${m}，第 ${k} 次要考多少分？`,l,'先求出總分應該是多少。',`總分 ${m}×${k}＝${m*k}，${m*k}－${f.reduce((a,b)=>a+b,0)}＝${l}。`,[m,l+1,l-1,m*k],`${m}*${k}-(${f.join('+')})`)}
+[ // W5 P5: decimals, percent, average.  0 dec-mul, 1 dec-div, 2 percent-of, 3 frac-pct, 4 mean, 5 discount, 6 mean-missing
+(r,p)=>{const A=N(r,p,12,99),c=N(r,p,2,9),s=fx(A*c/10);return o('dec-mul',`${(A/10).toFixed(1)}×${c}＝？`,s,'先當作整數乘，再放回小數點。',`先當作整數乘：${A}×${c}＝${A*c}；${(A/10).toFixed(1)} 有 1 位小數，積也要有 1 位小數，所以是 ${s}。`,[A*c/100,A*c,A*c/10+1,A*c/10-1],`${A/10}*${c}`,[(A*c/10).toFixed(1)])},
+(r,p)=>{const Q=N(r,p,2,60),c=N(r,p,2,9),A=Q*c,s=fx(Q/10);return o('dec-div',`${(A/10).toFixed(1)}÷${c}＝？`,s,'先當作整數除，再放回小數點。',`先當作整數除：${A}÷${c}＝${Q}；被除數有 1 位小數，商也有 1 位小數，所以是 ${s}。`,[Q/100,Q,Q/10+1,Q/10+.1],`${A/10}/${c}`,[(Q/10).toFixed(1)])},
+(r,p)=>{const pc=pk(r,[10,50,20,25,5,30,40,75,60,15].slice(0,4+Math.round(6*p.s))),m=100/gcd(pc,100),N0=m*ri(r,1,2+Math.round(p.s*9)),s=N0*pc/100,sp={10:`10% 就是十分之一，把 ${N0} 除以 10：${N0}÷10＝${s}。`,50:`50% 就是一半：${N0}÷2＝${s}。`,25:`25% 就是四分之一：${N0}÷4＝${s}。`}[pc];return o('percent-of',`${N0} 的 ${pc}% 是多少？`,s,`${pc}% 即是 ${pc}/100。`,sp||`${pc}% 就是 100 份中取 ${pc} 份：先乘 ${pc}，再除以 100：${N0}×${pc}＝${N0*pc}，${N0*pc}÷100＝${s}。`,[N0*pc,N0-s,N0+s,s*10],`${N0}*${pc}/100`)},
+(r,p)=>{const b=pk(r,[2,4,5,10,20,25,50].slice(0,3+Math.round(4*p.s))),a=ri(r,1,b-1),s=a*100/b;return o('frac-pct',`${a}/${b} 等於百分之幾？（答案只寫數字，單位：%）`,s,'把分母化成 100。',`百分數的分母是 100：${b}×${100/b}＝100，分子也要乘 ${100/b}：${a}×${100/b}＝${s}，所以是 ${s}%。`,[a*b,s/10,100-s,s+10],`${a}*100/${b}`)},
+(r,p)=>{const k=ri(r,3,3+Math.round(3*p.s)),m=N(r,p,5,90),v=spread(r,k,m,Math.min(m-1,2+Math.round(10*p.s)));return o('mean',`某同學 ${k} 次測驗的分數是：${v.join('、')}。平均分是多少？`,m,'平均數＝總和 ÷ 項數。',`平均數＝總和÷次數：先把分數加起來，${v.join('＋')}＝${k*m}，再除以 ${k}：${k*m}÷${k}＝${m}。`,[k*m,m+1,m-1,Math.max(...v)],`(${v.join('+')})/${k}`)},
+(r,p)=>{const P=10*N(r,p,3,60),z=pk(r,[9,8,5,7,6].slice(0,2+Math.round(3*p.s))),s=P*z/10;return o('discount',`原價 $${P} 的貨品打${CN[z]}折出售，售價是多少元？（答案只寫數字）`,s,`${CN[z]}折即是原價的 ${z}/10。`,`${CN[z]}折就是付原價的 ${z}/10：先求 1/10，${P}÷10＝${P/10}，再乘 ${z}：${P/10}×${z}＝${s}（元）。`,[P*(10-z)/10,P-z,P*z/100,s+10],`${P}*${z}/10`)},
+(r,p)=>{const k=ri(r,3,3+Math.round(2*p.s)),m=N(r,p,40,90),v=spread(r,k,m,Math.min(15,2+Math.round(10*p.s))),f=v.slice(0,k-1),l=v[k-1],nn=nm(r),sm=f.reduce((a,b)=>a+b,0);return o('mean-missing',`${nn}前 ${k-1} 次測驗的分數是 ${f.join('、')}。若 ${k} 次測驗的平均分是 ${m}，第 ${k} 次要考多少分？`,l,'先求出總分應該是多少。',`平均數×次數＝總分：${m}×${k}＝${m*k}；前 ${k-1} 次已得 ${f.join('＋')}＝${sm}，所以第 ${k} 次要考 ${m*k}－${sm}＝${l}。`,[m,l+1,l-1,m*k],`${m}*${k}-(${f.join('+')})`)}
 ],
-[ // P6: perimeter, area, speed, ratio
-(r,p)=>{if(r()<.3){const a=N(r,p,3,40);return o('perim',`正方形的邊長是 ${a} 厘米，周界是多少厘米？（答案只寫數字）`,4*a,'正方形有四條相等的邊。',`${a}×4＝${4*a}。`,[a*a,2*a,a*3,4*a+4],`4*${a}`)}const l=N(r,p,3,40),w=N(r,p,2,l-1);return o('perim',`長方形的長是 ${l} 厘米，闊是 ${w} 厘米，周界是多少厘米？（答案只寫數字）`,2*(l+w),'周界是四條邊的總長。',`2×(${l}＋${w})＝${2*(l+w)}。`,[l*w,l+w,2*l+w,l*2+w*2+2],`2*(${l}+${w})`)},
-(r,p)=>{if(r()<.3){const a=N(r,p,3,25);return o('area',`正方形的邊長是 ${a} 厘米，面積是多少平方厘米？（答案只寫數字）`,a*a,'面積＝邊長×邊長。',`${a}×${a}＝${a*a}。`,[4*a,2*a,a*a+a,a*a-a],`${a}*${a}`)}const l=N(r,p,3,40),w=N(r,p,2,l-1);return o('area',`長方形的長是 ${l} 厘米，闊是 ${w} 厘米，面積是多少平方厘米？（答案只寫數字）`,l*w,'面積＝長×闊。',`${l}×${w}＝${l*w}。`,[2*(l+w),l+w,l*w+l,l*w-w],`${l}*${w}`)},
-(r,p)=>{const b=N(r,p,3,30);let h=N(r,p,2,24);if(b*h%2)h++;const s=b*h/2;return o('tri-area',`三角形的底是 ${b} 厘米，高是 ${h} 厘米，面積是多少平方厘米？（答案只寫數字）`,s,'三角形面積＝底×高÷2。',`${b}×${h}÷2＝${s}。`,[b*h,b+h,s+b,s-h>0?s-h:s+2],`${b}*${h}/2`)},
-(r,p)=>{const v=N(r,p,20,90),t=N(r,p,2,8),d=v*t,k=ri(r,0,2);if(k===0)return o('speed',`一輛巴士以每小時 ${v} 公里的速度行駛 ${t} 小時，共行駛多少公里？`,d,'路程＝速度×時間。',`${v}×${t}＝${d}。`,[v+t,d+v,d-v,d/10],`${v}*${t}`);if(k===1)return o('speed',`一輛巴士行駛了 ${d} 公里，用了 ${t} 小時，平均每小時行駛多少公里？`,v,'速度＝路程÷時間。',`${d}÷${t}＝${v}。`,[d*t,v+1,v-1,d-t],`${d}/${t}`);return o('speed',`一輛巴士以每小時 ${v} 公里的速度行駛，要行駛 ${d} 公里，需要多少小時？`,t,'時間＝路程÷速度。',`${d}÷${v}＝${t}。`,[v,t+1,t-1,d-v>0?d-v:t+2],`${d}/${v}`)},
-(r,p)=>{const a=N(r,p,1,5),b=N(r,p,2,7),T=(a+b)*N(r,p,2,15),x=r()<.5,q=T/(a+b)*(x?a:b),c=x?['紅','藍']:['藍','紅'];return o('ratio-share',`紅珠和藍珠的數量比是 ${a}:${b}，共有 ${T} 粒，${x?'紅':'藍'}珠有多少粒？`,q,'先求每一份是多少。',`共 ${a+b} 份，每份 ${T/(a+b)}，${x?'紅':'藍'}珠有 ${q} 粒。`,[T/(a+b),T-q,q+T/(a+b),T/(a+b)*(x?b:a)],`${T}/(${a}+${b})*${x?a:b}`)},
-(r,p)=>{const x=N(r,p,1,6),y=N(r,p,2,9),k=N(r,p,2,12);return o('ratio-scale',`甲與乙的比是 ${x}:${y}。若甲是 ${x*k}，乙是多少？`,k*y,'先求比的每一份是多少。',`${x*k}÷${x}＝${k}，乙＝${k}×${y}＝${k*y}。`,[x*k+y,k*y+k,k*y-k>0?k*y-k:k*y+1,k],`${x*k}/${x}*${y}`)},
-(r,p)=>{const L=N(r,p,6,30),W=N(r,p,5,L-1),l2=N(r,p,2,L-3),w2=N(r,p,2,W-2),s=L*W-l2*w2;return o('area-sub',`一個長 ${L} 米、闊 ${W} 米的長方形地方，角落挖去一個長 ${l2} 米、闊 ${w2} 米的長方形水池，剩下的面積是多少平方米？（答案只寫數字）`,s,'大面積減去挖去的面積。',`${L}×${W}－${l2}×${w2}＝${s}。`,[L*W+l2*w2,L*W,(L-l2)*(W-w2),s+l2],`${L}*${W}-${l2}*${w2}`)}
+[ // W6 P6: perimeter, area, speed, ratio.  0 perim, 1 area, 2 tri-area, 3 speed, 4 ratio-share, 5 ratio-scale, 6 area-sub
+(r,p)=>{if(r()<.3){const a=N(r,p,3,40);return o('perim',`正方形的邊長是 ${a} 厘米，周界是多少厘米？（答案只寫數字）`,4*a,'正方形有四條相等的邊。',`正方形四條邊一樣長，周界＝邊長×4：${a}×4＝${4*a}（厘米）。`,[a*a,2*a,a*3,4*a+4],`4*${a}`)}const l=N(r,p,3,40),w=N(r,p,2,l-1);return o('perim',`長方形的長是 ${l} 厘米，闊是 ${w} 厘米，周界是多少厘米？（答案只寫數字）`,2*(l+w),'周界是四條邊的總長。',`長方形對邊相等，周界＝(長＋闊)×2：(${l}＋${w})×2＝${l+w}×2＝${2*(l+w)}（厘米）。`,[l*w,l+w,2*l+w,l*2+w*2+2],`2*(${l}+${w})`)},
+(r,p)=>{if(r()<.3){const a=N(r,p,3,25);return o('area',`正方形的邊長是 ${a} 厘米，面積是多少平方厘米？（答案只寫數字）`,a*a,'面積＝邊長×邊長。',`面積是鋪滿多少個 1 平方厘米；正方形面積＝邊長×邊長：${a}×${a}＝${a*a}（平方厘米）。`,[4*a,2*a,a*a+a,a*a-a],`${a}*${a}`)}const l=N(r,p,3,40),w=N(r,p,2,l-1);return o('area',`長方形的長是 ${l} 厘米，闊是 ${w} 厘米，面積是多少平方厘米？（答案只寫數字）`,l*w,'面積＝長×闊。',`面積是鋪滿多少個 1 平方厘米；長方形面積＝長×闊：${l}×${w}＝${l*w}（平方厘米）。`,[2*(l+w),l+w,l*w+l,l*w-w],`${l}*${w}`)},
+(r,p)=>{const b=N(r,p,3,30);let h=N(r,p,2,24);if(b*h%2)h++;const s=b*h/2;return o('tri-area',`三角形的底是 ${b} 厘米，高是 ${h} 厘米，面積是多少平方厘米？（答案只寫數字）`,s,'三角形面積＝底×高÷2。',`三角形是同底同高長方形的一半：先算長方形 ${b}×${h}＝${b*h}，再除以 2：${b*h}÷2＝${s}（平方厘米）。`,[b*h,b+h,s+b,s-h>0?s-h:s+2],`${b}*${h}/2`)},
+(r,p)=>{const v=N(r,p,20,90),t=N(r,p,2,8),d=v*t,k=ri(r,0,2);if(k===0)return o('speed',`一輛巴士以每小時 ${v} 公里的速度行駛 ${t} 小時，共行駛多少公里？`,d,'路程＝速度×時間。',`路程＝速度×時間：每小時行 ${v} 公里，行 ${t} 小時，就是 ${t} 個 ${v}：${v}×${t}＝${d}（公里）。`,[v+t,d+v,d-v,d/10],`${v}*${t}`);if(k===1)return o('speed',`一輛巴士行駛了 ${d} 公里，用了 ${t} 小時，平均每小時行駛多少公里？`,v,'速度＝路程÷時間。',`速度＝路程÷時間：${d} 公里平均分給 ${t} 小時，${d}÷${t}＝${v}（公里／小時）。`,[d*t,v+1,v-1,d-t],`${d}/${t}`);return o('speed',`一輛巴士以每小時 ${v} 公里的速度行駛，要行駛 ${d} 公里，需要多少小時？`,t,'時間＝路程÷速度。',`時間＝路程÷速度：看看 ${d} 公里裏有幾個 ${v} 公里，${d}÷${v}＝${t}（小時）。`,[v,t+1,t-1,d-v>0?d-v:t+2],`${d}/${v}`)},
+(r,p)=>{const a=N(r,p,1,5),b=N(r,p,2,7),T=(a+b)*N(r,p,2,15),x=r()<.5,q=T/(a+b)*(x?a:b),per=T/(a+b);return o('ratio-share',`紅珠和藍珠的數量比是 ${a}:${b}，共有 ${T} 粒，${x?'紅':'藍'}珠有多少粒？`,q,'先求每一份是多少。',`先把比當作份數：共 ${a}＋${b}＝${a+b} 份，每份 ${T}÷${a+b}＝${per}；${x?'紅':'藍'}珠佔 ${x?a:b} 份：${per}×${x?a:b}＝${q}（粒）。`,[per,T-q,q+per,per*(x?b:a)],`${T}/(${a}+${b})*${x?a:b}`)},
+(r,p)=>{const x=N(r,p,1,6),y=N(r,p,2,9),k=N(r,p,2,12);return o('ratio-scale',`甲與乙的比是 ${x}:${y}。若甲是 ${x*k}，乙是多少？`,k*y,'先求比的每一份是多少。',`先求一份是多少：甲佔 ${x} 份是 ${x*k}，一份＝${x*k}÷${x}＝${k}；乙佔 ${y} 份：${k}×${y}＝${k*y}。`,[x*k+y,k*y+k,k*y-k>0?k*y-k:k*y+1,k],`${x*k}/${x}*${y}`)},
+(r,p)=>{const L=N(r,p,6,30),W=N(r,p,5,L-1),l2=N(r,p,2,L-3),w2=N(r,p,2,W-2),s=L*W-l2*w2;return o('area-sub',`一個長 ${L} 米、闊 ${W} 米的長方形地方，角落挖去一個長 ${l2} 米、闊 ${w2} 米的長方形水池，剩下的面積是多少平方米？（答案只寫數字）`,s,'大面積減去挖去的面積。',`剩下的面積＝大長方形－水池：大長方形 ${L}×${W}＝${L*W}，水池 ${l2}×${w2}＝${l2*w2}，${L*W}－${l2*w2}＝${s}（平方米）。`,[L*W+l2*w2,L*W,(L-l2)*(W-w2),s+l2],`${L}*${W}-${l2}*${w2}`)}
 ]
 ];
 
 const OLY=[
-[ // sequences
-(r,p)=>{const a=N(r,p,1,40),d=N(r,p,2,15),len=4+Math.round(2*p.s),t=[...Array(len)].map((_,i)=>a+d*i),s=a+d*len;return o('seq-arith',`找規律：${t.join('、')}、？`,s,'看看相鄰兩個數相差多少。',`每次加 ${d}，${t[len-1]}＋${d}＝${s}。`,[s+1,s-1,s+d,t[len-1]+d+1],`${t[len-1]}+${d}`)},
-(r,p)=>{const a=N(r,p,1,30),d=N(r,p,2,12),n=N(r,p,6,40),s=a+(n-1)*d;return o('seq-nth',`一列數：${a}、${a+d}、${a+2*d}、${a+3*d}、……，第 ${n} 項是多少？`,s,'第 n 項＝首項＋(n－1)×相差。',`${a}＋(${n}－1)×${d}＝${s}。`,[a+n*d,a+(n-2)*d,n*d,s+d],`${a}+(${n}-1)*${d}`)},
-(r,p)=>{const a=pk(r,[1,2,3]),k=pk(r,[2,2,3].slice(0,2+(p.s>.5?1:0))),len=4+(p.s>.6?1:0),t=[...Array(len)].map((_,i)=>a*Math.pow(k,i)),s=t[len-1]*k;return o('seq-geo',`找規律：${t.join('、')}、？`,s,'每一項是前一項的幾倍？',`每次乘 ${k}，${t[len-1]}×${k}＝${s}。`,[t[len-1]+k,t[len-1]*2+1,s-k,t[len-1]+(t[len-1]-t[len-2])],`${t[len-1]}*${k}`)},
-(r,p)=>{const a=ri(r,1,8),d1=ri(r,1,3),e=ri(r,1,1+Math.round(p.s*2)),len=5+(p.s>.5?1:0),t=[a];for(let i=0;i<len;i++)t.push(t[i]+d1+e*i);const sh_=t.slice(0,len);return o('seq-diff2',`找規律：${sh_.join('、')}、？`,t[len],'看看相鄰兩數的差，這些差有什麼規律？',`差依次是 ${sh_.slice(1).map((x,i)=>x-sh_[i]).join('、')}，下一個差是 ${t[len]-t[len-1]}，所以是 ${t[len]}。`,[t[len]+1,t[len]-1,t[len-1]+(t[len-1]-t[len-2]),t[len]+e])},
-(r,p)=>{const a=ri(r,1,4),b=ri(r,1,6),len=5+Math.round(p.s*2),t=[a,b];for(let i=2;i<=len;i++)t.push(t[i-1]+t[i-2]);return o('seq-fib',`一列數：${t.slice(0,len).join('、')}、？（由第 3 個數起，每個數都等於前兩個數之和）`,t[len],'下一個數＝最後兩個數相加。',`${t[len-2]}＋${t[len-1]}＝${t[len]}。`,[t[len]+1,t[len]-1,t[len-1]+1,t[len-1]*2],`${t[len-2]}+${t[len-1]}`)},
-(r,p)=>{const a=N(r,p,1,20),b=N(r,p,30,60),d=ri(r,1,2+Math.round(4*p.s)),e=ri(r,2,3+Math.round(6*p.s)),m=6+(r()<.5?1:0),t=[];for(let i=0;i<m+1;i++)t.push(i%2?b+e*((i-1)/2):a+d*(i/2));const sh_=t.slice(0,m);return o('seq-inter',`找規律：${sh_.join('、')}、？`,t[m],'把單數位置和雙數位置的數分開看。',`${m%2?'偶':'奇'}數位置的數每次加 ${m%2?e:d}，所以是 ${t[m]}。`,[t[m]+1,t[m]-1,m%2?t[m-1]+e:t[m-1]+d])},
-(r,p)=>{const a=N(r,p,3,50),d=N(r,p,2,12),i=ri(r,1,4),t=[...Array(6)].map((_,j)=>j===i?'☐':a+d*j),s=a+d*i;return o('seq-missing',`找出空格的數：${t.join('、')}`,s,'先找出相鄰兩數的差。',`每次加 ${d}，☐＝${a+d*(i-1)}＋${d}＝${s}。`,[s+1,s-1,s+d,s-d],`${a}+${d}*${i}`)}
+[ // W1 sequences.  0 seq-arith, 1 seq-nth, 2 seq-geo, 3 seq-diff2, 4 seq-fib, 5 seq-inter, 6 seq-missing
+(r,p)=>{const a=N(r,p,1,40),d=N(r,p,2,15),len=4+Math.round(2*p.s),t=[...Array(len)].map((_,i)=>a+d*i),s=a+d*len;return o('seq-arith',`找規律：${t.join('、')}、？`,s,'看看相鄰兩個數相差多少。',`看相鄰兩個數的差：${t[1]}－${t[0]}＝${d}，每次都加 ${d}；最後一個是 ${t[len-1]}，下一個 ${t[len-1]}＋${d}＝${s}。`,[s+1,s-1,s+d,t[len-1]+d+1],`${t[len-1]}+${d}`)},
+(r,p)=>{const a=N(r,p,1,30),d=N(r,p,2,12),n=N(r,p,6,40),s=a+(n-1)*d;return o('seq-nth',`一列數：${a}、${a+d}、${a+2*d}、${a+3*d}、……，第 ${n} 項是多少？`,s,'第 n 項＝首項＋(n－1)×相差。',`第 n 項＝首項＋(n－1)×相差：相差是 ${d}，第 ${n} 項是由第 1 項再加 ${n-1} 次：${a}＋${n-1}×${d}＝${a}＋${(n-1)*d}＝${s}。`,[a+n*d,a+(n-2)*d,n*d,s+d],`${a}+(${n}-1)*${d}`)},
+(r,p)=>{const k=pk(r,[2,2,3,4].slice(0,2+(p.s>.3?1:0)+(p.s>.6?1:0))),down=p.s>.3&&r()<.3,a=ri(r,1,2+Math.round(7*p.s));let len=4+(p.s>.6?1:0);while(len>3&&a*Math.pow(k,len)>2200)len--;
+  if(down){const t=[...Array(len)].map((_,i)=>a*Math.pow(k,len-i));return o('seq-geo',`找規律：${t.join('、')}、？`,a,'每一項是前一項的幾分之一？',`看相鄰兩個數是幾倍關係：${t[0]}÷${t[1]}＝${k}，每次都除以 ${k}；${t[len-1]}÷${k}＝${a}。`,[a+1,a*k,t[len-1]-k>0?t[len-1]-k:a+2,a*2+1],`${t[len-1]}/${k}`)}
+  const t=[...Array(len)].map((_,i)=>a*Math.pow(k,i)),s=t[len-1]*k;return o('seq-geo',`找規律：${t.join('、')}、？`,s,'每一項是前一項的幾倍？',`看相鄰兩個數是幾倍關係：${t[1]}÷${t[0]}＝${k}，每次都乘 ${k}；${t[len-1]}×${k}＝${s}。`,[t[len-1]+k,t[len-1]*2+1,s-k,t[len-1]+(t[len-1]-t[len-2])],`${t[len-1]}*${k}`)},(r,p)=>{const a=ri(r,1,8),d1=ri(r,1,3),e=ri(r,1,1+Math.round(p.s*2)),len=5+(p.s>.5?1:0),t=[a];for(let i=0;i<len;i++)t.push(t[i]+d1+e*i);const sh_=t.slice(0,len),df=sh_.slice(1).map((x,i)=>x-sh_[i]);return o('seq-diff2',`找規律：${sh_.join('、')}、？`,t[len],'看看相鄰兩數的差，這些差有什麼規律？',`先看相鄰兩數的差：${df.join('、')}；這些差每次多 ${e}，下一個差是 ${t[len]-t[len-1]}，所以 ${t[len-1]}＋${t[len]-t[len-1]}＝${t[len]}。`,[t[len]+1,t[len]-1,t[len-1]+(t[len-1]-t[len-2]),t[len]+e])},
+(r,p)=>{const a=ri(r,1,4),b=ri(r,1,6),len=5+Math.round(p.s*2),t=[a,b];for(let i=2;i<=len;i++)t.push(t[i-1]+t[i-2]);return o('seq-fib',`一列數：${t.slice(0,len).join('、')}、？（由第 3 個數起，每個數都等於前兩個數之和）`,t[len],'下一個數＝最後兩個數相加。',`每個數都是前兩個數之和，所以下一個數是最後兩個數相加：${t[len-2]}＋${t[len-1]}＝${t[len]}。`,[t[len]+1,t[len]-1,t[len-1]+1,t[len-1]*2],`${t[len-2]}+${t[len-1]}`)},
+(r,p)=>{const a=N(r,p,1,20),b=N(r,p,30,60),d=ri(r,1,2+Math.round(4*p.s)),e=ri(r,2,3+Math.round(6*p.s)),m=6+(r()<.5?1:0),t=[];for(let i=0;i<m+1;i++)t.push(i%2?b+e*((i-1)/2):a+d*(i/2));const sh_=t.slice(0,m),od=sh_.filter((_,i)=>i%2===0),ev_=sh_.filter((_,i)=>i%2===1);return o('seq-inter',`找規律：${sh_.join('、')}、？`,t[m],'把單數位置和雙數位置的數分開看。',`把數列分成兩行：第 1、3、5……個數是 ${od.join('、')}（每次加 ${d}），第 2、4、6……個數是 ${ev_.join('、')}（每次加 ${e}）；要找的是第 ${m+1} 個，在${m%2?'第二':'第一'}行，${t[m-2]}＋${m%2?e:d}＝${t[m]}。`,[t[m]+1,t[m]-1,m%2?t[m-1]+e:t[m-1]+d])},
+(r,p)=>{const a=N(r,p,3,50),d=N(r,p,2,12),i=ri(r,1,4),t=[...Array(6)].map((_,j)=>j===i?'☐':a+d*j),s=a+d*i;return o('seq-missing',`找出空格的數：${t.join('、')}`,s,'先找出相鄰兩數的差。',`先找相鄰兩數的差：每次都加 ${d}；空格前面是 ${a+d*(i-1)}，所以 ☐＝${a+d*(i-1)}＋${d}＝${s}。`,[s+1,s-1,s+d,s-d],`${a}+${d}*${i}`)}
 ],
-[ // clever calculation
-(r,p)=>{const S=p.s>.55&&r()<.6?1000:100,x=ri(r,S/10+1,S-S/10-1),y=ri(r,S/10+1,S-S/10-1),e=ri(r,S/10,S-1),ts=sh(r,[x,y,S-x,S-y,e]),s=2*S+e;return o('make-whole',`${ts.join('＋')}＝？（想想怎樣湊整）`,s,`找兩個加起來是 ${S} 的數。`,`${x}＋${S-x}＝${S}，${y}＋${S-y}＝${S}，所以 ${S}＋${S}＋${e}＝${s}。`,[s+S,s-S,s+10,s-10,s+1],ts.join('+'))},
-(r,p)=>{const n=N(r,p,10,100),s=n*(n+1)/2;return o('gauss',`1＋2＋3＋……＋${n}＝？`,s,'頭尾配對，每對的和相同。',`(1＋${n})×${n}÷2＝${s}。`,[n*(n+1),s+n,s-n,n*n/2+0.5>0?Math.round(n*n/2):s+1],`${n}*(${n}+1)/2`)},
-(r,p)=>{const a=ri(r,1,9),d=ri(r,2,9),n=N(r,p,5,30),l=a+d*(n-1),s=n*(a+l)/2;return o('arith-sum',`${a}＋${a+d}＋${a+2*d}＋……＋${l}（每項比前一項多 ${d}，共 ${n} 項）＝？`,s,'(首項＋末項)×項數÷2。',`(${a}＋${l})×${n}÷2＝${s}。`,[n*(a+l),s+l,s-a,s+d],`${n}*(${a}+${l})/2`)},
-(r,p)=>{const K=pk(r,[[99,0],[101,0],[11,0],[25,1],[5,2]].slice(0,2+Math.round(3*p.s)));let a=N(r,p,12,99);if(K[1]===1)a=4*ri(r,3,24);if(K[1]===2)a=2*ri(r,6,49);const s=a*K[0],hh={99:'×99＝×100 再減一份。',101:'×101＝×100 再加一份。',11:'×11＝×10 再加一份。',25:'×25＝×100÷4。',5:'×5＝×10÷2。'}[K[0]];return o('quick-mul',`${a}×${K[0]}＝？`,s,hh,`${a}×${K[0]}＝${s}。`,[s+a,s-a,s+10,s-10],`${a}*${K[0]}`)},
-(r,p)=>{const x=N(r,p,12,99),c=ri(r,11,90);if(r()<.5){const q=ri(r,11,89);return o('distrib',`${x}×${q}＋${x}×${100-q}＝？`,x*100,'相同的因數可以提出來。',`${x}×(${q}＋${100-q})＝${x}×100＝${x*100}。`,[x*10,x*100+x,x*100-x,x*1000],`${x}*${q}+${x}*${100-q}`)}const m=pk(r,[10,100,20,50]);return o('distrib',`${x}×${c+m}－${x}×${c}＝？`,x*m,'相同的因數可以提出來。',`${x}×(${c+m}－${c})＝${x}×${m}＝${x*m}。`,[x*(m+c),x*m+x,x*m-x,x*c],`${x}*${c+m}-${x}*${c}`)},
-(r,p)=>{const n=2*N(r,p,3,50);return o('alt-sum',`${n}－${n-1}＋${n-2}－${n-3}＋……＋2－1＝？`,n/2,'兩個兩個一組，看每組的結果。',`(${n}－${n-1})＝1，共 ${n/2} 組，所以是 ${n/2}。`,[n,n/2+1,n/2-1,n-1],`${n}/2`)},
-(r,p)=>{const k=pk(r,[3,5,7].slice(0,1+Math.round(2*p.s))),mid=N(r,p,5,200),S=mid*k,s=mid+(k-1)/2;return o('consec',`${k} 個連續整數的和是 ${S}，其中最大的一個是多少？`,s,'連續整數的平均數就是中間那個數。',`中間數＝${S}÷${k}＝${mid}，最大數＝${mid}＋${(k-1)/2}＝${s}。`,[mid,s+1,s-1,mid-(k-1)/2],`${S}/${k}+${(k-1)/2}`)}
+[ // W2 clever calculation.  0 make-whole, 1 gauss, 2 arith-sum, 3 quick-mul, 4 distrib, 5 alt-sum, 6 consec
+(r,p)=>{const S=p.s>.55&&r()<.6?1000:100,x=ri(r,S/10+1,S-S/10-1),y=ri(r,S/10+1,S-S/10-1),e=ri(r,S/10,S-1),ts=sh(r,[x,y,S-x,S-y,e]),s=2*S+e;return o('make-whole',`${ts.join('＋')}＝？（想想怎樣湊整）`,s,`找兩個加起來是 ${S} 的數。`,`先找加起來湊成 ${S} 的一對：${x}＋${S-x}＝${S}，${y}＋${S-y}＝${S}；兩對共 ${2*S}，再加 ${e}：${2*S}＋${e}＝${s}。`,[s+S,s-S,s+10,s-10,s+1],ts.join('+'))},
+(r,p)=>{const n=N(r,p,10,100),s=n*(n+1)/2;return o('gauss',`1＋2＋3＋……＋${n}＝？`,s,'頭尾配對，每對的和相同。',`頭尾配對：1＋${n}＝${n+1}，2＋${n-1}＝${n+1}，每對的和都一樣；${n} 個數配成 ${n}÷2 對，所以 ${n+1}×${n}÷2＝${s}。`,[n*(n+1),s+n,s-n,n*n/2+0.5>0?Math.round(n*n/2):s+1],`${n}*(${n}+1)/2`)},
+(r,p)=>{const a=ri(r,1,9),d=ri(r,2,9),n=N(r,p,5,30),l=a+d*(n-1),s=n*(a+l)/2;return o('arith-sum',`${a}＋${a+d}＋${a+2*d}＋……＋${l}（每項比前一項多 ${d}，共 ${n} 項）＝？`,s,'(首項＋末項)×項數÷2。',`首尾配對，每對的和都是首項＋末項：${a}＋${l}＝${a+l}；共 ${n} 項，配成 ${n}÷2 對：${a+l}×${n}÷2＝${s}。`,[n*(a+l),s+l,s-a,s+d],`${n}*(${a}+${l})/2`)},
+(r,p)=>{const K=pk(r,[[99,0],[101,0],[11,0],[25,1],[5,2]].slice(0,2+Math.round(3*p.s)));let a=N(r,p,12,99);if(K[1]===1)a=4*ri(r,3,24);if(K[1]===2)a=2*ri(r,6,49);const s=a*K[0],hh={99:'×99＝×100 再減一份。',101:'×101＝×100 再加一份。',11:'×11＝×10 再加一份。',25:'×25＝×100÷4。',5:'×5＝×10÷2。'}[K[0]],ee={99:`×99 可以看成 ×100 再減去一份：${a}×100－${a}＝${a*100}－${a}＝${s}。`,101:`×101 可以看成 ×100 再加上一份：${a}×100＋${a}＝${a*100}＋${a}＝${s}。`,11:`×11 可以看成 ×10 再加上一份：${a}×10＋${a}＝${a*10}＋${a}＝${s}。`,25:`25 是 100 的四分之一，×25 可以看成 ×100 再除以 4：${a}×100÷4＝${a*100}÷4＝${s}。`,5:`×5 可以看成 ×10 再除以 2：${a}×10÷2＝${a*10}÷2＝${s}。`}[K[0]];return o('quick-mul',`${a}×${K[0]}＝？`,s,hh,ee,[s+a,s-a,s+10,s-10],`${a}*${K[0]}`)},
+(r,p)=>{const x=N(r,p,12,99),c=ri(r,11,90);if(r()<.5){const q=ri(r,11,89);return o('distrib',`${x}×${q}＋${x}×${100-q}＝？`,x*100,'相同的因數可以提出來。',`${x} 是相同的因數，把它提出來，先算括號：${x}×(${q}＋${100-q})＝${x}×100＝${x*100}。`,[x*10,x*100+x,x*100-x,x*1000],`${x}*${q}+${x}*${100-q}`)}const m=pk(r,[10,100,20,50]);return o('distrib',`${x}×${c+m}－${x}×${c}＝？`,x*m,'相同的因數可以提出來。',`${x} 是相同的因數，把它提出來，先算括號：${x}×(${c+m}－${c})＝${x}×${m}＝${x*m}。`,[x*(m+c),x*m+x,x*m-x,x*c],`${x}*${c+m}-${x}*${c}`)},
+(r,p)=>{const n=2*N(r,p,3,50);return o('alt-sum',`${n}－${n-1}＋${n-2}－${n-3}＋……＋2－1＝？`,n/2,'兩個兩個一組，看每組的結果。',`兩個兩個一組：(${n}－${n-1})，(${n-2}－${n-3})，……，(2－1)，每組的結果都是 1；${n} 個數共 ${n}÷2＝${n/2} 組，所以是 ${n/2}。`,[n,n/2+1,n/2-1,n-1],`${n}/2`)},
+(r,p)=>{const k=pk(r,[3,5,7].slice(0,1+Math.round(2*p.s))),mid=N(r,p,5,200),S=mid*k,s=mid+(k-1)/2;return o('consec',`${k} 個連續整數的和是 ${S}，其中最大的一個是多少？`,s,'連續整數的平均數就是中間那個數。',`連續整數的平均數就是中間那個數：${S}÷${k}＝${mid}；${k} 個連續數，最大的比中間大 ${(k-1)/2}，所以是 ${mid}＋${(k-1)/2}＝${s}。`,[mid,s+1,s-1,mid-(k-1)/2],`${S}/${k}+${(k-1)/2}`)}
 ],
-[ // logic, ordering, planting
-(r,p)=>{const a=N(r,p,1,30),b=N(r,p,1,30),m=nm(r);return o('queue',`${m}排隊，他前面有 ${a} 人，後面有 ${b} 人，隊伍一共有多少人？`,a+b+1,'別忘了把他自己算進去。',`${a}＋${b}＋1＝${a+b+1}。`,[a+b,a+b+2,a+b-1,a*b],`${a}+${b}+1`)},
-(r,p)=>{const a=N(r,p,1,15),b=a+N(r,p,2,12);return o('between',`同學們按身高由高至低排隊，小明排第 ${a}，小華排第 ${b}，兩人中間有多少人？`,b-a-1,'兩個名次相差多少，中間就少一個。',`${b}－${a}－1＝${b-a-1}。`,[b-a,b-a+1,b-a-2>0?b-a-2:b-a+2,b+a],`${b}-${a}-1`)},
-(r,p)=>{const d=pk(r,[2,3,4,5,6,10]),m=N(r,p,4,40),L=d*m,v=ri(r,0,2);if(v===0)return o('plant',`一條長 ${L} 米的路，每隔 ${d} 米種一棵樹，兩端都要種，一共要種多少棵樹？`,m+1,'段數比棵數少一。',`${L}÷${d}＝${m} 段，棵數＝${m}＋1＝${m+1}。`,[m,m+2,L/d*2,m-1],`${L}/${d}+1`);if(v===1)return o('plant',`一條長 ${L} 米的路，每隔 ${d} 米種一棵樹，只有一端種樹，另一端不種，一共要種多少棵樹？`,m,'一端種、一端不種時，棵數＝段數。',`${L}÷${d}＝${m}。`,[m+1,m-1,m*2,L-d],`${L}/${d}`);return o('plant',`一個周界 ${L} 米的環形水池，每隔 ${d} 米放一盞燈，一共要放多少盞燈？`,m,'環形時，棵數＝段數。',`${L}÷${d}＝${m}。`,[m+1,m-1,m*2,L-d],`${L}/${d}`)},
-(r,p)=>{const k=N(r,p,3,12),t=ri(r,2,6);if(r()<.5)return o('saw',`把一根木頭鋸成 ${k} 段，每鋸一刀要 ${t} 分鐘（鋸完立即再鋸，不休息），一共需要多少分鐘？`,(k-1)*t,'鋸成幾段，要鋸的刀數少一。',`鋸 ${k-1} 刀，${k-1}×${t}＝${(k-1)*t}。`,[k*t,(k+1)*t,(k-2)*t,k+t],`(${k}-1)*${t}`);const f=k+1;return o('saw',`${nm(r)}從 1 樓走到 ${f} 樓，每走一層樓梯需要 ${t} 秒，一共需要多少秒？`,(f-1)*t,'由 1 樓走到 n 樓，只走 n－1 層。',`${f}－1＝${f-1} 層，${f-1}×${t}＝${(f-1)*t}。`,[f*t,(f+1)*t,(f-2)*t,f+t],`(${f}-1)*${t}`)},
-(r,p)=>{const n=N(r,p,3,10);return o('liars',`有 ${n} 個人，第 1 人說：「我們之中有 1 個人說謊。」第 2 人說：「我們之中有 2 個人說謊。」……第 ${n} 人說：「我們之中有 ${n} 個人說謊。」實際上有多少個人說謊？`,n-1,'這些說法互相矛盾，最多只有一句是真的。',`最多一人說真話；若沒人說真話，第 ${n} 人就變成真話，矛盾。所以恰好 1 人說真話，說謊的有 ${n}－1＝${n-1} 人。`,[n,1,n-2>0?n-2:n+1,n+1],`${n}-1`)},
-(r,p)=>{const k=N(r,p,3,5),L=[...'甲乙丙丁戊'].slice(0,k),ord=sh(r,L),f=[];for(let i=0;i<k-1;i++)f.push(r()<.5||p.s<.3?`${ord[i]}比${ord[i+1]}高`:`${ord[i+1]}比${ord[i]}矮`);const idx=ri(r,0,k-1);return o('rank',`${k} 個人比身高。${sh(r,f).join('；')}。由高至低排，${ord[idx]}排第幾？`,idx+1,'先把大家由高至低排成一行。',`排序是 ${ord.join('、')}，${ord[idx]}排第 ${idx+1}。`,[k-idx,idx,idx+2>k?idx:idx+2,1])},
-(r,p)=>{const a=N(r,p,2,30),b=N(r,p,2,30),m=nm(r);return o('left-right',`${m}在隊伍中，從左面數起排第 ${a}，從右面數起排第 ${b}，隊伍共有多少人？`,a+b-1,'他被左右兩邊都數了一次。',`${a}＋${b}－1＝${a+b-1}。`,[a+b,a+b-2,a+b+1,a*b],`${a}+${b}-1`)}
+[ // W3 logic, ordering, planting.  0 queue, 1 between, 2 plant, 3 saw, 4 liars, 5 rank, 6 left-right
+(r,p)=>{const a=N(r,p,1,30),b=N(r,p,1,30),m=nm(r);return o('queue',`${m}排隊，${m.p}前面有 ${a} 人，後面有 ${b} 人，隊伍一共有多少人？`,a+b+1,`別忘了把${m.p}自己算進去。`,`別忘了把自己算進去：前面 ${a} 人，加上自己 1 人，再加後面 ${b} 人：${a}＋1＋${b}＝${a+b+1}。`,[a+b,a+b+2,a+b-1,a*b],`${a}+${b}+1`)},
+(r,p)=>{const a=N(r,p,1,15),b=a+N(r,p,2,12);return o('between',`同學們按身高由高至低排隊，小明排第 ${a}，小華排第 ${b}，兩人中間有多少人？`,b-a-1,'兩個名次相差多少，中間就少一個。',`中間的人排第 ${a+1} 至第 ${b-1}，人數＝大名次－小名次－1：${b}－${a}－1＝${b-a-1}。`,[b-a,b-a+1,b-a-2>0?b-a-2:b-a+2,b+a],`${b}-${a}-1`)},
+(r,p)=>{const d=pk(r,[2,3,4,5,6,10]),m=N(r,p,4,40),L=d*m,v=ri(r,0,2);if(v===0)return o('plant',`一條長 ${L} 米的路，每隔 ${d} 米種一棵樹，兩端都要種，一共要種多少棵樹？`,m+1,'段數比棵數少一。',`每隔 ${d} 米是一段，先求段數：${L}÷${d}＝${m} 段；兩端都種，棵數比段數多 1：${m}＋1＝${m+1}。`,[m,m+2,L/d*2,m-1],`${L}/${d}+1`);if(v===1)return o('plant',`一條長 ${L} 米的路，每隔 ${d} 米種一棵樹，只有一端種樹，另一端不種，一共要種多少棵樹？`,m,'一端種、一端不種時，棵數＝段數。',`先求段數：${L}÷${d}＝${m} 段；一端種、一端不種，每段配一棵樹，所以棵數＝段數＝${m}。`,[m+1,m-1,m*2,L-d],`${L}/${d}`);return o('plant',`一個周界 ${L} 米的環形水池，每隔 ${d} 米放一盞燈，一共要放多少盞燈？`,m,'環形時，棵數＝段數。',`環形沒有端點，首尾相連，每段配一盞燈，所以燈數＝段數：${L}÷${d}＝${m}。`,[m+1,m-1,m*2,L-d],`${L}/${d}`)},
+(r,p)=>{const k=N(r,p,3,12),t=ri(r,2,6);if(r()<.5)return o('saw',`把一根木頭鋸成 ${k} 段，每鋸一刀要 ${t} 分鐘（鋸完立即再鋸，不休息），一共需要多少分鐘？`,(k-1)*t,'鋸成幾段，要鋸的刀數少一。',`鋸成 ${k} 段，要鋸的刀數比段數少 1：${k}－1＝${k-1} 刀；每刀 ${t} 分鐘，${k-1}×${t}＝${(k-1)*t} 分鐘。`,[k*t,(k+1)*t,(k-2)*t,k+t],`(${k}-1)*${t}`);const f=k+1;return o('saw',`${nm(r)}從 1 樓走到 ${f} 樓，每走一層樓梯需要 ${t} 秒，一共需要多少秒？`,(f-1)*t,'由 1 樓走到 n 樓，只走 n－1 層。',`由 1 樓走到 ${f} 樓，只走 ${f}－1＝${f-1} 層樓梯（一層樓梯連接兩層樓）；${f-1}×${t}＝${(f-1)*t} 秒。`,[f*t,(f+1)*t,(f-2)*t,f+t],`(${f}-1)*${t}`)},
+(r,p)=>{const n=N(r,p,3,10);return o('liars',`有 ${n} 個人，第 1 人說：「我們之中有 1 個人說謊。」第 2 人說：「我們之中有 2 個人說謊。」……第 ${n} 人說：「我們之中有 ${n} 個人說謊。」實際上有多少個人說謊？`,n-1,'這些說法互相矛盾，最多只有一句是真的。',`這些說法互相矛盾，最多只有一句是真話。若沒有人說真話，那第 ${n} 人說的「有 ${n} 人說謊」就變成真話，矛盾；所以恰好 1 人說真話，說謊的有 ${n}－1＝${n-1} 人。`,[n,1,n-2>0?n-2:n+1,n+1],`${n}-1`)},
+(r,p)=>{const k=N(r,p,4,5),L=[...'甲乙丙丁戊'].slice(0,k),ord=sh(r,L),f=[];for(let i=0;i<k-1;i++)f.push(r()<.5||p.s<.3?`${ord[i]}比${ord[i+1]}高`:`${ord[i+1]}比${ord[i]}矮`);const idx=ri(r,0,k-1);return Object.assign(o('rank',`${k} 個人比身高。${sh(r,f).join('；')}。由高至低排，${ord[idx]}排第幾？`,idx+1,'先把大家由高至低排成一行。',`把每句話連起來，排成一行（由高至低）：${ord.join('、')}；${ord[idx]}排第 ${idx+1}。`,[...Array(k)].map((_,i)=>i+1).filter(v=>v!==idx+1)),{lim:[1,k]})},
+(r,p)=>{const a=N(r,p,2,30),b=N(r,p,2,30),m=nm(r);return o('left-right',`${m}在隊伍中，從左面數起排第 ${a}，從右面數起排第 ${b}，隊伍共有多少人？`,a+b-1,`${m.p}被左右兩邊都數了一次。`,`從左數第 ${a}、從右數第 ${b}，${m}被左右兩邊各數了一次，要減去 1：${a}＋${b}－1＝${a+b-1}。`,[a+b,a+b-2,a+b+1,a*b],`${a}+${b}-1`)}
 ],
-[ // ages, sum/diff/multiple, chicken-rabbit
-(r,p)=>{const big=N(r,p,6,60),sm=N(r,p,2,big-1),S=big+sm,D=big-sm;if(r()<.6)return o('sum-diff',`甲乙兩數的和是 ${S}，差是 ${D}，甲是較大的數，甲是多少？`,big,'較大數＝(和＋差)÷2。',`(${S}＋${D})÷2＝${big}。`,[sm,S-D,big+1,big-1],`(${S}+${D})/2`);return o('sum-diff',`甲乙兩數的和是 ${S}，差是 ${D}，乙是較小的數，乙是多少？`,sm,'較小數＝(和－差)÷2。',`(${S}－${D})÷2＝${sm}。`,[big,S-D,sm+1,sm-1],`(${S}-${D})/2`)},
-(r,p)=>{const sm=N(r,p,3,40),k=N(r,p,2,6),S=sm*(k+1);if(r()<.5)return o('sum-mult',`甲乙兩數的和是 ${S}，甲是乙的 ${k} 倍，乙是多少？`,sm,`把乙看作 1 份，甲就是 ${k} 份。`,`共 ${k+1} 份，${S}÷${k+1}＝${sm}。`,[sm*k,S/k>0&&S%k===0?S/k:sm+1,sm+1,S-k],`${S}/(${k}+1)`);return o('sum-mult',`甲乙兩數的和是 ${S}，甲是乙的 ${k} 倍，甲是多少？`,sm*k,`把乙看作 1 份，甲就是 ${k} 份。`,`共 ${k+1} 份，乙＝${sm}，甲＝${sm}×${k}＝${sm*k}。`,[sm,S-k,sm*k+sm,sm*k-sm],`${S}/(${k}+1)*${k}`)},
-(r,p)=>{const sm=N(r,p,3,40),k=N(r,p,2,6),D=sm*(k-1);return o('diff-mult',`甲比乙多 ${D}，而且甲是乙的 ${k} 倍，乙是多少？`,sm,`甲比乙多出 ${k-1} 份。`,`${D}÷(${k}－1)＝${sm}。`,[D,sm*k,sm+1,D/k>0&&D%k===0?D/k:sm-1>0?sm-1:sm+2],`${D}/(${k}-1)`)},
-(r,p)=>{let b,x,k,a;for(let t=0;t<50;t++){b=N(r,p,5,15);x=N(r,p,2,10);k=ri(r,2,3+(p.s>.6?1:0));a=k*(b+x)-x;if(a<=65)break}if(a>65){b=8;x=4;k=3;a=32}return o('age',`今年爸爸 ${a} 歲，兒子 ${b} 歲，幾年後爸爸的年齡是兒子的 ${k} 倍？`,x,'兩人的年齡差永遠不變。',`年齡差 ${a-b}，那時兒子 ${(a-b)/(k-1)} 歲，所以是 ${(a-b)/(k-1)}－${b}＝${x} 年後。`,[(a-b)/(k-1),x+1,x-1>0?x-1:x+2,a-b])},
-(r,p)=>{const th=r()<.7?[2,4,'雞','兔','腳']:[2,3,'單車','三輪車','輪'],c=N(r,p,2,20),t=N(r,p,2,20),H=c+t,F=th[0]*c+th[1]*t,ask=r()<.5;return o('chicken-rabbit',`籠裏有${th[2]}和${th[3]}共 ${H} 隻（輛），共有 ${F} 隻${th[4]}。${ask?th[3]:th[2]}有多少隻（輛）？（${th[2]}有 ${th[0]} 隻${th[4]}，${th[3]}有 ${th[1]} 隻${th[4]}）`,ask?t:c,`假設全部都是${th[2]}，看看${th[4]}數差多少。`,`假設全是${th[2]}有 ${th[0]*H} 隻${th[4]}，多出 ${F-th[0]*H}，每換一隻多 ${th[1]-th[0]}，${th[3]}有 ${t}，${th[2]}有 ${c}。`,[ask?c:t,H,(ask?t:c)+1,(ask?t:c)-1>0?(ask?t:c)-1:(ask?t:c)+2],ask?`(${F}-${th[0]}*${H})/${th[1]-th[0]}`:`(${th[1]}*${H}-${F})/${th[1]-th[0]}`)},
-(r,p)=>{const x=N(r,p,2,15),y=N(r,p,2,15),n=x+y,M=2*x+5*y,ask=r()<.5;return o('coins',`錢罌內有 $2 和 $5 的硬幣共 ${n} 枚，總值 $${M}。${ask?'$5':'$2'}硬幣有多少枚？`,ask?y:x,'假設全部都是 $2 硬幣。',`假設全是 $2 共 $${2*n}，多出 $${M-2*n}，每換一枚多 $3。$5 有 ${y} 枚，$2 有 ${x} 枚。`,[ask?x:y,n,(ask?y:x)+1,(ask?y:x)-1>0?(ask?y:x)-1:(ask?y:x)+2],ask?`(${M}-2*${n})/3`:`(5*${n}-${M})/3`)},
-(r,p)=>{const z=N(r,p,5,40),b=ri(r,1,10),a=ri(r,1,10),S=3*z+2*b+a;return o('three',`甲、乙、丙三人共有 ${S} 粒糖，甲比乙多 ${a} 粒，乙比丙多 ${b} 粒，丙有多少粒？`,z,'把三人都看作和丙一樣多，再補回多出的部分。',`甲＝丙＋${a+b}，乙＝丙＋${b}，所以 3 個丙＝${S}－${a+b}－${b}＝${3*z}，丙＝${z}。`,[S/3>0&&S%3===0?S/3:z+1,z+1,z-1>0?z-1:z+2,z+b],`(${S}-${a}-2*${b})/3`)}
+[ // W4 ages, sum/diff/multiple, chicken-rabbit.  0 sum-diff, 1 sum-mult, 2 diff-mult, 3 age, 4 chicken-rabbit, 5 coins, 6 three
+(r,p)=>{const big=N(r,p,6,60),sm=N(r,p,2,big-1),S=big+sm,D=big-sm;if(r()<.6)return o('sum-diff',`甲乙兩數的和是 ${S}，差是 ${D}，甲是較大的數，甲是多少？`,big,'較大數＝(和＋差)÷2。',`和差問題：和＋差＝2 個較大的數，所以較大數＝(和＋差)÷2＝(${S}＋${D})÷2＝${S+D}÷2＝${big}。`,[sm,S-D,big+1,big-1],`(${S}+${D})/2`);return o('sum-diff',`甲乙兩數的和是 ${S}，差是 ${D}，乙是較小的數，乙是多少？`,sm,'較小數＝(和－差)÷2。',`和差問題：和－差＝2 個較小的數，所以較小數＝(和－差)÷2＝(${S}－${D})÷2＝${S-D}÷2＝${sm}。`,[big,S-D,sm+1,sm-1],`(${S}-${D})/2`)},
+(r,p)=>{const sm=N(r,p,3,40),k=N(r,p,2,6),S=sm*(k+1);if(r()<.5)return o('sum-mult',`甲乙兩數的和是 ${S}，甲是乙的 ${k} 倍，乙是多少？`,sm,`把乙看作 1 份，甲就是 ${k} 份。`,`把乙看作 1 份，甲就是 ${k} 份，共 ${k}＋1＝${k+1} 份；一份是乙：${S}÷${k+1}＝${sm}。`,[sm*k,S/k>0&&S%k===0?S/k:sm+1,sm+1,S-k],`${S}/(${k}+1)`);return o('sum-mult',`甲乙兩數的和是 ${S}，甲是乙的 ${k} 倍，甲是多少？`,sm*k,`把乙看作 1 份，甲就是 ${k} 份。`,`把乙看作 1 份，甲就是 ${k} 份，共 ${k}＋1＝${k+1} 份；一份（乙）＝${S}÷${k+1}＝${sm}，甲＝${sm}×${k}＝${sm*k}。`,[sm,S-k,sm*k+sm,sm*k-sm],`${S}/(${k}+1)*${k}`)},
+(r,p)=>{const sm=N(r,p,3,40),k=N(r,p,2,6),D=sm*(k-1);return o('diff-mult',`甲比乙多 ${D}，而且甲是乙的 ${k} 倍，乙是多少？`,sm,`甲比乙多出 ${k-1} 份。`,`把乙看作 1 份，甲是 ${k} 份，甲比乙多 ${k}－1＝${k-1} 份；這 ${k-1} 份就是多出的 ${D}，一份（乙）＝${D}÷${k-1}＝${sm}。`,[D,sm*k,sm+1,D/k>0&&D%k===0?D/k:sm-1>0?sm-1:sm+2],`${D}/(${k}-1)`)},
+(r,p)=>{let b,x,k,a;for(let t=0;t<50;t++){b=N(r,p,5,15);x=N(r,p,2,10);k=ri(r,2,3+(p.s>.6?1:0));a=k*(b+x)-x;if(a<=65)break}if(a>65){b=8;x=4;k=3;a=32}const df=a-b,sn=df/(k-1);return o('age',`今年爸爸 ${a} 歲，兒子 ${b} 歲，幾年後爸爸的年齡是兒子的 ${k} 倍？`,x,'兩人的年齡差永遠不變。',`年齡差 ${df} 歲永遠不變；${k} 倍時，兒子占 1 份、爸爸占 ${k} 份，差 ${k-1} 份＝${df}，1 份＝${df}÷${k-1}＝${sn}，即那時兒子 ${sn} 歲，所以是 ${sn}－${b}＝${x} 年後。`,[sn,x+1,x-1>0?x-1:x+2,df])},
+(r,p)=>{const th=r()<.7?{n1:'雞',n2:'兔',l1:2,l2:4,part:'腳',u:'隻',pu:'隻',at:'籠裏'}:{n1:'單車',n2:'三輪車',l1:2,l2:3,part:'輪',u:'輛',pu:'個',at:'車房裏'},c=N(r,p,2,20),t=N(r,p,2,20),H=c+t,F=th.l1*c+th.l2*t,ask=r()<.5,dF=F-th.l1*H,dl=th.l2-th.l1,uu=th.u,pp=th.pu+th.part;return o('chicken-rabbit',`${th.at}有${th.n1}和${th.n2}共 ${H} ${uu}，共有 ${F} ${pp}。${ask?th.n2:th.n1}有多少${uu}？（${th.n1}有 ${th.l1} ${pp}，${th.n2}有 ${th.l2} ${pp}）`,ask?t:c,`假設全部都是${th.n1}，看看${th.part}數差多少。`,`先假設全部是${th.n1}：${H}×${th.l1}＝${th.l1*H} ${pp}，比實際少 ${dF}；每把 1 ${uu}${th.n1}換成${th.n2}，就多 ${dl} ${pp}，所以${th.n2}有 ${dF}÷${dl}＝${t} ${uu}，${th.n1}有 ${H}－${t}＝${c} ${uu}。`,[ask?c:t,H,(ask?t:c)+1,(ask?t:c)-1>0?(ask?t:c)-1:(ask?t:c)+2],ask?`(${F}-${th.l1}*${H})/${dl}`:`(${th.l2}*${H}-${F})/${dl}`)},
+(r,p)=>{const x=N(r,p,2,15),y=N(r,p,2,15),n=x+y,M=2*x+5*y,ask=r()<.5;return o('coins',`錢罌內有 $2 和 $5 的硬幣共 ${n} 枚，總值 $${M}。${ask?'$5':'$2'}硬幣有多少枚？`,ask?y:x,'假設全部都是 $2 硬幣。',`先假設全部是 $2 硬幣：${n}×2＝${2*n}，比實際少 ${M-2*n} 元；每把 1 枚 $2 換成 $5，就多 3 元，所以 $5 有 ${M-2*n}÷3＝${y} 枚，$2 有 ${n}－${y}＝${x} 枚。`,[ask?x:y,n,(ask?y:x)+1,(ask?y:x)-1>0?(ask?y:x)-1:(ask?y:x)+2],ask?`(${M}-2*${n})/3`:`(5*${n}-${M})/3`)},
+(r,p)=>{const z=N(r,p,5,40),b=ri(r,1,10),a=ri(r,1,10),S=3*z+2*b+a;return o('three',`甲、乙、丙三人共有 ${S} 粒糖，甲比乙多 ${a} 粒，乙比丙多 ${b} 粒，丙有多少粒？`,z,'把三人都看作和丙一樣多，再補回多出的部分。',`把三人都看作和丙一樣多：甲＝丙＋${a+b}，乙＝丙＋${b}，多出的部分共 ${a+b}＋${b}＝${a+2*b}；去掉它，${S}－${a+2*b}＝${3*z} 就是 3 個丙，丙＝${3*z}÷3＝${z}。`,[S/3>0&&S%3===0?S/3:z+1,z+1,z-1>0?z-1:z+2,z+b],`(${S}-${a}-2*${b})/3`)}
 ],
-[ // counting
-(r,p)=>{const n=N(r,p,3,6),k=ri(r,2,Math.min(3,n)),c=[...Array(n)].map((_,i)=>i+1),v=[...Array(k)].map((_,i)=>n-i),s=v.reduce((a,b)=>a*b,1);return o('perm',`用數字卡 ${c.join('、')}（每張只可用一次）組成不同的 ${k} 位數，一共可以組成多少個？`,s,`第一位有幾個選擇？第二位呢？`,`${v.join('×')}＝${s}。`,[n*k,Math.pow(n,k),s+n,s/ k>0&&s%k===0?s/k:s+1],v.join('*'))},
-(r,p)=>{const n=N(r,p,3,20),s=n*(n-1)/2;return o('handshake',`${n} 個人聚會，每兩個人都握手一次，一共握手多少次？`,s,'每人和其他人握手，但每次握手被算了兩次。',`${n}×${n-1}÷2＝${s}。`,[n*(n-1),s+n,s-n>0?s-n:s+1,n*n/2>0?Math.round(n*n/2):s+1],`${n}*(${n}-1)/2`)},
-(r,p)=>{const m=N(r,p,2,6),n=N(r,p,2,6),k=p.s>.5?N(r,p,2,5):1;if(k===1)return o('route',`由甲地到乙地有 ${m} 條路，由乙地到丙地有 ${n} 條路，由甲地經乙地到丙地有多少種不同走法？`,m*n,'每條第一段路都可配搭每條第二段路。',`${m}×${n}＝${m*n}。`,[m+n,m*n+m,m*n-n,m*n+1],`${m}*${n}`);return o('route',`由甲地到乙地有 ${m} 條路，乙地到丙地有 ${n} 條路，丙地到丁地有 ${k} 條路，由甲地經乙、丙到丁地有多少種不同走法？`,m*n*k,'逐段相乘。',`${m}×${n}×${k}＝${m*n*k}。`,[m+n+k,m*n*k+m,m*n+k,m*n*k-1],`${m}*${n}*${k}`)},
-(r,p)=>{const n=N(r,p,2,6);if(r()<.5){const t=[...Array(n)].map((_,i)=>`${i+1}*${i+1}`),s=n*(n+1)*(2*n+1)/6;return o('squares',`一個 ${n}×${n} 的方格網由 ${n*n} 個大小相同的小正方形組成，圖中一共有多少個正方形？（包括各種大小）`,s,'分開數：邊長 1、2、3……的正方形各有多少個。',`${t.join('＋').replace(/\*/g,'×')}＝${s}。`,[n*n,s-n,s+n,n*n+n],t.join('+'))}const m=n+2,s=m*(m-1)/2;return o('segments',`一條直線上有 ${m} 個點，以其中任意兩點為端點，一共可得多少條線段？`,s,'每點與其他點連成線段，但每條被算兩次。',`${m}×${m-1}÷2＝${s}。`,[m*(m-1),s+m,s-m>0?s-m:s+1,m*m/2>0?Math.round(m*m/2):s+1],`${m}*(${m}-1)/2`)},
-(r,p)=>{const m=N(r,p,2,8),n=N(r,p,2,8),k=p.s>.4?N(r,p,2,5):1,nn=nm(r);return o('combo',`${nn}有 ${m} 件上衣、${n} 條褲${k>1?`、${k} 對鞋`:''}，穿一套（上衣、褲${k>1?'、鞋':''}各一）有多少種不同配法？`,m*n*k,'每個項目的選擇數相乘。',`${[m,n,k>1?k:null].filter(Boolean).join('×')}＝${m*n*k}。`,[m+n+k-(k>1?0:1),m*n*k+m,m*n*k-1,m*n+k],k>1?`${m}*${n}*${k}`:`${m}*${n}`)},
-(r,p)=>{const n=N(r,p,3,6);if(r()<.5)return o('arrange',`${n} 個同學排成一行拍照，有多少種不同排法？`,mul(n).split('*').reduce((a,b)=>a*b,1),'第一個位置有 n 個選擇，之後逐個減少。',`${mul(n).replace(/\*/g,'×')}＝${mul(n).split('*').reduce((a,b)=>a*b,1)}。`,[n*n,n*(n-1),mul(n).split('*').reduce((a,b)=>a*b,1)*2,mul(n).split('*').reduce((a,b)=>a*b,1)-n],mul(n));const s=2*mul(n-1).split('*').reduce((a,b)=>a*b,1);return o('arrange-adj',`${n} 個人排成一行，其中小明和小華一定要相鄰，有多少種不同排法？（他們兩人的先後次序也要計算）`,s,'把相鄰的兩人當作一個人，再想他們的前後次序。',`當作 ${n-1} 個人：${mul(n-1).replace(/\*/g,'×')}，再乘 2＝${s}。`,[s/2,s*n,s+n,mul(n).split('*').reduce((a,b)=>a*b,1)],`2*${mul(n-1)}`)},
-(r,p)=>{const n=N(r,p,4,32);return o('knockout',`${n} 隊參加淘汰賽（每場比賽輸的一隊即被淘汰，直至剩下冠軍），一共要進行多少場比賽？`,n-1,'每場比賽淘汰一隊。',`要淘汰 ${n-1} 隊，所以要 ${n-1} 場。`,[n,n/2>0?Math.floor(n/2):n+1,n*(n-1)/2,n-2],`${n}-1`)}
+[ // W5 counting.  0 perm, 1 handshake, 2 route, 3 squares/segments, 4 combo, 5 arrange, 6 knockout
+(r,p)=>{const n=N(r,p,3,6),k=ri(r,2,Math.min(3,n)),c=sh(r,[1,2,3,4,5,6,7,8,9]).slice(0,n).sort((x,y)=>x-y),v=[...Array(k)].map((_,i)=>n-i),s=v.reduce((a,b)=>a*b,1);return o('perm',`用數字卡 ${c.join('、')}（每張只可用一次）組成不同的 ${k} 位數，一共可以組成多少個？`,s,`第一位有幾個選擇？第二位呢？`,`一位一位地選：第 1 位有 ${n} 種選擇；用過的卡不能再用，第 2 位有 ${n-1} 種${k>2?`，第 3 位有 ${n-2} 種`:''}；相乘：${v.join('×')}＝${s}。`,[n*k,Math.pow(n,k),s+n,s/ k>0&&s%k===0?s/k:s+1],v.join('*'))},
+(r,p)=>{const n=N(r,p,3,20),s=n*(n-1)/2,sc=pk(r,[['個人聚會，每兩個人都握手一次，一共握手多少次','人','握手','次'],['個同學互相交換一張心意卡（每兩人只交換一次），一共交換多少次','人','交換','次'],['隊參加循環賽，每兩隊都要比賽一場，一共要比賽多少場','隊','比賽','場'],['位客人見面，每兩位客人都碰杯一次，一共碰杯多少次','人','碰杯','次'],['個朋友通電話，每兩個人都通話一次，一共通話多少次','人','通話','次']]);return o('handshake',`${n} ${sc[0]}？`,s,`每${sc[1]}和其他${sc[1]}${sc[2]}，但每${sc[3]}被算了兩次。`,`每${sc[1]}要和其他 ${n-1} ${sc[1]}${sc[2]}，${n} ${sc[1]}共 ${n}×${n-1}＝${n*(n-1)} ${sc[3]}；但每${sc[3]}被兩${sc[1]}各算了一次，所以要除以 2：${n*(n-1)}÷2＝${s}。`,[n*(n-1),s+n,s-n>0?s-n:s+1,n*n/2>0?Math.round(n*n/2):s+1],`${n}*(${n}-1)/2`)},
+(r,p)=>{const m=N(r,p,2,8),n=N(r,p,2,8),k=p.s>.5?N(r,p,2,5):1;if(k===1)return o('route',pk(r,[`由甲地到乙地有 ${m} 條路，由乙地到丙地有 ${n} 條路，由甲地經乙地到丙地有多少種不同走法？`,`小明由家去車站有 ${m} 條路，由車站去學校有 ${n} 條路，他由家經車站到學校有多少種不同走法？`,`由碼頭乘船到小島有 ${m} 個班次，由小島乘纜車到山頂有 ${n} 個班次，由碼頭到山頂有多少種不同乘法？`]),m*n,'每條第一段路都可配搭每條第二段路。',`第一段 ${m} 條路中，每一條都可以接第二段的 ${n} 條路，用乘法：${m}×${n}＝${m*n}。`,[m+n,m*n+m,m*n-n,m*n+1],`${m}*${n}`);return o('route',`由甲地到乙地有 ${m} 條路，乙地到丙地有 ${n} 條路，丙地到丁地有 ${k} 條路，由甲地經乙、丙到丁地有多少種不同走法？`,m*n*k,'逐段相乘。',`每一段的選擇都可以和下一段任意配搭，逐段相乘：${m}×${n}×${k}＝${m*n*k}。`,[m+n+k,m*n*k+m,m*n+k,m*n*k-1],`${m}*${n}*${k}`)},
+(r,p)=>{const n=N(r,p,2,6);if(r()<.5){const t=[...Array(n)].map((_,i)=>`${n-i}*${n-i}`),s=n*(n+1)*(2*n+1)/6;return o('squares',pk(r,[`一個 ${n}×${n} 的方格網由 ${n*n} 個大小相同的小正方形組成，圖中一共有多少個正方形？（包括各種大小）`,`把邊長 ${n} 厘米的正方形，劃成 ${n*n} 個邊長 1 厘米的小方格，圖中一共有多少個正方形？（包括各種大小）`,`一塊 ${n}×${n} 的棋盤，共有 ${n*n} 格，棋盤上一共有多少個正方形？（包括各種大小）`]),s,'分開數：邊長 1、2、3……的正方形各有多少個。',`按邊長分開數：邊長 1 的有 ${n}×${n} 個，邊長 2 的有 ${n-1}×${n-1} 個……逐個加起來：${t.join('＋').replace(/\*/g,'×')}＝${s}。`,[n*n,s-n,s+n,n*n+n],t.join('+'))}const m=n+2,s=m*(m-1)/2,sc=pk(r,[[`一條直線上有 ${m} 個點，以其中任意兩點為端點，一共可得多少條線段？`,'點','線段'],[`一條直線上依次標了 ${[...'ABCDEFGHIJ'].slice(0,m).join('、')} 這 ${m} 個點，以其中任意兩點為端點，一共可得多少條線段？`,'點','線段'],[`一條路上有 ${m} 個車站，每兩個車站之間都有一種車票，一共有多少種不同的車票？（只算單程）`,'站','車票']]);return o('segments',sc[0],s,`每${sc[1]}和其他${sc[1]}配成一對，但每一對被算了兩次。`,`每個${sc[1]}可以和其他 ${m-1} 個${sc[1]}配成一對（一對就是一${sc[2]==='車票'?'種':'條'}${sc[2]}），共 ${m}×${m-1}＝${m*(m-1)}；但每一對被數了兩次，所以除以 2：${m*(m-1)}÷2＝${s}。`,[m*(m-1),s+m,s-m>0?s-m:s+1,m*m/2>0?Math.round(m*m/2):s+1],`${m}*(${m}-1)/2`)},(r,p)=>{const m=N(r,p,2,8),n=N(r,p,2,8),k=p.s>.4?N(r,p,2,5):1,nn=nm(r),v=r()<.5,e=`每個項目的選擇數相乘：${[m,n,k>1?k:null].filter(Boolean).join('×')}＝${m*n*k}。`;return o('combo',v?`${nn}有 ${m} 件上衣、${n} 條褲${k>1?`、${k} 對鞋`:''}，穿一套（上衣、褲${k>1?'、鞋':''}各一）有多少種不同配法？`:`餐廳的套餐：主食有 ${m} 款、飲品有 ${n} 款${k>1?`、甜品有 ${k} 款`:''}，每人每項各選一款，有多少種不同的套餐？`,m*n*k,'每個項目的選擇數相乘。',e,[m+n+k-(k>1?0:1),m*n*k+m,m*n*k-1,m*n+k],k>1?`${m}*${n}*${k}`:`${m}*${n}`)},
+(r,p)=>{const n=N(r,p,3,7),ob=pk(r,[['個同學','排成一行拍照'],['個朋友','站成一行'],['個小朋友','排隊上車'],['位乘客','排隊入閘'],['位學生','排成一行領獎'],['位運動員','排成一行入場'],['位客人','排隊進餐廳'],['個小隊員','站成一行升旗']]);if(r()<.5){const s=fact(n);return o('arrange',`${n} ${ob[0]}${ob[1]}，有多少種不同排法？`,s,'第一個位置有 n 個選擇，之後逐個減少。',`一個位置一個位置地排：第 1 位有 ${n} 種選擇，之後每個位置少一種：${mul(n).replace(/\*/g,'×')}＝${s}。`,[n*n,n*(n-1),s*2,s-n],mul(n))}const pr=pk(r,[['小明','小華'],['阿強','家豪'],['小美','小欣'],['詩婷','小明'],['小華','阿強'],['家豪','小美'],['小欣','詩婷'],['小明','家豪']]),s=2*fact(n-1);return o('arrange-adj',`${n} 個人排成一行，其中${pr[0]}和${pr[1]}一定要相鄰，有多少種不同排法？（兩人的先後次序也要計算）`,s,'把相鄰的兩人當作一個人，再想這兩人的前後次序。',`把相鄰的兩人看成 1 個人，就剩 ${n-1} 個人排隊：${mul(n-1).replace(/\*/g,'×')}＝${fact(n-1)}；這兩人本身有 2 種先後次序，再乘 2：${fact(n-1)}×2＝${s}。`,[s/2,s*n,s+n,fact(n)],`2*${mul(n-1)}`)},
+(r,p)=>{const n=N(r,p,4,32),sc=pk(r,[[`${n} 隊參加淘汰賽（每場比賽輸的一隊即被淘汰，直至剩下冠軍），一共要進行多少場比賽？`,'隊'],[`${n} 位選手參加乒乓球單淘汰賽（每場輸的一位即離場，直至剩下冠軍），一共要進行多少場比賽？`,'位'],[`${n} 個同學玩猜拳淘汰遊戲（每場輸的人即退出，只剩下最後一人為勝），一共要進行多少場比賽？`,'個']]);return o('knockout',sc[0],n-1,`每場比賽淘汰一${sc[1]}。`,`每場比賽淘汰 1 ${sc[1]}，要由 ${n} ${sc[1]}淘汰到只剩 1 ${sc[1]}（冠軍），就要淘汰 ${n}－1＝${n-1} ${sc[1]}，所以要進行 ${n-1} 場。`,[n,n/2>0?Math.floor(n/2):n+1,n*(n-1)/2,n-2],`${n}-1`)}
 ],
-[ // digit puzzles, remainders, surplus/deficit
-(r,p)=>{const d=N(r,p,3,9),a=ri(r,1,d-1),k=ri(r,2,10+Math.round(20*p.s)),s=(a+k)%d;return o('rem-shift',`一個數除以 ${d} 餘 ${a}，這個數加 ${k} 後再除以 ${d}，餘數是多少？`,s,'只需要看餘數加上去之後的情況。',`(${a}＋${k})÷${d} 的餘數＝${s}。`,[a+k,(a+k)%d+1,a,k%d===s?s+1:k%d],`(${a}+${k})%${d}`)},
-(r,p)=>{const P=[[3,4],[3,5],[4,5],[3,7],[5,7],[4,9],[5,8],[7,9]],[m1,m2]=pk(r,P.slice(0,3+Math.round(5*p.s))),r1=ri(r,1,m1-1),r2=ri(r,1,m2-1);let s=0;for(let n=1;n<=m1*m2;n++)if(n%m1===r1&&n%m2===r2){s=n;break}return o('crt',`一個數除以 ${m1} 餘 ${r1}，除以 ${m2} 餘 ${r2}，這個數最小是多少？（正整數）`,s,`列出除以 ${m2} 餘 ${r2} 的數，逐個試。`,`試 ${r2}、${r2+m2}、${r2+2*m2}……，第一個除以 ${m1} 餘 ${r1} 的是 ${s}。`,[s+m1,s+m2,s-m1>0?s-m1:s+m1*2,r1+r2])},
-(r,p)=>{const n=N(r,p,3,20),a=ri(r,2,6),b=a+ri(r,1,3),pp=ri(r,1,n*(b-a)-1),q=n*(b-a)-pp,tot=n*a+pp;if(r()<.5)return o('surplus',`把一些糖果分給小朋友，每人分 ${a} 粒，多出 ${pp} 粒；每人分 ${b} 粒，則少 ${q} 粒。共有多少個小朋友？`,n,'兩種分法相差多少粒？每人相差多少粒？',`(${pp}＋${q})÷(${b}－${a})＝${n}。`,[pp+q,n+1,n-1,tot],`(${pp}+${q})/(${b}-${a})`);return o('surplus',`把一些糖果分給小朋友，每人分 ${a} 粒，多出 ${pp} 粒；每人分 ${b} 粒，則少 ${q} 粒。共有多少粒糖果？`,tot,'先求出小朋友人數。',`人數＝(${pp}＋${q})÷(${b}－${a})＝${n}，糖果＝${a}×${n}＋${pp}＝${tot}。`,[n,tot+a,tot-a,b*n],`${a}*${n}+${pp}`)},
-(r,p)=>{const t=ri(r,1,8),o2=ri(r,t+1,9);return o('digits',`一個兩位數，十位數字與個位數字的和是 ${t+o2}，個位數字比十位數字大 ${o2-t}，這個兩位數是多少？`,10*t+o2,'用和差問題的方法求兩個數字。',`十位＝(${t+o2}－${o2-t})÷2＝${t}，個位＝${o2}，所以是 ${10*t+o2}。`,[10*o2+t,t+o2,10*t+o2+1,10*t+o2-1])},
-(r,p)=>{const v=[0,0,0].map(()=>N(r,p,2,30)),[x,y,z]=v,A=x+y,B=y+z,C=x+z,i=ri(r,0,2),sy=['🍎','🍌','🍇'],ex=[`(${A}+${C}-${B})/2`,`(${A}+${B}-${C})/2`,`(${B}+${C}-${A})/2`][i];return o('symbols',`${sy[0]}＋${sy[1]}＝${A}，${sy[1]}＋${sy[2]}＝${B}，${sy[0]}＋${sy[2]}＝${C}。${sy[i]}＝？`,v[i],'三條式子加起來，看看有幾個相同的圖案。',`三式相加：每個圖案出現 2 次，總和＝${A+B+C}，一個各＝${(A+B+C)/2}，再減去其餘兩個的和。`,[v[i]+1,v[i]-1>0?v[i]-1:v[i]+2,(A+B+C)/2,v[(i+1)%3]],ex)},
-(r,p)=>{const q=pk(r,[3,4,5,6].slice(0,2+Math.round(2*p.s))),n=N(r,p,10,100),seq=[...Array(q)].map((_,i)=>i+1).join('、')+'、'+[...Array(q)].map((_,i)=>i+1).join('、')+'、……';if(r()<.5)return o('cycle',`把 ${[...Array(q)].map((_,i)=>i+1).join('、')} 重複排成一行：${seq}　第 ${n} 個數字是多少？`,(n-1)%q+1,'看看每 '+q+' 個數字是一個週期。',`${n}÷${q} 餘 ${n%q}，餘 0 即是 ${q}，所以是 ${(n-1)%q+1}。`,[n%q,q,(n%q)+1>q?1:(n%q)+1,Math.floor(n/q)],`(${n}-1)%${q}+1`);const full=Math.floor(n/q),rem=n%q,s=full*q*(q+1)/2+rem*(rem+1)/2;return o('cycle-sum',`把 ${[...Array(q)].map((_,i)=>i+1).join('、')} 重複排成一行：${seq}　前 ${n} 個數字的和是多少？`,s,'先算一個週期的和。',`一個週期和 ${q*(q+1)/2}，共 ${full} 個週期，餘下 ${rem} 個的和是 ${rem*(rem+1)/2}，合共 ${s}。`,[full*q*(q+1)/2,s+q,s-q,(full+1)*q*(q+1)/2],`${full}*${q*(q+1)/2}+${rem*(rem+1)/2}`)},
-(r,p)=>{const b=pk(r,[2,3,7,8,4].slice(0,2+Math.round(3*p.s))),n=N(r,p,5,60);let v=1;for(let i=0;i<n;i++)v=v*b%10;return o('last-digit',`${n} 個 ${b} 連乘（即 ${b} 的 ${n} 次方）的個位數字是多少？`,v,'列出頭幾次方的個位，找循環。',`個位數字有循環，推算得 ${v}。`,[(v+1)%10,(v+2)%10,b,(v+9)%10])}
+[ // W6 digit puzzles, remainders, surplus/deficit.  0 rem-shift, 1 crt, 2 surplus, 3 digits, 4 symbols, 5 cycle, 6 last-digit
+(r,p)=>{const d=N(r,p,3,9),a=ri(r,1,d-1),k=ri(r,2,10+Math.round(20*p.s)),s=(a+k)%d;return o('rem-shift',`一個數除以 ${d} 餘 ${a}，這個數加 ${k} 後再除以 ${d}，餘數是多少？`,s,'只需要看餘數加上去之後的情況。',`只看餘數：餘 ${a}，再加 ${k}，得 ${a+k}；${a+k}÷${d}＝${Math.floor((a+k)/d)} 餘 ${s}，所以餘數是 ${s}。`,[a+k,(a+k)%d+1,a,k%d===s?s+1:k%d],`(${a}+${k})%${d}`)},
+(r,p)=>{const P=[[3,4],[3,5],[4,5],[3,7],[5,7],[4,9],[5,8],[7,9]],[m1,m2]=pk(r,P.slice(0,3+Math.round(5*p.s))),r1=ri(r,1,m1-1),r2=ri(r,1,m2-1);let s=0;for(let n=1;n<=m1*m2;n++)if(n%m1===r1&&n%m2===r2){s=n;break}const vs=[];for(let v=r2;v<=s;v+=m2)vs.push(v);return o('crt',`一個數除以 ${m1} 餘 ${r1}，除以 ${m2} 餘 ${r2}，這個數最小是多少？（正整數）`,s,`列出除以 ${m2} 餘 ${r2} 的數，逐個試。`,`先列出除以 ${m2} 餘 ${r2} 的數：${vs.join('、')}；逐個試除以 ${m1}，第一個餘 ${r1} 的是 ${s}（${s}÷${m1}＝${Math.floor(s/m1)} 餘 ${r1}），所以最小是 ${s}。`,[s+m1,s+m2,s-m1>0?s-m1:s+m1*2,r1+r2])},
+(r,p)=>{const n=N(r,p,3,20),a=ri(r,2,6),b=a+ri(r,1,3),pp=ri(r,1,n*(b-a)-1),q=n*(b-a)-pp,tot=n*a+pp;if(r()<.5)return o('surplus',`把一些糖果分給小朋友，每人分 ${a} 粒，多出 ${pp} 粒；每人分 ${b} 粒，則少 ${q} 粒。共有多少個小朋友？`,n,'兩種分法相差多少粒？每人相差多少粒？',`兩種分法的糖果數相差 ${pp}＋${q}＝${pp+q} 粒（多出的和不足的加起來），因為每人多分 ${b}－${a}＝${b-a} 粒，所以人數＝${pp+q}÷${b-a}＝${n}。`,[pp+q,n+1,n-1,tot],`(${pp}+${q})/(${b}-${a})`);return o('surplus',`把一些糖果分給小朋友，每人分 ${a} 粒，多出 ${pp} 粒；每人分 ${b} 粒，則少 ${q} 粒。共有多少粒糖果？`,tot,'先求出小朋友人數。',`先求人數：兩種分法相差 ${pp}＋${q}＝${pp+q} 粒，每人差 ${b}－${a}＝${b-a} 粒，人數＝${pp+q}÷${b-a}＝${n}；糖果＝${a}×${n}＋${pp}＝${tot}。`,[n,tot+a,tot-a,b*n],`${a}*${n}+${pp}`)},
+(r,p)=>{const t=ri(r,1,8),o2=ri(r,t+1,9);return o('digits',`一個兩位數，十位數字與個位數字的和是 ${t+o2}，個位數字比十位數字大 ${o2-t}，這個兩位數是多少？`,10*t+o2,'用和差問題的方法求兩個數字。',`用和差問題的方法：十位數字＝(和－差)÷2＝(${t+o2}－${o2-t})÷2＝${t}，個位數字＝${t}＋${o2-t}＝${o2}，所以這個數是 ${10*t+o2}。`,[10*o2+t,t+o2,10*t+o2+1,10*t+o2-1])},
+(r,p)=>{const v=[0,0,0].map(()=>N(r,p,2,30)),[x,y,z]=v,A=x+y,B=y+z,C=x+z,i=ri(r,0,2),sy=['🍎','🍌','🍇'],ex=[`(${A}+${C}-${B})/2`,`(${A}+${B}-${C})/2`,`(${B}+${C}-${A})/2`][i],T=(A+B+C)/2,oth=[B,C,A][i],othS=[`${sy[1]}＋${sy[2]}`,`${sy[0]}＋${sy[2]}`,`${sy[0]}＋${sy[1]}`][i];return o('symbols',`${sy[0]}＋${sy[1]}＝${A}，${sy[1]}＋${sy[2]}＝${B}，${sy[0]}＋${sy[2]}＝${C}。${sy[i]}＝？`,v[i],'三條式子加起來，看看有幾個相同的圖案。',`三條式子相加：每個圖案出現 2 次，所以 2 個${sy[0]}＋2 個${sy[1]}＋2 個${sy[2]}＝${A+B+C}，三個圖案合共 ${A+B+C}÷2＝${T}；${sy[i]}＝三個合共－另外兩個的和（${othS}＝${oth}）：${T}－${oth}＝${v[i]}。`,[v[i]+1,v[i]-1>0?v[i]-1:v[i]+2,T,v[(i+1)%3]],ex)},
+(r,p)=>{const q=pk(r,[4,5,6,7].slice(0,2+Math.round(2*p.s))),n=N(r,p,10,100),dg=[...Array(q)].map((_,i)=>i+1),seq=dg.join('、')+'、'+dg.join('、')+'、……';if(r()<.5){const ans=(n-1)%q+1;return Object.assign(o('cycle',`把 ${dg.join('、')} 重複排成一行：${seq}　第 ${n} 個數字是多少？`,ans,`看看每 ${q} 個數字是一個週期。`,`每 ${q} 個數字（${dg.join('、')}）是一輪；${n}÷${q}＝${Math.floor(n/q)}${n%q?` 餘 ${n%q}`:''}，${n%q?`就取每輪的第 ${n%q} 個`:`正好整除，就是每輪的最後一個`}，所以是 ${ans}。`,[n%q,q,(n%q)+1>q?1:(n%q)+1,Math.floor(n/q)],`(${n}-1)%${q}+1`),{lim:[1,q]})}const full=Math.floor(n/q),rem=n%q,one=q*(q+1)/2,s=full*one+rem*(rem+1)/2;return o('cycle-sum',`把 ${dg.join('、')} 重複排成一行：${seq}　前 ${n} 個數字的和是多少？`,s,'先算一個週期的和。',`先算一輪的和：${dg.join('＋')}＝${one}；${n}÷${q} 的商是 ${full}（${full} 輪）${rem?`，餘 ${rem} 個`:''}，${full} 輪共 ${full}×${one}＝${full*one}${rem?`，餘下的 ${rem} 個是 ${rem>1?dg.slice(0,rem).join('＋')+'＝':''}${rem*(rem+1)/2}，合共 ${s}`:`，所以是 ${s}`}。`,[full*one,s+q,s-q,(full+1)*one],`${full}*${one}+${rem*(rem+1)/2}`)},
+(r,p)=>{const b=pk(r,[2,3,7,8,4].slice(0,2+Math.round(3*p.s))),n=N(r,p,5,60);let v=1;for(let i=0;i<n;i++)v=v*b%10;const c=lastCycle(b),L=c.length;return o('last-digit',`${n} 個 ${b} 連乘（即 ${b} 的 ${n} 次方）的個位數字是多少？`,v,'列出頭幾次方的個位，找循環。',`列出 ${b} 的各次方的個位：${c.join('、')}，每 ${L} 個一輪（再下去就重複）；${n}÷${L} 餘 ${n%L}，餘 0 取第 ${L} 個，否則取第 ${n%L} 個，所以個位是 ${v}。`,[(v+1)%10,(v+2)%10,b,(v+9)%10])}
 ]
 ];
 
@@ -4720,13 +4834,71 @@ const WORLDS={
 math:[['數字小島','🏝️','小一二：20以內及100以內加減'],['乘法森林','🌳','小二：兩位數加減與乘法入門'],['九九城堡','🏰','小三：乘除與九九、多位數運算'],['分數小鎮','🍰','小四：分數與小數入門'],['百分比海洋','🌊','小五：小數、百分數、平均數'],['圖形太空站','🚀','小六：周界、面積、速度、比']],
 olympiad:[['規律迷宮','🧩','數列規律'],['巧算山谷','⚡','巧算：湊整、等差求和、速算'],['邏輯偵探社','🕵️','邏輯推理與排序、植樹問題'],['和差倍工廠','🏭','年齡、和差倍、雞兔同籠'],['計數樂園','🎡','排列、握手、路線、圖形數'],['謎題深淵','🔮','數字謎、餘數與盈虧問題']]
 };
+// Curriculum line: LINE[track][world][stage 0..9] = template indexes allowed at that stage.
+// Stages 1-3 teach one skill each, 4-7 add the next skill beside the previous one, 8-10 mix everything seen.
+const ALL=[0,1,2,3,4,5,6],A6=[0,1,2,3,4,5];
+const LINE={
+math:[
+  {lo:[[6],[6,0],[1],[2],[3],[4],[5,4],A6,A6,ALL],               // difficulty 1-3: 20以內 first, then 100以內
+   hi:[[0],[1],[2],[2,3],[3,4],[4,5],[0,1,2,3],A6,A6,A6]},       // difficulty 4-5: straight into 100以內
+  [[0],[1],[6],[2],[2,4],[3],[5],ALL,ALL,ALL],                    // W2: add2, sub2, to100, times ... mixed
+  [[0],[0],[0],[0,1],[1,6],[4],[2],[3,5],ALL,ALL],                // W3: 九九 first (times only for stages 1-3)
+  [[2],[6],[0],[0,1],[5],[3],[3,4],ALL,ALL,ALL],                  // W4: fraction of a set, equivalent, add/sub, decimals
+  [[0],[1],[3],[2],[2,5],[4],[4,6],ALL,ALL,ALL],                  // W5: decimals x/÷, percent, average
+  [[0],[1],[2],[6],[3],[4],[4,5],ALL,ALL,ALL]                     // W6: perimeter, area, speed, ratio
+],
+olympiad:[
+  [[0],[6],[1],[2],[3],[5],[4],ALL,ALL,ALL],
+  [[0],[3],[1],[2],[4],[5],[6],ALL,ALL,ALL],
+  [[0],[6],[1],[3],[2],[5],[4],ALL,ALL,ALL],
+  [[0],[1],[2],[3],[4],[5],[6],ALL,ALL,ALL],
+  [[2],[4],[0],[5],[1],[3],[6],ALL,ALL,ALL],
+  [[3],[4],[5],[0],[6],[2],[1],ALL,ALL,ALL]
+]};
+const poolOf=(t,wi,si,diff)=>{const w=LINE[t][wi];return Array.isArray(w)?w[si]:(diff<=3?w.lo:w.hi)[si]};
+
+// skill -> real lesson id.  math: HK-M4 unit code (chapters are <code>-1 / <code>-2, see math_course_src/curriculum-map.json);
+// olympiad: 思維之塔 topic id (math_course_src/active-content.json skills, track olympiad). '' = no matching lesson yet.
+const LESSON={
+  within20:'1N2',count:'1N2',add:'1N4',sub:'1N4',missing:'1N4',story:'1N4','add-sub':'1N4',
+  add2:'2N2',sub2:'2N2','add-sub2':'2N5',to100:'1N4',times:'2N3','times-story':'2N3','repeat-add':'2N3',
+  div:'2N6',remainder:'3N3',quotient:'3N3',share:'3N3','mul-multi':'3N2','add-multi':'3N4','sub-multi':'3N4',story2:'3N4',
+  'frac-of':'3N5','frac-eq':'4N6','frac-add':'4N6','frac-sub':'4N6','frac-dec':'6N2','dec-add':'4N8','dec-sub':'4N8',
+  'dec-mul':'5N4','dec-div':'6N1','percent-of':'6N4','frac-pct':'6N3',discount:'6N4',mean:'6D1','mean-missing':'6D1',
+  perim:'4M1',area:'4M2','tri-area':'5M1',speed:'6M4','ratio-share':'','ratio-scale':'','area-sub':'4M2',
+  'seq-arith':'O-CAL-pattern','seq-nth':'O-CAL-pattern','seq-geo':'O-CAL-pattern','seq-diff2':'O-CAL-pattern','seq-fib':'O-CAL-pattern','seq-inter':'O-CAL-pattern','seq-missing':'O-CAL-pattern',
+  'make-whole':'O-NUM-pairs',gauss:'O-NUM-pairs','arith-sum':'O-NUM-pairs','alt-sum':'O-NUM-pairs','quick-mul':'',distrib:'',consec:'',
+  queue:'O-APP-queue',between:'O-APP-queue','left-right':'O-APP-queue',plant:'',saw:'',liars:'',rank:'',
+  'sum-diff':'','sum-mult':'','diff-mult':'',age:'','chicken-rabbit':'O-R3-L2-applied',coins:'O-R3-L2-applied',three:'',
+  perm:'O-LOG-digits',digits:'O-LOG-digits',handshake:'O-GEO-segments',segments:'O-GEO-segments',squares:'O-R3-L2-geometry',
+  combo:'O-R3-L2-count',route:'O-R3-L2-count',arrange:'O-R3-L2-count','arrange-adj':'O-R3-L2-count',knockout:'',
+  'rem-shift':'',crt:'',surplus:'',symbols:'',cycle:'','cycle-sum':'','last-digit':''
+};
+const skillLesson=sk=>LESSON[sk]||'';
+
 const trk=t=>t==='olympiad'?'olympiad':'math';
 const worlds=track=>{const t=trk(track);return WORLDS[t].map((w,i)=>({id:`${t}-${i+1}`,name:w[0],icon:w[1],desc:w[2],stages:10}))};
 
 const norm=s=>String(s==null?'':s).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/[／]/g,'/').replace(/[．。]/g,'.').replace(/[\s　]+/g,'');
 const num=s=>{s=norm(s);if(/^\d+\/\d+$/.test(s)){const [a,b]=s.split('/').map(Number);return b?a/b:NaN}return /^(\d+\.?\d*|\.\d+)$/.test(s)?+s:NaN};
 const eq=(a,b)=>{a=norm(a);b=norm(b);if(a===b)return true;const x=num(a),y=num(b);return x===x&&y===y&&Math.abs(x-y)<1e-9};
-const check=(q,i)=>!!q&&norm(i)!==''&&[q.answer,...(q.accept||[])].some(a=>eq(a,i));
+// value only (ignores the 「化成小數／最簡分數」 form rule): used for wrong-option screening and by checkDetail
+const sameValue=(q,i)=>!!q&&norm(i)!==''&&[q.answer,...(q.accept||[])].some(a=>eq(a,i));
+const formOk=(q,i)=>{
+  const s=norm(i);
+  if(q.form==='dec')return /^(\d+\.?\d*|\.\d+)$/.test(s);
+  if(q.form==='simplest'){if(/^\d+$/.test(s))return true;const m=s.match(/^(\d+)\/(\d+)$/);return !!m&&+m[2]>1&&gcd(+m[1],+m[2])===1}
+  return true;
+};
+const FORM_MSG='數值對了，請寫成小數／最簡分數';
+// checkDetail -> {ok:true} | {ok:false,why:'empty'|'wrong'} | {ok:false,why:'form',msg,form}
+const checkDetail=(q,i)=>{
+  if(!q||norm(i)==='')return {ok:false,why:'empty'};
+  if(!sameValue(q,i))return {ok:false,why:'wrong'};
+  if(!formOk(q,i))return {ok:false,why:'form',msg:FORM_MSG,form:q.form};
+  return {ok:true};
+};
+const check=(q,i)=>checkDetail(q,i).ok;
 
 const gen=(a,d)=>{
   if(a.includes('/')){const [x,y]=a.split('/').map(Number);return[`${x+1}/${y}`,`${x}/${y+1}`,`${Math.max(1,x-1)}/${y}`,`${y}/${x}`,`${x+1}/${y+1}`,`${x}/${y*2}`]}
@@ -4738,41 +4910,55 @@ const gen=(a,d)=>{
   const m=[];for(let i=0;i<Math.max(near.length,far.length);i++){if(i<near.length)m.push(near[i]);if(i<far.length)m.push(far[i])}return m;
 };
 const mk=(r,x,diff,mode)=>{
-  const q={mode,q:x.q,answer:x.a,accept:x.acc.filter(s=>s!==x.a),hint:x.h,explain:x.e,skill:x.sk};
+  const q={mode,q:x.q,answer:x.a,accept:x.acc.filter(s=>s!==x.a),hint:x.h,explain:x.e,skill:x.sk,form:x.form||null,lesson:skillLesson(x.sk)};
   if(x.calc){q.calc={expr:x.calc,value:+x.a}}
   if(mode==='fill')return q;
+  const lim=x.lim,inLim=v=>!lim||(/^\d+$/.test(v)&&+v>=lim[0]&&+v<=lim[1]);
   const isInt=/^\d+$/.test(x.a),isFr=x.a.includes('/'),tw=x.w.map(v=>typeof v==='number'?(isFinite(v)&&v>=0?fx(v):null):String(v)).filter(v=>v!==null&&(!isFr||v.includes('/'))&&(isFr||!v.includes('/'))&&(!isInt||/^\d+$/.test(v)));
   const g=gen(x.a,diff).map(v=>typeof v==='number'?(isFinite(v)&&v>=0?fx(v):null):v).filter(v=>v!==null&&(!isInt||/^\d+$/.test(v)));
-  const cand=diff>=4?g.concat(tw):tw.concat(g);
-  for(let i=1;i<20;i++)cand.push(isFr?`${x.a.split('/')[0]*1+i}/${+x.a.split('/')[1]+i}`:fx(+x.a+i*(isInt?3:.1)));
+  const cand=(diff>=4?g.concat(tw):tw.concat(g)).filter(inLim);
+  for(let i=1;i<20;i++){const c=isFr?`${x.a.split('/')[0]*1+i}/${+x.a.split('/')[1]+i}`:fx(+x.a+i*(isInt?3:.1));if(inLim(c))cand.push(c)}
+  if(lim)for(let v=lim[0];v<=lim[1];v++)cand.push(String(v));
   const out=[];
-  for(const c of cand){if(out.length>=3)break;if(check(q,c))continue;if(out.some(z=>eq(z,c)))continue;out.push(norm(c))}
+  for(const c of cand){if(out.length>=3)break;if(sameValue(q,c))continue;if(out.some(z=>eq(z,c)))continue;out.push(norm(c))}
   if(out.length<3)return null;
   q.options=sh(r,[x.a,...out]);
   return q;
 };
-const make=(track,wi,si,n,diff,seed)=>{
+// A worked example for the 「例題卡」: the same template at its easiest settings, never the question being asked.
+const exCache={};
+const exampleFor=(t,wi,ti,sk,stem)=>{
+  const key=`${t}|${wi}|${ti}|${sk}`;let L=exCache[key];
+  if(!L){L=[];for(let s=0;s<80&&L.length<3;s++){const x=TPL[t][wi][ti](mb(hs('ex',t,wi,ti,sk,s)),{s:.22,diff:2,stage:2});if(x.sk===sk&&!L.some(y=>y.q===x.q))L.push({skill:sk,q:x.q,answer:x.a,explain:x.e,tip:x.h})}exCache[key]=L}
+  const e=L.find(y=>y.q!==stem)||L[0];return e?Object.assign({},e):null;
+};
+// make(track, world 0-5, stage 0-9, n, diff 1-5, seed[, avoid]): avoid = stems to skip (e.g. the last 30 the learner saw) so the same list gives the same questions.
+const make=(track,wi,si,n,diff,seed,avoid)=>{
   const t=trk(track);wi=Math.min(5,Math.max(0,wi|0));si=Math.min(9,Math.max(0,si|0));diff=Math.min(5,Math.max(1,diff|0||3));n=Math.max(0,n|0);seed=seed|0;
-  const r=mb(hs(t,wi,si,n,diff,seed)),T=TPL[t][wi],L=T.length,boss=si===9,base=Math.min(1,.35*si/9+.65*(diff-1)/4+(boss?.1:0));
-  const res=[],seen=new Set(),all=T.map((_,i)=>i);
+  const r=mb(hs(t,wi,si,n,diff,seed)),T=TPL[t][wi],boss=si===9,base=Math.min(1,.35*si/9+.65*(diff-1)/4+(boss?.1:0));
+  const line=poolOf(t,wi,si,diff),sofar=[...new Set([].concat(...[...Array(si+1)].map((_,i)=>poolOf(t,wi,i,diff))))],all=T.map((_,i)=>i);
+  const av=new Set(avoid||[]);
+  const res=[],seen=new Set();
   for(let k=0;k<n;k++){
     const mode=k%2?'fill':'mcq';
     for(let att=0;;att++){
-      if(att>600)throw new Error('WQ37Math: cannot build question');
+      if(att>900)throw new Error('WQ37Math: cannot build question');
       const p={s:Math.min(1,base+(att>20?(att-20)*.03:0)),diff,stage:si};
-      const pool=boss||att>40?all:[si%L,(si+1)%L,(si+2)%L];
-      const x=T[pk(r,pool)](r,p);
-      if(seen.has(x.q))continue;
+      const pool=att>400?all:att>200?sofar:line;
+      const ti=pk(r,pool);
+      const x=T[ti](r,p);
+      if(seen.has(x.q)||(att<=250&&av.has(x.q)))continue;
       const q=mk(r,x,diff,mode);
       if(!q)continue;
       seen.add(x.q);
+      q.ex=exampleFor(t,wi,ti,x.sk,x.q);
       res.push(Object.assign({id:`M${t==='olympiad'?'O':''}${wi+1}-${si+1}-${k+1}`},q));
       break;
     }
   }
   return res;
 };
-const api={worlds,make,check};
+const api={worlds,make,check,checkDetail,skillLesson,lessons:Object.freeze(Object.assign({},LESSON))};
 globalThis.WQ37Math=api;
 if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 })();
@@ -5235,6 +5421,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     '.wq37-stars i{font-style:normal;color:#3A4180;text-shadow:none}' +
     '.wq37-rec{display:inline-block;margin:4px 0;padding:4px 16px;border-radius:30px;background:rgba(255,201,74,.16);border:1px solid ' + GOLD + ';color:' + GOLD + ';font:900 18px ' + EFONT + '}' +
     '.wq37-stat{display:flex;gap:8px;justify-content:center;margin:8px 0}.wq37-stat div{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 2px;font-weight:900;font-size:20px;color:#F4F6FF}.wq37-stat span{display:block;font-size:14px;font-weight:700;color:#AEB8E8}' +
+    '.wq37-miss{display:flex;flex-direction:column;gap:6px;margin:8px 0;max-height:46vh;overflow-y:auto}.wq37-mw{display:flex;align-items:center;gap:10px;padding:6px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);text-align:left}.wq37-mw b{font:900 22px ' + EFONT + ';letter-spacing:.04em;color:#FFC94A}.wq37-mw span{flex:1;font-weight:800;color:#C3CBF7}' +
     '.wq37-words{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:6px 0}.wq37-words span{padding:3px 9px;border-radius:14px;font:800 14px ' + EFONT + ';background:rgba(23,185,120,.18);border:1px solid #3ddc97;color:#C9FBE3}.wq37-words span.bad{background:rgba(255,107,129,.16);border-color:#FF6B81;color:#FFD3DA}' +
     '.wq37-opt{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0;font-size:16px;font-weight:800;color:#F4F6FF}' +
     '.wq37-opt input{width:130px;height:32px;accent-color:' + GOLD + '}' +
@@ -5340,6 +5527,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     var jx = 0, jy = 0, joyId = null, joyOx = 0, joyOy = 0, lookId = null, lookX = 0, lookPend = 0;
     var touchMode = false, dragging = false, lockDenied = false, wasLocked = false;
     var shake = 0, flash = 0, flashCi = 0, hint = null, gunBob = 0, recoil = 0, cool = 0, muzzle = 0, hitM = 0, dmgV = 0, comboT = 0, comboM = 1, stepAcc = 0, turnV = 0, sens = loadSens();
+    var missCardUp = false, missCardDone = false;
     var avgMs = 0, introA = 0, resultShown = false, overT = 0, lastResult = null, finishedCalled = false;
     var ro = null, sayShown = false, muted = loadMute(), timers = [], hinting = false, aimLock = 0;
     var PJ = { x: 0, y: 0, depth: 0, size: 0 };
@@ -5872,7 +6060,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
         if (!pool.length) { pool = shuffle(words.map(function (_, i) { return i; })); if (pool[pool.length - 1] === last) pool.reverse(); }
         last = pool.pop(); order.push(last);
       }
-      resultShown = false; finishedCalled = false; lastResult = null; overT = 0; hint = null; shake = 0; flash = 0; dmgV = 0; comboT = 0; hinting = false; promptSig = -1;
+      resultShown = false; missCardUp = false; missCardDone = false; finishedCalled = false; lastResult = null; overT = 0; hint = null; shake = 0; flash = 0; dmgV = 0; comboT = 0; hinting = false; promptSig = -1;
       startRound(true);
     }
     function enterArena(w, first) {
@@ -6005,7 +6193,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     }
     function bossCounter() {
       var B = G.boss;
-      B.atk = 0.9; B.reveal = true; G.combo = 0;
+      B.atk = 0.9; B.reveal = true; G.combo = 0; B.wrongShot = true;
       hint = { text: '怪獸反擊!要射字母「' + B.letters[B.idx] + '」', t: 2.4, e: null };
       setFlash(0, 0.5); SFX.roar();
       loseHeart('boss');
@@ -6374,7 +6562,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       if (shown !== sayShown) { sayShown = shown; sayBtn.classList.toggle('on', shown); }
       if (state === 'over') {
         overT -= dt;
-        if (overT <= 0 && !resultShown) showResult();
+        if (overT <= 0 && !resultShown && !missCardUp) { if (!missCardDone && bossMissed().length) showMissCard(); else showResult(); }
       }
     }
 
@@ -6505,6 +6693,29 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       var sl = ovEl.querySelector('[data-role="sens"]');
       if (sl) sl.addEventListener('input', function () { sens = clamp(sl.value / 100, 0.4, 2.5); saveSens(sens); });
     }
+    /* after the boss: the words spelt wrong in this level, with the right spelling (and syllables when the host gives opts.syllables) */
+    function bossMissed() {
+      var out = [], seen = {}, i, w;
+      if (!G.boss) return out;
+      for (i = 0; i < PW.length; i++) if (PW[i].asked && PW[i].miss > 0 && !seen[PW[i].en]) { seen[PW[i].en] = 1; out.push(PW[i].en); }
+      if (G.boss.wrongShot && G.boss.w && !seen[G.boss.w.en]) out.push(G.boss.w.en);
+      return out.map(function (en) {
+        for (var k = 0; k < words.length; k++) if (words[k].en === en) { w = words[k]; break; }
+        return { en: en, zh: w && w.zh || '' };
+      });
+    }
+    function showMissCard() {
+      missCardUp = true; missCardDone = true;
+      var list = bossMissed(), h = '<h2>這關拼錯的字</h2><div class="wq37-miss">', i, sy;
+      for (i = 0; i < list.length && i < 8; i++) {
+        sy = list[i].en;
+        try { if (typeof opts.syllables === 'function') sy = String(opts.syllables(list[i].en) || sy); } catch (e) { /* */ }
+        h += '<div class="wq37-mw"><b lang="en">' + escHtml(sy) + '</b><span>' + escHtml(list[i].zh) + '</span></div>';
+      }
+      h += '</div><button class="wq37-go" data-act="cont">繼續</button>';
+      showOv(h, { cont: function () { missCardUp = false; showResult(); } });
+      try { if (canHear() && list[0]) speak(list[0].en); } catch (e) { /* */ }
+    }
     function showResult() {
       resultShown = true; var r = lastResult, acc = Math.round(100 * r.accuracy), st = '', i;
       for (i = 1; i <= 5; i++) st += i <= r.stars ? '★' : '<i>★</i>';
@@ -6552,6 +6763,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
         return;
       }
       if (c === 'KeyM' && soundOn && !e.repeat) { setMuted(!muted); return; }
+      if (state === 'over' && missCardUp && (c === 'Enter' || c === 'Space')) { e.preventDefault(); missCardUp = false; showResult(); return; }
       if (state === 'over' && resultShown && c === 'Enter') { e.preventDefault(); beginPlay(); return; }
       if (state === 'paused' && (c === 'Enter' || c === 'KeyP' || c === 'Escape')) { e.preventDefault(); resume(); return; }
       if (state === 'learn') {
@@ -8811,6 +9023,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 
 </script>
 <script data-wq28="host">
+globalThis.WQ37EnFix={"ex":{"w_5d246d17c8ffb086":"He hits the ball with a bat.","w_6d5d3981cfb49241":"She opens a can of soup.","w_654a43bc179eb167":"Please turn on the fan.","w_df6b8848a0d0fae0":"The man waits for the bus.","w_c8e453511d869f35":"Mum cooks eggs in a pan.","w_4f66bd5d3cc43581":"Turn off the tap, please.","w_f30e214070e47fae":"The cat sleeps on my lap.","w_b0db1f2af2870832":"I like jam on my toast.","w_814d8f4a22a84269":"Dad puts ham in my sandwich.","w_7a0d323c107da715":"The ram is eating grass.","w_6b10fb34594114da":"We eat a hot yam in winter.","w_0c1287e5f6912d4c":"I have ten red pencils.","w_2dbe67b71323bf62":"Two men are on the bus.","w_a000a178920a0ebb":"My pet is a small rabbit.","w_85b5e74eb6b2be3b":"The boy holds a fishing net.","w_6190bbce3a10dde1":"I get up at seven o'clock.","w_2f155217b018f33f":"Use a pin to hold the paper.","w_f7b01f8dadb93084":"The shark has a big fin.","w_2da858f8c5510e80":"Put the paper in the bin.","w_77cf5f0d87c2ef51":"Our team can win the game.","w_a7bdbb2b342bc689":"He can hit the ball far.","w_501d9c3565fc4b3a":"These shoes fit me well.","w_f12244cc4eb2c536":"We have a first aid kit.","w_d5d267d3426282fd":"We climb to the top of the hill.","w_29bf48c6ae14203e":"Dad uses a mop to clean the floor.","w_f97b6c04ab773107":"The rabbit can hop very fast.","w_fd9ee21d59a79234":"The balloon will pop soon.","w_19b6cb74c725c1c8":"Draw a dot on the page.","w_10622e0d04fd73a6":"I ate a lot of grapes.","w_cee42511936f39ef":"A small bug is on the leaf.","w_baeee33e1e3c8d12":"I drink milk from a mug.","w_c35abbe85ecea82b":"The dog lies on the rug.","w_f0bab42504ed7d48":"I give Mum a big hug.","w_fff284715ddb0120":"We have fun at the beach.","w_35bd88192d42c8e7":"I eat a bun for breakfast.","w_7aa175afe75c56c2":"The milk smells bad today.","w_19699e4d7d073bd0":"My dad drives me to school.","w_4fe616d5d4eeeea0":"Tom is mad because it rained.","w_9b8af14716aebda1":"Use a rag to clean the desk.","w_4c2e2d06f62e843f":"The dog will wag its tail.","w_efb26a4cdb6ff0ba":"I fed the fish this morning.","w_c2ea83f49b0b27de":"We ride a sled down the hill.","w_e1c03961871816fb":"Hang the sock with a peg.","w_1db4847b2e77d1d6":"The puppy will beg for food.","w_769414b7520ed9dd":"The keg is full of apple juice.","w_55940f387e30961a":"The kid plays with a ball.","w_7e7f65313b69cdbe":"Put the lid on the box.","w_1bc9167d4696c526":"The cat hid under the bed.","w_c3acd10a438011b0":"I did my homework last night.","w_251ed7c31b03cea2":"We dig a hole in the sand.","w_6c497b0fee518234":"She wears a funny wig.","w_5a53cfa3d92b8070":"He has a cut on his lip.","w_e17e76ab6f93ca06":"My bag has a broken zip.","w_09fc41107fc9c276":"The tip of the pencil is sharp.","w_86dd94e45589a5ab":"I see him at the park.","w_eb710a914a39a340":"The room is too dim to read.","w_4d50db7a405b977e":"The cup has a gold rim.","w_ac9f6b20e65ada60":"My uncle is tall and slim.","w_a69e1ea62167c5b8":"The fog is thick this morning.","w_b2fef893a8e1612d":"I jog around the park every morning.","w_0f1e21119299c976":"A big rock is in the river.","w_2cdbd68c8cda27a1":"Dad turns the key in the lock.","w_f19ad3b1871ff3d1":"The ferry stops at the dock.","w_85f6da69e5886984":"Please cut the cake into four.","w_8be7858af0552cb9":"A squirrel is eating a nut.","w_c34e3142dfdf2c0e":"Please shut the door quietly.","w_254e7b5ba403617c":"Good luck on your test.","w_8319366d48e2126a":"A big truck is on the road.","w_6552ecabf675c465":"The cat is stuck in a tree.","w_be3df077d99ce353":"The big ship leaves the port.","w_7917ad23cde83f3f":"I buy sweets at the shop.","w_e3c9b4e5bbcfcb7f":"She finds a shell on the beach.","w_0358c2dfc7e2411f":"Make a wish and blow the candles.","w_2bad6a2c6706c488":"Use a brush to paint the wall.","w_0c056576663a2eae":"He has a small cut on his chin.","w_42123a70e63982ce":"Do you want a potato chip?","w_e4d90ce897003c76":"The rich man has a big house.","w_5681f78ef01cd5c6":"I do not eat much meat.","w_17ff4a2a16950d45":"Please chop the carrot for me.","w_bb138e880e134365":"The doctor listens to his chest.","w_9d732a2d6367ba0c":"This book is very thick.","w_791fab40b6f3e991":"A moth flies around the lamp.","w_70ea0841f35a9060":"I take a bath at night.","w_e6045917c6e278e0":"We walk on a small path.","w_0189c06a21a56739":"I hurt my thumb in the door.","w_610fa40d9e6a2b14":"Brush your teeth every morning.","w_2e7872d91b484ffa":"What is that on the table?","w_f29b8e04c2c21071":"These apples are very sweet.","w_d65940e0891e3534":"Those birds are on the roof.","w_707ec08d35a86a15":"I give them some food.","w_ca876b20cdad750d":"Wash your hands, then eat lunch.","w_872aca4f55a98f51":"Your bag is over there.","w_7d13cd6809c36724":"She wears a gold ring.","w_46d8295d9cee5d4f":"The bird has a hurt wing.","w_7795137cc805a61f":"The king lives in a castle.","w_96a610efd0e5a6cc":"The door shut with a bang.","w_57a664ce41af77bb":"Please hang your coat on the hook.","w_17362e4365f31fc3":"She has a pink umbrella.","w_f70a8e7638a878fc":"Mum goes to the bank today.","w_2ed8d3a4eea8fdc8":"The fish tank is very clean.","w_a0957720e372a2be":"He gives me a wink.","w_fff2d6117ce3894b":"Click the link to open the page.","w_355ca6726e3310a3":"I think the answer is B.","w_db519e15ac8dc4a7":"My back hurts after the game.","w_679a3eaff3db162e":"The giraffe has a long neck.","w_2ca168e8e58387dd":"He can kick the ball far.","w_c1e56d0cbddaa728":"Please pack your bag tonight.","w_25c15b846d739144":"I feel sick, so I stay home.","w_4affb490d9a59c3d":"My phone is on the table.","w_e743231728b85b55":"We sing the alphabet song.","w_fa5447a186933cac":"Look at the graph on page ten.","w_d61982e7914e529c":"My nephew is three years old.","w_1b8bf727caa13560":"Our team wins a gold trophy.","w_4083fdb6ed29bb7c":"The dog has a black spot.","w_cac8d04c54eb5519":"The top can spin very fast.","w_137d985c89803b83":"We skip rope in the playground.","w_e9ffb28f4c533ca8":"Use cream to keep your skin soft.","w_a9bcee49f14173ca":"I smell cakes in the kitchen.","w_a3d78ac61cb5a668":"Mum gives me a big smile.","w_45c519dd00329c1a":"I eat a snack after school.","w_c0a8cfddf542fa82":"The mango is very sweet.","w_832fa858a3aa8d2d":"The cat has black fur.","w_4d97b83ae81b31f2":"Tom stacks a block on the tower.","w_58137824c799dd6b":"Let us clap for the singer.","w_4e82afc5f0fb5604":"The road is long and flat.","w_5be7a60f05e8532a":"Rice is an important crop.","w_736f959e8310bff9":"A black crow sits on the wall.","w_b843e6695ec2d07d":"The grass is green in spring.","w_b7e9865f392feaf8":"He has a big grin on his face.","w_b32dfd8b04c2942c":"A drop of rain falls down.","w_3fe56d106e678bc0":"Entry to the park is free.","w_ecd5134aa320cb6f":"The children play in the sand.","w_9e29da83043c6fff":"The wind is strong today.","w_bd5d2b3936fdaec7":"Ducks swim in the pond.","w_5c132806358c1be4":"We went to the beach yesterday.","w_6cac06aa2d505120":"Please write your name here.","w_9e7350ac85b63737":"We play a game after lunch.","w_9f23abc71dfb502d":"We have the same bag.","w_56f0953f2b5fd5dc":"We row a boat on the lake.","w_b5c8d0abc1e15665":"Please close the gate behind you.","w_803d957eb9135398":"A ball has a round shape.","w_a8293209a8ed32e3":"What time is it now?","w_3ad1defd9a4d5504":"There are five apples in the bowl.","w_85a625104679a599":"Please stand in a line.","w_9880c5a87cf22552":"The class begins at nine o'clock.","w_5b94ee261de15e6d":"He throws a stone into the lake.","w_d65f26d3fe9d4ea7":"I want an ice cream cone.","w_4bc57a641c664c72":"I hope it will be sunny.","w_5a8bbe4ff54ffd6c":"Please write a note for Mum.","w_003efdb083d45845":"An ice cube melts in the sun.","w_5e565dbae0146f1d":"Squeeze the tube to get the paste.","w_83bbec66b2feb617":"The baby panda is so cute.","w_27d9296f5e235fd1":"Our summer holiday starts in June.","w_439868818bfd911a":"The mule carries a heavy bag.","w_b34c50bd8cd00c81":"Please follow the school rule.","w_b97f87a0db0af848":"I can hum that tune.","w_603398457224615c":"The dog wags its tail.","w_dc7f511b1184b0a8":"We paint a picture in art class.","w_c123b6762c03b7fa":"The mail arrives at noon.","w_f7f9e86d7a568413":"The boat has a white sail.","w_0d485cde9fa7a0d3":"Please wait for me at the gate.","w_6bde6293b9694d6b":"Today is a sunny day.","w_60eaa4e68d93231a":"Please say your name to the class.","w_c2a96093892eb7bf":"I stay at home on Sunday.","w_2906e41f2a16633f":"Which way is the MTR station?","w_fdda2c5ab8b5fa19":"She carries a tray of tea cups.","w_a63044fd3c28298d":"Use a spray to clean the window.","w_ab1e2b8c32a796f9":"My feet are tired after walking.","w_4553031f1c05ecb0":"Our team practises on Saturday.","w_d0d660b0c07e14e0":"I read a book every night.","w_3a555e86bc51b778":"We have meat for dinner.","w_fe394d0fffa23aec":"Look both ways before you cross the road.","w_53250f8c44eed61e":"I eat toast with butter.","w_828bbacb3bf2c73a":"The leaf can float on water.","w_eba608726c0e03b5":"Our coach teaches us football.","w_365c4c22d8069c78":"The turtle is very slow.","w_617ea46b99a2bcc0":"Plants need water to grow.","w_f020b6a5d93d2ea1":"I will show you my drawing.","w_1257a7e2cda324a8":"Blow out the candles, Amy.","w_3bfa8333f57eb7a9":"She wears a yellow dress today.","w_9b2c740bca858775":"My pillow is soft and warm.","w_4b8ea691c1ede886":"The stars come out at night.","w_98a0044a8b847837":"Raise your right hand, please.","w_c19f9ed385ca17fc":"The sea is a lovely sight.","w_84fca02c23237da9":"These shoes are too tight.","w_4d1e50b7804487ad":"The kite flies very high.","w_4d5758b1f4dbfae8":"Our flight leaves at noon.","w_ca4e26b9f2806ec9":"Dad wears a blue tie.","w_20e66b3da20ba9b4":"I lie on the bed and read.","w_a0569cab5dc1f79d":"The plants will die without water.","w_b77210721b063536":"The baby cried all night.","w_2ddfd76d549ed3c9":"I tried the new game.","w_847dad07d00294e6":"Mum dried the wet shirts.","w_5f948223904a0a1f":"Flies like to land on food.","w_7b5572b29ab902bf":"She puts on one rain boot.","w_86e4f3d7a941704f":"My room is clean and tidy.","w_6efe8e55e81a2096":"We see lions at the zoo.","w_75d090cfdab3745d":"I swim in the pool.","w_f040be1a9d40251a":"You did a good job.","w_824019be22554bc4":"My left foot hurts a little.","w_19e27a758460c64d":"The table is made of wood.","w_9f6feed3fd49df7e":"This warm scarf is made of wool.","w_874029de0edd448c":"Put the hood on your head.","w_cb066042655ee7af":"I find a coin on the floor.","w_f517385c2e2076ff":"Plants grow in wet soil.","w_91d5c525b9b6c350":"Please boil the water first.","w_8ea913cc8fb34b9a":"Can I join your team?","w_d82df974aab06f52":"Point to the red car.","w_b12014e216b43ced":"The boy kicks the ball.","w_7d99a381d04e4b6c":"The gift brings her great joy.","w_063e39850c9805d1":"The cat runs out of the house.","w_3405919ae0dbd336":"The music is too loud.","w_af095f5ae0171090":"Please come to the table now.","w_1c26c7405720f537":"We visit a farm in the New Territories.","w_7320a9a3f723ece8":"I hurt my arm in the game.","w_d391f2a39c24d3a5":"I send Mum a birthday card.","w_78f51e6be27222b0":"It gets dark at six o'clock.","w_7fe2dbfc59dbe626":"My baby sister was born in Hong Kong.","w_980ba03407aa5644":"A big storm hits the city tonight.","w_1b2b8ecf34bc0c9f":"My favourite sport is swimming.","w_c65700ed7f9b3869":"The wind comes from the north.","w_0878bcb05ed6504d":"I give her a flower.","w_3fe25346da7efdef":"A fern grows in the shade.","w_44616fe940c34a0e":"The new term begins in September.","w_672b721728fd762a":"The girl rides a bicycle.","w_dc02beaa1c57948f":"The nurse helps the sick boy.","w_bd49337f0df842e8":"Turn left at the shop.","w_305545e3fe998404":"The air is fresh in the park.","w_9d83b9fb8cecd279":"She brushes her long hair.","w_5353240fdf73e0d8":"I need a new pair of shoes.","w_a5d8e3ff6889f1ae":"Walk up the stairs slowly.","w_b6c4a6ef202ac192":"It is not fair to push.","w_cefff80a271a3f60":"We go to the airport by bus.","w_77e7256b08900e48":"A rabbit has a long ear.","w_c2de0bb888d68dbd":"Dear Grandma, I miss you very much.","w_75a487b819c6d551":"The water in the lake is clear.","w_a1f761846b4098bc":"Next year I will be ten.","w_5832bdd24c4f65be":"The little boy has a fear of dogs.","w_2f79ed709dde5486":"Santa has a long white beard.","w_236754a0d6b88743":"Two cats sleep on the sofa.","w_1f2ffa07b5d7cc96":"The dogs run in the park.","w_1af8c2da78462c5e":"Many buses stop at this station.","w_03e50f8a09e37db8":"Put your toys in the box.","w_bdb38907d87a419d":"The baby is sleeping now.","w_1b42a36060dea201":"Many babies cry at night.","w_ddaa09a61c9fdafd":"Hong Kong is a busy city.","w_2cb158d75ab73ae9":"Tokyo and Paris are big cities.","w_f21a7cf2c8956477":"The puppy plays with a ball.","w_54c689c903e0613b":"We walked to school this morning.","w_2841491ed15c2417":"I want some orange juice.","w_b59c618a6ee70cd8":"She wanted a red balloon.","w_c0bd028e358d8b0c":"The frog jumped into the pond.","w_69a5c7793ed7d256":"The boys are playing football.","w_6f2441204118b890":"We make a cake for Mum.","w_df7e9832e6d8982a":"Dad is making dinner now.","w_a96b0f5d701a6e28":"My sister is swimming in the pool.","w_9bd42857fec5075b":"This is the smallest box.","w_8ac50b115e3b35b7":"My brother is bigger than me.","w_ab473523473b9bdb":"The whale is the biggest animal.","w_abb3e912b2af3041":"Tom is taller than Amy.","w_987f319b5674c453":"The boy is unhappy today.","w_28f9eda67caf4137":"It is unkind to laugh at others.","w_0704f726737ef269":"The playground is safe for children.","w_9fee87f3ba9cdc62":"It is unsafe to run on the stairs.","w_2f26a0e84db9ccc5":"Let us read a story together.","w_6e6510cd24396141":"Please reread the question once more.","w_97f13ad49df5e302":"May I use your pencil?","w_5975843fdd9749fd":"You must rewrite the sentence.","w_08c9f17cfcd69e01":"We build a sandcastle on the beach.","w_33a7a52a0c1de37b":"They will rebuild the old bridge.","w_461bfc4f74f5712b":"The sunflower faces the sun.","w_cdc600ae1c7bd45c":"We play on the playground after lunch.","w_c20b492755ed56f8":"Please give me a glass of water.","w_cec989584caff04a":"I love my family very much.","w_57aafabd04e87c73":"Please come to my birthday party.","w_1dd5bbab44347817":"May I have some water?","w_b322910ceed2167f":"Mum said dinner is ready.","w_251156ec12e521bf":"Mum does the washing on Sunday.","w_3acbe72ed3407cc6":"She wears a hat on her head.","w_d1a24a0f413fc880":"You did a great job today.","w_eac3d25b44bed067":"Let us take a short break.","w_7c0add81c5f9dfab":"Dad cooks steak for dinner.","w_3cfbb1f55b410caf":"We have two cats at home.","w_29dd6440820ffa3b":"I want to go too.","w_c0b6ed945ccb623c":"Their house is near the park.","w_8a7ed42788da516b":"Please put your bag here.","w_0c49467bdc6f0b15":"We have swimming on Friday.","w_1dd34c729618a3cc":"We visit Grandma on Sunday.","w_c3aebd69125399d7":"My birthday is in May.","w_94d9d8c1b2160ce7":"I live in Hong Kong.","w_6b7e36b30f2b8057":"I'm very happy to see you.","w_fbeb3ba65a1981ec":"Please don't run in the room.","w_addf67706ae89202":"I can't find my red pen.","w_7d65185a84b445ca":"It's time to go home.","w_7a124cfb0c35e6e1":"We're late for the first class.","w_63e674cf45f1063c":"The soup isn't hot now.","w_a75b98413d2a8f69":"You're very kind to me."},"fix":{"w_f70a8e7638a878fc":{"zh":"銀行","image":"1f3e6"},"w_bb138e880e134365":{"zh":"胸膛","image":null},"w_a0569cab5dc1f79d":{"zh":"死","image":null},"w_10622e0d04fd73a6":{"zh":"很多（a lot）","image":null},"w_6b10fb34594114da":{"zh":"番薯","image":"1f360"},"w_42123a70e63982ce":{"zh":"薯片","image":"1f35f"},"w_4848fff2d007ac00":{"zh":"貨車"},"w_4d9e353759c8bee8":{"zh":"飛機"}},"blend":{"core":["r31_brunch","r31_smog","r31_motel","r318_internet","r318_podcast","r318_ginormous"],"ext":["r318_cosplay","r31_sitcom","r31_vlog","r31_webinar","r31_emoticon","r31_staycation","r31_glamping","r31_spork"],"extId":"blend-ext","extTitle":"延伸：更多混合詞","extra":[{"id":"r318_internet","group":"blend","kind":"blend","form":"internet","meaning":"互聯網","parts":["inter","net"],"sources":[{"word":"interconnected","meaning":"互相連接的","take":"inter","start":0,"end":5},{"word":"network","meaning":"網絡","take":"net","start":0,"end":3}],"example":"I read the news on the internet.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_podcast","group":"blend","kind":"blend","form":"podcast","meaning":"播客節目","parts":["pod","cast"],"sources":[{"word":"ipod","meaning":"iPod 播放器","take":"pod","start":1,"end":4},{"word":"broadcast","meaning":"廣播","take":"cast","start":5,"end":9}],"example":"I listen to a podcast on the bus.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_ginormous","group":"blend","kind":"blend","form":"ginormous","meaning":"極其巨大的","parts":["gi","normous"],"sources":[{"word":"gigantic","meaning":"巨大的","take":"gi","start":0,"end":2},{"word":"enormous","meaning":"極大的","take":"normous","start":1,"end":8}],"example":"A ginormous cake is on the table.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_cosplay","group":"blend","kind":"blend","form":"cosplay","meaning":"扮演動漫角色","parts":["cos","play"],"sources":[{"word":"costume","meaning":"服裝","take":"cos","start":0,"end":3},{"word":"play","meaning":"扮演","take":"play","start":0,"end":4}],"example":"She wears a costume for cosplay.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"}]}};
 
 
 (()=>{'use strict';
@@ -14517,10 +14730,10 @@ function q36PhonicsBlock(r){return r.pending?'':q36Block(r.score,5,0,false);}
 
 /* R3.7 s10 - planet shell core: progress store, difficulty, English level words, question adapters. Runs inside the app closure (host code). */
 const R37_DIFF=[
- {n:1,icon:'🌱',name:'萌芽',hearts:5,qs:6,pass:.5,opts:3,scaffold:'first',hint:true},
- {n:2,icon:'🌿',name:'起步',hearts:5,qs:8,pass:.6,opts:4,scaffold:'blanks',hint:true},
- {n:3,icon:'🌳',name:'標準',hearts:4,qs:8,pass:.7,opts:4,scaffold:'none',hint:true},
- {n:4,icon:'🔥',name:'挑戰',hearts:3,qs:10,pass:.8,opts:4,scaffold:'none',hint:true,near:true},
+ {n:1,icon:'🌱',name:'萌芽',hearts:5,qs:6,pass:.67,opts:3,scaffold:'first',hint:true},
+ {n:2,icon:'🌿',name:'起步',hearts:5,qs:8,pass:.75,opts:4,scaffold:'blanks',hint:true},
+ {n:3,icon:'🌳',name:'標準',hearts:4,qs:8,pass:.8,opts:4,scaffold:'none',hint:true},
+ {n:4,icon:'🔥',name:'挑戰',hearts:3,qs:10,pass:.85,opts:4,scaffold:'none',hint:true,near:true},
  {n:5,icon:'🚀',name:'極速',hearts:3,qs:12,pass:.9,opts:4,scaffold:'none',hint:false,near:true}
 ];
 const r37U=(p,a)=>Array.from({length:10},(_,i)=>p+String(a+i).padStart(2,'0'));
@@ -14558,7 +14771,14 @@ function r37Get(){
  if(!o||typeof o!=='object'||Array.isArray(o))o={};
  if(!o.lv||typeof o.lv!=='object'||Array.isArray(o.lv))o.lv={};
  if(o.enV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('english:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.enOld={n,st};o.enV=2;}
- if(![1,2,3,4,5].includes(o.diff))o.diff=3;
+ if(!o.diffs||typeof o.diffs!=='object'||Array.isArray(o.diffs)){const d=[1,2,3,4,5].includes(o.diff)?o.diff:3;o.diffs={english:d,math:d,olympiad:d};}
+ for(const t of ['english','math','olympiad'])if(![1,2,3,4,5].includes(o.diffs[t]))o.diffs[t]=3;
+ delete o.diff;
+ /* r37Get().diff stays as the English level for older callers (legacy practice options); it is not saved */
+ Object.defineProperty(o,'diff',{get(){return o.diffs.english;},set(v){if([1,2,3,4,5].includes(+v))o.diffs.english=+v;},enumerable:false,configurable:true});
+ if(!Array.isArray(o.miss))o.miss=[];
+ if(!Array.isArray(o.wrong))o.wrong=[];
+ for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
  if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
@@ -14566,7 +14786,10 @@ function r37Get(){
  return r37Mem[k]=o;
 }
 function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
-function r37Diff(){return R37_DIFF[r37Get().diff-1];}
+/* difficulty is stored per subject (diffs.english / math / olympiad); games and dictation follow the English setting */
+const r37DiffT=t=>t==='math'||t==='olympiad'?t:'english';
+function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
+function r37Diff(t){return R37_DIFF[r37DiffN(t)-1];}
 function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];}
 function r37Coins(){return activeChild()?.stars||0;}
 function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
@@ -14608,6 +14831,33 @@ function r37TrackWorlds(t){return t==='english'?R37_TRACKS.english.worlds:(globa
 function r37TrackProgress(t){const W=r37TrackWorlds(t).length;let done=0,stars=0;for(let w=0;w<W;w++){done+=r37WorldDone(t,w);stars+=r37WorldStars(t,w);}return {done,total:W*10,stars,max:W*50};}
 function r37StarsFor(correct,total,hinted){const r=total?correct/total:0;if(correct===total&&!hinted)return 5;if(r>=.9)return 4;if(r>=.75)return 3;if(r>=.5)return 2;return 1;}
 
+/* ---- R3.18 English content overrides (r37_src/en_content_r318.json -> globalThis.WQ37EnFix): example sentences, meanings, blend groups ---- */
+(function r37ApplyEnFix(){
+ const F=globalThis.WQ37EnFix;if(!F)return;
+ try{
+  for(const [id,x] of Object.entries(F.ex||{})){const w=LIB30.words.get(id);if(w&&!w.example)w.example=x;}
+  for(const [id,f] of Object.entries(F.fix||{})){const w=LIB30.words.get(id);if(!w)continue;if(f.zh)w.meaning=f.zh;if('image' in f)w.image=f.image;if(f.example)w.example=f.example;}
+ }catch(_){}
+ try{
+  const B=F.blend,G=globalThis.WQ31Library;if(!B||!G)return;
+  for(const r of B.extra||[]){if(G.recipes.has(r.id))continue;r.group=B.core.includes(r.id)?'blend':B.extId;G.recipes.set(r.id,r);try{G.data.recipes.push(r);}catch(_){}}
+  const g=G.groups.get('blend');if(!g)return;
+  for(const id of B.ext)if(G.recipes.get(id))G.recipes.get(id).group=B.extId;
+  g.recipes=B.core.filter(id=>G.recipes.has(id));
+  const x=Object.assign({},g,{id:B.extId,title:B.extTitle,recipes:B.ext.filter(id=>G.recipes.has(id))});
+  G.groups.set(B.extId,x);try{G.data.groups.push(x);}catch(_){}
+ }catch(_){}
+})();
+/* meanings that share one Chinese gloss (high / tall = 高的): a fill-in answer with either word is right */
+let r37SynMap=null;
+const r37ZhKey=zh=>String(zh||'').replace(/（[^）]*）/g,'').trim();
+function r37Syns(en,zh){
+ if(!r37SynMap){r37SynMap={};try{for(const x of LIB30.words.values()){const k=r37ZhKey(x.meaning);if(!k)continue;(r37SynMap[k]=r37SynMap[k]||new Set()).add(x.form);}}catch(_){}}
+ const set=r37SynMap[r37ZhKey(zh)];return set?[...set].filter(x=>x!==en):[];
+}
+/* a word whose picture would teach another meaning (chest 胸膛 / die 死 / lot 很多) shows no picture */
+const R37_NOEMO=new Set(['chest','die','lot']);
+
 /* ---- English words per stage: 5 worlds by difficulty band, 10 stages of 3 words each ---- */
 let r37Pool=null;
 function r37EnPool(){
@@ -14627,14 +14877,25 @@ function r37EnBand(w){const p=r37EnPool(),n=p.length,a=Math.floor(w*n/5),b=Math.
 const r37UW={};
 function r37UnitWords(uid){
  if(r37UW[uid])return r37UW[uid];const u=typeof LIB30!=='undefined'&&LIB30.units.get(uid);if(!u)return [];
- return r37UW[uid]=u.words.map(k=>LIB30.words.get(k)).filter(Boolean).map(x=>({en:x.form,zh:x.meaning,pos:'',sc:x.form.length,img:x.image||'',ex:x.example||''}));
+ const fo=u.focus||{};
+ return r37UW[uid]=u.words.map(k=>LIB30.words.get(k)).filter(Boolean).map(x=>{const f=fo[x.id];return {en:x.form,zh:x.meaning,pos:'',sc:x.form.length,img:x.image||'',ex:x.example||'',fi:f&&Array.isArray(f.indices)?f.indices:[],fl:f?f.label:''};});
 }
 function r37EnStage(w,s){return r37UnitWords(r37UnitId(w,s));}
 function r37EnWorldPool(w){return (R37_TRACKS.english.worlds[w]?.units||[]).flatMap(r37UnitWords);}
 function r37EnReview(w,s){const out=[];for(let x=0;x<s;x++)out.push(...r37EnStage(w,x));return out;}
-function r37EnChunks(words){return [words.slice(0,3),words.slice(3,6),words.slice(6)].filter(c=>c.length);}
-function r37EnDistractors(word,pool,n,near,rng){
+function r37EnChunks(words){const out=[];for(let i=0;i<words.length;i+=3)out.push(words.slice(i,i+3));return out;}
+function r37UnitSentence(w,s){try{return (LIB30.units.get(r37UnitId(w,s))||{}).sentence||'';}catch(_){return '';}}
+function r37Hl(en,idx){const set=new Set(idx||[]);return [...en].map((c,i)=>set.has(i)?`<i class="r37-fx">${esc(c)}</i>`:esc(c)).join('');}
+function r37EnDistractors(word,pool,n,near,rng,unit){
  const cand=pool.filter(x=>x.en!==word.en&&x.zh!==word.zh);
+ if(unit&&unit.length){
+  /* contrast words from the same unit (cat / can / fan): the unit's own target is what gets tested. Levels 4-5 (near) take the closest spellings first */
+  const same=unit.filter(x=>x.en!==word.en&&x.zh!==word.zh),want=Math.min(same.length,n);
+  const head=near?same.map(x=>({x,d:r37Edit(x.en,word.en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,want).map(o=>o.x):r37Shuf(same,rng).slice(0,want);
+  if(head.length>=n)return head.slice(0,n);
+  const used=new Set(head.map(x=>x.en));
+  return head.concat(r37EnDistractors(word,pool.filter(x=>!used.has(x.en)),n-head.length,near,rng));
+ }
  let ranked;
  if(near)ranked=cand.map(x=>({x,d:r37Edit(x.en,word.en)+(x.pos===word.pos?-.5:0)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,24).map(o=>o.x);
  else ranked=cand.filter(x=>x.pos===word.pos&&Math.abs(x.sc-word.sc)<=3);
@@ -14646,37 +14907,51 @@ const R37_UEMO={"pet":"🐾","win":"🏆","sit":"🪑","hit":"🎯","kit":"🧰"
 const R37_EMO={aim:'🎯',hen:'🐔',nut:'🥜',tap:'🚰',bird:'🐦',burn:'🔥',dawn:'🌅',feed:'🍼',gift:'🎁',half:'🌗',knit:'🧶',look:'👀',sale:'🏷️',soft:'🧸',vest:'🦺',yawn:'🥱',bacon:'🥓',chips:'🍟',count:'🔢',easel:'🎨',guess:'🤔',kayak:'🛶',relay:'🏃',nurse:'🧑‍⚕️',shape:'🔷',stove:'🍳',thumb:'👍',weigh:'⚖️',afraid:'😨',ban:'🚫',chilli:'🌶️',meadow:'🌾',napkin:'🧻',puddle:'💧',risk:'⚠️',tailor:'🧵',writer:'✍️',cabbage:'🥬',holiday:'🏖️',picture:'🖼️',scooter:'🛴',trouble:'😣',receive:'📥',asteroid:'☄️',dumpling:'🥟',lemonade:'🍋',omelette:'🍳',reindeer:'🦌',system:'⚙️',tense:'😬',whirl:'🌀',celebrate:'🎉',encourage:'📣',principal:'🧑‍🏫',resort:'🏝️',tablespoon:'🥄',language:'🗣️',protection:'🛡️',soloist:'🎤',handout:'📄',imitate:'🦜',allergic:'🤧',equipment:'🧰',information:'ℹ️',medieval:'🏰',pathogen:'🦠',relieved:'😌',retailer:'🏪',amphibian:'🐸',supermarket:'🛒',diagnosis:'🩺',interface:'💻',concentrate:'🧠',enterprise:'🏢',disagreement:'🙅',successfully:'🏆',pessimistic:'😞',imaginative:'💭',honest:'😇',little:'🤏',debt:'💸',event:'📅',produce:'🏭',adjust:'🎛️',impact:'💥',permit:'✅',assess:'📝',complex:'🧩',quality:'⭐',severe:'⛈️',mean:'💬',past:'⏪',pour:'🫗',term:'🏫',crutch:'🩼',square:'⛲',turnip:'🥔',ceiling:'🏠',issue:'❓',mostly:'📊',squeeze:'🍋',colander:'🥣',fault:'🌍',denote:'👉',funnel:'🔻',kidney:'🫘',newton:'🍎',solute:'🧂',tackle:'💪',vertex:'🔺',anaemia:'🩸',concede:'🤝',convert:'🔄',deprive:'🚫',excerpt:'📑',pension:'👴',relieve:'😌',unlikely:'🙅',cauliflower:'🥦',compound:'⚗️',digitise:'💾',hardship:'😣',workload:'📚',bandwidth:'📶',encounter:'👋',fieldwork:'🧭',mandatory:'❗',perimeter:'📐',reference:'📖',undertake:'📋',withstand:'🛡️',capability:'🦾',decorative:'🎀',generosity:'💝',livelihood:'💼',persuasive:'🗣️',proportion:'🥧',surrounding:'🏞️',behavioural:'🙋',controversy:'⚡',credibility:'✅',prospective:'🔭',unavoidable:'⛔',reproduction:'🐣',irresistible:'🍩'};
 let r37ImgMap=null;
 function r37UnitEmoji(en){if(!r37ImgMap){r37ImgMap={};try{for(const x of LIB30.words.values())if(x.image&&/^[0-9a-f-]+$/.test(x.image))r37ImgMap[x.form]=String.fromCodePoint(...x.image.split('-').map(h=>parseInt(h,16)));}catch(_){}}return r37ImgMap[en]||'';}
-function r37Emoji(en){try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}catch(_){return R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}}
+function r37Emoji(en){if(R37_NOEMO.has(en))return '';try{return (dictionary[en]&&dictionary[en].emoji)||R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}catch(_){return R37_EMO[en]||R37_UEMO[en]||r37UnitEmoji(en);}}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */
+/* one English question for word wd of the given kind: zh2en | en2zh | listen (choice), fill | fill-listen (typed) */
+function r37EnBuild(wd,kind,c){
+ const D=c.D,rng=c.rng,emoji=R37_NOEMO.has(wd.en)?'':r37Emoji(wd.en),ck=c.ck;
+ const syn=r37Syns(wd.en,wd.zh),zhShort=r37ZhKey(wd.zh);
+ if(kind==='fill'||kind==='fill-listen'){
+  const listen=kind==='fill-listen';
+  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
+ }
+ const nOpt=D.opts-1,seenZ=new Set([wd.zh]),seenE=new Set([wd.en]),ds=[];
+ for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.near,rng,c.unit)){if(ds.length>=nOpt)break;if(seenZ.has(x.zh)||seenE.has(x.en))continue;seenZ.add(x.zh);seenE.add(x.en);ds.push(x);}
+ const opts=r37Shuf([wd,...ds],rng),info={};
+ const q={mode:'mcq',kind,answer:wd.en,audio:wd.en,word:wd.en,ck,zhOf:wd.zh};
+ if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,lang:'en',info});}
+ if(kind==='en2zh'){opts.forEach(o=>{info[o.zh]=o.en;});return Object.assign(q,{prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,hint:'第一個字是「'+(zhShort[0]||wd.zh[0])+'」',explain:wd.en+' = '+wd.zh,lang:'zh',info});}
+ opts.forEach(o=>{info[o.en]=o.zh;});
+ return Object.assign(q,{kind:'listen',prompt:'🔊',emoji:'',options:opts.map(o=>o.en),autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,lang:'en',info});
+}
 function r37EnQuestions(w,s,diff,seed){
  const D=R37_DIFF[diff-1],rng=r37Rng(r37Hash('en-q|'+w+'|'+s+'|'+diff+'|'+seed)),stage=r37EnStage(w,s),pool=r37EnPool(),wp=r37EnWorldPool(w);
- const near=wp.length>20?wp:pool,chunks=r37EnChunks(stage);
+ const near=wp.length>20?wp:pool,chunks=r37EnChunks(stage),ctx={D,rng,near,unit:stage};
  const N=s===9?Math.max(D.qs,12):Math.max(D.qs,stage.length),qs=[];
  const fillShare=diff===5?[0,1,1,0,1]:diff===1?[0,0,1]:[0,1];
  const order=[],cks=[];chunks.forEach((c,i)=>{for(const x of r37Shuf(c,rng)){order.push(x);cks.push(i);}});
  const extra=r37Shuf(s===9?[...stage,...r37EnReview(w,9)]:stage,rng);
  for(let k=0;k<N;k++){
-  const wd=k<order.length?order[k]:extra[(k-order.length)%extra.length],ck=k<order.length?cks[k]:chunks.length-1,mode=fillShare[k%fillShare.length]?'fill':'mcq',emoji=r37Emoji(wd.en);
-  if(mode==='mcq'){
-   const kind=['zh2en','en2zh','listen'][(diff===1?[0,2]:[0,1,2])[k%(diff===1?2:3)]];
-   const nOpt=D.opts-1,ds=r37EnDistractors(wd,near,nOpt,D.near,rng);
-   const opts=r37Shuf([wd,...ds],rng);
-   if(kind==='zh2en')qs.push({mode,kind,prompt:wd.zh,emoji,options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,word:wd.en,lang:'en',ck});
-   else if(kind==='en2zh')qs.push({mode,kind,prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,audio:wd.en,hint:'按 🔊 聽一聽',explain:wd.en+' = '+wd.zh,word:wd.en,lang:'zh',ck});
-   else qs.push({mode,kind,prompt:'🔊',emoji:'',options:opts.map(o=>o.en),answer:wd.en,audio:wd.en,autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,word:wd.en,lang:'en',ck});
-  }else{
-   const listen=k%3===2&&diff>=2;
-   qs.push({mode,kind:listen?'fill-listen':'fill',prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en],audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,ck});
-  }
+  const wd=k<order.length?order[k]:extra[(k-order.length)%extra.length],ck=k<order.length?cks[k]:chunks.length-1,mode=fillShare[k%fillShare.length]?'fill':'mcq';
+  let kind;
+  if(mode==='mcq')kind=['zh2en','en2zh','listen'][(diff===1?[0,2]:[0,1,2])[k%(diff===1?2:3)]];
+  else kind=k%3===2&&diff>=2?'fill-listen':'fill';
+  /* words from earlier units (boss stage) contrast with their own unit, not the boss unit */
+  const own=stage.some(x=>x.en===wd.en);
+  qs.push(r37EnBuild(wd,kind,Object.assign({},ctx,{ck,unit:own?stage:(r37UnitOf(w,wd)||stage)})));
  }
  return qs;
 }
+function r37UnitOf(w,wd){const W=R37_TRACKS.english.worlds[w];if(!W)return null;for(const u of W.units){const ws=r37UnitWords(u);if(ws.some(x=>x.en===wd.en))return ws;}return null;}
 function r37MathQuestions(track,w,s,diff,seed){
  if(!globalThis.WQ37Math)return [];
  const D=R37_DIFF[diff-1],n=s===9?Math.max(D.qs,10):D.qs;
- return WQ37Math.make(track,w,s,n,diff,seed).map(q=>({mode:q.mode,kind:'math',prompt:q.q,options:q.options,answer:q.answer,accept:q.accept,hint:q.hint,explain:q.explain,mq:q}));
+ const avoid=(r37Get().recent[track]||[]).slice(-30);
+ return WQ37Math.make(track,w,s,n,diff,seed,avoid).map(q=>({mode:q.mode,kind:'math',prompt:q.q,options:q.options,answer:q.answer,accept:q.accept,hint:q.hint,explain:q.explain,skill:q.skill,mq:q}));
 }
 function r37QuizQuestions(track,mode,n,diff,seed){
  const out=[],seen=new Set(),open=[],rng=r37Rng(r37Hash('quiz|'+track+'|'+seed));
@@ -14691,12 +14966,28 @@ function r37QuizQuestions(track,mode,n,diff,seed){
  }
  return out;
 }
-function r37Check(q,input){
- const v=String(input??'').trim();if(!v)return false;
- if(q.mq&&globalThis.WQ37Math)return WQ37Math.check(q.mq,v);
- if(q.mode==='mcq')return v===q.answer;
- return norm(v)===norm(q.answer)||(q.accept||[]).some(a=>norm(a)===norm(v));
+/* ---- judging: value, form (maths 3/4 for 0.75), capitals, spaces/hyphens, synonyms ---- */
+const r37Apos=x=>String(x==null?'':x).replace(/[‘’ʼ′`´]/g,"'");
+function r37Judge(q,input){
+ const raw=String(input??'').trim();
+ if(!raw)return {ok:false,why:'empty'};
+ if(q.mq&&globalThis.WQ37Math){
+  const d=WQ37Math.checkDetail?WQ37Math.checkDetail(q.mq,raw):{ok:WQ37Math.check(q.mq,raw)};
+  return d.ok?{ok:true}:{ok:false,why:d.why||'wrong',msg:d.msg||''};
+ }
+ if(q.mode==='mcq')return {ok:raw===q.answer};
+ const v=r37Apos(raw),a=r37Apos(q.answer),nv=norm(v),na=norm(a);
+ if(nv===na){
+  if(q.cs&&!q.dz&&v.replace(/\s+/g,' ').trim()!==a.replace(/\s+/g,' ').trim())return {ok:false,why:'case',msg:'字對了，留意大小寫'};
+  return {ok:true};
+ }
+ const hit=(q.accept||[]).find(x=>norm(r37Apos(x))===nv);
+ if(hit)return hit===q.answer?{ok:true}:{ok:true,syn:hit};
+ const strip=x=>norm(x).replace(/[\s-]+/g,'');
+ if(!q.dz&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
+ return {ok:false,why:'wrong'};
 }
+function r37Check(q,input){return r37Judge(q,input).ok;}
 
 /* R3.16 s15 - one duotone icon family for the whole shell.
    Rules: 64 grid, 3px round line in the light ink (currentColor), two fills per icon (.a = planet accent, .b = its deep shade on the lower right),
@@ -14882,7 +15173,7 @@ function r37LevelMap(t,wIdx){
  if(!worlds.length)return `<section class="r37-hub">${r37Top()}<div class="r37-card"><h2>${T.name}闖關準備中</h2></div>${r37Nav('p/'+t)}</section>`;
  let w=Number.isInteger(wIdx)?wIdx:r37Mem._w?.[t];if(!Number.isInteger(w)){w=0;for(let i=0;i<worlds.length;i++)if(r37StageOpen(t,i,0))w=i;}
  w=Math.max(0,Math.min(worlds.length-1,w));(r37Mem._w=r37Mem._w||{})[t]=w;
- const diff=r37Diff(),W=worlds[w],wOpen=r37StageOpen(t,w,0),ut=x=>t==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(W.units?.[x])?.title||''):'';
+ const diff=r37Diff(t),W=worlds[w],wOpen=r37StageOpen(t,w,0),ut=x=>t==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(W.units?.[x])?.title||''):'';
  const lit=[];
  const nodes=Array.from({length:10},(_,s)=>{const e=r37Entry(t,w,s),open=r37StageOpen(t,w,s),cur=open&&!e?.passed&&(s===0||r37Entry(t,w,s-1)?.passed||adminUnlocks()),boss=s===9;lit.push(!!e?.passed);
   return `<button type="button" class="r37-node ${e?.passed?'done':''} ${cur?'cur':''} ${open?'':'lock'} ${boss?'boss':''}" ${open?`data-r37="level" data-track="${t}" data-w="${w}" data-s="${s}"`:'disabled'} aria-label="${boss?'魔王關':'第 '+(s+1)+' 關'}${ut(s)?'：'+esc(ut(s)):''}"><span class="r37-nn">${open?(boss?r37Icon('👹'):s+1):r37Icon('🔒')}</span>${ut(s)?`<span class="r37-nu">${esc(ut(s))}</span>`:''}${open&&e?r37Stars(e.best):'<span class="r37-st ph"></span>'}</button>`;}).join('');
@@ -14920,13 +15211,23 @@ function r37FpsMap(){
 }
 /* ---------------------------------------------------------------------------------------------- play */
 let r37P=null,r37Timer=0;
+const R37_EN_TYPE={zh2en:'meaning',en2zh:'meaning',listen:'listenChoice',fill:'spell','fill-listen':'listenSpell'};
 function r37Hearts(){return Array.from({length:r37P.maxHearts},(_,i)=>`<i class="${i<r37P.hearts?'on':''}">❤</i>`).join('');}
-function r37Pips(){return r37P.qs.map((q,i)=>`<i class="${i<r37P.i?(r37P.res[i]?'ok':'bad'):i===r37P.i?'cur':''}"></i>`).join('');}
+function r37Pips(){
+ const P=r37P,cur=P.qs[P.i],warm=cur&&cur.warm,idx=P.qs.map((q,i)=>i).filter(i=>warm?P.qs[i].warm:!P.qs[i].warm);
+ return idx.map(i=>`<i class="${i<P.i?(P.res[i]?'ok':'bad'):i===P.i?'cur':''}"></i>`).join('');
+}
 function r37Play(){
  const P=r37P;if(!P)return r37Home();
  const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">✕</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip">${r37Icon(R37_DZ_LV[P.dz.lvl-1])}</span>`:`<span class="r37-dchip">${r37Icon(D.icon)}</span>`}</header>`;
  if(P.phase==='learn'){
-  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn ${P.kind==='dz'?'dz':''}">${P.learn.map(w=>`<button type="button" class="r37-wc" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${esc(w.en)}</b><span>${esc(w.zh)}</span></button>`).join('')}</div><button type="button" class="r37-go" data-r37="learn-go">${P.kind==='dz'?'▶ 開始測驗（第 '+P.dz.lvl+' 級）':'▶ 闖關'}</button></div></section>`;
+  const card=w=>`<div class="r37-wc${P.kind==='dz'?'':' r37-wcx'}"><button type="button" class="r37-wcb" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${w.fi&&w.fi.length?r37Hl(w.en,w.fi):esc(w.en)}</b><span>${esc(w.zh)}</span></button>${P.kind==='dz'?r37SylRow(w.en):''}${P.kind!=='dz'&&w.ex?`<button type="button" class="r37-exl" lang="en" data-r37="speak" data-t="${esc(w.ex)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(w.ex)}</button>`:''}</div>`;
+  const sent=P.kind!=='dz'&&P.sentence?`<button type="button" class="r37-us" lang="en" data-r37="speak" data-t="${esc(P.sentence)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(P.sentence)}</button>`:'';
+  return `<section class="r37-play">${top}<div class="r37-stage"><h2 class="r37-ptitle">${P.title}</h2>${P.chunks&&P.chunks.length>1?`<div class="r37-cks" aria-label="第 ${P.ck+1} 組，共 ${P.chunks.length} 組">${P.chunks.map((c,i)=>`<i class="${i<P.ck?'done':i===P.ck?'on':''}">${c.length}</i>`).join('')}</div>`:''}<div class="r37-learn ${P.kind==='dz'?'dz':''}">${P.learn.map(card).join('')}</div>${sent}<button type="button" class="r37-go" data-r37="learn-go">${P.kind==='dz'?'▶ 開始測驗（第 '+P.dz.lvl+' 級）':'▶ 闖關'}</button></div></section>`;
+ }
+ if(P.phase==='example'){
+  const x=P.exq||{};
+  return `<section class="r37-play">${top}<div class="r37-stage"><div class="r37-ptitle">${P.title}</div><div class="r37-excard" role="region" aria-label="例題"><h2><span aria-hidden="true">${r37Icon('💡')}</span>先看一題例子</h2><div class="r37-exq">${esc(x.q||'')}</div><div class="r37-exa">答案：<b>${esc(x.answer||'')}</b></div><p class="r37-exe">${esc(x.explain||'')}</p>${x.tip?`<p class="r37-ext">${esc(x.tip)}</p>`:''}</div><div class="r37-exb"><button type="button" class="r37-go" data-r37="learn-go">▶ 我試試</button><button type="button" class="r37-sec2" data-r37="learn-go" data-skip="1">略過</button></div></div></section>`;
  }
  if(P.phase==='result')return r37Result();
  const q=P.qs[P.i],fb=P.fb;
@@ -14939,63 +15240,233 @@ function r37Play(){
  }else{
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
- const foot=fb?`<div class="r37-fb ${fb.ok?'ok':'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'🎉':'💭')}</span><div><b>${fb.ok?P.praise:'答案：'+(q.dz&&q.dz.lvl>1?r37DzAns(q,fb):esc(q.answer))}</b>${!fb.ok?(q.dz&&q.dz.lvl>1?r37DzYou(q,fb):q.explain?`<small>${esc(q.explain)}</small>`:''):''}</div><button type="button" class="r37-next" data-r37="next">▶</button></div>`
-  :`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
- return `<section class="r37-play">${top}<div class="r37-stage ${q.mode==='fill'?'fill':''} ${fb?(fb.ok?'ok':'shake'):''}">${P.kind==='level'?`<div class="r37-ptitle">${P.title}</div>`:''}${body}</div>${foot}</section>`;
+ const nudge=!fb&&P.nudge?`<div class="r37-nudge" role="status"><span aria-hidden="true">${r37Icon('💡')}</span><b>${esc(P.nudge.msg)}</b></div>`:'';
+ const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}</button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
+ const title=q.warm?P.warmTitle:P.kind==='level'?P.title:'';
+ return `<section class="r37-play">${top}<div class="r37-stage ${q.mode==='fill'?'fill':''} ${fb?(fb.ok?'ok':'shake'):''}">${title?`<div class="r37-ptitle">${title}</div>`:''}${body}${nudge}</div>${foot}</section>`;
+}
+/* feedback bar: say why it was wrong, keep the right answer on screen, show what was picked (T11) */
+function r37FbHTML(P,q,fb){
+ const lock=!fb.ok&&fb.lock>Date.now(),dzFill=q.dz&&q.dz.lvl>1,fillEn=q.mode==='fill'&&!q.mq&&!q.dz;
+ let head,sub='';
+ if(fb.ok){
+  if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
+  else if(fb.syn)head=`也對！這一題要寫的是 <span lang="en">${esc(q.answer)}</span>（${esc(r37ZhKey(q.zhOf))}），<span lang="en">${esc(fb.syn)}</span> 亦是${esc(r37ZhKey(q.zhOf))}`;
+  else head=esc(P.praise);
+  if(!fb.part&&!fb.syn&&q.word&&!q.dz&&R37_DIFF[P.diff-1].n<5)sub=`<small><span lang="en">${esc(q.word)}</span> ＝ ${esc(q.zhOf||'')}</small>`;
+ }else{
+  head='答案：'+(dzFill?r37DzAns(q,fb):fillEn?r37DzAns(q,fb):esc(q.answer));
+  if(dzFill)sub=r37DzYou(q,fb);
+  else if(fillEn)sub=r37DzYou(q,fb)+(q.explain?`<small>${esc(q.explain)}</small>`:'');
+  else{
+   if(q.explain)sub=`<small>${esc(q.explain)}</small>`;
+   if(q.mode==='mcq'&&q.info&&fb.value&&fb.value!==q.answer&&q.info[fb.value]!==undefined){
+    const a=q.kind==='en2zh'?[fb.value,q.info[fb.value]]:[fb.value,q.info[fb.value]];
+    sub+=`<small class="r37-picked">你選了 ${esc(a[0])}＝${esc(a[1])}</small>`;
+   }
+  }
+ }
+ return `<div class="r37-fb ${fb.ok?(fb.part?'part':'ok'):'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'🎉':'💭')}</span><div><b>${head}</b>${sub}</div><button type="button" class="r37-next" data-r37="next" aria-label="下一題" ${lock?'disabled aria-disabled="true"':''}>▶</button></div>`;
+}
+function r37MissHTML(r){
+ const items=(r.missed||[]).slice(0,8);if(!items.length)return '';
+ const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}${m.you?`<small>你寫：<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
+  :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span><b>${esc(m.answer)}</b>${m.you?`<small>你答：${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}</li>`;
+ return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span>這次答錯 <em>${items.length}</em></h2><ul>${items.map(li).join('')}</ul></div>`;
 }
 function r37Result(){
  const P=r37P,r=P.result;
  if(P.kind==='dz')return r37DzResult();
  const coins=r.coins?`<div class="r37-rc">${r37Icon('🪙')}+${r.coins}</div>`:'';
- const nextOk=P.kind==='level'&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
- return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r37Icon(r.passed?(P.s===9?'🏆':'🎉'):'⭐')}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.kind==='level'&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}${P.kind==='level'&&P.track==='english'&&r.passed&&r37EnStage(P.w,P.s).length>=4?`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`:''}
- <div class="r37-ra">${nextOk?'<button type="button" class="r37-go" data-r37="level-next">▶</button>':''}<button type="button" class="r37-sec" data-r37="retry">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="返回地圖">${r37Icon('🗺️')}</button></div></div></section>`;
+ const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
+ const miss=r.missed||[],unfixed=miss.filter(m=>!m.fixed).length;
+ const note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題答錯，再試一次！':'再試一次！'}</p>`:''):'';
+ const lessons=(r.lessons||[]).map(l=>`<button type="button" class="r37-lesson" data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"><span aria-hidden="true">${r37Icon('📚')}</span>看課堂</button>`).join('');
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'} ${miss.length?'hasmiss':''}"><div class="r37-rb" aria-hidden="true">${r37Icon(r.passed?(P.s===9?'🏆':'🎉'):'⭐')}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${r.total}</div>${coins}${note}${r37MissHTML(r)}${P.kind==='level'&&P.track==='english'&&r.passed&&!P.redo&&r37EnStage(P.w,P.s).length>=4?`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`:''}
+ <div class="r37-ra">${miss.length&&P.kind==='level'?`<button type="button" class="r37-redo" data-r37="redo-miss">${r37Icon('🔁')}只重做錯的</button>`:''}${lessons}${nextOk?'<button type="button" class="r37-go" data-r37="level-next">▶</button>':''}<button type="button" class="r37-sec" data-r37="retry" aria-label="再玩一次">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="返回地圖">${r37Icon('🗺️')}</button></div></div></section>`;
 }
-function r37StartLevel(track,w,s){
- const diff=r37Get().diff,D=R37_DIFF[diff-1],ch=r37Char(),seed=r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff);
- const qs=track==='english'?r37EnQuestions(w,s,diff,seed):r37MathQuestions(track,w,s,diff,seed);
+/* ---- starting a level: warm-up of old wrong words (English), example card (maths), first learn chunk ---- */
+function r37Lookup(w,s,en){
+ const all=[...r37EnStage(w,s),...r37EnWorldPool(w),...r37EnPool()];
+ return all.find(x=>x.en===en)||null;
+}
+function r37WarmWords(w,n=3){
+ const o=r37Get(),day=r37Day();
+ if(o.warm.en&&o.warm.en[w]===day)return [];
+ return o.wrong.filter(x=>x.w===w&&x.n>0).sort((a,b)=>(b.n-a.n)||(a.at-b.at)).slice(0,n);
+}
+function r37StartLevel(track,w,s,opts){
+ opts=opts||{};
+ const diff=r37DiffN(track),D=R37_DIFF[diff-1],ch=r37Char(),seed=r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff);
+ let qs=track==='english'?r37EnQuestions(w,s,diff,seed):r37MathQuestions(track,w,s,diff,seed);
+ if(opts.redo){
+  const keep=new Set(opts.redo.map(m=>m.key));
+  if(track==='english'){
+   const rng=r37Rng(r37Hash('redo|'+seed+'|'+w+'|'+s)),stage=r37EnStage(w,s),pool=r37EnPool(),wp=r37EnWorldPool(w),near=wp.length>20?wp:pool;
+   qs=opts.redo.map(m=>{const wd=r37Lookup(w,s,m.en);if(!wd)return null;const kinds=['zh2en','listen','fill','en2zh'].filter(k=>k!==m.kind);
+    return r37EnBuild(wd,kinds[Math.floor(rng()*kinds.length)],{D,rng,near,unit:r37UnitOf(w,wd)||stage});}).filter(Boolean);
+  }else qs=opts.redo.map(m=>JSON.parse(JSON.stringify(m.q)));
+ }
  if(!qs.length){toast('這一關還未準備好。','bad');return;}
  const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,title=(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
- const chunks=track==='english'?r37EnChunks(r37EnStage(w,s)):[];
- r37P={kind:'level',track,w,s,diff,qs,i:0,res:[],hearts:D.hearts+(ch.perk==='heart'?1:0),maxHearts:D.hearts+(ch.perk==='heart'?1:0),shield:ch.perk==='shield',correct:0,hinted:0,phase:track==='english'?'learn':'quiz',chunks,ck:0,learn:chunks[0]||[],fb:null,hintShown:false,title,praise:'做得好！'};
+ const chunks=track==='english'&&!opts.redo?r37EnChunks(r37EnStage(w,s)):[];
+ /* 30-second warm-up: up to 3 words missed in this world before (English, once a day per world) */
+ const warm=[];
+ if(track==='english'&&!opts.redo){
+  const rng=r37Rng(r37Hash('warm|'+seed+'|'+w)),stage=r37EnStage(w,s),wp=r37EnWorldPool(w),near=wp.length>20?wp:r37EnPool();
+  for(const x of r37WarmWords(w)){const wd=r37Lookup(w,s,x.en);if(!wd)continue;
+   const q=r37EnBuild(wd,'zh2en',{D,rng,near,unit:r37UnitOf(w,wd)||stage});q.warm=true;warm.push(q);}
+ }
+ const first=qs[0]&&qs[0].ck!==undefined?qs[0].ck:0;
+ r37P={kind:'level',track,w,s,diff,qs:[...warm,...qs],nq0:qs.length,nWarm:warm.length,i:0,res:[],hearts:D.hearts+(ch.perk==='heart'?1:0),maxHearts:D.hearts+(ch.perk==='heart'?1:0),shield:ch.perk==='shield',correct:0,hinted:0,
+  phase:track==='english'&&!warm.length?'learn':'quiz',chunks,ck:first,learn:chunks[first]||[],sentence:track==='english'?r37UnitSentence(w,s):'',fb:null,hintShown:false,title,warmTitle:r37Icon('🔥')+' 熱身 · 上次錯過的字',praise:'做得好！',
+  log:[],miss:{},redo:!!opts.redo,exShown:false,nudge:null,warmEnd:warm.length?Date.now()+30000:0};
+ if(warm.length){const o=r37Get();(o.warm.en=o.warm.en||{})[w]=r37Day();r37Save();}
+ else r37MaybeExample();
  r37Nav37('lp/play');
 }
+/* the first time a child meets a skill (maths / olympiad) a worked example comes first; skippable, one card per level */
+function r37MaybeExample(){
+ const P=r37P;if(!P||P.exShown||P.kind!=='level'||P.track==='english')return false;
+ const q=P.qs[P.i],mq=q&&q.mq;if(!mq||!mq.skill||!mq.ex)return false;
+ const o=r37Get(),seen=o.seen[P.track]=o.seen[P.track]||{};
+ if(seen[mq.skill])return false;
+ seen[mq.skill]=1;r37Save();P.exShown=true;P.exq=mq.ex;P.phase='example';return true;
+}
 function r37StartQuiz(track,mode){
- const diff=r37Get().diff,qs=r37QuizQuestions(track,mode,R37_DIFF[diff-1].qs,diff,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
+ const diff=r37DiffN(track),qs=r37QuizQuestions(track,mode,R37_DIFF[diff-1].qs,diff,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
  if(!qs.length){toast('這部分還未準備好。','bad');return;}
- r37P={kind:'quiz',track,mode,diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:'',praise:'答對了！'};
+ r37P={kind:'quiz',track,mode,diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:'',praise:'答對了！',log:[],miss:{},nq0:qs.length,nudge:null};
  r37Nav37('lp/play');
 }
 function r37Nav37(h){if(location.hash==='#'+h)render();else location.hash='#'+h;}
+const r37QKey=q=>q.word?'w:'+q.word:q.mq?'m:'+q.mq.q:'a:'+q.answer;
+/* the same word / skill again, three questions later, in a different form */
+function r37Retest(P,q){
+ const rng=r37Rng(r37Hash('rt|'+r37QKey(q)+'|'+P.i+'|'+P.log.length));
+ if(q.word){
+  const wd=r37Lookup(P.w,P.s,q.word);if(!wd)return null;
+  const D=R37_DIFF[P.diff-1],wp=r37EnWorldPool(P.w),near=wp.length>20?wp:r37EnPool();
+  const kinds=q.mode==='mcq'?['fill','fill-listen']:['listen','zh2en','en2zh'];
+  const rq=r37EnBuild(wd,kinds[Math.floor(rng()*kinds.length)],{D,rng,near,unit:r37UnitOf(P.w,wd)||r37EnStage(P.w,P.s)});
+  rq.retest=true;delete rq.ck;return rq;
+ }
+ if(q.mq&&globalThis.WQ37Math){
+  const D=R37_DIFF[P.diff-1],used=new Set(P.qs.map(x=>x.mq&&x.mq.q)),avoid=[...used,...(r37Get().recent[P.track]||[])];
+  for(let k=1;k<=12;k++){
+   const c=WQ37Math.make(P.track,P.w,P.s,6,P.diff,(r37Hash('rt'+P.i+'|'+k+'|'+q.mq.q)>>>1),avoid).find(x=>x.skill===q.mq.skill&&!used.has(x.q));
+   if(c){return {mode:c.mode,kind:'math',prompt:c.q,options:c.options,answer:c.answer,accept:c.accept,hint:c.hint,explain:c.explain,skill:c.skill,mq:c,retest:true};}
+  }
+ }
+ return null;
+}
+function r37NoteWrong(P,q,value){
+ const o=r37Get(),now=Date.now();
+ if(q.word){
+  const k=o.wrong.findIndex(x=>x.en===q.word);
+  if(k>=0){o.wrong[k].n++;o.wrong[k].at=now;o.wrong[k].w=P.w;o.wrong[k].s=P.s;}
+  else{o.wrong.push({en:q.word,zh:q.zhOf||'',w:P.w,s:P.s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}
+ }else if(q.mq){
+  o.miss.push({t:P.track,sk:q.mq.skill||'',q:q.mq.q,a:q.answer,at:now,w:P.w,s:P.s});if(o.miss.length>60)o.miss.shift();
+ }
+ r37Save();
+}
+function r37RecordEn(P,q,value,ok,src){
+ if(!isLoggedIn()||!q.word)return;
+ try{
+  const c=activeChild(),w=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(q.word));if(!w)return;
+  recordAttempt(w,R37_EN_TYPE[q.kind]||'meaning',ok,value,q.answer,'闖關',{src,track:P.track,w:P.w,s:P.s});save();
+ }catch(_){}
+}
 function r37Answer(value){
  const P=r37P;if(!P||P.phase!=='quiz'||P.fb)return;
- const q=P.qs[P.i],ok=r37Check(q,value);
- if(!String(value).trim())return;
- P.fb={ok,value:String(value).trim()};P.res[P.i]=ok;
+ const q=P.qs[P.i],v=String(value??'').trim();
+ if(!v)return;
+ const j=r37Judge(q,v);
+ /* right value, wrong form (3/4 for 0.75, a lower-case name, a missing space): no heart lost, one more try */
+ if(!j.ok&&(j.why==='form'||j.why==='case'||j.why==='space')&&!q.nudged&&!q.dz){
+  q.nudged=j.why;P.nudge={msg:j.msg||'答案的寫法不對，請再寫一次',why:j.why,value:v};render();
+  const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
+  return;
+ }
+ const credit=j.ok?(q.nudged==='case'?.5:1):0,ok=credit>0;
+ P.nudge=null;
+ P.fb={ok,value:v,part:ok&&credit<1,syn:j.syn||''};P.res[P.i]=ok;
  if(q.dz)r37DzRecord(q,P.fb.value,ok);
- if(ok){P.correct++;r37Bump('correct');if(P.track==='english')r37Bump('enok');playSfx('correct');r37Cheer();}
- else{if(P.kind==='level'){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}playSfx('wrong');}
+ const key=r37QKey(q);
+ if(!q.dz){
+  P.log.push({key,ok,value:v,retest:!!q.retest,warm:!!q.warm});
+  if(q.warm){
+   const o=r37Get(),k=o.wrong.findIndex(x=>x.en===q.word);
+   if(k>=0){if(ok)o.wrong.splice(k,1);else{o.wrong[k].n++;o.wrong[k].at=Date.now();}r37Save();}
+   r37RecordEn(P,q,v,ok,'warm');
+  }else{
+   if(!q.retest){P.correct+=credit;}
+   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':'lv');
+   if(!ok){
+    if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhOf||'',skill:q.mq&&q.mq.skill||'',n:0};
+    P.miss[key].n++;
+    if(P.kind==='level')r37NoteWrong(P,q,v);
+   }else if(q.retest&&P.miss[key])P.miss[key].fixed=true;
+   if(q.mq&&q.mq.q){const rc=r37Get().recent,a=rc[P.track]=rc[P.track]||[];a.push(q.mq.q);if(a.length>30)a.splice(0,a.length-30);r37Save();}
+  }
+ }else if(ok)P.correct++;
+ if(ok){if(!q.warm){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
+ else{
+  if(P.kind==='level'&&!q.warm){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
+  playSfx('wrong');
+  if(!q.dz&&q.word){P.fb.lock=Date.now()+1500;setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.lock&&P.phase==='quiz')render();},1560);}
+  /* retest the same word / skill three questions later, once, in another form */
+  if(P.kind==='level'&&!q.retest&&!q.warm&&!P.redo&&!q.dz){const rq=r37Retest(P,q);if(rq)P.qs.splice(Math.min(P.qs.length,P.i+4),0,rq);}
+ }
  if(P.hintShown)P.hinted++;
  render();
  try{r37FxAnswer(ok);}catch(_){}
- if(!ok&&q.dz)r37Speak(q.audio);
- if(ok){clearTimeout(r37Timer);r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},750);}
+ if(!ok&&(q.dz||q.word))r37Speak(q.audio);
+ if(ok){
+  clearTimeout(r37Timer);
+  const showWord=!q.dz&&q.word&&!q.warm&&R37_DIFF[P.diff-1].n<5,wait=P.fb.part||P.fb.syn?1400:showWord?880:750;
+  r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},wait);
+ }
 }
-function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][P.correct%5];}
+function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][Math.floor(P.correct)%5];}
 function r37Next(){
- const P=r37P;if(!P||!P.fb)return;clearTimeout(r37Timer);
- P.i++;P.fb=null;P.hintShown=false;
+ const P=r37P;if(!P||!P.fb)return;
+ if(!P.fb.ok&&P.fb.lock>Date.now())return;
+ clearTimeout(r37Timer);
+ const was=P.qs[P.i];
+ P.i++;P.fb=null;P.hintShown=false;P.nudge=null;
+ /* warm-up is timed (30 s) and skipped once it runs out */
+ if(was&&was.warm&&P.warmEnd&&Date.now()>P.warmEnd)while(P.i<P.qs.length&&P.qs[P.i].warm)P.i++;
  if(P.hearts<=0||P.i>=P.qs.length){r37Finish();return;}
- const ck=P.qs[P.i].ck;if(P.chunks&&ck!==undefined&&ck!==P.ck&&P.chunks[ck]){P.ck=ck;P.learn=P.chunks[ck];P.phase='learn';}
+ const nq=P.qs[P.i];
+ if(was&&was.warm&&!nq.warm&&P.chunks&&P.chunks.length&&nq.ck!==undefined){P.ck=nq.ck;P.learn=P.chunks[nq.ck]||[];P.phase='learn';render();return;}
+ const ck=nq.ck;
+ if(P.chunks&&ck!==undefined&&ck!==P.ck&&P.chunks[ck]){P.ck=ck;P.learn=P.chunks[ck];P.phase='learn';}
+ else if(!nq.warm)r37MaybeExample();
  render();
 }
 function r37Finish(){
- const P=r37P,D=R37_DIFF[P.diff-1],total=P.qs.length,answered=P.i>=total?total:P.i,correct=P.correct;
- const failedLife=P.hearts<=0&&P.kind==='level',ratio=correct/total;
- const stars=failedLife?Math.min(1,r37StarsFor(correct,total,P.hinted>0)):r37StarsFor(correct,total,P.hinted>0);
- const passed=P.kind==='level'?(!failedLife&&ratio>=D.pass):ratio>=(P.kind==='dz'?.75:D.pass);
- let coins=0;
+ const P=r37P,D=R37_DIFF[P.diff-1],total=P.nq0||P.qs.length,correct=P.correct;
+ const failedLife=P.hearts<=0&&P.kind==='level',ratio=total?correct/total:0;
+ const missed=Object.values(P.miss||{});
+ const unfixed=missed.filter(m=>!m.fixed);
+ let stars=failedLife?Math.min(1,r37StarsFor(correct,total,P.hinted>0)):r37StarsFor(correct,total,P.hinted>0);
+ let passed,why='';
  if(P.kind==='level'){
+  if(P.redo)passed=!failedLife&&unfixed.length===0&&missed.length===0&&correct>=total;
+  else{passed=!failedLife&&ratio>=D.pass&&unfixed.length===0;if(!failedLife&&ratio>=D.pass&&unfixed.length)why='retest';}
+ }else passed=ratio>=(P.kind==='dz'?.75:D.pass);
+ /* maths / olympiad: a skill missed twice, or a level not passed, points to the lesson */
+ const lessons=[];
+ if(P.kind==='level'&&P.track!=='english'&&!P.redo){
+  const cnt={};for(const e of P.log)if(!e.ok&&!e.warm){const m=P.miss[e.key];const sk=m&&m.skill;if(sk)cnt[sk]=(cnt[sk]||0)+1;}
+  const lessonOf=sk=>{try{return WQ37Math.skillLesson?WQ37Math.skillLesson(sk):'';}catch(_){return '';}};
+  const ranked=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([sk,n])=>({sk,n,code:lessonOf(sk)})).filter(x=>x.code);
+  for(const x of ranked){if((x.n>=2||!passed)&&!lessons.some(l=>l.code===x.code))lessons.push(x);if(lessons.length>=2)break;}
+ }
+ let coins=0;
+ if(P.kind==='level'&&!P.redo){
   const o=r37Get(),k=r37LvKey(P.track,P.w,P.s),old=o.lv[k]||{best:0},boss=P.s===9;
   const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
   const firstPass=passed&&!old.passed;if(passed)e.passed=true;
@@ -15003,7 +15474,7 @@ function r37Finish(){
   if(firstPass&&boss)coins+=2;
   if(firstPass)r37Bump('levels');
   r37Save();
- }else{
+ }else if(P.kind!=='level'){
   if(P.kind==='dz')r37DzSave(P,stars,passed);
   const d=r37Get().day;d.qc=d.qc||0;
   if(stars===5&&d.qc<3){coins+=1;d.qc++;if(r37Char().perk==='coin')coins+=1;r37Bump('five');}
@@ -15011,21 +15482,55 @@ function r37Finish(){
  }
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
- P.result={stars,passed,correct,coins};P.phase='result';playSfx(passed?'finish':'wrong');render();
+ const list=missed.map(m=>m.en?{en:m.en,zh:m.zh,you:m.value,fixed:m.fixed,kind:m.kind,key:m.key}:{q:m.q.prompt,answer:m.q.answer,you:m.value,fixed:m.fixed,key:m.key,skill:m.skill});
+ P.result={stars,passed,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
  if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P&&P.kind==='dz'?'#dz':P?'#p/'+P.track:'#kid';
 }
 function r37Speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=typeof britishVoices==='function'?britishVoices()[0]:null;if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
+/* "只重做錯的": only the questions missed this time (English words in another form; maths the same questions) */
+function r37Redo(){
+ const P=r37P;if(!P||P.kind!=='level'||!P.missed||!P.missed.length)return;
+ const items=P.missed.map(m=>({key:m.key,en:m.en,kind:m.kind,q:m.q}));
+ const track=P.track,w=P.w,s=P.s;
+ r37StartLevel(track,w,s,{redo:items});
+}
+/* "看課堂": open the HK-M4 chapter (maths) or the 思維之塔 topic (olympiad) for this skill */
+function r37OpenLesson(code,track){
+ try{
+  if(!code)return false;
+  if(track==='olympiad'||/^O-/.test(code)){
+   const A=globalThis.WQMathApp;if(!A)return false;A.open('olympiad');
+   const root=document.getElementById('wqm-app-host')?.shadowRoot;if(!root)return true;
+   const lv=(/-L(\d)-/.exec(code)||[])[1];
+   if(lv){root.querySelector(`[data-action="olylevel:${lv}"]`)?.click();}
+   (document.getElementById('wqm-app-host')?.shadowRoot||root).querySelector(`[data-action="lesson:${code}"]`)?.click();
+   return true;
+  }
+  const A=globalThis.WQCourseApp;if(!A)return false;
+  A.open('normal');
+  const root=document.getElementById('wq-course-host')?.shadowRoot;if(!root)return true;
+  const g=String(code)[0];
+  root.querySelector(`[data-c1="grade:${g}"]`)?.click();
+  (document.getElementById('wq-course-host').shadowRoot).querySelector(`[data-c1="learn:${code}:1"]`)?.click();
+  return true;
+ }catch(_){return false;}
+}
 /* ---------------------------------------------------------------------------------------------- parent */
 function r37ParentHub(){
  const o=r37Get(),tab=r37Mem._ptab||'diff',c=activeChild();
  const tabs=[['diff','🎚️'],['prog','📊'],['kids','👦'],['data','🛠️']].map(([k,i])=>`<button type="button" class="r37-ptab ${tab===k?'on':''}" data-r37="ptab" data-k="${k}" aria-label="${k}">${r37Icon(i)}</button>`).join('');
  let body='';
  if(tab==='diff'){
-  body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${o.diff===d.n?'on':''}" data-r37="diff" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${d.qs} 題 · ${'❤'.repeat(d.hearts)} · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
-  <ul class="r37-dl"><li><b>1–2</b> 較少選項、字首提示、較少題目</li><li><b>3</b> 標準</li><li><b>4–5</b> 相似選項、更多填充、更高合格線${o.diff===5?'、沒有提示':''}</li></ul></div>`;
+  const sub=['english','math','olympiad'].includes(r37Mem._dsub)?r37Mem._dsub:'english',cur=o.diffs[sub],T=R37_TRACKS[sub];
+  const subs=['english','math','olympiad'].map(k=>`<button type="button" class="r37-dsub ${sub===k?'on':''}" data-r37="dsub" data-k="${k}" aria-pressed="${sub===k}"><span aria-hidden="true">${r37Icon(R37_TRACKS[k].icon)}</span><b>${R37_TRACKS[k].name}</b><small>${R37_DIFF[o.diffs[k]-1].icon}${o.diffs[k]}</small></button>`).join('');
+  const note=sub==='english'
+   ?`<li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格</li><li><b>3</b> 標準：沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字、填充題更多；<b>5</b> 沒有提示${cur===5?'（目前）':''}</li><li>題數是每個生字至少考 1 題；答錯的詞 3 題後換題型補考，合格＝每個詞最後一次答對，星星按第一次答對率計</li>`
+   :`<li><b>題數、心數、合格線</b>跟上面一樣；難度改變的是<b>數字大小與步驟數</b></li><li><b>1–2</b> 較小的數、較少步驟</li><li><b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）</li><li><b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
+  body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題 · ${'❤'.repeat(d.hearts)} · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
+  <ul class="r37-dl">${note}</ul></div>`;
  }else if(tab==='prog'){
   body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><span>${r37Icon('✅')}</span><b>${o.day.correct}</b></div></div>`:'');
  }else if(tab==='kids'){
@@ -15038,6 +15543,85 @@ function r37ParentHub(){
 
 /* R3.14 s22 - dictation study: groups of 8 words, learn cards, then three quiz levels (choice, fill the letters, full spelling). */
 const R37_DZ_LV=['✅','🧩','✍️'],R37_DZ_NAMES=['選擇','補字母','默寫'];
+/*SYL-BEGIN*/
+/* ---- syllables (R3.18, T06): words of 7+ letters are shown and masked in whole syllables.
+   Order: teaching list -> WQ31 compound / chunk recipe -> rule table (suffix, silent e, vowel groups, consonant cluster split). ---- */
+const R37_SYL_EX={};
+`beau·ti·ful fa·vour·ite be·cause el·e·phant um·brel·la com·pu·ter dic·tion·ar·y hos·pi·tal choc·o·late break·fast birth·day to·mor·row yes·ter·day to·geth·er re·mem·ber af·ter·noon sand·wich res·tau·rant veg·e·ta·ble kan·ga·roo di·no·saur straw·ber·ry but·ter·fly grand·moth·er grand·fa·ther won·der·ful im·por·tant dif·fer·ent in·ter·est·ing li·brar·y class·room play·ground home·work su·per·mar·ket tel·e·vi·sion tel·e·phone ad·ven·ture ham·bur·ger sau·sage pine·ap·ple wa·ter·mel·on py·ja·mas cal·en·dar Feb·ru·ar·y Sat·ur·day Wednes·day Thurs·day Sep·tem·ber Oc·to·ber No·vem·ber De·cem·ber spa·ghet·ti sun·flower rain·bow foot·ball bas·ket·ball moun·tain neigh·bour some·times ev·ery·one ev·ery·thing pos·si·ble care·ful·ly de·li·cious ex·er·cise ex·cit·ed ques·tion ed·u·ca·tion in·for·ma·tion cel·e·brate hol·i·day com·fort·a·ble vo·cab·u·lar·y bi·cy·cle hap·pi·ness un·hap·py un·kind·ly ex·cuse·me al·pha·bet air·port air·plane aer·o·plane`.split(/\s+/).forEach(x=>{R37_SYL_EX[x.replace(/·/g,'').toLowerCase()]=x.toLowerCase();});
+const R37_SYL_ON3=new Set(['str','spr','scr','spl','thr','shr','sch','squ']);
+const R37_SYL_ON2=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr','tw','sw','sc','sk','sl','sm','sn','sp','st','th','sh','ch','ph','wh','kn','wr','qu','gn']);
+const R37_SYL_FLUID=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr']);
+const R37_SYL_DIG=new Set(['th','sh','ch','ph','wh']);
+let r37SylRecipes=null;
+function r37SylRecipe(w){
+ if(!r37SylRecipes){r37SylRecipes={};try{for(const r of globalThis.WQ31Library.recipes.values())if(r.parts&&r.parts.length>1&&r.parts.every(x=>x.length>=2)&&(r.kind==='compound'||r.kind==='chunk'))r37SylRecipes[r.form]=r.parts;}catch(_){}}
+ return r37SylRecipes[w]||null;
+}
+function r37SylRule(w){
+ const isV=i=>{const c=w[i];if('aeiou'.includes(c))return !(c==='u'&&i>0&&w[i-1]==='q');if(c==='y')return i>0;if(c==='w')return i>0&&'aeiou'.includes(w[i-1]);return false;};
+ /* suffixes that stand as a syllable of their own; the stem is split on its own */
+ const m=/^(.{3,})(ful|less|ness|ment|ship|ly|ish|hood|ing)$/.exec(w);
+ if(m){
+  let stem=m[1],suf=m[2];
+  if(suf==='ing'&&/([^aeiouylsfz])\1$/.test(stem)){suf=stem.slice(-1)+'ing';stem=stem.slice(0,-1);}
+  const a=r37SylRule(stem);return a.concat([suf]);
+ }
+ const md=/^(.{3,}[td])ed$/.exec(w);
+ if(md)return r37SylRule(md[1]).concat(['ed']);
+ let end=w.length;
+ /* silent endings: -e, -ed, -es are not syllables of their own (except -le after a consonant) */
+ if(/[^aeiou]e$/.test(w)&&!/[^aeiouy]le$/.test(w))end=w.length-1;
+ else if(/[^aeiouy]ed$/.test(w)||/[^sxzcg]es$/.test(w)&&!/(ch|sh)es$/.test(w))end=w.length-1;
+ const nuc=[];let i=0;
+ while(i<end){if(isV(i)){let j=i;while(j<end&&isV(j))j++;nuc.push([i,j]);i=j;}else i++;}
+ if(nuc.length<2)return [w];
+ const cuts=[];
+ for(let k=0;k<nuc.length-1;k++){
+  const a=nuc[k][1],b=nuc[k+1][0],c=w.slice(a,b),len=nuc[k][1]-nuc[k][0];
+  let at;
+  if(c.length===0)at=a;
+  else if(c.length===1)at=(c==='r'&&len>=2||c==='x')?b:a;
+  else if(/^(.)\1$/.test(c))at=a+1;
+  else{
+   let on=1;
+   for(let n=Math.min(3,c.length);n>=2;n--){const t=c.slice(-n);if(n===3?R37_SYL_ON3.has(t):R37_SYL_ON2.has(t)){on=n;break;}}
+   /* two-letter clusters split between the letters unless they are a stop + l/r (ze·bra) or a digraph (ma·ther) */
+   if(c.length===2&&on===2&&!R37_SYL_FLUID.has(c)&&!R37_SYL_DIG.has(c))on=1;
+   if(/ck$|ng$/.test(c)&&on<2)on=1;
+   at=b-on;
+   if(c.endsWith('ck')||c.endsWith('ng'))at=b-Math.min(on,c.length-2>=1?c.length-2:0)||b-1;
+  }
+  cuts.push(at);
+ }
+ const out=[];let st=0;for(const c of cuts){if(c>st){out.push(w.slice(st,c));st=c;}}
+ out.push(w.slice(st));
+ return out.filter(x=>x);
+}
+/* r37Syl('Beautiful') -> ['Beau','ti','ful']; short words and anything with a non-letter -> [word] */
+function r37Syl(en){
+ const raw=String(en||'').trim();
+ if(!/^[A-Za-z]+$/.test(raw)||raw.length<7)return [raw];
+ const w=raw.toLowerCase();
+ let parts=R37_SYL_EX[w]?R37_SYL_EX[w].split('·'):(r37SylRecipe(w)||r37SylRule(w));
+ if(parts.join('')!==w||parts.some(x=>x.length<1))parts=[w];
+ let p=0;return parts.map(x=>{const r=raw.slice(p,p+x.length);p+=x.length;return r;});
+}
+/* every alphabetic token of a word / phrase -> [{from,to}] syllable ranges over the string's characters (tokens < 7 letters have none) */
+function r37SylRanges(en){
+ const ch=[...String(en||'')],out=[];let i=0;
+ while(i<ch.length){
+  if(!/[A-Za-z]/.test(ch[i])){i++;continue;}
+  let j=i;while(j<ch.length&&/[A-Za-z]/.test(ch[j]))j++;
+  const tok=ch.slice(i,j).join(''),parts=r37Syl(tok);
+  if(parts.length>1){let p=i;for(const x of parts){out.push({from:p,to:p+x.length});p+=x.length;}}
+  i=j;
+ }
+ return out;
+}
+function r37SylText(en){
+ return String(en||'').split(/(\s+)/).map(t=>/^\s+$/.test(t)?t:(/^[A-Za-z]+$/.test(t)?r37Syl(t).join('·'):t)).join('');
+}
+/*SYL-END*/
 function r37DzData(){
  const r=latestRange();if(!r)return {rid:'',title:'',words:[],groups:[]};
  const seen=new Set(),words=rangeWords(r.id).filter(w=>w.kind!=='sentence'&&/\p{L}/u.test(String(w.en||''))&&!seen.has(norm(w.en))&&seen.add(norm(w.en)));
@@ -15051,6 +15635,16 @@ function r37DzQuizWords(D,g){
 }
 function r37DzBest(rid,g){const e=((r37Get().dz||{})[rid]||{})[g]||{};return [e.l1|0,e.l2|0,e.l3|0];}
 function r37DzRec(b){const i=b.findIndex(n=>n<3);return i<0?2:i;}
+/* level 2 hides whole syllables of long words (never the first one); short words keep the letter mask */
+function r37DzMaskSyl(en){
+ const rs=r37SylRanges(en);if(!rs.length)return null;
+ const ch=[...en],first=rs[0],cand=rs.filter(r=>r!==first);
+ const k=Math.min(2,Math.max(1,Math.floor(rs.length/2))),rng=r37Rng(r37Hash('dz2s|'+norm(en)));
+ const pick=r37Shuf(cand,rng).slice(0,Math.min(k,cand.length));
+ const hide=new Set();for(const r of pick)for(let i=r.from;i<r.to;i++)hide.add(i);
+ /* short words of a phrase stay visible */
+ return {hide,ranges:rs,ch};
+}
 function r37DzMask(en){
  const ch=[...en],letters=ch.map((c,i)=>/\p{L}/u.test(c)?i:-1).filter(i=>i>=0),cand=letters.filter(i=>i>0&&ch[i-1]!==' ');
  const pool=cand.length?cand:letters,k=letters.length<=3?1:Math.max(1,Math.round(cand.length*.45));
@@ -15073,7 +15667,11 @@ function r37DzMcq(w,k,D,rng){
 function r37DzCell(w,lvl){
  const en=w.en.trim(),zh=String(w.zh||'').trim();
  const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Emoji(en),word:en,answer:en,accept:[en],audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
- if(lvl===2)q.hide=[...r37DzMask(en)].sort((a,b)=>a-b);
+ if(lvl===2){
+  const m=r37DzMaskSyl(en);
+  if(m){q.hide=[...m.hide].sort((a,b)=>a-b);q.syl=m.ranges.map(r=>[r.from,r.to]);}
+  else q.hide=[...r37DzMask(en)].sort((a,b)=>a-b);
+ }
  return q;
 }
 function r37DzQs(D,g,lvl,seed){
@@ -15086,7 +15684,7 @@ function r37DzStart(g,lvl,skipLearn){
  lvl=lvl||r37DzRec(r37DzBest(D.rid,g))+1;
  const qs=r37DzQs(D,g,lvl,r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff));
  if(!skipLearn){try{v24Expose(learn.map(w=>w.en));}catch(_){}}
- r37P={kind:'dz',track:'dictation',diff:r37Get().diff,qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:r37Icon('📖')+' 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
+ r37P={kind:'dz',track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:skipLearn?'quiz':'learn',fb:null,hintShown:false,title:r37Icon('📖')+' 第 '+(g+1)+' 組',praise:'做得好！',learn:learn.map(w=>({en:w.en.trim(),zh:String(w.zh||'').trim()})),dz:{rid:D.rid,g,lvl,n:D.groups.length}};
  r37Nav37('lp/play');
 }
 function r37DzRecord(q,value,ok){
@@ -15094,25 +15692,57 @@ function r37DzRecord(q,value,ok){
  const w=db.words.find(x=>x.id===q.dz.wid);if(!w)return;
  try{if(q.dz.lvl===2)v24Expose([w.en]);recordAttempt(w,q.dz.type,ok,value,q.answer,'默書學習',{src:'dz',lvl:q.dz.lvl});save();}catch(_){}
 }
+/* spaced revisit (T17): 3 stars on level 3 schedules a full-spelling revisit after 1, then 3, then 7 days.
+   Pass -> next step; fail -> try again tomorrow. Stars already earned are never taken away. */
+const R37_DZ_GAP={1:3,2:7},R37_DAY=86400000;
+function r37DzDue(rid,g){const e=((r37Get().dz||{})[rid]||{})[g],r=e&&e.rv;return r&&r.due&&r.due<=Date.now()?r:null;}
 function r37DzSave(P,stars,passed){
- const {rid,g,lvl}=P.dz;if(lvl===3&&!passed)return;
+ const {rid,g,lvl,rv}=P.dz;
  const o=r37Get();o.dz=o.dz||{};
- const R=o.dz[rid]=o.dz[rid]||{},e=R[g]=R[g]||{};
+ const R=o.dz[rid]=o.dz[rid]||{},e=R[g]=R[g]||{},now=Date.now();
+ if(rv){
+  const r=e.rv||(e.rv={s:0,due:now});
+  if(passed){r.s=(r.s|0)+1;r.due=r.s>=3?0:now+R37_DZ_GAP[r.s]*R37_DAY;}else r.due=now+R37_DAY;
+  r.at=now;P.rvNext=r.due?Math.round((r.due-now)/R37_DAY):0;P.rvDone=r.s>=3;
+  return;
+ }
+ if(lvl===3&&!passed)return;
  e['l'+lvl]=Math.max(e['l'+lvl]|0,stars);e.at=new Date().toISOString();
+ if(lvl===3&&passed&&!e.rv)e.rv={s:0,due:now+R37_DAY};
 }
+function r37DzReview(g){
+ if(window.WQR3&&!WQR3.canStudy())return;
+ const D=r37DzData(),grp=D.groups[g];if(!grp)return;
+ const e=((r37Get().dz||{})[D.rid]||{})[g]||{},st=(e.rv&&e.rv.s)|0;
+ const rng=r37Rng(r37Hash('rv|'+D.rid+'|'+g+'|'+st+'|'+(r37Mem._seed!==undefined?r37Mem._seed:Math.floor(Date.now()/r37DayMs))));
+ const lastWrong=w=>{try{const a=attemptsFor(w.id);return a.length>0&&!a[a.length-1].correct;}catch(_){return false;}};
+ /* two newly missed words (this group first, then the rest of the range), four old words from the group */
+ let nw=r37Shuf(grp.filter(lastWrong),rng).slice(0,2);
+ if(nw.length<2)nw=nw.concat(r37Shuf(D.words.filter(w=>!grp.includes(w)&&lastWrong(w)),rng).slice(0,2-nw.length));
+ const old=r37Shuf(grp.filter(w=>!nw.includes(w)),rng).slice(0,4);
+ const words=[...old,...nw];
+ const target=Math.min(6,grp.length+nw.filter(w=>!grp.includes(w)).length);
+ for(const w of r37Shuf(grp.filter(w=>!words.includes(w)),rng)){if(words.length>=target)break;words.push(w);}
+ const qs=r37Shuf(words,rng).map(w=>r37DzCell(w,3));
+ r37P={kind:'dz',track:'dictation',diff:r37DiffN('english'),qs,i:0,res:[],hearts:99,maxHearts:0,shield:false,correct:0,hinted:0,phase:'quiz',fb:null,hintShown:false,title:r37Icon('🔁')+' 第 '+(g+1)+' 組重溫',praise:'做得好！',learn:[],dz:{rid:D.rid,g,lvl:3,n:D.groups.length,rv:true},log:[],miss:{},nudge:null};
+ r37Nav37('lp/play');
+}
+const r37DayMs=86400000;
 function r37DzHome(){
  const D=r37DzData(),top=r37Top('<a class="r37-back2" href="#p/dictation" aria-label="默書星">←</a>');
  if(!D.groups.length)return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-gate"><div class="r37-login"><div class="r37-lk" aria-hidden="true">${r37Icon('📝')}</div><b>請家長先加入默書範圍</b><a class="r37-go" href="#ranges">${r37Icon('📝')}默書範圍</a></div></div>${r37Nav('p/dictation')}</section>`;
  const cards=D.groups.map((ws,g)=>{
   const b=r37DzBest(D.rid,g),rec=r37DzRec(b);
-  return `<article class="r37-dzc" data-g="${g}"><button type="button" class="r37-dzm" data-r37="dz-go" data-g="${g}" data-l="0" aria-label="第 ${g+1} 組，${ws.length} 個字"><span class="r37-dzn">${g+1}</span><span class="r37-dzp" lang="en">${ws.slice(0,3).map(w=>esc(w.en)).join(' · ')}</span></button><div class="r37-dzl">${[1,2,3].map(l=>`<button type="button" class="r37-dzb ${rec===l-1?'rec':''} ${b[l-1]>=3?'done':''}" data-r37="dz-go" data-g="${g}" data-l="${l}" data-stars="${b[l-1]}" aria-label="第 ${l} 級 ${R37_DZ_NAMES[l-1]}，${b[l-1]} 星"><span aria-hidden="true">${r37Icon(R37_DZ_LV[l-1])}</span><b>${l} ★${b[l-1]}</b></button>`).join('')}</div></article>`;
+  const due=r37DzDue(D.rid,g);
+  return `<article class="r37-dzc${due?' due':''}" data-g="${g}" ${due?'data-due="1"':''}><button type="button" class="r37-dzm" data-r37="dz-go" data-g="${g}" data-l="0" aria-label="第 ${g+1} 組，${ws.length} 個字"><span class="r37-dzn">${g+1}</span><span class="r37-dzp" lang="en">${ws.slice(0,3).map(w=>esc(w.en)).join(' · ')}</span></button>${due?`<button type="button" class="r37-dzrv" data-r37="dz-rv" data-g="${g}"><span aria-hidden="true">${r37Icon('🔁')}</span>今日重溫</button>`:''}<div class="r37-dzl">${[1,2,3].map(l=>`<button type="button" class="r37-dzb ${rec===l-1?'rec':''} ${b[l-1]>=3?'done':''}" data-r37="dz-go" data-g="${g}" data-l="${l}" data-stars="${b[l-1]}" aria-label="第 ${l} 級 ${R37_DZ_NAMES[l-1]}，${b[l-1]} 星"><span aria-hidden="true">${r37Icon(R37_DZ_LV[l-1])}</span><b>${l} ★${b[l-1]}</b></button>`).join('')}</div></article>`;
  }).join('');
  return `<section class="r37-hub r37-dz" style="--h:340">${top}<div class="r37-dzh"><span aria-hidden="true">${r37Icon('📖')}</span><b>${esc(D.title)}</b><em>${D.words.length}</em></div><div class="r37-dzg">${cards}</div>${r37Nav('p/dictation')}</section>`;
 }
 function r37DzCellsBody(q,fb,aud){
- const ch=[...q.answer],hide=new Set(q.hide),typed=fb?[...fb.value]:[],out=[];let cur=[];
+ const ch=[...q.answer],hide=new Set(q.hide),typed=fb?[...fb.value]:[],out=[],starts=new Set((q.syl||[]).map(r=>r[0]));let cur=[];
  ch.forEach((c,i)=>{
   if(c===' '){out.push(`<span class="r37-cw">${cur.join('')}</span>`);cur=[];return;}
+  if(starts.has(i)&&i>0&&ch[i-1]!==' '&&/[A-Za-z]/.test(ch[i-1]))cur.push('<span class="r37-sd" aria-hidden="true">·</span>');
   if(!hide.has(i)){cur.push(`<span class="r37-cl">${esc(c)}</span>`);return;}
   const t=typed[i]||'',cls=fb?(norm(t)===norm(c)?'ok':'bad'):'';
   cur.push(`<input class="r37-cell ${cls}" type="text" inputmode="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-ci="${i}" data-v="${esc(t)}" value="${esc(t)}" aria-label="第 ${i+1} 個字母" ${fb?'disabled':''}>`);
@@ -15129,16 +15759,38 @@ function r37DzDiff(exp,got){
  while(i<m&&j<n){if(a[i]===b[j]){ma[i]=mb[j]=true;i++;j++;}else if(d[i+1][j]>=d[i][j+1])i++;else j++;}
  return {a:ma,b:mb};
 }
-function r37DzMark(text,flags){
+function r37DzMark(text,flags,rs){
  const raw=[...text],chars=raw.length===flags.length?raw:[...norm(text)];
- return chars.map((c,i)=>c===' '?' ':`<i class="${flags[i]?'ok':'bad'}">${esc(c)}</i>`).join('');
+ const one=(c,i)=>c===' '?' ':`<i class="${flags[i]?'ok':'bad'}">${esc(c)}</i>`;
+ if(!rs||!rs.length||raw.length!==flags.length)return chars.map(one).join('');
+ const st=new Map(rs.map(r=>[r.from,r]));let out='',i=0,prevEnd=-1;
+ while(i<chars.length){
+  const r=st.get(i);
+  if(r){
+   let g='',bad=false;for(let k=r.from;k<r.to;k++){g+=one(chars[k],k);if(!flags[k])bad=true;}
+   out+=(prevEnd===i?'<span class="r37-sd" aria-hidden="true">·</span>':'')+`<span class="r37-sy2${bad?' bad':''}">${g}</span>`;prevEnd=r.to;i=r.to;continue;
+  }
+  out+=one(chars[i],i);i++;
+ }
+ return out;
 }
-function r37DzAns(q,fb){const d=r37DzDiff(q.answer,fb.value);return `<span class="r37-ans" lang="en">${r37DzMark(q.answer,d.a)}</span>`;}
+function r37DzAns(q,fb){const d=r37DzDiff(q.answer,fb.value);return `<span class="r37-ans" lang="en">${r37DzMark(q.answer,d.a,r37SylRanges(q.answer))}</span>`;}
+/* learn card: the word cut into syllables; each piece is a button that reads that piece aloud */
+function r37SylRow(en){
+ const toks=String(en||'').split(/(\s+)/);let any=false;
+ const html=toks.map(t=>{
+  if(/^\s+$/.test(t))return ' ';
+  const p=r37Syl(t);
+  if(p.length<2)return `<span class="r37-sw">${esc(t)}</span>`;
+  any=true;return p.map(x=>`<button type="button" class="r37-sy" data-r37="speak" data-t="${esc(x)}">${esc(x)}</button>`).join('<span class="r37-sd" aria-hidden="true">·</span>');
+ }).join('');
+ return any?`<div class="r37-sylrow" lang="en" aria-label="音節 ${esc(r37SylText(en))}">${html}</div>`:'';
+}
 function r37DzYou(q,fb){const d=r37DzDiff(q.answer,fb.value),t=norm(fb.value);return `<small class="r37-you">你寫：<span lang="en">${r37DzMark(t,d.b)}</span></small>`;}
 function r37DzResult(){
  const P=r37P,r=P.result,{g,lvl,n}=P.dz,coins=r.coins?`<div class="r37-rc">${r37Icon('🪙')}+${r.coins}</div>`:'';
  const next=lvl<3?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="第 ${lvl+1} 級">▶ ${r37Icon(R37_DZ_LV[lvl])}</button>`:g<n-1?`<button type="button" class="r37-go" data-r37="dz-next" aria-label="下一組">▶ ${r37Icon('📖')}${g+2}</button>`:'';
- return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r37Icon(r.passed?'🎉':'⭐')}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'}"><div class="r37-rb" aria-hidden="true">${r37Icon(r.passed?'🎉':'⭐')}</div>${r37Stars(r.stars)}<div class="r37-rs">${r.correct}/${P.qs.length}</div>${coins}${P.dz.rv?(r.passed?`<p class="r37-rn">${P.rvDone?'重溫全部完成！':'下一次重溫：'+(P.rvNext||1)+' 天後'}</p>`:'<p class="r37-rn">明天再重溫一次</p>'):lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':''}${r37MissHTML(r)}
  <div class="r37-ra">${next}<button type="button" class="r37-sec" data-r37="retry" aria-label="重做">↻</button><button type="button" class="r37-sec" data-r37="exit" aria-label="組別">${r37Icon('🗺️')}</button></div></div></section>`;
 }
 function r37DzSubmit(){
@@ -15256,7 +15908,7 @@ function r37FpsWords(){return r37GameWords(0,17);}
 function r37FpsMount(){
  const box=$('#r37-fps-box');if(!box)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
- r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37Get().diff,rounds:10,sound:sfxEnabled(),
+ r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37DiffN('english'),rounds:10,sound:sfxEnabled(),
   onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){d.fc=(d.fc||0)+1;coins=1;r37Save();r37AddCoins(1);}return coins;},
   onExit:()=>{r37FpsStop();location.hash='#p/games';}});
 }
@@ -15264,7 +15916,7 @@ function r37FpsLvMount(){
  const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
- const opts={words:r37FpsUnitWords(w,s),difficulty:r37Get().diff,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+ const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
   onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
  if(s===9)opts.boss=true;
@@ -15279,7 +15931,7 @@ function r37StartFps(w,s,from){
 function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
- const diff=r37Get().diff,ch=r37Char();
+ const diff=r37DiffN('english'),ch=r37Char();
  r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
   onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('fps');return 0;}const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
@@ -15386,11 +16038,15 @@ document.addEventListener('click',e=>{
  else if(a==='speak')r37Speak(el.dataset.t);
  else if(a==='qspeak'&&P&&P.qs[P.i])r37Speak(P.qs[P.i].audio);
  else if(a==='dz-go')r37DzStart(+el.dataset.g,+el.dataset.l||0);
+ else if(a==='dz-rv')r37DzReview(+el.dataset.g);
  else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
- else if(a==='retry'&&P){if(P.kind==='dz')r37DzStart(P.dz.g,P.dz.lvl,true);else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
+ else if(a==='retry'&&P){if(P.kind==='dz'){if(P.dz.rv)r37DzReview(P.dz.g);else r37DzStart(P.dz.g,P.dz.lvl,true);}else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
  else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}r37StartLevel(P.track,w,s);}
- else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}r37Get().diff=+el.dataset.n;r37Save();render();}
+ else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}const t=r37DiffT(el.dataset.t||r37Mem._dsub||'english');r37Get().diffs[t]=+el.dataset.n;r37Save();render();}
+ else if(a==='dsub'){r37Mem._dsub=el.dataset.k;render();}
+ else if(a==='redo-miss')r37Redo();
+ else if(a==='lesson'){r37OpenLesson(el.dataset.code,el.dataset.track);}
  else if(a==='ptab'){r37Mem._ptab=el.dataset.k;render();}
  else if(a==='chars')location.hash='#p/chars';
  else if(a==='pick'){const o=r37Get();if(o.chars.includes(el.dataset.id)){o.pick=el.dataset.id;r37Save();render();}}
@@ -15407,7 +16063,7 @@ document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cel
 document.addEventListener('keydown',e=>{
  const P=r37P;if(!P||lastRoute!=='lp/play'||e.ctrlKey||e.metaKey||e.altKey)return;
  if(e.key==='Escape'){r37Exit();return;}
- if(P.phase==='learn'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();P.phase='quiz';render();return;}
+ if((P.phase==='learn'||P.phase==='example')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();P.phase='quiz';render();return;}
  if(P.phase==='result'){if(e.key==='Enter')$('[data-r37="level-next"],[data-r37="dz-next"],[data-r37="retry"]')?.click();return;}
  if(P.phase!=='quiz')return;
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}

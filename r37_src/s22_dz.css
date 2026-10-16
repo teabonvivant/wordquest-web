@@ -31,3 +31,80 @@
 .r37-you{font-size:16px!important;letter-spacing:.06em}
 @media(prefers-reduced-motion:reduce){.r37-dzc{transition:none}.r37-dzc:active{transform:none}}
 @media(min-width:700px){.r37-dzg{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:16px}.r37-dzc{flex:0 0 clamp(220px,24%,300px)}.r37-dzn{width:52px;height:52px;font-size:28px;border-radius:16px}.r37-dzp{font-size:18px}.r37-dzb{min-height:64px}.r37-dzb span{font-size:28px}.r37-dzb b{font-size:14px}.r37-dzh{font-size:clamp(22px,3.2vh,32px)}.r37-ptitle{font-size:24px}}
+
+/* ---- R3.18 learning loop: learn-card sentences, example card, nudge, missed-answers card, redo / lesson buttons, revisit badge, syllables ---- */
+.r37-learn .r37-wc{flex-direction:column;align-items:stretch;justify-content:center;gap:4px;padding:8px 8px;cursor:default}
+.r37-wcb{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 2px;border:0;border-radius:18px;background:none;color:inherit;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+@media(max-width:520px){.r37-learn:not(.dz) .r37-wcb{flex-direction:row;justify-content:space-around;width:100%}}
+.r37-wcb:focus-visible,.r37-exl:focus-visible,.r37-us:focus-visible,.r37-sy:focus-visible,.r37-ms:focus-visible,.r37-redo:focus-visible,.r37-lesson:focus-visible,.r37-dzrv:focus-visible,.r37-dsub:focus-visible{outline:3px solid #ffc94a;outline-offset:2px}
+.r37-fx{font-style:normal;color:#e0245e;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.r37-exl{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:4px 10px;border:0;border-radius:14px;background:#eef2ff;color:#2a3170;font:inherit;font-size:15px;font-weight:700;line-height:1.3;text-align:center;cursor:pointer}
+.r37-exl .r37-ic{font-size:18px;flex:none}
+.r37-us{display:flex;align-items:center;justify-content:center;gap:8px;max-width:100%;min-height:44px;padding:6px 16px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(255,255,255,.12);color:#f4f6ff;font:inherit;font-size:17px;font-weight:800;line-height:1.3;cursor:pointer}
+.r37-us .r37-ic{font-size:22px;flex:none}
+@media(max-height:560px){.r37-exl,.r37-us{display:none}}
+/* example card (maths / olympiad: the first time a skill appears) */
+.r37-excard{width:min(100%,520px);display:flex;flex-direction:column;gap:8px;padding:16px 18px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));color:#f4f6ff;text-align:left}
+.r37-excard h2{display:flex;align-items:center;gap:8px;margin:0;font-size:18px;color:#ffc94a}.r37-excard h2 .r37-ic{font-size:24px}
+.r37-exq{font-size:clamp(20px,3.4vh,26px);font-weight:900;line-height:1.35}
+.r37-exa{font-size:18px;font-weight:700}.r37-exa b{color:#ffc94a;font-size:1.15em}
+.r37-exe{margin:0;font-size:17px;line-height:1.5;color:#e6eaff}
+.r37-ext{margin:0;padding:8px 12px;border-radius:12px;background:rgba(255,201,74,.14);color:#ffe9a8;font-size:16px;font-weight:700;line-height:1.4}
+.r37-exb{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.r37-sec2{min-height:56px;padding:0 24px;border:1px solid rgba(255,255,255,.28);border-radius:20px;background:rgba(255,255,255,.12);color:#f4f6ff;font:inherit;font-size:20px;font-weight:800;cursor:pointer}
+/* "right value, wrong form" nudge and the part-credit / picked lines of the feedback bar */
+.r37-nudge{display:flex;align-items:center;justify-content:center;gap:10px;max-width:min(100%,520px);padding:10px 16px;border:1px solid rgba(255,201,74,.55);border-radius:16px;background:rgba(255,201,74,.16);color:#fff2c4;font-size:18px;font-weight:800;line-height:1.35;text-align:left}
+.r37-nudge .r37-ic{font-size:24px;flex:none}
+.r37-fb.part{background:#8a6a00}
+.r37-fb .r37-picked{margin-top:2px;font-weight:700;opacity:1}
+.r37-next[disabled]{opacity:.45;cursor:not-allowed}
+/* missed-answers card on the result page */
+.r37-miss{width:min(100%,520px);display:flex;flex-direction:column;gap:6px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:linear-gradient(160deg,rgba(30,38,96,.94),rgba(18,24,68,.94));color:#f4f6ff;text-align:left}
+.r37-miss h2{display:flex;align-items:center;gap:8px;margin:0;font-size:17px;color:#fff}.r37-miss h2 .r37-ic{font-size:22px}.r37-miss h2 em{font-style:normal;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.16);font-size:14px}
+.r37-miss ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;max-height:min(34vh,320px);overflow-y:auto;overscroll-behavior:contain}
+.r37-miss li{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;min-height:44px;font-size:17px}
+.r37-miss li b{font-size:19px;white-space:nowrap}.r37-miss li span{color:#c3cbf7;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r37-miss li span{flex:1 1 0;min-width:0}.r37-miss li .r37-mk{margin-left:auto}.r37-miss li small{flex:0 0 100%;padding-left:52px;margin-top:-6px;color:#ffe066;font-size:14px;font-weight:700}
+.r37-miss li.m{display:grid;grid-template-columns:minmax(0,1fr) auto auto}.r37-miss li.m .r37-mqq{color:#f4f6ff;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:15px;line-height:1.3}
+.r37-miss li.m b{color:#ffc94a}.r37-miss li.m small{grid-column:1/-1;padding-left:0;margin-top:0}
+.r37-ms{width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer}
+.r37-mk{font-style:normal;color:#7ef0b0;font-weight:900}
+@media(max-height:620px){.r37-miss ul{max-height:26vh}.r37-miss li{min-height:40px}}
+.r37-result.hasmiss{gap:8px}
+.r37-ra{flex-wrap:wrap;justify-content:center}
+.r37-redo,.r37-lesson{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 20px;border-radius:20px;font:inherit;font-size:19px;font-weight:900;cursor:pointer}
+.r37-redo{border:0;background:#ffc94a;color:#3b2600;box-shadow:0 4px 0 #c48a00}
+.r37-lesson{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#f4f6ff}
+.r37-redo .r37-ic,.r37-lesson .r37-ic{font-size:24px}
+/* parent difficulty: one row per subject */
+.r37-dsubs{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+.r37-dsub{display:flex;align-items:center;gap:6px;min-height:48px;padding:4px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);color:#f4f6ff;font:inherit;font-weight:800;cursor:pointer}
+.r37-dsub.on{border-color:#ffc94a;background:rgba(255,201,74,.18)}.r37-dsub .r37-ic{font-size:22px}.r37-dsub small{opacity:.85}
+/* dictation: revisit badge and syllables */
+.r37-dzc.due{border-color:#ffc94a}
+.r37-dzrv{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;border-radius:14px;background:#ffc94a;color:#3b2600;font:inherit;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 #c48a00}
+.r37-dzrv .r37-ic{font-size:20px}
+.r37-sylrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px;font-weight:900}
+.r37-sy{min-height:36px;min-width:36px;padding:2px 8px;border:0;border-radius:10px;background:#e6ecff;color:#1d2158;font:inherit;font-size:clamp(16px,2.6vh,22px);font-weight:900;cursor:pointer}
+.r37-sw{padding:0 6px;color:#555a9a}
+.r37-sd{color:#8a90d6;font-weight:900;padding:0 1px}
+.r37-cells .r37-sd{align-self:center;color:rgba(255,255,255,.55);font-size:22px}
+.r37-sy2{display:inline-block;padding:0 3px;border-radius:8px}.r37-sy2.bad{background:rgba(255,224,102,.16);box-shadow:inset 0 -3px 0 #ffe066}
+/* dictation learn cards: keep eight cards (with syllable rows) on one phone screen */
+.r37-learn.dz .r37-wc{gap:2px;padding:6px 6px}
+.r37-learn.dz .r37-wcb{gap:2px;padding:2px;min-height:44px}
+.r37-learn.dz .r37-sylrow{gap:0;flex-wrap:wrap;line-height:1}
+.r37-learn.dz .r37-sy{min-height:32px;min-width:30px;padding:0 6px;font-size:clamp(15px,2.2vh,19px);border-radius:9px}
+.r37-learn.dz .r37-sd{padding:0}
+.r37-learn.dz{gap:6px}
+.r37-learn.dz .r37-wc{padding:4px 6px}
+.r37-learn.dz .r37-wem{font-size:clamp(24px,4vh,44px)}
+.r37-learn.dz .r37-wcb{min-height:40px}
+/* short phones (360x640, 320x568): three learn cards + start button on one screen */
+@media(max-height:700px){.r37-us{display:none}.r37-wcx .r37-wem{font-size:clamp(28px,5.2vh,40px)}.r37-exl{min-height:34px;font-size:14px;padding:2px 8px}.r37-learn .r37-wc{padding:4px 6px}.r37-learn:not(.dz){gap:6px}}
+
+/* a result page with a missed-answers card: smaller badge / stars so card and buttons stay on one screen */
+.r37-result.hasmiss .r37-rb{font-size:44px;line-height:1}.r37-result.hasmiss .r37-rb .r37-ic{font-size:1em}
+.r37-result.hasmiss .r37-st{font-size:32px}.r37-result.hasmiss .r37-rs{font-size:32px}.r37-result.hasmiss .r37-rn{font-size:18px}
+.r37-result.hasmiss .r37-miss ul{max-height:min(28vh,260px)}
+.r37-result.hasmiss .r37-sec{width:52px;height:56px}

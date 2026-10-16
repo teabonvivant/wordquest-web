@@ -226,6 +226,13 @@ def test_arenas_questions_boss(pw, shots=None):
     for k in ('score', 'correct', 'wrong', 'rounds', 'seconds', 'stars', 'maxCombo'): assert k in fin
     assert fin['correct'] == 6 + len(word) and fin['wrong'] == 2, fin
     p.wait_for_timeout(2900)
+    # R3.18 T30: a wrong letter was shot during the boss, so the boss word comes up in a 「這關拼錯的字」 card before the result
+    assert p.locator('text=這關拼錯的字').count() == 1, 'missed-words card after the boss'
+    mw = p.evaluate("[...document.querySelectorAll('.wq37-mw b')].map(b=>b.textContent.toLowerCase())")
+    assert word.lower() in mw, (word, mw)
+    assert p.locator('text=打敗字母怪獸').count() == 0
+    if shots: p.screenshot(path='%s/%s_missed.png' % (SHOTS, shots))
+    p.locator('[data-act="cont"]').click(); p.wait_for_timeout(200)
     if shots: p.screenshot(path='%s/%s_result.png' % (SHOTS, shots))
     assert p.locator('text=打敗字母怪獸').count() >= 1
     p.evaluate('game.destroy()'); assert not errs, errs

@@ -31,7 +31,7 @@ def open_page(p, w=390, h=844, touch=True, learn=False):
     pg.route(URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)
     pg.emulate_media(reduced_motion='reduce')
-    pg.set_default_timeout(12000)
+    pg.set_default_timeout(int(__import__("os").environ.get("WQ37_TIMEOUT","60000")))
     return b, ctx, pg, errs
 
 

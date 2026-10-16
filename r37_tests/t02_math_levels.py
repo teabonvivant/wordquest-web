@@ -8,9 +8,13 @@ C = Checker('t02')
 
 
 def play_all(pg, correct=True):
-    n = ev(pg, 'r37P.qs.length')
-    for _ in range(n):
-        if ev(pg, 'r37P.phase') != 'quiz':
+    # R3.18: a first-seen skill opens with an example card, and a wrong answer adds a retest question, so loop until the result page
+    for _ in range(60):
+        ph = ev(pg, 'r37P.phase')
+        if ph in ('learn', 'example'):
+            pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(150)
+            continue
+        if ph != 'quiz':
             break
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
@@ -19,6 +23,7 @@ def play_all(pg, correct=True):
             pg.fill('#r37-in', q['answer'] if correct else '99999'); pg.keyboard.press('Enter')
         pg.wait_for_timeout(900 if correct else 300)
         if not correct and ev(pg, 'r37P&&r37P.phase') == 'quiz' and pg.query_selector('[data-r37="next"]'):
+            ev(pg, 'r37P.fb&&(r37P.fb.lock=0)')
             pg.click('[data-r37="next"]'); pg.wait_for_timeout(200)
 
 
@@ -41,7 +46,9 @@ with sync_playwright() as p:
         go(pg, f'#lv/{track}', 400)
         C.ok(pg.evaluate("document.querySelectorAll('.r37-node:not(.lock)').length") == 1, f'{track}: only stage 1 open at the start')
         pg.click('.r37-node.cur'); pg.wait_for_timeout(300)
-        C.ok(ev(pg, 'r37P.phase') == 'quiz', f'{track}: maths levels go straight to questions (no word cards)')
+        C.ok(ev(pg, 'r37P.phase') in ('quiz', 'example'), f'{track}: maths levels go straight to questions (no word cards; first skill may show one example card)')
+        if ev(pg, 'r37P.phase') == 'example':
+            pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
         C.ok(pg.evaluate("!!document.querySelector('.r37-opt, #r37-in')"), f'{track}: question UI visible')
         play_all(pg, True)
         C.ok(ev(pg, 'r37P.result.passed') and ev(pg, 'r37P.result.stars') == 5, f'{track}: all correct = passed with 5 stars')
@@ -60,11 +67,11 @@ with sync_playwright() as p:
     C.ok(ev(pg, 'r37P.qs.length>=6&&r37P.qs.every(q=>q.mode==="fill")'), 'maths 填充題 quiz: fill-in only')
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(200)
     # parent difficulty changes the next quiz length
-    ev(pg, 'r37Get().diff=5'); go(pg, '#p/olympiad')
+    ev(pg, 'r37Get().diffs.olympiad=5'); go(pg, '#p/olympiad')
     pg.click('[data-mode="mcq"]'); pg.wait_for_timeout(300)
     C.ok(ev(pg, 'r37P.qs.length>=10&&r37P.qs.every(q=>q.mode==="mcq")'), '奧數 選擇題 quiz at difficulty 5 has >=10 MCQ questions')
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(200)
-    ev(pg, 'r37Get().diff=3')
+    ev(pg, 'r37Get().diffs.olympiad=3')
 
     # R3.17: 數學星 opens the HK-M4 classroom (course dialog) and keeps 闖關 next to it
     go(pg, '#p/math')
