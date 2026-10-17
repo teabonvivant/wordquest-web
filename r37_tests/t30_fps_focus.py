@@ -100,8 +100,9 @@ with sync_playwright() as pw:
         gaps = [b2 - a for a, b2 in zip(log, log[1:])]
         ok(mx_bugs <= 1, f'F2 tier{tier}: at most 1 bug at a time (max {mx_bugs})')
         ok(mx_proj == 0 and d['projLog'] == 0 and d['spitters'] == 0, f'F2 tier{tier}: never a projectile / spitter (proj {mx_proj}, calls {d["projLog"]})')
-        ok(not gaps or min(gaps) >= 25 - 1e-6, f'F2 tier{tier}: spawns >=25 s apart {gaps}')
-        ok(not log or log[0] >= 20, f'F2 tier{tier}: first bug not before 20 s ({log[:1]})')
+        # R3.20: compared as whole frames (the game steps a fixed 1/60 s per _debugStep, so seconds = frames / 60 exactly; a float sum of 1/60 is not)
+        ok(not gaps or min(round(g * 60) for g in gaps) >= 25 * 60, f'F2 tier{tier}: spawns >=25 s (1500 frames) apart {[round(g * 60) for g in gaps]} frames')
+        ok(not log or round(log[0] * 60) >= 20 * 60, f'F2 tier{tier}: first bug not before 20 s (1200 frames) ({[round(x * 60) for x in log[:1]]} frames)')
         ok(len(log) >= 1, f'F2 tier{tier}: the occasional bug does appear ({log})')
         ok(max(d['bugAges'] or [0]) <= 15, 'F2 bug leaves within 15 s')
         ok(boss_bug == 0, 'F2 no bug during the boss')
@@ -124,8 +125,13 @@ with sync_playwright() as pw:
         b, p, errs = page(pw, False); begin(p, tier, 10)
         d = dbg(p); t = d['timer']
         ok(t > 0 and (prev is None or t <= prev), f'F3 tier{tier}: clock {t}s > 0 and not longer than the lower tier'); prev = t
-        cmd(p, 'calm', 1); step(p, 90); l0 = dbg(p)['timeLeft']; step(p, 120); l1 = dbg(p)['timeLeft']   # the first 1 s is the wave banner (clock waits); 120 frames = 2.0 s, tolerance covers frame rounding at the banner edge
-        ok(1.8 <= l0 - l1 <= 2.4, f'F3 tier{tier}: clock runs down ({l0:.1f}->{l1:.1f})')
+        # R3.20: frame-exact. Step one frame at a time until the clock starts to run (the wave banner holds it, no estimate of its length), then exactly 120 frames
+        cmd(p, 'calm', 1); full = dbg(p)['timeLeft']; l0 = full
+        for _ in range(300):
+            step(p, 1); l0 = dbg(p)['timeLeft']
+            if l0 < full - 1e-9: break
+        step(p, 120); l1 = dbg(p)['timeLeft']
+        ok(round((l0 - l1) * 60) == 120, f'F3 tier{tier}: clock runs down by exactly 120 frames ({l0:.4f}->{l1:.4f} = {round((l0 - l1) * 60)} frames)')
         b.close()
     b, p, errs = page(pw, False, nolearn=False); begin(p, 3, 10)
     cmd(p, 'calm', 1); step(p, 60 * 22)

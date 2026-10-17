@@ -339,6 +339,7 @@ const WQArcPlus=(()=>{
    let s;try{s=stateOf(this);}catch(e){return od.apply(this,arguments);}
    const c=this.c;
    if(!c)return od.apply(this,arguments);
+   s.chud=[];
    inDraw=true;try{od.apply(this,arguments);}finally{inDraw=false;}
    try{drawOverlay(this,s,c);}catch(e){console.error('WQArcPlus draw',e);}
    /* the shake moves the canvas element (a few px, <=250 ms), so it also works for games whose art resets the canvas transform */
@@ -533,7 +534,7 @@ const WQArcPlus=(()=>{
    dockEl.innerHTML=`<div class="ap-q"><span class="ap-qp" lang="${q.type==='word'?'zh':'en'}">${esc2(q.prompt)}</span>${q.type==='word'?'<button type="button" class="ap-say" data-ap="say" aria-label="聽發音">🔊</button>':''}<span class="ap-qh">${q.pos?'碰到或點選正確的字晶':'點選正確的字晶（或按 1 2 3）'}</span></div><div class="ap-opts" role="group" aria-label="選擇答案">${q.cr.map((c,i)=>`<button type="button" class="ap-opt" data-ap="opt" data-i="${i}" ${c.gone?'disabled':''}><b>${i+1}</b><span lang="en">${esc2(c.o.label)}</span></button>`).join('')}</div><div class="ap-buffs">${buffs}</div>`;
   }else{
    const wait=Math.max(0,Math.ceil(s.nextQ-(g.t||0)));
-   dockEl.innerHTML=`<div class="ap-tip"><span class="ap-gem">◆</span> ${s.card?'學習時刻':'下一顆字晶 <span class="ap-w">'+wait+'</span> 秒'}<small>${s.cfg.math?'答對算式有強化':'答對英文字有強化，答錯不扣命'}</small></div><div class="ap-buffs">${buffs}</div>`;
+   dockEl.innerHTML=`<div class="ap-tip"><span class="ap-tl"><span class="ap-gem">◆</span> ${s.card?'學習時刻':'下一顆字晶 <span class="ap-w">'+wait+'</span> 秒'}</span><small>${s.cfg.math?'答對算式有強化':'答對英文字有強化，答錯不扣命'}</small></div><div class="ap-buffs">${buffs}</div>`;
   }
  }
  document.addEventListener('click',e=>{
@@ -554,16 +555,25 @@ const WQArcPlus=(()=>{
  }
  let lastLayT=0;
  const overlayUp=()=>{const o=document.getElementById('pg-overlay');return !!(o&&!o.hidden);};
+ /* The one-screen play layout (see the contract at the end of s70_arcplus.css): the play page gets the window height that is left under its top
+  * edge (--ap-h); CSS does the rest, r2Fit() then fits the canvas into whatever the viewport has left after the HUD and the dock. */
  function layout(v){
+  const play=v.closest('.a28-play');if(!play)return;
   const phone=innerWidth<700&&innerHeight>=innerWidth;
-  const nowL=performance.now();if(!lastLay.startsWith('!')&&lastLay&&nowL-lastLayT<400&&!dockDirty)return;lastLayT=nowL;
-  const sig=innerWidth+'x'+innerHeight+(hudEl?hudEl.offsetHeight:0)+(dockEl?dockEl.offsetHeight:0)+[...document.querySelectorAll('.a28-touch-key')].filter(e=>e.offsetParent).length+(overlayUp()?'o':'');
+  const nowL=performance.now();if(!lastLay.startsWith('!')&&lastLay&&nowL-lastLayT<250&&!dockDirty)return;lastLayT=nowL;
+  const sig=innerWidth+'x'+innerHeight+(hudEl?hudEl.offsetHeight:0)+(dockEl?dockEl.offsetHeight:0)+[...document.querySelectorAll('.a28-touch-key')].filter(e=>e.offsetParent).length+(overlayUp()?'o':'')+(play.classList.contains('ap-done')?'d':'');
   if(sig===lastLay)return;lastLay=sig;
-  const play=v.closest('.a28-play');if(play){play.classList.toggle('ap-phone',phone);play.classList.toggle('ap-land',innerHeight<520&&innerWidth>innerHeight);}
-  if(phone&&overlayUp()){v.style.height='';}   /* a card over the game (ready / result) sizes the viewport itself */
-  else if(phone){const cw=Math.max(200,v.clientWidth);v.style.height=Math.ceil(reserve(v)+cw*.7+2+(v.offsetHeight-v.clientHeight))+'px';
-   if(innerHeight<700){for(let n=0;n<4;n++){const kb=[...document.querySelectorAll('.a28-touch-key')].map(e=>e.getBoundingClientRect()).filter(r=>r.width>0).reduce((m,r)=>Math.max(m,r.bottom),0);const over=kb>0?Math.ceil(kb+scrollY+4-innerHeight):0;if(over<=0)break;v.style.height=Math.max(reserve(v)+60,parseFloat(v.style.height)-over)+'px';}}
-  }else v.style.height='';
+  play.classList.toggle('ap-phone',phone);play.classList.toggle('ap-land',innerHeight<520&&innerWidth>innerHeight);
+  if(play.classList.contains('r2-immersive')){play.classList.remove('ap-fit');play.style.removeProperty('--ap-h');}
+  else{
+   play.classList.add('ap-fit');play.classList.toggle('ap-short',phone&&innerHeight<700);
+   const pr=play.getBoundingClientRect(),main=play.closest('main')||document.body,tail=Math.max(0,main.getBoundingClientRect().bottom-pr.bottom);
+   const h=Math.max(300,Math.floor(innerHeight-(pr.top+scrollY)-tail));
+   play.style.setProperty('--ap-h',h+'px');
+   v.style.height='';
+   if(scrollY>0)scrollTo(0,0);
+   const vh=v.clientHeight,tight=!phone&&vh<470;if(play.classList.contains('ap-tight')!==tight)play.classList.toggle('ap-tight',tight);
+  }
   try{r2Fit();}catch(_){}
  }
  addEventListener('resize',()=>{lastLay='';});
@@ -575,6 +585,7 @@ const WQArcPlus=(()=>{
    const g=live();
    if(g&&pgPlaying){const s=S_.get(g);
     if(s){hideCard(s,true);s.freeze=0;s.q=null;
+     try{const cb=typeof WQArc!=='undefined'&&WQArc._combo(g),m=Math.max(s.maxCombo,cb?cb.max:0);s.maxCombo=m;if(cb)cb.max=m;}catch(_){}   /* one combo number: the card, the s35 record and _debug agree */
      const win=(()=>{try{return a28Winning(g);}catch(_){return false;}})();
      s.final={win,score:Math.floor(g.score||0),maxCombo:s.maxCombo,phase:s.phaseMax,learn:s.learn.log.slice(),ok:s.learn.ok,bad:s.learn.bad};
      sfx(s,win?'clear':'fail');
@@ -585,7 +596,9 @@ const WQArcPlus=(()=>{
   return priorComplete.apply(this,arguments);
  };
  function resultHtml(f){
-  const items=f.learn.length?f.learn.map(x=>x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join(''):'<li class="none">本局未遇到字晶</li>';
+  /* wrong ones first (they are the ones to remember), at most 2 lines, the rest as "＋N 個" - never hidden by clipping */
+  const sorted=f.learn.slice().sort((a,b)=>(a.ok?1:0)-(b.ok?1:0)),shown=sorted.slice(0,2),more=sorted.length-shown.length;
+  const items=f.learn.length?shown.map(x=>x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):'<li class="none">本局未遇到字晶</li>';
   return `<div class="ap-res" data-ap="result"><div class="ap-rs"><span><b>×${f.maxCombo}</b><small>最高連擊</small></span><span><b>${f.phase}/3</b><small>到達波次</small></span><span><b>${f.ok}/${f.ok+f.bad}</b><small>字晶答對</small></span></div><ul class="ap-rl" aria-label="本局生字">${items}</ul></div>`;
  }
  const priorOverlay2=pgOverlay;
@@ -607,6 +620,27 @@ const WQArcPlus=(()=>{
   const rHud=R2.hud;R2.hud=function(gm){const g=live();if(g&&g===gm)return;return rHud.apply(this,arguments);};
  }catch(_){}
 
+ /* ---------------------------------------------------------------- the 18 D-art games print their small info boxes through D.badge / D.message in pale pastel;
+  * while really playing they get the dark glass of the shell (same place, size and words). Lobby thumbnails / previews (live() false) keep the original art. */
+ const GLASS={fill:'rgba(18,24,68,.88)',edge:'rgba(255,255,255,.18)',ink:'#F4F6FF'};
+ function glassLabel(c,x,y,w,h,r,text,size,weight){
+  D.round(c,x,y,w,h,r,GLASS.fill);c.lineWidth=1;D.round(c,x,y,w,h,r,null,GLASS.edge);
+  D.text(c,text,x+w/2,y+h/2,size,GLASS.ink,'center',weight);
+ }
+ function noteLabel(g,kind,text,x,y,w,h){try{const s=S_.get(g);if(s){if(!s.chud)s.chud=[];if(s.chud.length<12)s.chud.push({kind,text:String(text),x:Math.round(x),y:Math.round(y),w:Math.round(w),h:Math.round(h),fill:GLASS.fill,color:GLASS.ink});}}catch(_){}}
+ try{
+  const bOrig=D.badge,mOrig=D.message;
+  D.badge=function(c,text,x=400,y=40){
+   const g=live();if(!(g&&g.c===c))return bOrig.apply(this,arguments);
+   const w=Math.max(85,String(text).length*15+28);
+   glassLabel(c,x-w/2,y-18,w,36,12,text,14,700);noteLabel(g,'badge',text,x-w/2,y-18,w,36);
+  };
+  D.message=function(c,text){
+   const g=live();if(!(g&&g.c===c))return mOrig.apply(this,arguments);
+   glassLabel(c,150,474,500,49,16,text,16,700);noteLabel(g,'message',text,150,474,500,49);
+  };
+ }catch(_){}
+
  /* ---------------------------------------------------------------- install on every registered game */
  let installed=false;
  function install(){
@@ -621,10 +655,14 @@ const WQArcPlus=(()=>{
   return {id:s.id,cat:s.cat,phase:s.phase,phaseMax:s.phaseMax,mult:multOf(s.combo)*(s.x2>0?2:1),combo:s.combo,maxCombo:s.maxCombo,bonus:s.bonus,hits:s.hits,
    shield:s.shield,x2:+s.x2.toFixed(1),slow:+s.slow.toFixed(1),magnet:+s.magnet.toFixed(1),events:s.events.slice(),sfxLog:s.sfxLog.slice(),
    tier:s.tier,shake:calm()?0:+s.shake.toFixed(2),shakePeak:calm()?0:+(s.shakeMax||0).toFixed(2),flash:calm()?0:+s.flash.toFixed(3),parts:s.parts.length,floats:s.floats.length,banner:s.banner?{text:s.banner.text,t:+s.banner.t.toFixed(2)}:null,
-   frozen:s.freeze>0,card:s.card?{ok:s.card.ok,t:+s.card.t.toFixed(2),min:s.card.min,max:s.card.max,disabled:s.card.go.disabled}:null,
+   canvasHud:(s.chud||[]).slice(),hudShown:hudShown(),frozen:s.freeze>0,card:s.card?{ok:s.card.ok,t:+s.card.t.toFixed(2),min:s.card.min,max:s.card.max,disabled:s.card.go.disabled}:null,
    q:s.q?{type:s.q.type,kind:s.q.kind,prompt:s.q.prompt,answer:s.q.answer,opts:s.q.cr.map(c=>({label:c.o.label,ok:c.o.ok,x:c.x,y:c.y,gone:c.gone})),pos:s.q.pos,t:+s.q.t.toFixed(1)}:null,
    learn:{asked:s.learn.asked,ok:s.learn.ok,bad:s.learn.bad,missed:s.learn.missed,lastCardMs:s.learn.lastCardMs,log:s.learn.log.slice()},nextQ:+(s.nextQ-(g.t||0)).toFixed(1),
    cfg:{thr:s.cfg.thr,speed:s.cfg.speed,pos:!!s.cfg.pos,math:!!s.cfg.math,lives:livesOf(g)},reduced:calm(),final:s.final};
+ }
+ /* what the DOM HUD shows right now, read back from the DOM (tests compare it with the engine) */
+ function hudShown(){
+  try{if(!hudEl||!hudEl.isConnected)return null;const lv=hudEl.querySelectorAll('.ap-lives i:not(.sh)');return {lives:lv.length?hudEl.querySelectorAll('.ap-lives i.on').length:null,score:+(hudEl.querySelector('.ap-score b').textContent||0)};}catch(_){return null;}
  }
  function force(kind,arg){
   const g=live();if(!g)return false;const s=stateOf(g);
