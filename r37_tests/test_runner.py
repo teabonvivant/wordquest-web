@@ -143,6 +143,8 @@ def test_desktop_keys_and_gates(pw):
     p.screenshot(path=SHOTS + '/desk_w0_start.png')
     p.keyboard.press('Enter'); p.wait_for_timeout(200)
     assert dbg(p)['state'] == 'play'
+    # R3.20: gates now come ~6.5 s apart (was ~10 s); this wall-clock key test needs ~9 s before the first gate, so park it far away
+    p.evaluate('WQ37Run._debugGateAt(6000)')
     p.keyboard.press('ArrowUp'); assert dbg(p)['lane'] == 0
     p.keyboard.press('ArrowDown'); p.keyboard.press('ArrowDown'); assert dbg(p)['lane'] == 2
     p.keyboard.press('w'); assert dbg(p)['lane'] == 1
@@ -217,7 +219,7 @@ def test_perfect_runs(pw):
             fin = p.evaluate('finished'); assert len(fin) == 1, fin
             r = fin[0]
             assert d['state'] == 'won' and d['stagePassed'] and r['passed'] and r['stars'] == 5, (d, r)
-            assert n == ([6, 8, 7 + 4][stage]), n
+            assert n == ([10, 12, 11 + 4][stage]), n   # R3.20: gates [6, 8, 7+4] -> [10, 12, 11+4] (N=[10,12,14])
             assert r['wrong'] == 0 and r['correct'] == n and r['world'] == world and r['stage'] == stage
             if stage == 2: assert d['boss'] and d['bossHp'] == 0 and d['bossDone'] and r['bossDefeated'], d
             p.wait_for_timeout(1900)
@@ -365,9 +367,9 @@ def test_boss_hp_phase(pw):
     b, p, errs = new_page(pw, False)
     boot(p, world=2, stage=2, difficulty=3, seed=21)
     start(p); p.evaluate('WQ37Run._debugGod(true)')
-    for i in range(7): take(p, True)
+    for i in range(11): take(p, True)   # R3.20: boss stage has 14 gates (was 10), boss begins after 11
     to_gate(p)
-    d = dbg(p); assert d['boss'] and d['gateIndex'] == 7 and d['state'] == 'play', d
+    d = dbg(p); assert d['boss'] and d['gateIndex'] == 11 and d['state'] == 'play', d
     assert d['bossHp'] == 4 and d['bossMax'] == 4 and d['bossPhase'] == 1, d
     take(p, True); d = dbg(p); assert d['bossHp'] == 3 and d['bossPhase'] == 1, d
     to_gate(p)

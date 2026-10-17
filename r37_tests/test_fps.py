@@ -239,7 +239,7 @@ def test_arenas_questions_boss(pw, shots=None):
     b.close()
 
 def test_spitter(pw):
-    """Spitter orbs hurt when you stand still, can be dodged by strafing, and the spitter fires by itself and can be shot."""
+    """Spitter orbs (debug command) hurt when you stand still and can be dodged by strafing; R3.20: a spitter no longer fires by itself; it can still be shot."""
     b, p, errs = new_page(pw, False)
     start_game(p, 3, 10)
     h0 = dbg(p)['hearts']; cmd(p, 'proj', 3); p.wait_for_timeout(300)
@@ -251,9 +251,9 @@ def test_spitter(pw):
     p.keyboard.down('KeyD'); p.wait_for_timeout(1300); p.keyboard.up('KeyD')
     p.wait_for_timeout(1500)
     d = dbg(p); assert d['hearts'] == h1, ('dodge failed', d)
-    # a spitter telegraphs and fires on its own
-    cmd(p, 'clear'); cmd(p, 'spitter', 5, 0.3); p.wait_for_timeout(300)
-    p.wait_for_function('WQ37FPS._debug.projectiles>0', timeout=4000)
+    # R3.20: spitters are retired; one summoned with the debug command wanders but never fires by itself
+    cmd(p, 'clear'); cmd(p, 'spitter', 5, 0.3); p.wait_for_timeout(3000)
+    assert dbg(p)['projectiles'] == 0 and dbg(p)['projLog'] == 2, dbg(p)['projLog']   # projLog counts only the two debug 'proj' calls above
     # shooting the spitter scores: stand at the spawn point, wait for a lane free of word bubbles, then place + fire in one task
     cmd(p, 'clear'); cmd(p, 'place', 7.5, 12.5); cmd(p, 'shield', 1)
     # bubbles drift at random, so instead of waiting for the lane ahead to clear, turn (in one task) to a heading free of bubbles and walls
@@ -268,22 +268,18 @@ def test_spitter(pw):
     b.close()
 
 def test_spawn_scaling(pw):
-    """Natural enemy spawning scales with difficulty (more bugs/spitters at difficulty 5 than 1)."""
-    from itertools import product
-    from playwright.sync_api import Error
+    """R3.20: natural spawning is one occasional bug at a time (was 1-4 bugs + 1-3 spitters); higher tiers still send it a little more often."""
     res = {}
     for dfc in (1, 5):
         b, p, errs = new_page(pw, False)
-        p.evaluate('([d])=>boot(d,10,{})', [dfc]); p.keyboard.press('Enter'); p.wait_for_timeout(200)
-        p.evaluate('WQ37FPS._cmd("place",7.5,12.5)')
+        p.evaluate('([d])=>boot(d,40,{})', [dfc]); p.keyboard.press('Enter'); p.wait_for_timeout(200)
         mx = 0
-        for _ in range(60):   # sample ~18s; keep the player alive
-            p.evaluate('WQ37FPS._cmd("shield",1)'); d = dbg(p)
-            mx = max(mx, d['bugs'] + d['spitters'])
+        for _ in range(120):   # 120 s of game time, stepped deterministically; keep the player alive
+            p.evaluate('WQ37FPS._cmd("shield",1)'); p.evaluate('WQ37FPS._debugStep(60)'); d = dbg(p)
+            mx = max(mx, d['bugs'] + d['spitters'] + d['projectiles'])
             if d['state'] != 'play': break
-            p.wait_for_timeout(300)
-        res[dfc] = mx; p.evaluate('game.destroy()'); b.close()
-    assert res[5] > res[1] or res[5] >= 2, res
+        res[dfc] = (mx, len(d['enemyLog'])); p.evaluate('game.destroy()'); b.close()
+    assert res[1][0] <= 1 and res[5][0] <= 1 and res[5][1] > res[1][1], res
 
 def test_freeze(pw):
     """Freeze shot: enemies stop for 3s then move again; weapon timer is shown/ticks."""

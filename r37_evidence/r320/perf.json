@@ -1,0 +1,128 @@
+{
+ "method": "CPU throttle x4, 390x844 touch viewport, 10 s scripted input per pass, rAF intervals; median of the passes, before and after alternated",
+ "games": {
+  "block-studio": {
+   "before": {
+    "long50": 10,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 13,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": false
+  },
+  "juice-lines": {
+   "before": {
+    "long50": 13,
+    "p95": 33.3,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": true
+  },
+  "little-engineer": {
+   "before": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 9,
+    "p95": 33.3,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": true
+  },
+  "star-patrol": {
+   "before": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 12,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": true
+  },
+  "forest-dash": {
+   "before": {
+    "long50": 46,
+    "p95": 66.7,
+    "median": 33.3,
+    "passes": 3
+   },
+   "after": {
+    "long50": 45,
+    "p95": 83.3,
+    "median": 33.4,
+    "passes": 3
+   },
+   "pass": false
+  },
+  "sky-rescue": {
+   "before": {
+    "long50": 28,
+    "p95": 66.6,
+    "median": 16.8,
+    "passes": 3
+   },
+   "after": {
+    "long50": 23,
+    "p95": 66.6,
+    "median": 33.3,
+    "passes": 3
+   },
+   "pass": true
+  },
+  "honeycomb-puzzle": {
+   "before": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": true
+  },
+  "valley-race": {
+   "before": {
+    "long50": 12,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "after": {
+    "long50": 11,
+    "p95": 33.4,
+    "median": 16.7,
+    "passes": 3
+   },
+   "pass": true
+  }
+ },
+ "verdict": {
+  "all_pass": false
+ }
+}

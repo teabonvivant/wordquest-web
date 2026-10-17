@@ -65,7 +65,7 @@ def build(only=None, out=None, base_only=False):
             # inside the host script (a new <script> block would change the block count build_math_m1.py checks)
             s = once(s, '<script data-wq28="host">', f'<script data-wq28="host">\nglobalThis.WQ37EnFix={body};')
         s = s.replace('R3.6.0', 'R3.7.0')
-        sw = sw.replace("-3.6.0'", "-3.19'")
+        sw = sw.replace("-3.6.0'", "-3.20'")
         # R3.19: precache the shipped art (planets, characters) and serve it cache-first offline
         art = sorted(f'assets/{d}/{f.name}' for d in ('r316', 'r318') for f in (R / 'app/assets' / d).glob('*.webp'))
         sw = once(sw, "await c.addAll([new URL('index.html',BASE).href]);",

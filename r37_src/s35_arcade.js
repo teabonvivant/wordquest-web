@@ -112,7 +112,7 @@ const WQArc=(()=>{
     const r=a28Run(),id=pgMeta&&pgMeta.id;
     if(r&&r.game===id&&r.phase==='playing'&&gameIds().includes(id)){
      const cb=combos.get(pgGame);
-     results.set(pgGame,record(id,pgGame.score,runOf(pgGame,id),{combo:cb?cb.max:0}));
+     results.set(pgGame,record(id,pgGame.score,runOf(pgGame,id),{combo:Math.max(cb?cb.max:0,(typeof WQArcPlus!=='undefined'&&WQArcPlus.maxCombo(pgGame))||0)}));
     }
    }
   }catch(e){console.error('Arcade+ score',e);}
@@ -153,7 +153,7 @@ const WQArc=(()=>{
   try{
    if(pgMeta&&gameIds().includes(pgMeta.id))runOf(g,pgMeta.id);
    let c=combos.get(g);if(!c){c=newCombo();combos.set(g,c);}
-   if(pgPlaying)feed(c,g.score,performance.now(),dt);else c.score=null;
+   if(pgPlaying)feed(c,g.score-((typeof WQArcPlus!=='undefined'&&WQArcPlus.bonusOf(g))||0),performance.now(),dt);   /* R3.20: the multiplier's own bonus points are not a new hit */else c.score=null;
    if(!pgPlaying&&c.n){c.n=0;}
    paint(g);
   }catch(e){console.error('Arcade+ poll',e);}
@@ -270,7 +270,8 @@ const WQArc=(()=>{
   if(win){
    try{
     if(pgGame===g&&!pgFree){const r=a28Run();
-     if(r&&r.game===pgMeta.id&&typeof r.lives==='number'&&Number.isFinite(r.lives)&&r.lives>0&&r.lives<3&&['ready','paused'].includes(r.phase)){r.lives+=1;if(pgCheckpoint()){p.life=true;try{a28HUD();}catch(_){}}else r.lives-=1;}}
+     if(r&&r.game===pgMeta.id&&typeof r.lives==='number'&&Number.isFinite(r.lives)&&r.lives>0&&r.lives<3&&['ready','paused'].includes(r.phase)){r.lives+=1;if(typeof WQArcPlus!=='undefined')WQArcPlus.addLife(pgGame);   /* R3.20 B9: the engine's own health / forgive counter, otherwise a28RulesTick overwrites the extra life next frame */
+    if(pgCheckpoint()){p.life=true;try{a28HUD();}catch(_){}}else r.lives-=1;}}
    }catch(e){console.error('Arcade+ life',e);}
    const a=A();a.shields++;checkAch(a);save();
    toastMsg(p.life?'🛡️ 能量盾啟動！生命 +1':'🛡️ 能量盾啟動！');

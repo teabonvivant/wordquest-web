@@ -1,0 +1,27 @@
+
+--- stderr ---
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t23_consistency.py", line 177, in <module>
+    run()
+  File "/home/workspace/wordquest-web-dev/r37_tests/t23_consistency.py", line 92, in run
+    b, pg, errs = session(p, w, h, touch)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/workspace/wordquest-web-dev/r37_tests/t23_consistency.py", line 74, in session
+    pg.reload()
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 9658, in reload
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_page.py", line 565, in reload
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.reload: Timeout 10000ms exceeded.
+Call log:
+  - waiting for navigation until "load"
+    - navigated to "file:///home/workspace/wordquest-web-dev/app/index.html#kid"
+

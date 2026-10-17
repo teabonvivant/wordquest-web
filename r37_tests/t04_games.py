@@ -105,7 +105,8 @@ with sync_playwright() as p:
         rtake(pg, True); n += 1
     pg.wait_for_timeout(600)
     d = rdbg(pg)
-    C.ok(d['stagePassed'] and n == 6, f'perfect scripted run clears the 6 gates ({n})')
+    # R3.20: the first stage now has 10 spelling / listening gates (gates are 5.5-7.5 s apart, brief fix A) instead of 6
+    C.ok(d['stagePassed'] and n == 10, f'perfect scripted run clears the 10 gates ({n})')
     C.ok(ev(pg, "r37Entry('runner',0,0).passed") is True and ev(pg, "r37Entry('runner',0,0).best") == 5, 'runner result saved: passed with 5 stars')
     C.ok(ev(pg, 'r37Coins()') == c0 + 1, f"first 5-star runner stage pays 1 coin ({c0}->{ev(pg, 'r37Coins()')})")
     pg.wait_for_timeout(1800)

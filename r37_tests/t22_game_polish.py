@@ -227,7 +227,8 @@ def arcade(p, w, h, touch, size):
     pg.wait_for_timeout(1200)
     hd = pg.evaluate("(()=>{const e=document.querySelector('.header');return e?getComputedStyle(e).display:'none'})()")
     C.ok(hd == 'none', f'{size} arcade play: old .header hidden ({hd})')
-    cr = pg.evaluate(CONTRAST_JS, ['.a28-playhead h1', '.a28-playhead .a28-eyebrow', '.a28-playhead p', '#a28-live-stat', '#pg-hint', '.a28-playstats > *', '.r2-audio summary', '.wq32-gamebar strong'])
+    # R3.20: the DOM HUD replaces the lives / score pills
+    cr = pg.evaluate(CONTRAST_JS, ['.a28-playhead h1', '.a28-playhead .a28-eyebrow', '.a28-playhead p', '#a28-live-stat', '#pg-hint', '.a28-playstats > *', '.ap-hud .ap-score', '.ap-hud .ap-wave', '.ap-dock .ap-tip', '.r2-audio summary', '.wq32-gamebar strong'])
     low = [c for c in cr if c['ratio'] < 7]
     C.ok(len(cr) >= 3 and not low, f'{size} arcade play: text contrast >= 7:1 on {len(cr)} elements, low: {low}')
     tiny = [c for c in cr if c['size'] < 14 and c['sel'] != '.a28-playstats > *']

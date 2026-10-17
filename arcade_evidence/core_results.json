@@ -5,8 +5,8 @@
     "name": "ruins-courier d0 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 944,
-      "seconds": 15.733333333333695,
+      "ticks": 562,
+      "seconds": 9.366666666666712,
       "done": true,
       "won": false,
       "health": 0
@@ -25,8 +25,8 @@
     "name": "ruins-courier d0 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1082,
-      "seconds": 18.03333333333359,
+      "ticks": 436,
+      "seconds": 7.266666666666646,
       "done": true,
       "won": false,
       "health": 0
@@ -45,8 +45,8 @@
     "name": "ruins-courier d0 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 927,
-      "seconds": 15.450000000000347,
+      "ticks": 435,
+      "seconds": 7.24999999999998,
       "done": true,
       "won": false,
       "health": 0
@@ -65,8 +65,8 @@
     "name": "ruins-courier d0 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 786,
-      "seconds": 13.10000000000023,
+      "ticks": 577,
+      "seconds": 9.616666666666724,
       "done": true,
       "won": false,
       "health": 0
@@ -85,8 +85,8 @@
     "name": "ruins-courier d0 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1181,
-      "seconds": 19.683333333333497,
+      "ticks": 795,
+      "seconds": 13.250000000000238,
       "done": true,
       "won": false,
       "health": 0
@@ -105,8 +105,8 @@
     "name": "ruins-courier d1 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 419,
-      "seconds": 6.983333333333314,
+      "ticks": 952,
+      "seconds": 15.866666666667035,
       "done": true,
       "won": false,
       "health": 0
@@ -125,8 +125,8 @@
     "name": "ruins-courier d1 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 680,
-      "seconds": 11.333333333333476,
+      "ticks": 726,
+      "seconds": 12.10000000000018,
       "done": true,
       "won": false,
       "health": 0
@@ -145,8 +145,8 @@
     "name": "ruins-courier d1 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 418,
-      "seconds": 6.966666666666647,
+      "ticks": 617,
+      "seconds": 10.283333333333424,
       "done": true,
       "won": false,
       "health": 0
@@ -165,8 +165,8 @@
     "name": "ruins-courier d1 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 420,
-      "seconds": 6.9999999999999805,
+      "ticks": 729,
+      "seconds": 12.150000000000183,
       "done": true,
       "won": false,
       "health": 0
@@ -185,8 +185,8 @@
     "name": "ruins-courier d1 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 408,
-      "seconds": 6.799999999999981,
+      "ticks": 696,
+      "seconds": 11.600000000000156,
       "done": true,
       "won": false,
       "health": 0
@@ -205,8 +205,8 @@
     "name": "ruins-courier d2 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 598,
-      "seconds": 9.966666666666741,
+      "ticks": 332,
+      "seconds": 5.533333333333319,
       "done": true,
       "won": false,
       "health": 0
@@ -225,8 +225,8 @@
     "name": "ruins-courier d2 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 591,
-      "seconds": 9.850000000000069,
+      "ticks": 527,
+      "seconds": 8.78333333333335,
       "done": true,
       "won": false,
       "health": 0
@@ -245,8 +245,8 @@
     "name": "ruins-courier d2 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 602,
-      "seconds": 10.033333333333411,
+      "ticks": 331,
+      "seconds": 5.516666666666652,
       "done": true,
       "won": false,
       "health": 0
@@ -265,8 +265,8 @@
     "name": "ruins-courier d2 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 598,
-      "seconds": 9.966666666666741,
+      "ticks": 634,
+      "seconds": 10.566666666666771,
       "done": true,
       "won": false,
       "health": 0
@@ -285,8 +285,8 @@
     "name": "ruins-courier d2 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 683,
-      "seconds": 11.383333333333479,
+      "ticks": 323,
+      "seconds": 5.3833333333333195,
       "done": true,
       "won": false,
       "health": 0
@@ -305,8 +305,8 @@
     "name": "cloud-island d0 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -325,8 +325,8 @@
     "name": "cloud-island d0 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -345,8 +345,8 @@
     "name": "cloud-island d0 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -365,8 +365,8 @@
     "name": "cloud-island d0 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -385,8 +385,8 @@
     "name": "cloud-island d0 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -405,8 +405,8 @@
     "name": "cloud-island d1 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -425,8 +425,8 @@
     "name": "cloud-island d1 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -445,8 +445,8 @@
     "name": "cloud-island d1 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -465,8 +465,8 @@
     "name": "cloud-island d1 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -485,8 +485,8 @@
     "name": "cloud-island d1 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1537,
-      "seconds": 25.616666666666493,
+      "ticks": 2473,
+      "seconds": 41.21666666666561,
       "done": true,
       "won": false,
       "health": 0
@@ -505,8 +505,8 @@
     "name": "cloud-island d2 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1716,
-      "seconds": 28.599999999999657,
+      "ticks": 2841,
+      "seconds": 47.349999999998595,
       "done": true,
       "won": false,
       "health": 0
@@ -525,8 +525,8 @@
     "name": "cloud-island d2 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1716,
-      "seconds": 28.599999999999657,
+      "ticks": 2841,
+      "seconds": 47.349999999998595,
       "done": true,
       "won": false,
       "health": 0
@@ -545,8 +545,8 @@
     "name": "cloud-island d2 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1716,
-      "seconds": 28.599999999999657,
+      "ticks": 2841,
+      "seconds": 47.349999999998595,
       "done": true,
       "won": false,
       "health": 0
@@ -565,8 +565,8 @@
     "name": "cloud-island d2 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1716,
-      "seconds": 28.599999999999657,
+      "ticks": 2841,
+      "seconds": 47.349999999998595,
       "done": true,
       "won": false,
       "health": 0
@@ -585,8 +585,8 @@
     "name": "cloud-island d2 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 1716,
-      "seconds": 28.599999999999657,
+      "ticks": 2841,
+      "seconds": 47.349999999998595,
       "done": true,
       "won": false,
       "health": 0
@@ -605,8 +605,8 @@
     "name": "star-patrol d0 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 710,
-      "seconds": 11.833333333333501,
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
       "done": true,
       "won": false,
       "health": 0
@@ -625,8 +625,8 @@
     "name": "star-patrol d0 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 710,
-      "seconds": 11.833333333333501,
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
       "done": true,
       "won": false,
       "health": 0
@@ -645,8 +645,8 @@
     "name": "star-patrol d0 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 710,
-      "seconds": 11.833333333333501,
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
       "done": true,
       "won": false,
       "health": 0
@@ -665,8 +665,8 @@
     "name": "star-patrol d0 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 710,
-      "seconds": 11.833333333333501,
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
       "done": true,
       "won": false,
       "health": 0
@@ -685,8 +685,8 @@
     "name": "star-patrol d0 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 710,
-      "seconds": 11.833333333333501,
+      "ticks": 1017,
+      "seconds": 16.95000000000032,
       "done": true,
       "won": false,
       "health": 0
@@ -705,8 +705,8 @@
     "name": "star-patrol d1 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 595,
-      "seconds": 9.916666666666739,
+      "ticks": 752,
+      "seconds": 12.533333333333536,
       "done": true,
       "won": false,
       "health": 0
@@ -725,8 +725,8 @@
     "name": "star-patrol d1 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 595,
-      "seconds": 9.916666666666739,
+      "ticks": 752,
+      "seconds": 12.533333333333536,
       "done": true,
       "won": false,
       "health": 0
@@ -745,8 +745,8 @@
     "name": "star-patrol d1 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 595,
-      "seconds": 9.916666666666739,
+      "ticks": 752,
+      "seconds": 12.533333333333536,
       "done": true,
       "won": false,
       "health": 0
@@ -765,8 +765,8 @@
     "name": "star-patrol d1 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 595,
-      "seconds": 9.916666666666739,
+      "ticks": 752,
+      "seconds": 12.533333333333536,
       "done": true,
       "won": false,
       "health": 0
@@ -785,8 +785,8 @@
     "name": "star-patrol d1 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 595,
-      "seconds": 9.916666666666739,
+      "ticks": 752,
+      "seconds": 12.533333333333536,
       "done": true,
       "won": false,
       "health": 0
@@ -805,8 +805,8 @@
     "name": "star-patrol d2 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 623,
-      "seconds": 10.383333333333429,
+      "ticks": 658,
+      "seconds": 10.966666666666791,
       "done": true,
       "won": false,
       "health": 0
@@ -825,8 +825,8 @@
     "name": "star-patrol d2 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 623,
-      "seconds": 10.383333333333429,
+      "ticks": 658,
+      "seconds": 10.966666666666791,
       "done": true,
       "won": false,
       "health": 0
@@ -845,8 +845,8 @@
     "name": "star-patrol d2 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 623,
-      "seconds": 10.383333333333429,
+      "ticks": 658,
+      "seconds": 10.966666666666791,
       "done": true,
       "won": false,
       "health": 0
@@ -865,8 +865,8 @@
     "name": "star-patrol d2 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 623,
-      "seconds": 10.383333333333429,
+      "ticks": 658,
+      "seconds": 10.966666666666791,
       "done": true,
       "won": false,
       "health": 0
@@ -885,8 +885,8 @@
     "name": "star-patrol d2 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 623,
-      "seconds": 10.383333333333429,
+      "ticks": 658,
+      "seconds": 10.966666666666791,
       "done": true,
       "won": false,
       "health": 0
@@ -905,8 +905,8 @@
     "name": "lighthouse-well d0 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 673,
-      "seconds": 11.216666666666804,
+      "ticks": 1100,
+      "seconds": 18.333333333333574,
       "done": true,
       "won": false,
       "health": 0
@@ -945,8 +945,8 @@
     "name": "lighthouse-well d0 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 653,
-      "seconds": 10.883333333333454,
+      "ticks": 1708,
+      "seconds": 28.46666666666633,
       "done": true,
       "won": false,
       "health": 0
@@ -965,8 +965,8 @@
     "name": "lighthouse-well d0 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 734,
-      "seconds": 12.23333333333352,
+      "ticks": 1146,
+      "seconds": 19.100000000000197,
       "done": true,
       "won": false,
       "health": 0
@@ -1005,8 +1005,8 @@
     "name": "lighthouse-well d1 seed1: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 725,
-      "seconds": 12.083333333333513,
+      "ticks": 1431,
+      "seconds": 23.849999999999927,
       "done": true,
       "won": false,
       "health": 0
@@ -1025,8 +1025,8 @@
     "name": "lighthouse-well d1 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 824,
-      "seconds": 13.733333333333595,
+      "ticks": 1614,
+      "seconds": 26.899999999999753,
       "done": true,
       "won": false,
       "health": 0
@@ -1045,8 +1045,8 @@
     "name": "lighthouse-well d1 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 653,
-      "seconds": 10.883333333333454,
+      "ticks": 1498,
+      "seconds": 24.96666666666653,
       "done": true,
       "won": false,
       "health": 0
@@ -1125,8 +1125,8 @@
     "name": "lighthouse-well d2 seed12: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 727,
-      "seconds": 12.116666666666848,
+      "ticks": 1497,
+      "seconds": 24.949999999999864,
       "done": true,
       "won": false,
       "health": 0
@@ -1145,8 +1145,8 @@
     "name": "lighthouse-well d2 seed456: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 653,
-      "seconds": 10.883333333333454,
+      "ticks": 1498,
+      "seconds": 24.96666666666653,
       "done": true,
       "won": false,
       "health": 0
@@ -1165,8 +1165,8 @@
     "name": "lighthouse-well d2 seed9876: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 638,
-      "seconds": 10.633333333333441,
+      "ticks": 1077,
+      "seconds": 17.950000000000262,
       "done": true,
       "won": false,
       "health": 0
@@ -1185,8 +1185,8 @@
     "name": "lighthouse-well d2 seed654321: bounded snapshots throughout simulated run",
     "pass": true,
     "detail": {
-      "ticks": 890,
-      "seconds": 14.83333333333365,
+      "ticks": 1047,
+      "seconds": 17.45000000000029,
       "done": true,
       "won": false,
       "health": 0
@@ -2163,7 +2163,7 @@
     "name": "runner lane changes alone cannot finish d0 seed12",
     "pass": true,
     "detail": {
-      "metres": 279.41666666666754
+      "metres": 566.999999999993
     }
   },
   {
@@ -2182,7 +2182,7 @@
     "name": "cloud controlled jumps complete three islands d0 seed12",
     "pass": true,
     "detail": {
-      "seconds": 46.16666666666533,
+      "seconds": 47.36666666666526,
       "health": 3
     }
   },
@@ -2192,7 +2192,7 @@
     "name": "runner lane changes alone cannot finish d0 seed456",
     "pass": true,
     "detail": {
-      "metres": 278.8333333333342
+      "metres": 411.8333333333299
     }
   },
   {
@@ -2211,7 +2211,7 @@
     "name": "cloud controlled jumps complete three islands d0 seed456",
     "pass": true,
     "detail": {
-      "seconds": 47.79999999999857,
+      "seconds": 55.38333333333147,
       "health": 2
     }
   },
@@ -2221,7 +2221,7 @@
     "name": "runner lane changes alone cannot finish d1 seed12",
     "pass": true,
     "detail": {
-      "metres": 279.3333333333325
+      "metres": 484.000000000005
     }
   },
   {
@@ -2240,8 +2240,8 @@
     "name": "cloud controlled jumps complete three islands d1 seed12",
     "pass": true,
     "detail": {
-      "seconds": 48.49999999999853,
-      "health": 1
+      "seconds": 44.76666666666541,
+      "health": 3
     }
   },
   {
@@ -2250,7 +2250,7 @@
     "name": "runner lane changes alone cannot finish d1 seed456",
     "pass": true,
     "detail": {
-      "metres": 278.66666666666583
+      "metres": 253.99999999999855
     }
   },
   {
@@ -2269,8 +2269,8 @@
     "name": "cloud controlled jumps complete three islands d1 seed456",
     "pass": true,
     "detail": {
-      "seconds": 47.79999999999857,
-      "health": 2
+      "seconds": 45.99999999999867,
+      "health": 3
     }
   },
   {
@@ -2279,7 +2279,7 @@
     "name": "runner lane changes alone cannot finish d2 seed12",
     "pass": true,
     "detail": {
-      "metres": 279.8333333333349
+      "metres": 644.3666666666725
     }
   },
   {
@@ -2298,8 +2298,8 @@
     "name": "cloud controlled jumps complete three islands d2 seed12",
     "pass": true,
     "detail": {
-      "seconds": 48.18333333333188,
-      "health": 1
+      "seconds": 42.366666666665544,
+      "health": 3
     }
   },
   {
@@ -2308,7 +2308,7 @@
     "name": "runner lane changes alone cannot finish d2 seed456",
     "pass": true,
     "detail": {
-      "metres": 279.06666666666825
+      "metres": 329.66666666666725
     }
   },
   {
@@ -2327,8 +2327,8 @@
     "name": "cloud controlled jumps complete three islands d2 seed456",
     "pass": true,
     "detail": {
-      "seconds": 48.56666666666519,
-      "health": 2
+      "seconds": 48.26666666666521,
+      "health": 3
     }
   },
   {
@@ -2486,35 +2486,35 @@
   {
     "id": "CORE-283",
     "group": "WALLET",
-    "name": "ruins-courier: one coin, pause/resume no charge, no duplicate receipt",
+    "name": "ruins-courier: one admission at its own price, pause/resume no charge, no duplicate receipt",
     "pass": true,
     "detail": null
   },
   {
     "id": "CORE-284",
     "group": "WALLET",
-    "name": "cloud-island: one coin, pause/resume no charge, no duplicate receipt",
+    "name": "cloud-island: one admission at its own price, pause/resume no charge, no duplicate receipt",
     "pass": true,
     "detail": null
   },
   {
     "id": "CORE-285",
     "group": "WALLET",
-    "name": "star-patrol: one coin, pause/resume no charge, no duplicate receipt",
+    "name": "star-patrol: one admission at its own price, pause/resume no charge, no duplicate receipt",
     "pass": true,
     "detail": null
   },
   {
     "id": "CORE-286",
     "group": "WALLET",
-    "name": "lighthouse-well: one coin, pause/resume no charge, no duplicate receipt",
+    "name": "lighthouse-well: one admission at its own price, pause/resume no charge, no duplicate receipt",
     "pass": true,
     "detail": null
   },
   {
     "id": "CORE-287",
     "group": "WALLET",
-    "name": "harbor-volley: one coin, pause/resume no charge, no duplicate receipt",
+    "name": "harbor-volley: one admission at its own price, pause/resume no charge, no duplicate receipt",
     "pass": true,
     "detail": null
   },

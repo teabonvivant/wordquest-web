@@ -203,7 +203,8 @@
     var chId = ch.id ? String(ch.id).replace(/[^a-zA-Z0-9_-]/g, '') : '', chSrc = chId ? (opts.assetBase || 'assets/r318/') + 'ch_' + chId + '.webp' : '', chImg = null, chDraws = 0;
     if (chSrc && typeof Image !== 'undefined') { chImg = new Image(); chImg.decoding = 'async'; chImg.src = chSrc; }
     function chReady() { return !!(chImg && chImg.complete && chImg.naturalWidth > 0); }
-    var N = endless ? 1e9 : [6, 8, 10][stageI], isBoss = !endless && stageI === 2, bossMax = 4;
+    /* R3.20: more, closer gates (was [6, 8, 10] gates ~16 s apart); see README_R3_20.md */
+    var N = endless ? 1e9 : [10, 12, 14][stageI], isBoss = !endless && stageI === 2, bossMax = 4;
     var base = 240 + worldI * 22 + stageI * 18 + diff * 28;
     var startHearts = perk === 'heart' ? 4 : 3, maxHearts = 5;
     var sound = opts.sound !== false;
@@ -285,7 +286,7 @@
     var rng, trng, lrng, dist, scr, lane, vl, hearts, score, combo, maxCombo, correct, wrong, coins, heartsLost, shieldT;
     var obstacles, pickups, parts, floaters, toast, gate, genX, inv, dash, dashCd, magnet, slowT, x2T, shake, ts, bossStreak, bossOn, bossIn, bossDone, bossT, throwFlash;
     var jt, slideT, landT, slideBuf, patN, atks, atkT, atkN, bossHp, bossPhase, bossFlash, banner, scoreFrac, revive, reviveUsed, dodges, spokeN, sayShown = false, lastSpoken = '';
-    var holdGate = false, prevGate, finishX, runTime, endT, cardShown, queue, lastWord, gateIdx, lastGateX, tAnim, trailT, lastResult, stagePassed, godMode, warnFlash, seedN = 0, bestRec = null;
+    var kSpawned = 0, gapK = 0, holdGate = false, prevGate, finishX, runTime, endT, cardShown, queue, lastWord, gateIdx, lastGateX, tAnim, trailT, lastResult, stagePassed, godMode, warnFlash, seedN = 0, bestRec = null;
     var quiet = false, amb = [], lines = [], rafId = 0, lastT = 0, avgMs = 0, ro = null, skyG = null, lastDashTxt = '';
 
     function resetGame() {
@@ -320,19 +321,23 @@
       return [sc[0].w, sc[1].w];
     }
     /* gate kinds: door (pick the right door), listen (door, word is spoken), spell (collect letters in order) */
+    /* R3.20: gates are scheduled in run-seconds at the nominal speed (so the ramp does not squeeze them) and the
+       slow-down zone is time based (about 1.6 s of travel at full speed, ~2.4 s once the slow-down bites). */
+    function nomSpeed() { return base * (endless ? 1 + Math.min(0.8, dist / 36000) : 1 + 0.025 * Math.min(gateIdx, 10)) * (bossOn && !bossDone ? 1.1 : 1); }
+    function inWarn(g) { return !!g && !g.judged && g.x - dist < g.wp; }
     function scheduleGate(first) {
       var boss = isBoss && gateIdx >= N - 3;
-      var secs = first ? 9 + rng() * 3 : boss ? 5.5 + rng() * 1.5 : endless ? 10 + rng() * 4 : 12 + rng() * 6;
-      var gx = Math.max(lastGateX, dist) + secs * base;
+      var secs = first ? 4.5 + rng() * 2 : boss ? 3.5 + rng() * 1.3 : endless ? (5.2 + rng() * 1.4) * (1 - 0.15 * Math.min(1, dist / 36000)) : 5 + rng() * 1.5;
+      var nv = nomSpeed(), gx = Math.max(lastGateX, dist) + secs * nv;
       var t = nextWord(), ds = pickDistractors(t), cl = (rng() * 3) | 0, di = 0, doors = [], kr = rng(), kind = 'door';
       if (!first && gateIdx > 0) { if (kr < 0.28 && /^[a-z]{2,7}$/i.test(t.en)) kind = 'spell'; else if (kr < 0.55) kind = 'listen'; }
       if (kind === 'spell') {
-        gate = { kind: 'spell', x: gx, target: t, word: t.en.toLowerCase(), n: t.en.length, idx: 0, mis: 0, nx: gx, nextX: gx, cols: [], touched: false, judged: false, ok: false, reveal: 0, boss: boss };
+        gate = { kind: 'spell', wp: Math.max(450, nv * 1.6), x: gx, target: t, word: t.en.toLowerCase(), n: t.en.length, idx: 0, mis: 0, nx: gx, nextX: gx, cols: [], touched: false, judged: false, ok: false, reveal: 0, boss: boss };
       } else {
         for (var l = 0; l < 3; l++) doors.push(l === cl ? { lane: l, word: t.en, correct: true } : { lane: l, word: ds[di++].en, correct: false });
-        gate = { kind: kind, x: gx, target: t, doors: doors, correctLane: cl, judged: false, ok: false, reveal: 0, boss: boss, spoken: false };
+        gate = { kind: kind, wp: Math.max(450, nv * 1.6), x: gx, target: t, doors: doors, correctLane: cl, judged: false, ok: false, reveal: 0, boss: boss, spoken: false };
       }
-      genX = Math.max(genX, lastGateX + 700);
+      genX = Math.max(genX, lastGateX + 350); gapK = 0;
     }
 
     /* ----- audio / speech ----- */
@@ -640,13 +645,14 @@
 
     /* ----- spawning ----- */
     function addPick(x, l, kind) { pickups.push({ x: x, lane: l, ly: l, kind: kind, got: false }); }
-    function addObs(x, l, k) { obstacles.push({ x: x, lane: l, k: k, e: k ? '' : W.obs[(rng() * W.obs.length) | 0], vx: 0, hit: false, spin: 0, av: false, paid: false }); }
+    function addObs(x, l, k) { if (k) kSpawned++; obstacles.push({ x: x, lane: l, k: k, e: k ? '' : W.obs[(rng() * W.obs.length) | 0], vx: 0, hit: false, spin: 0, av: false, paid: false }); }
     function spawnPattern() {
       var gap = GAPSEC[diff - 1] * base, r = rng(), i, l;
-      if (!bossOn && r < OBSP[diff - 1]) {
+      if (!bossOn && (r < OBSP[diff - 1] || gapK === 0)) {
         var pn = patN++, k = 0, wide = false;
-        if (pn === 0) { k = 1; wide = true; } else if (pn === 2) { k = 2; wide = true; } else if (rng() < 0.5) { k = rng() < 0.55 ? 1 : 2; wide = rng() < 0.45; }
+        if (gapK === 0 && pn > 2) { k = rng() < 0.55 ? 1 : 2; wide = rng() < 0.45; } else if (pn === 0) { k = 1; wide = true; } else if (pn === 2) { k = 2; wide = true; } else if (rng() < 0.5) { k = rng() < 0.55 ? 1 : 2; wide = rng() < 0.45; }
         if (k) {
+          gapK++;
           var l0 = (rng() * 3) | 0, extra = 0;
           for (l = 0; l < 3; l++) if (wide || l === l0) addObs(genX, l, k);
           if (!wide && diff >= 3 && rng() < 0.3) { addObs(genX + 320, l0, 3 - k); extra = 320; }
@@ -666,7 +672,7 @@
     }
     function ensure() {
       if (quiet) return;
-      var limit = dist + (L.LW - L.px) + 500, stop = gate ? gate.x - 900 : (finishX ? finishX - 500 : -1);
+      var limit = dist + (L.LW - L.px) + 500, stop = gate ? gate.x - (gate.wp + 150) : (finishX ? finishX - 500 : -1);
       var guard = 0;
       while (genX < Math.min(limit, stop) && guard++ < 40) spawnPattern();
     }
@@ -674,8 +680,8 @@
     /* ----- boss attacks ----- */
     function pickLane(ex) { var l, g = 0; do { l = (trng() * 3) | 0; } while (ex.indexOf(l) >= 0 && g++ < 20); return l; }
     function canAtk() {
-      if (gate && (gate.kind === 'spell' ? gate.x - dist < 1700 || gate.touched : gate.x - dist < 1100)) return false;
-      return dist - lastGateX > 500;
+      if (gate && (gate.kind === 'spell' ? gate.x - dist < gate.wp + 450 || gate.touched : gate.x - dist < gate.wp + 150)) return false;
+      return dist - lastGateX > 350;
     }
     function launchAtk() {
       var list = bossPhase === 2 ? B.a2 : B.a1, type = list[atkN++ % list.length], w = bossPhase === 2 ? 0.75 : 1, warn = (1.35 - diff * 0.08) * w, ex = [], l, i, n;
@@ -744,8 +750,8 @@
         if (inv > 0) inv -= dt; if (dash > 0) dash -= dt; if (dashCd > 0) dashCd -= dt;
         magnet = expire(magnet, dt, '🧲 結束'); slowT = expire(slowT, dt, '⏳ 結束'); x2T = expire(x2T, dt, '×2 結束');
         if (shieldT > 0 && shieldT < 1e8) shieldT = expire(shieldT, dt, '🛡️ 結束');
-        var warn = gate && !gate.judged && gate.x - dist < WARN;
-        ts += ((warn ? 0.62 : 1) - ts) * Math.min(1, dt * 5);
+        var warn = inWarn(gate);
+        ts += ((warn ? 0.6 : 1) - ts) * (1 - Math.exp(-dt / 0.5));   // R3.20: smooth ~0.5 s time constant (was dt*5)
         var sd = dt * ts, mv = curSpeed() * sd; dist += mv; scr += mv;
         if (endless) { scoreFrac += mv * 0.02; if (scoreFrac >= 1) { var ds = scoreFrac | 0; scoreFrac -= ds; score += ds; } }
         if (jt > 0) {
@@ -1112,7 +1118,7 @@
       if (shieldT > 0) { c.strokeStyle = 'rgba(160,245,255,0.85)'; c.lineWidth = 5; c.fillStyle = 'rgba(160,245,255,0.18)'; c.beginPath(); c.arc(L.px, y + bob, s * 0.62, 0, TWO_PI); c.fill(); c.stroke(); }
       if (state === 'won') emoji('🎉', L.px + s * 0.5, y - s * 0.6, s * 0.5, Math.sin(tAnim * 8) * 0.3);
       // warning ring
-      if (gate && !gate.judged && gate.x - dist < WARN && state === 'play') {
+      if (inWarn(gate) && state === 'play') {
         var ph = (tAnim * 1.6) % 1; c.strokeStyle = 'rgba(255,225,70,' + (0.9 - ph * 0.7) + ')'; c.lineWidth = 6; c.setLineDash([14, 10]);
         c.beginPath(); c.arc(L.px, gy, s * (0.7 + ph * 0.7), 0, TWO_PI); c.stroke(); c.setLineDash([]);
       }
@@ -1235,7 +1241,7 @@
       if (shake > 0 && !reduced) c.translate((Math.random() - 0.5) * 18 * shake, (Math.random() - 0.5) * 18 * shake);
       drawScene(); drawParts();
       c.restore();
-      if (gate && !gate.judged && gate.x - dist < WARN && state === 'play') {
+      if (inWarn(gate) && state === 'play') {
         var g = c.createRadialGradient(L.LW / 2, L.LH / 2, L.LH * 0.35, L.LW / 2, L.LH / 2, L.LH * 0.85);
         g.addColorStop(0, 'rgba(255,200,40,0)'); g.addColorStop(1, 'rgba(255,200,40,' + (0.12 + 0.1 * Math.sin(warnFlash * 8)) + ')'); c.fillStyle = g; c.fillRect(0, 0, L.LW, L.LH);
       }
@@ -1356,7 +1362,7 @@
             letters: c0 ? c0.tk.map(function (t) { return t.ch; }) : [], needed: g.word[g.idx] };
         }
         return {
-          state: state, lane: lane, hearts: hearts, score: score, combo: combo, gateIndex: gateIdx, gates: N,
+          state: state, lane: lane, hearts: hearts, score: score, combo: combo, gateIndex: gateIdx, gates: N, ts: ts, gateX: g ? g.x : null, runT: runTime, warnPx: g ? g.wp : null, effSpeed: curSpeed() * ts, obsK: obstacles.filter(function (o) { return o.k; }).length, kSpawned: kSpawned, obsXs: obstacles.map(function (o) { return o.x; }), distNow: dist,
           learn: lc ? { ok: lc.ok, word: lc.w.en, zh: lc.w.zh, t: lc.t, min: lc.min, max: lc.max, ready: lc.t >= lc.min } : null,
           correctWord: g && g.doors ? g.target.en : null, doors: g && g.doors ? g.doors.map(function (d) { return { lane: d.lane, word: d.word }; }) : [], gateKind: g ? g.kind : null, spell: sp,
           armed: armedNow(0), stagePassed: stagePassed, result: lastResult, boss: bossOn, bossStreak: bossStreak, coins: coins, correct: correct, wrong: wrong,
@@ -1383,6 +1389,7 @@
       _give: givePU, _hearts: function (n) { hearts = n | 0; }, _score: function (n) { score = n | 0; },
       _bossForce: function () { if (isBoss && !bossOn) { bossOn = true; bossIn = 1; atkT = 0.1; } },
       _farGate: function () { if (gate) gate.x = dist + 1e7; },
+      _gateAt: function (px) { if (gate) gate.x = dist + px; },   // R3.20: lets slow wall-clock tests keep the first gate away
       _speakGate: replaySay
     };
     current = inst;
@@ -1407,6 +1414,7 @@
   API._debugHearts = function (n) { if (current) current._hearts(n); };
   API._debugScore = function (n) { if (current) current._score(n); };
   API._debugFarGate = function () { if (current) current._farGate(); };
+  API._debugGateAt = function (px) { if (current) current._gateAt(px); };
   API._debugBoss = function () { if (current) current._bossForce(); };
   globalThis.WQ37Run = API;
 })();

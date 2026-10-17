@@ -1,0 +1,31 @@
+{
+ "sweet-studio": {
+  "C2_small_no_hscroll": "pass",
+  "C2_small_in_window": "pass",
+  "C2_small_keys_reachable": "pass",
+  "C2_small_hud_not_clipped": "pass",
+  "C4_small_touch_size": "pass",
+  "C2_phone_no_hscroll": "pass",
+  "C2_phone_in_window": "pass",
+  "C2_phone_keys_reachable": "pass",
+  "C2_phone_hud_not_clipped": "pass",
+  "C4_phone_touch_size": "pass",
+  "C3_phone_gaps_le_120": "pass",
+  "C3_phone_canvas_width": "pass",
+  "C2_land_no_hscroll": "pass",
+  "C2_land_in_window": "pass",
+  "C2_land_keys_reachable": "pass",
+  "C2_land_hud_not_clipped": "pass",
+  "C4_land_touch_size": "pass",
+  "C2_desk_no_hscroll": "pass",
+  "C2_desk_in_window": "pass",
+  "C2_desk_keys_reachable": "pass",
+  "C2_desk_hud_not_clipped": "pass"
+ },
+ "_global": {
+  "C_small_errors": "pass",
+  "C_phone_errors": "pass",
+  "C_land_errors": "pass",
+  "C_desk_errors": "pass"
+ }
+}

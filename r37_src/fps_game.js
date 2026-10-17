@@ -38,16 +38,19 @@
   var FLASH_COL = ['#ff3c5a', '#ffeb78', '#ffffff', '#ff5050', '#ffe63c', '#ff8c28'];   /* 0 hurt 1 good 2 wave 3 boss 4 bug 5 orb */
   var DIFF = {
     speed: [0.30, 0.45, 0.60, 0.80, 1.00],
-    bugMax: [1, 1, 2, 3, 4],
-    bugSpeed: [0.35, 0.5, 0.75, 1.0, 1.25],
-    bugFirst: [30, 22, 12, 8, 5],
-    bugEvery: [30, 22, 14, 10, 7],
-    spitMax: [1, 1, 2, 2, 3],
+    /* R3.20: one occasional distraction at a time (was 1-4 bugs + 1-3 spitters per tier); the spitters are retired */
+    bugMax: [1, 1, 1, 1, 1],
+    bugSpeed: [0.35, 0.5, 0.65, 0.8, 0.95],
+    bugFirst: [32, 30, 28, 24, 22],
+    bugEvery: [40, 36, 32, 28, 25],
+    bugLeave: 12,                                /* a bug nobody shoots flies off after 12 s */
+    bugPenalty: 3,                               /* touching one: -3 s on the round clock, combo reset, knock-back, no heart */
+    spitMax: [0, 0, 0, 0, 0],
     spitFirst: [34, 24, 15, 11, 8],
     spitEvery: [34, 26, 20, 15, 11],
     spitFire: [5.6, 4.7, 3.9, 3.3, 2.8],
     projSpeed: [1.6, 1.8, 2.0, 2.2, 2.4],
-    timer: [0, 0, 30, 26, 22],
+    timer: [40, 34, 28, 24, 20],              /* R3.20: every tier has a round clock (was 0/0/30/26/22) */
     nDist: [2, 3, 3, 4, 5],                    /* distractor words next to the answer */
     simNoise: [0, 0, 0, 1.0, 0.35],            /* tier 4+: pick distractors by edit distance (smaller = more similar) */
     aim: [1.0, 0.8, 0.5, 0.3, 0.15],           /* aim-assist strength */
@@ -55,11 +58,11 @@
     hint: [1, 1, 0, 0, 0]                      /* answer bubble pulses after 4s */
   };
   var TIERS = [
-    { ic: '🌱', si: 'sprout', name: '輕鬆', sub: '慢慢來', desc: '不限時 · 有提示 · 干擾字少' },
-    { ic: '🙂', si: 'smile', name: '簡單', sub: '輕鬆玩', desc: '不限時 · 有提示' },
-    { ic: '⭐', si: 'star', name: '標準', sub: '剛剛好', desc: '限時 30 秒 · 快答有加分' },
-    { ic: '🔥', si: 'flame', name: '進階', sub: '有啲挑戰', desc: '限時 · 干擾字多 · 字形相近' },
-    { ic: '👑', si: 'crown', name: '高手', sub: '極速挑戰', desc: '最快 · 最多相近干擾字' }
+    { ic: '🌱', si: 'sprout', name: '輕鬆', sub: '慢慢來', desc: '限時 40 秒 · 有提示 · 干擾字少' },
+    { ic: '🙂', si: 'smile', name: '簡單', sub: '輕鬆玩', desc: '限時 34 秒 · 有提示' },
+    { ic: '⭐', si: 'star', name: '標準', sub: '剛剛好', desc: '限時 28 秒 · 快答有加分' },
+    { ic: '🔥', si: 'flame', name: '進階', sub: '有啲挑戰', desc: '限時 24 秒 · 干擾字多 · 字形相近' },
+    { ic: '👑', si: 'crown', name: '高手', sub: '極速挑戰', desc: '限時 20 秒 · 最多相近干擾字' }
   ];
   var QT = ['zh', 'listen', 'pic'];
   var OFF1 = [0], OFF3 = [-0.14, 0, 0.14];
@@ -932,6 +935,7 @@
         if (!live()) return; var t = A.currentTime;
         vOsc('sine', 262, 175, t, 0.26, 0.2, pan, busS, 900); vOsc('triangle', 196, 131, t + 0.04, 0.24, 0.1, pan, busS, 700);
       },
+      tick: function () { if (!live()) return; vOsc('square', 1320, 0, A.currentTime, 0.05, 0.05, 0, busS); },
       pick: function () {
         if (!live()) return; var t = A.currentTime;
         for (var k = 0; k < 5; k++) vOsc('sine', PENTA[2 + k] * (k > 3 ? 1 : 1), 0, t + k * 0.055, 0.14, 0.1, 0, busS);
@@ -1080,7 +1084,7 @@
     function resetGame() {
       di = tier - 1;
       G = { score: 0, correct: 0, wrong: 0, hearts: 3, hpLost: 0, combo: 0, maxCombo: 0, round: 1, playTime: 0, shield: false, triple: 0, freezeW: 0, freezeT: 0, slow: 0, invul: 0,
-        bugTimer: DIFF.bugFirst[di], spitTimer: DIFF.spitFirst[di], pickTimer: rand(10, 15), roundT: 0, roundMax: 0, won: false, wave: -1, qtype: 'zh', qT: 0, sayT: 0, sayRep: 0,
+        bugTimer: DIFF.bugFirst[di], spitTimer: 1e9, timedOut: false, timeouts: 0, bugHits: 0, bugLog: [], shotPts: 0, pickTimer: rand(10, 15), roundT: 0, roundMax: 0, won: false, wave: -1, qtype: 'zh', qT: 0, sayT: 0, sayRep: 0,
         boss: null, bossBeaten: false, banner: null, calm: false, confT: 0, respawn: [], best: loadBest(), coins: 0, requeued: 0, missInRound: 0 };
       totalRounds = baseRounds;
       P.x = 7.5; P.y = 12.5; P.a = -Math.PI / 2; turnV = 0; lookPend = 0; comboM = 1; hudK = {};
@@ -1100,7 +1104,7 @@
       G.wave = w; arenaIdx = w; setArena(w); texOf(w); skyKey = '';
       P.x = 7.5; P.y = 12.5; P.a = -Math.PI / 2;
       bugs.length = 0; spits.length = 0; projs.length = 0; pickups.length = 0; G.respawn.length = 0;
-      G.bugTimer = Math.max(6, DIFF.bugFirst[di] * (first ? 1 : 0.6)); G.spitTimer = Math.max(8, DIFF.spitFirst[di] * (first ? 1 : 0.7));
+      G.bugTimer = first ? DIFF.bugFirst[di] : Math.max(G.bugTimer, 8); G.spitTimer = 1e9;   // R3.20: new wave never re-arms a bug earlier than its normal spacing
       G.banner = { t: 1, max: 1, text: '第 ' + (w + 1) + ' 波', sub: ARENAS[w].name + ' · ' + ARENAS[w].en, boss: false, e1: null, e2: null };
       if (!first) { setFlash(2, 0.7); SFX.wave(); }
     }
@@ -1179,7 +1183,7 @@
       G.boss = { w: w, letters: L, idx: 0, hp: L.length, max: L.length, x: 7.5, y: 5.6, t: 0, hit: 0, atk: 0, appear: 0, dead: false, reveal: false, blink: 0 };
       P.x = 7.5; P.y = 12.5; P.a = -Math.PI / 2;
       bugs.length = 0; spits.length = 0; projs.length = 0; pickups.length = 0; G.respawn.length = 0;
-      G.bugTimer = Math.max(8, DIFF.bugFirst[di]); G.spitTimer = Math.max(10, DIFF.spitFirst[di] * 0.8);
+      G.bugTimer = 1e9; G.spitTimer = 1e9;   // R3.20: no distractions during the boss
       G.banner = { t: 1.2, max: 1.2, text: 'BOSS 字母怪獸', sub: '依次射出字母,拼出「' + (w.zh || w.en) + '」', boss: true, e1: null, e2: null };
       setFlash(3, 0.7); SFX.roar(); SFX.charge();
       targets.length = 0; spawnLetters(true); warmRound();
@@ -1318,6 +1322,23 @@
         if (G.boss) bossCounter(); else { loseHeart('wrong'); SFX.bad(panOf(wrong0[0].x, wrong0[0].y)); lcShow(false, cur, wrong0[0].w); }
       }
     }
+    /* R3.20: the round clock ran out = a miss like a wrong shot (-1 heart, combo reset, word re-queued in level mode),
+       the card shows the right word while its bubble glows, then the next round starts when the card closes */
+    function timeUp() {
+      G.timedOut = true; G.timeouts++;
+      var lw = cur;
+      wrongPick(); G.wrong++; G.combo = 0; comboM = 1;
+      floater('時間到!', cw / 2, ch * 0.42, '#fff', 34); SFX.bad(0);
+      loseHeart('time'); if (state !== 'play') return;
+      hinting = true;
+      lcShow(false, lw, null);
+      if (!lc) afterTimeout();
+    }
+    function afterTimeout() {
+      G.timedOut = false;
+      if (G.round >= totalRounds) { targets.length = 0; if (bossOn) startBoss(); else finish(true); return; }
+      G.round++; startRound(false);
+    }
     function wrongPick() {   /* bookkeeping for the word that was asked */
       var rec = PW[cur.i]; rec.tries++; rec.miss++; G.missInRound++;
       if (mode === 'level' && !rec.requeued) { rec.requeued = true; order.push(cur.i); totalRounds++; G.requeued++; }
@@ -1326,7 +1347,7 @@
       var bonus = G.roundMax ? Math.round(40 * clamp(G.roundT / G.roundMax, 0, 1)) : 0, lw = cur;
       G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
       var m = multOf(G.combo), pts = (100 + 10 * Math.min(G.combo - 1, 5) + bonus) * m;
-      G.score += pts; G.correct++;
+      G.score += pts; G.shotPts += pts; G.correct++;
       var rec = PW[cur.i]; rec.tries++; if (!rec.done) { rec.done = true; rec.ok = rec.miss === 0; }
       var pr = project(t.x, t.y, 0.55, PJ);
       floater('+' + pts, pr ? pr.x : cw / 2, pr ? pr.y : ch / 2, '#ffe36a', 34, true);
@@ -1351,8 +1372,8 @@
     }
     function hitBug(b) {
       var i = bugs.indexOf(b); if (i >= 0) bugs.splice(i, 1);
-      G.score += 50; burst(b.x, b.y, 0.3, 20, ['#9be564', '#ffe36a', '#fff'], 1.1); SFX.bug(panOf(b.x, b.y)); sparks(b.x, b.y, 0.3, 8, 1);
-      var pr = project(b.x, b.y, 0.3, PJ); floater('+50', pr ? pr.x : cw / 2, pr ? pr.y : ch / 2, '#b6f26b', 28);
+      G.score += 30; burst(b.x, b.y, 0.3, 20, ['#9be564', '#ffe36a', '#fff'], 1.1); SFX.bug(panOf(b.x, b.y)); sparks(b.x, b.y, 0.3, 8, 1);
+      var pr = project(b.x, b.y, 0.3, PJ); floater('+30', pr ? pr.x : cw / 2, pr ? pr.y : ch / 2, '#b6f26b', 28);
     }
     function hitSpit(s) {
       var i = spits.indexOf(s); if (i >= 0) spits.splice(i, 1);
@@ -1375,6 +1396,7 @@
       floater(msg, cw / 2, ch * 0.4, '#fff', 36); SFX.pick();
     }
     function fireProj(sx, sy, sp) {
+      G.projCalls = (G.projCalls || 0) + 1;   // R3.20: only the debug command reaches this now
       var dx = P.x - sx, dy = P.y - sy, d = Math.sqrt(dx * dx + dy * dy) || 1;
       projs.push({ x: sx, y: sy, vx: dx / d * sp, vy: dy / d * sp, life: 8, ph: rand(0, 6) });
     }
@@ -1403,33 +1425,32 @@
       var fz = G.freezeT > 0, i, d, dx, dy;
       /* bugs */
       G.bugTimer -= dt;
-      var bugCap = DIFF.bugMax[di] + (G.wave >= 2 && di >= 2 ? 1 : 0);
-      if (G.bugTimer <= 0 && bugs.length < bugCap && !G.calm) {
+      var bugCap = DIFF.bugMax[di];
+      if (G.bugTimer <= 0 && bugs.length < bugCap && !G.calm && !G.boss) {
         var bp = spawnPos(0, TWO_PI, 5, 9);
-        bugs.push({ x: bp.x, y: bp.y, vx: 0, vy: 0, ph: rand(0, 6) });
-        G.bugTimer = DIFF.bugEvery[di];
+        bugs.push({ x: bp.x, y: bp.y, vx: 0, vy: 0, ph: rand(0, 6), age: 0 });
+        G.bugTimer = DIFF.bugEvery[di]; G.bugLog.push(+G.playTime.toFixed(2));
       } else if (G.bugTimer <= 0) G.bugTimer = 3;
       for (i = bugs.length - 1; i >= 0; i--) {
         if (fz) break;
         var b = bugs[i]; dx = P.x - b.x; dy = P.y - b.y; d = Math.sqrt(dx * dx + dy * dy) || 1;
+        b.age += dt;
+        if (b.age > DIFF.bugLeave) { rm(bugs, i); burst(b.x, b.y, 0.3, 8, ['#fff', '#cfe9ff'], 0.8); continue; }
         var bs = DIFF.bugSpeed[di] * sf, wob = Math.sin(G.playTime * 3 + b.ph) * 0.5;
         b.vx = (dx / d + -dy / d * wob) * bs; b.vy = (dy / d + dx / d * wob) * bs;
         var nx = b.x + b.vx * dt, ny = b.y + b.vy * dt;
         if (isFree(nx, b.y, 0.25)) b.x = nx; if (isFree(b.x, ny, 0.25)) b.y = ny;
         if (d < 0.6 && G.invul <= 0) {
+          /* R3.20: no heart; the round clock loses 3 s, the combo resets and the player is pushed back */
           rm(bugs, i); G.invul = 1.5; burst(b.x, b.y, 0.3, 12, ['#ffe36a', '#ff6a6a'], 1); SFX.zap();
-          setFlash(4, 0.35); floater('呀! 被電到', cw / 2, ch * 0.42, '#fff', 32);
-          loseHeart('bug'); if (state !== 'play') return;
+          setFlash(4, 0.35); floater(G.roundMax ? '呀! 被電到 -' + DIFF.bugPenalty + ' 秒' : '呀! 被電到', cw / 2, ch * 0.42, '#fff', 32);
+          G.bugHits++; G.combo = 0; comboM = 1; if (G.roundMax) G.roundT = Math.max(0, G.roundT - DIFF.bugPenalty);
+          var kb = Math.atan2(-dy, -dx), kx2 = P.x + Math.cos(kb) * 0.9, ky2 = P.y + Math.sin(kb) * 0.9;
+          if (isFree(kx2, P.y, 0.25)) P.x = kx2; if (isFree(P.x, ky2, 0.25)) P.y = ky2;
         }
       }
       /* spitters: keep distance, strafe, telegraph then fire a slow dodgeable orb */
-      G.spitTimer -= dt;
-      var spCap = DIFF.spitMax[di] + (G.wave >= 2 ? 1 : 0);
-      if (G.spitTimer <= 0 && spits.length < spCap && !G.calm) {
-        var sp0 = spawnPos(0, TWO_PI, 6, 10);
-        spits.push({ x: sp0.x, y: sp0.y, vx: 0, vy: 0, ph: rand(0, 6), fireT: rand(2.2, 3.6), warn: 0, dir: Math.random() < 0.5 ? 1 : -1, dirT: rand(2, 4) });
-        G.spitTimer = DIFF.spitEvery[di];
-      } else if (G.spitTimer <= 0) G.spitTimer = 4;
+      /* R3.20: spitters are retired (never spawned by the game; the debug command still can). They no longer fire. */
       for (i = spits.length - 1; i >= 0; i--) {
         if (fz) break;
         var s = spits[i]; dx = P.x - s.x; dy = P.y - s.y; d = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -1439,12 +1460,7 @@
         var sx = s.x + svx * dt, sy = s.y + svy * dt;
         if (isFree(sx, s.y, 0.35)) s.x = sx; else s.dir = -s.dir; if (isFree(s.x, sy, 0.35)) s.y = sy; else s.dir = -s.dir;
         var wasW = s.warn > 0;
-        s.fireT -= dt * sf; s.warn = s.fireT < 0.8 && s.fireT > 0 ? 1 - s.fireT / 0.8 : 0;
-        if (s.warn > 0 && !wasW) SFX.spit(panOf(s.x, s.y));
-        if (s.fireT <= 0) {
-          if (d < 11 && rayDist(s.x, s.y, Math.atan2(dy, dx), d + 0.5) >= d - 0.3) { fireProj(s.x, s.y, DIFF.projSpeed[di]); s.fireT = DIFF.spitFire[di] * rand(0.9, 1.2); }
-          else s.fireT = 0.6;
-        }
+        s.fireT = 9; s.warn = 0;
       }
       for (i = projs.length - 1; i >= 0; i--) {
         var pj = projs[i]; pj.life -= dt;
@@ -1485,7 +1501,7 @@
         da += rel * (1 - Math.exp(-dt * 2.4 * DIFF.aim[di])) * (1 - act * 0.85);
       }
       P.a += da;
-      var ky = ((keys.KeyW || keys.ArrowUp) ? 1 : 0) - ((keys.KeyS || keys.ArrowDown) ? 1 : 0) - jy;
+      var ky = ((keys.KeyW || keys.ArrowUp) ? 1 : 0) - ((keys.KeyS || keys.ArrowDown) ? 1 : 0) + jy;   // R3.20: jy>0 = stick pushed up = forward (was '- jy', which walked backwards)
       var kx = ((keys.KeyD) ? 1 : 0) - ((keys.KeyA) ? 1 : 0) + jx;
       var l = Math.sqrt(kx * kx + ky * ky); if (l > 1) { kx /= l; ky /= l; }
       if (kx || ky) {
@@ -1511,7 +1527,10 @@
         cool -= dt;
         updatePlayer(camDt);
         G.slow = Math.max(0, G.slow - dt); G.triple = Math.max(0, G.triple - dt); G.invul = Math.max(0, G.invul - dt); G.freezeW = Math.max(0, G.freezeW - dt);
-        if (G.roundMax) G.roundT = Math.max(0, G.roundT - dt * sf);
+        if (G.roundMax && !(G.banner && G.banner.t > 0)) {   // R3.20: the clock waits during wave banners (and, because update() only runs it in 'play', during cards and pause)
+          var rt0 = G.roundT; G.roundT = Math.max(0, G.roundT - dt * sf);
+          if (G.roundT > 0 && G.roundT <= 5 && Math.ceil(rt0) !== Math.ceil(G.roundT)) SFX.tick();
+        }
         /* gentle hint on the low tiers: the answer bubble pulses after 4s */
         hinting = !!(DIFF.hint[di] && !G.boss && G.qT > 4);
         /* listen question: speak (and repeat) */
@@ -1521,6 +1540,7 @@
         }
         updateEnemies(dt, sf);
         if (state !== 'play') return;
+        if (G.roundMax && G.roundT <= 0 && !G.boss && !G.timedOut) { timeUp(); if (state !== 'play') return; }
         G.freezeT = Math.max(0, G.freezeT - dt);
         /* pickups */
         G.pickTimer -= dt;
@@ -1678,6 +1698,7 @@
       if (lc.el.parentNode) lc.el.parentNode.removeChild(lc.el);
       lc = null; keys = {};
       if (state === 'learn') { state = 'play'; lastT = 0; cool = 0.3; }
+      if (G.timedOut && state === 'play') afterTimeout();
     }
     function setTier(n, fromUi) {
       n = clamp(n | 0, 1, 5);
@@ -2375,9 +2396,9 @@
           hlDraw(HL.cap, cwh, by + 8 * u, 0); by += 22 * u;
           if (G.roundMax) {
             var tw = Math.min(cw * 0.55, 260 * u), tbx = cwh - tw / 2, fr = G.roundT / G.roundMax;
-            ctx.fillStyle = 'rgba(43,29,74,.55)'; ctx.fillRect(tbx - 2, by - 2, tw + 4, 10 * u + 4);
-            ctx.fillStyle = fr > 0.3 ? '#7be37b' : '#ffb347'; ctx.fillRect(tbx, by, tw * fr, 10 * u);
-            by += 18 * u;
+            ctx.fillStyle = 'rgba(43,29,74,.55)'; ctx.fillRect(tbx - 2, by - 2, tw + 4, 14 * u + 4);
+            ctx.fillStyle = G.roundT <= 5 ? '#ff6b6b' : fr > 0.3 ? '#7be37b' : '#ffb347'; ctx.fillRect(tbx, by, tw * fr, 14 * u);
+            by += 22 * u;
           }
         }
         pbot = by;
@@ -2553,7 +2574,7 @@
         case 'boss': startBoss(); return true;
         case 'clear': bugs.length = 0; spits.length = 0; projs.length = 0; pickups.length = 0; return true;
         case 'calm': G.calm = !!a; if (a) { bugs.length = 0; spits.length = 0; projs.length = 0; pickups.length = 0; } return true;
-        case 'bug': p = ahead(a || 3); bugs.push({ x: p.x, y: p.y, vx: 0, vy: 0, ph: 0 }); return true;
+        case 'bug': p = ahead(a || 3); bugs.push({ x: p.x, y: p.y, vx: 0, vy: 0, ph: 0, age: 0 }); return true;
         case 'spitter': p = ahead(a || 5); spits.push({ x: p.x, y: p.y, vx: 0, vy: 0, ph: 0, fireT: b || 1, warn: 0, dir: 1, dirT: 3 }); return true;
         case 'proj': p = ahead(a || 3); fireProj(p.x, p.y, DIFF.projSpeed[di]); return true;
         case 'freeze': G.freezeT = 3; return true;
@@ -2564,6 +2585,7 @@
         case 'learnskip': lcDone(true); return true;
         case 'shield': G.shield = !!a; return true;
         case 'turn': P.a += a; return true;
+        case 'face': P.a = a; return true;
         case 'scale': scaleIdx = clamp(a | 0, 0, SCALES.length - 1); scaleT = performance.now() + 1e6; applyScale(SCALES[scaleIdx]); return true;
       }
       return false;
@@ -2582,7 +2604,7 @@
           arena: arenaIdx, arenaName: ARENAS[arenaIdx].name, wave: G.wave + 1, qtype: G.qtype, totalRounds: totalRounds, freezeT: G.freezeT, freezeW: G.freezeW, triple: G.triple,
           mult: multOf(G.combo), best: G.best, shake: shake, flash: flash, reduceMotion: reduceMotion, bannerText: G.banner ? G.banner.text : null, sayVisible: sayShown, pickups: pickups.length, particles: pl,
           ducked: ducked, tier: tier, difficulty: tier, mode: mode, distractors: DIFF.nDist[di], hinting: hinting, muted: muted, scale: scale, RW: RW, RH: RH, voices: voices, audio: A ? A.state : null,
-          learn: lc ? { ok: lc.ok, word: lc.w.en, zh: lc.w.zh, t: lc.t, min: lc.min, max: lc.max, ready: lc.t >= lc.min } : null, missInRound: G.missInRound, requeued: G.requeued, perWord: perWord(), timer: G.roundMax,
+          learn: lc ? { ok: lc.ok, word: lc.w.en, zh: lc.w.zh, t: lc.t, min: lc.min, max: lc.max, ready: lc.t >= lc.min } : null, missInRound: G.missInRound, requeued: G.requeued, perWord: perWord(), timer: G.roundMax, timeLeft: G.roundT, timeouts: G.timeouts, bugHits: G.bugHits, enemyLog: G.bugLog.slice(), projLog: G.projCalls || 0, shotPts: G.shotPts, timedOut: G.timedOut, bugAges: bugs.map(function (b) { return b.age; }), joy: { jx: jx, jy: jy },
           boss: B ? { hp: B.hp, max: B.max, idx: B.idx, word: B.letters.join(''), dead: B.dead, zh: B.w.zh } : null,
           targets: targets.map(function (t) { var h = rayHit(targetAngle(t)); return { word: t.w.en, angle: normAng(targetAngle(t) - P.a), dist: Math.hypot(t.x - P.x, t.y - P.y), clear: !!(h && h.o === t), emoji: t.w.emoji || '', correct: t.correct }; })
         };
@@ -2599,6 +2621,7 @@
         return out;
       },
       _fire: function (off) { fire(off || 0); },
+      _step: function (n, dt) { dt = dt || 1 / 60; for (var i = 0; i < n && !dead; i++) update(dt, dt); },   // R3.20: deterministic stepping for t30
       _turnTo: function (i) { var t = targets[i]; if (t) P.a = targetAngle(t); },
       _cmd: cmd
     };
@@ -2631,6 +2654,7 @@
   var API = { start: start };
   Object.defineProperty(API, '_debug', { get: function () { return current ? current._state() : null; } });
   API._debugFire = function (off) { if (current) current._fire(off || 0); };
+  API._debugStep = function (n, dt) { if (current) current._step(n, dt); };
   API._debugTurnTo = function (i) { if (current) current._turnTo(i); };
   Object.defineProperty(API, '_hud', { get: function () { return current ? current._hud() : null; } });
   API._cmd = function (name, a, b) { return current ? current._cmd(name, a, b) : null; };
