@@ -15789,7 +15789,7 @@ function r37Hub(id){
   extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total}</b>`,'數學進度');
  }else if(id==='olympiad'){
   const q=r37TrackProgress('olympiad');
-  tiles=r37A('🏆','闖關','#lv/olympiad','gold big','olympiad',`${q.done}/${q.total} 關`)+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
+  tiles=r37B('📚','圖解課堂','data-oly-open="learn"','gold big','olympiad','小一、小二 · 8 個單元 · 44 課')+r37B('📝','課堂小測','data-oly-open="test"','blue')+r37B('🔁','課堂錯題','data-oly-open="review"','green')+r37B('📊','課堂進度','data-oly-open="progress"')+r37A('🏆','闖關','#lv/olympiad','gold','',`${q.done}/${q.total} 關`)+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
   extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total}</b>`,'奧數進度');
  }else if(id==='dictation'){
   const dzR=latestRange(),dzS=dzR&&rangeWords(dzR.id).some(w=>w.kind==='sentence');
@@ -21511,4 +21511,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 </script>
 <!-- WQM_PLUGIN_END_0_1_2 -->
+<!-- OLYMPIAD_CLASSROOM_SYNC -->
+<link rel="stylesheet" href="olympiad-classroom/host.css?v=7c62d9a3e860" data-olympiad-sync>
+<script type="module" src="olympiad-classroom/host.js?v=7c62d9a3e860" data-olympiad-sync></script>
+<!-- /OLYMPIAD_CLASSROOM_SYNC -->
 </body></html>

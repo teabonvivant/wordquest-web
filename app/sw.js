@@ -1,6 +1,6 @@
 /* Cache only this app's static shell and explicitly installed OCR. Never cache API responses or backups. */
 'use strict';
-const BASE=new URL('./',self.location.href),SHELL='wordquest-r3-shell-'+encodeURIComponent(BASE.pathname)+'-3.19',CONFIG='wordquest-r3-config',POINTER=new URL('ocr-active.json',BASE).href;
+const BASE=new URL('./',self.location.href),SHELL='wordquest-r3-shell-'+encodeURIComponent(BASE.pathname)+'-3.19-oly-7c62d9a3e860',CONFIG='wordquest-r3-config',POINTER=new URL('ocr-active.json',BASE).href;
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(SHELL);await c.addAll([new URL('index.html',BASE).href]);try{await c.addAll(["assets/r316/bg_land.webp", "assets/r316/bg_port.webp", "assets/r316/core_sun.webp", "assets/r316/pl_dictation.webp", "assets/r316/pl_english.webp", "assets/r316/pl_games.webp", "assets/r316/pl_math.webp", "assets/r316/pl_olympiad.webp", "assets/r316/pl_parent.webp", "assets/r318/badge_win.webp", "assets/r318/ch_alien.webp", "assets/r318/ch_astro.webp", "assets/r318/ch_cat.webp", "assets/r318/ch_dragon.webp", "assets/r318/ch_fox.webp", "assets/r318/ch_owl.webp", "assets/r318/ch_panda.webp", "assets/r318/ch_penguin.webp", "assets/r318/ch_rabbit.webp", "assets/r318/ch_robot.webp", "assets/r318/ch_tiger.webp", "assets/r318/ch_unicorn.webp"].map(a=>new URL(a,BASE).href));}catch(_){}})()));
 // No skipWaiting: a running old page is not forced onto a different worker mid-session.
 // R3.3 p30: drop OLD shell caches of this scope only (never OCR, config or other scopes), then take control.

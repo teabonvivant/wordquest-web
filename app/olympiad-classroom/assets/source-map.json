@@ -1,0 +1,6007 @@
+{
+  "counts": {
+    "files": 22,
+    "years": 14,
+    "questions": 316,
+    "verified": 150,
+    "keyOnly": 121,
+    "unclear": 45,
+    "explicitlyReferenced": 67
+  },
+  "coverageCounts": {
+    "foundation": 205,
+    "method": 96,
+    "not_covered": 15
+  },
+  "years": [
+    {
+      "year": 2013,
+      "questions": [
+        {
+          "year": 2013,
+          "number": 1,
+          "summary": "旋轉數字中的缺項",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-1",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有外形分類與轉向入門；未專教旋轉數字逐個辨識。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 2,
+          "summary": "每人取一本後餘量",
+          "topic": "加減應用",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "取走後更新餘量的方法可直接用於一本一本取走。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 3,
+          "summary": "嚴格大小條件的點數",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "observe-2",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "雙條件逐項篩選與點數已教；嚴格大於及小於未另作示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 4,
+          "summary": "只比較指定兩類數量",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "observe-2",
+            "count-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "先按指定類別分類，再一對一比較兩類數量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 5,
+          "summary": "分層磚塊比較差",
+          "topic": "有序點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "count-1",
+            "measure-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐層有序點數，再比較多出部分。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 6,
+          "summary": "補畫空白格求面積",
+          "topic": "方格面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "補成等大小小格並逐行點數；形狀換成十字仍用同一方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 7,
+          "summary": "缺口與裝飾連續配對",
+          "topic": "圖形拼合",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "puzzle-1",
+            "observe-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "缺口外邊可匹配；原圖另需裝飾花紋連續，現課主要用格形。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 8,
+          "summary": "先轉移再分一半",
+          "topic": "轉移分配",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "measure-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "先後轉移及兩邊同時變動已教；第三人及分一半未完整合教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 9,
+          "summary": "由總重量求相同個體",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-4",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "相同圖案等值與先扣已知量已教；未示範秤上的人加兩貓結構。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 10,
+          "summary": "周期末端多出一項",
+          "topic": "規律",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "重複組與點數已教；末端多出的圖案頻率未逐步示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 11,
+          "summary": "迷宮可達區域內點數",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "route-1",
+            "route-3",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有可達性和分岔檢查；原卷迷宮要標全部可達區域再累計物件。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 12,
+          "summary": "同步不同步幅追及",
+          "topic": "相對移動",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可記每步位置與量；未教兩物件同步不同步幅的距離變化。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 13,
+          "summary": "包含隱藏方塊的分層點數",
+          "topic": "立體點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "逐層保留被遮積木已教；原題還要從立體圖推每層寬和深。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 14,
+          "summary": "相對年齡排序",
+          "topic": "條件排序",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "logic-3",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有前後條件排序；原題要把年齡差統一到同一參照再比較。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 15,
+          "summary": "每次同角度轉動",
+          "topic": "旋轉規律",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "space-2",
+            "pattern-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "轉動和周期已有入門；現課轉四分之一圈，原題每步八分之一圈。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 16,
+          "summary": "多次等值交換",
+          "topic": "等值交換",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "logic-5",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "兩級交換與等份還原已教；原題有第三個反向交換，需自行合併。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 17,
+          "summary": "旋轉鋪砌最大件數",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "覆蓋、空位及重疊檢查已教；S四連方最大件數及上限未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2013,
+          "number": 18,
+          "summary": "共享邊的增長規律",
+          "topic": "共享邊",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "pattern-6"
+          ],
+          "coverage": "method",
+          "coverageReason": "第一個圖形及每次只加新邊的方法一致，屋頂改變新增枝數。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 19,
+          "summary": "硬幣非空組合枚舉",
+          "topic": "有序枚舉",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "固定一項不漏重列舉已教；未示範每枚硬幣選或不選及排除空組。",
+          "explicitReference": true
+        },
+        {
+          "year": 2013,
+          "number": 20,
+          "summary": "方框周邊和上下兩層",
+          "topic": "分層面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "space-4",
+            "observe-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "方格面積、分層、重疊去重有橋樑；未由周邊20格反求正方形邊長。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "questions": [
+        {
+          "year": 2014,
+          "number": 1,
+          "summary": "同時核對花瓣葉數",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-2",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐條核對花瓣與葉數，點數方法一致。",
+          "explicitReference": true
+        },
+        {
+          "year": 2014,
+          "number": 2,
+          "summary": "交叉線保持同一路徑",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "route-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "沿連線保持通路已有入門；未畫密集交叉曲線追蹤。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 3,
+          "summary": "邊框與中心分類求差",
+          "topic": "方格面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "count-1",
+            "count-3",
+            "observe-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "分類數灰白格並比較；交叉格只數一次可避免角格重數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 4,
+          "summary": "按高度排序找中間",
+          "topic": "比較排序",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "measure-3",
+            "count-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "以相同格為共同高度單位，再依大小排序。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 5,
+          "summary": "沿曲線重複排列磚",
+          "topic": "規律",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "重複規律和試拼已教；原題曲線隨拼磚旋轉的周期尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 6,
+          "summary": "輪廓细節配對",
+          "topic": "觀察分類",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "observe-1",
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐項看輪廓細節，形狀相同而非只看顏色。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 7,
+          "summary": "完整方格減現存",
+          "topic": "方格面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "數完整方格與現存格，再從總量減去現存量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 8,
+          "summary": "天平連鎖替換",
+          "topic": "等值交換",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-5",
+            "logic-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "一物換成等值兩物，再逐級替換成目標物件。",
+          "explicitReference": true
+        },
+        {
+          "year": 2014,
+          "number": 9,
+          "summary": "按指令逐格移動",
+          "topic": "方向",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-1",
+            "route-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "固定畫面上下左右，按每條指令逐格移動。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 10,
+          "summary": "物件位於多重圈內",
+          "topic": "集合內外",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "逐邊界檢查內外已教兩集合；原題要處理四個交疊圓。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 11,
+          "summary": "四塊拼合不可能圖",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "真實試拼與不重疊可用；四塊不同三角形拼不可能選項未完整教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 12,
+          "summary": "凹凸邊界互補",
+          "topic": "圖形拼合",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "puzzle-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "缺口配對已有入門；原題鋸齒邊須轉動後整條連續匹配。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 13,
+          "summary": "按字母順序求最短路",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "route-2",
+            "route-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "逐段數及有序路線已教；原題要求指定字母順序的最短路。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 14,
+          "summary": "受範圍限制的數字枚舉",
+          "topic": "有序枚舉",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "count-4",
+            "count-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "固定首項列舉和位值已教；數字可重用又有上下界未完整合教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2014,
+          "number": 15,
+          "summary": "由遮擋判斷上下層順序",
+          "topic": "層次排序",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "observe-1",
+            "logic-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "外形細看及先後排序有橋樑；未教從遮擋交點還原木條上下層。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 16,
+          "summary": "把天數分組再計數",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "count-2",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等組與餘量更新有入門；每週兩種每天不同份量須把物件還原天數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 17,
+          "summary": "位值決定最大和",
+          "topic": "位值",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "count-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "十位對數值的作用已教；未教四個數字組兩個兩位數的最大和。",
+          "explicitReference": true
+        },
+        {
+          "year": 2014,
+          "number": 18,
+          "summary": "空心棋盤等形鋪砌",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可檢查格數與覆蓋；空心棋盤所有形狀鋪砌的可行／不可行證明未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 19,
+          "summary": "位數與運算按鍵分開數",
+          "topic": "有序點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "count-1",
+            "count-5",
+            "pattern-6"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有位數及第一份後新增量的橋樑；按鍵運算符與數字位數分開計尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2014,
+          "number": 20,
+          "summary": "齒數與連動方向",
+          "topic": "齒輪",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "pattern-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "相接反向轉的方法已教；不同齒數造成不同轉角尚未教。",
+          "explicitReference": true
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "questions": [
+        {
+          "year": 2015,
+          "number": 1,
+          "summary": "辨認每幅圖共同形狀",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-1",
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐幅檢查指定形狀是否出现，方法直接吻合。",
+          "explicitReference": true
+        },
+        {
+          "year": 2015,
+          "number": 2,
+          "summary": "複合圖形中分類點數",
+          "topic": "有序點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-1",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "先依外邊分類三角形，再按部位有序點數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 3,
+          "summary": "拼圖邊界互補",
+          "topic": "圖形拼合",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "puzzle-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "沿缺口的凹凸邊匹配拼片。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 4,
+          "summary": "逐隻累加點數",
+          "topic": "有序點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐隻逐點累加，數過留記號不漏重。",
+          "explicitReference": true
+        },
+        {
+          "year": 2015,
+          "number": 5,
+          "summary": "重疊長度與總長",
+          "topic": "重疊比較",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "measure-3",
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "共同單位比較與重疊位置有橋樑；重疊越多總長越短需另示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 6,
+          "summary": "旋轉與鏡像區分",
+          "topic": "方向",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "space-2",
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "分清旋轉與鏡像，再核對圖內相對位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 7,
+          "summary": "圓柱圓錐的俯視",
+          "topic": "立體視圖",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "space-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有俯視與正面不同的概念；現課積木柱，原題圓柱圓錐輪廓。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 8,
+          "summary": "指定圖形外的數量和",
+          "topic": "集合內外",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-5",
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "只留指定邊界外的資料，再累加兩數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 9,
+          "summary": "半程時間推全程",
+          "topic": "時間",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "measure-6"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "經過時間用逐段相加；未教半小時、半程與全程的等速換算。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 10,
+          "summary": "雙連方塊能否拼成立體",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "不重疊試拼與立體層已有入門；原題固定雙連立體塊的可行性未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 11,
+          "summary": "轉移一半差使兩人相等",
+          "topic": "轉移分配",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "measure-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "一邊搬一粒，兩邊同時變；搬差數一半使相等。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 12,
+          "summary": "交替色柱中隱藏積木",
+          "topic": "立體點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "space-4",
+            "count-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "交替色、隱藏層與等組有橋樑；六柱隱藏顏色的合併點數未完整教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 13,
+          "summary": "三角拼片圖案連續",
+          "topic": "圖形拼合",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-1",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "缺口配對及轉向入門；三角片邊緣圖紋連續未專教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 14,
+          "summary": "日期按時間先後核對",
+          "topic": "時間",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教日期格式、年月日排序及指定數字出現次數的合併方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 15,
+          "summary": "分組總量減派出量",
+          "topic": "加減應用",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "count-2",
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "等組先累加總量，再扣每人分出的數量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 16,
+          "summary": "填數令連續算式成立",
+          "topic": "算式約束",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等值及逐项試數有橋樑；未教五個不同數填兩個連續算式的共同約束。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 17,
+          "summary": "旗與間隔不同數量",
+          "topic": "間隔",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "measure-1",
+            "measure-6"
+          ],
+          "coverage": "method",
+          "coverageReason": "先數旗子之間的間隔，再每段累加相同距離。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 18,
+          "summary": "固定步數且不可重訪的路線枚舉",
+          "topic": "有序枚舉",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "route-5",
+            "route-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有序路線列舉及不重訪已有入門；原題限定4跳且三乘三圖網要額外分類。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 19,
+          "summary": "中間名次推總人數",
+          "topic": "隊列位置",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "logic-3",
+            "logic-7"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有名次和本人只算一次；中間第8推總人數未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 20,
+          "summary": "差和倍數共同限制",
+          "topic": "算式約束",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "逐次加2及等值有橋樑；第3天是第1天兩倍的反求起數未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 21,
+          "summary": "每小時產量先合再乘",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "count-2",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "每份相加已教；原題先求另一人的每小時產量再乘時間，要兩級等組。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 22,
+          "summary": "三維交替色數量比較",
+          "topic": "立體點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "space-4",
+            "pattern-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "分層及交替已教；三維同色不接觸的黑白數量差需另示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 23,
+          "summary": "跨午夜經過時間",
+          "topic": "時間",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教24小時換算、借分鐘及跨午夜經過時間。",
+          "explicitReference": false
+        },
+        {
+          "year": 2015,
+          "number": 24,
+          "summary": "十字總和相等找中心",
+          "topic": "算式約束",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "相等總數及有序試配可作橋樑；未教十字共享中心及不同數成兩對等和。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "questions": [
+        {
+          "year": 2016,
+          "number": 1,
+          "summary": "字母旋轉辨識及排除",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-1",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "形狀辨認及轉動已有入門；英文旋轉字母與指定單字排除須額外示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 2,
+          "summary": "用端點或追線數繩子",
+          "topic": "路線",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "route-1",
+            "count-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "追線與端點兩兩配對可作入門；未示範密集交叉繩及封閉線檢查。",
+          "explicitReference": true
+        },
+        {
+          "year": 2016,
+          "number": 3,
+          "summary": "共享邊火柴點數",
+          "topic": "共享邊",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "count-1",
+            "pattern-6"
+          ],
+          "coverage": "method",
+          "coverageReason": "共享邊只數一次，逐區數新枝的方法一致。",
+          "explicitReference": true
+        },
+        {
+          "year": 2016,
+          "number": 4,
+          "summary": "多類別加入後總量",
+          "topic": "加減應用",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "count-1",
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "各類總數逐一加入並更新總量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 5,
+          "summary": "環形迷宮可達區域",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "route-1",
+            "route-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有通路和分岔逐條查；環形牆壁迷宮還須辨識缺口。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 6,
+          "summary": "包含頭尾的連續數量",
+          "topic": "間隔",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "measure-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "物件與間隔分清已教；號碼區間包括頭尾要加1的反向形式未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 7,
+          "summary": "隱藏積木數量與選圖",
+          "topic": "立體點數",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "隱藏層必須數的方法已教；原題立體多方向底層需要自己推斷。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 8,
+          "summary": "增長與黑白交替規律",
+          "topic": "規律",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "pattern-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "黑白交替與每層增加一粒，按已知組內位置延續。",
+          "explicitReference": true
+        },
+        {
+          "year": 2016,
+          "number": 9,
+          "summary": "不相鄰限制下最多選取",
+          "topic": "組合最值",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "count-4",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有序枚舉及條件逐項核對有橋樑；不相鄰最多取多少及上限證明未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 10,
+          "summary": "年與月單位換算",
+          "topic": "時間",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教1年12個月的單位換算。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 11,
+          "summary": "腿數扣除固定動物後分組",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-4",
+            "pattern-4",
+            "count-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "先扣固定量，再按相同份量配對；原題腳數轉隻數未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 12,
+          "summary": "不同大小房間的最少門數",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "route-3",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "逐通路檢查與最少段數有入門；不同大小房間門數最短路需把房間當節點。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 13,
+          "summary": "先按每組數量還原組數",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "logic-4",
+            "count-2",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "相同份量還原組數，再扣餘量；窗與房的二級單位須額外圖示。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 14,
+          "summary": "行走視角中的右側",
+          "topic": "方向",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "固定畫面方向已教；原題行走者的右邊會隨轉彎改變，未教相對視角。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 15,
+          "summary": "L三連方鋪砌可行性",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "試拼、空位、重疊方法已有；L三連方所有可行與不可行形狀未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 16,
+          "summary": "包住原圖的最小正方形",
+          "topic": "方格面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "用等格補圖已有入門；最小外包正方形由寬高決定未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 17,
+          "summary": "視線方向逐隻累加",
+          "topic": "方向點數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "space-1",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "方向及有序點數有橋樑；每隻鳥視角不同，須分别數牠前方同伴。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 18,
+          "summary": "把和差轉成兩條配對條件",
+          "topic": "算式約束",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "雙條件與圖案等值有入門；先算左右翅的和及差再配花葉未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 19,
+          "summary": "兩個立體視圖找相對面",
+          "topic": "立體視圖",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教由兩個立方體視圖的共同面推相對面。",
+          "explicitReference": false
+        },
+        {
+          "year": 2016,
+          "number": 20,
+          "summary": "等和分組最多組數",
+          "topic": "組合最值",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "logic-4",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等份總和與有序配搭有橋樑；最多等和組數需上限及不可行證明。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "questions": [
+        {
+          "year": 2017,
+          "number": 1,
+          "summary": "沿交叉釣線追至主人",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "route-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "沿連線走的方法已教；密集交叉釣線追蹤未畫專例。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 2,
+          "summary": "按角數分類星形",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-1",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "先分類指定角數，再有序點數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 3,
+          "summary": "點數後按每份分組",
+          "topic": "等值分組",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "count-2",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等份分組入門可用；每份3個及由12反求人數需改用三粒一組。",
+          "explicitReference": true
+        },
+        {
+          "year": 2017,
+          "number": 4,
+          "summary": "剪斷次數與段數",
+          "topic": "間隔",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "measure-1",
+            "puzzle-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "分清分段與剪開操作已有；一條開放繩剪k處成k+1段未直接教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 5,
+          "summary": "有限貼紙形狀與大小核對",
+          "topic": "觀察分類",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐項核對貼紙的外形、大小及可用數量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 6,
+          "summary": "補畫交錯磚列數缺塊",
+          "topic": "方格面積",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "補畫等大小格／砖，再逐行數缺的位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 7,
+          "summary": "沿封閉繩追珠次序",
+          "topic": "路線",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "route-1",
+            "pattern-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "追線及保持排列順序有入門；封閉珠環任意起點的同序列未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 8,
+          "summary": "四數配成兩組等和",
+          "topic": "算式約束",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-4",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等和及有序配搭已有；數字不重用成兩對等和未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 9,
+          "summary": "兩級交換鏈",
+          "topic": "等值交換",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩級等值交換逐步更新目標份數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 10,
+          "summary": "整體轉動保持相對位置",
+          "topic": "旋轉規律",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-2",
+            "route-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "轉向及周期位置有橋樑；多人整體轉動保持相對座距未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 11,
+          "summary": "轉動周期與餘數",
+          "topic": "旋轉規律",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "space-2",
+            "pattern-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "四次四分之一圈回原位，重複周期中找第六次位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 12,
+          "summary": "兩個倍數條件同時核對",
+          "topic": "倍數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "count-2",
+            "observe-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "等組與雙條件篩選可用；兩個連鎖倍數的條件須另作圖。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 13,
+          "summary": "前面人數與本人位置",
+          "topic": "隊列位置",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "logic-3",
+            "logic-7"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "排隊位置與不漏本人已有；前7加兩人及剩後段的合併公式未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 14,
+          "summary": "時鐘倒退經過時間",
+          "topic": "時間",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教指針時鐘、半小時和跨12點倒退時間。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 15,
+          "summary": "只能旋轉不能翻面的拼片",
+          "topic": "鋪砌",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "試拼和禁止鏡像的概念有入門；兩張彩色四連方旋轉拼圖未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 16,
+          "summary": "末次活動不需額外休息",
+          "topic": "時間周期",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "measure-6",
+            "pattern-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "分段時間與重複周期有橋樑；最後一次完成後不計休息須另教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 17,
+          "summary": "印章左右鏡像",
+          "topic": "鏡像",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "space-2",
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "左右鏡像後逐條檢查塔和窗的位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 18,
+          "summary": "由重复符號推編碼",
+          "topic": "符號編碼",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "重複圖案同值及條件對照可作入門；字母數字編碼替換未直接教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 19,
+          "summary": "加入物件令總量為一類兩倍",
+          "topic": "倍數",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            13
+          ],
+          "lessonIds": [
+            "measure-4",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "只增加一方與等值有橋樑；牛與總動物同步增加、兩倍關係未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2017,
+          "number": 20,
+          "summary": "穿孔卡片翻面拓撲",
+          "topic": "立體拓撲",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            13
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "穿孔卡片在封閉繩上的正反翻面拓撲沒有相應教學。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "questions": [
+        {
+          "year": 2018,
+          "number": 1,
+          "summary": "顏色互換後保留位置",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "pattern-3",
+            "observe-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可逐個位置記錄變化；現課未專教整幅圖的雙向顏色互換。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 2,
+          "summary": "按斑點數連線",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "count-1",
+            "route-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可點斑及沿線；未示範先按數量排序再依序連點。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 3,
+          "summary": "重疊星形尖角計數",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "puzzle-5",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有共同位置與有序點數；重疊星形的尖角及旋轉增量仍未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 4,
+          "summary": "等份薄餅的缺少部分",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有補缺口與同單位點數；圓形等份及缺少扇形尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 5,
+          "summary": "兩組移動後數量相等",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "measure-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "同樣從較多的一組搬到較少的一組，每搬一件同時改變兩邊。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 6,
+          "summary": "點數總和與刪去一隻",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "count-1",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有求總量與逆向加減；未示範多組點數中找要刪去的一組。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 7,
+          "summary": "四件循環換位",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "pattern-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可找重複單位；四個圖形循環換位及第16項定位仍需進階練習。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 8,
+          "summary": "積環俯視遮擋",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "space-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有俯視和遮擋的入門；大小不同圓環哪些仍露出尚未教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2018,
+          "number": 9,
+          "summary": "透明圖層疊合",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有疊層與固定位置；現課求紙的共同格，未示範線條圖像的聯集疊合。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 10,
+          "summary": "方格折線重複",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "pattern-2",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有重複單位和方格路程；未教在整張方格複製連續折線。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 11,
+          "summary": "拼圖凸凹缺口排除",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-1",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有缺口邊界和試拼；曲線凸凹及多塊互相扣合比現方格拼塊更複雜。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 12,
+          "summary": "射箭同區分值",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有相同份量及抵消共同部分；射箭兩種區域分值仍需兩步聯立推導。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 13,
+          "summary": "不同姿勢辨認左右手",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "目前方向課以畫面作參照，未教不同手勢中的人物自身左、右手。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 14,
+          "summary": "繩結與原來等長繩",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教繩結消耗繩長後，怎樣由可見長度反推三條原繩等長。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 15,
+          "summary": "蘑菇兩面點數及容量",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "count-1",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可點數及處理相同份；隱藏另一面相同點數與總容量仍需補一步。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 16,
+          "summary": "優惠組合與餘款",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教優惠整組購買後處理餘款、比較可買數量的最大值。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 17,
+          "summary": "兩箱不同每日增量",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有逐步更新數量；未教兩組以不同速率增加並找相等時刻。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 18,
+          "summary": "木棒寬度與重疊長度",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "measure-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有共同單位量長；木棒寬度與接合重疊處不能重複計算仍未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 19,
+          "summary": "分岔路共同路段",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "route-2",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可量路段及配去共同部分；兩條總路程同含一段需扣兩次，尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2018,
+          "number": 20,
+          "summary": "圖像等式比較價格",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": "E",
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-5",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "相同份量、替換及抵消已有；四種玩具的三條關係連用仍是更長的推理。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "questions": [
+        {
+          "year": 2019,
+          "number": 1,
+          "summary": "全部數字符合上限",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐項檢查條件，留下全部數字都符合上限的雲。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 2,
+          "summary": "圓形項鏈局部順序",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可看重複次序和鏡像；環形項鏈的局部次序及反向讀取尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 3,
+          "summary": "總重量減去已知重量",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "logic-2",
+            "measure-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "把總重量中的已知部分拿走，求另一部分，屬已示範的逆向加減。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 4,
+          "summary": "方格相鄰圖形旋轉辨認",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有位置接合與轉動；旋轉後保留符號相鄰關係仍需更多圖塊練習。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 5,
+          "summary": "前後名次與中間人數",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "measure-1",
+            "logic-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可分物件與間隔、定位次序；倒數名次轉換及兩端人物不計仍需專門例子。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 6,
+          "summary": "相同數字襪子配對",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "count-2",
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "按相同數字配成一對，轉動襪子後仍用相同數值配對。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 7,
+          "summary": "同時在內和在外的區域",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "observe-2",
+            "puzzle-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "先保留指定區域，再排除另一區域，對應現共同/只在一紙的格篩選。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 8,
+          "summary": "兩種水果的成對價格",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": "C",
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "logic-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩件相同物品分出一件的值，分別求兩種再合計。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 9,
+          "summary": "關閘截斷所有通路",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "route-3",
+            "route-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可追蹤及列路線；找封住全部通路的最少關閘組合尚未教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2019,
+          "number": 10,
+          "summary": "摺紙後剪開分片",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有摺後剪孔逐層展開；橫剪穿過摺邊把紙分片，不能直接當孔數題。",
+          "explicitReference": true
+        },
+        {
+          "year": 2019,
+          "number": 11,
+          "summary": "被遮卡片移除次序",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-5",
+            "logic-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有疊層與先後條件；怎樣由遮擋圖推導卡片上下先後尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 12,
+          "summary": "方格只向右向下路數",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "route-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可固定第一選擇枚舉；3×3方格只右下走的所有步次序仍需更廣路網練習。",
+          "explicitReference": true
+        },
+        {
+          "year": 2019,
+          "number": 13,
+          "summary": "編織條帶背面",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有左右鏡像；從背面看編織還須同時翻轉上下遮擋關係，未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 14,
+          "summary": "立方體外露面積",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "每塊先有6面，每次共面藏2面，扣掉相黏面後比較外露面數。",
+          "explicitReference": true
+        },
+        {
+          "year": 2019,
+          "number": 15,
+          "summary": "同樣長方磚拼成邊長",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "measure-3",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有相同單位及等份；需從多塊短邊合成一個長邊，再推整段長度。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 16,
+          "summary": "起終時間及分段路程",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "measure-6",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有逐段時間及扣回已知部分；跨早晚總時長換算和缺段時間尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 17,
+          "summary": "倍數關係和數量差",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有相同份及數量差；一組是另一組一半、且多8的兩條條件合用仍未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 18,
+          "summary": "三塊還原曲線圖形",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有缺口接合；曲邊三塊還原完整外輪廓尚未以具體圖示教過。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 19,
+          "summary": "兩類駱駝腳數式點數",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可把相同部分先配去；駱駝每隻先1峰再找多出峰的基準法尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 20,
+          "summary": "三個不同正數分配",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "count-4",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有有序配搭和條件篩選；列出不同正整數且總和固定的全部分配還未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 21,
+          "summary": "半枝旗杆與高度",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "measure-2",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可量高度差和分相同份；半枝旗杆插入沙堡的高度關係需另作圖示。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 22,
+          "summary": "依次互換三種顏色",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "pattern-3",
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "每次操作更新全體物件的狀態，再按下一步操作，不能沿用原狀態。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 23,
+          "summary": "方格四數總和篩選",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "observe-3",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可讀方格與逐條篩選；未教列出所有相鄰四格總和並判斷必含哪數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2019,
+          "number": 24,
+          "summary": "機器換幣三次最少總數",
+          "topic": "pattern",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": "C",
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "logic-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有庫存更新和交換表；三步交換的全部分支與最少總量下界仍未教。",
+          "explicitReference": true
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "questions": [
+        {
+          "year": 2020,
+          "number": 1,
+          "summary": "兩方不同步長相遇",
+          "topic": "pattern",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可逐步記錄；兩個角色同時以不同步長移動，尚未示範兩列同步位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 2,
+          "summary": "自拍與左右鏡像",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "按左右鏡像核對自己和背景的相對位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 3,
+          "summary": "四張圖塊還原位置",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可以沿接合位置重排；原題圖像四塊包含非方格輪廓，較現固定拼塊複雜。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 4,
+          "summary": "五項玩具重複規律",
+          "topic": "pattern",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "pattern-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "找到完整五項重複單位，再從目前位置接續。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 5,
+          "summary": "有孔卡片疊合",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有兩層位置核對；有孔上紙只露出下紙對應圖案的可見性未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 6,
+          "summary": "可見灰積木扣除隱藏",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "space-4",
+            "observe-2",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有分層、分類及扣已知量；從立體圖每塊露多面只算一次，再從灰塊總數扣可見灰塊的組合尚未完整示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 7,
+          "summary": "黑三角數與正方數條件",
+          "topic": "observe",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "分類數黑三角形，再核對正方形數量限制，兩條都符合才留下。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 8,
+          "summary": "沿編織線追蹤顏色",
+          "topic": "route",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "route-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可沿同線不跳線；密集編織在上下穿越交叉處保持同一路徑還需特別示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 9,
+          "summary": "缺塊四邊圖案接續",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-1",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有邊界及接合核對；需四邊裝飾同時吻合，現課未示範多邊圖案接續。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 10,
+          "summary": "圓線直線各含固定數量",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "observe-4",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "知道交叉位置可能屬兩組；多條直線與圓線各固定3間的聯合限制尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 11,
+          "summary": "數立體積木包含底層",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐層點數，把被擋住的支撐方塊一併計入總數。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 12,
+          "summary": "兩花總和相同缺一數",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "logic-8",
+            "logic-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩組總數相同，扣已知的部分，以差額找缺少的數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 13,
+          "summary": "半格陰影合成整格",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有同樣大小整格；兩個半格合成一整格的面積比較尚未教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 14,
+          "summary": "兩組數和與剩餘格",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": "A",
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "先求全部數字總和，再扣兩組已知總和，求唯一餘格。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 15,
+          "summary": "先上下翻再左右翻",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "space-2",
+            "pattern-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "先完成一次翻面，記下新的狀態，再完成第二次不同邊翻面。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 16,
+          "summary": "補餅令數量可平均分",
+          "topic": "count",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "logic-4",
+            "measure-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有平均分與補差；補至5的整倍數，逐試剩餘數，尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 17,
+          "summary": "行列不同形狀和數量",
+          "topic": "observe",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "observe-3",
+            "observe-4",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "知道同格受行列兩組限制；行列各不同形狀與個數的雙重拉丁方推理尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 18,
+          "summary": "反向車卡相對位置",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "space-1",
+            "measure-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有固定方向與相對差；兩列反向車卡編號配對的固定總和仍未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 19,
+          "summary": "蜂巢補色連接路線",
+          "topic": "route",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "route-5",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "能列路線及核對條件；蜂巢恰補兩格形成通路的組合枚舉仍是更難限制題。",
+          "explicitReference": true
+        },
+        {
+          "year": 2020,
+          "number": 20,
+          "summary": "箭嘴高矮推理",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "logic-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可串連大小先後；多分岔箭嘴關係圖找唯一最矮者，需學圖上箭嘴定義。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 21,
+          "summary": "兩類水果數量抵消",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": "B",
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "logic-8"
+          ],
+          "coverage": "method",
+          "coverageReason": "綠蘋果同時出現在兩邊，配去共同部分後只比較黃蘋果和綠梨加3。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 22,
+          "summary": "十字橫直總和相同",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": "E",
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "logic-8",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "能配去共同中心及有序列候選；奇偶判斷和證明1、3、5都可行尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 23,
+          "summary": "立方體對面等和",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教立方體三對相對面的等和、六個不同數及候選值限制。",
+          "explicitReference": false
+        },
+        {
+          "year": 2020,
+          "number": 24,
+          "summary": "交換糖果後倒推",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "logic-2",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有倒推和更新庫存；兩人互換的數量依當時另一人庫存改變，尚未示範耦合倒推。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "questions": [
+        {
+          "year": 2021,
+          "number": 1,
+          "summary": "三根不可折棒組圖",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "能檢查構成件數；辨認完整直棒而不是每個小線段的特殊條件尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 2,
+          "summary": "四張紙共同重疊區",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐層留下所有紙都佔用的位置，原題四層仍使用同一共同位置方法。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 3,
+          "summary": "衣上數字鏡像",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            3,
+            4
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有左右鏡像；數字字形和整排順序一起反轉尚未用文字圖像示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 4,
+          "summary": "兩蘑菇標尺高度差",
+          "topic": "measure",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "measure-2",
+            "measure-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "從共同零點讀兩個高度，再求相差的單位數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 5,
+          "summary": "折線長度逐格比較",
+          "topic": "route",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "route-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "以相同格長逐段數折線，不以外觀或彎曲多少判長短。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 6,
+          "summary": "連鎖高矮條件",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "把連續高矮關係串成一列，找最高者，對應先後排序核對。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 7,
+          "summary": "人物面向與右手",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "目前只教畫面方向；人物正面與背面時的自身右手未教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 8,
+          "summary": "所有星數大於門檻且等和",
+          "topic": "observe",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "logic-1",
+            "observe-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有逐條核對；全部數字都大於3且總和20，還需多數相加的篩選步。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 9,
+          "summary": "一剪多次穿過繩的分段",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "measure-1",
+            "puzzle-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有位置與段數、摺紙剪孔；同一繩被一刀穿過11次及切點加1段尚未示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 10,
+          "summary": "封閉路線多圈定位",
+          "topic": "route",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "route-4",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有完整圈後再走餘步；每段不同長度的圈路先求一圈總米數仍需橋樑。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 11,
+          "summary": "座標字母解碼",
+          "topic": "observe",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": "E",
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "observe-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "每個代碼先找到列與行交點，再順序讀出字母。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 12,
+          "summary": "兩盆每種花分別相等",
+          "topic": "count",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": "C",
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "observe-2",
+            "measure-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "把每類花分開配對，只向較少的一盆補同類缺量，再把三類增量合計。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 13,
+          "summary": "進球數差換成分數",
+          "topic": "measure",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "measure-2",
+            "count-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "先求進球數相差，再把每一球配成2分，合計分數差。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 14,
+          "summary": "兩塊符號拼圖",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有試拼及轉動；兩塊有內部符號且需多處同時吻合，比現課固定拼塊複雜。",
+          "explicitReference": true
+        },
+        {
+          "year": 2021,
+          "number": 15,
+          "summary": "通路必經房屋定位",
+          "topic": "route",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "route-1",
+            "logic-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可追道路與核對條件；由必經房屋關係推五個未知人物身份尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 16,
+          "summary": "先吃後再按剩餘量吃",
+          "topic": "pattern",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有配去共同量的入門；吃去的量恰是另一枝餘量時，總餘量不變的證明尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 17,
+          "summary": "方格分塊排除多餘塊",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有拼合及有序候選；四塊從五塊選出並按符號試拼，需要多步排除搜尋。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 18,
+          "summary": "分箱相等總和",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": "C",
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "logic-4",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有平分總數及有序配搭；列出全部不重複數字子集分箱而證唯一搭檔尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 19,
+          "summary": "反覆三換一水果",
+          "topic": "pattern",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "logic-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可更新兩類物件與等值交換；反覆三換一到無法繼續的循環停止條件尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 20,
+          "summary": "女孩男孩全部配對",
+          "topic": "count",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "count-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "固定每位女孩，依次配每位男孩，列齊3組各2個配搭。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 21,
+          "summary": "齒輪一圈聯動方向",
+          "topic": "space",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "pattern-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有相接輪子反向轉；不同齒數的轉圈比例及黑齒最終位置仍未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 22,
+          "summary": "每週飲食數量合計",
+          "topic": "pattern",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "pattern-1",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有固定一組再重複；週內不同日用不同份量，再算兩週加權總數尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 23,
+          "summary": "餅乾盤每類容量下限",
+          "topic": "count",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "count-1",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可逐類數量和相同份；以最缺種類決定最少盤數的容量下界尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2021,
+          "number": 24,
+          "summary": "層架相對高低與相鄰",
+          "topic": "logic",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "logic-3",
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有高低排序與有序嘗試；須枚舉所有五層安排，判某層不可能放拼圖，仍超過現固定位置例子。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "questions": [
+        {
+          "year": 2022,
+          "number": 1,
+          "summary": "只數三角形，再比較五盒的數目",
+          "topic": "observe",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            1,
+            2
+          ],
+          "lessonIds": [
+            "observe-1",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "只保留三角形再逐個點數，分類點數方法相同。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 2,
+          "summary": "把一邊圖案轉半圈，再拼回另一邊",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            2,
+            3
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "轉動和翻轉已有分別示範；原題將半幅轉半圈再對邊。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 3,
+          "summary": "數每塊磚接觸了多少塊其他磚",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3,
+            4
+          ],
+          "lessonIds": [
+            "space-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教完整面相貼及接觸對；原題長磚一塊可同時接觸多塊，沒有專課示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 4,
+          "summary": "比較兩組相同食物，找多出一杯的價錢",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            4,
+            5
+          ],
+          "lessonIds": [
+            "logic-8"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩組共同三文治和一杯可配去，多出一杯由總額差求值。",
+          "explicitReference": true
+        },
+        {
+          "year": 2022,
+          "number": 5,
+          "summary": "找同時缺一枚硬幣的行和列",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5,
+            6
+          ],
+          "lessonIds": [
+            "observe-3",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有讀行列和核對條件；未教各行各列都須指定數量的交叉填格。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 6,
+          "summary": "用缺口邊界及地圖線索配回碎片",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6,
+            7
+          ],
+          "lessonIds": [
+            "puzzle-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "對缺口形狀和沿邊圖案核對，是已教的缺片方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 7,
+          "summary": "拼四塊圖案，檢查拼成的黃色部分",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            7,
+            8
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有逐塊試放；原題曲線圖案跨四塊的拼合沒有完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 8,
+          "summary": "按行點數有沾到墨水的格子",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            8,
+            9
+          ],
+          "lessonIds": [
+            "count-1",
+            "observe-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有逐行點數和分類；未特別教只沾到一部分也算整格的墨水規則。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 9,
+          "summary": "相同圖案代表相同數字，不同圖案不同數字",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            9,
+            10
+          ],
+          "lessonIds": [
+            "logic-4",
+            "pattern-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教相同圖案同值；原題還規定不同圖案一定代表不同數字，未完整教此對應限制。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 10,
+          "summary": "用形狀和花紋兩條線索配對籃子",
+          "topic": "observe",
+          "answerStatus": "unclear",
+          "suppliedAnswer": "B/D",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可用形狀和花紋兩條線索；原卷提問不完整且有兩個籃子，不能作單一答案示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 11,
+          "summary": "照箭嘴走，逐步檢查有沒有踩着障礙",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "space-1",
+            "route-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "按固定畫面方向逐步走，再檢查有否碰障礙，方法相同。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 12,
+          "summary": "拆開拼圖，找唯一出現的梯形",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            11,
+            12
+          ],
+          "lessonIds": [
+            "observe-1",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教形狀分類及試拼；原題須從完整七巧板動物拆認部件，尚未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 13,
+          "summary": "由上面看圓盤，只保留未被擋住的部分",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            13,
+            14
+          ],
+          "lessonIds": [
+            "space-3",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教頂面佔位和分層；未教不同直徑圓盤互相遮住形成彩色圓環。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 14,
+          "summary": "分清印章圖案和左右倒轉的印出圖案",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            14
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "左右鏡像與印出圖案方向正是已教方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 15,
+          "summary": "用相同地磚鋪方框，數需要的地磚",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            14,
+            15
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "measure-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教相同小格及單位；未教內外方框面積差和長方磚鋪邊。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 16,
+          "summary": "按貼紙先後次序，判斷誰蓋着誰",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            15,
+            16
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教共同位置；未教四張貼紙先後覆蓋的上下排序。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 17,
+          "summary": "用兩間屋的共同部分總數求未知數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            16,
+            17
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教總數、共同部分和未知圖案；原題兩間屋共享兩個未知點，需先求共用總和。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 18,
+          "summary": "把草地拆成一樣的小三角形比較大小",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            17,
+            18
+          ],
+          "lessonIds": [
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教拆成一樣方格；原題斜邊草地須拆同樣三角格，該表徵未完整教。",
+          "explicitReference": true
+        },
+        {
+          "year": 2022,
+          "number": 19,
+          "summary": "逐年記錄收到的熊，再加總",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            18
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教逐步記餘量；未教按生日逐年多送一隻的累積總和。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 20,
+          "summary": "房間不可重走，找最大沿途總數",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            18,
+            19
+          ],
+          "lessonIds": [
+            "route-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有有序列路；原題房間只走一次且要最大數字總和，該限制和最佳化尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 21,
+          "summary": "用行列總和找每種圖案的值",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            19,
+            20
+          ],
+          "lessonIds": [
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教同圖案同值和已知量扣除；原題要連續解三種不同圖案，需多次反代。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 22,
+          "summary": "分清比誰多和比誰少，找最大數目",
+          "topic": "measure",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            20
+          ],
+          "lessonIds": [
+            "measure-2",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教差額比較；原題須連起兩條不同人的多幾少幾關係後找最大。",
+          "explicitReference": true
+        },
+        {
+          "year": 2022,
+          "number": 23,
+          "summary": "跟着車頭方向，只選每次左轉的路",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            20,
+            21
+          ],
+          "lessonIds": [
+            "space-1",
+            "route-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有固定方向和選路；未教按車頭改變的相對左轉及全程禁止右轉。",
+          "explicitReference": false
+        },
+        {
+          "year": 2022,
+          "number": 24,
+          "summary": "交換兩張數字卡，找最少交換次數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            21,
+            22
+          ],
+          "lessonIds": [
+            "pattern-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教記操作前後位置；未教交換數字卡的最少次數證明。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "questions": [
+        {
+          "year": 2023,
+          "number": 1,
+          "summary": "大圓和圓內的小圓全部要數",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "count-1",
+            "observe-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "按大小位置逐個標記圓，避免漏數和重數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 2,
+          "summary": "由上面看積木，找每列最頂的顏色",
+          "topic": "space",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "space-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教俯視佔位和柱高；未完整教不同顏色各層的頂色配對。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 3,
+          "summary": "各組共有的數字先放一邊，比不同的一個",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "logic-8",
+            "count-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "各碗相同的9、7、4先配去，只比較不同的第四球。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 4,
+          "summary": "逐種核對七巧板，找沒有用到的那塊",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "observe-1",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有分類及試拼；未專教七巧板種類清單和缺一種部件。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 5,
+          "summary": "同時核對圓的數量和三角形比正方形多幾個",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "observe-2",
+            "measure-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "核對圓數和三角比方形多幾，兩條條件都要符合。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 6,
+          "summary": "一根大蠟燭代表十，一根小蠟燭代表一",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "count-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "長蠟燭當十、短蠟燭當一，十位個位方法相同。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 7,
+          "summary": "總數減看得見的車，找遮住的車",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "count-1",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可數可見車及扣除已知部分；遮住數等於總數減可見數未有單獨圖例。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 8,
+          "summary": "沿路直行，每次經過路口都計一次",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "route-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "同一路口再次經過仍記一次，是重複訪次方法。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 9,
+          "summary": "改變觀察位置，找被前方樹擋住的樹",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "space-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有不同視圖概念；未教觀察點、直線視線及前樹擋後樹。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 10,
+          "summary": "先找一半的目標數，再減已塗格子",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "measure-4",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教補差和等分；原題先求一半再補已塗數，半數目標未完整示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 11,
+          "summary": "扣掉已知數，再平均分給兩個相同問號",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "logic-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "扣已知10和2，再平均分給相同兩問號，方法相同。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 12,
+          "summary": "對照完整圖片，只加缺少部件的分數",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "observe-2",
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可對圖找缺部件及累加；未教部件各有不同價格的圖像清單求和。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 13,
+          "summary": "塗整行和整列時，交叉格只算一次",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "observe-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "行列交叉格只數一次，對應完整方法。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 14,
+          "summary": "沿摺線展開，洞在另一邊對稱出現",
+          "topic": "space",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "puzzle-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "沿摺線展開孔，左右同距，對應摺紙方法。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 15,
+          "summary": "每對相鄰積木共面只點一次",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "space-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有接觸面和每對共面只算一次；原題須數複雜立體所有共面接觸，而課例先用直行積木。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 16,
+          "summary": "同時核對缺格數和缺口形狀",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐塊試放、不可重疊及不可留空，是已教拼格方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 17,
+          "summary": "用相同三角拼塊，核對每塊內部線條",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有拼合和轉動；原題每三角塊內部線條亦須一致，尚未完整教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 18,
+          "summary": "把年齡差逐條連起來，再找剩下的人",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "logic-3",
+            "measure-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有前後和差額；原題以年齡差連成比較鏈再分配姓名，超出直接固定位置課例。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 19,
+          "summary": "比較沿圓環兩邊路線的距離總和",
+          "topic": "route",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "route-5",
+            "measure-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可列路和加段長；原題環兩邊各半總長才同距，未教加權圓環平分。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 20,
+          "summary": "沿兩層迷宮上落樓梯，記貼紙順序",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "route-1",
+            "route-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有平面通道和分岔；未教樓梯同點跨兩層切換和沿途貼紙次序。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 21,
+          "summary": "第三名後還有中間三人和最後一人",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "measure-1",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有空位及順序點數；未完整教名次本人、中間人及最後一人同時計入。",
+          "explicitReference": true
+        },
+        {
+          "year": 2023,
+          "number": 22,
+          "summary": "按拼塊固定方向覆蓋數字，找最大總和",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "count-4",
+            "puzzle-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可有序試放；未教在固定不轉的數字網格覆蓋中找最大總和。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 23,
+          "summary": "每晚唱或聽，先找唱的次數再補出聽的次數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未設唱歌與聽歌互補次數、三人分配的完整方法課。",
+          "explicitReference": false
+        },
+        {
+          "year": 2023,
+          "number": 24,
+          "summary": "有次序地列減法，重複結果只記一次",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "count-4",
+            "count-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教固定一項列舉和十位個位；未教重複實物數字卡與不同算式同結果的去重。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "questions": [
+        {
+          "year": 2024,
+          "number": 1,
+          "summary": "找同時在三種圖形裏面的數字",
+          "topic": "observe",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有兩條件交集；原題同時在三個相疊輪廓內，尚未完整示範三區共同交集。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 2,
+          "summary": "不轉動透明圖，把兩層圖案疊起來",
+          "topic": "space",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            1
+          ],
+          "lessonIds": [
+            "puzzle-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教兩層共同位置；原題透明圖要合併全部輪廓，不只是找共同格。",
+          "explicitReference": true
+        },
+        {
+          "year": 2024,
+          "number": 3,
+          "summary": "沿每條封閉邊界追蹤，數裏面的點",
+          "topic": "count",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有逐個不漏點數；未教沿纏繞封閉邊界確定各點屬哪個區域。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 4,
+          "summary": "重做相同四分一圈轉動",
+          "topic": "space",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            2
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "同方向連做四分一圈轉動，使用已教旋轉方法。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 5,
+          "summary": "把相同面孔配成對，找落單的一張",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "count-2",
+            "observe-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "相同面孔配成對，未配到的就是唯一一張。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 6,
+          "summary": "把空白位置補成相同小三角形再點數",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有等大方格計數；原題空白位置須補同大的三角格，未完整示範。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 7,
+          "summary": "沿彎曲絲帶追蹤，比較同單位長度",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "measure-3",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教同單位長度和逐段；原題絲帶轉角在網格裏，須分清帶長而非面積。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 8,
+          "summary": "核對印章左右倒轉及圖案細節",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "印出圖案作鏡像，且核對尾巴等細節。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 9,
+          "summary": "四塊相同積木拼成立體，排除不能拼成的形狀",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教平面試拼和立體分層；未教四塊雙立方體的立體可拼性。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 10,
+          "summary": "統計掉出玩具，再用總數找未掉落的籃子",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "count-1",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有分類點數和配去共同部分；原題要統計多類玩具庫存，再反推完整未掉籃子。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 11,
+          "summary": "由相同圖案行列總和找星形的值",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "logic-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "同圖案列先求笑臉及心，再以已知心求星，屬同值反代方法。",
+          "explicitReference": true
+        },
+        {
+          "year": 2024,
+          "number": 12,
+          "summary": "先算每格，沿只有指定答案的通道走",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "route-1",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有通路和條件；原題須先算各格加法，再把不等於7的格視為不可進入。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 13,
+          "summary": "沿盒子的絲帶一圈圈量，加上打結部分",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "measure-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有相同長度單位；未教絲帶繞立體盒各個方向的圈長和打結餘量。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 14,
+          "summary": "交疊數同屬兩區，按倍數關係求未知數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教總和和未知量；原題共享5同屬兩區，還須用兩倍關係，沒有完整圖例。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 15,
+          "summary": "每五幅一組，找第廿七幅在組內的位置",
+          "topic": "pattern",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "pattern-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "找固定一組及組內位置，再用到第27幅，循環方法相同。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 16,
+          "summary": "只加直接有線連着的數，逐個驗算",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未設只加直接有線相連的鄰點、而非間接可到達點的加總課。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 17,
+          "summary": "從頂部看每列積木，不把高度當作佔位",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "space-3",
+            "space-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "按每柱位置只保留頂面佔位，柱高不增加俯視格數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 18,
+          "summary": "列出選兩個不同數的和，相同結果只記一次",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "count-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有有序列舉；原題同一數池選兩數，且不同配對可能同和，結果去重尚未教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 19,
+          "summary": "用兩塊拼圖填缺口，不能重疊或留空",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "puzzle-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩塊填完整缺口，不能重疊，也不能留空。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 20,
+          "summary": "每人只有一個共同圖案，逐人檢查",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有逐條件核對；原題要與每一人恰好共一種圖形，未教多集合共同項目的計數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 21,
+          "summary": "比較三座塔，扣掉共同積木求另一座高度",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有共同部分配去；原題三座塔有三種未知高度，須合併三個等式才求另兩件。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 22,
+          "summary": "只向上或右走，按每格費用找最便宜路線",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "route-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教有序列出各路；原題只上或右的費用網格還須逐路算成本並找最低，未教成本最佳化。",
+          "explicitReference": true
+        },
+        {
+          "year": 2024,
+          "number": 23,
+          "summary": "按每日完成數逐日點日曆，核對兩種完成日",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未教從開始日也計一天的日曆逐日累積，及兩种每日題數對應不同星期的限制。",
+          "explicitReference": false
+        },
+        {
+          "year": 2024,
+          "number": 24,
+          "summary": "最初數目加獎勵等於用掉總數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "logic-2",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有還原收送和等值；原題每次命中又獲新飛鏢，需由收支總量反推事件次數。",
+          "explicitReference": true
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "questions": [
+        {
+          "year": 2025,
+          "number": 1,
+          "summary": "送走部分氣球後，數還有多少",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "由6收到或送出事件更新餘量，直接扣去送走4個。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 2,
+          "summary": "用邊界及圖案位置找正確缺片",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            3
+          ],
+          "lessonIds": [
+            "puzzle-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "對缺片邊界及圖案位置核對，不只看動物種類。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 3,
+          "summary": "只選有三條直邊的圖形",
+          "topic": "observe",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "observe-1",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "只保留三條直邊的圖形，逐個數三角形。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 4,
+          "summary": "重疊鉛筆每支只數一端",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有不漏不重點數；原題重疊鉛筆須每支只選尖端或橡皮一端作代表點。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 5,
+          "summary": "各路橫向一樣，比較額外上下的距離",
+          "topic": "measure",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            4
+          ],
+          "lessonIds": [
+            "measure-3",
+            "route-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有逐段同單位；原題折路橫向一樣可消去，需比較額外上下距離。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 6,
+          "summary": "完整格子總數減剩下格子，找缺少數",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "count-1",
+            "puzzle-2",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有按格數及扣還原；原題完整16減剩10求缺格，需把總數與可見部分連起來。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 7,
+          "summary": "轉動鈕扣，核對三個標記的相對位置",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            5
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "轉動後核對標記相對位置，排除只能鏡像匹配的鈕扣。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 8,
+          "summary": "逐條排除含禁止動物的架子",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            6
+          ],
+          "lessonIds": [
+            "observe-2",
+            "logic-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "每條禁止動物條件都核對，不符合任一條便排除。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 9,
+          "summary": "兩條橡筋接觸積木，交叉積木只算一次",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "observe-4",
+            "space-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有重疊只數一次；原題橡筋在立體不同面，需要先找每組碰到哪些積木。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 10,
+          "summary": "還原被蓋着的長方形，數同時被三層蓋住的格",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7
+          ],
+          "lessonIds": [
+            "puzzle-5",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有兩層共同位置和還原隱層；原題四墊蓋住，要重建每個長方形再數三層共蓋格。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 11,
+          "summary": "轉動匙形，核對匙孔輪廓和相對位置",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "space-2",
+            "puzzle-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "核對輪廓相對位置，適當轉動後配匙孔。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 12,
+          "summary": "相同大狗部分扣除，先求小狗再求大狗重量",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            8
+          ],
+          "lessonIds": [
+            "logic-8"
+          ],
+          "coverage": "method",
+          "coverageReason": "兩組有同大狗和1小狗，多出的1小狗由總重差求，再反代大狗。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 13,
+          "summary": "先扣全部其他水果，再把橙分成兩半",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "logic-4",
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有扣已知及兩邊等分；原題先扣全部梨蘋果，再理解橙的一半，尚未完整教一半情境。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 14,
+          "summary": "把右邊名次換成左邊位置，數兩人中間的人",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9
+          ],
+          "lessonIds": [
+            "measure-1",
+            "count-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有相鄰空位；原題先把右邊名次轉成左邊位置，再排除兩位本人數中間人。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 15,
+          "summary": "兩次換位後，記錄每本書新位置",
+          "topic": "pattern",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            10
+          ],
+          "lessonIds": [
+            "pattern-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有操作後記錄位置；未專教兩次以物件身份互換、而不是左右新增的狀態。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 16,
+          "summary": "合併前後視圖，找立體剩下的部件",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有拼塊及上視位置；原題須合併正面背面線索找立體內部第三件，沒有完整課例。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 17,
+          "summary": "沿黑白相間規律補出被遮住的珠",
+          "topic": "pattern",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            11
+          ],
+          "lessonIds": [
+            "pattern-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "從兩端的黑珠補出交替白黑五珠，再數隱藏白珠。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 18,
+          "summary": "價錢差只來自多出的兩件，平均求每件價錢",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "logic-8",
+            "logic-4"
+          ],
+          "coverage": "method",
+          "coverageReason": "共同三件配去，多出的兩件共享差額8；再平均分兩件，每件4。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 19,
+          "summary": "回到三年前，求另一人當時年齡，再向前走",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "logic-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "可還原前後改變；原題兩人同時往返三年、配合年齡總和，未完整教共同時間線。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 20,
+          "summary": "列重量配對，找兩組同和及剩下的玩具",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            12
+          ],
+          "lessonIds": [
+            "count-4",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有有序配搭和條件；原題同一池分成兩組同和且不能重用，同和配對尚未完整教。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 21,
+          "summary": "每行每列不能重複，用已知格排除",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            13
+          ],
+          "lessonIds": [
+            "observe-3",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有讀行列及條件；未教每行每列全部不重複的填格排除。",
+          "explicitReference": false
+        },
+        {
+          "year": 2025,
+          "number": 22,
+          "summary": "分層看隱藏積木，依上下交替顏色點數",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            14
+          ],
+          "lessonIds": [
+            "space-4",
+            "pattern-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有逐層數和補交替規律；未把立體隱層的顏色上下交替整合成完整示範。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 23,
+          "summary": "先找最差情況可取多少非白球，再加一次",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            14
+          ],
+          "lessonIds": [
+            "logic-6"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教最遲取得和再加一次；原題各柱只從底部掉球，非目標球要受上方白球阻擋限制。",
+          "explicitReference": true
+        },
+        {
+          "year": 2025,
+          "number": 24,
+          "summary": "接觸格不能同色，配合各色數目求中心格",
+          "topic": "logic",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            15
+          ],
+          "lessonIds": [],
+          "coverage": "not_covered",
+          "coverageReason": "未設接觸格不能同色、指定各色總量的全圖著色及不可行證明。",
+          "explicitReference": false
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "questions": [
+        {
+          "year": 2026,
+          "number": 1,
+          "summary": "核對瓢蟲兩邊點數和方向是否相同",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            3,
+            18
+          ],
+          "lessonIds": [
+            "observe-1",
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "核對細節及轉動方向，兩翼點數要保持相對位置。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 2,
+          "summary": "沿通道找可到達區域，數能取到的骨頭",
+          "topic": "route",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            3,
+            18
+          ],
+          "lessonIds": [
+            "route-1",
+            "route-3",
+            "count-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "沿可連通通道找每個分支，已到的物件逐個標記數一次。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 3,
+          "summary": "找能塞進缺口的動物輪廓",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            4,
+            19
+          ],
+          "lessonIds": [
+            "puzzle-1"
+          ],
+          "coverage": "method",
+          "coverageReason": "按缺口輪廓試配動物形，方法相同。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 4,
+          "summary": "只數套中木樁的圈，每圈得相同分數",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            4,
+            19
+          ],
+          "lessonIds": [
+            "pattern-4",
+            "count-3"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有等組點數及事件加分；原題要先判定只有2圈真正套中，再按每圈3分加總。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 5,
+          "summary": "把鞋配成雙，一雙代表一位朋友",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            5,
+            20
+          ],
+          "lessonIds": [
+            "count-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "先把相同鞋配成雙，一對代表一人，配對數即人數。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 6,
+          "summary": "每個位置的顏色反轉，位置維持",
+          "topic": "space",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            5,
+            6,
+            20
+          ],
+          "lessonIds": [
+            "pattern-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有依規則更新狀態；未專教六個位置逐格雙面翻色，而位置完全不動。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 7,
+          "summary": "每隻怪獸逐一核對原來的家族",
+          "topic": "observe",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            6,
+            21
+          ],
+          "lessonIds": [
+            "observe-1",
+            "observe-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "逐個核對家族歸屬，所有成員都須同一類。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 8,
+          "summary": "每行綠白配對，累加每行多出的一格",
+          "topic": "count",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            7,
+            21
+          ],
+          "lessonIds": [
+            "count-3",
+            "measure-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "綠白逐對配起來，只數每行多出的一綠格。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 9,
+          "summary": "從玻璃另一邊看，字形和整排順序一起倒轉",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            7,
+            22
+          ],
+          "lessonIds": [
+            "space-2"
+          ],
+          "coverage": "method",
+          "coverageReason": "整排順序和字形同時鏡像，已教左右反射。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 10,
+          "summary": "一邊搬出另一邊搬入，移動一隻使差少兩隻",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            8,
+            22
+          ],
+          "lessonIds": [
+            "measure-5"
+          ],
+          "coverage": "method",
+          "coverageReason": "從多的一邊搬到少的一邊，兩邊同步減加，差額每次少2。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 11,
+          "summary": "兩個方向切蛋糕，數形成的行和列",
+          "topic": "puzzle",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            8,
+            23
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "measure-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有格計數及間隔；未教切3刀成4條、另4刀成5列的切割分塊規則。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 12,
+          "summary": "柱一至柱十有九段，每段用相同時間",
+          "topic": "measure",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            9,
+            23
+          ],
+          "lessonIds": [
+            "measure-6"
+          ],
+          "coverage": "method",
+          "coverageReason": "先數9次相鄰跳躍，再累加每段2秒。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 13,
+          "summary": "核對三角形格數及可拼接邊界，找剩下那塊",
+          "topic": "puzzle",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            9,
+            24
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "puzzle-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有有序試拼和同單位；原題五塊三角細格要兼查格數及輪廓，未完整展示。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 14,
+          "summary": "兩個半格拼一格，按每管可塗格數求還需份量",
+          "topic": "measure",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            10,
+            24
+          ],
+          "lessonIds": [
+            "puzzle-2",
+            "measure-3",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有同單位及等分；原題先把半格三角合為整格，再由每管2格求剩餘油漆。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 15,
+          "summary": "用同一本黃書作參照，比較另外兩書的差",
+          "topic": "measure",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            10,
+            25
+          ],
+          "lessonIds": [
+            "measure-2",
+            "logic-8"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有差額及共同部分；未教以第三本書作共同參照，反向比较另外兩書差額。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 16,
+          "summary": "已知全部黃色積木，從指定面看露出的顏色",
+          "topic": "space",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            11,
+            25
+          ],
+          "lessonIds": [
+            "space-3",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有上視及隱層；未教左側視方向及由全部黃色都已露出反推未見側面。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 17,
+          "summary": "由頂色推出五層交替色，每種塔分組加總",
+          "topic": "pattern",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            11,
+            12,
+            26
+          ],
+          "lessonIds": [
+            "pattern-2",
+            "space-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已有交替規律和逐層數；原題按頂色分兩種五層塔，再求各種數目的組合總和。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 18,
+          "summary": "轉動兩塊圖案，檢查能否保持內部相對位置",
+          "topic": "puzzle",
+          "answerStatus": "unclear",
+          "suppliedAnswer": null,
+          "derivedAnswer": null,
+          "pages": [
+            12,
+            26,
+            27
+          ],
+          "lessonIds": [
+            "puzzle-3",
+            "space-2"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有兩塊試拼及轉動；原題內部箭頭和斜點排列也須保持，不能只對外框。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 19,
+          "summary": "找該行形狀和該列動物，合成被遮格",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "B",
+          "derivedAnswer": null,
+          "pages": [
+            13,
+            27
+          ],
+          "lessonIds": [
+            "observe-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "行的形狀和列的動物在交叉格組合，直接對應屬性表。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 20,
+          "summary": "按左右穿珠次序更新，再接成圓環",
+          "topic": "pattern",
+          "answerStatus": "supplied_key_only",
+          "suppliedAnswer": "A",
+          "derivedAnswer": null,
+          "pages": [
+            14,
+            28
+          ],
+          "lessonIds": [
+            "pattern-3"
+          ],
+          "coverage": "method",
+          "coverageReason": "每次左右端新增都記新位置，最後接首尾，方法相同。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 21,
+          "summary": "只讀視窗露出的格，再比較兩卡的和",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "D",
+          "derivedAnswer": null,
+          "pages": [
+            15,
+            28,
+            29
+          ],
+          "lessonIds": [
+            "observe-3",
+            "count-4",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有讀格位置及有序試配；未教遮罩只露兩格及兩卡四數合指定總和的完整搜索。",
+          "explicitReference": false
+        },
+        {
+          "year": 2026,
+          "number": 22,
+          "summary": "把假話改成相反條件，排好到達先後",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            16,
+            29
+          ],
+          "lessonIds": [
+            "logic-3",
+            "logic-1"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有直接前後排序及否定條件；原題須把兩句假話先翻成相反先後限制。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 23,
+          "summary": "比較兩行總和，交換一對使兩邊同時改變",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "C",
+          "derivedAnswer": null,
+          "pages": [
+            17,
+            30
+          ],
+          "lessonIds": [
+            "measure-5"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "有淨搬移使兩邊相等；未教交換兩張不同值卡，差額同時減增的數值搜索。",
+          "explicitReference": true
+        },
+        {
+          "year": 2026,
+          "number": 24,
+          "summary": "數兄弟時要扣自己，分清兩人的兄弟數",
+          "topic": "logic",
+          "answerStatus": "independently_verified",
+          "suppliedAnswer": "E",
+          "derivedAnswer": null,
+          "pages": [
+            17,
+            30
+          ],
+          "lessonIds": [
+            "logic-7",
+            "logic-4"
+          ],
+          "coverage": "foundation",
+          "coverageReason": "已教數同類時扣自己；原題再用兩人的兄弟數兩倍關係求男孩總數，屬另一步推理。",
+          "explicitReference": true
+        }
+      ]
+    }
+  ]
+}

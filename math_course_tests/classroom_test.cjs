@@ -11,7 +11,10 @@ let diagrams=0;for(const [key,p] of Object.entries(lessons)){
  assert.equal(K.state(key).stage,'warmup');assert(p.diagram.svg.includes('<svg'),key+' teaching diagram');
 }
 const old=cp.execFileSync('git',['show','HEAD:app/index.html'],{cwd:R,encoding:'utf8',maxBuffer:20*1024*1024});
-const originals=s=>[...s.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)].filter(x=>!x[1].includes('data-course-m1=')).map(x=>x[2].replace(/\r\n/g,'\n'));assert.deepEqual(originals(read('app/index.html')),originals(old),'English and other original scripts untouched');
+// Allow only the explicit Olympiad entry; all other original scripts must match HEAD.
+const oldOly=read('r37_src/s20_ui.js').split(/\r?\n/).find(l=>l.includes("tiles=r37A('🏆','闖關','#lv/olympiad'" )).trim();
+const originals=s=>[...s.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)].filter(x=>!x[1].includes('data-course-m1=')&&!x[1].includes('data-olympiad-sync')).map(x=>x[2].replace(/\r\n/g,'\n').replace(/tiles=r37B\('📚','圖解課堂'[^\n]+;/,oldOly));
+const currentScripts=originals(read('app/index.html')),oldScripts=originals(old);assert.equal(currentScripts.length,oldScripts.length);currentScripts.forEach((s,i)=>assert.ok(s===oldScripts[i],'Unrelated original script changed: '+i));
 const map=JSON.parse(read('math_course_src/curriculum-map.json')).units,units=Object.fromEntries(map.map(u=>[u.code,u]));
 assert.deepEqual(units['1M4'].lessons[0].config,{minutes:120,target:180,step:60});
 assert.deepEqual(units['3N5'].lessons[1].config,{den:4,selected:0,targetDen:4,targetNum:3});
