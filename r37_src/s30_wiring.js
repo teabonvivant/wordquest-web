@@ -1,6 +1,7 @@
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps)|lp\/play|dz|fps|fp\/play|rn\/play)$/;
-let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps|td|mz|cd)|lp\/play|dz|fps|fp\/play|rn\/play|g3\/play)$/;
+let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null,r37G3Handle=null,r37G3Sel=null;
+function r37G3Stop(){if(r37G3Handle){try{r37G3Handle.destroy();}catch(_){}r37G3Handle=null;}}
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
 function r37FpsStop(){if(r37FpsHandle){try{r37FpsHandle.destroy();}catch(_){}r37FpsHandle=null;}}
 function r37GameWords(w0,n){
@@ -34,6 +35,25 @@ function r37StartFps(w,s,from){
  if(r37EnStage(w,s).length<4){toast('這一關還未準備好。','bad');return;}
  r37P=null;clearTimeout(r37Timer);r37FpsSel={w,s,from:from||'#lv/fps'};r37Mem._fw=w;r37Nav37('fp/play');
 }
+function r37G3Start(g,subj,w,s,from){
+ if(!r37G3Open(g,subj,w,s))return;
+ r37P=null;clearTimeout(r37Timer);r37G3Sel={g,subj,w,s,from:from||'#lv/'+g,seed:(Date.now()&0xfffff)};r37Nav37('g3/play');
+}
+function r37G3Mount(){
+ const box=$('#r37-g3-box'),sel=r37G3Sel;if(!box||!sel)return;r37G3Stop();
+ const {g,subj,w,s,from}=sel,G=R37_G3[g],lib=globalThis[G.lib];
+ if(!lib){box.innerHTML='<div class="r37-card"><h2>'+r37Icon(G.icon)+'</h2></div>';return;}
+ const diff=r37DiffN(subj==='math'?'math':'english'),ch=r37Char(),W=r37G3Worlds(subj)[w],items=r37G3Items(subj,w,s,diff,sel.seed),review=r37G3Review(subj,w,s,diff,sel.seed,items);
+ if(items.length<4){toast('這一關還未準備好。','bad');location.hash=from;return;}
+ const nx=r37G3Next(g,subj,w,s),ut=subj==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(r37UnitId(w,s))?.title||''):'';
+ const opts={subject:subj,items,review,difficulty:diff,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
+  title:G.name,level:{w,s,boss:s===9,title:ut||(W&&W.name)||'',icon:(W&&W.icon)||'',hue:G.hue,grade:r37G3Grade(subj,w)},
+  character:{id:ch.id,icon:ch.icon,img:ch.img,name:ch.name,perk:ch.perk},syllables:r37SylText,speak:t=>{try{r37Speak(t);}catch(_){}},
+  onFinish:res=>r37G3Pay(g,subj,w,s,res,items),
+  onExit:()=>{r37G3Stop();location.hash=from;}};
+ if(nx)opts.onNext=()=>{if(!r37G3Open(g,subj,nx.w,nx.s)){r37G3Stop();location.hash=from;return;}r37G3Sel={g,subj,w:nx.w,s:nx.s,from,seed:(Date.now()&0xfffff)};(r37Mem._gw=r37Mem._gw||{})[r37G3Track(g,subj)]=nx.w;r37G3Mount();};
+ r37G3Handle=lib.start(box,opts);
+}
 function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
@@ -64,9 +84,10 @@ render=function(){
  if(lastRoute&&lastRoute!==route){stopSpeech();clearTimeout(r37Timer);}
  if(route!=='fps'&&route!=='fp/play')r37FpsStop();
  if(route!=='rn/play')r37RunStop();
+ if(route!=='g3/play')r37G3Stop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play');
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
@@ -75,11 +96,13 @@ render=function(){
  else if(route.startsWith('p/'))html=r37Hub(route.slice(2));
  else if(route==='lv/runner')html=r37RunMap();
  else if(route==='lv/fps')html=r37FpsMap();
+ else if(/^lv\/(td|mz|cd)$/.test(route))html=r37G3Map(route.slice(3));
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='dz')html=r37DzHome();
  else if(route==='lp/play')html=r37Play();
  else if(route==='fps')html='<section class="r37-fps"><div id="r37-fps-box"></div></section>';
+ else if(route==='g3/play')html=r37G3Sel?'<section class="r37-fps"><div id="r37-g3-box"></div></section>':(location.replace('#p/games'),'');
  else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
  $('#app').innerHTML=html;
  r37Layout();
@@ -87,6 +110,7 @@ render=function(){
  if(route==='fps')r37FpsMount();
  if(route==='fp/play')r37FpsLvMount();
  if(route==='rn/play')r37RunMount();
+ if(route==='g3/play')r37G3Mount();
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
@@ -135,6 +159,9 @@ document.addEventListener('click',e=>{
  else if(a==='run'){r37RunSel={w:+el.dataset.w,s:+el.dataset.s};location.hash='#rn/play';}
  else if(a==='run-endless'){r37RunSel={w:Number.isInteger(r37Mem._rw)?r37Mem._rw:0,s:0,endless:true};location.hash='#rn/play';}
  else if(a==='fps-level')r37StartFps(+el.dataset.w,+el.dataset.s,el.dataset.from);
+ else if(a==='g3-level')r37G3Start(el.dataset.g,el.dataset.subj,+el.dataset.w,+el.dataset.s);
+ else if(a==='g3-world'){(r37Mem._gw=r37Mem._gw||{})[r37G3Track(el.dataset.g,(r37Mem._gs||{})[el.dataset.g]||'english')]=+el.dataset.w;render();}
+ else if(a==='g3-subj'){(r37Mem._gs=r37Mem._gs||{})[el.dataset.g]=el.dataset.subj;render();}
  else if(a==='fworld'){r37Mem._fw=+el.dataset.w;render();}
  else if(a==='rworld'){r37Mem._rw=+el.dataset.w;render();}
  else if(a==='world'){(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;render();}

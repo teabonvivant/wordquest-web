@@ -110,7 +110,7 @@ function r37GamesHub(){
  const m=r37Mission(),d=r37Get().day,ch=r37Char(),doneN=m.filter(x=>d.claimed.includes(x.id)).length;
  const quest=m.map(x=>{const v=Math.min(x.goal,d[x.key]||0),ok=v>=x.goal,got=d.claimed.includes(x.id);return `<div class="r37-mq ${ok?'ok':''}"><span class="r37-mi" aria-hidden="true">${r37Icon(x.icon)}</span><b>${x.name}</b><i style="--p:${Math.round(v/x.goal*100)}%"></i><em>${v}/${x.goal}</em>${got?'<span class="r37-got">✓</span>':ok?`<button type="button" data-r37="claim" data-id="${x.id}">${r37Icon('🎁')}+${x.coins}</button>`:`<span class="r37-rw">${r37Icon('🪙')}${x.coins}</span>`}</div>`;}).join('');
  return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:20deg">${r37OrbHTML('games')}</span><h1>遊戲星</h1>${r37Cap(r37Icon('🎁')+`<b>${doneN}/3</b>`,'今日任務')}</div>
- <div class="r37-tiles r37-gt">${r37A('🕹️','遊戲街機','#game','gold big','games')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37B(r37ChImg(ch),'角色','data-r37="chars"','blue big')}</div>
+ <div class="r37-tiles r37-gt g8">${r37A('🕹️','遊戲街機','#game','gold big','games')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37A('🏰','字母砲台','#lv/td','violet big')+r37A('🌀','字母迷宮','#lv/mz','teal big')+r37A('🃏','字卡征途','#lv/cd','rose big')+r37B(r37ChImg(ch),'角色','data-r37="chars"','blue big')}</div>
  <div class="r37-card r37-quests"><h2>${r37Icon('🎁')}今日任務</h2>${quest}</div>${r37Nav('p/games')}</section>`;
 }
 function r37Chars(){
@@ -157,6 +157,23 @@ function r37FpsMap(){
  return `<section class="r37-hub r37-map r37-fmap" style="--h:340;--wh:${r37WHue('fps',w)}">${r37Top('<a class="r37-back2" href="#p/games" aria-label="遊戲星">←</a>'+(locked?'<a class="r37-back2 r37-fhint" href="#lv/english" aria-label="先完成英文闖關">'+r37Icon('🔤')+'</a>':''))}
  <div class="r37-worlds${worlds.length>6?' many':''}" role="tablist">${worlds.map((x,i)=>{const o=r37FpsWorldOpen(i);return `<button type="button" role="tab" class="r37-wtab ${i===w?'on':''} ${o?'':'lock'}" data-r37="fworld" data-w="${i}" ${o?'':'disabled'}><span aria-hidden="true">${r37Icon(o||i===w?x.icon||'🌍':'🔒')}</span><b>${i+1}</b></button>`;}).join('')}</div>
  <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${r37Icon(W.icon||'🌍')}</span><div><h1>${esc(W.name)}</h1><small>${done}/10 · ${r37Stars(Math.min(5,Math.round(stars/50*5)))}</small></div><a class="r37-dchip r37-lk r37-free" href="#fps" aria-label="自由練習" title="自由練習">${r37Icon('🎲')}<span class="r37-fl">自由練習</span></a><span class="r37-dchip" title="難度">${r37Icon(diff.icon)}${diff.n}</span></div>
+ <div class="r37-path">${r37Trail(lit)}${nodes}</div>${r37Nav('p/games')}</section>`;
+}
+function r37G3Map(g){
+ const G=R37_G3[g];let subj=r37Mem._gs&&r37Mem._gs[g]||'english';if(subj!=='math')subj='english';
+ const worlds=r37G3Worlds(subj),t=r37G3Track(g,subj);
+ let w=r37Mem._gw&&r37Mem._gw[t];if(!Number.isInteger(w)){w=0;for(let i=0;i<worlds.length;i++)if(r37G3WorldOpen(g,subj,i))w=i;}
+ w=Math.max(0,Math.min(worlds.length-1,w));(r37Mem._gw=r37Mem._gw||{})[t]=w;
+ const W=worlds[w],diff=r37Diff(subj==='math'?'math':'english'),gr=r37G3Grade(subj,w),lit=[];let curS=-1,done=0,stars=0;
+ for(let s=0;s<10;s++){const e=r37Entry(t,w,s);if(curS<0&&r37G3Open(g,subj,w,s)&&!e?.passed)curS=s;if(e?.passed)done++;stars+=e?.best||0;}
+ const ut=s=>subj==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(W.units?.[s])?.title||''):'';
+ const nodes=Array.from({length:10},(_,s)=>{const e=r37Entry(t,w,s),open=r37G3Open(g,subj,w,s),boss=s===9,nm=ut(s);lit.push(!!e?.passed);
+  return r37NodeHTML({cls:`${e?.passed?'done':''} ${s===curS?'cur':''} ${open?'':'lock'} ${boss?'boss':''}`,attrs:open?`data-r37="g3-level" data-g="${g}" data-subj="${subj}" data-w="${w}" data-s="${s}"`:'disabled',label:`${boss?'魔王關':'第 '+(s+1)+' 關'}${nm?'：'+esc(nm):''}`,num:open?(boss?r37Icon('👹'):s+1):r37Icon('🔒'),name:nm,best:open&&e?e.best:0,cur:s===curS});}).join('');
+ const wopen=i=>r37G3WorldOpen(g,subj,i);
+ return `<section class="r37-hub r37-map r37-fmap r37-g3" data-g="${g}" style="--h:${G.hue};--wh:${r37WHue(subj==='math'?'math':'english',w)}">${r37Top('<a class="r37-back2" href="#p/games" aria-label="遊戲星">←</a>')}
+ <div class="r37-worlds${worlds.length>6?' many':''}" role="tablist">${worlds.map((x,i)=>`<button type="button" role="tab" class="r37-wtab ${i===w?'on':''} ${wopen(i)?'':'lock'}" data-r37="g3-world" data-g="${g}" data-w="${i}" ${wopen(i)?'':'disabled'} aria-label="${subj==='math'?esc(r37G3Grade('math',i)):esc(x.name||'')}"><span aria-hidden="true">${r37Icon(wopen(i)||i===w?x.icon||'🌍':'🔒')}</span><b>${i+1}</b></button>`).join('')}</div>
+ <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${r37Icon(G.icon)}</span><div><h1>${G.name}</h1><small>${esc(W.name||'')}${subj==='math'?' · '+esc(gr):''} · ${done}/10 · ${r37Stars(Math.min(5,Math.round(stars/50*5)))}</small></div>
+  <span class="r37-gsub" role="group" aria-label="科目"><button type="button" class="${subj==='english'?'on':''}" data-r37="g3-subj" data-g="${g}" data-subj="english" aria-pressed="${subj==='english'}">${r37Icon('🔤')}<b>英文</b></button><button type="button" class="${subj==='math'?'on':''}" data-r37="g3-subj" data-g="${g}" data-subj="math" aria-pressed="${subj==='math'}">${r37Icon('🔢')}<b>數學</b></button></span><span class="r37-dchip" title="難度">${r37Icon(diff.icon)}${diff.n}</span></div>
  <div class="r37-path">${r37Trail(lit)}${nodes}</div>${r37Nav('p/games')}</section>`;
 }
 /* ---------------------------------------------------------------------------------------------- play */
