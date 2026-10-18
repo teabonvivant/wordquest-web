@@ -15,7 +15,7 @@
 .r37-tiles.r37-gt.g8 .r37-ti{font-size:clamp(28px,5.6vh,42px);width:1.3em;height:1.3em}
 .r37-tiles.r37-gt.g8 .r37-tn{font-size:clamp(15px,2.3vh,18px);white-space:nowrap;line-height:1.2}
 .r37-tiles.r37-gt.g8 .r37-tile.gold>.r37-tn{font-size:clamp(15px,2.3vh,18px)}
-.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:130%;max-width:none;right:-10%;bottom:-34%}
+.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:112%;max-width:none;right:-16%;bottom:-30%;opacity:.92}
 @media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8{grid-template-columns:repeat(4,1fr)}}
 @media(max-height:520px){
  .r37-tiles.r37-gt.g8{grid-auto-rows:minmax(44px,1fr);gap:6px;padding:2px 12px 6px}

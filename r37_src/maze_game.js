@@ -89,7 +89,7 @@
       var fmt = function (x) { return String(Math.round(x * 100) / 100); };
       tries = 0;
       while ((cnt < 11) && tries++ < 200) {
-        var off = Math.round((rnd() * 1.1 + .04) * 100) / 100, val = rnd() < .5 ? th + off : th - off; if (val <= 0 || Math.abs(val - th) < .009) continue;
+        var off = Math.round((rnd() * 1.1 + .04) * 100) / 100, val = rnd() < .5 ? th + off : th - off; val = Math.round(val * 100) / 100; if (val <= 0 || Math.abs(val - th) < .009) continue;
         var vt = fmt(val), isT = gt ? val > th : val < th, nT = T.filter(function (t) { return t.tgt; }).length;
         if (isT && nT >= 5) continue; if (!isT && T.length - nT >= 6) continue;
         if (add(vt, isT, vt + (val > th ? ' 大於 ' : ' 小於 ') + tt)) cnt++;
@@ -132,6 +132,7 @@
     function A(n) { return assetBase + n; }
 
     S = GX.shell(box, opts, { id: 'maze', music: boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm'), onRestart: restart, onResize: onResize, onDestroy: function () { if (CUR && CUR.S === S) CUR = null; } });
+    CUR = { S: S };
     try { dpadPref = localStorage.getItem('wq37-mz-dpad'); } catch (e) { dpadPref = null; }
 
     /* ---------------- DOM buttons ---------------- */
@@ -158,21 +159,21 @@
     function computeLayout(W, H) {
       var land = W > H * 1.1, cols = land ? 11 : 9, rows = land ? 9 : 11, o = { W: W, H: H, land: land, cols: cols, rows: rows }, cell, mw, mh;
       if (!land) {
-        var strip = 46, qh = Math.max(66, Math.min(92, Math.round(H * .125))), bot = 56, avail = H - strip - qh - bot - 8;
-        cell = Math.max(18, Math.floor(Math.min(W / cols, avail / rows, 72))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = strip + qh + 4;
+        var strip = 50, qh = Math.max(66, Math.min(92, Math.round(H * .125))), bot = 56, avail = H - strip - qh - bot - 8;
+        cell = Math.max(18, Math.floor(Math.min((W - 14) / cols, avail / rows, 72))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = strip + qh + 4;
         o.strip = strip; o.q = { x: 8, y: strip + 2, w: W - 16, h: qh - 4 };
         o.slots = { x: 8 + (hasHint ? 50 : 0), y: o.my + mh + 4, w: W - 16 - (hasHint ? 50 : 0), h: bot - 4 };
         o.pause = [6, 1]; o.dpadBtn = [54, 1]; o.speak = [W - 8 - 44, strip + 2 + (qh - 4 - 44) / 2]; o.hint = hasHint ? [6, o.my + mh + 6] : null;
-        o.timer = { x: 8, y: strip - 6, w: W - 16, h: 5 }; o.heartsR = W - 8; o.heartsY = 14; o.scoreX = 106; o.scoreY = 14;
+        o.timer = { x: 8, y: strip - 6, w: W - 16, h: 5 }; o.heartsR = W - 6; o.heartsY = 18; o.hw = 11; o.scoreX = 106; o.scoreY = 3;
         var free = H - (o.my + mh + 4 + bot); o.dpadRoom = free >= 176;
         o.dpad = o.dpadRoom ? [W - 176, o.my + mh + bot + Math.max(0, (free - 176) / 2)] : [W - 176, o.my + mh - 172];
         o.mh = mh; o.mw = mw;
       } else {
         var side = 176; cell = Math.max(18, Math.floor(Math.min((H - 12) / rows, (W - 2 * side) / cols, 84))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = Math.round((H - mh) / 2);
         var lw = o.mx - 16, rx = o.mx + mw + 8, rw = W - rx - 8; o.mw = mw; o.mh = mh;
-        o.pause = [8, 8]; o.heartsX = 62; o.heartsY = 30; o.scoreX = 8; o.scoreY = 70; o.q = { x: 8, y: 96, w: lw, h: H - 104 };
+        o.pause = [8, 8]; o.heartsX = 60; o.heartsY = 30; o.hw = clamp((lw - 62) / (HEARTS[0] * 2.1), 8, 14); o.scoreX = 8; o.scoreY = 62; o.q = { x: 8, y: 106, w: lw, h: H - 114 };
         o.dpadBtn = [W - 52, 8]; o.timer = { x: rx, y: 58, w: rw, h: 6 }; o.slots = { x: rx, y: 74, w: rw, h: 88 }; o.hint = hasHint ? [rx, 168] : null;
-        o.speak = [8 + (lw - 44) / 2, 0]; o.dpadRoom = true; o.dpad = [Math.round(rx + (rw - 168) / 2), H - 176];
+        o.speak = [8 + (lw - 44) / 2, H - 8 - 52]; o.dpadRoom = true; o.dpad = [Math.round(rx + (rw - 168) / 2), H - 176];
       }
       return o;
     }
@@ -219,7 +220,7 @@
 
     function newGame() {
       S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed });
-      S.ended = false; S.result = null; S.ui.closeAll();
+      S.ended = false; S.result = null; S.ui.closeAll(); qDirty = true;
       var hearts = HEARTS[diff - 1];
       G = { phase: 'idle', simT: 0, playT: 0, hold: false, hearts: hearts, maxHearts: hearts, score: 0, combo: 0, maxCombo: 0, mainDone: 0, condAfter: 0, condPlayed: 0, condClean: 0, hits: 0, wrongEats: 0,
         player: { a: 0, b: 0, p: 0, dir: -1, x: 0, y: 0 }, want: -1, wantT: 0, inv: 0, boost: 0, fright: 0, freeze: 0, chain: 0, wave: 'chase', waveT: 12, evT: 14, gap: null, warnT: 0, q: [], tiles: [], respawn: [], gems: [], orbs: [], portals: [], portalCd: 0, ghosts: [], rd: null, baseNeed: true, ghostsOff: false, flash: 0, hintBlink: 0, turned: false, stepN: 0, vig: 0, bossOrbT: 0, bgOk: false };
@@ -228,7 +229,6 @@
       if (L) {
         buildMaze(); G.tileAt = new Array(G.M.N); setupSpecials(); var P = G.player; P.a = P.b = G.spawn; updPos(P); makeGhosts();
       }
-      CUR = { S: S, G: G, get state() { return G; } };
     }
     function makeGhosts() {
       var types = ['chase', 'ambush', 'patrol', 'ambush'], n = Math.min(4, 2 + (diff >= 3 ? 1 : 0) + ((lv.s | 0) >= 4 ? 1 : 0) + (diff >= 5 ? 1 : 0)), cl = G.cols, rw = G.rows, i;
@@ -311,7 +311,7 @@
       S.fx.text(x, y - L.cell * .4, t.why ? '✗ ' + t.why : '✗ 順序不對', { color: '#ff9fb0', size: Math.max(14, Math.round(L.cell * .4)), life: 1.1 });
       if (rd.kind === 'word') failWord(); else rd.failed = true;
       G.respawn.push({ at: G.simT + 1.2, t: t });
-      if (G.boss) G.bossG.orbs = 0;
+      if (G.bossG) G.bossG.orbs = 0;
     }
     function eatTile(t) {
       var rd = G.rd, c = t.c, x = px(c % G.cols + .5), y = py(((c / G.cols) | 0) + .5);
@@ -323,11 +323,11 @@
           S.sfx('eat', { i: rd.i - 1 }); S.sfx('key', { i: rd.i - 1 }); S.fx.burst(x, y, { colors: ['#ffc94a', '#fff', '#3ee6d0'], n: 14, speed: 150, shape: 'star' }); S.fx.ring(x, y, { r1: L.cell * .9 });
           S.fx.text(x, y - L.cell * .35, '+' + 10 * mul, { color: '#ffe9a8', size: Math.max(14, Math.round(L.cell * .38)), life: .8 });
           if (G.combo >= 4 && G.combo % 4 === 0) { S.sfx('combo', { n: G.combo / 4 }); S.fx.text(x, y - L.cell * .9, '×' + mul + ' 連擊', { color: '#ff9f43', size: Math.max(16, Math.round(L.cell * .46)), life: 1 }); }
-          qDirty = false; if (rd.i >= rd.seq.length) completeWord();
+          if (rd.i >= rd.seq.length) completeWord();
         } else wrongEat(t, c);
       } else {
         if (t.tgt) {
-          rd.eaten++; G.combo++; if (G.combo > G.maxCombo) G.maxCombo = G.combo; var m2 = Math.min(4, 1 + Math.floor(G.combo / 4)); G.score += 15 * m2;
+          rd.eaten++; t.ref.eaten = true; G.combo++; if (G.combo > G.maxCombo) G.maxCombo = G.combo; var m2 = Math.min(4, 1 + Math.floor(G.combo / 4)); G.score += 15 * m2;
           S.sfx('eat', { i: rd.eaten }); S.sfx('key', { i: rd.eaten }); S.fx.burst(x, y, { colors: ['#3ee6a0', '#fff', '#ffc94a'], n: 14, speed: 150, shape: 'star' }); S.fx.ring(x, y, { color: '#3ee6a0', r1: L.cell * .9 });
           S.fx.text(x, y - L.cell * .35, '+' + 15 * m2, { color: '#b8ffe0', size: Math.max(14, Math.round(L.cell * .38)), life: .8 });
           if (rd.eaten >= rd.need) completeCond();
@@ -414,12 +414,12 @@
 
     /* ghost AI: chase = player cell; ambush = a few cells ahead of the player; patrol = walks its waypoints and only bites when you are near */
     function ahead(pc, dir, k) { var c = pc; if (dir < 0) return c; for (var i = 0; i < k; i++) { if (!G.M.open[c * 4 + dir]) break; c = G.M.nb(c, dir); } return c; }
-    function aiTarget(g) {
+    function aiTarget(g, peek) {
       var P = G.player, pc = P.a === P.b ? P.a : P.b;
       if (g.mode === 'leave') return pc;
       if (G.wave === 'scatter' && g.type !== 'patrol' && !g.boss) return g.corner;
       if (g.type === 'ambush') return ahead(pc, P.dir, 4);
-      if (g.type === 'patrol') { if (G.M.bfs(g.a)[pc] <= 3) return pc; if (g.a === g.wp[g.wpi]) g.wpi = (g.wpi + 1) % g.wp.length; return g.wp[g.wpi]; }
+      if (g.type === 'patrol') { if (G.M.bfs(g.a)[pc] <= 3) return pc; if (g.a === g.wp[g.wpi] && !peek) g.wpi = (g.wpi + 1) % g.wp.length; return g.wp[g.wpi]; }
       return pc;
     }
     function gChoose(g) {
@@ -495,7 +495,7 @@
       }
     }
     function upd(dt) {
-      if (!G || S.dead || S.paused) return; S.t = S.t;
+      if (!G || S.dead || S.paused) return;
       if (!G.hold && !S.ended && L) { var rem = dt; while (rem > 1e-6 && G && !G.hold) { var h = Math.min(rem, .025); sim(h); rem -= h; } }
       if (G && G.flash > 0) G.flash -= dt;
       if (qImgWait && qImgWait.ok) { qImgWait = null; qDirty = true; }
@@ -516,7 +516,7 @@
     S.on(window, 'pointerup', function () { sw = null; }); S.on(window, 'pointercancel', function () { sw = null; });
     S.keys({
       onArrow: function (k) { setDir({ up: 0, right: 1, down: 2, left: 3 }[k]); },
-      onChar: function (k, e) { var m = { w: 0, d: 1, s: 2, a: 3 }[k.toLowerCase()]; if (m == null) { e.__nouse = 1; return; } setDir(m); },
+      onChar: function (k) { var m = { w: 0, d: 1, s: 2, a: 3 }[k.toLowerCase()]; if (m != null) setDir(m); },
       onSpace: function () { useHint(); }
     });
 
@@ -605,17 +605,17 @@
       var now = S.t, cs = L.cell, rd = G.rd, i;
       c.drawImage(base, 0, 0, W, H); c.drawImage(qc, L.q.x, L.q.y, L.q.w, L.q.h);
       /* HUD */
-      var hw = Math.round(cs * .5 > 17 ? 17 : Math.max(12, cs * .4));
+      var hw = L.hw, hsp = hw * 2.1;
       for (i = 0; i < G.maxHearts; i++) {
-        var hxp = L.land ? L.heartsX + i * (hw * 2.2 - 8) + hw : L.heartsR - (G.maxHearts - i) * (hw * 2.1) + hw, hyp = L.land ? L.heartsY : L.heartsY + 8;
+        var hxp = L.land ? L.heartsX + i * hsp + hw : L.heartsR - (G.maxHearts - i) * hsp + hw, hyp = L.heartsY;
         heartPath(c, hxp, hyp, hw * .8); c.fillStyle = i < G.hearts ? '#ff5f7e' : 'rgba(255,255,255,.14)'; c.fill(); c.lineWidth = 1.5; c.strokeStyle = i < G.hearts ? '#ffd0d9' : 'rgba(255,255,255,.2)'; c.stroke();
       }
       var sc = GX.label('分數 ' + Math.round(G.score), { size: 15, weight: 900, color: '#ffe9a8', dpr: S.dpr, stroke: 'rgba(10,14,50,.8)', strokeW: 2 });
       c.drawImage(sc.c, L.scoreX, L.scoreY - 2, sc.w, sc.h);
       var prog = S.learn.progress(), pt = (isMath && rd && rd.kind === 'cond') ? '條件吃 ' + rd.eaten + '/' + rd.need : '第 ' + Math.min(prog.total, prog.done + 1) + ' / ' + prog.total + ' 字' + (isMath ? '' : ''),
         pl = GX.label(isMath && !(rd && rd.kind === 'cond') ? pt.replace(' 字', ' 題') : pt, { size: 12, weight: 800, color: '#c3cbf7', dpr: S.dpr });
-      c.drawImage(pl.c, L.scoreX, L.scoreY + 16, pl.w, pl.h);
-      if (G.combo >= 2) { var cb = GX.label('×' + Math.min(4, 1 + Math.floor(G.combo / 4)) + '  ' + G.combo + ' 連', { size: 13, weight: 900, color: '#ff9f43', dpr: S.dpr }); c.drawImage(cb.c, L.scoreX + sc.w + 6, L.scoreY - 1, cb.w, cb.h); }
+      c.drawImage(pl.c, L.scoreX, L.scoreY + 22, pl.w, pl.h);
+      if (G.combo >= 2) { var cb = GX.label('×' + Math.min(4, 1 + Math.floor(G.combo / 4)) + '  ' + G.combo + ' 連', { size: 13, weight: 900, color: '#ff9f43', dpr: S.dpr }); c.drawImage(cb.c, L.scoreX + pl.w + 6, L.scoreY + 21, cb.w, cb.h); }
       if (rd && G.phase !== 'idle') {
         var fr = clamp(rd.left / rd.limit, 0, 1), T = L.timer; c.fillStyle = 'rgba(255,255,255,.14)'; GX.rrect(c, T.x, T.y, T.w, T.h, T.h / 2); c.fill();
         c.fillStyle = fr < .25 ? '#ff6b81' : fr < .5 ? '#ffc94a' : '#3ee6a0'; if (fr > 0) { GX.rrect(c, T.x, T.y, Math.max(T.h, T.w * fr), T.h, T.h / 2); c.fill(); }
@@ -666,7 +666,7 @@
 
     /* ---------------- flow ---------------- */
     function begin() {
-      G.phase = 'idle'; S.audio.music(boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm')); if (boss && !S.fx) return;
+      G.phase = 'idle'; S.audio.music(boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm'));
       if (boss) { S.ui.banner('魔王關', '連吃 3 顆墨水，擊暈大魔王', 1500); S.sfx('boss'); }
       nextRound();
     }
@@ -679,9 +679,6 @@
     S.ui.how('maze', '字母迷宮', [{ icon: '👆', text: '滑動走位' }, { icon: '🔤', text: '按序吃字' }, { icon: '👻', text: '躲開幽靈' }], function () {
       S.ui.preview(S.learn.items, { onStart: function () { begin(); } });
     });
-    function useDebug() {
-      return G;
-    }
     CUR.dbg = function () {
       var rd = G.rd, P = G.player;
       return {
@@ -689,7 +686,7 @@
         player: { a: P.a, b: P.b, p: P.p, dir: P.dir, x: P.x, y: P.y }, spawn: G.spawn, home: G.home, inv: G.inv, boost: G.boost, fright: G.fright, freeze: G.freeze, wave: G.wave, simT: G.simT, playT: G.playT,
         rd: rd && { kind: rd.kind, i: rd.i, seq: rd.seq.slice(), need: rd.need, eaten: rd.eaten, left: rd.left, limit: rd.limit, failed: rd.failed, hinted: rd.hinted, item: rd.item && { id: rd.item.id, en: rd.item.en, q: rd.item.q, a: rd.item.a }, q: rd.qText, cond: rd.cd && { q: rd.cd.q, tiles: rd.cd.tiles.map(function (t) { return { text: t.text, tgt: t.tgt }; }) } },
         tiles: G.tiles.map(function (t) { return { c: t.c, ch: t.ch, tgt: t.tgt }; }), respawn: G.respawn.length, gems: G.gems.length, orbs: G.orbs.map(function (o) { return { c: o.c, alive: o.alive }; }), portals: G.portals.map(function (p) { return p.c; }), portalCd: G.portalCd,
-        ghosts: G.ghosts.map(function (g) { return { idx: g.idx, type: g.type, mode: g.mode, a: g.a, b: g.b, p: g.p, x: g.x, y: g.y, scared: g.scared, stun: g.stun, boss: g.boss, delay: g.delay, orbs: g.orbs, target: g.mode === 'home' ? -1 : aiTarget(g), speed: ghostSpeed(g) }; }),
+        ghosts: G.ghosts.map(function (g) { return { idx: g.idx, type: g.type, mode: g.mode, a: g.a, b: g.b, p: g.p, x: g.x, y: g.y, scared: g.scared, stun: g.stun, boss: g.boss, delay: g.delay, orbs: g.orbs, target: g.mode === 'home' ? -1 : aiTarget(g, true), speed: ghostSpeed(g) }; }),
         maze: { open: Array.prototype.slice.call(G.M.open), N: G.M.N }, learnLeft: S.learn.remaining(), ended: !!S.ended, result: S.result || null, layout: { cell: L.cell, mx: L.mx, my: L.my, mw: L.mw, mh: L.mh, q: L.q, slots: L.slots, land: L.land }, holdOpen: S.ui.open('learn'),
         tileCount: G.tiles.length, dpadOn: dpadOn, ghostsOff: G.ghostsOff
       };
@@ -708,7 +705,7 @@
       if (name === 'orb') { var o = G.orbs.filter(function (x) { return x.alive; })[0]; if (!o) return false; stand(o.c); return true; }
       if (name === 'place') { var g = G.ghosts[a.i]; g.mode = a.mode || 'active'; g.a = g.b = a.c; g.p = 0; g.prev = a.prev == null ? -1 : a.prev; g.scared = !!a.scared; updPos(g); return true; }
       if (name === 'player') { P.a = P.b = a.c; P.p = 0; P.dir = a.dir == null ? -1 : a.dir; updPos(P); return true; }
-      if (name === 'target') { return aiTarget(G.ghosts[a]); }
+      if (name === 'target') { return aiTarget(G.ghosts[a], true); }
       if (name === 'choose') { var gg = G.ghosts[a.i]; var sv = ERR[diff - 1]; ERR[diff - 1] = 0; var dd = gChoose(gg); ERR[diff - 1] = sv; return dd < 0 ? -1 : G.M.nb(gg.a, dd); }
       if (name === 'wave') { G.wave = a; return true; }
       if (name === 'gem') { return G.gems.map(function (x) { return x.c; }); }
