@@ -65,12 +65,13 @@ UNMISS_JS = ("(()=>{const v=wq34S(pgGame);if(v.forgive<0)v.forgive++;return 1})(
 
 
 
+# R3.20: stage 2 - bounce-basket's misses are shots minus real baskets (score minus the arcade bonus, F3), so the offset below uses the same number
 def miss_games_drop(pg):
     """Miss-counted games (forest-pong, bounce-basket, meadow-cricket, star-rhythm): the engine's a28RulesTick sets lives = clamp(3 - misses) with
     misses = -forgive + base (base differs per game, and the multiplier tests inflate bounce-basket's score, which counts as hits). Set the offset so
     that exactly one miss is counted; returns the saved offset."""
     saved = J(pg, 'wq34S(pgGame).forgive||0')
-    J(pg, "(()=>{const g=pgGame,id=pgMeta.id,base=id==='forest-pong'?g.ai:id==='bounce-basket'?g.shots-Math.floor(g.score/3):id==='meadow-cricket'?g.round-g.hit:g.index-g.hits;wq34S(g).forgive=base-1;return 1})()")
+    J(pg, "(()=>{const g=pgGame,id=pgMeta.id,base=id==='forest-pong'?g.ai:id==='bounce-basket'?g.shots-Math.floor((g.score-WQArcPlus.bonusOf(g))/3):id==='meadow-cricket'?g.round-g.hit:g.index-g.hits;wq34S(g).forgive=base-1;return 1})()")
     game_ticks(pg, 0.12)
     return saved
 
@@ -179,7 +180,8 @@ def b2_depth(pg, gid):
     d0 = dbg(pg)
     force(pg, 'phase', 2)
     d = dbg(pg)
-    ok(gid, 'B2_phase2', d['phase'] >= 2 and d['banner'] is not None and d['banner']['t'] <= 1.0, str(d['banner']))
+    # R3.20: stage 2 - a game whose play already reached wave 2 by itself (moon-bells climbs 34 % within seconds) has shown its banner at that moment; forcing it again cannot show one
+    ok(gid, 'B2_phase2', d['phase'] >= 2 and (d0['phase'] >= 2 or (d['banner'] is not None and d['banner']['t'] <= 1.0)), str(d['banner']))
     force(pg, 'phase', 3); pg.wait_for_timeout(250)
     d = dbg(pg)
     ok(gid, 'B2_phase3', d['phase'] == 3, str(d['phase']))
@@ -205,6 +207,7 @@ def b2_depth(pg, gid):
     if has_health:
         J(pg, 'pgGame.health=Math.max(2,pgGame.health)')
         J(pg, 'WQArcPlus.stateOf(pgGame).shield=false')
+        game_ticks(pg, 0.1)   # R3.20: stage 2 - let the core see the topped-up hearts first (a lose in the same instant was invisible to it when the idle run had already lost one)
         force(pg, 'lose')
     else:
         J(pg, PREP_MISS_JS); game_ticks(pg, 0.1)   # lives = 3 so the god top-up does not mask the drop
@@ -222,7 +225,12 @@ def b2_depth(pg, gid):
     ok(gid, 'B2_miss_resets_combo', d['combo'] == 0 or d['shield'] is False and d['combo'] <= 1, f"combo {d['combo']} shield {d['shield']} run {J(pg, DBG_RUN_JS)}")
 
 
+PLAY13 = ['sky-rescue', 'forest-dash', 'moon-bells', 'drift-path', 'valley-race', 'ruins-courier', 'cloud-island', 'star-patrol', 'lighthouse-well',
+          'bounce-basket', 'forest-pong', 'meadow-cricket', 'harbor-volley']   # R3.20 stage 2: their answer is a gameplay action (t31 proves the real path); t28 keeps the card rules and uses the forced answer
+
+
 def b3_learn(pg, gid, via='chip'):
+    play = gid in PLAY13
     force(pg, 'combo', 0)
     s = dbg(pg)
     # make sure we start from a clean slate: close any open card / question
@@ -233,12 +241,19 @@ def b3_learn(pg, gid, via='chip'):
     if not d['q']:
         return
     ok(gid, 'B3_three_options', len(d['q']['opts']) == 3 and sum(1 for o in d['q']['opts'] if o['ok']) == 1, str(d['q']['opts']))
-    chips = pg.evaluate("[...document.querySelectorAll('.ap-opt')].map(b=>{const r=b.getBoundingClientRect();return [r.width,r.height]})")
-    ok(gid, 'B3_chips_big', len(chips) == 3 and all(w >= 44 and h >= 44 for w, h in chips), str(chips))
+    if play:   # R3.20: stage 2 - no option buttons, a 3-item legend of >= 14 px
+        leg = pg.evaluate("({opts:document.querySelectorAll('.ap-opt').length,fs:[...document.querySelectorAll('.ap-leg')].map(e=>parseFloat(getComputedStyle(e).fontSize))})")
+        ok(gid, 'B3_chips_big', leg['opts'] == 0 and len(leg['fs']) == 3 and all(f >= 14 for f in leg['fs']), str(leg))   # R3.20: was 'option buttons >= 44 px'
+    else:
+        chips = pg.evaluate("[...document.querySelectorAll('.ap-opt')].map(b=>{const r=b.getBoundingClientRect();return [r.width,r.height]})")
+        ok(gid, 'B3_chips_big', len(chips) == 3 and all(w >= 44 and h >= 44 for w, h in chips), str(chips))
     # --- wrong path
     lives0 = dbg(pg)['cfg']['lives']; sc0 = J(pg, 'pgGame.score'); t0 = J(pg, 'pgGame.t')
     wrong_i = next(i for i, o in enumerate(d['q']['opts']) if not o['ok'])
-    pg.locator('.ap-opt').nth(wrong_i).click()
+    if play:
+        force(pg, 'answer', False)   # R3.20: stage 2 - the real action path is t31's; here the card rules are what is checked
+    else:
+        pg.locator('.ap-opt').nth(wrong_i).click()
     d = dbg(pg)
     card = d['card']
     first_locked = bool(card) and card['disabled'] == (card['t'] < card['min']) and card['t'] < 2.0   # first look: the button is locked while the card is younger than 2 s
@@ -267,7 +282,9 @@ def b3_learn(pg, gid, via='chip'):
     if not d['q']:
         ok(gid, 'B3_right_path', False, 'no second question'); return
     right_i = next(i for i, o in enumerate(d['q']['opts']) if o['ok'])
-    if via == 'tap':
+    if play:
+        force(pg, 'answer', True)   # R3.20: stage 2 (see above)
+    elif via == 'tap':
         # tap the crystal on the canvas
         box = pg.evaluate("(()=>{const r=document.querySelector('#pg-canvas').getBoundingClientRect();return [r.left,r.top,r.width,r.height]})()")
         o = d['q']['opts'][right_i]
@@ -279,7 +296,7 @@ def b3_learn(pg, gid, via='chip'):
     pg.wait_for_timeout(300)
     d = dbg(pg)
     ok(gid, 'B3_right_card_ok', bool(d['card']) and d['card']['ok'], str(d['card']))
-    ok(gid, 'B3_right_power', any(e['k'] in ('shield', 'double', 'bonus') for e in d['events']), str([e['k'] for e in d['events']][-4:]))
+    ok(gid, 'B3_right_power', any(e['k'] in ('shield', 'double', 'bonus', 'play-reward') for e in d['events']), str([e['k'] for e in d['events']][-4:]))   # R3.20: stage 2 - a play game's own reward is logged as 'play-reward'
     deadline = time.time() + 30
     while time.time() < deadline and dbg(pg)['card']:
         card_ticks(pg, 0.3)
@@ -288,7 +305,7 @@ def b3_learn(pg, gid, via='chip'):
     ok(gid, 'B3_right_card_2.4s', 2200 <= ms <= 2800 and d['card'] is None, str(ms))
     ok(gid, 'B3_counts', d['learn']['ok'] >= 1 and d['learn']['bad'] >= 1, str(d['learn']))
     # games with a screen position collect the crystal by touching it with the player
-    if d['cfg']['pos']:
+    if d['cfg']['pos'] and not play:   # R3.20: the 13 play games are covered by t31 (the answer is the game action itself)
         J(pg, "WQArcPlus.stateOf(pgGame).nextQ=0"); force(pg, 'learn'); pg.wait_for_timeout(200)
         q = dbg(pg)['q']
         if q:
@@ -392,6 +409,8 @@ def run_game(p, gid):
         # (class-level stubs: an instance property would be rejected by the snapshot schema at the next checkpoint)
         J(pg, "(()=>{window.__f0=a28Fail;a28Fail=function(){};const P=Object.getPrototypeOf(pgGame);window.__P=P;window.__e0=Object.prototype.hasOwnProperty.call(P,'end')?P.end:null;window.__n0=Object.prototype.hasOwnProperty.call(P,'next')?P.next:null;P.end=function(){};P.next=function(){};return 1})()")
         force(pg, 'god')
+        if gid in PLAY13:   # R3.20: stage 2 - an idle player 'answers' a lane / gate target by standing in it (a wrong card freezes the game); the forced run asks its own questions
+            J(pg, "WQArcPlus.stateOf(pgGame).nextQ=1e9")
         pg.wait_for_timeout(2500)
         d = dbg(pg)
         ok(gid, 'core_mounted', bool(d and d['id'] == gid), str(d)[:80])
@@ -500,7 +519,7 @@ def b9_extra_life(p):
             # between two frames cannot change the lives (meadow-cricket flaked 2 -> 2 and 1 -> 3 with separate waits)
             res = J(pg, """(()=>{const g=pgGame;
  if(typeof g.health==='number'){g.health=2;a28RulesTick(.016);const a=a28Run().lives;WQArcPlus.addLife(g);a28RulesTick(.016);return [a,a28Run().lives];}
- const m={'forest-pong':()=>{g.ai=1;},'bounce-basket':()=>{g.shots=Math.floor(g.score/3)+1;},'meadow-cricket':()=>{g.round=g.hit+1;},'star-rhythm':()=>{g.index=g.hits+1;}};
+ const m={'forest-pong':()=>{g.ai=1;},'bounce-basket':()=>{g.shots=Math.floor((g.score-WQArcPlus.bonusOf(g))/3)+1;},'meadow-cricket':()=>{g.round=g.hit+1;},'star-rhythm':()=>{g.index=g.hits+1;}};
  m[g.meta.id]();a28RulesTick(.016);const a=a28Run().lives;WQArcPlus.addLife(g);m[g.meta.id]();a28RulesTick(.016);return [a,a28Run().lives];})()""")
             l2, l3 = res
             ok(gid, 'B9_extra_life_survives', l2 == 2 and l3 == 3, f'lives {l2} -> {l3}')

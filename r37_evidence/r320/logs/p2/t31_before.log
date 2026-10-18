@@ -1,0 +1,119 @@
+== sky-rescue
+  FAIL sky-rescue exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  sky-rescue: 0/1 (10s)
+== forest-dash
+  FAIL forest-dash exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  forest-dash: 0/1 (10s)
+== moon-bells
+  FAIL moon-bells exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  moon-bells: 0/1 (10s)
+== drift-path
+  FAIL drift-path exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  drift-path: 0/1 (10s)
+== valley-race
+  FAIL valley-race exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  valley-race: 0/1 (10s)
+== ruins-courier
+  FAIL ruins-courier exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  ruins-courier: 0/1 (10s)
+== cloud-island
+  FAIL cloud-island exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  cloud-island: 0/1 (10s)
+== star-patrol
+  FAIL star-patrol exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  star-patrol: 0/1 (10s)
+== lighthouse-well
+  FAIL lighthouse-well exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  lighthouse-well: 0/1 (10s)
+== bounce-basket
+  FAIL bounce-basket exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  bounce-basket: 0/1 (10s)
+== forest-pong
+  FAIL forest-pong exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  forest-pong: 0/1 (10s)
+== meadow-cricket
+  FAIL meadow-cricket exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  meadow-cricket: 0/1 (10s)
+== harbor-volley
+  FAIL harbor-volley exception KeyError('play')
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t31_play_answer.py", line 464, in run_game
+    ok(gid, 'play_game', bool(d['cfg']['play']), str(d['cfg']))
+                              ~~~~~~~~^^^^^^^^
+KeyError: 'play'
+  harbor-volley: 0/1 (10s)
+t31: 0/13 checks passed; games 13
+  FAIL sky-rescue exception KeyError('play')
+  FAIL forest-dash exception KeyError('play')
+  FAIL moon-bells exception KeyError('play')
+  FAIL drift-path exception KeyError('play')
+  FAIL valley-race exception KeyError('play')
+  FAIL ruins-courier exception KeyError('play')
+  FAIL cloud-island exception KeyError('play')
+  FAIL star-patrol exception KeyError('play')
+  FAIL lighthouse-well exception KeyError('play')
+  FAIL bounce-basket exception KeyError('play')
+  FAIL forest-pong exception KeyError('play')
+  FAIL meadow-cricket exception KeyError('play')
+  FAIL harbor-volley exception KeyError('play')
+END

@@ -5,7 +5,8 @@
  *   prog  progress 0..1 for the HUD bar and the wave director (falls back to play time)
  *   math  the learning moments are sums instead of English words
  *   first / every  seconds of game time before the first learning crystal / default spacing
- * Games without `pos` collect crystals by tapping them on the canvas, the dock chips, or keys 1 2 3. */
+ * Games without `pos` collect crystals by tapping them on the canvas, the dock chips, or keys 1 2 3.
+ * R3.20 stage 2: the 13 action / sport games are `play` games (s72): their words are targets in the game world, no chips, no taps, no keys 1-3. */
 Object.assign(WQArcPlus.cfg,{
  /* action */
  'sky-rescue':{para:'clouds',thr:3,speed:true,pos:g=>g.p,r:34,prog:g=>g.rescued/12},
@@ -40,15 +41,4 @@ Object.assign(WQArcPlus.cfg,{
  'sweet-studio':{dockOnly:true,thr:3,prog:g=>g.served/(6+g.d*2)}
 });
 
-/* ---- L2 mechanics: one game-specific event / behaviour on top of the shared layer (the engines stay untouched; only their own arrays are fed) ---- */
-Object.assign(WQArcPlus.game,{
- 'sky-rescue':{pool:['flock'],names:{flock:['金色鳥群！','一排金鳥，快去救']},
-  events:{flock(g,s){const y=130+Math.floor(s.rng()*4)*99,gold=s.gold||(s.gold=new WeakSet());for(let i=0;i<5;i++){const o={x:860+i*78,y,kind:'bird',hit:false};g.items.push(o);gold.add(o);}}},
-  draw(g,s,c){if(!s.gold)return;c.save();c.setTransform(c.canvas.width/800,0,0,c.canvas.height/560,0,0);c.strokeStyle='#FFC94A';c.lineWidth=3;
-   for(const o of g.items)if(!o.hit&&s.gold.has(o)&&o.x>-40&&o.x<840){c.globalAlpha=.85;c.beginPath();c.arc(o.x,o.y,30,0,7);c.stroke();}c.restore();}},
- 'cloud-island':{pool:['coinarc'],names:{coinarc:['光石弧！','前方一排光石']},
-  events:{coinarc(g){for(let i=0;i<7;i++)g.coins.push({x:g.p.x+170+i*46,y:Math.max(110,g.p.y-80-Math.sin(i/6*Math.PI)*70),taken:false});}}},
- 'star-patrol':{pool:['overdrive'],names:{overdrive:['火力全開！','護盾即時充能，火力 +1']},
-  events:{overdrive(g){g.shieldCD=0;g.power=Math.min(3,(g.power||1)+1);}}},
- 'bounce-basket':{tick(g,s){if(s.phase>=2&&!g.flying){const a=s.phase===2?50:80;g.hoop.x=590+Math.sin((g.t||0)*.9)*a;g.hoop.y=225+(s.phase===3?Math.sin((g.t||0)*1.3)*25:0);}}}
-});
+/* ---- L2 mechanics, play-action answers, events and per-wave difficulty of the 13 action / sport games: see s72_arcplay.js ---- */

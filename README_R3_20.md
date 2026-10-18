@@ -126,3 +126,43 @@ python3 r37_tests/t29_runner_gate.py ; python3 r37_tests/t30_fps_focus.py
 **測試結果（凍結建置 SHA256 `9e317962…0a01`）**：共用探測 312 組（26 款 × 4 尺寸 × play／learn／result）及 436 張 after 探測全部 0 問題（含重疊、貼邊）；t28 完整跑 2524/2525（forest-pong B2 不穩定，重跑通過），版面（含新斷言）全過；回歸 41／42 套通過，`r1-regression` 在改動前建置同樣失敗；`t19` 整套回歸時 3 次失敗、同一建置單獨重跑 126/126（原因未查明）；`fps-module` 第 2 次通過。效能（4 倍節流）8 款中 3 款不超過改動前，5 款（star-patrol、forest-dash、sky-rescue、honeycomb-puzzle、valley-race）略高，原因是推測，未修。
 
 **限制／未達標**：forest-band 360×640 畫布寬 282.8 px（要求 ≥ 280，只多 2.8 px）、桌面畫布高 497 px 仍比改動前（549 px）小；結算後隱藏的 HUD 內部（star-rhythm、meadow-cricket）仍記 1 顆亮心；結算時成就提示會短暫蓋住結算卡頂部一行小字（及桌面頭列按鈕下緣約 6 px），沒有修；手機上畫布內小字仍小；18 款場景仍是淺色；L2 只有 4 款、L3、答題＝玩法動作未做；沒有真機／兒童實測；平板 768×1024 只截圖不判定。
+
+## 十、階段 2：動作 9 款＋運動 4 款的玩法深化（答題＝玩法動作）
+
+交付等級：**預覽**（沒有真機、沒有兒童實測、學習內容未經教師審核；以下全部是自動測試與截圖證明的範圍）。範圍只有 13 款：sky-rescue、forest-dash、moon-bells、drift-path、valley-race、ruins-courier、cloud-island、star-patrol、lighthouse-well、bounce-basket、forest-pong、meadow-cricket、harbor-volley。其餘 13 款（解謎 5、策略 5、創作 3）沒有改。執行記錄：`_team_runs/r320-p2/build-log.md`；逐款現況：`docs/R3_20_game_audit.md`；證據：`r37_evidence/r320/`（`t31_results.json`、`regression_p2.md`、`logs/p2/`、`after/`、`compare/`、`perf_p2.json`）。
+
+### 一個共用介面＋13 個配接器
+- `r37_src/s70_arcplus.js`／`.css`：共用「玩法作答」介面——`cfg[id].play` 的遊戲，三個英文答案不再是浮在畫面上的字晶，而是遊戲世界裏的**目標**（同大小、36 px 粗體、白字深色描邊的字牌；三個外觀相同；正確目標的位置由三格洗牌袋決定，每三題各位置各一次）。下方學習條只有提示（中文／🔊／圖）＋一句動詞＋三個**不可點**的圖例 `.ap-leg`（≥14 px）。選項鈕、點畫布、數字鍵 1–3 一律不能作答。答對給本款獎勵；答錯凍結 ≥2 秒、不扣命、倍率只降一級（連擊 7＝×3 → 3＝×2；失去生命仍歸零）；全部目標離場而沒選＝「錯過」（不扣命、學習條顯示正確答案 ≥3 秒、6 秒後才出下一題）。目標出現後，倍率的段速加快暫停；有些款另有 2.5 秒「充氣」（目標可見但碰不到）或慢動作，保證字牌完全可見到最早可碰到 ≥2.5 秒遊戲時間（`_debug().play.visibleT／reachT`）。
+- 本局三星（結算卡 `.ap-res` 內，s35 的「分數挑戰」歷來最佳星不變）：★分數（≥ 該款第一顆挑戰星的分數）、★生字（答 ≥2 題且準確率 ≥75%，錯過不算答）、★連擊（最高連擊 ≥ 該款 `comboStar`：bounce-basket 3、meadow-cricket／forest-pong／harbor-volley 4，其餘 6）。「本局 n / 3 星」有 `aria-label`；門檻放在 `title`，卡上只有一個「×」數字（最高連擊）。
+- `r37_src/s72_arcplay.js`：13 個配接器（每款約 60–120 行），只用旁置物件（WeakMap／`s.pl`），不在遊戲物件加欄位、不呼叫 `g.r()`、不在引擎每格重算的欄位上做 tick 之後的改動、不超過存檔檢查上限。每款一個專屬機制、一個專屬事件（導演的第一個定時事件一定是本款的）、`_debug().diff` 的三段難度數字（只增不減）。獎勵單位 `unit`：bounce-basket 3、meadow-cricket 4（金幣雨和答題加分用它）。
+- 必修的 3 個既有錯誤：**F1** cloud-island 的 `coinarc` 令遊戲停機（光石變 16 顆，存檔檢查丟錯）→ 改為重用光石物件，永遠 9 顆；**F2** bounce-basket 移動籃框只移動畫出來的籃框 → `patches/s70_arcplus.py` 在引擎 `update()` 的籃框位置加 `wq34S(this).hx／hy` 偏移，判定與繪製同一位置；**F3** bounce-basket 用分數反推入球數（金幣雨＝20 個入球）→ 入球數改用 `score − WQArcPlus.bonusOf(g)`（`a28RulesTick`、`a28Winning` 兩處）。這三處是引擎底版文字唯一的改動。
+
+### 13 款玩法（每款一行：作答動作／專屬機制／專屬事件）
+| 遊戲 | 作答動作 | 專屬機制 | 專屬事件 |
+|---|---|---|---|
+| sky-rescue | 飛機穿過寫着正確字的寶石（寶石列慢慢向左漂） | 金鳥鏈：連救 5 隻金鳥 → 3 秒彩虹尾跡吸物 | 金鳥群 |
+| forest-dash | 換到有正確字的跑道穿過字門 | 滾木（影子預警 1.5 秒） | 螢火蟲燈籠 |
+| moon-bells | 跳上寫着正確字的鈴鐺 | 超級跳（答對 vy −650） | 月光鳥（再一次跌落救援） |
+| drift-path | 按「轉彎」的時機讓小車經過正確字的燈 | 完美過彎連 3 次 → 氮氣 | 夜光路 |
+| valley-race | 把車開過正確字的字墊 | 乾淨駕駛氮氣槽 | 彩虹加速帶 |
+| ruins-courier | 換到有正確字的跑道收郵包 | 集郵寶箱 | 寶箱 |
+| cloud-island | 碰到正確字的光石 | 彈跳鞋（起跳 ×1.25） | 光石弧（修 F1） |
+| star-patrol | 射中正確字的字母艦（4 下） | 反彈護盾 | 火力全開 |
+| lighthouse-well | 落在寫着正確字的平台上 | 燈芯光圈（越深越暗） | 燈籠 |
+| bounce-basket | 球第一個碰到的氣球 | 火熱球（下一個入球 +3） | 起風 |
+| forest-pong | 球穿過正確字的燈籠 | 旋球 | 螢火引路 |
+| meadow-cricket | 只向正確字的球揮棒 | 擊球方向＋金圈 | 慢球 |
+| harbor-volley | 球過網後的落點區 | 三傳攻勢 | 海鷗 |
+
+### 測試與改動的斷言
+- 新測試 `r37_tests/t31_play_answer.py`：13 款各 33–36 項：目標（3 個、36 px、在畫布內、不重疊、樣式相同、中心點是畫布、無選項鈕、圖例 ≥14 px）、非動作路徑被拒、答對（遊戲自己的動作＋獎勵）、答錯（凍結、不扣命、倍率降一級）、專屬機制、難度只增不減、事件＋存檔檢查靜默 ≥2 秒、閱讀時間 ≥2.5 秒、公平（30 題各位置 ≥5）、錯過、`wq37-nolearn=1`、結算三星（與 debug 資料及規則重算一致、最高連擊三處相同）；另有 bounce-basket 的 F2／F3 斷言與 3 款 390×844 觸控抽查。主斷言不用 `_force('answer')`；測試只可把玩家擺到目標附近，最後一步一定是引擎物理／按鍵加配接器的 hit 判定。改動前建置（`b0f8c6f`）上 13 款全部 FAIL（`r37_evidence/r320/logs/p2/t31_before.log`）。
+- `t28`（13 款＋honey-delivery／number-garden／forest-band 冒煙）：13 款的 B3 改用 `_force('answer')`（作答路徑由 t31 驗）、`B3_chips_big` 改為「無選項鈕＋圖例 ≥14 px」、`B3_right_power` 接受 `play-reward`、不再做 `B3_touch_collect`；`B2_phase2` 在遊戲已自己升到第 2 段時不要求再有橫幅；bounce-basket 的失誤數公式改用 F3 的真實入球數；forced run 內關閉自動出題（idle 玩家會「答」跑道／字門）；`B2_miss_resets_combo` 先讓核心看到補滿的心。全部有 `# R3.20: 階段 2` 註明；沒有放寬任何數值容差。
+- `lib37.open_page`：合併奧數課堂後 file:// 載入 `olympiad-classroom/host.js` 會被 CORS 擋、每頁多一條 console 錯誤；改用 `route()` 把該目錄的檔案連同 `access-control-allow-origin` 交給頁面（與網站同一份檔案，沒有過濾或忽略任何錯誤）。
+
+### 限制與缺口（誠實清單）
+- 兒童可玩性**未經實測**：閱讀時間 2.5 秒、慢動作倍數、drift-path 早轉／遲轉（燈只差 20 px）、harbor-volley 落點預測對 6–8 歲可能偏難，待兒童實測。
+- 字牌是畫布內 36 px（手機約 17 CSS px），圖例在下方 ≥14 px；`wq37-nolearn=1` 時不出目標（本局第二星改為「到達第 3 段」）。
+- 目標是 s72 的旁置物件，引擎不知道它們；儲存並返回後進行中的題目作廢（不計對錯）。
+- 多款的「難度」是補丁層在持續欄位上的調整（引擎的影子車、引擎的常數不能改）：valley-race 以車速代替影子車；drift-path 的直路縮短只動 `cur+2` 之後的路段；詳見 audit。
+- 分數膨脹：倍率與獎勵令分數高於 R3.6，s35 `TARGETS` 沒有改，「分數挑戰」星比以前易拿；調整門檻留待階段 4。
+- 沒有做：5 款旗艦的視差、大機制、音效分層、過關演出（階段 4）；解謎／策略／創作 13 款玩法（階段 3）。

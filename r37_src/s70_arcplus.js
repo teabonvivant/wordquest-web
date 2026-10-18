@@ -33,7 +33,7 @@ const WQArcPlus=(()=>{
    s={id,cat:catOf(id),cfg:c,t0:g.t||0,phase:1,phaseMax:1,combo:0,maxCombo:0,mult:1,lastFinal:g.score||0,prevRaw:g.score||0,bonus:0,goods:0,
       lives0:null,lastLives:null,shield:false,x2:0,slow:0,magnet:0,similar:false,events:[],evAt:null,nextEv:null,sfxLog:[],
       parts:[],floats:[],flash:0,shake:0,banner:null,freeze:0,card:null,q:null,nextQ:null,qCount:0,
-      learn:{asked:0,ok:0,bad:0,missed:0,lastCardMs:0,log:[]},idle:0,motes:[],tier:'high',ft:[],lastNow:0,forced:{},rngSeed:(r37Hash(id+'|'+(g.seed||0))>>>0)||7,raf:0,final:null,hits:0};
+      learn:{asked:0,ok:0,bad:0,missed:0,lastCardMs:0,log:[]},pl:{},miss:null,idle:0,motes:[],tier:'high',ft:[],lastNow:0,forced:{},rngSeed:(r37Hash(id+'|'+(g.seed||0))>>>0)||7,raf:0,final:null,hits:0};
    s.rng=r37Rng(s.rngSeed);
    s.nextQ=(c.first!=null?c.first:(isAct(id)?9:16));
    s.evAt=(isAct(id)?16:28);
@@ -42,6 +42,9 @@ const WQArcPlus=(()=>{
   return s;
  };
  const run=()=>{try{return a28Run();}catch(_){return null;}};
+ const unitOf=(s,d)=>s.cfg.unit!=null?s.cfg.unit:d;   /* R3.20 stage 2: reward unit of the game's own scoring (bounce-basket 3, meadow-cricket 4) */
+ const playOf=s=>{const GH=GAME_HOOKS[s.id];return s.cfg.play&&GH&&GH.play?GH.play:null;};
+ const isPlayQ=(s,q)=>!!(q&&q.play);
  function livesOf(g){
   if(typeof g.health==='number')return g.health;
   const r=pgFree?null:run();return r&&typeof r.lives==='number'?r.lives:null;
@@ -127,14 +130,89 @@ const WQArcPlus=(()=>{
   const opts=r37Shuf([...set].slice(0,3),rng).map(v=>({label:String(v),sub:'',ok:v===ans}));
   return {type:'math',kind:'math',prompt:txt+' = ?',say:'',answer:String(ans),opts,fix:txt+' = '+ans};
  }
- function makeQ(s){return (s.cfg.math&&!(s.qCount%3===2))?mathQ(s):wordQ(s);}
+ function makeQ(s){
+  const q=(s.cfg.math&&!(s.qCount%3===2))?mathQ(s):wordQ(s);
+  /* R3.20 stage 2 (play games): the right target's position comes from a shuffled bag of the three positions, so over any three questions each position is the right one once (R2: no clue from the position) */
+  if(s.cfg.play){
+   if(!s.posBag||!s.posBag.length)s.posBag=r37Shuf([0,1,2],s.rng);
+   const to=s.posBag.pop(),from=q.opts.findIndex(o=>o.ok);
+   if(from>=0&&to!==from){const t=q.opts[from];q.opts[from]=q.opts[to];q.opts[to]=t;}
+  }
+  return q;
+ }
 
  /* ---------------------------------------------------------------- learning moment: crystals on the canvas + chips in the dock */
+
+ /* identical target tiles: one width for the three words (no clue from the shape), 36 px bold, white text with a dark outline */
+ const TILE_FONT='900 36px "Noto Sans TC",system-ui,sans-serif';
+ let measureCtx=null;
+ function tileSize(cr){
+  try{measureCtx=measureCtx||document.createElement('canvas').getContext('2d');measureCtx.font=TILE_FONT;
+   return Math.ceil(Math.max(...cr.map(k=>measureCtx.measureText(k.o.label).width))+34);}catch(_){return 170;}
+ }
+ /* the shared tile: the adapter calls it with the word's canvas position; gone targets dim, a hit one pops */
+ function tile(c,k,x,y,o){
+  o=o||{};const w=k.w,h=k.h,a=o.alpha!=null?o.alpha:(k.gone?.28:1);
+  c.save();c.globalAlpha=a;
+  c.fillStyle='rgba(14,20,66,.92)';c.strokeStyle=k.col;c.lineWidth=4;
+  c.beginPath();if(c.roundRect)c.roundRect(x-w/2,y-h/2,w,h,18);else c.rect(x-w/2,y-h/2,w,h);c.fill();c.stroke();
+  c.font=TILE_FONT;c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';c.lineWidth=6;c.strokeStyle='#0B1030';c.strokeText(k.o.label,x,y+2);c.fillStyle='#fff';c.fillText(k.o.label,x,y+2);
+  c.restore();
+ }
+ /* try to put the targets into the world; the adapter says false while it cannot (ball in the air, boss ...) */
+ function trySpawn(g,s,q){
+  const PL=playOf(s);if(!PL||!q.pending)return;
+  let ok=false;try{ok=!!PL.spawn(g,s,q);}catch(e){console.error('WQArcPlus play spawn',e);}
+  if(ok){q.pending=false;q.spawnT=g.t||0;dockDirty=true;}
+ }
+ /* one tick of a play question: reading clocks, hit test, gone test */
+ function playTick(g,s,dt){
+  const q=s.q;if(!q||!q.play)return;
+  const PL=playOf(s);if(!PL)return;
+  if(q.pending){
+   q.tryAt-=dt;if(q.tryAt<=0){q.tryAt=.5;trySpawn(g,s,q);}
+   if(q.pending&&q.t>14){s.q=null;for(const k of q.cr)k.gone=true;s.nextQ=(g.t||0)+4;s.learn.asked=Math.max(0,s.learn.asked-1);s.qCount=Math.max(0,s.qCount-1);dockDirty=true;}   /* the world never had room for the targets: no question this time (not a miss) */
+   return;}
+  if(PL.layout){try{PL.layout(g,s,q);}catch(e){console.error('WQArcPlus play layout',e);}}   /* positions of the targets (camera / drift) before the visibility and hit tests */
+  const live_=q.cr.filter(k=>!k.gone);
+  if(q.visT==null&&live_.length&&live_.every(k=>k.vis!==false&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530)){q.visT=g.t||0;if(q.eta!=null||PL.arm)q.reachT=q.visT+Math.max(q.eta||0,PL.arm||0);}
+  /* reading time: a game whose targets could be touched at once keeps them "inflating" (not hittable) for PL.arm seconds after they are all visible */
+  const armed=!PL.arm||(q.visT!=null&&(g.t||0)-q.visT>=PL.arm);q.armed=armed;
+  if(!armed)return gone_(g,s,q,PL);
+  let near=false;try{near=PL.near?!!PL.near(g,s,q):false;}catch(_){}
+  if(near&&q.visT!=null&&q.reachT==null)q.reachT=g.t||0;
+  let hit=-1;try{hit=PL.hit(g,s,q);}catch(e){console.error('WQArcPlus play hit',e);}
+  if(hit>=0&&q.cr[hit]&&!q.cr[hit].gone){if(q.reachT==null||q.reachT>(g.t||0))q.reachT=g.t||0;answerQ(g,s,hit,'play');return;}
+  gone_(g,s,q,PL);
+ }
+ function gone_(g,s,q,PL){
+  let gone=false;try{gone=!!PL.gone(g,s,q);}catch(_){}
+  if(gone||q.t>=q.ttl)playMiss(g,s,q);
+ }
+ function playMiss(g,s,q){
+  for(const k of q.cr)k.gone=true;
+  s.learn.missed++;s.learn.log.push({fix:q.fix,en:q.type==='word'?q.answer:'',ok:false,type:q.type,picked:'',how:'miss',miss:true});
+  s.q=null;s.nextQ=(g.t||0)+6;s.miss={fix:q.fix,answer:q.answer,zh:q.w?q.w.zh:'',t:0};
+  try{const PL=playOf(s);if(PL&&PL.cleanup)PL.cleanup(g,s,q);}catch(_){}
+  floatText(s,'錯過了，正確是 '+(q.answer||''),400,150,'#FFE08A',26);
+  try{if(q.type==='word')r37Speak(q.answer);}catch(_){}
+  dockDirty=true;
+ }
  function startQ(g,s,why){
   if(s.q||s.card||s.freeze>0||noLearn()||!pgPlaying||s.final)return false;   /* never over a result screen */
   const q=makeQ(s);s.qCount++;
   const c=s.cfg,xs=(c.area&&c.area.xs)||[170,400,630];
   q.t=0;q.ttl=16;q.why=why||'auto';
+  const PL=playOf(s);
+  if(PL){   /* R3.20 stage 2: the answer is a gameplay action - three identical word targets live in the game's world (placed by the adapter's spawn) */
+   q.play=true;q.pending=true;q.ttl=60;q.verb=PL.verb||'';q.tryAt=0;q.visT=null;q.reachT=null;q.eta=null;
+   q.cr=q.opts.map((o,i)=>({x:-999,y:-999,w:0,h:58,font:36,ph:s.rng()*6,o,i,col:['#FF8FC7','#7CC8FF','#7EE3A1'][i],gone:false,vis:false}));
+   const f=tileSize(q.cr);for(const k of q.cr)k.w=f;
+   q.pos=false;s.q=q;s.learn.asked++;s.miss=null;
+   floatText(s,'看下方提示！',400,120,'#FFE08A',30);sfx(s,'event');
+   if(q.kind==='listen'&&q.say)setTimeout(()=>{try{r37Speak(q.say);}catch(_){}},180);
+   trySpawn(g,s,q);dockDirty=true;return true;
+  }
   q.cr=q.opts.map((o,i)=>({x:xs[i]+(s.rng()-.5)*30,y:(c.area?c.area.y[0]+s.rng()*(c.area.y[1]-c.area.y[0]):c.pos?190+s.rng()*60:250+s.rng()*40),ph:s.rng()*6,o,i,col:['#FF8FC7','#7CC8FF','#7EE3A1'][i],gone:false}));
   q.pos=!!c.pos;
   if(c.pos){try{const pp=c.pos(g),R=(c.r||34)+70;for(const k of q.cr){if(Math.hypot(k.x-pp.x,k.y-pp.y)<R){if(c.area){const lo=c.area.xs[0]-40,hi=c.area.xs[2]+40,d=(c.r||34)+34;k.x=Math.max(lo,Math.min(hi,pp.x+(k.x>=pp.x?d:-d)));if(Math.abs(k.x-pp.x)<d)k.x=pp.x-(k.x>=pp.x?d:-d);}else{const up=pp.y-R;k.y=up>110?up:Math.min(520,pp.y+R);}}}}catch(_){}}   /* a crystal never appears under the player: touching it must be a choice */
@@ -147,21 +225,29 @@ const WQArcPlus=(()=>{
  function answerQ(g,s,idx,how){
   const q=s.q;if(!q||q.done)return;
   const cr=q.cr[idx];if(!cr||cr.gone)return;
-  q.done=true;const o=cr.o,ok=!!o.ok,p={x:cr.x,y:cr.y};
+  q.done=true;const o=cr.o,ok=!!o.ok,p={x:Math.max(30,Math.min(770,cr.x)),y:Math.max(70,Math.min(520,cr.y))},PL=q.play&&!q.pending?playOf(s):null;   /* (a forced answer on a question the world has no room for yet has no target data: plain reward) */
   for(const c of q.cr)c.gone=true;
-  s.q=null;s.nextQ=(g.t||0)+(isAct(s.id)?26:44);
-  s.learn.log.push({fix:q.fix,en:q.type==='word'?q.answer:'',ok,type:q.type,picked:o.label});
+  s.q=null;s.nextQ=(g.t||0)+(s.cfg.every!=null?s.cfg.every:(isAct(s.id)?26:44));
+  s.learn.log.push({fix:q.fix,en:q.type==='word'?q.answer:'',ok,type:q.type,picked:o.label,how:how||'chip'});
   if(ok){
    s.learn.ok++;s.combo++;s.maxCombo=Math.max(s.maxCombo,s.combo);s.mult=multOf(s.combo);s.goods++;
    sfx(s,'power');
    burst(s,p.x,p.y,16,['#FFC94A','#fff','#7EE3A1']);floatText(s,'答對！',p.x,p.y-30,'#7EE3A1',32);
-   const r=s.rng(),gain=powerUp(g,s,r);
+   let gain=null;
+   if(PL&&PL.reward){try{gain=PL.reward(g,s,q,cr);}catch(e){console.error('WQArcPlus reward',e);}}
+   if(gain==null)gain=powerUp(g,s,s.rng());
+   else{s.rng();logEv(s,'play-reward','答對獎勵');}
    showCard(g,s,true,q,o,gain);
   }else{
-   s.learn.bad++;s.combo=0;s.mult=1;
+   s.learn.bad++;
+   /* a play-action mistake only drops the multiplier one level (R7); a life lost still resets it to 0 */
+   if(q.play){const m=multOf(s.combo);const lower=MULT.slice().reverse().find(([k,mm])=>mm===m-1);s.combo=m>1&&lower?lower[0]:0;s.mult=multOf(s.combo);}
+   else{s.combo=0;s.mult=1;}
    sfx(s,'bad');burst(s,p.x,p.y,8,['#FF9AA8','#fff']);shake(s,3);
-   showCard(g,s,false,q,o,'');
+   let note='';if(PL&&PL.wrong){try{note=PL.wrong(g,s,q,cr)||'';}catch(e){console.error('WQArcPlus wrong',e);}}
+   showCard(g,s,false,q,o,note);
   }
+  try{if(PL&&PL.cleanup)PL.cleanup(g,s,q);}catch(_){}
   try{if(q.type==='word')r37Speak(q.answer);}catch(_){}
   dockDirty=true;
   try{hudTick(g,s);}catch(_){}
@@ -170,7 +256,7 @@ const WQArcPlus=(()=>{
   const L=livesOf(g);
   if(hasLives(g,s)&&!s.shield&&r<.4){s.shield=true;logEv(s,'shield','答對獎勵');return '🛡️ 護盾：擋住下一次失誤';}
   if(r<.75){s.x2=Math.max(s.x2,9);logEv(s,'double','答對獎勵');return '×2 雙倍分數 9 秒';}
-  const b=Math.round(80*(s.mult));s.bonus+=b;g.score=(g.score||0)+b;s.lastFinal=g.score;logEv(s,'bonus','答對獎勵');return '+'+b+' 分';
+  const b=Math.round(unitOf(s,80)*(s.mult));s.bonus+=b;g.score=(g.score||0)+b;s.lastFinal=g.score;logEv(s,'bonus','答對獎勵');return '+'+b+' 分';
  }
  function logEv(s,kind,why){s.events.push({k:kind,t:+(performance.now()/1000).toFixed(2),why});if(s.events.length>30)s.events.shift();}
 
@@ -180,7 +266,7 @@ const WQArcPlus=(()=>{
   hideCard(s,true);
   const el=document.createElement('div');el.className='ap-card '+(ok?'ok':'bad');el.setAttribute('role','status');
   const T=ok?LC_OK:LC_BAD,ans=q.type==='word'?`<span lang="en" class="ap-cw">${esc2(q.answer)}</span><span class="ap-cz">${esc2(q.w.zh)}</span>`:`<span class="ap-cw">${esc2(q.fix)}</span>`;
-  el.innerHTML=`<div class="ap-ct">${ok?'✓ 答對了':'正確答案'}</div><div class="ap-cb">${ans}${q.type==='word'?'<button type="button" class="ap-say" aria-label="聽發音">🔊</button>':''}</div>${ok?`<div class="ap-cg">${esc2(gain)}</div>`:`<div class="ap-cg">你選了「${esc2(picked.label)}」· 不扣命，記住它！</div>`}<button type="button" class="ap-go" disabled>${ok?'好':'我記住了'}</button><i class="ap-bar"><b></b></i>`;
+  el.innerHTML=`<div class="ap-ct">${ok?'✓ 答對了':'正確答案'}</div><div class="ap-cb">${ans}${q.type==='word'?'<button type="button" class="ap-say" aria-label="聽發音">🔊</button>':''}</div>${ok?`<div class="ap-cg">${esc2(gain)}</div>`:`<div class="ap-cg">你選了「${esc2(picked.label)}」· 不扣命，記住它！${gain?' · '+esc2(gain):''}</div>`}<button type="button" class="ap-go" disabled>${ok?'好':'我記住了'}</button><i class="ap-bar"><b></b></i>`;
   vp.appendChild(el);
   const c={el,t:0,ok,min:T.min,max:T.max,again:T.again||0,go:el.querySelector('.ap-go'),bar:el.querySelector('.ap-bar b'),q,spoken:false,t0:performance.now()};
   s.card=c;s.learn.lastCardMs=0;
@@ -214,7 +300,7 @@ const WQArcPlus=(()=>{
   const GH=GAME_HOOKS[s.id],nm=(GH&&GH.names&&GH.names[kind])||EVNAME[kind];if(!nm)return;
   if(GH&&GH.events&&GH.events[kind]){try{GH.events[kind](g,s);}catch(e){console.error('WQArcPlus event',e);}logEv(s,kind,why||'event');sfx(s,'event');banner(s,nm[0],nm[1]);burst(s,400,200,12,['#FFC94A','#fff','#7CC8FF']);flash(s,.18);dockDirty=true;return;}
   if(kind==='double')s.x2=Math.max(s.x2,12);
-  else if(kind==='rain'){const b=Math.round(60*s.mult);s.bonus+=b;g.score=(g.score||0)+b;s.lastFinal=g.score;s.rainT=1.2;floatText(s,'+'+b,400,200,'#FFC94A',34);}
+  else if(kind==='rain'){const b=Math.round(unitOf(s,60)*s.mult);s.bonus+=b;g.score=(g.score||0)+b;s.lastFinal=g.score;s.rainT=1.2;floatText(s,'+'+b,400,200,'#FFC94A',34);}
   else if(kind==='slow')s.slow=6;
   else if(kind==='shield'){if(hasLives(g,s))s.shield=true;else{s.x2=Math.max(s.x2,8);kind='double';}}
   else if(kind==='magnet')s.magnet=10;
@@ -230,6 +316,7 @@ const WQArcPlus=(()=>{
   const GH=GAME_HOOKS[s.id],pool=(POOL[s.cat]||POOL.動作).concat((GH&&GH.pool)||[]).filter(k=>k!=='shield'||hasLives(g,s)),ev=pool[Math.floor(s.rng()*pool.length)];
   fireEvent(g,s,ev,'phase '+p);
   if(typeof ARC_HOOKS.phase==='function'){try{ARC_HOOKS.phase(g,s,p);}catch(_){}}
+  {const GH2=GAME_HOOKS[s.id];if(GH2&&GH2.phase){try{GH2.phase(g,s,p);}catch(e){console.error('WQArcPlus phase',e);}}}
  }
  function progOf(g,s){
   try{const f=s.cfg.prog&&s.cfg.prog(g);if(Number.isFinite(f))return clamp(f,0,1);}catch(_){}
@@ -244,7 +331,9 @@ const WQArcPlus=(()=>{
   if((g.t||0)>=s.evAt){
    s.evAt=(g.t||0)+(isAct(s.id)?34:55);
    const GH=GAME_HOOKS[s.id],pool=(POOL[s.cat]||POOL.動作).concat((GH&&GH.pool)||[]).filter(k=>k!=='shield'||hasLives(g,s));
-   fireEvent(g,s,pool[Math.floor(s.rng()*pool.length)],'timer');
+   let pick=pool[Math.floor(s.rng()*pool.length)];
+   if(s.cfg.play&&GH&&GH.pool&&GH.pool.length&&!s.ownEv){s.ownEv=1;pick=GH.pool[0];}   /* R3.20 stage 2: a play game's first timer event is always its own */
+   fireEvent(g,s,pick,'timer');
   }
  }
  const ARC_HOOKS={};
@@ -298,7 +387,8 @@ const WQArcPlus=(()=>{
   {const GH=GAME_HOOKS[s.id];if(GH&&GH.tick){try{GH.tick(g,s,dt);}catch(e){console.error('WQArcPlus hook',e);}}}
   /* learning moment */
   if(!s.q&&!s.card&&(g.t||0)>=s.nextQ&&!g.done&&!noLearn())startQ(g,s,'auto');
-  if(s.q){
+  if(s.q&&s.q.play){s.q.t+=dt;playTick(g,s,dt);}
+  else if(s.q){
    s.q.t+=dt;
    const mg=s.magnet>0?1.5:1;
    if(s.q.pos){const p=posOf(g,s);for(const c of s.q.cr)if(!c.gone&&Math.hypot(c.x-p.x,c.y-p.y)<(s.cfg.r+10)*mg){answerQ(g,s,c.i,'touch');break;}}
@@ -313,6 +403,7 @@ const WQArcPlus=(()=>{
   if(s.banner){s.banner.t-=dt;if(s.banner.t<=0)s.banner=null;}
   if(s.rainT>0){s.rainT-=dt;if(!calm()&&s.rng()<.5)s.parts.push({x:40+s.rng()*720,y:70,vx:0,vy:40+s.rng()*80,life:1,max:1,c:'#FFC94A',r:4});}
   if(s.card)cardTick(s,dt);
+  if(s.miss){s.miss.t+=dt;if(s.miss.t>3.2){s.miss=null;dockDirty=true;}}
   hudTick(g,s);
  }
  function wrapTick(Class){
@@ -322,8 +413,9 @@ const WQArcPlus=(()=>{
    let s;try{s=stateOf(this);}catch(e){return orig.call(this,dt);}
    if(s.freeze>0){ if(s.card)cardTick(s,dt); return; }
    let d=dt;
-   const sp=this.t!=null&&s.cfg.speed&&!s.forced.noSpeed?[1,1.12,1.25][s.phase-1]:1;
-   d=Math.min(dt*sp*(s.slow>0?.7:1),1/50);
+   const sp=this.t!=null&&s.cfg.speed&&!s.forced.noSpeed&&!(s.q&&s.q.play)?[1,1.12,1.25][s.phase-1]:1;   /* R3.20: no wave speed-up while a word target is out - reading time */
+   let ps=1;{const PL=s.q&&s.q.play&&!s.q.pending?playOf(s):null;if(PL&&PL.slow){try{ps=clamp(PL.slow(this,s,s.q)||1,.4,1);}catch(_){}}}
+   d=Math.min(dt*sp*ps*(s.slow>0?.7:1),1/50);
    inTick=true;try{orig.call(this,d);}finally{inTick=false;}
    try{afterTick(this,s,dt);}catch(e){console.error('WQArcPlus tick',e);}
   };
@@ -393,7 +485,9 @@ const WQArcPlus=(()=>{
   }
   if(s.phase>=2&&!calmOn&&s.tier!=='low'){c.globalAlpha=s.phase===2?.07:.12;c.fillStyle=s.phase===2?'#FF9A3C':'#6A5CFF';c.fillRect(0,0,800,560);c.globalAlpha=1;}
   /* crystals */
-  if(s.q&&!s.cfg.dockOnly){   /* board / puzzle games: the question lives in the dock so nothing covers the board */
+  if(s.q&&s.q.play){
+   /* drawn after the game's own overlay (GAME_HOOKS draw) below, so no event effect covers a word */
+  }else if(s.q&&!s.cfg.dockOnly){   /* board / puzzle games: the question lives in the dock so nothing covers the board */
    for(const cr of s.q.cr){
     if(cr.gone)continue;
     const bob=calmOn?0:Math.sin(T*2.2+cr.ph)*7,fade=s.q.t>s.q.ttl-2?(.4+.6*Math.abs(Math.sin(T*8))):1;
@@ -403,6 +497,10 @@ const WQArcPlus=(()=>{
    }
   }
   {const GH=GAME_HOOKS[s.id];if(GH&&GH.draw){try{GH.draw(g,s,c);}catch(e){console.error('WQArcPlus hook draw',e);}}}
+  if(s.q&&s.q.play&&!s.q.pending){   /* the word targets belong to the game's world: the adapter draws them (default: a plain tile at the target's position) */
+   const PL=playOf(s);
+   try{if(PL){if(PL.draw)PL.draw(g,s,c,s.q);else for(const k of s.q.cr)if(k.vis!==false)tile(c,k,k.x,k.y);}}catch(e){console.error('WQArcPlus play draw',e);}
+  }
   /* particles */
   for(const p of s.parts){c.globalAlpha=clamp(p.life/p.max*1.4,0,1);c.fillStyle=p.c;
    if(p.still){c.beginPath();for(let i=0;i<10;i++){const rr=i%2?p.r*.45:p.r,a=i*Math.PI/5-Math.PI/2;c.lineTo(p.x+Math.cos(a)*rr,p.y+Math.sin(a)*rr);}c.fill();}
@@ -496,7 +594,7 @@ const WQArcPlus=(()=>{
   return vp;
  }
  function canvasDown(e){
-  const g=live();if(!g)return;const s=S_.get(g);if(!s||!s.q||s.freeze>0||s.cfg.dockOnly)return;
+  const g=live();if(!g)return;const s=S_.get(g);if(!s||!s.q||s.q.play||s.freeze>0||s.cfg.dockOnly)return;   /* R3.20: a play question is answered only by the game's own action */
   const cv=e.currentTarget,r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*800,y=(e.clientY-r.top)/r.height*560;
   const T=g.t||0;
   for(const cr of s.q.cr){
@@ -505,7 +603,7 @@ const WQArcPlus=(()=>{
   }
  }
  document.addEventListener('keydown',e=>{
-  const g=live();if(!g)return;const s=S_.get(g);if(!s||!s.q||s.freeze>0)return;
+  const g=live();if(!g)return;const s=S_.get(g);if(!s||!s.q||s.q.play||s.freeze>0)return;
   const m=/^(?:Digit|Numpad)([1-3])$/.exec(e.code||'');if(!m)return;
   e.preventDefault();e.stopImmediatePropagation();answerQ(g,s,+m[1]-1,'key');
  },true);
@@ -536,13 +634,17 @@ const WQArcPlus=(()=>{
  function dockPaint(g,s){
   if(!dockEl)return;
   const q=s.q;
-  const sig=(q?'q'+s.qCount+(q.cr.map(c=>c.gone?1:0).join('')):'n')+'|'+(s.shield?1:0)+(s.x2>0?1:0)+(s.slow>0?1:0)+(s.magnet>0?1:0)+'|'+(s.card?1:0);
-  if(!q&&!s.card){const w=dockEl.querySelector('.ap-w');if(w){const v=String(Math.max(0,Math.ceil(s.nextQ-(g.t||0))));if(w.textContent!==v)w.textContent=v;}}   /* the countdown is one text node, not a re-render */
+  const sig=(q?'q'+s.qCount+(q.cr.map(c=>c.gone?1:0).join('')):'n')+'|'+(s.shield?1:0)+(s.x2>0?1:0)+(s.slow>0?1:0)+(s.magnet>0?1:0)+'|'+(s.card?1:0)+(q&&q.pending?'p':'')+(s.miss?'m':'');
+  if(!q&&!s.card&&!s.miss){const w=dockEl.querySelector('.ap-w');if(w){const v=String(Math.max(0,Math.ceil(s.nextQ-(g.t||0))));if(w.textContent!==v)w.textContent=v;}}   /* the countdown is one text node, not a re-render */
   if(!dockDirty&&dockEl.dataset.sig===sig)return;
   dockDirty=false;dockEl.dataset.sig=sig;
   const buffs=[s.shield?'<span class="ap-chip sh">🛡️ 護盾</span>':'',s.x2>0?`<span class="ap-chip x2">×2 ${Math.ceil(s.x2)}s</span>`:'',s.slow>0?'<span class="ap-chip">🐢 慢動作</span>':'',s.magnet>0?'<span class="ap-chip">🧲 磁石</span>':''].join('');
   if(noLearn()){dockEl.innerHTML=`<div class="ap-tip">學習挑戰已關閉</div><div class="ap-buffs">${buffs}</div>`;return;}
-  if(q){
+  if(q&&q.play){
+   dockEl.innerHTML=`<div class="ap-q"><span class="ap-qp" lang="${q.type==='word'?'zh':'en'}">${esc2(q.prompt)}</span>${q.type==='word'?'<button type="button" class="ap-say" data-ap="say" aria-label="聽發音">🔊</button>':''}<span class="ap-qh">${q.pending?'準備中…':esc2(q.verb||'用遊戲動作碰到正確的字')}</span></div><div class="ap-opts ap-legs" role="group" aria-label="三個目標字（用遊戲動作選，不能點）">${q.cr.map((c,i)=>`<span class="ap-leg" data-i="${i}" style="--c:${c.col}"><i></i><span lang="en">${esc2(c.o.label)}</span></span>`).join('')}</div><div class="ap-buffs">${buffs}</div>`;
+  }else if(s.miss&&!q){
+   dockEl.innerHTML=`<div class="ap-q ap-missq"><span class="ap-qp" lang="en">正確是 ${esc2(s.miss.answer||s.miss.fix)}</span><span class="ap-qh">${esc2(s.miss.zh||'')} · 沒關係，下一題再試</span></div><div class="ap-buffs">${buffs}</div>`;
+  }else if(q){
    dockEl.innerHTML=`<div class="ap-q"><span class="ap-qp" lang="${q.type==='word'?'zh':'en'}">${esc2(q.prompt)}</span>${q.type==='word'?'<button type="button" class="ap-say" data-ap="say" aria-label="聽發音">🔊</button>':''}<span class="ap-qh">${q.pos?'碰到或點選正確的字晶':'點選正確的字晶（或按 1 2 3）'}</span></div><div class="ap-opts" role="group" aria-label="選擇答案">${q.cr.map((c,i)=>`<button type="button" class="ap-opt" data-ap="opt" data-i="${i}" ${c.gone?'disabled':''}><b>${i+1}</b><span lang="en">${esc2(c.o.label)}</span></button>`).join('')}</div><div class="ap-buffs">${buffs}</div>`;
   }else{
    const wait=Math.max(0,Math.ceil(s.nextQ-(g.t||0)));
@@ -552,7 +654,7 @@ const WQArcPlus=(()=>{
  document.addEventListener('click',e=>{
   const el=e.target.closest&&e.target.closest('[data-ap]');if(!el)return;
   const g=live();if(!g)return;const s=S_.get(g);if(!s)return;
-  if(el.dataset.ap==='opt'&&s.q)answerQ(g,s,+el.dataset.i,'chip');
+  if(el.dataset.ap==='opt'&&s.q&&!s.q.play)answerQ(g,s,+el.dataset.i,'chip');
   else if(el.dataset.ap==='say'&&s.q){try{r37Speak(s.q.say||s.q.answer);}catch(_){}}
  });
  /* layout: reserve room for the HUD (above) and the dock (below) so r2Fit sizes the canvas to what is left */
@@ -612,6 +714,7 @@ const WQArcPlus=(()=>{
      try{const cb=typeof WQArc!=='undefined'&&WQArc._combo(g),m=Math.max(s.maxCombo,cb?cb.max:0);s.maxCombo=m;if(cb)cb.max=m;}catch(_){}   /* one combo number: the card, the s35 record and _debug agree */
      const win=(()=>{try{return a28Winning(g);}catch(_){return false;}})();
      s.final={win,score:Math.floor(g.score||0),maxCombo:s.maxCombo,phase:s.phaseMax,learn:s.learn.log.slice(),ok:s.learn.ok,bad:s.learn.bad};
+     if(s.cfg.play)s.final.stars=starsOf(s,s.final);
      sfx(s,win?'clear':'fail');
      {const pl=document.querySelector('.a28-play.ap-on');if(pl){pl.classList.add('ap-done');lastLay='';}}
      if(win&&!calm()){burst(s,400,260,24,['#FFC94A','#FF8FC7','#7CC8FF','#fff']);}
@@ -619,10 +722,24 @@ const WQArcPlus=(()=>{
   }catch(e){console.error('WQArcPlus complete',e);}
   return priorComplete.apply(this,arguments);
  };
+
+ /* R3.20 stage 2: the run's own three stars - score (>= the first challenge star's score), words (>= 2 answered and >= 75 % right; a miss is not an answer), combo (>= the game's comboStar) */
+ function starsOf(s,f){
+  let t=[0,0,0];try{t=WQArc.targets(s.id);}catch(_){}
+  const asked=f.ok+f.bad,nl=noLearn();
+  const sc=f.score>=t[0],words=nl?f.phase>=3:(asked>=2&&f.ok/asked>=.75),cT=s.cfg.comboStar||6,cb=f.maxCombo>=cT;
+  return {n:(sc?1:0)+(words?1:0)+(cb?1:0),score:f.score,scoreOk:sc,scoreTarget:t[0],words:words,wordsOk:f.ok,wordsAsked:asked,wordsNoLearn:nl,combo:cb,comboTarget:cT,maxCombo:f.maxCombo};
+ }
  function resultHtml(f){
   /* wrong ones first (they are the ones to remember), at most 2 lines, the rest as "＋N 個" - never hidden by clipping */
   const sorted=f.learn.slice().sort((a,b)=>(a.ok?1:0)-(b.ok?1:0)),shown=sorted.slice(0,2),more=sorted.length-shown.length;
-  const items=f.learn.length?shown.map(x=>x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):'<li class="none">本局未遇到字晶</li>';
+  const items=f.learn.length?shown.map(x=>x.miss?`<li class="miss"><b>–</b> ${esc2(x.fix)}<small>（錯過了）</small></li>`:x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):'<li class="none">本局未遇到字晶</li>';
+  const st=f.stars;
+  if(st){
+   const cell=(on,label,val,tip)=>`<span class="star${on?' on':''}" title="${esc2(tip)}" aria-label="${esc2(label+' '+val+'，'+tip+'，'+(on?'已得星':'未得星'))}"><em aria-hidden="true">★</em><small>${label}</small> <b>${val}</b></span>`;
+   const row=[st.scoreOk,st.words,st.combo];
+   return `<div class="ap-res ap-play" data-ap="result"><div class="ap-stars" role="img" aria-label="本局 ${st.n} / 3 星"><span class="st" aria-hidden="true">${row.map(on=>`<i class="${on?'on':''}">★</i>`).join('')}</span><span>本局 ${st.n} / 3 星</span></div><div class="ap-rs">${cell(st.scoreOk,'分數',st.score,'分數要 '+st.scoreTarget+' 分')}${cell(st.words,st.wordsNoLearn?'波次':'生字',st.wordsNoLearn?f.phase+'/3':st.wordsOk+'/'+st.wordsAsked,st.wordsNoLearn?'要到第 3 段':'答對七成半以上，至少答兩題')}${cell(st.combo,'連擊','×'+f.maxCombo,'要 '+st.comboTarget+' 連')}</div><ul class="ap-rl" aria-label="本局生字">${items}</ul></div>`;
+  }
   return `<div class="ap-res" data-ap="result"><div class="ap-rs"><span><small>最高連擊</small> <b>×${f.maxCombo}</b></span><span><small>到達波次</small> <b>${f.phase}/3</b></span><span><small>字晶答對</small> <b>${f.ok}/${f.ok+f.bad}</b></span></div><ul class="ap-rl" aria-label="本局生字">${items}</ul></div>`;
  }
  /* The ready / pause / result card never scrolls and never lets two lines sit on top of each other: when its natural height is more than the room it has,
@@ -644,7 +761,7 @@ const WQArcPlus=(()=>{
   try{
    const g=pgGame;if(g&&!g.preview&&COIN28.ids.includes(g.meta.id)){
     const s=S_.get(g);
-    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;nx.classList.add('ap-combo');if(!f.learn.length){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
+    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;nx.classList.add('ap-combo');if(!f.learn.length&&!f.stars){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
     stateOf(g);mount(g,S_.get(g));
    }
   }catch(e){console.error('WQArcPlus overlay',e);}
@@ -695,7 +812,17 @@ const WQArcPlus=(()=>{
    canvasHud:(s.chud||[]).slice(),hudShown:hudShown(),frozen:s.freeze>0,card:s.card?{ok:s.card.ok,t:+s.card.t.toFixed(2),min:s.card.min,max:s.card.max,disabled:s.card.go.disabled}:null,
    q:s.q?{type:s.q.type,kind:s.q.kind,prompt:s.q.prompt,answer:s.q.answer,opts:s.q.cr.map(c=>({label:c.o.label,ok:c.o.ok,x:c.x,y:c.y,gone:c.gone})),pos:s.q.pos,t:+s.q.t.toFixed(1)}:null,
    learn:{asked:s.learn.asked,ok:s.learn.ok,bad:s.learn.bad,missed:s.learn.missed,lastCardMs:s.learn.lastCardMs,log:s.learn.log.slice()},nextQ:+(s.nextQ-(g.t||0)).toFixed(1),
-   cfg:{thr:s.cfg.thr,speed:s.cfg.speed,pos:!!s.cfg.pos,math:!!s.cfg.math,lives:livesOf(g)},reduced:calm(),final:s.final};
+   cfg:{thr:s.cfg.thr,speed:s.cfg.speed,pos:!!s.cfg.pos,math:!!s.cfg.math,play:!!s.cfg.play,unit:s.cfg.unit,comboStar:s.cfg.comboStar,lives:livesOf(g)},reduced:calm(),final:s.final,
+   play:playDbg(g,s),mech:hookDbg(g,s,'mech'),diff:hookDbg(g,s,'diff'),diffs:diffsDbg(g,s),miss:s.miss?{answer:s.miss.answer,t:+s.miss.t.toFixed(2)}:null};
+ }
+
+ /* the game's difficulty numbers of waves 1 / 2 / 3, read from the same function the game uses (the live one is `diff`) */
+ function diffsDbg(g,s){const GH=GAME_HOOKS[s.id];if(!GH||!GH.diff)return null;const keep=s.phase,o={};try{for(const p of [1,2,3]){s.phase=p;o[p]=GH.diff(g,s);}}catch(e){return {error:String(e)};}finally{s.phase=keep;}return o;}
+ function hookDbg(g,s,k){const GH=GAME_HOOKS[s.id];try{return GH&&GH[k]?GH[k](g,s):null;}catch(e){return {error:String(e)};}}
+ function playDbg(g,s){
+  const q=s.q;if(!q||!q.play)return {active:false,pending:false,verb:'',targets:[]};
+  return {active:true,pending:!!q.pending,armed:q.armed!==false,verb:q.verb,visibleT:q.visT,reachT:q.reachT,eta:q.eta,t:+q.t.toFixed(2),
+   targets:q.cr.map(k=>({i:k.i,label:k.o.label,ok:k.o.ok,x:+k.x.toFixed(1),y:+k.y.toFixed(1),w:k.w,h:k.h,font:k.font,visible:k.vis!==false&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530,gone:k.gone,col:k.col}))};
  }
  /* what the DOM HUD shows right now, read back from the DOM (tests compare it with the engine) */
  function hudShown(){
@@ -718,10 +845,11 @@ const WQArcPlus=(()=>{
   if(kind==='burst'){burst(s,400,280,arg||40,['#FFC94A','#fff','#7CC8FF']);return true;}
   if(kind==='lose'){if(typeof g.health==='number'){g.health=Math.max(0,g.health-1);if(g.health<=0&&!g.done){g.end('生命用完了','這一局結束');}return true;}return false;}   /* last life: end the run the way the games themselves do (a bare health 0 left the engine without a finished run and the save check refused) */
   if(kind==='shield'){s.shield=true;return true;}
+  if(kind==='mech'){const GH=GAME_HOOKS[s.id];return !!(GH&&GH.forceMech&&GH.forceMech(g,s,arg));}
   if(kind==='god'){s.forced.god=arg!==false;return true;}
   return false;
  }
  return {reserve,addLife,bonusOf:g=>{try{const s=g&&S_.get(g);return s?s.bonus:0;}catch(_){return 0;}},maxCombo:g=>{try{const s=g&&S_.get(g);return s?s.maxCombo:0;}catch(_){return 0;}},summary:g=>{const s=g&&S_.get(g);return s?s.final:null;},
-  _debug:dbg,_force:force,cfg:CFG,hooks:ARC_HOOKS,game:GAME_HOOKS,multOf,posOf,cfgOf,isAct,stateOf,burst,floatText,banner,logEv,sfx,calm,
+  _debug:dbg,_force:force,cfg:CFG,hooks:ARC_HOOKS,game:GAME_HOOKS,multOf,posOf,cfgOf,isAct,stateOf,burst,floatText,banner,logEv,sfx,calm,absorb:(g,s)=>{if(s.shield&&hasLives(g,s)){s.shield=false;logEv(s,'shield-used','absorbed');sfx(s,'power');floatText(s,'🛡️ 擋住了！',400,150,'#7CC8FF',30);burst(s,400,280,12,['#7CC8FF','#fff']);return true;}return false;},sampleQ:n=>{const g=live();if(!g)return null;const s=stateOf(g),cnt=[0,0,0];for(let i=0;i<n;i++){s.qCount++;const q=makeQ(s);cnt[q.opts.findIndex(o=>o.ok)]++;}return cnt;},tile,xs3:(q,cx)=>{const w=q.cr[0].w,gap=w+22;return [(cx==null?400:cx)-gap,(cx==null?400:cx),(cx==null?400:cx)+gap];},clamp,addBonus:(g,s,n)=>{n=Math.round(n);s.bonus+=n;g.score=(g.score||0)+n;s.lastFinal=g.score;return n;},
   get hud(){return hudEl;},get dock(){return dockEl;}};
 })();

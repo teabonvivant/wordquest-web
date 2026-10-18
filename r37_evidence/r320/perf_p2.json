@@ -1,0 +1,253 @@
+{
+ "method": "390x844 touch viewport, CDP CPU throttle x4, ~10 s scripted input per pass (r37_tests/r320_perf.py), rAF intervals; 3 rounds, before (b0f8c6f) and after alternated, median of the 3 rounds",
+ "games": {
+  "sky-rescue": {
+   "before": {
+    "p95": 33.4,
+    "long50": 1,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 33.4,
+      "long50": 2
+     },
+     {
+      "p95": 33.4,
+      "long50": 1
+     },
+     {
+      "p95": 33.4,
+      "long50": 1
+     }
+    ]
+   },
+   "after": {
+    "p95": 33.4,
+    "long50": 2,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 33.4,
+      "long50": 2
+     },
+     {
+      "p95": 33.4,
+      "long50": 1
+     },
+     {
+      "p95": 33.4,
+      "long50": 2
+     }
+    ]
+   },
+   "pass": true
+  },
+  "forest-dash": {
+   "before": {
+    "p95": 33.4,
+    "long50": 4,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 50,
+      "long50": 9
+     },
+     {
+      "p95": 33.4,
+      "long50": 3
+     },
+     {
+      "p95": 33.4,
+      "long50": 4
+     }
+    ]
+   },
+   "after": {
+    "p95": 33.4,
+    "long50": 4,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 33.4,
+      "long50": 2
+     },
+     {
+      "p95": 33.4,
+      "long50": 6
+     },
+     {
+      "p95": 33.4,
+      "long50": 4
+     }
+    ]
+   },
+   "pass": true
+  },
+  "star-patrol": {
+   "before": {
+    "p95": 16.8,
+    "long50": 0,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 33.3,
+      "long50": 2
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     }
+    ]
+   },
+   "after": {
+    "p95": 16.8,
+    "long50": 0,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.7,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 1
+     }
+    ]
+   },
+   "pass": true
+  },
+  "valley-race": {
+   "before": {
+    "p95": 16.8,
+    "long50": 1,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.8,
+      "long50": 2
+     },
+     {
+      "p95": 16.8,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     }
+    ]
+   },
+   "after": {
+    "p95": 16.7,
+    "long50": 1,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.7,
+      "long50": 1
+     },
+     {
+      "p95": 16.7,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 1
+     }
+    ]
+   },
+   "pass": true
+  },
+  "moon-bells": {
+   "before": {
+    "p95": 16.8,
+    "long50": 1,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.8,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     }
+    ]
+   },
+   "after": {
+    "p95": 16.8,
+    "long50": 0,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.7,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     }
+    ]
+   },
+   "pass": true
+  },
+  "lighthouse-well": {
+   "before": {
+    "p95": 16.8,
+    "long50": 0,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.8,
+      "long50": 1
+     }
+    ]
+   },
+   "after": {
+    "p95": 16.7,
+    "long50": 1,
+    "median": 16.7,
+    "rounds": [
+     {
+      "p95": 16.7,
+      "long50": 1
+     },
+     {
+      "p95": 16.8,
+      "long50": 0
+     },
+     {
+      "p95": 16.7,
+      "long50": 1
+     }
+    ]
+   },
+   "pass": true
+  }
+ },
+ "criteria": "p95 after <= before + 16.7 ms and long frames (>50 ms) after <= before + 2",
+ "all_pass": true
+}

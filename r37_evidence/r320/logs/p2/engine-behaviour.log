@@ -1,0 +1,46 @@
+PASS [B] moon-bells: reaching the top bell ends the run as a climb win :: done=true title=登上月亮
+PASS [B] moon-bells: steering away from the first bell is rescued once (survives longer) :: median survival 30.0s
+PASS [B] drift-path: first corner leaves at least 3 s before an idle car leaves the road :: died at 3.38s
+PASS drift-path: a perfect bot completes the whole route :: 路線完成
+PASS [B] forest-pong: an idle paddle no longer wins at 入門 (at most 1 of 8 seeds) :: 0/8 idle wins
+PASS [B] forest-pong: a paddle that always returns the ball can still finish the match within 150 s (no endless stall) :: 6/6 matches ended
+PASS [B] bounce-basket: at least 18 of the first 100 charge lengths score at 標準 :: 22 scoring lengths
+PASS [B] bounce-basket: a tap near the ball (no drag) does not waste a shot
+PASS bounce-basket: a real drag still launches the ball
+PASS [B] meadow-cricket: a late swing says it was late, an early swing says it was early :: 揮早了，球還沒到金色圈。 | 揮慢了，球已經過了金色圈。
+PASS [B] valley-race: leaving the road slows the car less harshly (about 95 instead of 52 px/s after 2 s on the grass) :: min speed 96
+PASS valley-race: a sloppy bot still finishes three laps :: laps 3
+PASS [B] forest-band: the ensemble plays from the first second (not in the lobby preview)
+PASS [B] star-rhythm: a phone with 150 ms input delay is calibrated from the count-in taps and passes (>=26 of 32 beats) :: 4/5 runs
+PASS star-rhythm: a player with no extra delay is not harmed by calibration :: 5/5 runs
+PASS [B] star-rhythm: mashing the button at 6 taps per second no longer passes :: hits 3/32 beats
+PASS [B] star-rhythm: idle player survives past beat 5 (first three beats are free) :: third miss at 5.5s
+PASS [B] honey-delivery: cutting every rope on the first frame no longer wins (at most 3 of 24 level/difficulty combos) :: 0/24
+PASS honey-delivery: every level can be won by choosing the cut order and moment (24 of 24 combos) :: 24/24 
+PASS [B] honey-delivery: the cup is not under the candy any more (levels need a swing) :: 24/24 off-axis
+PASS [B] rolling-block: later islands need clearly longer solutions than the first three (ramp >= +3 moves) at every difficulty :: d0 6.3->12.0 d1 7.3->12.3 d2 8.3->12.3
+PASS rolling-block: all 30 boards are solvable
+PASS [B] rolling-block: swiping the canvas rolls the block
+PASS juice-lines: a straight ramp from the pipe to the cup wins every level at every difficulty (24 of 24) :: 24/24 
+PASS [B] juice-lines: water is limited, so pouring with no line stops once the supply is used
+PASS [B] juice-lines: levels use eight different cup positions :: 8 positions
+PASS [B] juice-lines: the water refill button is a free tool (id refill)
+PASS [B] color-workshop: the white-ball button is free (id whiten) and paint buttons show the English colour
+PASS [B] little-engineer: a stuck default frame returns to the design view by itself (no endless limbo) :: running=false t=0.0
+PASS little-engineer: the preset frame still crosses the hill
+PASS [B] little-engineer: a fast-forward tool exists and makes the run quicker :: 13.5s vs 4.5s of real time
+PASS [B] number-garden: a simple corner strategy reaches the 入門 target in at least 40 of 100 games :: 63/100
+PASS [B] number-garden: reaching 64 shows the doubling sum :: 64 = 32 + 32 · sixty-four
+PASS [B] color-orbit: a fast greedy matcher is eventually beaten (dies within 600 s in at least 3 of 5 seeds) :: 5/5 died
+PASS [B] color-orbit: tapping the left or right half of the canvas rotates the ring
+PASS [B] block-studio: fall speed keeps rising after 30 cleared lines :: rows 4
+PASS [B] honeycomb-puzzle: at least 98% of deals on a 55%-full board have two placeable pieces :: 99.7%
+PASS [B] garden-paths: challenge level has no spare tile swap; the look-ahead draws without changing the game
+PASS [B] sky-rescue: a plane parked in the bottom corner no longer survives 60 s :: health 0
+PASS [B] sky-rescue: the first bird is within reach in under 2.5 s :: bird near plane at 0.4
+PASS [B] forest-dash: dodging by lane alone no longer finishes the run in most seeds (at most 2 of 6) :: 0/6 finished
+PASS [B] sweet-studio: serving with an empty cup is free and the canvas tubs take taps :: health 3->3 cup 1
+PASS [B] cloud-island: a held direction survives a respawn
+PASS [B] ruins-courier: the first obstacle is later than before (idle player first loses a heart after 4.5 s) :: first hit 6.3
+PASS [B] lighthouse-well: the first twelve platforms contain no spikes :: platforms 11
+PASS behaviour summary: 45 pass / 0 fail

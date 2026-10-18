@@ -271,3 +271,18 @@ html body.r37arc .a28-overlaycard:is([data-ap-lv="4"],[data-ap-lv="5"]) .arx-res
 html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 /* 360 px wide: the long label 「再試一次 · 不扣金幣」 keeps >= 8 px of air on both sides of its button */
 @media (max-width:380px){html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.primary:not(.arx-pw){font-size:15px;padding:0 8px}}
+
+/* ===== R3.20 stage 2: play-action questions (the answer is a gameplay action) and the per-run stars ===== */
+.ap-legs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ap-leg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid var(--c,#fff);background:rgba(255,255,255,.08);color:#F4F6FF;font:900 16px/1.1 inherit;font-family:inherit;pointer-events:none;user-select:none}
+.ap-leg i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c,#fff)}
+.ap-missq .ap-qp{color:#7EE3A1}
+.ap-stars{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 4px;font-size:16px;font-weight:900;color:#E8ECFF}
+.ap-stars .st{font-size:22px;letter-spacing:2px;color:#FFC94A}
+.ap-stars .st i{font-style:normal;color:rgba(255,255,255,.3)}
+.ap-stars .st i.on{color:#FFC94A}
+.ap-rs span.star{flex-wrap:wrap}
+.ap-rs span.star em{font-style:normal;color:rgba(255,255,255,.32);font-size:15px}
+.ap-rs span.star.on em{color:#FFC94A}
+.ap-rs span.star small{font-size:12px}
+@media (prefers-reduced-motion:reduce){.ap-leg{transition:none}}

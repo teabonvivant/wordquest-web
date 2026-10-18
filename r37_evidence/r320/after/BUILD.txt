@@ -1,2 +1,2 @@
 after build: /home/workspace/wordquest-web-dev/app/index.html
-sha256 9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01
+sha256 50c982b330a20b8cd0e50e0af93da04e86903fa66e75941b54235bbab8dd0f18

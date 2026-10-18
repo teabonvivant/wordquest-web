@@ -53,6 +53,11 @@ def capture(version, root, ids, sizes=None, states=('start', 'play', 'learn', 'r
                         shot(pg, path); probe_json(pg, path, 'start')
                     if 'play' in states or 'result' in states or 'learn' in states:
                         start_game(pg, gid, play=True)
+                        if version == 'after':   # R3.20 stage 2: an idle run (drift-path leaves its road, an idle plane is hit) must still be alive when the learn state is photographed: same keep-alive stubs as t28 / t31
+                            try:
+                                pg.evaluate("(c)=>window.__r37(c)", "(()=>{if(window.__capStub)return 1;window.__capStub=1;window.__f0=a28Fail;a28Fail=function(){};const P=Object.getPrototypeOf(pgGame);window.__P=P;window.__e0=Object.prototype.hasOwnProperty.call(P,'end')?P.end:null;window.__n0=Object.prototype.hasOwnProperty.call(P,'next')?P.next:null;P.end=function(){};P.next=function(){};WQArcPlus._force('god');return 1})()")
+                            except Exception:
+                                pass
                         pg.add_script_tag(path=str(PROBE))
                         pg.wait_for_timeout(2600)
                         ensure_play(pg)
@@ -63,12 +68,23 @@ def capture(version, root, ids, sizes=None, states=('start', 'play', 'learn', 'r
                         try:
                             pg.evaluate("(c)=>window.__r37(c)", "WQArcPlus._force('learn')")
                             pg.wait_for_timeout(700)
+                            # R3.20 stage 2: a play game shows its three word targets in the world (they appear once the world has room for them)
+                            for _ in range(60):
+                                ensure_play(pg)
+                                if pg.evaluate("(c)=>window.__r37(c)", "(()=>{const p=WQArcPlus._debug().play;return !p.active||(!p.pending&&p.targets.every(t=>t.visible))})()"):
+                                    break
+                                pg.wait_for_timeout(250)
+                            pg.wait_for_timeout(300)
                             path = out / f'{gid}__{label}__learn.jpg'
                             shot(pg, path); probe_json(pg, path, 'learn')
                         except Exception as e:
                             print('  learn fail', gid, label, repr(e)[:100])
                     if 'result' in states:
                         # a combo first, so the result card shows a real "連擊 ×N" (after build only; the before build has no core)
+                        try:
+                            pg.evaluate("(c)=>window.__r37(c)", "(()=>{if(window.__capStub){window.__capStub=0;a28Fail=window.__f0;const P=window.__P;if(window.__e0)P.end=window.__e0;else delete P.end;if(window.__n0)P.next=window.__n0;else delete P.next;}return 1})()")
+                        except Exception:
+                            pass
                         try:
                             pg.evaluate("(c)=>window.__r37(c)", "(()=>{if(typeof WQArcPlus!=='undefined'){WQArcPlus._force('god',false);WQArcPlus._force('combo',4);}return 1})()")
                         except Exception:

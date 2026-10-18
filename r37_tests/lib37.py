@@ -29,6 +29,18 @@ def open_page(p, w=390, h=844, touch=True, learn=False):
         ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
     html = patched_html()
     pg.route(URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
+    # R3.20: the merged Olympiad classroom loads host.js as a module; from file:// the browser blocks it (CORS) and logs a console error on every page.
+    # Serving those files through route() with an allow-origin header gives the page the same files the website serves - nothing is filtered or ignored.
+    def _oly(route):
+        import mimetypes
+        from urllib.parse import urlparse, unquote
+        f = Path(unquote(urlparse(route.request.url).path))
+        try:
+            body = f.read_bytes()
+        except OSError:
+            return route.fallback()
+        route.fulfill(status=200, body=body, content_type=mimetypes.guess_type(str(f))[0] or 'application/octet-stream', headers={'access-control-allow-origin': '*'})
+    pg.route('**/olympiad-classroom/**', _oly)
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)
     pg.emulate_media(reduced_motion='reduce')
     pg.set_default_timeout(int(__import__("os").environ.get("WQ37_TIMEOUT","60000")))
