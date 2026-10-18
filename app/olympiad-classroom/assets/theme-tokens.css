@@ -1,0 +1,5 @@
+:root{--r37-top:56px;--r37-nav:62px;
+ --r37-ink:#0b1030;--r37-card:#141a46;--r37-card2:#1b2160;--r37-hi:#2a3282;--r37-line:rgba(255,255,255,.16);
+ --r37-text:#f4f6ff;--r37-muted:#c3cbf7;--r37-gold:#ffc94a;--r37-gold-ink:#3b2600;--r37-aurora:#3ee6d0;--r37-shade:#070a26;
+ --r37-ease:cubic-bezier(.23,1,.32,1);
+ --r37-font:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}

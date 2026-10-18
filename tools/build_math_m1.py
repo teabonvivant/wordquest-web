@@ -3,10 +3,10 @@ Run from any working directory. This refreshes an ALREADY integrated R3.9+HK-M1 
 It will refuse an unrecognised/unpatched base instead of overwriting a newer release.
 """
 from pathlib import Path
-import re,json,hashlib
+import re,json,hashlib,subprocess,sys
 R=Path(__file__).resolve().parents[1]; S=R/'math_course_src'; app=R/'app/index.html'
 s=app.read_text(encoding='utf-8')
-blocks=list(re.finditer(r'<script([^>]*)>([\s\S]*?)</script>',s,re.I));originals=[b[2] for b in blocks if 'data-course-m1=' not in b[1]]
+blocks=list(re.finditer(r'<script([^>]*)>([\s\S]*?)</script>',s,re.I));originals=[b[2] for b in blocks if 'data-course-m1=' not in b[1] and 'data-olympiad-sync' not in b[1]]
 if len(originals)!=43 or 'WordQuest Maths 0.1.2' not in originals[40]:
  raise SystemExit('Unrecognised app base. Keep a backup; reconcile upstream changes manually.')
 (S/'style_bundle.js').write_text('globalThis.WQCourseCSS='+json.dumps('\n'.join((S/n).read_text(encoding='utf-8') for n in ['course_ui.css','course_visual.css','classroom.css']),ensure_ascii=False)+';\n',encoding='utf-8')
@@ -60,7 +60,8 @@ texts += [(S/n).read_text(encoding='utf-8') for n in ['school_bundle.js','course
 texts += [originals[41]]
 texts += [(S/n).read_text(encoding='utf-8') for n in ['tools_bundle.js','style_bundle.js','course_visuals.js','classroom_bundle.js','classroom_ui.js','course_ui.js']]
 preview.write_text(head+'\n'.join('<script>\n'+t.replace('</script','<\\/script')+'\n</script>' for t in texts)+'\n</body></html>',encoding='utf-8')
-manifest={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(S.iterdir()) if p.is_file()}
-for p in [app,preview,R/'app/sw.js']:manifest[str(p.relative_to(R))]=hashlib.sha256(p.read_bytes()).hexdigest()
+subprocess.run([sys.executable,str(R/'tools/sync_olympiad.py')],check=True)
+manifest={p.relative_to(R).as_posix():hashlib.sha256(p.read_text(encoding='utf-8').encode()).hexdigest() for p in sorted(S.iterdir()) if p.is_file()}
+for p in [app,preview,R/'app/sw.js']:manifest[p.relative_to(R).as_posix()]=hashlib.sha256(p.read_text(encoding='utf-8').encode()).hexdigest()
 (R/'docs/math-course/BUILD_SHA256.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 print('Rebuilt app/index.html and math_course_preview.html. Run math_course_tests before deployment.')
