@@ -12,13 +12,13 @@ SRC = R / 'r37_src'
 UNITS = json.loads((Path(__file__).parent / 'en_units.json').read_text())
 
 BOOT = """
-window.MKITEMS = function(subject, w, s, diff, n){
+window.MKITEMS = function(subject, w, s, diff, n, seed){
   if(subject==='english'){
     const u=UNITS[w].units[s].words.slice(0,n||99);
     return u.map((x,i)=>({id:'e'+w+'-'+s+'-'+i,kind:'word',en:x.en,zh:x.zh,emoji:x.emoji||'',syl:x.syl||'',ex:x.ex||''}));
   }
-  const qs=WQ37Math.make('math',w,s,n||8,diff||2,12345);
-  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',pad:(/[\\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t)}));
+  const qs=WQ37Math.make('math',w,s,n||8,diff||2,seed||12345);
+  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',pad:(/[\\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));
 };
 window.MKREVIEW = function(subject, w, s, diff){ return s>0?MKITEMS(subject,w,s-1,diff,2).map(x=>Object.assign({},x,{id:'rv-'+x.id})):[]; };
 window.STARTGAME = function(name, subject, w, s, diff, extra){
@@ -27,7 +27,7 @@ window.STARTGAME = function(name, subject, w, s, diff, extra){
   window.OPTS=Object.assign({subject,items,review:MKREVIEW(subject,w,s,diff),difficulty:diff,mode:'level',sound:true,assetBase:'assets/r321/',
     level:{w,s,boss:s===9,title:'測試關',icon:'🌱',hue:205,grade},character:{id:'panda',icon:'🐼',img:'',name:'熊貓',perk:'heart'},
     syllables:e=>{const m=UNITS_SYL[e];return m||e;},
-    onFinish:r=>{window.RESULT=r;return r.passed?1:0;},onNext:()=>{window.NEXT=1;},onExit:()=>{window.EXIT=1;}},extra||{});
+    regen:()=>{window.REGEN=(window.REGEN||0)+1;return subject==='math'?{items:MKITEMS(subject,w,s,diff,8,12345+window.REGEN*7919),review:MKREVIEW(subject,w,s,diff)}:null;},onFinish:r=>{window.RESULT=r;return r.passed?1:0;},onNext:()=>{window.NEXT=1;},onExit:()=>{window.EXIT=1;}},extra||{});
   window.G=globalThis[name].start(document.getElementById('box'),window.OPTS);return window.G;
 };
 """

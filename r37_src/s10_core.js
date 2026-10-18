@@ -118,7 +118,7 @@ function r37G3Next(g,subj,w,s){let nw=w,ns=s+1;if(ns>9){nw++;ns=0;}return nw<r37
 function r37G3Items(subj,w,s,diff,seed){
  if(subj==='math'){
   const qs=WQ37Math.make('math',w,s,8,diff,seed,(r37Get().recent.math||[]).slice(-30));
-  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t)}));
+  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));
  }
  return r37EnStage(w,s).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'',ex:x.ex||''}));
 }
@@ -128,7 +128,7 @@ function r37G3Review(subj,w,s,diff,seed,items){
  if(subj==='math'){
   const sk=new Set(o.miss.filter(m=>m.t==='math'&&m.w===w&&m.sk).map(m=>m.sk));
   if(s===0&&!sk.size)return [];
-  try{return WQ37Math.make('math',w,Math.max(0,s-1),6,diff,seed+97).filter(x=>!have.has(x.q)&&(!sk.size||sk.has(x.skill))).slice(0,2).map((x,i)=>({id:'m'+w+'-rv-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t)}));}catch(_){return [];}
+  try{return WQ37Math.make('math',w,Math.max(0,s-1),6,diff,seed+97).filter(x=>!have.has(x.q)&&(!sk.size||sk.has(x.skill))).slice(0,2).map((x,i)=>({id:'m'+w+'-rv-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));}catch(_){return [];}
  }
  let pool=o.wrong.filter(x=>!have.has(x.en)&&x.zh).sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,2).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''}));
  if(pool.length<2&&s>0)pool=pool.concat(r37EnStage(w,s-1).filter(x=>!have.has(x.en)&&!pool.some(p=>p.en===x.en)).slice(0,2-pool.length).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''})));
@@ -141,7 +141,8 @@ function r37G3Pay(g,subj,w,s,res,items){
  /* learning loop: a first-try miss goes into the same wrong bank / maths mistake list the quiz uses, so the warm-up and review pick it up; a first-try hit clears a word from the bank */
  const now=Date.now(),by={};items.forEach(x=>{by[x.id]=x;});
  for(const p of (res&&res.perItem)||[]){
-  if(p.rv||!p.tries)continue;const it=by[p.id];if(!it)continue;
+  if(p.rv){if(subj!=='math'&&p.firstOk&&p.en){const j=o.wrong.findIndex(x=>x.en===p.en);if(j>=0){o.wrong[j].n--;if(o.wrong[j].n<=0)o.wrong.splice(j,1);}}continue;}
+  if(!p.tries)continue;const it=by[p.id];if(!it)continue;
   if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();}continue;}
   const i=o.wrong.findIndex(x=>x.en===p.en);
   if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}}

@@ -2,7 +2,7 @@
 .r37-tile.violet{--h:265}.r37-tile.teal{--h:185}.r37-tile.rose{--h:350}
 .r37-g3 .r37-wtitle{flex-wrap:nowrap}
 .r37-gsub{display:inline-flex;flex:none;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);margin-left:auto}
-.r37-gsub button{display:inline-flex;align-items:center;gap:4px;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--r37-muted);font:inherit;font-weight:800;font-size:14px;cursor:pointer;touch-action:manipulation}
+.r37-gsub button{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--r37-muted);font:inherit;font-weight:800;font-size:14px;cursor:pointer;touch-action:manipulation}
 .r37-gsub button svg{width:18px;height:18px}
 .r37-gsub button.on{background:var(--r37-gold);color:var(--r37-gold-ink);box-shadow:0 2px 0 var(--r37-cta-edge,#c48a00)}
 .r37-gsub button:focus-visible{outline:3px solid var(--r37-gold);outline-offset:2px}
@@ -32,5 +32,5 @@
 @media(max-width:460px){
  .r37-g3 .r37-wtitle{flex-wrap:wrap;row-gap:6px}
  .r37-gsub{order:3;flex:1 0 100%;margin:0}
- .r37-gsub button{flex:1;justify-content:center;min-height:40px}
+ .r37-gsub button{flex:1;justify-content:center;min-height:44px}
 }

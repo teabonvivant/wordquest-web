@@ -23,18 +23,20 @@
 
   /* ------------------------------------------------------------------ difficulty + level curve (one place, exported for tests) */
   var DIFF = {
-    speed: [0.72, 0.85, 1.0, 1.15, 1.3],              /* walking speed multiplier */
+    speed: [0.72, 0.85, 1.0, 1.15, 1.3],              /* walking speed multiplier (shown in params for comparison; the real pace is `cross`) */
+    cross: [1.12, 1.05, 1.0, 0.92, 0.85],             /* entry-to-base time multiplier: easy = slow monsters */
     hearts: [5, 5, 4, 3, 3],                          /* base hearts */
-    interval: [1.35, 1.18, 1.0, 0.86, 0.74],          /* spawn spacing multiplier */
-    capAdd: [-0.6, -0.3, 0, 0.4, 0.8],                /* extra simultaneous monsters */
+    cap: [2, 2, 3, 3, 4],                             /* monsters on screen at once (levels 1-2 of difficulty 4-5 start one lower) */
     distract: [2, 3, 4, 0, 0],                        /* decoy letters on the small pad; 4-5 use the full QWERTY pad */
     hint: ['first', 'first', 'button', 'none', 'none']/* 1-2: first letter pre-filled (math: hint line shown); 3: hint button; 4-5: none */
   };
   function params(d, s) {
     d = clamp((d | 0) || 2, 1, 5); s = clamp(s | 0, 0, 9); var i = d - 1, sm = DIFF.speed[i];
+    var cross = clamp((27 - s * 0.9) * DIFF.cross[i], 16, 30);                 /* seconds from entering at the right edge to the base: 16-30 s, shorter with level and difficulty */
+    var cap = clamp(DIFF.cap[i] - (d >= 4 && s < 2 ? 1 : 0), 1, 4);
     return {
-      d: d, s: s, hearts: DIFF.hearts[i], speedMul: sm, cross: (44 - 2.2 * s) / sm,        /* seconds from spawn to base at normal speed */
-      interval: (17 - 0.8 * s) * DIFF.interval[i], cap: clamp(Math.round(1 + s * 0.28 + DIFF.capAdd[i]), 1, 4),
+      d: d, s: s, hearts: DIFF.hearts[i], speedMul: sm, cross: cross,
+      interval: cross / (cap + 0.8), cap: cap,                                 /* spawn spacing so that `cap` monsters are strung along the lane */
       distract: DIFF.distract[i], qwerty: d >= 4, hint: DIFF.hint[i], prefill: DIFF.hint[i] === 'first'
     };
   }
@@ -44,26 +46,38 @@
   function esc(s) { return GX.esc(s); }
   var GLOW = {};
   function glow(col, px) {                                /* pre-rendered radial glow sprite */
-    var k = col + px, g = GLOW[k]; if (g) return g;
+    var m = GLOW[col] || (GLOW[col] = {}), g = m[px]; if (g) return g;
     var c = document.createElement('canvas'); c.width = c.height = px; var x = c.getContext('2d'), r = px / 2, gr = x.createRadialGradient(r, r, 0, r, r, r);
-    gr.addColorStop(0, col); gr.addColorStop(.35, col + '99'); gr.addColorStop(1, col + '00'); x.fillStyle = gr; x.fillRect(0, 0, px, px); return (GLOW[k] = c);
+    gr.addColorStop(0, col); gr.addColorStop(.35, col + '99'); gr.addColorStop(1, col + '00'); x.fillStyle = gr; x.fillRect(0, 0, px, px); return (m[px] = c);
   }
-  function sylSegs(S, it) {                               /* syllable lengths that add up to the word, else 2-4 letter chunks */
-    var en = it.en, raw = S.syl(it) || '', parts = raw.split(/[·‧•\-\s.]+/).filter(Boolean), tot = 0, i;
-    if (parts.length >= 2) { for (i = 0; i < parts.length; i++) tot += parts[i].length; if (tot === en.replace(/[^A-Za-z]/g, '').length || tot === en.length) { var ends = [], run = 0; for (i = 0; i < parts.length; i++) { run += parts[i].length; ends.push(run); } return ends; } }
-    var n = Math.max(2, Math.min(4, Math.round(en.length / 3))), out = []; for (i = 1; i <= n; i++) out.push(Math.round(en.length * i / n)); return out;
+  function sylSegs(S, it) {                               /* syllable ends as string indexes into it.en (non-letters never hide a break point), else 2-4 letter chunks */
+    var en = it.en, raw = S.syl(it) || '', parts = raw.split(/[·‧•\-\s.]+/).map(function (p) { return p.replace(/[^A-Za-z]/g, '').length; }).filter(Boolean), tot = 0, i, L = [];
+    for (i = 0; i < en.length; i++) if (/[A-Za-z]/.test(en[i])) L.push(i);
+    if (L.length < 2) return [en.length];
+    function endAt(k) { return L[Math.max(1, Math.min(L.length, k)) - 1] + 1; }
+    for (i = 0; i < parts.length; i++) tot += parts[i];
+    var ends = [], run = 0;
+    if (parts.length >= 2 && tot === L.length) { for (i = 0; i < parts.length; i++) { run += parts[i]; ends.push(endAt(run)); } return ends; }
+    var n = Math.max(2, Math.min(4, Math.round(L.length / 3)));
+    for (i = 1; i <= n; i++) { var v = endAt(Math.round(L.length * i / n)); if (!ends.length || v > ends[ends.length - 1]) ends.push(v); }
+    return ends;
   }
+  function realSyl(S, it) {                               /* syllable ends only when the word really has >= 2 syllables; else null */
+    var raw = S.syl(it) || '', parts = raw.split(/[·‧•\-\s.]+/).map(function (p) { return p.replace(/[^A-Za-z]/g, '').length; }).filter(Boolean), n = it.en.replace(/[^A-Za-z]/g, '').length, tot = 0, i;
+    for (i = 0; i < parts.length; i++) tot += parts[i]; if (parts.length < 2 || tot !== n) return null; return sylSegs(S, it);
+  }
+  function half(k) { var c = k.charCodeAt(0); if (c >= 0xFF01 && c <= 0xFF5E) return String.fromCharCode(c - 65248); if (k === '／') return '/'; if (k === '．' || k === '。') return '.'; if (k === '－' || k === '−') return '-'; return k; }
 
   var CSS = '' +
     '.td-root{--td-fy:120px}' +
     '.td-hud{position:absolute;left:0;right:0;top:0;z-index:4;pointer-events:none}' +
     '.td-row{display:flex;align-items:center;gap:8px;padding:4px 8px 0 58px;height:48px;box-sizing:border-box}' +
     '.td-root .gx-hudbtn{left:8px;top:2px;pointer-events:auto}' +
-    '.td-hearts{display:flex;gap:1px;color:#ff5d7a;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}.td-hearts svg{width:19px;height:19px}.td-hearts .lost{color:#3a4180;opacity:.8}' +
+    '.td-hearts{display:flex;gap:1px;color:#ff5d7a;filter:drop-shadow(0 1px 0 rgba(0,0,0,.5))}.td-hearts svg{width:var(--tdh,20px);height:var(--tdh,20px)}.td-hearts .lost{color:#3a4180;opacity:.8}' +
     '.td-sp{flex:1}' +
-    '.td-chip{display:inline-flex;align-items:center;gap:4px;height:30px;padding:0 10px;border-radius:999px;background:rgba(11,16,48,.62);border:1px solid rgba(255,255,255,.2);font-weight:900;font-size:15px;font-family:' + EFONT + ';color:' + C.text + '}' +
-    '.td-chip svg{width:17px;height:17px}.td-chip.coin{color:' + GOLD + '}.td-chip.combo{transition:transform .12s}.td-chip.combo.pop{transform:scale(1.18)}.td-chip.hide{display:none}' +
-    '.td-prog{display:flex;align-items:center;gap:8px;padding:0 12px;height:20px;font-size:13px;font-weight:700;color:' + C.muted + ';box-sizing:border-box}' +
+    '.td-chip{display:inline-flex;align-items:center;gap:4px;height:30px;padding:0 10px;border-radius:999px;background:rgba(11,16,48,.62);border:1px solid rgba(255,255,255,.2);font-weight:900;font-size:var(--tdcf,16px);font-family:' + EFONT + ';color:' + C.text + '}' +
+    '.td-chip svg{width:calc(var(--tdcf,16px) + 2px);height:calc(var(--tdcf,16px) + 2px)}.td-chip.coin{color:' + GOLD + '}.td-chip.combo{transition:transform .12s}.td-chip.combo.pop{transform:scale(1.18)}.td-chip.hide{display:none}' +
+    '.td-prog{display:flex;align-items:center;gap:8px;padding:0 12px;height:calc(var(--tdf,14px) + 8px);font-size:var(--tdf,14px);font-weight:700;color:' + C.muted + ';box-sizing:border-box}' +
     '.td-prog .lv{white-space:nowrap}.td-bar{flex:1;height:8px;border-radius:5px;background:rgba(255,255,255,.16);overflow:hidden;min-width:30px}.td-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#3ee6d0,#ffc94a);transition:width .3s}' +
     '.td-ev{display:none;padding:1px 8px;border-radius:999px;background:rgba(255,201,74,.2);color:' + GOLD + ';border:1px solid rgba(255,201,74,.5);white-space:nowrap}.td-ev.on{display:inline-block}' +
     '.td-land .td-hud{right:auto}.td-compact .td-prog .lv{display:none}.td-compact .td-prog{height:14px}.td-compact .td-row{height:44px}' +
@@ -94,7 +108,7 @@
     '.td-root .gx-pad{box-sizing:border-box}' +
     '.td-root .gx-pad.dig{display:grid;grid-template-columns:repeat(var(--tdc,5),1fr);gap:6px;align-content:center;justify-content:center;max-width:460px;margin:0 auto;padding-left:12px;padding-right:12px;left:0;right:0;width:100%}' +
     '.td-root .gx-pad.dig .gx-prow{display:contents}.td-root .gx-pad.dig .gx-key{max-width:none;height:46px;font-size:24px}.td-root .gx-pad.dig .gx-key.go{grid-column:span 2;font-size:17px}' +
-    '.td-land .gx-pad.dig{--tdc:6;max-width:620px}.td-land .gx-pad.dig.td-frac{--tdc:8;max-width:700px}.td-land.td-compact .gx-pad.dig .gx-key{height:40px}' +
+    '.td-land .gx-pad.dig{--tdc:6;max-width:620px}.td-land .gx-pad.dig.td-frac{--tdc:8;max-width:700px}.td-land.td-compact .gx-pad.dig .gx-key{height:44px}' +
     '.td-land .td-q{grid-template-columns:auto minmax(0,1fr) minmax(0,max-content) auto;grid-template-rows:minmax(0,1fr);grid-template-areas:"pic txt ans btns"}.td-land .td-ans{max-width:58vw}' +
     '@media (prefers-reduced-motion:reduce){.td-q.shake,.td-slots i.n,.td-num u,.gx-key.td-hl{animation:none!important}}';
 
@@ -112,7 +126,7 @@
     /* ---------------- state */
     ['td_base', 'td_cannon_fire', 'td_cannon_ice', 'td_cannon_thunder', 'td_boss_1', 'td_boss_2'].concat([1, 2, 3, 4, 5, 6, 7, 8].map(function (i) { return 'td_enemy_' + i; })).concat(['bg_td_land', 'bg_td_port']).forEach(function (n) { GX.img(base + n + '.webp'); });
     var enemies = [], proj = [], bolts = [], meteors = [], pend = [], target = null, state = 'intro', frozen = false, lost = false;
-    var hearts = P.hearts, combo = 0, maxCombo = 0, coins = 0, score = 0, tier = 0, playT = 0, spawnT = 1, uid = 0, bossSpawned = false, bossAlive = false, bossWon = false, cd = 0, cdShown = 0, lastBeepT = 0, meteorT = 0, runN = 0;
+    var hearts = P.hearts, combo = 0, maxCombo = 0, coins = 0, score = 0, tier = 0, playT = 0, spawnT = 0.2, uid = 0, bossSpawned = false, bossAlive = false, bossWon = false, cd = 0, cdShown = 0, lastBeepT = 0, meteorT = 0, runN = 0;
     var ev = { meteor: 0, freeze: 0, slow: 0 }, rng = GX.rng((seed0 != null ? seed0 : Date.now()) + 77), baseHit = 0, turret = { y: 0, tgtY: 0, recoil: 0, pop: 0 };
     var L = { lt: 100, pf: .6, W: 0, H: 0, land: false, lanes: 3, laneH: 60, fy: 100, fh: 200, baseX: 60, spawnX: 400, endX: 70, es: 56, hudH: 70, qh: 88, qTop: 70, padH: 0, padOn: false };
     var stat = null, statOk = false, statSrc = '', padSig = '', hlKey = '', events = [];
@@ -171,14 +185,14 @@
       L.big = W >= 1000 && H >= 700; L.qh = math ? (land ? (L.big ? 100 : 84) : (H < 700 ? 124 : 128)) : (land ? (comp ? 58 : (L.big ? 88 : 72)) : (H < 700 ? 98 : 108));
       L.padOn = !!padWanted; pad.show(L.padOn); L.padH = L.padOn ? measurePad() : 0;
       if (land) {
-        var hw = clamp(W * 0.38, 290, 340); hud.style.width = hw + 'px'; L.hudH = comp ? 60 : 68; qLeft = hw + 10; qw = Math.min(W - qLeft - 8, L.big ? 860 : 720); qLeft += Math.round((W - qLeft - 8 - qw) / 2); L.qTop = 4; band = Math.max(L.hudH, L.qh + 8);
+        var hw = clamp(W * 0.38, 290, 400); hud.style.width = hw + 'px'; L.hudH = comp ? 60 : 68; qLeft = hw + 10; qw = Math.min(W - qLeft - 8, L.big ? 860 : 720); qLeft += Math.round((W - qLeft - 8 - qw) / 2); L.qTop = 4; band = Math.max(L.hudH, L.qh + 8);
       } else { hud.style.width = ''; L.hudH = 70; qw = Math.min(W - 16, 700); qLeft = Math.round((W - qw) / 2); L.qTop = L.hudH; band = L.qTop + L.qh; }
       L.qw = qw; qbar.style.left = qLeft + 'px'; qbar.style.width = qw + 'px'; qbar.style.top = L.qTop + 'px'; qbar.style.height = L.qh + 'px';
       L.fy = band + (land ? 4 : 6); L.fh = H - L.padH - (L.padOn ? 4 : 10) - L.fy;
       L.lanes = (land && L.fh >= 250) ? 4 : 3; L.pf = land ? .54 : .61; L.laneH = Math.min(L.fh / L.lanes, land ? 150 : 132); L.lt = L.fy + Math.max(0, (L.fh - L.laneH * L.lanes) / 2);
       L.es = clamp(L.laneH * L.pf * 1.45, 34, 112);
-      L.baseX = clamp(W * 0.17, 52, 130); L.spawnX = W + L.es * 0.6; L.endX = L.baseX + L.es * 0.3;
-      root.style.setProperty('--td-fy', L.fy + 'px');
+      L.baseX = clamp(W * 0.17, 52, 130); L.spawnX = W - L.es * 0.35; L.endX = L.baseX + L.es * 0.3;
+      root.style.setProperty('--td-fy', L.fy + 'px'); var hf = W >= 700 ? clamp(Math.round(W / 85), 15, 21) : 14; root.style.setProperty('--tdf', hf + 'px'); root.style.setProperty('--tdh', (hf + 7) + 'px'); root.style.setProperty('--tdcf', (hf + 2) + 'px');
       turret.tgtY = laneY(1); turret.y = turret.y || turret.tgtY;
       statOk = false; buildStatic(); applyPad(true); renderQ(); hudUpdate(true);
     }
@@ -279,7 +293,7 @@
         el.qpic.classList.add('none'); el.qtxt.style.fontSize = ''; el.qtxt.innerHTML = '<span style="color:' + C.muted + ';font-size:16px">' + (state === 'play' ? '字怪來襲！看清題目再作答' : '準備好！') + '</span>'; el.qans.innerHTML = ''; el.qsay.classList.add('off'); el.qhint.classList.add('off'); qbar.classList.remove('boss'); return;
       }
       it = curItem(e); qbar.classList.toggle('boss', !!e.boss); el.qhint.classList.toggle('off', P.hint !== 'button'); el.qsay.classList.toggle('off', isMath(it));
-      tag = e.boss ? '<span class="td-tag">魔王' + (e.items ? ' ' + (e.phase + 1) + '/' + e.items.length : '') + '</span>' : '';
+      tag = e.boss ? '<span class="td-tag">魔王' + (e.items ? ' 第 ' + (e.phase + 1) + ' 步 ' + e.items.map(function (_, i) { return i <= e.phase ? '●' : '○'; }).join('') : '') + '</span>' : '';
       qbar.style.setProperty('--pic', (L.land ? (L.comp ? 40 : 52) : 48) + 'px');
       if (isMath(it)) {
         el.qpic.classList.add('none'); el.qtxt.innerHTML = '<span>' + esc(it.q) + '</span>';
@@ -315,8 +329,8 @@
 
     /* ---------------- enemies */
     function mkEnemy(it, o) {
-      o = o || {}; var e = { uid: ++uid, it: it, items: o.items || null, phase: 0, lane: o.lane, xn: 1, spd: 0.92 + (GX.hash(it.id) % 17) / 100, age: 0, typed: '', pre: 0, errs: 0, hints: 0, marked: false, flash: 0, hit: 0, state: 'walk', dieT: 0, boomed: false, boss: !!o.boss, segEnds: null, ph: (GX.hash(it.id) % 628) / 100, warned: false, spoke: false, hl: false, hlKey: '', hintShown: false, spr: 1 + GX.hash(String(it.id)) % 8, fail: false, shield: 0, shieldMax: 0 };
-      if (e.boss) { e.spr = 1 + GX.hash(String(it.id)) % 2; e.spd = 0.62; if (e.items) { e.shieldMax = e.shield = e.items.length; } else if (!isMath(it)) { e.segEnds = sylSegs(S, it); e.shieldMax = e.shield = e.segEnds.length; } }
+      o = o || {}; var e = { uid: ++uid, it: it, items: o.items || null, phase: 0, lane: o.lane, xn: 1, spd: 0.92 + (GX.hash(it.id) % 17) / 100, age: 0, typed: '', pre: 0, errs: 0, hints: 0, marked: false, flash: 0, hit: 0, state: 'walk', dieT: 0, boomed: false, boss: !!o.boss, segEnds: null, ph: (GX.hash(it.id) % 628) / 100, warned: false, spoke: false, hl: false, hlKey: '', hintShown: false, spr: 1 + GX.hash(String(it.id)) % 8, fail: false, shield: 0, shieldMax: 0, enter: 0 };
+      if (e.boss) { e.spr = 1 + GX.hash(String(it.id)) % 2; e.spd = 0.62; if (e.items) { e.shieldMax = e.shield = e.items.length; } else if (!isMath(it)) { var rs = realSyl(S, it); e.segEnds = rs; e.shieldMax = e.shield = rs ? rs.length : 1; } }
       initTyped(e); return e;
     }
     function initTyped(e) {
@@ -327,8 +341,9 @@
     function alive(e) { return e.state === 'walk'; }
     function aliveList() { return enemies.filter(alive); }
     function pickTarget() { var best = null; enemies.forEach(function (e) { if (alive(e) && (!best || e.xn < best.xn)) best = e; }); return best; }
-    function setTarget(e, manual) {
-      if (e === target) return; target = e; if (manual) S.sfx('tap');
+    var lockUntil = -1;                                   /* H1: after an automatic target change, taps/keys are ignored for 0.38 s */
+    function setTarget(e, manual, lock) {
+      if (e === target) return; target = e; if (lock) lockUntil = S.t + 0.38; if (manual) S.sfx('tap');
       if (e) { turret.tgtY = laneY(e.lane); if (!e.spoke && !math) { e.spoke = true; S.say(curItem(e)); } }
       applyPad(); renderQ(); padHL(e && !math ? e.hlKey : '');
     }
@@ -339,7 +354,7 @@
       var a = aliveList(); if (!a.length || !target) return; var ln = target.lane + dir, best = null;
       a.forEach(function (e) { if (e.lane === ln && (!best || e.xn < best.xn)) best = e; }); if (best) setTarget(best, true);
     }
-    function enemyXY(e) { return { x: ex(e), y: laneY(e.lane) }; }
+    function enemyXY(e) { return { x: ex(e) + (e.enter < 1 ? (1 - GX.ease.out(e.enter)) * L.es * 0.9 : 0), y: laneY(e.lane) }; }
 
     /* ---------------- spawning */
     function coreLeft() { var n = pend.filter(function (i) { return !i.rv; }).length, k, q = S.learn.remaining(); for (k = 0; k < q; k++) { var i = S.learn.peek(k); if (i && !i.rv) n++; } return n; }
@@ -361,25 +376,32 @@
         items = []; while (items.length < 2 && S.learn.remaining() > 0) { var t = S.learn.take(); if (t.rv) pend.push(t); else items.push(t); }
         if (!items.length) return false; it = items[0];
       } else {
-        var bi = -1, bs = -1; for (k = 0; k < q; k++) { var c = S.learn.peek(k); if (c && !c.rv && !isMath(c)) { var sc = sylSegs(S, c).length * 100 + c.en.length; if (sc > bs) { bs = sc; bi = k; } } }
-        if (bi < 0) return false; for (k = 0; k < bi; k++) pend.push(S.learn.take()); it = S.learn.take();
+        var cand = [], c, sc; for (k = 0; k < q; k++) { c = S.learn.peek(k); if (c && !c.rv && !isMath(c)) { var rsy = realSyl(S, c); cand.push({ k: k, sc: (rsy ? rsy.length : 1) * 100 + c.en.length, syl: !!rsy }); } }
+        if (!cand.length) return false; cand.sort(function (x, y) { return y.sc - x.sc; });
+        var A = cand[0], B = null;
+        if (!A.syl && cand.length > 1) B = cand[1];                              /* single-syllable boss: two rounds of spelling (two real items) instead of fake syllable shields */
+        var ka = A.k, kb = B ? B.k : -1, got = {}, idx = 0, tk;
+        while (idx <= Math.max(ka, kb)) { tk = S.learn.take(); if (idx === ka) got.a = tk; else if (idx === kb) got.b = tk; else pend.push(tk); idx++; }
+        it = got.a; if (got.b) items = [got.a, got.b];
       }
       var e = mkEnemy(it, { boss: true, lane: lane, items: items }); enemies.push(e); bossSpawned = bossAlive = true;
-      banner('魔王來襲！', math ? '兩道難題，逐一擊破' : '逐個音節擊破護盾', 1700, true); S.sfx('boss'); S.fx.shake(5, .5); S.fx.flash('#ff7a3c', .25); cfg.music = 'boss'; S.audio.music('boss');
+      banner('魔王來襲！', items && items.length > 1 ? (math ? '兩步題：第 1 步 → 第 2 步' : '兩輪拼寫：第 1 步 → 第 2 步') : (math ? '破解難題' : '逐個音節擊破護盾'), 1700, true); S.sfx('boss'); S.fx.shake(5, .5); S.fx.flash('#ff7a3c', .25); cfg.music = 'boss'; S.audio.music('boss');
       events.push('boss:' + it.id); if (!target || !target.boss) setTarget(e); return true;
     }
     function trySpawn(dt) {
-      spawnT -= dt; var act = aliveList().length, canMore = pend.length || S.learn.remaining() > 0;
+      spawnT -= dt; var act = 0, front = 9, i, q, canMore = pend.length || S.learn.remaining() > 0;
+      for (i = 0; i < enemies.length; i++) { q = enemies[i]; if (q.state === 'walk') { act++; if (q.xn < front) front = q.xn; } }
       if (!canMore || bossAlive) return;
-      if (act === 0 && spawnT > P.interval * 0.45) spawnT = P.interval * 0.45;
+      if (act === 0 && spawnT > 0.6) spawnT = 0.6;                              /* an empty field never waits */
       if (spawnT > 0 || act >= P.cap) return;
+      if (act >= 2 && front < 0.5) { spawnT = 0.5; return; }                    /* the front monster is already half way and still unanswered: give the child room */
       if (isBossLevel && !bossSpawned && coreLeft() <= 3) { if (act === 0 && spawnBoss()) spawnT = P.interval * .6; else if (act > 0) spawnT = .4; return; }
       if (spawnNormal()) spawnT = P.interval * (0.85 + rng() * 0.3);
     }
 
     /* ---------------- input */
     function press(k) {
-      if (state !== 'play' || frozen || S.paused || S.ended) return;
+      if (state !== 'play' || frozen || S.paused || S.ended || S.t < lockUntil) return;
       var e = target; if (!e || !alive(e)) { e = pickTarget(); if (!e) return; setTarget(e); }
       var it = curItem(e);
       if (isMath(it)) mathKey(e, it, k); else letterKey(e, it, k);
@@ -389,9 +411,9 @@
       if (k === '↵' || k.length !== 1 || !/[A-Za-z]/.test(k)) return;
       var en = it.en, i = e.typed.length, want = en[i]; if (want == null) return;
       if (k.toLowerCase() === want.toLowerCase()) {
-        e.typed += want; autoFill(e, it); e.hl = false; e.hlKey = ''; padHL(''); pad.flash(k.toLowerCase(), 'ok'); S.sfx('key', { i: e.typed.replace(/[^A-Za-z]/g, '').length - 1 });
+        var before = e.typed.length; e.typed += want; autoFill(e, it); e.hl = false; e.hlKey = ''; padHL(''); pad.flash(k.toLowerCase(), 'ok'); S.sfx('key', { i: e.typed.replace(/[^A-Za-z]/g, '').length - 1 });
         var done = e.typed.length >= en.length, segBreak = false;
-        if (e.segEnds && !done) { for (var s = 0; s < e.segEnds.length - 1; s++) if (e.typed.length === e.segEnds[s]) segBreak = true; }
+        if (e.segEnds && !done) { for (var s = 0; s < e.segEnds.length - 1; s++) if (before < e.segEnds[s] && e.segEnds[s] <= e.typed.length) segBreak = true; }
         e.xn = Math.min(1.02, e.xn + (e.boss ? 0.006 : 0.014)); e.hit = 1; e.flash = 1;
         if (done) { renderQ(); solved(e, it); return; }
         if (segBreak) breakShield(e); else fireShot(e, false);
@@ -401,18 +423,25 @@
       }
     }
     function wrongLetter(e, it, k) {
-      e.errs++; combo = 0; tier = 0; S.sfx('keybad'); pad.flash(k.toLowerCase(), 'no'); bump(); var p = enemyXY(e); S.fx.burst(p.x, p.y, { n: 5, colors: ['#ff6b81', '#fff'], speed: 90, life: .35, size: 3, grav: 0 }); S.fx.text(p.x, p.y - eSize(e) * .5, '✕', { color: C.bad, size: 22 });
-      events.push('wrongKey:' + k); if (e.errs >= 2) { markNotFirst(it); e.hl = true; e.hlKey = it.en[e.typed.length].toLowerCase(); padHL(e.hlKey); renderQ(); }
-      turret.pop = 0; hudUpdate();
+      e.errs++; var st = S.learn.stats[it.id]; if (st) st.letterErrs = (st.letterErrs || 0) + 1;
+      combo = 0; tier = 0; S.sfx('keybad'); pad.flash(k.toLowerCase(), 'no'); bump(); var p = enemyXY(e); S.fx.burst(p.x, p.y, { n: 5, colors: ['#ff6b81', '#fff'], speed: 90, life: .35, size: 3, grav: 0 }); ftext(p.x, p.y - eSize(e) * .5, '✕', { color: C.bad, size: 22 });
+      events.push('wrongKey:' + k); turret.pop = 0; hudUpdate();
+      if (e.errs >= 2) { wrongAnswer(e, it, e.typed, 'letters'); }   /* B3: the 2nd wrong letter on one monster = a wrong answer (learning card, requeue). One typo is free but recorded in errs / stats.letterErrs */
     }
-    function markNotFirst(it) { var st = S.learn.stats[it.id]; if (st && st.firstOk === null) { st.firstOk = false; st.missed++; } }
+    function markNotFirst(it) { S.learn.assisted(it); }
+    function formCheck(e, it, typed) {                    /* H3: right value, wrong written form -> hint once, clear the input, no penalty */
+      if (typeof it.detail !== 'function') return false; var d; try { d = it.detail(typed); } catch (x) { return false; }
+      if (d && !d.ok && d.why === 'form') { e.typed = ''; banner(d.msg || '數值對了，請按題目要求的寫法作答', '', 2200); renderQ(); S.sfx('tap'); events.push('form:' + it.id); return true; } return false;
+    }
+    function commit(e, it) { if (S.learn.judge(it, e.typed)) return solved(e, it); if (formCheck(e, it, e.typed)) return; return wrongAnswer(e, it, e.typed); }
     function mathKey(e, it, k) {
-      if (k === '⌫') { if (e.typed) { e.typed = e.typed.slice(0, -1); renderQ(); S.sfx('tap'); } return; }
-      if (k === '↵') { if (!e.typed) return; if (S.learn.judge(it, e.typed)) return solved(e, it); return wrongAnswer(e, it, e.typed); }
+      var frac = it.pad === 'frac';
+      if (k === '⌫') { if (frac) { S.sfx('keybad'); return; } if (e.typed) { e.typed = e.typed.slice(0, -1); renderQ(); S.sfx('tap'); } return; }   /* M3: fractions/decimals are final - no erasing and retrying */
+      if (k === '↵') { if (!e.typed) return; return commit(e, it); }
       if (!/^[0-9.\/\-]$/.test(k) || e.typed.length >= 12) return; e.typed += k; S.sfx('key', { i: e.typed.length }); pad.flash(k, 'ok'); renderQ();
       var st = S.learn.typing(it, e.typed);
       if (st === 'done') return solved(e, it);
-      if (st === 'wrong') { var el0 = GX.norm(S.learn.expect(it)).length; if (it.pad !== 'frac' || e.typed.length >= el0 + 2) return wrongAnswer(e, it, e.typed); }
+      if (st === 'wrong') { if (formCheck(e, it, e.typed)) return; if (!frac || e.typed.length >= GX.norm(S.learn.expect(it)).length + 2) return commit(e, it); }
     }
     function useHint() {
       var e = target; if (!e || state !== 'play' || frozen || P.hint !== 'button') return; var it = curItem(e); e.hints++; markNotFirst(it); S.sfx('pop');
@@ -440,23 +469,26 @@
       var pts = [{ x: x1, y: y1 }], n = 6, i; for (i = 1; i < n; i++) pts.push({ x: lerp(x1, x2, i / n) + (rng() - .5) * 26, y: lerp(y1, y2, i / n) + (rng() - .5) * 26 }); pts.push({ x: x2, y: y2 }); bolts.push({ pts: pts, t: .28 });
     }
     function breakShield(e) {
-      e.shield = Math.max(0, e.shield - 1); var p = enemyXY(e); fireShot(e, false); S.sfx('zap'); S.sfx('power'); S.fx.ring(p.x, p.y, { r0: eSize(e) * .3, r1: eSize(e) * 1.1, life: .5, color: '#6fd8ff', width: 6 }); S.fx.burst(p.x, p.y, { n: 18, colors: ['#6fd8ff', '#e6faff', '#fff'], speed: 190, life: .6, size: 4, shape: 'star' }); S.fx.text(p.x, p.y - eSize(e) * .6, '護盾破！', { color: '#9be8ff', size: 22 });
+      e.shield = Math.max(0, e.shield - 1); var p = enemyXY(e); fireShot(e, false); S.sfx('zap'); S.sfx('power'); S.fx.ring(p.x, p.y, { r0: eSize(e) * .3, r1: eSize(e) * 1.1, life: .5, color: '#6fd8ff', width: 6 }); S.fx.burst(p.x, p.y, { n: 18, colors: ['#6fd8ff', '#e6faff', '#fff'], speed: 190, life: .6, size: 4, shape: 'star' }); ftext(p.x, p.y - eSize(e) * .6, '護盾破！', { color: '#9be8ff', size: 22 });
       S.fx.shake(3, .2); events.push('shield:' + e.uid);
     }
-    function addCoins(n, x, y) { var m = ev.meteor > 0 ? 2 : 1; n *= m; coins += n; S.fx.text(x, y, '+' + n + (m > 1 ? ' ×2' : ''), { color: GOLD, size: 22 }); S.sfx('coin'); }
+    function ftext(x, y, str, o) {                       /* floaters stay inside the screen */
+      var sz = (o && o.size) || 22, hw = sz * String(str).length * 0.4 + 10, fx = clamp(x, hw, L.W - hw), fy = Math.max(L.fy + sz, y); lastFloat = { x: fx, y: fy, hw: hw }; S.fx.text(fx, fy, str, o);
+    }
+    function addCoins(n, x, y) { var m = ev.meteor > 0 ? 2 : 1; n *= m; coins += n; ftext(x, y, '+' + n + (m > 1 ? ' ×2' : ''), { color: GOLD, size: 22 }); S.sfx('coin'); }
 
     /* ---------------- answering */
     function solved(e, it) {
       var ms = e.age * 1000, out = S.learn.answer(it, true, ms), first = out && out.first && S.learn.stats[it.id].firstOk === true, pos = enemyXY(e), multi = !!e.items && e.phase < e.items.length - 1;
       combo++; maxCombo = Math.max(maxCombo, combo); var nt = 0, i; for (i = 0; i < COMBO_AT.length; i++) if (combo >= COMBO_AT[i]) nt = i; var up = nt > tier; tier = nt;
       score += Math.round((100 + (math ? String(it.a).length : it.en.length) * 12) * (1 + Math.min(1, combo * 0.1)));
-      S.ui.ok(it); events.push('ok:' + it.id + (first ? ':first' : ''));
+      S.ui.ok(it, { top: Math.max(L.fy + 4, L.lt + L.lanes * L.laneH - 54) }); events.push('ok:' + it.id + (first ? ':first' : ''));
       var T = TIERS[tier]; S.sfx(first && combo >= 3 ? 'great' : 'good'); if (combo >= 2) S.sfx('combo', { n: combo });
-      if (combo >= 2) S.fx.text(pos.x, pos.y - eSize(e) * .75, '連擊 ×' + combo, { color: T.col, size: 20 });
+      if (combo >= 2) ftext(pos.x, pos.y - eSize(e) * .75, '連擊 ×' + combo, { color: T.col, size: 20 });
       if (up) { banner(T.name + '升級！', '連擊 ×' + combo, 900); S.sfx('power'); turret.pop = 1; S.fx.ring(L.baseX * .5, turret.y, { r0: 10, r1: 90, life: .5, color: T.col, width: 5 }); S.fx.burst(L.baseX * .5, turret.y, { n: 18, colors: [T.col, '#fff'], speed: 160, life: .6, size: 4, shape: 'star' }); }
       if (multi) {                                       /* math boss: first question done, shield breaks, the next one appears */
-        fireShot(e, true, null); e.shield = Math.max(0, e.shield - 1); S.fx.ring(pos.x, pos.y, { r0: eSize(e) * .3, r1: eSize(e) * 1.2, life: .5, color: '#6fd8ff', width: 6 }); S.sfx('zap'); S.sfx('power'); S.fx.text(pos.x, pos.y - eSize(e) * .6, '護盾破！', { color: '#9be8ff', size: 22 });
-        e.phase++; initTyped(e); e.xn = Math.min(1.02, e.xn + .1); applyPad(); renderQ(); hudUpdate(); return;
+        fireShot(e, true, null); e.shield = Math.max(0, e.shield - 1); S.fx.ring(pos.x, pos.y, { r0: eSize(e) * .3, r1: eSize(e) * 1.2, life: .5, color: '#6fd8ff', width: 6 }); S.sfx('zap'); S.sfx('power'); ftext(pos.x, pos.y - eSize(e) * .6, '護盾破！', { color: '#9be8ff', size: 22 });
+        e.phase++; initTyped(e); banner('第 ' + (e.phase + 1) + ' 步', '', 1000); e.xn = Math.min(1.02, e.xn + .1); applyPad(); renderQ(); hudUpdate(); return;
       }
       e.state = 'dying'; e.dieT = 0; e.boomed = false; e.won = true; var tierNow = tier;
       if (e === target) target = null; var killedTier = tierNow;
@@ -467,7 +499,7 @@
         S.fx.shake(e.boss ? 7 : 3, .3);
       });
       if (e.hintShown) e.hintShown = false;
-      var nt2 = pickTarget(); if (nt2) setTarget(nt2); else { applyPad(); renderQ(); }
+      var nt2 = pickTarget(); if (nt2) setTarget(nt2, false, true); else { applyPad(); renderQ(); }
       hudUpdate();
     }
     function tierEffects(e, t) {
@@ -486,13 +518,13 @@
     }
     function wrongAnswer(e, it, typed, why) {
       if (frozen || e.state !== 'walk') return; frozen = true; e.state = 'fail'; pad.disable(true); events.push('wrong:' + it.id + ':' + (why || 'typed'));
-      var ms = e.age * 1000, out = S.learn.answer(it, false, ms), p = enemyXY(e); combo = 0; tier = 0; S.sfx('bad'); S.fx.burst(p.x, p.y, { n: 14, colors: ['#ff6b81', '#c3cbf7'], speed: 130, life: .6, size: 4 }); hudUpdate();
+      var ms = e.age * 1000, out = it.rv ? null : S.learn.answer(it, false, ms), p = enemyXY(e);   /* revisit/filler items (rv) never requeue: gx_core would chain endless fillers */ combo = 0; tier = 0; S.sfx('bad'); S.fx.burst(p.x, p.y, { n: 14, colors: ['#ff6b81', '#c3cbf7'], speed: 130, life: .6, size: 4 }); hudUpdate();
       if (why === 'base') { hearts = Math.max(0, hearts - 1); baseHit = 1; S.sfx('hit'); S.fx.shake(6, .35); S.fx.flash('#ff3c5a', .35); hudUpdate(true); }
       S.ui.learn(it, { typed: isMath(it) ? '' : (e.typed.length > e.pre ? e.typed : ''), onDone: function () {
         frozen = false; pad.disable(false);
-        if (e.items && e.phase < e.items.length - 1) { e.fail = true; e.phase++; e.state = 'walk'; e.shield = Math.max(0, e.shield - 1); initTyped(e); e.xn = why === 'base' ? .85 : Math.max(e.xn, .6); if (target === e || !target) { applyPad(); renderQ(); } }
-        else { e.state = 'gone'; if (e.boss) { e.fail = true; bossAlive = false; cfg.music = diff <= 2 ? 'calm' : 'drive'; S.audio.music(cfg.music); banner('魔王逃走了', '', 1200); } S.fx.burst(p.x, p.y, { n: 8, colors: ['#c3cbf7'], speed: 60, life: .5, size: 3, grav: -40 }); }
-        if (target === e) target = null; var nt = pickTarget(); if (nt) setTarget(nt); else { applyPad(); renderQ(); }
+        if (e.items && e.phase < e.items.length - 1) { pend = e.items.slice(e.phase + 1).concat(pend); }   /* two-step boss: step 2 only appears after step 1 is right; otherwise it comes back later as a normal monster */
+        { e.state = 'gone'; if (e.boss) { e.fail = true; bossAlive = false; cfg.music = diff <= 2 ? 'calm' : 'drive'; S.audio.music(cfg.music); banner('魔王逃走了', '', 1200); } S.fx.burst(p.x, p.y, { n: 8, colors: ['#c3cbf7'], speed: 60, life: .5, size: 3, grav: -40 }); }
+        if (target === e) target = null; var nt = pickTarget(); if (nt) setTarget(nt, false, true); else { applyPad(); renderQ(); }
         if (hearts <= 0) lose(); hudUpdate(true);
       } });
     }
@@ -500,6 +532,7 @@
     function win() { if (S.ended) return; state = 'won'; banner('守住了！', '', 1400); S.finish({ cleared: true, score: score, maxCombo: maxCombo, seconds: playT }); }
 
     /* ---------------- update */
+    var lastFloat = null, laneBuf = [[], [], [], []], drawList = [], hudAcc = 0, byXn = function (a, b) { return a.xn - b.xn; }, byDraw = function (a, b) { return a.lane - b.lane || b.xn - a.xn; };
     var manual = !!opts.manual, stepping = false;   /* test hook: with opts.manual the real-time loop idles and only G._step advances the game */
     function update(dt) {
       if (manual && !stepping) return;
@@ -513,7 +546,7 @@
       for (i = bolts.length - 1; i >= 0; i--) { bolts[i].t -= dt; if (bolts[i].t <= 0) bolts.splice(i, 1); }
       for (i = meteors.length - 1; i >= 0; i--) { var m = meteors[i]; m.x += m.vx * dt; m.y += m.vy * dt; if (m.y >= m.gy) { meteors.splice(i, 1); S.fx.ring(m.x, m.gy, { r0: 4, r1: 34, life: .35, color: '#ffb36b', width: 3 }); S.fx.burst(m.x, m.gy, { n: 8, colors: ['#ffb36b', '#fff'], speed: 120, life: .4, size: 3 }); if (S.t - lastBeepT > .35) { lastBeepT = S.t; S.sfx('hit'); } } }
       for (i = enemies.length - 1; i >= 0; i--) {
-        e = enemies[i]; if (e.flash > 0) e.flash = Math.max(0, e.flash - dt * 5); if (e.hit > 0) e.hit = Math.max(0, e.hit - dt * 6);
+        e = enemies[i]; if (e.enter < 1) e.enter = Math.min(1, e.enter + dt / 0.8); if (e.flash > 0) e.flash = Math.max(0, e.flash - dt * 5); if (e.hit > 0) e.hit = Math.max(0, e.hit - dt * 6);
         if (e.state === 'dying') { if (e.boomed) { e.dieT += dt; if (e.dieT > .55) { enemies.splice(i, 1); } } else { e.dieT += dt; if (e.dieT > .8) { e.boomed = true; e.dieT = 0; } } }
         else if (e.state === 'gone') enemies.splice(i, 1);
       }
@@ -528,14 +561,15 @@
       if (ev.freeze > 0) ev.freeze -= dt; if (ev.slow > 0) ev.slow -= dt;
       var sf = ev.freeze > 0 ? 0 : (ev.meteor > 0 ? .5 : 1) * (ev.slow > 0 ? .6 : 1), step = dt * sf / P.cross;
       trySpawn(dt);
-      var laneSets = {}; enemies.forEach(function (q) { if (alive(q)) (laneSets[q.lane] = laneSets[q.lane] || []).push(q); });
-      for (i = 0; i < L.lanes; i++) { var ls = laneSets[i]; if (!ls) continue; ls.sort(function (a, b) { return a.xn - b.xn; }); for (var j = 0; j < ls.length; j++) { var q = ls[j]; q.age += dt; q.xn -= step * q.spd; if (j > 0) { var gap = (L.es * (ls[j - 1].boss ? 1.1 : .95) + (q.boss ? L.es * .4 : 0)) / (L.spawnX - L.endX); if (q.xn < ls[j - 1].xn + gap) q.xn = ls[j - 1].xn + gap; } } }
+      for (i = 0; i < 4; i++) laneBuf[i].length = 0;
+      for (i = 0; i < enemies.length; i++) if (enemies[i].state === 'walk') laneBuf[enemies[i].lane].push(enemies[i]);
+      for (i = 0; i < L.lanes; i++) { var ls = laneBuf[i]; if (!ls.length) continue; if (ls.length > 1) ls.sort(byXn); for (var j = 0; j < ls.length; j++) { var q = ls[j]; q.age += dt; q.xn -= step * q.spd; if (j > 0) { var gap = (L.es * (ls[j - 1].boss ? 1.1 : .95) + (q.boss ? L.es * .4 : 0)) / (L.spawnX - L.endX); if (q.xn < ls[j - 1].xn + gap) q.xn = ls[j - 1].xn + gap; } } }
       enemies.forEach(function (q) {
         if (!alive(q)) return; if (!q.warned && q.xn < .22) { q.warned = true; S.sfx('warn'); }
         if (q.xn <= 0 && !frozen) wrongAnswer(q, curItem(q), q.typed, 'base');
       });
-      if (!target || !alive(target)) { var nt = pickTarget(); if (nt) setTarget(nt); }
-      hudUpdate();
+      if (!target || !alive(target)) { var nt = pickTarget(); if (nt) setTarget(nt, false, !!target); }
+      hudAcc += dt; if (hudAcc > 0.2) { hudAcc = 0; hudUpdate(); }
       if (!frozen && S.learn.done() && !pend.length && enemies.length === 0 && !bossAlive && !S.ended) win();
     }
 
@@ -548,7 +582,7 @@
       c.strokeStyle = '#2b1d4a'; c.lineWidth = 2; c.beginPath(); c.arc(x, y + s * .06, s * .09, .2, 2.9); c.stroke();
     }
     function drawEnemy(c, e) {
-      var x = ex(e), y = laneY(e.lane), s = eSize(e), red = GX.reduced(), bob = red ? 0 : Math.abs(Math.sin(S.t * 5 + e.ph)) * s * .07, sq = 1 + e.hit * .14, sc = 1, al = 1, fz = ev.freeze > 0 && alive(e);
+      var x = ex(e) + (e.enter < 1 ? (1 - GX.ease.out(e.enter)) * L.es * 0.9 : 0), y = laneY(e.lane), s = eSize(e), red = GX.reduced(), bob = red ? 0 : Math.abs(Math.sin(S.t * 5 + e.ph)) * s * .07, sq = 1 + e.hit * .14, sc = 1, al = 1, fz = ev.freeze > 0 && alive(e);
       if (e.state === 'dying' && e.boomed) { var k = e.dieT / .55; sc = 1 + k * .5; al = Math.max(0, 1 - k); } else if (e.state === 'fail') { sc = 1; }
       c.save(); c.globalAlpha = al;
       c.fillStyle = 'rgba(0,0,0,.28)'; c.beginPath(); c.ellipse(x, y + s * .36, s * .34, s * .09, 0, 0, 6.3); c.fill();
@@ -566,7 +600,7 @@
       if (e.flash > 0.05) { c.globalCompositeOperation = 'lighter'; c.globalAlpha = e.flash * .6 * al; if (!GX.drawImg(c, src, 0, 0, s, s)) { c.fillStyle = '#fff'; c.beginPath(); c.arc(0, 0, s * .3, 0, 6.3); c.fill(); } c.globalCompositeOperation = 'source-over'; c.globalAlpha = al; }
       if (fz) { c.globalCompositeOperation = 'lighter'; c.globalAlpha = .45 * al; c.fillStyle = '#6fd8ff'; GX.rrect(c, -s * .38, -s * .4, s * .76, s * .8, s * .2); c.fill(); c.globalCompositeOperation = 'source-over'; c.globalAlpha = al; c.strokeStyle = 'rgba(230,250,255,.9)'; c.lineWidth = 2; GX.rrect(c, -s * .38, -s * .4, s * .76, s * .8, s * .2); c.stroke(); }
       c.restore();
-      if (alive(e) || e.state === 'dying') {            /* progress pips (tiny markers, no question text on the monster) */
+      if ((alive(e) || e.state === 'dying') && !isMath(curItem(e))) {            /* progress pips (English only: math never shows the answer length) (tiny markers, no question text on the monster) */
         var it = curItem(e), n = isMath(it) ? String(it.a).length : it.en.replace(/[^A-Za-z]/g, '').length, done = isMath(it) ? e.typed.length : e.typed.replace(/[^A-Za-z]/g, '').length, pw = Math.min(7, Math.max(4, (s * .8) / Math.max(1, n))), tw = n * pw, px = x - tw / 2 + pw / 2, py = y + s * .5 + 4;
         c.globalAlpha = al; for (var z = 0; z < n; z++) { c.fillStyle = z < done ? GOLD : 'rgba(255,255,255,.35)'; c.beginPath(); c.arc(px + z * pw, py, Math.min(2.6, pw * .38), 0, 6.3); c.fill(); } c.globalAlpha = 1;
         if (e.xn < .22 && alive(e)) { c.fillStyle = '#ff5d7a'; c.globalAlpha = .6 + .4 * Math.sin(S.t * 14); c.beginPath(); c.arc(x, y - s * .6, 7, 0, 6.3); c.fill(); c.fillStyle = '#fff'; c.font = '900 11px ' + EFONT; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('!', x, y - s * .6 + 1); c.globalAlpha = 1; }
@@ -595,7 +629,7 @@
       if (ev.freeze > 0) { c.fillStyle = 'rgba(150,220,255,.14)'; c.fillRect(0, L.fy, W, L.fh); }
       else if (ev.meteor > 0) { c.fillStyle = 'rgba(255,150,70,.08)'; c.fillRect(0, L.fy, W, L.fh); }
       drawTurret(c);
-      var list = enemies.slice().sort(function (a, b) { return laneY(a.lane) - laneY(b.lane) || b.xn - a.xn; });
+      var list = drawList; list.length = 0; for (i = 0; i < enemies.length; i++) list.push(enemies[i]); if (list.length > 1) list.sort(byDraw);
       for (i = 0; i < list.length; i++) drawEnemy(c, list[i]);
       for (i = 0; i < meteors.length; i++) { var m = meteors[i]; c.strokeStyle = 'rgba(255,200,120,.9)'; c.lineWidth = 3; c.beginPath(); c.moveTo(m.x, m.y); c.lineTo(m.x + 24, m.y - 31); c.stroke(); c.globalCompositeOperation = 'lighter'; c.drawImage(glow('#ff9d4a', 48), m.x - 14, m.y - 14, 28, 28); c.globalCompositeOperation = 'source-over'; }
       for (i = 0; i < proj.length; i++) { var p = proj[i], r = p.big ? 11 : 6, col = p.big ? TIERS[p.tier].col : '#ffe28a'; c.globalCompositeOperation = 'lighter'; c.drawImage(glow(col, 64), p.x - r * 2.4, p.y - r * 2.4, r * 4.8, r * 4.8); c.globalCompositeOperation = 'source-over'; c.fillStyle = '#fff'; c.beginPath(); c.arc(p.x, p.y, r * .5, 0, 6.3); c.fill(); }
@@ -604,12 +638,14 @@
 
     /* ---------------- input wiring */
     S.keys({
-      onChar: function (k) { if (frozen || state !== 'play') return; if (math) { if (/^[0-9.\/\-]$/.test(k)) press(k); } else if (/^[A-Za-z]$/.test(k)) press(k.toLowerCase()); },
+      onChar: function (k, ke) { if (frozen || state !== 'play' || (ke && ke.repeat)) return; k = half(k); if (math) { if (/^[0-9.\/\-]$/.test(k)) press(k); } else if (/^[A-Za-z]$/.test(k)) press(k.toLowerCase()); },
       onBack: function () { if (!frozen && state === 'play') press('⌫'); },
       onEnter: function () { if (!frozen && state === 'play') press('↵'); },
       onSpace: function () { if (!frozen && state === 'play') cycleTarget(1); },
       onArrow: function (d) { if (frozen || state !== 'play') return; if (d === 'up') laneMove(-1); else if (d === 'down') laneMove(1); else cycleTarget(d === 'left' ? 1 : -1); }
     });
+    var imeShown = false;
+    S.on(window, 'keydown', function (ke) { if ((ke.key === 'Process' || ke.isComposing) && state === 'play' && !frozen && !imeShown) { imeShown = true; banner('請切換英文輸入', '', 2200); events.push('ime'); } });
     S.on(cv, 'pointerdown', function (ev0) {
       if (state !== 'play' || frozen || S.paused) return; var r = cv.getBoundingClientRect(), x = ev0.clientX - r.left, y = ev0.clientY - r.top, best = null, bd = 1e9;
       aliveList().forEach(function (e) { var p = enemyXY(e), dx = p.x - x, dy = p.y - y, d = Math.sqrt(dx * dx + dy * dy), lim = Math.max(44, eSize(e) * .75); if (d < lim && d < bd) { bd = d; best = e; } });
@@ -624,14 +660,14 @@
     function intro(skipHow) {
       state = 'intro'; renderQ();
       var go = function () { if (S.dead) return; S.ui.preview(S.learn.items, { onStart: function () { begin(); } }); };
-      if (skipHow) go(); else S.ui.how('td', '字母砲台', [{ icon: '👀', text: '看題目' }, { icon: '⌨️', text: '拼對發炮' }, { icon: '🛡️', text: '守住基地' }], go);
+      if (skipHow) go(); else S.ui.how('td', '字母砲台', [{ icon: '👀', text: '看題目' }, padWanted ? { icon: '👆', text: math ? '點數字作答' : '點字母拼字' } : { icon: '⌨️', text: math ? '用鍵盤打數字' : '用鍵盤打字' }, { icon: '🛡️', text: '守住基地' }], go);
     }
     function restart() {
       runN++; S.ui.closeAll(); S.paused = false; S.ended = false; S.result = null; S.fx.clear(); enemies = []; proj = []; bolts = []; meteors = []; pend = []; target = null; frozen = false; lost = false;
-      hearts = P.hearts; combo = 0; maxCombo = 0; coins = 0; score = 0; tier = 0; playT = 0; spawnT = 1; bossSpawned = bossAlive = bossWon = false; ev.meteor = ev.freeze = ev.slow = 0; events = []; baseHit = 0; padSig = ''; lastHud = '';
+      hearts = P.hearts; combo = 0; maxCombo = 0; coins = 0; score = 0; tier = 0; playT = 0; spawnT = 0.2; bossSpawned = bossAlive = bossWon = false; ev.meteor = ev.freeze = ev.slow = 0; events = []; baseHit = 0; padSig = ''; lastHud = '';
       rng = GX.rng((seed0 != null ? seed0 : Date.now()) + 77 + runN);
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: seed0 != null ? seed0 + runN : undefined });
-      cfg.music = diff <= 2 ? 'calm' : 'drive'; S.audio.stopMusic(); hudUpdate(true); applyPad(true); intro(true);
+      S.newLearn(); lockUntil = -1;
+      cfg.music = diff <= 2 ? 'calm' : 'drive'; S.audio.stopMusic(); hudUpdate(true); applyPad(true); renderQ(); begin();      /* replay: no preview deck again, just the countdown */
     }
 
     S.loop(update, draw);
@@ -660,6 +696,9 @@
         case 'timeout': if (!e) return false; e.xn = 0; return true;
         case 'select': { var t = enemies.filter(function (q) { return q.uid === a; })[0]; if (t) setTarget(t, true); return !!t; }
         case 'peek': { var pi = S.learn.items[a]; if (!pi) return false; var pe = mkEnemy(pi, { lane: a % L.lanes }); pe.xn = 0.6; enemies.push(pe); setTarget(pe); return true; }
+        case 'mkboss': { var be = mkEnemy(a, { boss: true, lane: 1 }); enemies.push(be); bossSpawned = bossAlive = true; setTarget(be); return be.uid; }
+        case 'float': ftext(a[0], a[1], a[2] || '連擊 ×9', { size: 20 }); return lastFloat;
+        case 'okchip': { var oc = document.querySelector('.gx-okchip'); return oc ? oc.getBoundingClientRect().toJSON() : null; }
         case 'event': startEvent(a); return true;
         case 'spawn': return spawnNormal();
         case 'hearts': hearts = a; hudUpdate(true); return true;
@@ -676,7 +715,7 @@
     TD._last = H; return H;
   }
 
-  var TD = { start: start, params: params, DIFF: DIFF, TIERS: TIERS, COMBO_AT: COMBO_AT, _last: null };
+  var TD = { _sylSegs: function (syl, en) { return sylSegs({ syl: function () { return syl; } }, { en: en }); }, start: start, params: params, DIFF: DIFF, TIERS: TIERS, COMBO_AT: COMBO_AT, _last: null };
   Object.defineProperty(TD, '_debug', { get: function () { return TD._last ? TD._last._debug : null; } });
   TD._step = function (n, dt) { if (TD._last) TD._last._step(n, dt); };
   TD._cmd = function (a, b) { return TD._last ? TD._last._cmd(a, b) : null; };

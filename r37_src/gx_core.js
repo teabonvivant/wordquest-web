@@ -94,7 +94,7 @@
   };
 
   /* ------------------------------------------------------------------ audio (one shared AudioContext for the page; each game gets its own master gain) */
-  var SHARED = null, ctxCount = 0, MUTEKEY = 'wq37-gx-mute';
+  var SHARED = null, ctxCount = 0, MUTEKEY = 'wq37-gx-mute', MUSKEY = 'wq37-gx-nomusic';
   function ctxGet() {
     if (!SHARED) { var C = window.AudioContext || window.webkitAudioContext; if (!C) return null; try { SHARED = new C(); ctxCount++; } catch (e) { return null; } }
     if (SHARED.state === 'suspended') { try { SHARED.resume(); } catch (e) { /* */ } }
@@ -176,8 +176,10 @@
     }
     API.music = function (theme) {
       if (dead) return; mtheme = theme || 'calm'; API._next = 0; stepN = 0;
-      if (!mt && enabled) mt = setInterval(musTick, 80);
+      if (!mt && enabled && API.musicOn()) mt = setInterval(musTick, 80);
     };
+    API.setMusicOn = function (v) { try { localStorage.setItem(MUSKEY, v ? '0' : '1'); } catch (e) { /* */ } if (!v) { if (mt) { clearInterval(mt); mt = 0; } } else if (mtheme && enabled && !mt && !dead) mt = setInterval(musTick, 80); };
+    API.musicOn = function () { try { return localStorage.getItem(MUSKEY) !== '1'; } catch (e) { return true; } };
     API.stopMusic = function () { mtheme = null; if (mt) { clearInterval(mt); mt = 0; } };
     API.setMuted = function (v) { muted = !!v; saveMute(muted); if (master) master.gain.value = muted ? 0 : .8; };
     API.muted = function () { return muted; };
@@ -243,7 +245,7 @@
     o = o || {}; var rng = rngOf(o.seed != null ? o.seed : (Date.now() & 0xfffff)), gapMin = o.gapMin || 2, gapMax = o.gapMax || 4, maxRe = o.maxRequeue == null ? 2 : o.maxRequeue, L = {};
     var items = (o.items || []).map(function (it, i) { return Object.assign({ id: it.id != null ? it.id : 'i' + i }, it); });
     var review = (o.review || []).slice(0, 2).map(function (it, i) { return Object.assign({ id: 'rv' + (it.id != null ? it.id : i), rv: true }, it); });
-    var queue = shuffle(items, rng), stats = {}, asked = 0, correctN = 0, firstOkN = 0, firstN = 0, seen = {};
+    var fillN = 0, queue = shuffle(items, rng), stats = {}, asked = 0, correctN = 0, firstOkN = 0, firstN = 0, seen = {};
     /* review items are slipped in after the 2nd and 5th core item and never count towards the stars */
     review.forEach(function (r, i) { queue.splice(Math.min(queue.length, 2 + i * 3), 0, r); });
     items.concat(review).forEach(function (it) { stats[it.id] = { id: it.id, rv: !!it.rv, item: it, tries: 0, firstOk: null, ok: false, ms: 0, requeued: 0, missed: 0 }; });
@@ -272,7 +274,13 @@
       var out = { ok: !!ok, first: s.tries === 1, requeued: false, item: it };
       if (ok) { s.ok = true; if (!s.rv) correctN++; return out; }
       s.missed++;
-      if (s.requeued < maxRe) { s.requeued++; var at = Math.min(queue.length, gapMin + Math.floor(rng() * (gapMax - gapMin + 1)) - 1); queue.splice(Math.max(0, at), 0, it); out.requeued = true; }
+      if (!s.rv && s.requeued < maxRe) {   /* review and filler items never come back: a miss only opens the learning card */
+        s.requeued++; var at = Math.min(queue.length, gapMin + Math.floor(rng() * (gapMax - gapMin + 1)) - 1);
+        /* near the end of the level there may be fewer than 'gapMin' items left: fill the gap with already-solved items (revisit, never counted) so a miss is never asked again straight after its card */
+        var need = Math.max(0, Math.min(2, gapMin) - queue.length), cand = items.filter(function (x) { return stats[x.id] && stats[x.id].ok && x.id !== it.id; }), f;
+        while (need-- > 0 && cand.length) { f = cand.splice(Math.floor(rng() * cand.length), 1)[0]; fillN++; var fl = Object.assign({}, f, { id: 'fl' + fillN + ':' + f.id, rv: true }); stats[fl.id] = { id: fl.id, rv: true, item: fl, tries: 0, firstOk: null, ok: false, ms: 0, requeued: 0, missed: 0 }; queue.push(fl); }
+        at = Math.min(queue.length, Math.max(at, Math.min(2, gapMin))); queue.splice(Math.max(0, at), 0, it); out.requeued = true;
+      }
       return out;
     };
     /* the child used a hint on this item: it can no longer count as a first-try hit */
@@ -361,12 +369,16 @@
     '@keyframes gxstar{from{transform:scale(.2) rotate(-40deg);opacity:0}to{transform:none;opacity:1}}' +
     '.gx-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:6px 0}.gx-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-size:15px;font-weight:800}' +
     '.gx-chip svg{width:18px;height:18px}.gx-chip.coin{background:rgba(255,201,74,.18);border-color:rgba(255,201,74,.5);color:' + GOLD + '}.gx-chip.bad{border-color:rgba(255,107,129,.5)}' +
-    '.gx-miss{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-height:96px;overflow:auto;margin:6px 0;padding:2px}.gx-miss span{background:rgba(255,107,129,.14);border:1px solid rgba(255,107,129,.45);border-radius:12px;padding:4px 10px;font-size:15px;font-weight:800;line-height:1.3}' +
+    '.gx-miss{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-height:min(22vh,150px);overflow:auto;margin:6px 0;padding:2px}.gx-miss span{background:rgba(255,107,129,.14);border:1px solid rgba(255,107,129,.45);border-radius:12px;padding:4px 10px;font-size:15px;font-weight:800;line-height:1.3}' +
     '.gx-miss small{display:block;font-size:12px;color:' + MUTED + ';font-weight:600}' +
+    '.gx-rep{margin:4px 0 0;text-align:left}.gx-rep summary{cursor:pointer;color:' + MUTED + ';font-size:14px;font-weight:700;list-style:none;text-align:center;padding:6px;min-height:32px}.gx-rep summary::-webkit-details-marker{display:none}.gx-rep[open] summary{color:' + TEXT + '}' +
+    '.gx-replist{max-height:min(26vh,190px);overflow:auto;display:flex;flex-direction:column;gap:3px}.gx-replist .r{display:grid;grid-template-columns:22px minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:14px;padding:3px 6px;border-radius:10px;background:rgba(255,255,255,.06)}' +
+    '.gx-replist .r i{display:grid;place-items:center}.gx-replist .r.g i{color:' + GOOD + '}.gx-replist .r.y i{color:' + GOLD + '}.gx-replist .r.b i{color:' + BAD + '}.gx-replist b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gx-replist em{font-style:normal;color:' + MUTED + ';font-size:13px;white-space:nowrap}.gx-replist u{text-decoration:none;color:' + MUTED + ';font-size:12px}' +
     '.gx-pv{max-width:340px}.gx-pv .face{min-height:196px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:10px 8px;cursor:pointer}' +
     '.gx-pv .face .pic{font-size:64px}.gx-pv .face .pic img{height:84px;max-width:100%;object-fit:contain}.gx-pv .face .en{font-size:clamp(34px,10vw,44px)}.gx-pv .face .zh{font-size:22px;font-weight:800}.gx-pv .face .eg{font-size:14px;color:' + MUTED + ';padding:0 6px}' +
     '.gx-dots{display:flex;gap:6px;justify-content:center;margin:10px 0 2px}.gx-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}.gx-dots i.on{background:' + GOLD + ';width:20px;border-radius:5px}' +
     '.gx-how .steps{display:flex;gap:8px;align-items:stretch;justify-content:center;margin:10px 0}.gx-how .st{flex:1;background:rgba(255,255,255,.08);border-radius:16px;padding:10px 4px;min-width:0}.gx-how .st .i{font-size:34px;margin-bottom:4px;display:block}.gx-how .st b{font-size:14px;font-weight:800;display:block;line-height:1.35}' +
+    '@keyframes gxbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}.gx-how .st .i{animation:gxbob 1.2s ease-in-out infinite}.gx-how .st:nth-child(2) .i{animation-delay:.2s}.gx-how .st:nth-child(3) .i{animation-delay:.4s}.gx-how .st{position:relative}.gx-how .st+.st::before{content:"›";position:absolute;left:-8px;top:30%;color:'+GOLD+';font-size:22px;font-weight:900}' +
     '.gx-banner{position:absolute;left:0;right:0;top:34%;z-index:6;text-align:center;pointer-events:none;animation:gxpop .22s cubic-bezier(.23,1,.32,1)}.gx-banner b{display:inline-block;font-size:clamp(26px,8vw,40px);font-weight:900;padding:6px 22px;border-radius:999px;background:rgba(20,26,70,.9);border:2px solid ' + GOLD + ';box-shadow:0 8px 24px rgba(0,0,0,.45)}.gx-banner small{display:block;margin-top:6px;font-size:15px;color:' + MUTED + '}' +
     '.gx-pad{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 8px max(10px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,16,48,0) 0,rgba(11,16,48,.72) 24%,rgba(11,16,48,.92) 100%);touch-action:manipulation}' +
     '.gx-pad.off{opacity:.55;pointer-events:none}' +
@@ -374,8 +386,8 @@
     '.gx-key.dn{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.4);background:linear-gradient(180deg,#3a44a0,#2a3282)}.gx-key.ok{background:linear-gradient(180deg,#1fae7a,#12865d);border-color:#7bf2c5}.gx-key.no{background:linear-gradient(180deg,#d6405c,#a52a42);border-color:#ff9fb0}' +
     '.gx-key.bk{max-width:72px;flex:1.5 1 0;background:linear-gradient(180deg,#44306e,#2d1f52)}.gx-key.go{max-width:none;background:linear-gradient(180deg,' + GOLD + ',#e6a800);color:' + GOLD_INK + ';font-family:' + FONT + ';font-size:18px}.gx-key.alt{background:linear-gradient(180deg,#26567a,#1a3d5a)}' +
     '.gx-pad.scr .gx-key{max-width:60px;height:54px;font-size:26px}.gx-pad.dig{padding-left:14px;padding-right:14px}.gx-pad.dig .gx-prow{max-width:300px}.gx-pad.dig .gx-key{max-width:92px;height:50px;font-size:24px}' +
-    '@media (max-height:480px){.gx-key{height:40px;font-size:18px}.gx-pad.scr .gx-key{height:42px;font-size:20px}.gx-pad.dig .gx-key{height:38px}.gx-pad{gap:4px;padding-top:4px}.gx-card{padding:12px 14px 14px}.gx-stars svg{width:34px;height:34px}.gx-learn .big{font-size:34px}.gx-learn .pic{font-size:36px}.gx-pv .face{min-height:130px}.gx-pv .face .pic{font-size:44px}.gx-pv .face .pic img{height:56px}}' +
-    '@media (prefers-reduced-motion:reduce){.gx-ov,.gx-card,.gx-banner,.gx-okchip,.gx-stars svg.on{animation:none!important}}';
+    '@media (max-height:480px){.gx-key{height:44px;font-size:19px}.gx-pad.scr .gx-key{height:44px;font-size:21px}.gx-pad.dig .gx-key{height:44px}.gx-pad{gap:4px;padding-top:4px}.gx-card{padding:12px 14px 14px}.gx-stars svg{width:34px;height:34px}.gx-learn .big{font-size:40px}.gx-learn .pic{font-size:30px}.gx-learn .pic img{max-height:44px}.gx-pv .face{min-height:130px}.gx-pv .face .pic{font-size:44px}.gx-pv .face .pic img{height:56px}}' +
+    '@media (prefers-reduced-motion:reduce){.gx-how .st .i{animation:none!important}.gx-ov,.gx-card,.gx-banner,.gx-okchip,.gx-stars svg.on{animation:none!important}}';
   var cssDone = false;
   function injectCss() { if (cssDone) return; cssDone = true; var s = document.createElement('style'); s.setAttribute('data-wq37', 'gx'); s.textContent = CSS; document.head.appendChild(s); }
 
@@ -399,6 +411,13 @@
       if (!text || S.audio.muted() || opts.sound === false) return;
       try { if (typeof opts.speak === 'function') { opts.speak(text, lang || 'en-US'); return; } } catch (e) { /* */ }
       try { var u = new SpeechSynthesisUtterance(text); u.lang = lang || 'en-US'; u.rate = .85; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { /* */ }
+    };
+    /* a fresh Learn for 'play again': maths gets new questions from the host (opts.regen), English replays the same words */
+    S.newLearn = function () {
+      var r = null; try { if (typeof opts.regen === 'function') r = opts.regen(); } catch (e) { /* */ }
+      if (r && r.items && r.items.length >= 4) { opts.items = r.items; if (r.review) opts.review = r.review; }
+      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode });
+      return S.learn;
     };
     S.say = function (it) { if (it && it.en) S.speak(it.en, 'en-US'); };
     function fit() {
@@ -437,7 +456,7 @@
     S.ui = GX.ui(root, S);
     S.openPause = function () {
       if (S.dead || S.paused || S.ended) return; S.paused = true; S.audio.stopMusic();
-      S.ui.pause({ muted: S.audio.muted(), onResume: function () { S.closePause(); }, onRestart: function () { S.paused = false; if (cfg.onRestart) cfg.onRestart(); }, onMute: function (v) { S.audio.setMuted(v); }, onExit: function () { S.paused = false; if (opts.onExit) opts.onExit(); } });
+      S.ui.pause({ muted: S.audio.muted(), music: S.audio.musicOn(), onMusic: function (v) { S.audio.setMusicOn(v); }, onResume: function () { S.closePause(); }, onRestart: function () { S.paused = false; if (cfg.onRestart) cfg.onRestart(); }, onMute: function (v) { S.audio.setMuted(v); }, onExit: function () { S.paused = false; if (opts.onExit) opts.onExit(); } });
     };
     S.closePause = function () { if (!S.paused) return; S.paused = false; S.ui.close('pause'); last = 0; if (cfg.music) S.audio.music(cfg.music); if (cfg.onResume) cfg.onResume(); };
     S.pause = S.openPause; S.resume = S.closePause;
@@ -464,12 +483,12 @@
   GX.ui = function (root, S) {
     var U = {}, ovs = {}, okChip = null;
     function ov(name, html, cls, onKey) {
-      U.close(name); var el = document.createElement('div'); el.className = 'gx-ov ' + (cls || ''); el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.innerHTML = html; root.appendChild(el); ovs[name] = { el: el, onKey: onKey }; return el;
+      U.close(name); var el = document.createElement('div'); el.className = 'gx-ov ' + (cls || ''); if (name !== 'learn') { el.style.pointerEvents = 'none'; setTimeout(function () { el.style.pointerEvents = ''; }, 380); } el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.innerHTML = html; root.appendChild(el); ovs[name] = { el: el, onKey: onKey }; return el;
     }
     U.close = function (name) { var o = ovs[name]; if (!o) return; if (o.timer) clearInterval(o.timer); if (o.el.parentNode) o.el.parentNode.removeChild(o.el); if (o.off) o.off(); delete ovs[name]; };
     U.closeAll = function () { Object.keys(ovs).forEach(U.close); };
     U.open = function (name) { return !!ovs[name]; };
-    function kbd(name, fn) { var h = function (e) { if (S.dead) return; fn(e); }; window.addEventListener('keydown', h); ovs[name].off = function () { window.removeEventListener('keydown', h); }; }
+    function kbd(name, fn) { var t0 = performance.now(); var h = function (e) { if (S.dead || (name !== 'learn' && performance.now() - t0 < 380)) return; fn(e); }; window.addEventListener('keydown', h); ovs[name].off = function () { window.removeEventListener('keydown', h); }; }
     function sylOf(it) { return S.syl(it); }
     function picOf(it) { if (it.img) return '<img src="' + esc(it.img) + '" alt="" draggable="false">'; return it.emoji ? '<span class="gx-emo">' + esc(it.emoji) + '</span>' : ''; }
 
@@ -509,24 +528,27 @@
     /* right-answer chip: non-blocking, about 0.9 s */
     U.ok = function (it, o) {
       o = o || {}; if (okChip && okChip.parentNode) okChip.parentNode.removeChild(okChip); var math = it.kind === 'math' || it.en == null, sy = sylOf(it);
-      var el = document.createElement('div'); el.className = 'gx-okchip'; el.innerHTML = ico('check', 22) + (math ? '<b>' + esc(it.a) + '</b>' : '<b>' + esc(it.en) + '</b>' + (sy && sy !== it.en ? '<em class="gx-syl">' + esc(sy) + '</em>' : '') + '<em>' + esc(it.zh) + '</em>'); root.appendChild(el); okChip = el;
+      var el = document.createElement('div'); el.className = 'gx-okchip'; if (o.top != null) el.style.top = typeof o.top === 'number' ? o.top + 'px' : o.top; if (o.bottom != null) { el.style.top = 'auto'; el.style.bottom = typeof o.bottom === 'number' ? o.bottom + 'px' : o.bottom; } el.innerHTML = ico('check', 22) + (math ? '<b>' + esc(it.a) + '</b>' : '<b>' + esc(it.en) + '</b>' + (sy && sy !== it.en ? '<em class="gx-syl">' + esc(sy) + '</em>' : '') + '<em>' + esc(it.zh) + '</em>'); root.appendChild(el); okChip = el;
       S.later(function () { if (el.parentNode) el.parentNode.removeChild(el); if (okChip === el) okChip = null; }, o.ms || HOLD_OK_MS);
     };
+    function short(q) { q = String(q || '').replace(/（[^）]*）/g, ''); return q.length > 18 ? q.slice(0, 17) + '…' : q; }
     U.result = function (res, o) {
       o = o || {}; var miss = (res.missed || []).slice(0, 8), more = (res.missed || []).length - miss.length;
       var stars = [1, 2, 3, 4, 5].map(function (k) { return '<span style="display:contents">' + ico('star', 44).replace('<svg ', '<svg class="' + (k <= res.stars ? 'on' : '') + '" style="animation-delay:' + (k * .12) + 's" ') + '</span>'; }).join('');
       var el = ov('result', '<div class="gx-card gx-res"><h1>' + (res.passed ? (res.stars >= 5 ? '太棒了！' : '過關！') : (res.cleared ? '再試一次' : '再接再厲')) + '</h1><div class="gx-stars" aria-label="' + res.stars + ' 星">' + stars + '</div>'
         + '<div class="gx-chips"><span class="gx-chip">' + ico('check', 18) + Math.round(res.firstTryAccuracy * 100) + '% 一次答對</span><span class="gx-chip">' + ico('flame', 18) + res.maxCombo + ' 連擊</span><span class="gx-chip">' + ico('clock', 18) + res.seconds + ' 秒</span>' + (o.coins ? '<span class="gx-chip coin">' + ico('coin', 18) + '+' + o.coins + '</span>' : '') + '</div>'
-        + (miss.length ? '<div class="gx-sub" style="margin-bottom:2px">要再記一記</div><div class="gx-miss">' + miss.map(function (m) { return '<span>' + esc(m.en || m.q + ' = ' + m.a) + (m.en && m.zh ? '<small>' + esc(m.zh) + '</small>' : '') + '</span>'; }).join('') + (more > 0 ? '<span>+' + more + '</span>' : '') + '</div>' : '<div class="gx-sub">全部一次答對！</div>')
+        + (miss.length ? '<div class="gx-sub" style="margin-bottom:2px">要再記一記</div><div class="gx-miss">' + miss.map(function (m) { return '<span>' + esc(m.en || short(m.q) + ' = ' + m.a) + (m.en && m.zh ? '<small>' + esc(m.zh) + '</small>' : '') + '</span>'; }).join('') + (more > 0 ? '<span>+' + more + '</span>' : '') + '</div>' : (res.firstTryAccuracy >= 1 ? '<div class="gx-sub">全部一次答對！</div>' : '<div class="gx-sub">下次會更好</div>'))
+        + '<details class="gx-rep"><summary>逐項報告</summary><div class="gx-replist">' + (res.perItem || []).filter(function (p) { return !p.rv; }).map(function (p) { return '<div class="r ' + (p.firstOk ? 'g' : p.ok ? 'y' : 'b') + '"><i>' + (p.firstOk ? ico('check', 16) : p.ok ? ico('replay', 16) : ico('cross', 16)) + '</i><b>' + esc(p.en || short(p.q)) + '</b><em>' + esc(p.en ? p.zh : '= ' + p.a) + '</em><u>' + (p.ms ? Math.max(1, Math.round(p.ms / 1000)) + ' 秒' : '') + '</u></div>'; }).join('') + '</div></details>'
         + '<div class="gx-row"><button type="button" class="gx-btn ghost" data-r="back" aria-label="返回">' + ico('home', 22) + '</button><button type="button" class="gx-btn ghost" data-r="again">' + ico('replay', 22) + '<span>再玩</span></button>' + (o.canNext ? '<button type="button" class="gx-btn" data-r="next"><span>下一關</span>' + ico('next', 22) + '</button>' : '') + '</div></div>');
       var q = function (r) { return el.querySelector('[data-r="' + r + '"]'); };
       q('back').onclick = function () { if (o.onExit) o.onExit(); }; q('again').onclick = function () { if (o.onRetry) o.onRetry(); }; if (q('next')) q('next').onclick = function () { if (o.onNext) o.onNext(); };
       var first = q('next') || q('again'); if (first) first.focus({ preventScroll: true }); kbd('result', function (e) { if (e.key === 'Enter') { e.preventDefault(); (q('next') || q('again')).click(); } });
     };
     U.pause = function (o) {
-      var el = ov('pause', '<div class="gx-card" style="max-width:300px"><h1>暫停</h1><div class="gx-row" style="flex-direction:column;align-items:stretch"><button type="button" class="gx-btn" data-r="res">' + ico('play', 22) + '<span>繼續</span></button><button type="button" class="gx-btn ghost" data-r="mute">' + ico(o.muted ? 'mute' : 'speaker', 22) + '<span data-r="ml">' + (o.muted ? '開聲音' : '關聲音') + '</span></button><button type="button" class="gx-btn ghost" data-r="re">' + ico('replay', 22) + '<span>重來</span></button><button type="button" class="gx-btn ghost" data-r="ex">' + ico('home', 22) + '<span>離開</span></button></div></div>');
+      var el = ov('pause', '<div class="gx-card" style="max-width:300px"><h1>暫停</h1><div class="gx-row" style="flex-direction:column;align-items:stretch"><button type="button" class="gx-btn" data-r="res">' + ico('play', 22) + '<span>繼續</span></button><button type="button" class="gx-btn ghost" data-r="mute">' + ico(o.muted ? 'mute' : 'speaker', 22) + '<span data-r="ml">' + (o.muted ? '開聲音' : '關聲音') + '</span></button><button type="button" class="gx-btn ghost" data-r="mus">' + ico('sparkle', 22) + '<span>' + (o.music === false ? '開音樂' : '關音樂') + '</span></button><button type="button" class="gx-btn ghost" data-r="re">' + ico('replay', 22) + '<span>重來</span></button><button type="button" class="gx-btn ghost" data-r="ex">' + ico('home', 22) + '<span>離開</span></button></div></div>');
       var q = function (r) { return el.querySelector('[data-r="' + r + '"]'); }, m = !!o.muted;
       q('res').onclick = function () { U.close('pause'); if (o.onResume) o.onResume(); }; q('mute').onclick = function () { m = !m; if (o.onMute) o.onMute(m); q('mute').innerHTML = ico(m ? 'mute' : 'speaker', 22) + '<span>' + (m ? '開聲音' : '關聲音') + '</span>'; };
+      var mu = o.music !== false; q('mus').onclick = function () { mu = !mu; if (o.onMusic) o.onMusic(mu); q('mus').innerHTML = ico('sparkle', 22) + '<span>' + (mu ? '關音樂' : '開音樂') + '</span>'; };
       q('re').onclick = function () { U.close('pause'); if (o.onRestart) o.onRestart(); }; q('ex').onclick = function () { U.close('pause'); if (o.onExit) o.onExit(); };
       kbd('pause', function (e) { if (e.key === 'Enter') { e.preventDefault(); q('res').click(); } }); q('res').focus({ preventScroll: true });
     };

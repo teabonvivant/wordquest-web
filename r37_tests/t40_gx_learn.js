@@ -55,4 +55,15 @@ const m = { kind: 'math', q: '7×8', a: '56', check: s => GX.norm(s) === '56' ||
 ok(L.typing(m, '5') === 'partial' && L.typing(m, '56') === 'done' && L.typing(m, '６') === 'wrong' && L.typing(m, '57') === 'wrong', 'math typing states (full-width digits are normalised by the host check)');
 const fr = { kind: 'math', q: '1/2+1/4', a: '3/4', check: s => GX.norm(s) === '3/4' }; ok(L.typing(fr, '3') === 'partial' && L.typing(fr, '3/') === 'partial' && L.typing(fr, '3/4') === 'done' && L.typing(fr, '３／４') === 'done', 'fraction typing, full-width slash');
 ok(L.judge(cat, ' CAT ') && !L.judge(cat, 'dog'), 'judge trims and ignores case');
+// M2: a miss near the end of the level is never asked again straight after: solved items fill the gap (revisits never count)
+L = GX.Learn({ items: items8.slice(0, 4), seed: 11 }); let last = null, order = [];
+while ((it = L.take())) { order.push(it.id); if (!L.stats[it.id].rv && L.remaining() === 0 && L.stats[it.id].tries === 0 && last === null) { last = it; L.answer(it, false); } else L.answer(it, true); }
+const li = order.indexOf(last.id), li2 = order.lastIndexOf(last.id);
+ok(li2 > li + 1, 'a miss on the very last item comes back with at least one item between (positions ' + li + ' and ' + li2 + ')');
+r = L.result({}); ok(r.total === 4 && r.firstTryCorrect === 3 && r.missed.length === 1, 'fillers are excluded from totals and the miss list');
+ok(r.perItem.filter(p => p.rv).length >= 1, 'filler revisit is flagged rv');
+// assisted(): a hint turns an already-counted first-try hit into a miss, and an unasked item into a non-first-try one
+L = GX.Learn({ items: items8, seed: 12 }); let a1 = L.take(); L.answer(a1, true); L.assisted(a1); let a2 = L.take(); L.assisted(a2); L.answer(a2, true);
+for (let i = 0; i < 6; i++) L.answer(L.take(), true);
+r = L.result({}); ok(r.firstTryCorrect === 6 && r.stars === 3, 'assisted items never count as first-try hits (' + r.firstTryCorrect + ')');
 console.log('t40_gx_learn: ' + n + '/' + n + ' passed');

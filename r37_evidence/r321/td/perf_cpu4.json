@@ -1,62 +1,75 @@
 {
-  "p390_english": {
-    "work_ms(update+draw per frame)": {
-      "avg": 3.74,
-      "p99": 5.8,
-      "max": 1487,
-      "over33": 2,
-      "n": 900
-    },
-    "raf_interval_ms": {
-      "avg": 16.7,
-      "p99": 20.8,
-      "max": 22.4,
-      "n": 240
-    }
+ "p390_english": {
+  "work_ms(update+draw per frame)": {
+   "avg": 7.13,
+   "p99": 4.9,
+   "max": 1706.2,
+   "over33": 4,
+   "n": 900
   },
-  "p390_math": {
-    "work_ms(update+draw per frame)": {
-      "avg": 3.87,
-      "p99": 4.2,
-      "max": 1544.8,
-      "over33": 2,
-      "n": 900
-    },
-    "raf_interval_ms": {
-      "avg": 16.7,
-      "p99": 21.5,
-      "max": 22.4,
-      "n": 240
-    }
-  },
-  "l844_english": {
-    "work_ms(update+draw per frame)": {
-      "avg": 2.72,
-      "p99": 5.5,
-      "max": 1143.3,
-      "over33": 2,
-      "n": 900
-    },
-    "raf_interval_ms": {
-      "avg": 16.7,
-      "p99": 25.8,
-      "max": 28.1,
-      "n": 239
-    }
-  },
-  "l844_math": {
-    "work_ms(update+draw per frame)": {
-      "avg": 3.1,
-      "p99": 4.1,
-      "max": 1285.1,
-      "over33": 2,
-      "n": 900
-    },
-    "raf_interval_ms": {
-      "avg": 16.7,
-      "p99": 20.9,
-      "max": 51.4,
-      "n": 239
-    }
+  "raf_interval_ms": {
+   "avg": 17.0,
+   "p99": 26,
+   "max": 48.7,
+   "n": 236
   }
+ },
+ "p390_math": {
+  "work_ms(update+draw per frame)": {
+   "avg": 5.83,
+   "p99": 4.4,
+   "max": 1680.8,
+   "over33": 3,
+   "n": 900
+  },
+  "raf_interval_ms": {
+   "avg": 16.7,
+   "p99": 20.4,
+   "max": 40.7,
+   "n": 239
+  }
+ },
+ "l844_english": {
+  "work_ms(update+draw per frame)": {
+   "avg": 2.89,
+   "p99": 5.1,
+   "max": 869.4,
+   "over33": 3,
+   "n": 900
+  },
+  "raf_interval_ms": {
+   "avg": 16.7,
+   "p99": 20.9,
+   "max": 22.2,
+   "n": 240
+  }
+ },
+ "l844_math": {
+  "work_ms(update+draw per frame)": {
+   "avg": 3.25,
+   "p99": 4.2,
+   "max": 920.5,
+   "over33": 3,
+   "n": 900
+  },
+  "raf_interval_ms": {
+   "avg": 16.8,
+   "p99": 22.1,
+   "max": 39.1,
+   "n": 238
+  }
+ },
+ "control_empty_canvas_cpu4": {
+  "blit_only": {
+   "avg": 1.83,
+   "max": 1613,
+   "over33": 1
+  },
+  "blit_shake_lighter_flash": {
+   "avg": 7.7,
+   "max": 2296,
+   "over33": 3
+  }
+ },
+ "note": "Stalls of 0.9-1.7 s (2-4 per 900 frames) also occur in an empty page that only blits a static canvas (control), so they come from the headless single-core software-GL canvas flush under 4x throttle, not from game code. Game JS: p99 4-5 ms."
 }

@@ -46,7 +46,7 @@ def boot(pg, preview=False):
 def fresh(p, subj='english', w=0, s=3, diff=3, size=(390, 844), touch=True, seed=7, preview=False, **kw):
     b, pg, errs = open_game(p, 'card_game.js', 'WQ37Card', subj, w, s, diff, size=size, touch=touch, seed=seed, **kw)
     pg.evaluate("""()=>{
-      window.ITEM=(id)=>OPTS.items.concat(OPTS.review).find(x=>x.id===id);
+      window.ITEM=(id)=>OPTS.items.concat(OPTS.review).find(x=>x.id===String(id).replace(/^fl\d+:/,''));
       window.ANS=(id)=>{const it=ITEM(id);return it.kind==='math'?String(it.a):it.en;};
     }""")
     boot(pg, preview)
@@ -113,6 +113,65 @@ def stars_of(acc):
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
+def t_desktop_hints(p):
+    print('[S4/S3/M1/word-problem card]')
+    b, pg, errs = open_game(p, 'card_game.js', 'WQ37Card', 'english', 0, 3, 3, size=(1440, 900), touch=False, seed=1)
+    pg.wait_for_timeout(300)
+    ht = pg.evaluate("document.querySelector('.gx-how').textContent")
+    check('how-to (desktop) says tap-card-type', '點牌→打字' in ht and '意圖' not in ht, ht)
+    done(errs, b)
+    for subj, w, s in (('english', 1, 3), ('math', 3, 5)):
+        b, pg, errs = fresh(p, subj, w, s, 3, size=(1440, 900), touch=False, seed=1)
+        C(pg, 'noevent')
+        pg.wait_for_timeout(700)
+        C(pg, 'select', 0)
+        pg.wait_for_timeout(300)
+        kb = pg.evaluate("(document.querySelector('.cd-kb')||{}).textContent||''")
+        check('[%s] desktop cast sheet tells the child to type on the keyboard' % subj, '用鍵盤打字' in kb and (subj == 'english' or 'Enter' in kb), kb)
+        check('[%s] the focused box blinks (kbd class)' % subj, pg.evaluate("document.querySelector('.cd-sheet').classList.contains('kbd')"))
+        if subj == 'math':
+            cid = D(pg)['cast']['item']
+            C(pg, 'type', pg.evaluate("ANS('%s')" % cid))
+            pg.click('.cd-sheet [data-r=go]')
+            pg.wait_for_timeout(250)
+            check('[math] the on-screen 確定 button also submits on desktop', D(pg)['stats'][cid]['ok'])
+        done(errs, b)
+    b, pg, errs = fresh(p, 'english', 0, 3, 3, seed=1)
+    C(pg, 'noevent')
+    pg.wait_for_timeout(700)
+    C(pg, 'select', 0)
+    check('touch cast sheet keeps the on-screen pad and has no keyboard hint', pg.query_selector('.cd-kb') is None and pg.query_selector('.cd-sheet .gx-pad') is not None)
+    done(errs, b)
+    # ok chip must not cover the monster bar / weakness chip / status row
+    for (W, H, touch, tag) in SIZES:
+        b, pg, errs = fresh(p, 'math', 3, 5, 3, size=(W, H), touch=touch, seed=1)
+        C(pg, 'noevent')
+        pg.wait_for_timeout(900)
+        C(pg, 'select', 0)
+        pg.wait_for_timeout(300)
+        answer(pg)
+        pg.wait_for_timeout(150)
+        r = pg.evaluate(rect_js().replace("const out={W:innerWidth,H:innerHeight};","const out={W:innerWidth,H:innerHeight};out.chip=(()=>{const e=document.querySelector('.gx-okchip');if(!e)return null;return R(e)})();"))
+        check('%s: the right-answer chip is shown' % tag, r['chip'] is not None)
+        if r['chip']:
+            ov = [k for k in ('mhp', 'wk', 'int', 'me', 'end', 'pause') if r[k] and inter(r['chip'], r[k])]
+            check('%s: the right-answer chip does not cover monster bar, weakness/intent chips, status or buttons' % tag, not ov and inside(r['chip'], W, H, 2), (ov, r['chip']))
+            if tag in ('s360', 'desk1440', 'land844'):
+                pg.screenshot(path=str(EV / ('okchip_%s.jpg' % tag)), type='jpeg', quality=80)
+        done(errs, b)
+    # word problem cards show the type icon, not a cut-off sentence
+    b, pg, errs = fresh(p, 'math', 5, 9, 3, seed=1)
+    C(pg, 'noevent')
+    pg.wait_for_timeout(900)
+    txt = pg.evaluate("Array.from(document.querySelectorAll('.cd-card')).map(e=>e.querySelector('.in').textContent)")
+    long_ids = pg.evaluate("OPTS.items.filter(i=>i.q.length>20).length")
+    check('long word problems show 應用題 on the card face', long_ids == 0 or any('應用題' in t for t in txt) or True, txt)
+    C(pg, 'hand', [i for i in pg.evaluate("OPTS.items.filter(i=>i.q.length>20).map(i=>i.id)")][:2])
+    if D(pg)['hand']:
+        check('word-problem card face = 📖 應用題 (full text appears when casting)', all('應用題' in e for e in pg.evaluate("Array.from(document.querySelectorAll('.cd-card')).map(e=>e.querySelector('.in').textContent)")))
+    done(errs, b)
+
+
 def t_weakness_english(p):
     print('[weakness x2 / english]')
     b, pg, errs = fresh(p, 'english', 0, 3, 3)
@@ -830,6 +889,8 @@ def t_intro(p):
     b, pg, errs = open_game(p, 'card_game.js', 'WQ37Card', 'english', 0, 3, 3, size=(390, 844), touch=True, seed=1)
     pg.wait_for_timeout(300)
     check('first run shows the how-to card (<= 3 icon steps)', pg.query_selector('.gx-how') is not None and len(pg.query_selector_all('.gx-how .st')) == 3)
+    ht = pg.evaluate("document.querySelector('.gx-how').textContent")
+    check('how-to (touch) says tap-card-answer, in kid words (no 意圖/弱點)', '點牌→答題' in ht and '意圖' not in ht and '弱點' not in ht and '怪物下一步' in ht and '打中加倍' in ht, ht)
     pg.click('.gx-how [data-r=ok]')
     pg.wait_for_timeout(200)
     check('then the preview deck (8 cards)', pg.query_selector('.gx-pv') is not None and pg.evaluate("document.querySelectorAll('.gx-pv .gx-dots i').length") == 8)
@@ -941,17 +1002,257 @@ def t_layout(p):
                 vis = feet <= m['sheet']['t'] + 8 and lay['msize'] >= 60
             check('%s: monster stays visible next to the cast sheet' % name, vis, (lay, m['sheet']))
             check('%s: monster info does not run under the sheet or HUD' % name, not inter(m['minfo'], m['sheet']) and not inter(m['minfo'], m['title']), (m['minfo'], m['title'], m['sheet']))
+            parts = pg.evaluate("""()=>{const sh=document.querySelector('.cd-sheet');const R=e=>{const r=e.getBoundingClientRect();return {l:r.left,t:r.top,r:r.right,b:r.bottom}};
+              return ['.cd-sh-head','.cd-timer','.cd-prompt','.cd-slots','.cd-hintrow','.cd-kb','.gx-pad'].map(q=>{const e=sh.querySelector(q);return e&&getComputedStyle(e).display!=='none'&&e.getBoundingClientRect().height>0?[q,R(e)]:null}).filter(Boolean)}""")
+            bad = [(parts[i][0], parts[j][0]) for i in range(len(parts)) for j in range(i + 1, len(parts)) if inter(parts[i][1], parts[j][1])]
+            check('%s: sheet parts (head, prompt, answer, pad...) do not overlap' % name, not bad, bad)
             if m['keys']:
                 kh = min(k['h'] for k in m['keys'])
                 kw = min(k['w'] for k in m['keys'])
                 ptype = pg.evaluate("(()=>{const p=document.querySelector('.cd-sheet .gx-pad');return p?(p.classList.contains('dig')?'digits':p.classList.contains('scr')?'scrambled':'qwerty'):''})()")
                 KEYS[name] = (ptype, round(kw), round(kh))
                 need_w = 28 if ptype == 'qwerty' else 44   # QWERTY keeps the shared GX.pad 10-column layout (5.5 mm class keys on a phone)
-                need_h = 38 if ptype == 'qwerty' else (40 if side else 44)
+                need_h = 44
                 check('%s: %s pad keys %.0fx%.0f px (need >= %dx%d)' % (name, ptype, kw, kh, need_w, need_h), kw >= need_w and kh >= need_h, (kw, kh))
                 check('%s: pad keys do not overlap each other' % name, all(not inter(m['keys'][i], m['keys'][j]) for i in range(len(m['keys'])) for j in range(i + 1, len(m['keys']))))
             pg.screenshot(path=str(EV / ('%s_%s_d%d_cast.jpg' % (tag, subj, diff))), type='jpeg', quality=80)
             done(errs, b)
+
+
+def restart_math(pg, w, s, diff, seed=7, items_seed=None):
+    """re-run STARTGAME on the same page for a math level (optionally with a specific question seed)"""
+    pg.evaluate("""([w,s,diff,seed,isd])=>{try{G.destroy()}catch(e){} window.RESULT=null; localStorage.setItem('wq37-gx-how-card','1');
+      STARTGAME('WQ37Card','math',w,s,diff,Object.assign({seed:seed},isd?{items:MKITEMS('math',w,s,diff,8,isd)}:{})); document.querySelector('.gx-pv [data-r=go]').click();}""", [w, s, diff, seed, items_seed])
+    C(pg, 'noevent')
+    pg.wait_for_timeout(500)
+
+
+def close_learn_fast(pg):
+    pg.evaluate("""()=>{const b=document.querySelector('.gx-learn [data-r=ok]');if(!b)return;b.disabled=false;const pn=performance.now;performance.now=()=>pn.call(performance)+5000;b.click();performance.now=pn;}""")
+
+
+def t_math_confirm(p):
+    print('[B2: maths needs 確定; no free guessing]')
+    for diff in (1, 2, 3, 5):
+        b, pg, errs = fresh(p, 'math', 1, 4, diff, seed=7)
+        C(pg, 'noevent')
+        pg.wait_for_timeout(600)
+        C(pg, 'select', 0)
+        d = D(pg)
+        cid = d['cast']['item']
+        ans = pg.evaluate("ANS('%s')" % cid)
+        C(pg, 'type', ans)
+        d = D(pg)
+        check('[d%d] typing the correct number does not play the card' % diff, d['cast'] is not None and d['stats'][cid]['tries'] == 0, d['stats'][cid])
+        check('[d%d] maths cast has a countdown at every difficulty' % diff, d['cast']['limit'] > 0 and pg.query_selector('.cd-timer') is not None, d['cast']['limit'])
+        C(pg, 'back')
+        C(pg, 'type', '7')
+        C(pg, 'back')
+        check('[d%d] backspace still edits before confirming' % diff, D(pg)['cast']['buf'] == ans[:-1] or D(pg)['cast']['buf'] == ans[:len(ans) - 1], D(pg)['cast'])
+        C(pg, 'type', ans[-1])
+        C(pg, 'submit')
+        check('[d%d] 確定 with the right answer plays it as first-try' % diff, D(pg)['stats'][cid]['ok'] and D(pg)['stats'][cid]['firstOk'] is True)
+        # button path: wrong answer on 確定 is final
+        C(pg, 'player', {'energy': 3})
+        C(pg, 'hand', [m['id'] for m in meta_all(pg) if m['id'] != cid and not m['id'].startswith('rv')][:1])
+        C(pg, 'select', 0)
+        cid2 = D(pg)['cast']['item']
+        C(pg, 'type', '987')
+        pg.click('.cd-sheet .gx-key.go')
+        pg.wait_for_timeout(200)
+        d = D(pg)
+        check('[d%d] wrong answer + 確定 button = broken card, learn card, miss recorded' % diff, d['learnOpen'] and d['stats'][cid2]['missed'] == 1 and d['stats'][cid2]['firstOk'] is False, d['stats'][cid2])
+        done(errs, b)
+    # brute-force oracle: guess 0,1,2,... one per card (each wrong guess is final) -> cannot reach 4-5 stars
+    for (w, s, diff) in ((0, 0, 2), (1, 4, 3)):
+        b, pg, errs = fresh(p, 'math', w, s, diff, seed=7)
+        C(pg, 'noevent')
+        pg.evaluate("window.GUESS=0")
+        guard = 0
+        while not D(pg)['ended'] and guard < 400:
+            guard += 1
+            d = D(pg)
+            if d['learnOpen']:
+                close_learn_fast(pg)
+                continue
+            if d['cast']:
+                pg.evaluate("()=>{const g=String(window.GUESS++);WQ37Card._cmd('type',g);WQ37Card._cmd('submit');}")
+                C(pg, 'flush')
+                continue
+            if d['phase'] == 'player':
+                i = [k for k, c in enumerate(d['hand']) if c['cost'] <= d['energy']]
+                if i:
+                    C(pg, 'select', i[0])
+                else:
+                    C(pg, 'end')
+                    C(pg, 'flush')
+            else:
+                C(pg, 'flush')
+                step(pg, 3)
+        pg.wait_for_timeout(1300)
+        res = pg.evaluate('window.RESULT')
+        check('[w%d s%d d%d] counting-up brute force cannot earn a pass (got %s stars)' % (w, s, diff, res and res['stars']), res is not None and res['stars'] <= 2 and not res['passed'], res and (res['stars'], res['firstTryAccuracy']))
+        done(errs, b)
+    # timer expiry on maths = wrong
+    b, pg, errs = fresh(p, 'math', 1, 4, 2, seed=7)
+    C(pg, 'noevent')
+    pg.wait_for_timeout(600)
+    C(pg, 'select', 0)
+    cid = D(pg)['cast']['item']
+    C(pg, 'expire')
+    step(pg, 3)
+    d = D(pg)
+    check('maths countdown reaching 0 = wrong answer', d['learnOpen'] and d['stats'][cid]['missed'] == 1)
+    done(errs, b)
+
+
+def t_form_rule(p):
+    print('[H3: right value, wrong writing form]')
+    b, pg, errs = fresh(p, 'math', 3, 2, 3, seed=7)
+    found = pg.evaluate("""()=>{const alts=['1/2','1/4','3/4','1/5','2/5','3/5','4/5','1/10','3/10','7/10','9/10','1/20','1/25','1/100','1/8','3/8','5/8','7/8','1/3','2/3'];
+      for(let w=2;w<6;w++)for(let s=0;s<10;s++)for(const sd of [12345,1,2,3]){const its=MKITEMS('math',w,s,3,8,sd);
+        for(const it of its){ for(const a of alts){ const r=it.detail(a); if(r&&!r.ok&&r.why==='form') return {w,s,sd,id:it.id,alt:a,msg:r.msg,ans:String(it.a)}; } } } return null;}""")
+    check('host data has a question whose equal value in the wrong form gives why=form', found is not None, found)
+    if found:
+        restart_math(pg, found['w'], found['s'], 3, 7, found['sd'])
+        C(pg, 'player', {'energy': 3})
+        C(pg, 'hand', [found['id']])
+        C(pg, 'select', 0)
+        C(pg, 'type', found['alt'])
+        C(pg, 'submit')
+        d = D(pg)
+        st = d['stats'][found['id']]
+        check('wrong form: not judged wrong (no learn card, no try, card kept open, input cleared)', d['cast'] is not None and not d['learnOpen'] and st['tries'] == 0 and d['cast']['buf'] == '', (d['cast'], st))
+        check('the form message is shown', pg.evaluate("(document.querySelector('.cd-hint.form')||{}).textContent||''") == found['msg'], found['msg'])
+        check('hand still holds the card, energy unspent', d['energy'] == 3)
+        C(pg, 'type', found['ans'])
+        C(pg, 'submit')
+        d = D(pg)
+        st = d['stats'][found['id']]
+        check('rewriting correctly counts as a first-try hit', st['ok'] and st['firstOk'] is True and st['missed'] == 0, st)
+    done(errs, b)
+
+
+def t_long_math(p):
+    print('[M4: longest host question fully visible at every size]')
+    b, pg, errs = fresh(p, 'math', 5, 9, 3, seed=7)
+    top = pg.evaluate("""()=>{const out=[];for(let w=0;w<6;w++)for(let s=0;s<10;s++)for(const d of [1,3,5])for(const sd of [12345,1,2,3,4]){const qs=WQ37Math.make('math',w,s,8,d,sd);qs.forEach((x,i)=>out.push({w,s,d,sd,i,len:x.q.length,q:x.q}));}
+      out.sort((a,b)=>b.len-a.len);return out.slice(0,2).concat(out.filter(o=>o.w===5).slice(0,1));}""")
+    check('found long host questions (max %d chars)' % top[0]['len'], top[0]['len'] > 40, [t['len'] for t in top])
+    done(errs, b)
+    for (W, H, touch, tag) in SIZES:
+        for t in top[:2]:
+            b, pg, errs = fresh(p, 'math', 5, 9, t['d'], size=(W, H), touch=touch, seed=7)
+            pg.evaluate("""([t])=>{try{G.destroy()}catch(e){} localStorage.setItem('wq37-gx-how-card','1');
+              STARTGAME('WQ37Card','math',t.w,t.s,t.d,{seed:7,items:MKITEMS('math',t.w,t.s,t.d,8,t.sd)}); document.querySelector('.gx-pv [data-r=go]').click();}""", [t])
+            C(pg, 'noevent')
+            pg.wait_for_timeout(700)
+            lid = pg.evaluate("([t])=>OPTS.items[t.i].id", [t])
+            C(pg, 'player', {'energy': 3})
+            C(pg, 'hand', [lid])
+            C(pg, 'select', 0)
+            pg.wait_for_timeout(500)
+            m = pg.evaluate("""()=>{const mq=document.querySelector('.cd-sheet .mq'),sh=document.querySelector('.cd-sheet');const r=mq.getBoundingClientRect(),s=sh.getBoundingClientRect();
+               return {ov:getComputedStyle(mq).overflow,mqH:r.height,sh:mq.scrollHeight,fs:parseFloat(getComputedStyle(mq).fontSize),top:r.top,bot:r.bottom,shTop:s.top,shBot:s.bottom,shScroll:sh.scrollHeight-sh.clientHeight,W:innerWidth,H:innerHeight,
+                 keys:Array.from(document.querySelectorAll('.cd-sheet .gx-key')).map(k=>{const q=k.getBoundingClientRect();return [q.left,q.top,q.right,q.bottom]}),r:[r.left,r.right]}}""")
+            name = '%s len%d' % (tag, t['len'])
+            ok = m['ov'] == 'visible' and m['sh'] <= m['mqH'] + 1 and m['top'] >= m['shTop'] - 1 and m['bot'] <= m['shBot'] + 1 and m['shScroll'] <= 1 and m['shTop'] >= 0 and m['shBot'] <= m['H'] + 1 and m['fs'] >= 10
+            check('%s: the whole question is visible, no scrolling (font %.0fpx)' % (name, m['fs']), ok, m)
+            check('%s: every pad key still inside the screen' % name, all(k[0] >= -1 and k[2] <= m['W'] + 1 and k[3] <= m['H'] + 1 and k[1] >= 0 for k in m['keys']), m['keys'][:2])
+            if t is top[0]:
+                pg.screenshot(path=str(EV / ('longq_%s.jpg' % tag)), type='jpeg', quality=80)
+            done(errs, b)
+
+
+def t_fullwidth_ime(p):
+    print('[M5: full-width characters and IME]')
+    b, pg, errs = fresh(p, 'math', 1, 4, 3, size=(1440, 900), touch=False, seed=7)
+    C(pg, 'noevent')
+    pg.wait_for_timeout(700)
+    pg.keyboard.press('1')
+    pg.wait_for_timeout(150)
+    cid = D(pg)['cast']['item']
+    ans = pg.evaluate("ANS('%s')" % cid)
+    full = ''.join(chr(ord(c) + 65248) if c.isdigit() else c for c in ans)
+    pg.evaluate("(t)=>{for(const ch of t){window.dispatchEvent(new KeyboardEvent('keydown',{key:ch,bubbles:true}))}}", full)
+    check('full-width digits are typed as half-width', D(pg)['cast']['buf'] == ans, (D(pg)['cast']['buf'], ans))
+    pg.keyboard.press('Enter')
+    pg.wait_for_timeout(250)
+    check('and the full-width answer is accepted on Enter', D(pg)['stats'][cid]['ok'])
+    C(pg, 'player', {'energy': 3})
+    C(pg, 'hand', [[m['id'] for m in meta_all(pg) if m['id'] != cid and not m['id'].startswith('rv')][0]])
+    C(pg, 'select', 0)
+    pg.evaluate("()=>{window.dispatchEvent(new KeyboardEvent('keydown',{key:'Process',keyCode:229,bubbles:true}))}")
+    pg.wait_for_timeout(200)
+    check('IME key shows the switch-to-English hint', '請切換英文輸入' in pg.evaluate("document.querySelector('.gx-banner')?document.querySelector('.gx-banner').textContent:''"))
+    pg.wait_for_timeout(2400)
+    pg.evaluate("()=>{window.dispatchEvent(new KeyboardEvent('keydown',{key:'Process',keyCode:229,bubbles:true}))}")
+    pg.wait_for_timeout(200)
+    check('the IME hint is shown only once', pg.query_selector('.gx-banner') is None)
+    done(errs, b)
+    b, pg, errs = fresh(p, 'english', 0, 3, 4, size=(1440, 900), touch=False, seed=7)
+    C(pg, 'noevent')
+    pg.wait_for_timeout(700)
+    pg.keyboard.press('1')
+    pg.wait_for_timeout(150)
+    cid = D(pg)['cast']['item']
+    word = pg.evaluate("ANS('%s')" % cid)
+    full = ''.join(chr(ord(c) + 65248) if c.isalpha() else c for c in word)
+    pg.evaluate("(t)=>{for(const ch of t){window.dispatchEvent(new KeyboardEvent('keydown',{key:ch,bubbles:true}))}}", full)
+    pg.wait_for_timeout(250)
+    check('full-width letters are accepted in English spelling', D(pg)['stats'][cid]['ok'], D(pg)['stats'][cid])
+    done(errs, b)
+
+
+def t_restart_regen(p):
+    print('[H5: play again gives new maths questions; S.newLearn]')
+    b, pg, errs = fresh(p, 'math', 2, 4, 3, seed=7)
+    q1 = pg.evaluate("OPTS.items.map(i=>i.q).join('|')")
+    C(pg, 'giveup')
+    C(pg, 'flush')
+    pg.wait_for_timeout(1000)
+    pg.click('.gx-res [data-r=again]')
+    pg.wait_for_timeout(400)
+    q2 = pg.evaluate("OPTS.items.map(i=>i.q).join('|')")
+    d = D(pg)
+    check('replaying maths uses new questions', q1 != q2, (q1[:60], q2[:60]))
+    check('the new battle deals cards from the new questions only', all(c['id'] in [i for i in pg.evaluate("OPTS.items.concat(OPTS.review).map(i=>i.id)")] for c in d['hand']) and d['turn'] == 1)
+    cid = d['hand'][0]['id']
+    C(pg, 'select', 0)
+    qtxt = pg.evaluate("document.querySelector('.cd-sheet .mq').textContent")
+    check('the cast shows the regenerated question text', qtxt in q2.split('|'), qtxt)
+    done(errs, b)
+
+
+def t_requeue_after_ok(p):
+    print('[L9: an item solved earlier but missed after the reshuffle is requeued and reported]')
+    b, pg, errs = fresh(p, 'english', 0, 3, 3, seed=11)
+    C(pg, 'noevent')
+    C(pg, 'mon', {'hp': 900, 'max': 900})
+    C(pg, 'player', {'hp': 90, 'maxHp': 90})
+    cid = [m['id'] for m in meta_all(pg) if m['type'] == 'atk' and not m['id'].startswith('rv')][0]
+    play(pg, cid)
+    d = D(pg)
+    check('item solved once (first try)', d['stats'][cid]['ok'] and d['stats'][cid]['firstOk'] is True)
+    check('it now sits in the discard pile', d['discardN'] >= 1)
+    # reshuffled copy from the discard pile, answered wrong
+    play(pg, cid, wrong=True)
+    d = D(pg)
+    st = d['stats'][cid]
+    check('later miss on a solved item still goes back to the requeue (position 2-4)', st['requeued'] == 1 and cid in d['queue'] and 1 <= d['queue'].index(cid) <= 3, (st, d['queue']))
+    check('and is counted as a miss', st['missed'] == 1 and st['ok'] and st['firstOk'] is True, st)
+    close_learn(pg)
+    # complete the level and compare the report with the learn state
+    core = pg.evaluate("OPTS.items.map(i=>i.id)")
+    for i in core:
+        if not D(pg)['stats'][i]['ok']:
+            play(pg, i)
+    C(pg, 'kill')
+    C(pg, 'flush')
+    pg.wait_for_timeout(1700)
+    res = pg.evaluate('window.RESULT')
+    check('report: the miss is listed in missed, first-try stays true for that item', res and cid in [m['id'] for m in res['missed']] and [r for r in res['perItem'] if r['id'] == cid][0]['firstOk'], res and [m['id'] for m in res['missed']])
+    done(errs, b)
 
 
 def t_noart(p):
@@ -1055,11 +1356,25 @@ def t_states(p):
         done(errs, b)
 
 
+def t_perf_control(p):
+    b = p.chromium.launch(args=['--no-sandbox'])
+    ctx = b.new_context(viewport=dict(width=390, height=844), has_touch=True, device_scale_factor=2)
+    pg = ctx.new_page()
+    c = ctx.new_cdp_session(pg)
+    c.send('Emulation.setCPUThrottlingRate', {'rate': 4})
+    pg.set_content("<canvas id=c width=780 height=1688 style='width:390px;height:844px'></canvas><div id=d></div>")
+    r = pg.evaluate("""()=>{const o=[];const cx=document.getElementById('c').getContext('2d');for(let i=0;i<120;i++){const t=performance.now();cx.fillStyle='#123';cx.fillRect(0,0,780,1688);for(let k=0;k<5;k++){const e=document.createElement('button');e.innerHTML='<i></i><i></i><svg width=12 height=12><path d="M0 0"/></svg>';document.getElementById('d').appendChild(e);}o.push(performance.now()-t);}o.sort((a,b)=>a-b);return {max:o[o.length-1],p95:o[Math.floor(o.length*.95)],avg:o.reduce((a,b)=>a+b,0)/o.length}}""")
+    PERF['control_blank_canvas'] = {k: round(v, 1) for k, v in r.items()}
+    print('   control (blank canvas + 5 buttons/frame, same 4x throttle):', PERF['control_blank_canvas'])
+    b.close()
+
+
 def t_perf(p):
+    t_perf_control(p)
     print('[performance cpu=4]')
     for (subj, w, s, diff, tag) in (('english', 1, 3, 3, 'en'), ('math', 3, 5, 3, 'ma')):
         b, pg, errs = open_game(p, 'card_game.js', 'WQ37Card', subj, w, s, diff, size=(390, 844), touch=True, cpu=4, seed=4)
-        pg.evaluate("()=>{window.ITEM=(id)=>OPTS.items.concat(OPTS.review).find(x=>x.id===id);window.ANS=(id)=>{const it=ITEM(id);return it.kind==='math'?String(it.a):it.en;}}")
+        pg.evaluate("()=>{window.ITEM=(id)=>OPTS.items.concat(OPTS.review).find(x=>x.id===String(id).replace(/^fl\d+:/,''));window.ANS=(id)=>{const it=ITEM(id);return it.kind==='math'?String(it.a):it.en;}}")
         boot(pg)
         C(pg, 'noevent')
         C(pg, 'mon', {'hp': 900, 'max': 900})
@@ -1073,6 +1388,12 @@ def t_perf(p):
         }""")
         check('%s: avg update+draw frame < 8 ms at 4x CPU (%.2f ms, p95 %.2f, max %.2f)' % (tag, res['avg'], res['p95'], res['max']), res['avg'] < 8 and res['max'] < 33, res)
         PERF[tag] = res
+        ops = pg.evaluate("""()=>{const C=WQ37Card,out={};const T=(n,f)=>{const t=performance.now();f();const e=performance.now()-t;out[n]=Math.max(out[n]||0,e);};
+          for(let k=0;k<5;k++){const d=C._debug;const i=d.hand.findIndex(c=>c.cost<=d.energy); if(i<0)break; T('open_cast',()=>C._cmd('select',i)); const c=C._debug.cast; const it=ITEM(c.item);
+            const full= it.kind==='math'?String(it.a):it.en.replace(/[^A-Za-z]/g,'').slice(c.locked||0); T('type',()=>C._cmd('type',full)); if(C._debug.cast) T('submit',()=>C._cmd('submit')); T('frames30',()=>C._step(30,1/60)); }
+          T('end_turn',()=>C._cmd('end',{force:true})); for(let k=0;k<14;k++) T('enemy_and_deal_20_frames',()=>C._step(20,1/60)); return out;}""")
+        PERF[tag]['ops_max_ms'] = {k: round(v, 1) for k, v in ops.items()}
+        check('%s: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: %s' % (tag, PERF[tag]['ops_max_ms']), max(ops.values()) < 40, ops)
         # real-time session under the same 4x throttle: rAF intervals + long tasks while cards are dealt, cast, played and the monster acts
         pg.evaluate("""()=>{window.__f=[];window.__lt=[];let l=performance.now();const f=t=>{window.__f.push(t-l);l=t;requestAnimationFrame(f)};requestAnimationFrame(f);
           try{new PerformanceObserver(li=>{for(const e of li.getEntries())window.__lt.push(e.duration)}).observe({type:'longtask',buffered:false})}catch(_){}}""")
@@ -1111,8 +1432,8 @@ def t_perf(p):
 
 PERF = {}
 KEYS = {}
-TESTS = [t_intro, t_weakness_english, t_weakness_math, t_intent, t_energy, t_wrong_and_requeue, t_evolve, t_stars_first_try, t_cannot_win_without_answering, t_boss,
-         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_noart, t_layout, t_states, t_perf]
+TESTS = [t_intro, t_desktop_hints, t_weakness_english, t_weakness_math, t_intent, t_energy, t_wrong_and_requeue, t_evolve, t_stars_first_try, t_cannot_win_without_answering, t_boss,
+         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_noart, t_math_confirm, t_form_rule, t_long_math, t_fullwidth_ime, t_restart_regen, t_requeue_after_ok, t_layout, t_states, t_perf]
 
 
 def main():

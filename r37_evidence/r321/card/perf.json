@@ -1,1 +1,47 @@
-{}
+{
+ "control_blank_canvas": {
+  "max": 22,
+  "p95": 2,
+  "avg": 0.4
+ },
+ "en": {
+  "n": 1280,
+  "avg": 0.1021093750023283,
+  "p95": 0.10000000149011612,
+  "max": 19.899999998509884,
+  "ops_max_ms": {
+   "end_turn": 0.8,
+   "enemy_and_deal_20_frames": 4.1
+  },
+  "real": {
+   "frames": 509,
+   "median": 16.7,
+   "p95": 33.3,
+   "over50": 1,
+   "longtasks": 3,
+   "longtask_max": 64
+  }
+ },
+ "ma": {
+  "n": 1270,
+  "avg": 0.11149606298156611,
+  "p95": 0.10000000149011612,
+  "max": 16.800000000745058,
+  "ops_max_ms": {
+   "open_cast": 15.2,
+   "type": 0.2,
+   "submit": 21.7,
+   "frames30": 15.5,
+   "end_turn": 12,
+   "enemy_and_deal_20_frames": 9.8
+  },
+  "real": {
+   "frames": 511,
+   "median": 16.7,
+   "p95": 33.2,
+   "over50": 0,
+   "longtasks": 0,
+   "longtask_max": 0
+  }
+ }
+}

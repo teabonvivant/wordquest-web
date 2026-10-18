@@ -12,10 +12,10 @@
   var CONF = { b: 'd', d: 'b', m: 'n', n: 'mu', p: 'q', q: 'p', u: 'n' };          /* look-alike letters (b/d, m/n, p/q, u/n) */
   var ALPHA = 'abcdefghijklmnopqrstuvwxyz';
   var HEARTS = [5, 5, 4, 3, 3], ERR = [.30, .22, .14, .07, .03], BASE_T = [70, 55, 44, 36, 30], NDIS = [3, 4, 6, 7, 8], NDIS_M = [3, 4, 5, 6, 7];
-  var PSPEED = 4.4, FRIGHT = 6, BOOST = 3, INV = 2.4, GHOST_COL = ['#ff6b81', '#8e6bff', '#3ee6d0', '#ffc94a'];
+  var PSPEED = 4.4, FRIGHT = 6, BOOST = 3, INV = 3, STALL = 12, GHOST_COL = ['#ff6b81', '#8e6bff', '#3ee6d0', '#ffc94a'];
   var STYLE_ON = false;
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
-  var CSS = '.mz-dpad{position:absolute;z-index:5;width:168px;height:168px;opacity:.5;touch-action:none;display:none}.mz-dpad.on{display:block}.mz-dpad:active,.mz-dpad.hot{opacity:.85}' +
+  var CSS = '.mz-dpad{position:absolute;z-index:5;width:168px;height:116px;opacity:.7;touch-action:none;display:none}.mz-dpad.on{display:block}.mz-dpad:active,.mz-dpad.hot{opacity:.85}' +
     '.mz-dpad button{position:absolute;width:56px;height:56px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(20,26,70,.78);color:#fff;display:flex;align-items:center;justify-content:center;padding:0;touch-action:none;cursor:pointer}' +
     '.mz-dpad button:active{background:rgba(70,80,170,.9)}.mz-dpad svg{width:26px;height:26px}' +
     '.mz-vig{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,60,90,0) 55%,rgba(255,60,90,.34) 100%)}.mz-fr{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:rgba(108,139,255,.09)}' +
@@ -126,9 +126,10 @@
   var CUR = null;
   function start(box, opts) {
     injectCss(); opts = opts || {};
-    var isMath = opts.subject === 'math', diff = clamp(opts.difficulty | 0 || 2, 1, 5), lv = opts.level || { w: 0, s: 0 }, boss = !!lv.boss, hasHint = diff === 3;
+    var isMath = opts.subject === 'math', diff = clamp(opts.difficulty | 0 || 2, 1, 5), lv = opts.level || { w: 0, s: 0 }, boss = !!lv.boss, hasHint = diff <= 3, firstGame = true;
     var ch = opts.character || {}, G = null, L = null, S, bcv = null, hcv = null, vigEl = null, frEl = null, qImgWait = null, dpadPref = null, dpadOn = false;
     var assetBase = opts.assetBase || 'assets/r321/';
+    var isTouchDev = false; try { isTouchDev = (navigator.maxTouchPoints | 0) > 0 || !!(window.matchMedia && window.matchMedia('(pointer:coarse)').matches); } catch (e) { /* */ }
     var rnd = GX.rng(1);
     function A(n) { return assetBase + n; }
     /* decode every picture up front (while the how-to / preview cards are on screen) so the first game frames do not stall */
@@ -137,6 +138,7 @@
 
     S = GX.shell(box, opts, { id: 'maze', music: boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm'), onRestart: restart, onResize: onResize, onDestroy: function (s2) { try { s2.ui.closeAll(); } catch (e) { /* */ } if (CUR && CUR.S === S) CUR = null; } });
     CUR = { S: S };
+    var fxDraw = S.fx.draw; S.fx.draw = function (c, W, H) { fxDraw(c, W, H); if (G && L && G.M) drawPlayer(c); };
     vigEl = document.createElement('div'); vigEl.className = 'mz-vig'; frEl = document.createElement('div'); frEl.className = 'mz-fr'; S.root.appendChild(vigEl); S.root.appendChild(frEl);
     bcv = document.createElement('canvas'); bcv.className = 'gx-cv'; bcv.style.pointerEvents = 'none'; S.root.insertBefore(bcv, S.canvas); hcv = document.createElement('canvas'); hcv.className = 'gx-cv'; hcv.style.pointerEvents = 'none'; S.root.insertBefore(hcv, S.canvas);
     try { dpadPref = localStorage.getItem('wq37-mz-dpad'); } catch (e) { dpadPref = null; }
@@ -151,7 +153,7 @@
     var bHint = hasHint ? mkBtn('mz-hint', 'sparkle', '提示', function () { useHint(); }) : null;
     if (isMath) bSpeak.style.display = 'none';
     var dpad = document.createElement('div'); dpad.className = 'mz-dpad';
-    var ARW = ['M6 15l6-6 6 6', 'M9 6l6 6-6 6', 'M6 9l6 6 6-6', 'M15 6l-6 6 6 6'], DPOS = [[56, 0], [112, 56], [56, 112], [0, 56]], DLBL = ['上', '右', '下', '左'];
+    var ARW = ['M6 15l6-6 6 6', 'M9 6l6 6-6 6', 'M6 9l6 6 6-6', 'M15 6l-6 6 6 6'], DPOS = [[56, 0], [112, 60], [56, 60], [0, 60]], DLBL = ['上', '右', '下', '左'];
     DPOS.forEach(function (p, d) {
       var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', DLBL[d]); b.style.left = p[0] + 'px'; b.style.top = p[1] + 'px';
       b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="' + ARW[d] + '"/></svg>';
@@ -165,21 +167,21 @@
     function computeLayout(W, H) {
       var land = W > H * 1.1, cols = land ? 11 : 9, rows = land ? 9 : 11, o = { W: W, H: H, land: land, cols: cols, rows: rows }, cell, mw, mh;
       if (!land) {
-        var strip = 50, qh = Math.max(66, Math.min(92, Math.round(H * .125))), bot = 56, avail = H - strip - qh - bot - 8;
-        cell = Math.max(18, Math.floor(Math.min((W - 14) / cols, avail / rows, 72))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = strip + qh + 4;
+        var strip = 50, qh = Math.max(66, Math.min(84, Math.round(H * .115))), bot = 52, avail = H - strip - qh - bot - 20;
+        cell = Math.max(18, Math.floor(Math.min((W - 14) / cols, avail / rows, 72))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = strip + qh + 14;
         o.strip = strip; o.q = { x: 8, y: strip + 2, w: W - 16, h: qh - 4 };
         o.slots = { x: 8 + (hasHint ? 50 : 0), y: o.my + mh + 4, w: W - 16 - (hasHint ? 50 : 0), h: bot - 4 };
         o.ui = clamp(cell / 50, 1, 1.5); o.uh = 1; o.pause = [6, 1]; o.dpadBtn = [54, 1]; o.speak = [W - 8 - 44, strip + 2 + (qh - 4 - 44) / 2]; o.hint = hasHint ? [6, o.my + mh + 6] : null;
-        o.timer = { x: 8, y: strip - 6, w: W - 16, h: 5 }; o.heartsR = W - 6; o.heartsY = 18; o.hw = 11; o.scoreX = 106; o.scoreY = 3;
-        var free = H - (o.my + mh + 4 + bot); o.dpadRoom = free >= 176;
-        o.dpad = o.dpadRoom ? [W - 176, o.my + mh + bot + Math.max(0, (free - 176) / 2)] : [W - 176, o.my + mh - 172];
+        o.timer = { x: 8, y: strip + qh + 1, w: W - 16, h: 9 }; o.heartsR = W - 6; o.heartsY = 18; o.hw = 11; o.scoreX = 106; o.scoreY = 3;
+        var free = H - (o.my + mh + 4 + bot); o.dpadRoom = free >= 124;
+        o.dpad = o.dpadRoom ? [Math.round((W - 168) / 2), o.my + mh + bot + 2 + Math.max(0, Math.round((free - 124) / 2))] : [W - 176, o.my + mh - 120];
         o.mh = mh; o.mw = mw;
       } else {
         var side = 176; cell = Math.max(18, Math.floor(Math.min((H - 12) / rows, (W - 2 * side) / cols, 84))); mw = cell * cols; mh = cell * rows; o.cell = cell; o.mx = Math.round((W - mw) / 2); o.my = Math.round((H - mh) / 2);
         var lw = o.mx - 16, rx = o.mx + mw + 8, rw = W - rx - 8; o.mw = mw; o.mh = mh; o.ui = clamp(cell / 46, 1, 1.7); o.uh = o.ui;
         o.pause = [8, 8]; o.heartsX = 60; o.heartsY = 30; o.hw = clamp((lw - 62) / (HEARTS[0] * 2.1), 8, 14 * o.ui); o.scoreX = 8; o.scoreY = 62; o.q = { x: 8, y: Math.round(62 + 44 * o.ui), w: lw, h: H - Math.round(62 + 44 * o.ui) - 8 };
-        o.dpadBtn = [W - 52, 8]; o.timer = { x: rx, y: 58, w: rw, h: Math.round(6 * o.ui) }; o.slots = { x: rx, y: 74, w: rw, h: Math.round(88 * o.ui) }; o.hint = hasHint ? [rx, 74 + Math.round(88 * o.ui) + 6] : null;
-        o.speak = [8 + (lw - 44) / 2, H - 8 - 52]; o.dpadRoom = true; o.dpad = [Math.round(rx + (rw - 168) / 2), H - 176];
+        o.dpadBtn = [W - 52, 8]; o.timer = { x: rx, y: 56, w: rw, h: Math.max(10, Math.round(8 * o.ui)) }; o.slots = { x: rx, y: 74, w: rw, h: Math.round(88 * o.ui) }; o.hint = hasHint ? [rx, 74 + Math.round(88 * o.ui) + 6] : null;
+        o.speak = [8 + (lw - 44) / 2, H - 8 - 52]; o.dpadRoom = true; o.dpad = [Math.round(rx + (rw - 168) / 2), H - 124];
       }
       return o;
     }
@@ -187,7 +189,7 @@
     function onResize(w, h) {
       if (!G) return; var oldLand = L && L.land; L = computeLayout(w, h); G.baseNeed = true; G.layN++;
       place(bPause, L.pause); place(bDpad, L.dpadBtn); place(bHint, L.hint); place(dpad, L.dpad); place(bSpeak, L.speak);
-      if (dpadPref == null) setDpad(false); else setDpad(dpadPref === '1');
+      if (dpadPref == null) setDpad(isTouchDev && L.dpadRoom); else setDpad(dpadPref === '1');
       if (L.land !== oldLand && oldLand != null && G.M) rebuildWorld();
     }
 
@@ -200,9 +202,22 @@
     function cellsBy(fn) { var out = []; for (var c = 0; c < G.M.N; c++) if (fn(c)) out.push(c); return out; }
     function occupied(c) { return G.tileAt[c] || c === G.home || c === G.spawn || G.portals.some(function (p) { return p.c === c; }) || G.orbs.some(function (o) { return o.c === c; }) || G.gems.some(function (g) { return g.c === c; }); }
     function manh(a, b) { var cl = G.cols; return Math.abs(a % cl - b % cl) + Math.abs(((a / cl) | 0) - ((b / cl) | 0)); }
-    function pickFree(minPlayer, existing) {
+    /* a tile may only go where the other tiles never wall the child in: all non-tile cells stay connected and every tile keeps a free neighbour,
+       so every target can always be reached without stepping on another tile (no forced wrong eats) */
+    function tileOk(c, tiles) {
+      var M = G.M, N = M.N, bl = new Uint8Array(N), i, d, nb = 0, all = [c];
+      for (i = 0; i < tiles.length; i++) { bl[tiles[i].c] = 1; all.push(tiles[i].c); } bl[c] = 1;
+      for (i = 0; i < all.length; i++) { var free = false; for (d = 0; d < 4; d++) if (M.open[all[i] * 4 + d] && !bl[M.nb(all[i], d)]) free = true; if (!free) return false; }
+      var total = 0, st = -1; for (i = 0; i < N; i++) if (!bl[i]) { total++; if (st < 0) st = i; }
+      if (G.player && !bl[G.player.b]) st = G.player.b;
+      var seen = new Uint8Array(N), q = [st], n = 1; seen[st] = 1;
+      while (q.length) { var cu = q.pop(); for (d = 0; d < 4; d++) if (M.open[cu * 4 + d]) { var x = M.nb(cu, d); if (!bl[x] && !seen[x]) { seen[x] = 1; n++; q.push(x); } } }
+      return n === total;
+    }
+    function pickFree(minPlayer, existing, mode) {                  /* mode 'strict' = tile rule must hold (null when impossible), 'prefer' = fall back to any free cell */
       var cand = cellsBy(function (c) { return !occupied(c) && G.M.bfs(G.player.b)[c] >= minPlayer; }); if (!cand.length) cand = cellsBy(function (c) { return !occupied(c); }); if (!cand.length) return -1;
-      var best = -1, bs = -1, k;
+      var best = -1, bs = -1, k, okN = 0;
+      if (mode) { cand = GX.shuffle(cand, rnd); var good = []; for (k = 0; k < cand.length && good.length < 12; k++) if (tileOk(cand[k], existing)) good.push(cand[k]); if (!good.length) { if (mode === 'strict') return -1; } else cand = good; }
       for (k = 0; k < 14; k++) {
         var c = cand[(rnd() * cand.length) | 0], md = 99; for (var j = 0; j < existing.length; j++) md = Math.min(md, manh(c, existing[j].c));
         if (md > bs) { bs = md; best = c; }
@@ -225,7 +240,7 @@
     }
 
     function newGame() {
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed });
+      if (firstGame) firstGame = false; else S.newLearn();
       S.ended = false; S.result = null; S.ui.closeAll();
       var hearts = HEARTS[diff - 1];
       G = { phase: 'idle', simT: 0, playT: 0, hold: false, hearts: hearts, maxHearts: hearts, score: 0, combo: 0, maxCombo: 0, mainDone: 0, condAfter: 0, condPlayed: 0, condClean: 0, hits: 0, wrongEats: 0,
@@ -281,7 +296,7 @@
       return out;
     }
     function startWord(it) {
-      var so = seqOf(it), rd = G.rd = { kind: 'word', item: it, seq: so.seq, disp: so.disp, i: 0, failed: false, hinted: false, t0: G.simT, limit: limitFor(so.seq.length), left: 0, hintT: 0, qText: isMath ? it.q : it.zh };
+      var so = seqOf(it), rd = G.rd = { kind: 'word', item: it, seq: so.seq, disp: so.disp, i: 0, failed: false, hinted: false, t0: G.simT, limit: limitFor(so.seq.length), left: 0, hintT: 0, think: false, assisted: false, lastProg: 0, qText: isMath ? it.q : it.zh };
       rd.left = rd.limit; beginRound(); if (!isMath) S.later(function () { if (G && G.rd === rd && !S.paused) S.say(it); }, 350);
     }
     function startCond() {
@@ -290,7 +305,8 @@
       rd.left = rd.limit; G.condPlayed++; beginRound(); S.ui.banner('條件吃！', cd.q, 1500); S.sfx('power');
     }
     function beginRound() {
-      var rd = G.rd; G.phase = 'ready'; G.readyT = .8; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; rd.firstWrong = true;
+      var rd = G.rd; rd.lastProg = G.simT + .8; G.phase = 'ready'; G.readyT = .8;
+      if (!G.anyRound || (lv.w === 0 && (lv.s | 0) <= 2)) G.calmT = 8; G.anyRound = true; if (G.helpGlow && rd.kind === 'word') { rd.autoHelp = true; assist(rd); } G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; rd.firstWrong = true;
       placeTiles(false); for (var k = 0; k < 2; k++) { var c = pickFree(2, G.gems); if (c >= 0) G.gems.push({ c: c, born: G.simT }); }
       G.baseNeed = true; G.rdN++; if (bHint) bHint.disabled = false; S.sfx('flip');
     }
@@ -302,8 +318,8 @@
       } else {
         rd.cd.tiles.filter(function (t) { return !(keepProgress && t.eaten); }).forEach(function (t) { list.push({ ch: t.text, key: t.text, tgt: t.tgt, why: t.why, ref: t }); });
       }
-      list = GX.shuffle(list, rnd);
-      list.forEach(function (t) { var c = pickFree(3, G.tiles); if (c < 0) return; t.c = c; t.born = G.simT; G.tiles.push(t); G.tileAt[c] = t; tileLabel(t, L.cell); });
+      list = GX.shuffle(list, rnd).sort(function (a, b) { return (b.tgt ? 1 : 0) - (a.tgt ? 1 : 0); });
+      list.forEach(function (t) { var c = pickFree(3, G.tiles, t.tgt ? 'prefer' : 'strict'); if (c < 0) return; t.c = c; t.born = G.simT; G.tiles.push(t); G.tileAt[c] = t; tileLabel(t, L.cell); });
       if (rd.disp) rd.disp.forEach(function (d) { GX.label(d.ch, { size: Math.round(slotSize() * .66), weight: 900, fam: GX.EFONT, color: d.fixed ? '#c3cbf7' : '#fff', dpr: S.dpr }); });
     }
     function nextRound() {
@@ -314,20 +330,30 @@
     function failWord(why) {                                                    /* first mistake in a word round = "not first try" (item will come back) */
       var rd = G.rd; if (!rd || rd.kind !== 'word' || rd.failed) return; rd.failed = true; S.learn.answer(rd.item, false, (G.simT - rd.t0) * 1000);
     }
+    function assist(rd) {                                                         /* a hint was used: this word can no longer count as a first-try hit (but still completes normally) */
+      if (!rd || rd.kind !== 'word' || rd.assisted) return; rd.assisted = true; rd.hinted = true; S.learn.assisted(rd.item);
+    }
+    function roundFail(typed) {                                                   /* stop the world, show the learn card (>= 2 s), then go on with the next item */
+      var rd = G.rd; if (!rd.failed) failWord(); G.combo = 0; G.phase = 'card'; G.hold = true; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = [];
+      S.ui.learn(rd.item, { typed: typed || '', onDone: function () { G.hold = false; nextRound(); } });
+    }
     function wrongEat(t, c) {
       var x = px(c % G.cols + .5), y = py(((c / G.cols) | 0) + .5), rd = G.rd;
       G.combo = 0; G.wrongEats++; G.boost = BOOST; S.sfx('bad'); S.sfx('keybad'); S.fx.burst(x, y, { colors: ['#ff6b81', '#ff9fb0', '#fff'], n: 14, speed: 160 }); S.fx.ring(x, y, { color: '#ff6b81', r1: L.cell * .8 }); S.fx.shake(3, .2);
-      S.fx.text(x, y - L.cell * .4, t.why ? '✗ ' + t.why : '✗ 順序不對', { color: '#ff9fb0', size: Math.max(14, Math.round(L.cell * .4)), life: 1.1 });
-      if (rd.kind === 'word') failWord(); else rd.failed = true;
-      G.respawn.push({ at: G.simT + 1.2, t: t });
       if (G.bossG) G.bossG.orbs = 0;
+      if (rd.kind === 'word') {
+        var pre = rd.disp.map(function (d) { return d.filled ? d.ch : ''; }).join(''); G.phase = 'card';
+        roundFail(pre + t.ch); return;
+      }
+      S.fx.text(x, y - L.cell * .4, t.why ? '✗ ' + t.why : '✗ 不符合', { color: '#ff9fb0', size: Math.max(14, Math.round(L.cell * .4)), life: 1.1 });
+      rd.failed = true; G.respawn.push({ at: G.simT + 1.2, t: t });
     }
     function eatTile(t) {
       var rd = G.rd, c = t.c, x = px(c % G.cols + .5), y = py(((c / G.cols) | 0) + .5);
       G.tileAt[c] = null; G.tiles.splice(G.tiles.indexOf(t), 1);
       if (rd.kind === 'word') {
         if (t.key === rd.seq[rd.i]) {
-          var slot = rd.disp.filter(function (d) { return !d.fixed; })[rd.i]; slot.filled = true; slot.ch = isMath ? t.ch : slot.ch; rd.i++;
+          var slot = rd.disp.filter(function (d) { return !d.fixed; })[rd.i]; slot.filled = true; slot.ch = isMath ? t.ch : slot.ch; rd.i++; rd.lastProg = G.simT; rd.think = false;
           G.combo++; if (G.combo > G.maxCombo) G.maxCombo = G.combo; var mul = Math.min(4, 1 + Math.floor(G.combo / 4)); G.score += 10 * mul;
           S.sfx('eat', { i: rd.i - 1 }); S.sfx('key', { i: rd.i - 1 }); S.fx.burst(x, y, { colors: ['#ffc94a', '#fff', '#3ee6d0'], n: 14, speed: 150, shape: 'star' }); S.fx.ring(x, y, { r1: L.cell * .9 });
           S.fx.text(x, y - L.cell * .35, '+' + 10 * mul, { color: '#ffe9a8', size: Math.max(14, Math.round(L.cell * .38)), life: .8 });
@@ -345,7 +371,7 @@
     }
     function completeWord() {
       var rd = G.rd, it = rd.item, ms = (G.simT - rd.t0) * 1000; G.phase = 'done'; G.score += 50 + Math.max(0, Math.round(rd.left)); G.mainDone++;
-      S.learn.answer(it, true, ms); S.ui.ok(it); S.sfx('good'); if (!isMath) S.say(it);
+      G.toStreak = 0; G.helpGlow = false; S.learn.answer(it, true, ms); S.ui.ok(it, { top: L.my + 6 }); S.sfx('good'); if (!isMath) S.say(it);
       var cx = px(G.cols / 2), cy = py(G.rows / 2); S.fx.burst(cx, cy, { n: 40, speed: 260, shape: 'star', colors: ['#ffc94a', '#fff', '#3ee6d0', '#ff5fa2'], life: .9 }); S.fx.confetti(S.W, { n: 26 });
       G.tiles.forEach(function (t) { S.fx.burst(px(t.c % G.cols + .5), py(((t.c / G.cols) | 0) + .5), { n: 4, speed: 80 }); }); G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = [];
       later(1.05, nextRound);
@@ -357,9 +383,10 @@
     function timeout() {
       var rd = G.rd; if (!rd) return; S.sfx('lose'); S.fx.flash('#ff6b81', .25);
       if (rd.kind === 'word') {
-        if (!rd.failed) failWord(); G.combo = 0; G.phase = 'card'; G.hold = true; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = [];
         var typed = rd.disp.map(function (d) { return d.filled ? d.ch : ''; }).join('');
-        S.ui.learn(rd.item, { typed: typed && typed.length < String(isMath ? rd.item.a : rd.item.en).length ? typed : '', onDone: function () { G.hold = false; if (G.hearts > 0) nextRound(); } });
+        G.toStreak = (G.toStreak | 0) + 1;
+        if (G.toStreak >= 3 && !G.helpGlow) { G.helpGlow = true; S.ui.banner('慢慢來', '接下來每個字會亮燈幫你', 2200); }
+        roundFail(typed && typed.length < String(isMath ? rd.item.a : rd.item.en).length ? typed : '');
       } else {
         G.phase = 'reveal'; G.combo = 0; S.ui.banner('時間到', '金光的才對', 1700);
         G.tiles.forEach(function (t) { t.reveal = t.tgt; }); later(2.2, function () { G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; nextRound(); });
@@ -368,13 +395,18 @@
     function win() {
       G.phase = 'end'; var rs = S.finish({ cleared: true, score: Math.round(G.score), maxCombo: G.maxCombo, seconds: G.playT }); G.result = rs; return rs;
     }
-    function lose() { G.phase = 'end'; S.sfx('lose'); G.result = S.finish({ cleared: false, score: Math.round(G.score), maxCombo: G.maxCombo, seconds: G.playT }); }
     function later(sec, fn) { G.q.push({ t: G.simT + sec, fn: fn }); }
     function useHint() {
       if (!G || G.hold || S.paused || S.ended || !G.rd || G.phase !== 'play' || !hasHint) return;
-      G.rd.hintT = 4; if (G.rd.kind === 'word') { G.rd.hinted = true; failWord(); } S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '提示（記為非首次）', { color: '#ffe9a8', size: 16, life: 1.2 });
+      G.rd.hintT = 4; assist(G.rd); S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '提示：這個字不計首次答對', { color: '#ffe9a8', size: 16, life: 1.4 });
     }
-
+    /* glow rules: only the FIRST letter of a word glows (English, difficulty 1-2); anything later needs the hint button or 12 s without progress (both cancel the first-try credit) */
+    function isHot(t) {
+      var rd = G.rd; if (!rd) return false; if (t.reveal) return true;
+      if (rd.kind === 'cond') return rd.hintT > 0 && t.tgt;
+      if (t.key !== rd.seq[rd.i]) return false;
+      return rd.hintT > 0 || rd.think || rd.autoHelp || (rd.i === 0 && diff <= 2 && !isMath);
+    }
     /* ---------------- movement ---------------- */
     function px(cx) { return L.mx + cx * L.cell; }
     function py(cy) { return L.my + cy * L.cell; }
@@ -418,7 +450,10 @@
       S.sfx('hit'); S.sfx('ghost'); S.fx.burst(x, y, { n: 24, colors: ['#ff6b81', '#fff', '#ffc94a'], speed: 220 }); S.fx.flash('#ff6b81', .35); S.fx.shake(6, .35); S.fx.text(x, y - L.cell * .6, '哎呀！', { color: '#ff9fb0', size: 22, life: 1 });
       if (G.bossG) G.bossG.orbs = 0;
       P.a = P.b = G.spawn; P.p = 0; P.dir = -1; G.want = -1; updPos(P); G.ghosts.forEach(function (g, i) { toHome(g, 1.2 + i * 1.1 + (g.boss ? 3 : 0)); }); G.fright = 0;
-      if (G.hearts <= 0) lose();
+      if (G.hearts <= 0) {                                                     /* never ends the level: a short rest, hearts back, learning result untouched */
+        G.hearts = Math.min(G.maxHearts, diff <= 2 ? 3 : 2); G.rests = (G.rests | 0) + 1; G.combo = 0; G.inv = INV + 1.5;
+        S.sfx('heal'); S.ui.banner('休息一下', '補回愛心，繼續加油！', 1600); S.fx.burst(S.W / 2, S.H / 2, { n: 30, colors: ['#ff9fb0', '#fff', '#ffc94a'], shape: 'star', speed: 200 });
+      }
     }
 
     /* ghost AI: chase = player cell; ambush = a few cells ahead of the player; patrol = walks its waypoints and only bites when you are near */
@@ -445,7 +480,7 @@
     }
     function gArrive(g) { if (g.mode === 'leave' && G.homeDist[g.a] >= 2) g.mode = 'active'; }
     function ghostSpeed(g) {
-      var base = PSPEED * Math.min(.95, .62 + .05 * diff + .012 * (lv.s | 0)); if (g.boss) base *= .85; if (g.scared) base *= .6; if (g.stun > 0) base *= .25;
+      var base = PSPEED * (diff <= 3 ? clamp(.55 + .04 * (diff - 1) + .01 * (lv.s | 0), .55, .75) : Math.min(.95, .62 + .05 * diff + .012 * (lv.s | 0))); if (g.boss) base *= .85; if (g.scared) base *= .6; if (g.stun > 0) base *= .25;
       if (G.boost > 0 && !g.scared) base *= 1.3; return base;
     }
 
@@ -466,9 +501,9 @@
     function sim(h) {
       var i; G.simT += h;
       for (i = G.q.length - 1; i >= 0; i--) if (G.q[i].t <= G.simT) { var it = G.q.splice(i, 1)[0]; it.fn(); if (!G) return; }
-      if (G.phase === 'ready') { G.readyT -= h; if (G.readyT <= 0) G.phase = 'play'; return; }
+      if (G.phase === 'ready') { G.readyT -= h; if (G.readyT <= 0) { G.phase = 'play'; G.countdown = false; } return; }
       if (G.phase !== 'play' && G.phase !== 'reveal' && G.phase !== 'done') return;
-      if (G.phase === 'play') { G.playT += h; G.rd.left -= h; if (G.rd.hintT > 0) G.rd.hintT -= h; }
+      if (G.phase === 'play') { G.playT += h; G.rd.left -= h; if (G.rd.hintT > 0) G.rd.hintT -= h; var r0 = G.rd; if (r0.kind === 'word' && diff <= 3 && !r0.think && G.simT - r0.lastProg >= STALL) { r0.think = true; assist(r0); S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '想一想…', { color: '#ffe9a8', size: 18, life: 1.4 }); } }
       /* timers */
       if (G.inv > 0) G.inv -= h; if (G.boost > 0) G.boost -= h; if (G.freeze > 0) G.freeze -= h; if (G.portalCd > 0) G.portalCd -= h;
       if (G.fright > 0) { G.fright -= h; if (G.fright <= 0) { G.ghosts.forEach(function (g) { g.scared = false; }); G.chain = 0; } }
@@ -479,7 +514,7 @@
         G.evT -= h; if (G.evT <= 0) { G.evT = 18 + ((rnd() * 12) | 0); pickEvent(); }
         if (G.gap) { G.gap.left -= h; if (G.gap.left <= 0) closeGap(); }
         for (i = G.respawn.length - 1; i >= 0; i--) if (G.respawn[i].at <= G.simT) {
-          var t = G.respawn.splice(i, 1)[0].t, c = pickFree(3, G.tiles); if (c >= 0) { t.c = c; t.born = G.simT; G.tiles.push(t); G.tileAt[c] = t; S.fx.burst(px(c % G.cols + .5), py(((c / G.cols) | 0) + .5), { n: 6, speed: 70, colors: ['#8e9bff', '#fff'] }); }
+          var t = G.respawn.splice(i, 1)[0].t, c = pickFree(3, G.tiles, 'prefer'); if (c >= 0) { t.c = c; t.born = G.simT; G.tiles.push(t); G.tileAt[c] = t; S.fx.burst(px(c % G.cols + .5), py(((c / G.cols) | 0) + .5), { n: 6, speed: 70, colors: ['#8e9bff', '#fff'] }); }
         }
         if (G.rd.left <= 0) { timeout(); return; }
       }
@@ -487,6 +522,7 @@
       var P = G.player; if (G.phase === 'play') moveEnt(P, h, PSPEED, pChoose, pArrive); if (G.phase !== 'play' || !G) return;
       /* ghosts */
       if (G.ghostsOff) return;
+      if (G.calmT > 0) { G.calmT -= h; G.vig = Math.max(0, G.vig - h * 2); return; }            /* novice calm: the ink sprites sleep for the first seconds */
       var near = 99;
       G.ghosts.forEach(function (g) {
         if (g.mode === 'home') { g.delay -= h; if (g.delay <= 0) g.mode = 'leave'; return; }
@@ -496,6 +532,7 @@
       if (near <= 3 && G.inv <= 0) { G.warnT -= h; G.vig = Math.min(1, G.vig + h * 3); if (G.warnT <= 0) { G.warnT = 3.5; S.sfx('warn'); } } else G.vig = Math.max(0, G.vig - h * 2);
       /* collisions */
       var pp = P; for (i = 0; i < G.ghosts.length; i++) {
+        if (G.calmT > 0) break;
         var g = G.ghosts[i]; if (g.mode === 'home') continue; var dx = g.x - pp.x, dy = g.y - pp.y, r = g.boss ? .75 : .55; if (dx * dx + dy * dy > r * r) continue;
         if (g.scared && !g.boss) { eatGhost(g); continue; }
         if (g.boss && g.stun > 0) { S.sfx('zap'); G.score += 1000; S.fx.text(px(g.x + .5), py(g.y + .5), '+1000', { color: '#8be9ff', size: 22, life: 1 }); S.fx.burst(px(g.x + .5), py(g.y + .5), { n: 36, shape: 'star', speed: 240 }); g.stun = 0; toHome(g, 10); continue; }
@@ -592,7 +629,7 @@
     }
     function tileSprite(c, t, x, y, s, now) {
       var sc = Math.min(1, (G.simT - t.born) / .25), bob = Math.sin(now * 3 + t.c) * s * .02; sc = sc < 1 ? GX.ease.back(Math.max(0, sc)) : 1; if (sc < .05) return;
-      var hot = t.reveal || (G.rd && G.rd.kind === 'word' && ((G.rd.hintT > 0 || diff <= 2) && t.key === G.rd.seq[G.rd.i])) || (G.rd && G.rd.kind === 'cond' && G.rd.hintT > 0 && t.tgt);
+      var hot = isHot(t);
       if (hot) { var gl = glowSpr(s), gw = gl.w * sc; c.globalAlpha = .3 + .45 * (.5 + .5 * Math.sin(now * 7)); c.drawImage(gl.c, x - gw / 2, y + bob - gw / 2, gw, gw); c.globalAlpha = 1; }
       var sp = tileSpr(t, hot, s), k = sc; c.drawImage(sp.c, x - sp.w * k / 2, y + bob - sp.sz * k / 2, sp.w * k, sp.h * k);
     }
@@ -652,6 +689,13 @@
         var lb2 = GX.label('吃掉全部符合的方塊', { size: 14, weight: 800, color: '#c3cbf7', dpr: d }); GX.drawLabel(c, lb2, L.slots.x + L.slots.w / 2, L.slots.y + L.slots.h / 2 - (L.land ? 20 : 0));
       }
     }
+    function drawPlayer(c) {                                                     /* drawn after the particles so the child's character is never hidden */
+      var now = S.t, cs = L.cell, P = G.player, x0 = px(P.x + .5), y0 = py(P.y + .5), ps2 = cs * .98, blink = G.inv > 0 && Math.floor(now * 10) % 2 === 0;
+      if (blink) return;
+      c.globalAlpha = .3; c.fillStyle = '#000'; c.beginPath(); c.ellipse(x0, y0 + ps2 * .38, ps2 * .3, ps2 * .09, 0, 0, 6.3); c.fill(); c.globalAlpha = 1;
+      c.strokeStyle = 'rgba(255,201,74,.95)'; c.lineWidth = Math.max(2, cs * .06); c.beginPath(); c.arc(x0, y0, ps2 * .5, 0, 6.3); c.stroke();
+      var by = y0 + Math.sin(now * 9) * (P.a !== P.b ? 2 : 1); if (!(ch.img && GX.drawImg(c, ch.img, x0, by, ps2, ps2, { flip: P.dir === 3 }))) { var em2 = GX.emoji(ch.icon || '🐼', Math.round(ps2 * .78), S.dpr); c.drawImage(em2.c, x0 - em2.s / 2, by - em2.s / 2, em2.s, em2.s); }
+    }
     function draw(c, W, H) {
       if (!G || !L) return; if (G.baseNeed || (!G.bgOk && GX.img(A(L.land ? 'bg_mz_land.webp' : 'bg_mz_port.webp')).ok)) buildBase();
       var tr = c.getTransform(), tx = tr.e / S.dpr, ty = tr.f / S.dpr; if (tx !== G.sx || ty !== G.sy) { G.sx = tx; G.sy = ty; bcv.style.transform = hcv.style.transform = (tx || ty) ? 'translate(' + tx + 'px,' + ty + 'px)' : ''; }
@@ -661,8 +705,9 @@
       var sig = G.hearts + '|' + Math.round(G.score) + '|' + G.combo + '|' + G.mainDone + '|' + (rd ? (rd.kind === 'word' ? rd.i : rd.eaten) : '') + '|' + G.rdN + '|' + G.layN + '|' + S.dpr;
       if (sig !== G.hudSig) { G.hudSig = sig; drawHud(); }
       if (rd && G.phase !== 'idle') {
-        var fr = clamp(rd.left / rd.limit, 0, 1), T = L.timer; c.fillStyle = 'rgba(255,255,255,.14)'; GX.rrect(c, T.x, T.y, T.w, T.h, T.h / 2); c.fill();
-        c.fillStyle = fr < .25 ? '#ff6b81' : fr < .5 ? '#ffc94a' : '#3ee6a0'; if (fr > 0) { GX.rrect(c, T.x, T.y, Math.max(T.h, T.w * fr), T.h, T.h / 2); c.fill(); }
+        var fr = clamp(rd.left / rd.limit, 0, 1), T = L.timer; c.fillStyle = 'rgba(255,255,255,.16)'; GX.rrect(c, T.x, T.y, T.w, T.h, T.h / 2); c.fill();
+        var tcol = fr < .15 ? '#ff4d6a' : fr < .3 ? '#ff9f43' : '#3ee6a0'; if (fr < .15 && !GX.reduced()) c.globalAlpha = .65 + .35 * Math.sin(now * 12);
+        c.fillStyle = tcol; if (fr > 0) { GX.rrect(c, T.x, T.y, Math.max(T.h, T.w * fr), T.h, T.h / 2); c.fill(); } c.globalAlpha = 1;
         if (G.slotRects && rd.kind === 'word') { var ni = rd.disp.findIndex(function (d) { return !d.filled; }), sr = ni >= 0 ? G.slotRects[ni] : null; if (sr) { GX.rrect(c, sr[0], sr[1], sr[2], sr[2], sr[2] * .26); c.lineWidth = 3; c.strokeStyle = 'rgba(255,201,74,' + (.55 + .45 * Math.sin(now * 6)) + ')'; c.stroke(); } }
       }
       /* specials */
@@ -682,33 +727,28 @@
         if (!GX.drawImg(c, src, x, y, sz, sz, { alpha: al, flip: g.dir === 3 })) drawGhostShape(c, x, y, sz * .4, g.col, scared, now, g.dir, al);
         if (g.stun > 0) { for (var k = 0; k < 3; k++) { var an = now * 4 + k * 2.1; c.fillStyle = '#ffe9a8'; c.beginPath(); c.arc(x + Math.cos(an) * sz * .4, y - sz * .5 + Math.sin(an) * 4, 3, 0, 6.3); c.fill(); } }
         if (g.boss) { for (var q2 = 0; q2 < 3; q2++) { c.fillStyle = q2 < g.orbs ? '#8be9ff' : 'rgba(255,255,255,.2)'; c.beginPath(); c.arc(x + (q2 - 1) * 10, y - sz * .62, 4, 0, 6.3); c.fill(); } }
+        if (G.calmT > 0 && g.mode !== 'home') { var zz = GX.label('z z', { size: Math.max(12, Math.round(cs * .3)), weight: 900, color: '#bfe9ff', dpr: S.dpr, stroke: 'rgba(10,14,50,.8)', strokeW: 2 }); GX.drawLabel(c, zz, x + sz * .3, y - sz * .55 + Math.sin(now * 3) * 2); }
         if (G.freeze > 0) { c.globalAlpha = .35; c.fillStyle = '#bfe9ff'; c.beginPath(); c.arc(x, y, sz * .42, 0, 6.3); c.fill(); c.globalAlpha = 1; }
       });
-      /* player */
-      var P = G.player, x0 = px(P.x + .5), y0 = py(P.y + .5), ps2 = cs * .98, blink = G.inv > 0 && Math.floor(now * 10) % 2 === 0;
-      if (!blink) {
-        c.globalAlpha = .3; c.fillStyle = '#000'; c.beginPath(); c.ellipse(x0, y0 + ps2 * .38, ps2 * .3, ps2 * .09, 0, 0, 6.3); c.fill(); c.globalAlpha = 1;
-        var by = y0 + Math.sin(now * 9) * (P.a !== P.b ? 2 : 1); if (!(ch.img && GX.drawImg(c, ch.img, x0, by, ps2, ps2, { flip: P.dir === 3 }))) { var em2 = GX.emoji(ch.icon || '🐼', Math.round(ps2 * .78), S.dpr); c.drawImage(em2.c, x0 - em2.s / 2, by - em2.s / 2, em2.s, em2.s); }
-        if (G.inv > 0) { c.strokeStyle = 'rgba(255,233,168,.8)'; c.lineWidth = 2; c.beginPath(); c.arc(x0, y0, ps2 * .5, 0, 6.3); c.stroke(); }
-      }
       var vo = G.vig > 0 ? Math.round(G.vig * (.6 + .4 * Math.sin(now * 10)) * 20) / 20 : 0; if (vo !== G.vo) { G.vo = vo; vigEl.style.opacity = vo; }
       var fo = G.fright > 0 ? 1 : 0; if (fo !== G.fo) { G.fo = fo; frEl.style.opacity = fo; }
-      if (G.phase === 'ready') { var rl = GX.label(rd && rd.kind === 'cond' ? '準備！' : '準備…', { size: Math.round(cs * .8), weight: 900, color: '#fff', dpr: S.dpr, stroke: 'rgba(10,14,50,.9)', strokeW: 3 }); GX.drawLabel(c, rl, W / 2, L.my + cs * G.rows / 2, clamp(G.readyT / .4, 0, 1)); }
+      if (G.phase === 'ready') { var rl = GX.label(G.countdown ? String(Math.max(1, Math.ceil(G.readyT / .8))) : (rd && rd.kind === 'cond' ? '準備！' : '準備…'), { size: Math.round(cs * .8), weight: 900, color: '#fff', dpr: S.dpr, stroke: 'rgba(10,14,50,.9)', strokeW: 3 }); GX.drawLabel(c, rl, W / 2, L.my + cs * G.rows / 2, G.countdown ? 1 : clamp(G.readyT / .4, 0, 1)); }
     }
 
     /* ---------------- flow ---------------- */
-    function begin() {
+    function begin(cd) {
       G.phase = 'idle'; S.audio.music(boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm'));
       if (boss) { S.ui.banner('魔王關', '連吃 3 顆墨水，擊暈大魔王', 1500); S.sfx('boss'); }
       nextRound();
+      if (cd && G.phase === 'ready') { G.countdown = true; G.readyT = 2.4; G.rd.lastProg = G.simT + 2.4; }
     }
-    function restart() { newGame(); onResizeInit(); begin(); }
+    function restart() { newGame(); onResizeInit(); begin(true); }
     function onResizeInit() { L = computeLayout(S.W, S.H); if (G && !G.M) { buildMaze(); G.tileAt = new Array(G.M.N); setupSpecials(); var P = G.player; P.a = P.b = G.spawn; updPos(P); makeGhosts(); } onResize(S.W, S.H); }
     L = computeLayout(S.W, S.H);
     newGame(); onResizeInit();
     var firstRun = true;
     S.loop(upd, draw);
-    S.ui.how('maze', '字母迷宮', [{ icon: '👆', text: '滑動走位' }, { icon: '🔤', text: '按序吃字' }, { icon: '👻', text: '躲開幽靈' }], function () {
+    S.ui.how('maze', '字母迷宮', [{ icon: isTouchDev ? '👆' : '⌨️', text: isTouchDev ? '滑動走位' : '方向鍵走位' }, { icon: '🔤', text: '按序吃字' }, { icon: '👻', text: '躲開幽靈' }], function () {
       S.ui.preview(S.learn.items, { onStart: function () { begin(); } });
     });
     CUR.dbg = function () {
@@ -719,15 +759,16 @@
         rd: rd && { kind: rd.kind, i: rd.i, seq: rd.seq.slice(), need: rd.need, eaten: rd.eaten, left: rd.left, limit: rd.limit, failed: rd.failed, hinted: rd.hinted, item: rd.item && { id: rd.item.id, en: rd.item.en, q: rd.item.q, a: rd.item.a }, q: rd.qText, cond: rd.cd && { q: rd.cd.q, tiles: rd.cd.tiles.map(function (t) { return { text: t.text, tgt: t.tgt }; }) } },
         tiles: G.tiles.map(function (t) { return { c: t.c, ch: t.ch, tgt: t.tgt }; }), respawn: G.respawn.length, gems: G.gems.length, orbs: G.orbs.map(function (o) { return { c: o.c, alive: o.alive }; }), portals: G.portals.map(function (p) { return p.c; }), portalCd: G.portalCd,
         ghosts: G.ghosts.map(function (g) { return { idx: g.idx, type: g.type, mode: g.mode, a: g.a, b: g.b, p: g.p, x: g.x, y: g.y, scared: g.scared, stun: g.stun, boss: g.boss, delay: g.delay, orbs: g.orbs, target: g.mode === 'home' ? -1 : aiTarget(g, true), speed: ghostSpeed(g) }; }),
-        maze: { open: Array.prototype.slice.call(G.M.open), N: G.M.N }, learnLeft: S.learn.remaining(), ended: !!S.ended, result: S.result || null, layout: { cell: L.cell, mx: L.mx, my: L.my, mw: L.mw, mh: L.mh, q: L.q, slots: L.slots, land: L.land }, holdOpen: S.ui.open('learn'),
-        tileCount: G.tiles.length, dpadOn: dpadOn, ghostsOff: G.ghostsOff
+        maze: { open: Array.prototype.slice.call(G.M.open), N: G.M.N }, learnLeft: S.learn.remaining(), ended: !!S.ended, result: S.result || null, layout: { timer: L.timer, cell: L.cell, mx: L.mx, my: L.my, mw: L.mw, mh: L.mh, q: L.q, slots: L.slots, land: L.land }, holdOpen: S.ui.open('learn'),
+        rests: G.rests | 0, calmT: G.calmT | 0, toStreak: G.toStreak | 0, helpGlow: !!G.helpGlow, readyT: G.readyT, countdown: !!G.countdown, glow: G.tiles.filter(isHot).map(function (t) { return t.c; }), think: rd ? !!rd.think : false, assisted: rd ? !!rd.assisted : false, tileCount: G.tiles.length, dpadOn: dpadOn, ghostsOff: G.ghostsOff
       };
     };
     CUR.cmd = function (name, a) {
       var P = G.player;
       function stand(c) { P.a = P.b = c; P.p = 0; updPos(P); pArrive(P); }
       if (name === 'goto') { if (G.phase === 'ready') { G.phase = 'play'; } stand(a); return true; }
-      if (name === 'ready') { if (G.phase === 'ready') G.phase = 'play'; return G.phase; }
+      if (name === 'ready') { if (G.phase === 'ready') G.phase = 'play'; G.calmT = 0; return G.phase; }
+      if (name === 'calm') { G.calmT = a; return true; }
       if (name === 'noGhosts') { G.ghostsOff = !!a; return true; }
       if (name === 'eatNext') { var rd = G.rd; if (G.phase === 'ready') G.phase = 'play'; var t = G.tiles.filter(function (x) { return rd.kind === 'word' ? x.key === rd.seq[rd.i] : x.tgt; })[0]; if (!t) return false; stand(t.c); return true; }
       if (name === 'eatWrong') { var rd2 = G.rd; if (G.phase === 'ready') G.phase = 'play'; var t2 = G.tiles.filter(function (x) { return rd2.kind === 'word' ? x.key !== rd2.seq[rd2.i] : !x.tgt; })[0]; if (!t2) return false; stand(t2.c); return true; }
@@ -739,6 +780,7 @@
       if (name === 'player') { P.a = P.b = a.c; P.p = 0; P.dir = a.dir == null ? -1 : a.dir; updPos(P); return true; }
       if (name === 'target') { return aiTarget(G.ghosts[a], true); }
       if (name === 'choose') { var gg = G.ghosts[a.i]; var sv = ERR[diff - 1]; ERR[diff - 1] = 0; var dd = gChoose(gg); ERR[diff - 1] = sv; return dd < 0 ? -1 : G.M.nb(gg.a, dd); }
+      if (name === 'skipCard') { if (!G.hold) return false; S.ui.close('learn'); G.hold = false; nextRound(); return true; }
       if (name === 'manual') { G.manual = !!a; return true; }
       if (name === 'inv') { G.inv = a; return true; }
       if (name === 'wave') { G.wave = a; return true; }

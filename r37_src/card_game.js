@@ -141,7 +141,7 @@
       '.cd-sheet .cd-x{min-height:44px;min-width:64px;padding:0 14px;font-size:15px;border-radius:14px}' +
       '.cd-timer{height:8px;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden}.cd-timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#3ee6a0,#ffc94a,#ff6b81);background-size:300% 100%;border-radius:5px}' +
       '.cd-prompt{display:flex;align-items:center;justify-content:center;gap:12px;min-height:56px;text-align:center}.cd-prompt .pic{font-size:46px;line-height:1;flex:0 0 auto}.cd-prompt .pic img{height:56px;max-width:84px;object-fit:contain}' +
-      '.cd-prompt .zh{font-size:clamp(22px,6.5vw,30px);font-weight:900}.cd-prompt .mq{font-family:' + EFONT + ';font-weight:900;font-size:clamp(20px,6vw,28px);line-height:1.3;overflow-wrap:anywhere;max-height:120px;overflow:auto}' +
+      '.cd-prompt .zh{font-size:clamp(22px,6.5vw,30px);font-weight:900}.cd-prompt .mq{padding-top:6px;font-family:' + EFONT + ';font-weight:900;font-size:clamp(20px,6vw,28px);line-height:1.25;overflow-wrap:anywhere}' +
       '.cd-prompt .sp2{width:44px;height:44px;min-height:44px;min-width:44px;padding:0;border-radius:50%;flex:0 0 auto}' +
       '.cd-slots{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;min-height:44px}.cd-slot{width:var(--sw,34px);height:46px;border-radius:10px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-family:' + EFONT + ';font-size:26px;font-weight:900;color:#fff;box-sizing:border-box}' +
       '.cd-slot.cur{border-color:' + G + ';box-shadow:0 0 10px rgba(255,201,74,.6)}.cd-slot.fx{background:none;border-color:transparent;color:#c3cbf7;width:16px}.cd-slot.lk{background:rgba(255,201,74,.18);border-color:' + G + '}' +
@@ -152,12 +152,12 @@
       '.cd-sheet .gx-pad{position:static;background:none;padding:2px 0 0;gap:5px;left:auto;right:auto;bottom:auto}.cd-sheet .gx-pad.scr .gx-prow{flex-wrap:wrap;max-width:none;justify-content:center}' +
       '.cd-sheet .gx-pad.scr .gx-key{flex:0 0 calc((100% - (var(--kpr,7) - 1) * 5px) / var(--kpr,7));max-width:none;height:48px;font-size:26px}' +
       '.cd-sheet .gx-pad:not(.scr):not(.dig) .gx-key{height:48px}.cd-sheet .gx-pad.dig .gx-key{height:var(--dkh,46px);max-width:110px}.cd-sheet .gx-pad.dig .gx-prow{max-width:380px}.cd-sheet .gx-pad.dig .gx-prow:nth-child(1){flex-wrap:wrap;justify-content:center}.cd-sheet .gx-pad.dig .gx-prow:nth-child(1) .gx-key{flex:0 0 calc((100% - 20px) / 5);max-width:none}.cd-sheet .gx-pad.dig .gx-prow:nth-child(2) .gx-key{max-width:none}' +
-      '.cd-fin{text-align:center;font-size:16px;font-weight:900;color:' + G + ';letter-spacing:.04em}' +
+      '.cd-kb{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:16px;font-weight:900;color:#ffe08a;text-align:center}.cd-kb .gx-emo{font-size:22px}.cd-sheet .cd-kb .gx-btn{min-height:44px;padding:0 18px;font-size:16px}.cd-sheet.kbd .cd-slot.cur,.cd-sheet.kbd .cd-ans{animation:cdcur 1s steps(2,jump-none) infinite}@keyframes cdcur{50%{border-color:#fff}}.cd-fin{text-align:center;font-size:16px;font-weight:900;color:' + G + ';letter-spacing:.04em}' +
       /* landscape */
       '.cd-land .cd-sheet{left:50%;right:0;top:0;bottom:0;border-radius:0 0 0 22px;border-top:0;border-left:2px solid ' + G + ';padding:8px 12px 8px;overflow:auto;gap:5px;animation-name:cdsheetl}@keyframes cdsheetl{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}' +
-      '.cd-land .cd-prompt{min-height:44px}.cd-land .cd-prompt .pic{font-size:34px}.cd-land .cd-prompt .pic img{height:42px}.cd-land .cd-prompt .zh{font-size:22px}.cd-land .cd-prompt .mq{font-size:20px;max-height:80px}' +
-      '.cd-land .cd-slot{height:38px;font-size:22px}.cd-land .cd-ans{height:42px;font-size:24px}.cd-land .cd-sheet .gx-pad.scr .gx-key{height:42px;font-size:22px}.cd-land .cd-sheet .gx-pad:not(.scr):not(.dig) .gx-key{height:38px}' +
-      '.cd-land .cd-sh-head{min-height:40px}.cd-land .cd-x{min-height:44px}' +
+      '.cd-land .cd-prompt{min-height:44px}.cd-land .cd-prompt .pic{font-size:34px}.cd-land .cd-prompt .pic img{height:42px}.cd-land .cd-prompt .zh{font-size:22px}.cd-land .cd-prompt .mq{font-size:20px}' +
+      '.cd-land .cd-slot{height:38px;font-size:22px}.cd-land .cd-ans{height:42px;font-size:24px}.cd-land .cd-sheet .gx-pad.scr .gx-key{height:44px;font-size:22px}.cd-land .cd-sheet .gx-pad:not(.scr):not(.dig) .gx-key{height:44px}.cd-land .cd-sheet .gx-pad{gap:4px;padding-top:0}' +
+      '.cd-land .cd-sh-head{min-height:44px}.cd-land .cd-timer{height:6px}.cd-land .cd-sheet{gap:4px}.cd-land .cd-x{min-height:44px}' +
       '.cd-land .cd-minfo{gap:3px}.cd-compact .cd-title .t{padding:5px 9px;font-size:13px}' +
       '.cd-desk .cd-minfo{transform:translateX(-50%) scale(1.3);transform-origin:50% 0}.cd-desk .cd-me{transform:scale(1.18);transform-origin:0 50%}.cd-desk .cd-end{transform:scale(1.18);transform-origin:100% 50%}.cd-desk .cd-end:active{transform:scale(1.18) translateY(2px)}.cd-desk .cd-sheet{font-size:112%}' +
       '.cd-rm .cd-card{transition-duration:.12s}' +
@@ -233,12 +233,19 @@
       el.lv.textContent = GX.levelText(lvl);
       var testImg = new Image(); testImg.onerror = function () { S.root.classList.add('cd-noimg'); }; testImg.src = A + 'cd_frame_atk.webp'; el.frameTest = testImg;
     }
+    var tpl = {};
+    function cardTpl(t) { /* one parsed card per type, cloned for every deal: far cheaper than parsing HTML + SVG for each card */
+      if (!tpl[t]) { var ty = TY[t], b = document.createElement('button'); b.type = 'button'; b.className = 'cd-card ty-' + t;
+        b.innerHTML = '<i class="bgf"></i><i class="fr" style="background-image:url(' + A + ty.frame + ')"></i><div class="in"></div><i class="cost" data-r="cost"></i><b class="pow" data-r="pow" style="color:' + ty.col + '">' + ico2(ty.ic, 12) + '<span></span></b><i class="hit" data-r="hit" hidden>×2</i><span class="pips"><s></s><s></s><s></s></span><i class="rv">' + ico('replay', 13) + '</i><i class="bk" style="background-image:url(' + backUrl + '),linear-gradient(135deg,#3b2a86,#1b1250);background-size:100% 100%"></i>'; tpl[t] = b; }
+      return tpl[t].cloneNode(true);
+    }
     function cardEl(c) {
-      var it = c.item, m = c.meta, ty = TY[m.type], math = isMath(it), f = m.f, b = document.createElement('button'); b.type = 'button'; b.className = 'cd-card ty-' + m.type + (it.rv ? ' rvc' : ''); b.setAttribute('data-uid', c.uid);
+      var it = c.item, m = c.meta, ty = TY[m.type], math = isMath(it), f = m.f, b = cardTpl(m.type); if (it.rv) b.className += ' rvc'; b.setAttribute('data-uid', c.uid);
       var art;
-      if (math) { var n = String(it.q).length; art = '<div class="q" style="font-size:max(11px,calc(var(--u)*' + (n <= 9 ? 17 : n <= 14 ? 14 : n <= 22 ? 12 : 10.5) + '))">' + esc(it.q) + '</div>'; }
+      if (math && String(it.q).length > 20) art = '<div class="art"><span class="gx-emo">📖</span></div><div class="zh">應用題</div>';
+      else if (math) { var n = String(it.q).length; art = '<div class="q" style="font-size:max(11px,calc(var(--u)*' + (n <= 9 ? 17 : n <= 14 ? 14 : n <= 22 ? 12 : 10.5) + '))">' + esc(it.q) + '</div>'; }
       else { var bx = ''; for (var i = 0; i < f.len; i++) bx += '<s></s>'; art = '<div class="art">' + (it.img ? '<img src="' + esc(it.img) + '" alt="" draggable="false">' : '<span class="gx-emo">' + esc(it.emoji || '🔤') + '</span>') + '</div><div class="zh">' + esc(it.zh) + '</div><div class="bx">' + bx + '</div>'; }
-      b.innerHTML = '<i class="bgf"></i><i class="fr" style="background-image:url(' + A + ty.frame + ')"></i><div class="in">' + art + '</div><i class="cost" data-r="cost"></i><b class="pow" data-r="pow" style="color:' + ty.col + '">' + ico2(ty.ic, 12) + '<span></span></b><i class="hit" data-r="hit" hidden>×2</i><span class="pips"><s></s><s></s><s></s></span><i class="rv">' + ico('replay', 13) + '</i><i class="bk" style="background-image:url(' + backUrl + '),linear-gradient(135deg,#3b2a86,#1b1250);background-size:100% 100%"></i>';
+      b.firstChild.nextSibling.nextSibling.innerHTML = art;
       b.onclick = function () { var i = G.hand.indexOf(c); if (i >= 0) selectCard(i); };
       b.onfocus = function () { var i = G.hand.indexOf(c); if (i >= 0) G.focus = i; };
       return b;
@@ -281,7 +288,7 @@
       el.hand.style.visibility = casting ? 'hidden' : ''; el.end.style.visibility = casting && side ? 'hidden' : '';
       lay.deckX = 6; lay.deckY = H - 20; lay.discX = W - 60; lay.discY = H - 20; layoutHand();
       if (sheet) {
-        sheet.style.setProperty('--kpr', side ? 8 : 7); sheet.style.setProperty('--dkh', side ? '40px' : (H < 700 ? '44px' : '46px')); sheet.style.paddingLeft = sheet.style.paddingRight = (W < 400 && !side) ? '8px' : '';
+        sheet.style.setProperty('--kpr', side ? 8 : 7); if (!sheet._shrunk) sheet.style.setProperty('--dkh', side ? '44px' : (H < 700 ? '44px' : '46px')); sheet.style.paddingLeft = sheet.style.paddingRight = (W < 400 && !side) ? '8px' : '';
         if (!side) { var sw = Math.min(W, 760), sx = (W - sw) / 2; sheet.style.left = sx + 'px'; sheet.style.right = sx + 'px'; if (lay.desk) sheet.style.bottom = '10px', sheet.style.borderRadius = '22px', sheet.style.border = '2px solid #ffc94a'; } else { sheet.style.left = ''; sheet.style.right = ''; }
       }
       lay.pcx = lay.meX + 23; lay.pcy = lay.meY + 23;
@@ -468,10 +475,10 @@
         cs.target = String(it.en); cs.slotsN = cs.target.replace(/[^A-Za-z]/g, '').length; cs.len = f.len;
         if (diff <= 2 && cs.slotsN > 1) { cs.buf = cs.target.replace(/[^A-Za-z]/g, '').charAt(0).toLowerCase(); cs.locked = 1; }
         if (diff >= 4) cs.limit = (diff === 4 ? 7 + 0.8 * cs.slotsN : 5 + 0.6 * cs.slotsN);
-      } else { if (diff >= 4) cs.limit = (diff === 4 ? 12 + cm * 9 : 9 + cm * 6.5); }
+      } else { cs.limit = diff <= 3 ? 15 + cm * 10 : (diff === 4 ? 12 + cm * 9 : 9 + cm * 6.5); }
       cs.left = cs.limit || 0; G.cast = cs; if (card) G.focus = G.hand.indexOf(card);
       buildSheet(cs); S.sfx('card'); S.sfx('flip'); if (card && card.px != null) { S.fx.ring(card.px, card.py - lay.chE * 0.3, { r0: 8, r1: 50, color: TY[card.meta.type].col, life: .3, width: 3 }); S.fx.burst(card.px, card.py - lay.chE * 0.3, { n: 6, colors: [TY[card.meta.type].col, '#fff'], speed: 90, life: .35 }); }
-      if (!math) S.say(it); hud();
+      if (!math) S.later(function () { if (G.cast === cs && !cs.done) S.say(it); }, 120); hud();
     }
     function slotsHTML(cs) {
       if (cs.math) return '<div class="cd-ans ph" data-r="ans">?</div>';
@@ -485,9 +492,10 @@
       var hb = diff === 3 ? '<button type="button" class="gx-btn ghost cd-hintbtn" data-r="hint" aria-label="提示">' + ico('sparkle', 22) + '</button>' : '';
       var head = cs.card ? '<span class="cd-badge" style="color:' + T.col + '">' + ico2(T.ic, 19) + '<span>' + (ty === 'draw' ? '+' + eff.value : eff.base) + '</span></span>' + (eff.hit && showHint() ? '<span class="cd-hit2">弱點 ×2</span>' : '') + '<span class="cd-cost2" aria-label="耗能 ' + costOf(cs.card) + '"><span class="gx-emo">⚡</span>' + costOf(cs.card) + '</span><span class="sp"></span>' + hb + '<button type="button" class="gx-btn ghost cd-x" data-r="x">取消</button>' : '<span class="cd-fin" data-r="fin"></span><span class="sp"></span>' + hb;
       var prompt = math ? '<div class="mq">' + esc(it.q) + '</div>' : '<div class="pic">' + (it.img ? '<img src="' + esc(it.img) + '" alt="" draggable="false">' : '<span class="gx-emo">' + esc(it.emoji || '🔤') + '</span>') + '</div><div class="zh">' + esc(it.zh) + '</div><button type="button" class="gx-btn ghost sp2" data-r="say" aria-label="播放讀音">' + ico('speaker', 22) + '</button>';
-      sheet.innerHTML = '<div class="cd-sh-head">' + head + '</div>' + (cs.limit ? '<div class="cd-timer" aria-label="剩餘時間"><i data-r="tm"></i></div>' : '') + '<div class="cd-prompt">' + prompt + '</div><div class="cd-slots" data-r="slots">' + slotsHTML(cs) + '</div><div class="cd-hintrow" data-r="hr"></div>';
+      sheet.innerHTML = '<div class="cd-sh-head">' + head + '</div>' + (cs.limit ? '<div class="cd-timer" aria-label="剩餘時間"><i data-r="tm"></i></div>' : '') + '<div class="cd-prompt">' + prompt + '</div><div class="cd-slots" data-r="slots">' + slotsHTML(cs) + '</div><div class="cd-hintrow" data-r="hr"></div>' + ((isTouch() || S.touch) ? '' : '<div class="cd-kb" data-r="kb"><span class="gx-emo">⌨</span><span>' + (math ? '用鍵盤打字，按 Enter 確定' : '用鍵盤打字') + '</span>' + (math ? '<button type="button" class="gx-btn" data-r="go">確定</button>' : '') + '</div>');
+      if (!(isTouch() || S.touch)) sheet.classList.add('kbd');
       S.root.appendChild(sheet); var q = function (r) { return sheet.querySelector('[data-r="' + r + '"]'); }; cs.q = q;
-      if (q('x')) q('x').onclick = function () { cancelCast(); }; if (q('say')) q('say').onclick = function () { S.say(it); S.sfx('tap'); };
+      if (q('go')) q('go').onclick = function () { submitText(); }; if (q('x')) q('x').onclick = function () { cancelCast(); }; if (q('say')) q('say').onclick = function () { S.say(it); S.sfx('tap'); };
       if (cs.fin) q('fin').textContent = '最後一擊 ' + (G.fin.total - G.fin.left + 1) + ' / ' + G.fin.total;
       /* hint */
       var hr = q('hr');
@@ -502,8 +510,17 @@
         if (!math && diff <= 3) { var letters = cs.target.toLowerCase().replace(/[^a-z]/g, '').split(''), ds = distractors(cs.target.toLowerCase().replace(/[^a-z]/g, ''), DF.distract[diff - 1]); pad.setKeys(GX.shuffle(letters.concat(ds), GX.rng(hash('k|' + it.id + '|' + seed0)))); }
         else if (!math) pad.setKeys(null);
       }
-      refreshSlots(); relayout();
+      refreshSlots(); relayout(); fitPrompt();
       if (cs.limit) updateTimer();
+    }
+    /* the whole question must be readable without scrolling: shrink the type (then the keys) until the sheet fits */
+    function fitPrompt() {
+      if (!sheet) return; var mq = sheet.querySelector('.mq'); if (!mq) return; var side = lay.land, fs = side ? 20 : 26, lim, over;
+      mq.style.maxHeight = 'none'; mq.style.overflow = 'visible';
+      over = function () { return side ? sheet.scrollHeight > sheet.clientHeight + 1 : sheet.offsetHeight > S.H - lay.top - lay.infoH - 64; };
+      for (; fs >= 11; fs--) { mq.style.fontSize = fs + 'px'; if (!over()) break; }
+      if (over()) { sheet._shrunk = true; if (!side) sheet.style.setProperty('--dkh', '36px'); for (fs = 11; fs >= 10 && over(); fs--) mq.style.fontSize = fs + 'px'; }
+      lim = null; if (!side) relayout();
     }
     function refreshSlots() {
       var cs = G.cast; if (!cs || !sheet) return;
@@ -513,16 +530,26 @@
     function composeText(cs) { if (cs.math) return cs.buf; var k = 0, out = ''; for (var i = 0; i < cs.target.length; i++) { var ch = cs.target.charAt(i); if (/[A-Za-z]/.test(ch)) out += cs.buf.charAt(k++) || ''; else out += ch; } return out; }
     function typeChar(k, fromPad) {
       var cs = G.cast; if (!cs || cs.done || S.paused) return false; k = String(k);
-      if (cs.math) { if (!/^[0-9.\/\-]$/.test(k) || cs.buf.length >= 12) return false; cs.buf += k; S.sfx('key', { i: cs.buf.length }); refreshSlots(); if (S.learn.judge(cs.item, cs.buf)) { submitText(); } return true; }
+      if (cs.math) { if (!/^[0-9.\/\-]$/.test(k) || cs.buf.length >= 12) return false; cs.buf += k; S.sfx('key', { i: cs.buf.length }); refreshSlots(); return true; }
       if (!/^[a-zA-Z]$/.test(k) || cs.buf.length >= cs.slotsN) return false; cs.buf += k.toLowerCase(); S.sfx('key', { i: cs.buf.length }); if (pad && fromPad) pad.flash(k.toLowerCase(), 'ok'); refreshSlots();
       if (cs.buf.length >= cs.slotsN) submitText(); return true;
     }
     function backspace() { var cs = G.cast; if (!cs || cs.done) return false; if (cs.buf.length <= cs.locked) return false; cs.buf = cs.buf.slice(0, -1); S.sfx('tap'); refreshSlots(); return true; }
     function submitText() {
       var cs = G.cast; if (!cs || cs.done) return false; if (cs.math && !cs.buf) return false; if (!cs.math && cs.buf.length < cs.slotsN) return false;
-      var txt = composeText(cs); answerCast(S.learn.judge(cs.item, txt), txt); return true;
+      var txt = composeText(cs);
+      if (cs.math && typeof cs.item.detail === 'function') {
+        var det = null; try { det = cs.item.detail(txt); } catch (e) { det = null; }
+        if (det && !det.ok && det.why === 'empty') return false;
+        if (det && !det.ok && det.why === 'form') { /* right value, wrong way of writing it: no penalty, say so, let the child rewrite */
+          cs.buf = ''; refreshSlots(); S.sfx('tap'); var hrr = sheet && sheet.querySelector('[data-r="hr"]'); if (hrr) { hrr.style.display = ''; hrr.innerHTML = '<div class="cd-hint form">' + esc(det.msg || '數值對了，請換個寫法') + '</div>'; relayout(); fitPrompt(); }
+          S.fx.text(S.W / 2, S.H * 0.3, '數值對了！', { color: '#3ee6a0', size: 24 }); return true;
+        }
+        if (det) { answerCast(!!det.ok, txt); return true; }
+      }
+      answerCast(S.learn.judge(cs.item, txt), txt); return true;
     }
-    function markNonFirst(it) { var st = S.learn.stats[it.id]; if (st && st.firstOk === null) st.firstOk = false; }
+    function markNonFirst(it) { if (S.learn.assisted) S.learn.assisted(it); }
     function useHint() {
       var cs = G.cast; if (!cs || cs.done || cs.hintShown && cs.math) return false; cs.hinted = true; G.hintUsed[cs.item.id] = 1; markNonFirst(cs.item); S.sfx('power');
       if (cs.math) { var h = cs.item.hint || ('答案有 ' + GX.norm(cs.item.a).length + ' 個字'); var hrr = sheet.querySelector('[data-r="hr"]'); hrr.style.display = ''; hrr.innerHTML = '<div class="cd-hint">' + esc(h) + '</div>'; cs.hintShown = true; var hb2 = sheet.querySelector('[data-r="hint"]'); if (hb2) hb2.disabled = true; }
@@ -546,7 +573,7 @@
       var out = S.learn.answer(it, !!ok, ms), eff = null;
       if (ok) {
         eff = calcEffect(card); G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.okN[it.id] = (G.okN[it.id] || 0) + 1; G.score += (eff.hit ? 150 : 100) + G.combo * 10; G.discard.push(card);
-        S.sfx(eff.hit ? 'great' : 'good'); if (G.combo >= 2) S.sfx('combo', { n: G.combo }); S.ui.ok(it, { ms: 900 });
+        S.sfx(eff.hit ? 'great' : 'good'); if (G.combo >= 2) S.sfx('combo', { n: G.combo }); S.ui.ok(it, { ms: 900, top: Math.round(lay.mcy - 24) });
         if (G.combo >= 3) S.fx.text(S.W / 2, lay.hb - lay.ch * 1.2, '連擊 ×' + G.combo + (G.combo > 1 ? '  +' + Math.round((eff.cm - 1) * 100) + '%' : ''), { color: '#ffc94a', size: 20 });
         var wasEvo = !!G.evo[it.id]; if (!wasEvo && G.okN[it.id] >= 3) { G.evo[it.id] = true; S.later(function () { S.sfx('power'); S.fx.text(S.W / 2, S.H * 0.5, '★ 進化！', { color: '#ffd35a', size: 30, life: 1.2 }); S.fx.burst(S.W / 2, S.H * 0.55, { n: 24, shape: 'star', colors: ['#ffc94a', '#fff'], size: 6 }); }, 500); }
         applyEffect(card, eff); G.lockUntil = G.clock + 0.3; layoutHand(); hud();
@@ -561,7 +588,7 @@
     function finAnswer(it, ok, typed, ms) {
       var out = S.learn.answer(it, !!ok, ms), mc = monCenter();
       if (ok) {
-        G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.okN[it.id] = (G.okN[it.id] || 0) + 1; G.score += 100 + G.combo * 10; S.sfx('great'); S.ui.ok(it, { ms: 900 }); S.sfx('boom'); S.fx.shake(4, .2); S.fx.burst(mc.x, mc.y, { n: 18, colors: ['#ffc94a', '#fff'], shape: 'star', size: 5 }); S.fx.text(mc.x, mc.y - 10, '最後一擊！', { color: '#ffd35a', size: 26 });
+        G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.okN[it.id] = (G.okN[it.id] || 0) + 1; G.score += 100 + G.combo * 10; S.sfx('great'); S.ui.ok(it, { ms: 900, top: Math.round(lay.mcy - 24) }); S.sfx('boom'); S.fx.shake(4, .2); S.fx.burst(mc.x, mc.y, { n: 18, colors: ['#ffc94a', '#fff'], shape: 'star', size: 5 }); S.fx.text(mc.x, mc.y - 10, '最後一擊！', { color: '#ffd35a', size: 26 });
         G.mon.hitT = 1; G.mon.flash = 1; G.fin.left = finList().length; if (!G.fin.left) { victory(); return; } after(0.8, nextFinisher);
       } else {
         G.combo = 0; S.sfx('bad'); S.fx.flash('#ff4060', .18); G.fin.left = finList().length; S.ui.learn(it, { typed: !isMath(it) ? typed : '', onDone: function () { after(0.15, nextFinisher); } });
@@ -623,23 +650,26 @@
     }
     function cfgMusic() { return boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm'); }
     function intro() {
-      S.ui.how('card', '字卡征途', [{ icon: '🃏', text: '選牌答題' }, { icon: '🎯', text: '打中弱點 ×2' }, { icon: '🛡', text: '看怪物意圖' }], function () {
+      S.ui.how('card', '字卡征途', [{ icon: '🃏', text: (isTouch() || S.touch) ? '點牌→答題' : '點牌→打字' }, { icon: '🎯', text: '打中加倍' }, { icon: '⚡', text: '怪物下一步' }], function () {
         if (!S.learn.items.length) { begin(true); return; }
         S.ui.preview(S.learn.items, { onStart: function () { begin(true); } });
       });
     }
     function restart() {
       S.ui.closeAll(); if (pad) { pad.destroy(); pad = null; } if (sheet && sheet.parentNode) sheet.parentNode.removeChild(sheet); sheet = null; S.fx.clear();
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed != null ? (opts.seed + (++restarts)) : ((Date.now() + (G ? G.uid : 0)) & 0xfffff) });
+      S.newLearn(); restarts++;
       S.ended = false; S.paused = false; S.t = 0; (opts.items || []).forEach(function (it) { delete it._f; }); (opts.review || []).forEach(function (it) { delete it._f; });
       ready = false; G = newState(); rng = GX.rng(seed0 ^ 0x9e37); el.hand.innerHTML = ''; handEls = []; begin(false);
     }
 
     /* ---------------- input */
+    function halfWidth(k) { k = String(k).replace(/[！-～]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 65248); }); return k.length === 1 ? k : GX.norm(k).charAt(0) || k; }
+    var imeWarned = false;
+    S.on(window, 'keydown', function (e) { if (!ready || !G || !G.cast || uiBlocked()) return; if ((e.key === 'Process' || e.keyCode === 229 || e.isComposing) && !imeWarned) { imeWarned = true; S.ui.banner('請切換英文輸入', '輸入法開着，按鍵不能用', 2200); S.sfx('keybad'); } });
     function uiBlocked() { return S.ui.open('learn') || S.ui.open('preview') || S.ui.open('how') || S.ui.open('result') || S.ui.open('pause') || S.paused || (G && G.ended); }
     S.keys({
       onChar: function (k) {
-        if (!ready || uiBlocked()) return; if (G.cast) { typeChar(k); return; }
+        if (!ready || uiBlocked()) return; k = halfWidth(k); if (G.cast) { typeChar(k); return; }
         if (/^[1-7]$/.test(k)) selectCard(+k - 1); else if (k === 'e' || k === 'E') endTurn();
       },
       onBack: function () { if (!ready || uiBlocked()) return; if (G.cast) backspace(); },
