@@ -27,7 +27,7 @@ def cmd(p, n, a=None, b=None): return p.evaluate('([n,a,b])=>WQ37FPS._cmd(n,a,b)
 def step(p, n, dt=1 / 60): p.evaluate('([n,dt])=>WQ37FPS._debugStep(n,dt)', [n, dt])
 
 def page(pw, touch, nolearn=True, w=None, h=None):
-    b = pw.chromium.launch(args=['--no-sandbox'])
+    b = pw.chromium.launch(executable_path=next((x for x in ('/opt/pw-browsers/chromium', '/usr/bin/chromium') if os.path.exists(x)), None), args=['--no-sandbox'])  # R3.20: same browser lookup as r33_tests/wq33.py (the default headless shell of the installed Playwright is missing on this machine)
     if touch: ctx = b.new_context(viewport={'width': w or 390, 'height': h or 844}, device_scale_factor=2, has_touch=True, is_mobile=True)
     else: ctx = b.new_context(viewport={'width': w or 1440, 'height': h or 900})
     if nolearn: ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
@@ -125,12 +125,10 @@ with sync_playwright() as pw:
         b, p, errs = page(pw, False); begin(p, tier, 10)
         d = dbg(p); t = d['timer']
         ok(t > 0 and (prev is None or t <= prev), f'F3 tier{tier}: clock {t}s > 0 and not longer than the lower tier'); prev = t
-        # R3.20: frame-exact. Step one frame at a time until the clock starts to run (the wave banner holds it, no estimate of its length), then exactly 120 frames
-        cmd(p, 'calm', 1); full = dbg(p)['timeLeft']; l0 = full
-        for _ in range(300):
-            step(p, 1); l0 = dbg(p)['timeLeft']
-            if l0 < full - 1e-9: break
-        step(p, 120); l1 = dbg(p)['timeLeft']
+        # R3.20: frame-exact, measured inside ONE evaluate (the page's own rAF loop cannot add real-time frames between two evaluate calls): step one frame at a time
+        # until the clock starts to run (the wave banner holds it, no estimate of its length), then exactly 120 frames
+        cmd(p, 'calm', 1)
+        l0, l1, held = p.evaluate('''()=>{const S=WQ37FPS,full=S._debug.timeLeft;let l0=full,n=0;for(;n<300;n++){S._debugStep(1,1/60);l0=S._debug.timeLeft;if(l0<full-1e-9)break;}S._debugStep(120,1/60);return [l0,S._debug.timeLeft,n]}''')
         ok(round((l0 - l1) * 60) == 120, f'F3 tier{tier}: clock runs down by exactly 120 frames ({l0:.4f}->{l1:.4f} = {round((l0 - l1) * 60)} frames)')
         b.close()
     b, p, errs = page(pw, False, nolearn=False); begin(p, 3, 10)

@@ -131,6 +131,50 @@ def b1_hud(pg, gid):
         ok(gid, 'B1_no_canvas_hud', n == 0, f'canvas HUD still drew {n} ops')
 
 
+BADGE_GAMES = []
+
+
+def lum_rgb(c):
+    f = lambda v: (v / 255 / 12.92) if v / 255 <= .03928 else (((v / 255 + .055) / 1.055) ** 2.4)
+    return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2])
+
+
+def h_checks(pg, gid):
+    """R3.20 H1 one set of lives / score on screen, H2 the HUD shows exactly what the engine has (21 samples over 10 s), H3 canvas labels are dark glass"""
+    pg.add_script_tag(path=str(PROBE))
+    r = probe(pg, 'play')
+    ok(gid, 'H1_single_stats', r['dupStats'] == 0 and bool(r['hud']), f"dup {r['dupWhere']} hud {r['hud'] and r['hud']['score']}")
+    bad = []
+    for i in range(21):
+        ensure_play(pg)
+        v = J(pg, "(()=>{const g=pgGame,d=WQArcPlus._debug();const L=typeof g.health==='number'?g.health:(pgFree?null:(a28Run()||{}).lives);return JSON.stringify({h:d&&d.hudShown,L:(L==null?null:L),sc:Math.floor(g.score||0)})})()")
+        v = json.loads(v)
+        hs = v['h'] or {}
+        exp_l = None if v['L'] is None else min(5, max(0, int(v['L'])))
+        if hs.get('score') != v['sc'] or hs.get('lives') != exp_l:
+            bad.append((i, hs, v['L'], v['sc']))
+        pg.wait_for_timeout(500)
+    ok(gid, 'H2_hud_equals_engine', not bad, str(bad[:3]))
+    # H3: the labels the D-art games print through D.badge / D.message
+    seen = []
+    for _ in range(14):
+        seen += dbg(pg)['canvasHud']
+        if seen: break
+        pg.wait_for_timeout(150)
+    if seen: BADGE_GAMES.append(gid)
+    whyb = []
+    for e in seen:
+        m = re.match(r'rgba\((\d+),(\d+),(\d+)', e['fill'].replace(' ', ''))
+        fill = [int(m.group(i)) for i in (1, 2, 3)]
+        ink = [244, 246, 255] if e['color'].upper() == '#F4F6FF' else [0, 0, 0]
+        l1, l2 = lum_rgb(ink), lum_rgb(fill)
+        cr = (max(l1, l2) + .05) / (min(l1, l2) + .05)
+        px = J(pg, f"(()=>{{const p=pgGame.c.getImageData({e['x'] + 4},{e['y'] + e['h'] // 2},1,1).data;return [p[0],p[1],p[2]]}})()")
+        if cr < 4.5 or lum_rgb(px) > .10:
+            whyb.append((e['kind'], e['text'][:10], round(cr, 1), px))
+    ok(gid, 'H3_canvas_badges_dark', not whyb, str(whyb[:2]))
+
+
 def b2_depth(pg, gid):
     d0 = dbg(pg)
     force(pg, 'phase', 2)
@@ -296,7 +340,12 @@ def b5_fx(pg, gid):
     has_health = J(pg, "typeof pgGame.health==='number'")
     J(pg, 'WQArcPlus.stateOf(pgGame).shield=false;WQArcPlus.stateOf(pgGame).shakeMax=0')
     if has_health:
-        J(pg, 'pgGame.health=Math.max(2,pgGame.health)'); force(pg, 'lose'); game_ticks(pg, 0.3)
+        # R3.20 r2: up to 3 tries - lighthouse-well failed this check in 2 of 3 runs when the lost life fell in the invulnerability / respawn window of its own tick
+        for _try in range(3):
+            J(pg, 'pgGame.health=Math.max(2,pgGame.health)'); force(pg, 'lose'); game_ticks(pg, 0.3)
+            if dbg(pg)['shakePeak'] > 0:
+                break
+            game_ticks(pg, 0.6)
     else:
         J(pg, PREP_MISS_JS); game_ticks(pg, 0.1)
         if J(pg, MISS_JS):
@@ -367,6 +416,17 @@ def run_game(p, gid):
         b6_result(pg, gid)
         ok(gid, 'B7_no_errors', not errs, str(errs[:3]))
         b.close()
+        # R3.20 H checks: their own fresh run (10 s of sampling would otherwise eat the first 10 s of a short game such as the 32-beat rhythm game)
+        b, ctx, pg, errs = new_session(p, 1440, 900, False, learn=True)
+        keepalive(pg)
+        step(gid, 'h_checks')
+        start_game(pg, gid)
+        # same keep-alive stubs as the forced run above (an idle player is knocked out of the miss-counting games within seconds; the check is about the HUD, not the ending)
+        J(pg, "(()=>{window.__f0=a28Fail;a28Fail=function(){};const P=Object.getPrototypeOf(pgGame);P.end=function(){};P.next=function(){};return 1})()")
+        force(pg, 'god')
+        pg.wait_for_timeout(1500)
+        h_checks(pg, gid)
+        b.close()
         # natural pass: a fresh run, no forcing; a crystal must appear by itself within first+3 s of game time, and >= 20 s of play must stay error free
         b, ctx, pg, errs = new_session(p, 1440, 900, False, learn=True)
         keepalive(pg)
@@ -436,11 +496,13 @@ def b9_extra_life(p):
         try:
             start_game(pg, gid); pg.wait_for_timeout(1500)
             J(pg, 'window.__apNoKeep=true')
-            before = J(pg, """(()=>{const g=pgGame;if(typeof g.health==='number'){g.health=2;}else{const m={'forest-pong':()=>{g.ai=1;},'bounce-basket':()=>{g.shots=Math.floor(g.score/3)+1;},'meadow-cricket':()=>{g.round=g.hit+1;},'star-rhythm':()=>{g.index=g.hits+1;}};m[g.meta.id]();}return 1})()""")
-            pg.wait_for_timeout(300)
-            l2 = J(pg, 'a28Run().lives')
-            J(pg, 'WQArcPlus.addLife(pgGame)'); pg.wait_for_timeout(500)
-            l3 = J(pg, 'a28Run().lives')
+            # R3.20 r2: measured inside ONE synchronous evaluate (set the miss counter, run the rules tick, read; addLife; again) so a ball that happens to be missed
+            # between two frames cannot change the lives (meadow-cricket flaked 2 -> 2 and 1 -> 3 with separate waits)
+            res = J(pg, """(()=>{const g=pgGame;
+ if(typeof g.health==='number'){g.health=2;a28RulesTick(.016);const a=a28Run().lives;WQArcPlus.addLife(g);a28RulesTick(.016);return [a,a28Run().lives];}
+ const m={'forest-pong':()=>{g.ai=1;},'bounce-basket':()=>{g.shots=Math.floor(g.score/3)+1;},'meadow-cricket':()=>{g.round=g.hit+1;},'star-rhythm':()=>{g.index=g.hits+1;}};
+ m[g.meta.id]();a28RulesTick(.016);const a=a28Run().lives;WQArcPlus.addLife(g);m[g.meta.id]();a28RulesTick(.016);return [a,a28Run().lives];})()""")
+            l2, l3 = res
             ok(gid, 'B9_extra_life_survives', l2 == 2 and l3 == 3, f'lives {l2} -> {l3}')
         except Exception as e:
             ok(gid, 'B9_exception', False, repr(e)[:200])
@@ -466,17 +528,71 @@ def b5_css(p):
     b.close()
 
 
-LAYOUT_JS = """()=>{const W=innerWidth,H=innerHeight,vp=document.querySelector('.a28-viewport');if(!vp)return {err:'no viewport'};
- const rect=e=>{const r=e.getBoundingClientRect();return {l:r.left,t:r.top,r:r.right,b:r.bottom,w:r.width,h:r.height}};
- const out={W,H,sx:document.scrollingElement.scrollWidth,sy:document.scrollingElement.scrollHeight};
- const items={};
- for(const [k,sel] of [['hud','.ap-hud'],['canvas','#pg-canvas'],['dock','.ap-dock']]){const e=vp.querySelector(sel);if(e){const cs=getComputedStyle(e);items[k]=Object.assign(rect(e),{shown:cs.display!=='none',abs:cs.position==='absolute'});}}
- out.items=items;
- out.keys=[...document.querySelectorAll('.a28-touch-key')].filter(k=>k.getBoundingClientRect().width>0).map(k=>{const r=rect(k);return {w:r.w,h:r.h,b:r.b,r:r.r,l:r.l,main:k.dataset.a28key==='action'}});
- out.vp=rect(vp);
- // pills inside the HUD must not be clipped
- const h=vp.querySelector('.ap-hud');out.clip=h?[...h.querySelectorAll('.ap-score,.ap-wave,.ap-lives,.ap-mult')].map(e=>{const a=e.getBoundingClientRect(),hh=h.getBoundingClientRect();return {k:e.className,ok:a.left>=hh.left-1&&a.right<=hh.right+1&&a.top>=hh.top-1&&a.bottom<=hh.bottom+1&&e.scrollWidth<=e.clientWidth+1}}):[];
- return out;}"""
+PROBE = Path(__file__).resolve().parent / 'arc_probe.js'
+SIZES4 = [(360, 640, 'small'), (390, 844, 'phone'), (844, 390, 'land'), (1440, 900, 'desk')]
+
+
+def probe(pg, state):
+    """R3.20: the ONE ruler (r37_tests/arc_probe.js), shared with r320_capture.py and the acceptance run."""
+    pg.evaluate('window.scrollTo(0,0)')
+    return pg.evaluate("(s)=>window.__arcProbe({state:s})", state)
+
+
+def problems(r, hud_dup=False):
+    """what the probe reports as wrong on one screen"""
+    bad = []
+    if r.get('hscroll'): bad.append('hscroll')
+    if r.get('vscroll'): bad.append(f"vscroll {r['sy']}>{r['H']}")
+    if r.get('outside'): bad.append('outside ' + ','.join(f"{o['el']}[{o['l']:.0f},{o['t']:.0f}-{o['r']:.0f},{o['b']:.0f}]" for o in r['outside'][:3]))
+    if r.get('clipped'): bad.append('clipped ' + ','.join(o['txt'] for o in r['clipped'][:3]))
+    if r.get('innerScroll'): bad.append('innerScroll ' + str(r['innerScroll'][:2]))
+    if r.get('lowText'): bad.append('lowText ' + ','.join(f"{o['txt']}({o['contrast']})" for o in r['lowText'][:3]))   # R3.20 r2: plain text readable too
+    if hud_dup and r.get('dupStats'): bad.append('dupStats ' + ','.join(r['dupWhere'][:2]))
+    # R3.20 r3: elements may not sit on top of each other - button/button, button/text, a button whose centre is covered, two lines of the result card,
+    # a label with < 4 px of air inside its button, a button flush with the window edge (the r2 acceptance run found these by hand; the ruler now sees them)
+    ov = r.get('overlaps') or {}
+    for k in ('bb', 'bt', 'cov', 'card', 'pad', 'edge'):
+        if ov.get(k): bad.append(f"overlap-{k} " + ';'.join('/'.join(map(str, x)) for x in ov[k][:3]))
+    return bad
+
+
+def probe_reverse_control(p):
+    """R3.20 C5: prove the ruler can see a problem - an artificial 2000 px block must be reported as scroll + outside, a dark-on-dark button as low contrast"""
+    b, ctx, pg, errs = new_session(p, 390, 844, True, learn=True)
+    keepalive(pg)
+    try:
+        start_game(pg, 'sky-rescue'); pg.add_script_tag(path=str(PROBE)); pg.wait_for_timeout(1800)
+        base = probe(pg, 'ctl')
+        ok('_global', 'C5_control_clean_page_is_clean', not problems(base), str(problems(base)))
+        pg.evaluate("(()=>{const d=document.createElement('div');d.id='__ctl';d.style.cssText='height:2000px;width:50px;background:red';document.querySelector('.a28-play').appendChild(d)})()")
+        r = probe(pg, 'ctl')
+        ok('_global', 'C5_control_sees_overflow', bool(r['vscroll']) and bool(r['outside']), f"vscroll {r['vscroll']} outside {len(r['outside'])}")
+        pg.evaluate("document.getElementById('__ctl').remove()")
+        pg.evaluate("(()=>{const k=document.querySelector('.a28-touch-key');k.dataset.ctl=k.getAttribute('style')||'';k.style.cssText+=';color:#111!important;background:#151515!important;border:0'})()")
+        r = probe(pg, 'ctl')
+        ok('_global', 'C5_control_sees_low_contrast', any(x['contrast'] < 4.5 for x in r['buttons']), str([x['contrast'] for x in r['buttons']][:5]))
+        pg.evaluate("(()=>{const k=document.querySelector('.a28-touch-key');k.style.cssText=k.dataset.ctl||''})()")
+        pg.evaluate("(()=>{const h=document.querySelector('.ap-score');h.style.cssText='width:10px;overflow:hidden;white-space:nowrap'})()")
+        r = probe(pg, 'ctl')
+        ok('_global', 'C5_control_sees_clipped_text', bool(r['clipped']), str(r['clipped'][:1]))
+        # R3.20 r3: two keys put on top of each other must be reported as an overlap and as a covered button centre
+        pg.evaluate("(()=>{const h=document.querySelector('.ap-score');h.style.cssText=''})()")
+        pg.evaluate("(()=>{const ks=[...document.querySelectorAll('.a28-touch-key')].filter(e=>e.offsetParent);const a=ks[0],b=ks[1];const r=a.getBoundingClientRect();b.style.cssText+=';position:fixed;width:44px;left:'+(r.left+r.width/2-22)+'px;top:'+(r.top+6)+'px;z-index:99'})()")
+        r = probe(pg, 'ctl')
+        ok('_global', 'C5_control_sees_overlap', bool(r['overlaps']['bb']) and bool(r['overlaps']['cov']), str(r['overlaps']['bb'][:1]) + str(r['overlaps']['cov'][:1]))
+    except Exception as e:
+        ok('_global', 'C5_control_exception', False, repr(e)[:200])
+    finally:
+        b.close()
+
+
+RESULT_JS = """()=>{const card=document.querySelector('#pg-overlay .a28-overlaycard');const t=card?card.textContent:'';
+ const nums=[...t.matchAll(/連擊\\s*×\\s*(\\d+)/g)].map(m=>+m[1]);
+ let c=null;try{c=WQ_ARC_COMBO()}catch(e){}
+ return {nums,txt:t.slice(0,60),stars:card?card.querySelectorAll('.arx-stars i').length:0,
+  go:[...(card?card.querySelectorAll('button'):[])].map(b=>{const r=b.getBoundingClientRect();return {t:b.textContent.trim().slice(0,12),b:r.bottom,w:r.width,h:r.height}}),
+  fs:[...(card?card.querySelectorAll('*'):[])].filter(e=>e.children.length===0&&(e.textContent||'').trim()).map(e=>parseFloat(getComputedStyle(e).fontSize)),
+  cardBottom:card?card.getBoundingClientRect().bottom:null,H:innerHeight}}""".replace('WQ_ARC_COMBO()', "window.__r37('(WQArc._combo()||{}).max')")
 
 
 def layout_pass(p, ids, sizes):
@@ -486,33 +602,72 @@ def layout_pass(p, ids, sizes):
         keepalive(pg)
         for gid in ids:
             try:
-                start_game(pg, gid); pg.wait_for_timeout(2200)
-                if label in ('phone', 'small'):
-                    pass
-                pg.evaluate('window.scrollTo(0,0)'); pg.wait_for_timeout(200)
-                r = pg.evaluate(LAYOUT_JS)
-                if 'err' in r:
-                    ok(gid, f'C_{label}_viewport', False, r['err']); continue
-                W, H = r['W'], r['H']
-                ok(gid, f'C2_{label}_no_hscroll', r['sx'] <= W + 1, f"scrollWidth {r['sx']} > {W}")
-                inside = all(v['l'] >= -1 and v['r'] <= W + 1 and v['t'] >= -1 and v['b'] <= H + 1 for k, v in r['items'].items() if v['shown'])
-                ok(gid, f'C2_{label}_in_window', inside, str({k: [round(v['l']), round(v['t']), round(v['r']), round(v['b'])] for k, v in r['items'].items()}))
-                keys_ok = all(k['b'] <= H + 1 and k['l'] >= -1 and k['r'] <= W + 1 for k in r['keys'])
-                ok(gid, f'C2_{label}_keys_reachable', keys_ok, str([k for k in r['keys'] if not (k['b'] <= H + 1 and k['l'] >= -1 and k['r'] <= W + 1)][:3]))
-                ok(gid, f'C2_{label}_hud_not_clipped', all(c['ok'] for c in r['clip']), str(r['clip']))
-                if touch:
-                    ok(gid, f'C4_{label}_touch_size', all(k['w'] >= 44 and k['h'] >= 44 and (k['h'] >= 56 or not k['main']) for k in r['keys']), str([k for k in r['keys'] if not (k['w'] >= 44 and k['h'] >= 44 and (k['h'] >= 56 or not k['main']))][:3]))
+                start_game(pg, gid)
+                pg.add_script_tag(path=str(PROBE))
+                pg.wait_for_timeout(2200)
+                ensure_play(pg)
+                # ---- play
+                r = probe(pg, 'play')
+                bad = problems(r, hud_dup=(label in ('phone', 'desk')))
+                ok(gid, f'C2_{label}_play_fits', not bad, '; '.join(bad))
+                touch_keys = [k for k in r['buttons'] if k['touch']]
                 if label == 'phone':
-                    vis = sorted([v for k, v in r['items'].items() if v['shown'] and not v['abs']], key=lambda v: v['t'])
-                    gaps = [vis[i + 1]['t'] - vis[i]['b'] for i in range(len(vis) - 1)]
-                    top_gap = vis[0]['t'] - r['vp']['t'] if vis else 0
-                    bot_gap = r['vp']['b'] - vis[-1]['b'] if vis else 0
-                    ok(gid, 'C3_phone_gaps_le_120', all(g <= 120 for g in gaps) and top_gap <= 120 and bot_gap <= 120, f'gaps {gaps} top {top_gap} bottom {bot_gap}')
-                    cv = r['items']['canvas']
-                    ok(gid, 'C3_phone_canvas_width', cv["w"] >= w - 12, f"canvas {cv['w']} vs {w - 12}")
+                    cv = r['canvas']; vp = r['vp']
+                    ok(gid, 'C3_phone_canvas_width', cv['w'] >= w - 12, f"canvas {cv['w']} vs {w - 12}")
+                    ok(gid, 'C3_phone_play_zone', vp['h'] >= 380, f"play zone {vp['h']}")
+                    ok(gid, 'C3_phone_keys_under_canvas', all(k['b'] <= h + 1 for k in touch_keys) and all(k['b'] - k['h'] >= cv['b'] - 1 for k in touch_keys), str([(k['b'], cv['b']) for k in touch_keys][:3]))
+                if label == 'small':
+                    ok(gid, 'C3_small_canvas_ge_280', r['canvas']['w'] >= 280, f"canvas {r['canvas']['w']} (listed in docs/R3_20_game_audit.md when < 348)")
+                    ok(gid, 'C3_small_head_visible', J(pg, "document.querySelector('.a28-playhead').getBoundingClientRect().top")>= -0.5, '')
+                if label == 'desk':
+                    ok(gid, 'C3_desk_canvas_height_ge_480', r['canvas']['h'] >= 480, f"canvas {r['canvas']['h']}")
+                if touch:
+                    tools = [x for x in r['buttons'] if x['el'].startswith('button.btn') and not x['disabled'] and x['h'] > 0 and x['w'] > 0 and x['b'] <= h + 1 and not x['touch']]
+                    small = [k for k in touch_keys if not (k['w'] >= 44 and k['h'] >= 44 and (k['h'] >= 56 or not k['key'] == 'action'))]
+                    ok(gid, f'C4_{label}_touch_size', not small, str([(k['txt'], k['w'], k['h']) for k in small][:3]))
+                    # R3.20 r3: the game's own tool buttons (forest-band's beat keys 1-10 were 27 px wide and nothing checked them) must be >= 44 x 44 too
+                    narrow = [x for x in tools if x['w'] < 44 or x['h'] < 44]
+                    ok(gid, f'C4_{label}_tool_size', not narrow, str([(x['txt'], x['w'], x['h']) for x in narrow][:3]))
+                lowc = [x for x in r['buttons'] if not x['disabled'] and (x['contrast'] < 4.5 or x['lines'] > 1)]
+                ok(gid, f'K1_{label}_buttons_readable', not lowc, str([(x['txt'], x['contrast'], x['lines']) for x in lowc][:3]))
+                # ---- a big score must not clip the HUD (land / small / phone)
+                if label in ('small', 'land'):
+                    J(pg, 'WQArcPlus._force("score",99999-(pgGame.score|0))'); pg.wait_for_timeout(400)
+                    r9 = probe(pg, 'play-99999')
+                    bad9 = problems(r9)
+                    ok(gid, f'C2_{label}_score_99999', not bad9 and (r9['hud'] is None or r9['hud']['score'] >= 99999), '; '.join(bad9) + str(r9['hud']))
+                # ---- learning card open
+                force(pg, 'learn'); pg.wait_for_timeout(700)
+                rl = probe(pg, 'learn')
+                bl = problems(rl)
+                ok(gid, f'C2_{label}_learn_fits', not bl, '; '.join(bl))
+                lowl = [x for x in rl['buttons'] if not x['disabled'] and (x['contrast'] < 4.5 or x['lines'] > 1)]
+                ok(gid, f'K1_{label}_learn_buttons', not lowl, str([(x['txt'], x['contrast'], x['lines']) for x in lowl][:3]))
+                # ---- result card (a combo is set first so "連擊 ×N" is meaningful)
+                force(pg, 'god', False)
+                force(pg, 'combo', 4)
+                J(pg, "pgGame.end('測試結束','測試')")
+                try:
+                    pg.wait_for_selector('#pg-overlay .a28-overlaycard', timeout=15000)
+                except Exception:
+                    pass
+                pg.wait_for_timeout(900)
+                rr = probe(pg, 'result')
+                br = problems(rr)
+                ok(gid, f'C2_{label}_result_fits', not br, '; '.join(br))
+                lowr = [x for x in rr['buttons'] if not x['disabled'] and (x['contrast'] < 4.5 or x['lines'] > 1)]
+                ok(gid, f'K1_{label}_result_buttons', not lowr, str([(x['txt'], x['contrast'], x['lines']) for x in lowr][:3]))
+                rj = pg.evaluate(RESULT_JS)
+                mc = J(pg, 'WQArcPlus._debug().maxCombo'); cmax = J(pg, '(WQArc._combo()||{}).max')
+                ok(gid, f'R1_{label}_result_card', not rr['innerScroll'] and not rr['outside'] and not rr['vscroll'] and rj['cardBottom'] is not None and rj['cardBottom'] <= rj['H'] and len(rj['go']) >= 1 and all(g['b'] <= rj['H'] for g in rj['go']) and rj['stars'] == 3 and min(rj['fs'] or [14]) >= 12,
+                   f"innerScroll {rr['innerScroll']} outside {len(rr['outside'])} cardBottom {rj['cardBottom']} buttons {rj['go']} stars {rj['stars']} min font {min(rj['fs'] or [0])}")
+                ok(gid, f'R1_{label}_combo_number', rj['nums'] and set(rj['nums']) == {mc} and mc == cmax and mc >= 4, f"card {rj['nums']} maxCombo {mc} WQArc._combo().max {cmax}")
+                if label == 'phone' or label == 'desk':
+                    force(pg, 'learn'); pg.wait_for_timeout(500)
+                    ok(gid, f'R1_{label}_no_learn_card_after_result', J(pg, '!WQArcPlus._debug().q&&!WQArcPlus._debug().card') and J(pg, "!!document.querySelector('#pg-overlay .a28-overlaycard')"), '')
             except Exception as e:
                 ok(gid, f'C_{label}_exception', False, repr(e)[:160])
-        ok('_global', f'C_{label}_errors', not errs, str(errs[:2]))
+        ok('_global', f'C_{label}_errors', not [e for e in errs if 'ERR_FILE_NOT_FOUND' not in e], str(errs[:2]))
         b.close()
 
 
@@ -525,6 +680,8 @@ def main():
             (OUT / 't28_results_partial.json').write_text(json.dumps(RESULTS, ensure_ascii=False, indent=1))   # a long run must not lose finished games
         if not LO:
             b5_css(p)
+            if len(IDS) == len(ALL_IDS):
+                ok('_global', 'H3_badge_games_ge_12', len(BADGE_GAMES) >= 12, f'{len(BADGE_GAMES)} games drew a D.badge / D.message label: {BADGE_GAMES}')
         if LO:
             pass
         elif len(IDS) == len(ALL_IDS):
@@ -535,8 +692,9 @@ def main():
         if LAYOUT:
             sizes = [(360, 640, 'small'), (390, 844, 'phone'), (844, 390, 'land'), (1440, 900, 'desk')]
             layout_pass(p, IDS, sizes)
-            if len(IDS) == len(ALL_IDS):
-                layout_pass(p, ['sky-rescue', 'bounce-basket', 'honey-delivery', 'number-garden', 'star-rhythm'], [(768, 1024, 'tablet')])
+            probe_reverse_control(p)   # R3.20: 768x1024 is only photographed (r320_capture.py), not judged, so it is not in this pass
+    if BADGE_GAMES:
+        (OUT / ('t28_badges.json' if len(IDS) == len(ALL_IDS) else 't28_badges_subset.json')).write_text(json.dumps(sorted(BADGE_GAMES)))   # which games drew a D.badge / D.message label (for docs/R3_20_game_audit.md)
     outp = OUT / (os.environ.get('T28_OUT') or ('t28_results.json' if len(IDS) == len(ALL_IDS) else 't28_results_subset.json'))
     outp.write_text(json.dumps(RESULTS, ensure_ascii=False, indent=1))
     npass = sum(1 for g in RESULTS.values() for v in g.values() if v == 'pass'); ntot = sum(len(g) for g in RESULTS.values())

@@ -1,0 +1,17 @@
+    [04:25:16] forest-pong: b1_hud
+    [04:25:16] forest-pong: b2_depth
+    [04:25:17] forest-pong: b3_learn
+    [04:25:23] forest-pong: b4_sfx
+    [04:25:25] forest-pong: b5_fx
+    [04:25:28] forest-pong: b6_result
+    [04:25:35] forest-pong: h_checks
+  forest-pong: 47/47 (161s)
+    [04:27:57] lighthouse-well: b1_hud
+    [04:27:57] lighthouse-well: b2_depth
+    [04:27:58] lighthouse-well: b3_learn
+    [04:28:04] lighthouse-well: b4_sfx
+    [04:28:07] lighthouse-well: b5_fx
+    [04:28:09] lighthouse-well: b6_result
+    [04:28:16] lighthouse-well: h_checks
+  lighthouse-well: 48/48 (211s)
+t28: 198/198 checks passed in 487s; 0 failures

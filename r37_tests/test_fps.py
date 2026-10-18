@@ -33,7 +33,7 @@ function W(){var c=new AC();window.__ac.created++;window.__ac.live++;var oc=c.cl
 W.prototype=AC.prototype;window.AudioContext=W;window.webkitAudioContext=W;})();'''
 
 def new_page(pw, touch, reduced=False):
-    b = pw.chromium.launch(args=['--no-sandbox'])
+    b = pw.chromium.launch(executable_path=next((x for x in ('/opt/pw-browsers/chromium', '/usr/bin/chromium') if os.path.exists(x)), None), args=['--no-sandbox'])  # R3.20: same browser lookup as r33_tests/wq33.py (the default headless shell of the installed Playwright is missing on this machine)
     kw = dict(reduced_motion='reduce') if reduced else {}
     if touch:
         ctx = b.new_context(viewport={'width': 390, 'height': 844}, device_scale_factor=2, has_touch=True, is_mobile=True, **kw)

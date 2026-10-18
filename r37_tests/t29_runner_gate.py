@@ -62,7 +62,7 @@ def ok(c, m):
 
 
 with sync_playwright() as pw:
-    b = pw.chromium.launch(args=['--no-sandbox'])
+    b = pw.chromium.launch(executable_path=next((x for x in ('/opt/pw-browsers/chromium', '/usr/bin/chromium') if os.path.exists(x)), None), args=['--no-sandbox'])  # R3.20: same browser lookup as r33_tests/wq33.py (the default headless shell of the installed Playwright is missing on this machine)
     ctx = b.new_context(viewport={'width': 1200, 'height': 700})
     ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
     pg = ctx.new_page(); errs = []

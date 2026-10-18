@@ -121,7 +121,7 @@ html body.r37arc .a28-play.ap-on.ap-fit:not(.r2-immersive){display:flex!importan
 @supports (height:100dvh){html body.r37arc .a28-play.ap-on.ap-fit:not(.r2-immersive){min-height:0!important}}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive)>*{flex:none;min-width:0}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-playhead{margin-top:0;margin-bottom:0}
-html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-viewport:has(#pg-overlay){flex:1 1 0!important;min-height:0!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;width:100%;box-sizing:border-box;justify-content:center!important;padding:4px 0 6px!important;overflow:hidden}
+html body.r37arc .a28-play.ap-on.ap-fit:not(.r2-immersive) .a28-viewport:has(#pg-overlay){flex:1 1 0!important;min-height:0!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;width:100%;box-sizing:border-box;justify-content:flex-start!important;align-items:center!important;padding:4px 0 6px!important;overflow:hidden}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-touch-controls{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;margin:0 10px!important;height:auto!important;min-height:0}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive):has(#pg-overlay:not([hidden])) .a28-touch-controls{display:none}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-tools:empty{display:none}
@@ -143,8 +143,8 @@ html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-viewport.p30-below .a2
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard>*{margin-top:0!important;margin-bottom:0!important;min-height:0}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard h2{font-size:22px;line-height:1.2}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard .row{display:flex;flex-direction:row;flex-wrap:nowrap;gap:8px}
-html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard .row .btn{flex:1 1 0;min-width:0;min-height:48px;padding:0 8px;white-space:nowrap}
-html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard .row .btn.primary{flex:2 1 0}
+html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard .row .btn{flex:1 1 0;min-width:0;min-height:48px;padding:0 5px;white-space:nowrap}   /* R3.20 r2: the supply button (.arx-pw) gets the widest share, see the end of this file */
+html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard .row .btn.primary{flex:1.25 1 0}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-overlaycard>small{display:block;text-align:center;font-size:13px;line-height:1.3}
 
 /* header: slimmer than the shell default so the viewport keeps its height (buttons stay 44 px) */
@@ -152,17 +152,17 @@ html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-playhead{min-height:0!
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-playhead .arx-hb{width:44px;height:44px;min-width:44px;min-height:44px}
 /* wide windows: keys and the game's own tool buttons share one row, hint and footer buttons sit under them */
 @media (min-width:1000px){
- html body.r37arc .a28-play.ap-on.ap-fit:not(.ap-phone):not(.r2-immersive){display:grid!important;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr) auto auto auto;column-gap:12px;row-gap:8px;align-content:stretch}
+ html body.r37arc .a28-play.ap-on.ap-fit:not(.ap-phone):not(.r2-immersive){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto auto auto;column-gap:12px;row-gap:8px;align-content:stretch}
  html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>*{grid-column:1/-1}
  html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>.a28-touch-controls{grid-column:1/-1}
  html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive):has(.a28-tools:not(:empty))>.a28-touch-controls{grid-column:1/2;justify-self:end}
- html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>.a28-tools:not(:empty){grid-column:2/3;align-self:center;margin:0}
+ html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>.a28-tools:not(:empty){grid-column:2/3;align-self:center;justify-self:start;margin:0}
  html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>:is(.wq32-gamebar,.wq34-rotate,.arx-sheet-bk:not(:target)){display:none}
 }
 /* short phones (360x640): tighter rows, same 44 px+ keys; the dock keeps the height of an open two-row question so nothing jumps */
 html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive){gap:6px}
 html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .a28-touch-key{min-height:56px;height:56px}
-html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .a28-touch-controls{height:56px!important}
+html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .a28-touch-controls{height:auto!important;min-height:56px}   /* R3.20 r2: a wrapped key row (7 keys) keeps every row visible */
 html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .ap-dock{padding:6px 10px}
 html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .ap-hud{min-height:38px;padding:2px 12px 8px}
 html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .a28-tools .btn{min-height:44px}
@@ -171,7 +171,103 @@ html body.r37arc .a28-play.ap-fit:not(.r2-immersive) #pg-readable{position:absol
 /* the game's own tool buttons (juice-lines, sweet-studio ...): one tidy wrapping group that never leaves the window */
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-tools{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0}
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-tools:empty{display:none}
-html body.r37arc .a28-play.ap-fit.ap-phone:not(.r2-immersive) .a28-tools .btn{flex:1 1 auto;min-width:0;padding:0 8px;font-size:14px;white-space:nowrap}
+html body.r37arc .a28-play.ap-fit.ap-phone:not(.r2-immersive) .a28-tools .btn{flex:1 1 auto;min-width:44px;padding:0 8px;font-size:14px;white-space:nowrap}   /* R3.20 r3: 44 px minimum - a long row (forest-band's 16 beat keys) wraps instead of squeezing the keys narrow */
+html body.r37arc .a28-play.ap-fit.ap-phone:not(.r2-immersive) .a28-tools{box-sizing:border-box;padding:0 4px}   /* R3.20 r3: never flush with the window edge */
 html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .a28-tools .btn{min-height:44px;white-space:nowrap}
 html body.r37arc .a28-play.ap-on.ap-phone:not(.r2-immersive) .a28-touch-controls{gap:6px!important}
 html body.r37arc .a28-play.ap-on.ap-phone:not(.r2-immersive) .a28-touch-key[data-a28key=action]{padding:0 12px!important}
+
+/* ================= landscape phones (844x390): the immersive grid with three columns =================
+ * left: direction keys + the game's own tool buttons (one tidy column, or several columns when there are many; layout() measures it),
+ * centre: HUD + canvas, right: title / action keys / footer buttons. Nothing may leave the window. */
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive{grid-template-columns:var(--ap-left,var(--wq34-side)) minmax(0,1fr) var(--wq34-side);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:'dir screen stat' 'tools screen act' 'tools screen foot'}
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive:not(:has(.wq34-kg-dir:not(:empty)))>.a28-tools{grid-row:1/-1;grid-column:1}
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive .a28-tools{display:grid;grid-auto-flow:column;grid-template-rows:repeat(var(--ap-rows,12),44px);grid-auto-columns:max-content;gap:5px;align-content:start;justify-content:start;width:max-content;max-width:none;overflow:visible}
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive .a28-tools .btn{min-height:44px;height:44px;white-space:nowrap;font-size:13px;line-height:1.2;padding:0 10px}
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive .wq34-kg-dir{align-self:start}
+/* the result / ready card is compacted the same way as on the portrait pages */
+html body.r37arc .a28-play.ap-on.ap-land .a28-viewport .pg-overlay:not([hidden]){display:grid!important;place-items:center;overflow:hidden!important;padding:4px!important}
+html body.r37arc .a28-play.ap-on.ap-land .a28-viewport .a28-overlaycard{width:min(100%,520px)!important;max-width:100%!important;max-height:100%!important;overflow:hidden!important;box-sizing:border-box;padding:8px 12px!important;display:flex;flex-direction:column;gap:3px}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard>*{margin-top:0!important;margin-bottom:0!important;min-height:0}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard h2{font-size:20px;line-height:1.2}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard .row{display:flex;flex-direction:row;flex-wrap:nowrap;gap:8px}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard .row .btn{flex:1 1 0;min-width:0;min-height:44px;padding:0 5px;white-space:nowrap}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard .row .btn.primary{flex:1.25 1 0}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard>small{display:block;text-align:center;font-size:12px;line-height:1.2}
+html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row{align-self:stretch;width:100%;box-sizing:border-box}
+html body.r37arc .a28-play.ap-on.ap-land .a28-overlaycard .row .btn{font-size:17px}
+html body.r37arc .a28-play.ap-fit.ap-short:not(.r2-immersive) .wq34-rotate{display:none!important}   /* the one-off "rotate" hint would take 50 px of a 640 px screen */
+/* HUD stays at the top of the play zone, the dock at the bottom, the canvas sits in the middle of what is left */
+html body.r37arc .a28-play.ap-on.ap-fit:not(.r2-immersive) .a28-viewport>#pg-canvas{margin-top:auto;margin-bottom:auto}
+html body.r37arc .a28-play.ap-on.ap-fit:not(.r2-immersive) .a28-viewport>.ap-dock{margin-top:0}
+
+/* ================= R3.20 round 2: tool-heavy games (forest-band, color-workshop, sweet-studio, little-engineer ...) =================
+ * layout() adds .ap-heavy when the game has 6+ tool buttons. The learning dock then floats over the lower edge of the canvas (like the landscape page) so the
+ * canvas keeps the room; the beat caption is readable; keys never stretch to the height of the tool block. */
+html body.r37arc .a28-play.ap-on.ap-heavy:not(.r2-immersive) .ap-dock{position:absolute;left:4px;right:4px;bottom:4px;z-index:5;min-height:0}
+html body.r37arc .a28-play.ap-on.ap-heavy:not(.r2-immersive) .ap-dock:has(.ap-tip){display:none}
+html body.r37arc .a28-play.ap-fit.ap-heavy:not(.r2-immersive) .a28-viewport>#pg-canvas{margin-top:0;margin-bottom:auto}
+html body.r37arc .a28-play.ap-fit:not(.r2-immersive) .p30-beat-cap{color:#E8ECFF;text-shadow:0 1px 2px rgba(5,6,30,.9);font-weight:700;flex:1 1 100%;text-align:center}
+html body.r37arc .a28-play.ap-fit:is(.ap-phone,.ap-land) .p30-beat-cap{display:none}
+html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive)>.a28-touch-controls{align-self:center;height:auto!important}
+@media (pointer:fine){
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .a28-tools .btn{min-height:36px;padding:0 10px}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .a28-tools{gap:4px}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .a28-game-footer .btn{min-height:40px;height:40px}
+}
+
+/* tool-heavy pages on a 360x640 phone: the page chrome above the play page shrinks, rows sit closer (keys and tool buttons keep their 44 px+) */
+html body.r37arc main:has(.a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive)){padding-top:4px}
+html body.r37arc main:has(.a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive))>.wrap,html body.r37arc .wrap:has(.a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive)){padding-top:4px}
+html body.r37arc .a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive){gap:4px}
+html body.r37arc .a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive) .ap-hud{min-height:34px;padding:1px 10px 8px}
+html body.r37arc .a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive) .a28-viewport{gap:3px;padding:2px 0 3px!important}
+html body.r37arc .a28-play.ap-fit.ap-short.ap-heavy:not(.r2-immersive) .a28-tools{gap:2px 4px}
+/* wide windows, tool-heavy: the hint line is dropped (as on a short window) and the footer buttons share the keys' row under them */
+html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) #pg-hint{display:none}
+@media (min-width:1000px){
+ html body.r37arc .a28-play.ap-on.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive){grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-touch-controls{align-self:start;justify-self:start;margin-top:8px!important}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-game-footer{grid-column:1/2;grid-row:3;align-self:end;padding-right:0}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-tools:not(:empty){justify-self:stretch;grid-row:3}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-touch-controls{grid-row:3}
+}
+html body.r37arc .a28-play.ap-on.ap-land .p30-beat-cap{display:none}
+/* R3.20 r2: the 「⚡ 生字補給 3 題」 button keeps the width of its label (the other two buttons give way) */
+html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.arx-pw{font-size:15px!important;padding:0 4px!important;flex:1.9 1 0}
+html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.arx-pw small{font-size:12px;margin-left:2px}
+@media (max-width:380px){html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.arx-pw{font-size:14px!important;padding:0 2px!important}}
+
+/* ================= R3.20 round 3 ================= */
+/* landscape phones: the action keys (right column) sit at the bottom of rows 1-2, so the tall direction-key block on the left (row 1) cannot push them onto the footer buttons (star-patrol: 3 action keys) */
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive .wq34-kg-act{grid-row:1/3;grid-column:3;align-self:end;max-height:100%}
+html body.r37arc .a28-play.ap-on.ap-land.r2-immersive>.a28-playhead{align-self:start}
+/* wide windows: the audio button must not cover the hint line - it sits just above it (when the hint is folded away it goes back to the bottom edge) */
+@media (min-width:1000px){
+ html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive) .r2-audio{bottom:24px}
+ html body.r37arc .a28-play.ap-fit.ap-tight:not(.ap-phone):not(.r2-immersive) .r2-audio{bottom:0}
+ html body.r37arc .a28-play.ap-fit:not(.ap-phone):not(.r2-immersive) .r2-audio[open]>div{bottom:56px}
+ /* tool-heavy games on a wide window: the four footer buttons and the audio button move up into the header row (title on the left, buttons on the right),
+  * so the keys + tool block own the bottom row alone and nothing is stacked on top of anything else */
+ html body.r37arc .a28-play.ap-on.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive){grid-template-rows:auto minmax(0,1fr) auto}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-playhead{grid-row:1;grid-column:1/-1}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-viewport{grid-row:2;grid-column:1/-1}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-touch-controls{grid-row:3;grid-column:1/2}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-tools:not(:empty){grid-row:3;grid-column:2/3}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-game-footer{grid-row:1;grid-column:1/-1;justify-self:end;align-self:center;padding:0;margin:0 128px 0 0;z-index:3;flex-wrap:nowrap;width:auto;max-width:calc(100% - 280px)}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-game-footer>div{flex-wrap:nowrap;gap:6px}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive)>.a28-game-footer>span{display:none}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .a28-game-footer .btn{white-space:nowrap;padding:0 12px}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .r2-audio{top:7px;bottom:auto}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .r2-audio>summary{min-height:40px;padding:0 14px}
+ html body.r37arc .a28-play.ap-fit.ap-heavy:not(.ap-phone):not(.r2-immersive) .r2-audio[open]>div{top:48px;bottom:auto;border-radius:0 0 16px 16px}
+}
+/* result / ready card: children keep their natural height (fitCard() in s70_arcplus.js drops optional blocks instead of letting lines overlap) */
+html body.r37arc .a28-play.ap-on .a28-overlaycard>*{flex-shrink:0}
+html body.r37arc .a28-overlaycard[data-ap-lv="1"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="2"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="3"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="4"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="5"] .ap-rl{display:none}
+html body.r37arc .a28-overlaycard:is([data-ap-lv="2"],[data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"]) .arx-rec{display:none}
+html body.r37arc .a28-overlaycard:is([data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"])>p:not(.arx-next),html body.r37arc .a28-overlaycard:is([data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"])>small{display:none}
+html body.r37arc .a28-overlaycard:is([data-ap-lv="4"],[data-ap-lv="5"]) .arx-res{display:none}
+html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
+/* 360 px wide: the long label 「再試一次 · 不扣金幣」 keeps >= 8 px of air on both sides of its button */
+@media (max-width:380px){html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.primary:not(.arx-pw){font-size:15px;padding:0 8px}}

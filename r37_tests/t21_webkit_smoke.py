@@ -10,7 +10,9 @@ from playwright.sync_api import sync_playwright
 APP = Path(os.environ.get('WQ33_APP', Path(__file__).resolve().parents[1] / 'app/index.html')).resolve()
 OUT = Path(__file__).resolve().parents[1] / '_team_runs/r317/webkit'
 OUT.mkdir(parents=True, exist_ok=True)
-PORT = 8791
+# R3.20: ask the OS for a free port - the fixed 8791 is now answered by another project's preview server on this box (every page came back as a 404, 30/57)
+import socket
+_s = socket.socket(); _s.bind(('127.0.0.1', 0)); PORT = _s.getsockname()[1]; _s.close()
 VPS = [('iphone', 390, 844, True), ('ipad', 820, 1180, True), ('desk', 1440, 900, False)]
 SCREENS = [('home', '#kid', '.r37-planet,.r37-home'), ('english', '#p/english', '.r37-tile'),
            ('enlevels', '#lv/english', '.r37-node,.r37-lvnode,[data-lv]'), ('math', '#p/math', '[data-wqm-open]'),

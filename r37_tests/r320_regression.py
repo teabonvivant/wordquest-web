@@ -4,8 +4,10 @@
 One suite at a time (the app is a 12 MB inline page), each under `timeout`; a failed suite is re-run up to 2 more times (the shared box has known
 flaky browser tests, see README R3.18) and the log of every attempt is kept as logs/<name>.try<N>.log. Writes r37_evidence/r320/regression.md
 and regression.json. t06 (needs the live site and WQ_ADMIN_PW) is listed as not run; t16 (about 45 min) runs last."""
-import json, os, subprocess, sys, time
+import hashlib, json, os, subprocess, sys, time
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from arc_lib import ALL_IDS  # noqa: E402
 
 R = Path(__file__).resolve().parents[1]
 OUT = R / 'r37_evidence' / 'r320'
@@ -60,24 +62,44 @@ JOBS = [  # (name, cwd, argv, timeout seconds)
 NOT_RUN = [('t06-live-admin', '未跑：不適用（需要正式網站及 WQ_ADMIN_PW，本輪不部署）')]
 
 
+def build_sha():
+    """R3.20: SHA256 of the build under test, written next to every suite (a result must be tied to the build it ran on)"""
+    f = Path(os.environ.get('WQ33_APP') or (R / 'app' / 'index.html'))
+    return hashlib.sha256(f.read_bytes()).hexdigest()
+
+
+def stamp(t):
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(t))
+
+
 def run_one(name, cwd, argv, timeout):
     attempts = []
+    sha = build_sha()
+    env = None
+    note = ''
     for n in range(1, 4):
         t0 = time.time()
         log = LOGS / f'{name}.try{n}.log'
         try:
-            r = subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=timeout)
+            r = subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=timeout, env=env)
             code, text = r.returncode, (r.stdout or '') + (('\n--- stderr ---\n' + r.stderr) if r.stderr else '')
         except subprocess.TimeoutExpired as e:
             code, text = 124, f'TIMEOUT after {timeout}s\n' + ((e.stdout or b'').decode(errors='replace')[-4000:] if isinstance(e.stdout, bytes) else (e.stdout or ''))
         log.write_text(text)
-        attempts.append({'try': n, 'code': code, 'secs': round(time.time() - t0), 'log': str(log.relative_to(R))})
+        attempts.append({'try': n, 'code': code, 'secs': round(time.time() - t0), 'start': stamp(t0), 'end': stamp(time.time()), 'log': str(log.relative_to(R))})
         print(f'{name} try{n}: exit {code} in {attempts[-1]["secs"]}s', flush=True)
         if code == 0:
             break
+        if name.startswith('t28') and n == 1:
+            # R3.20 r2: a full t28 run is ~60 min; a retry re-runs only the games that failed (the result of the first full run is kept in the log)
+            ids = sorted({l.strip('- ').split()[0] for l in text.splitlines() if l.strip().startswith('- ') and l.strip('- ').split() and l.strip('- ').split()[0] in ALL_IDS})
+            if not ids:
+                break
+            env = dict(os.environ, T28_IDS=','.join(ids), T28_OUT='t28_results_retry.json')
+            note = f'retry = subset {",".join(ids)}'
     final = LOGS / f'{name}.log'
     final.write_text((LOGS / f'{name}.try{len(attempts)}.log').read_text())
-    return {'name': name, 'status': 'pass' if attempts[-1]['code'] == 0 else 'fail', 'attempts': attempts}
+    return {'note': note, 'name': name, 'status': 'pass' if attempts[-1]['code'] == 0 else 'fail', 'sha256': sha, 'start': attempts[0]['start'], 'end': attempts[-1]['end'], 'attempts': attempts}
 
 
 def main():
@@ -88,15 +110,22 @@ def main():
             continue
         rows.append(run_one(name, cwd, argv, to))
         (OUT / 'regression.json').write_text(json.dumps(rows, ensure_ascii=False, indent=1))
+    write_md(rows)
+
+
+def write_md(rows):
     md = ['# R3.20 回歸測試紀錄', '', f'建置：`{os.environ.get("WQ33_APP", "app/index.html")}`；逐套依序、單一瀏覽器；失敗最多再跑 2 次（共用機器有已知不穩定）。log：`r37_evidence/r320/logs/`。', '',
-          '| 套件 | 結果 | 嘗試 | 用時 | log |', '|---|---|---|---|---|']
+          '| 套件 | 結果 | 嘗試 | 用時 | 開始 → 結束 | 建置 SHA256 | log |', '|---|---|---|---|---|---|---|']
     for r in rows:
         a = r['attempts']
-        md.append(f"| {r['name']} | {'通過' if r['status']=='pass' else '**失敗**'} | {len(a)}（exit {', '.join(str(x['code']) for x in a)}） | {sum(x['secs'] for x in a)} s | `{a[-1]['log']}` |")
+        md.append(f"| {r['name']} | {'通過' if r['status']=='pass' else '**失敗**'} | {len(a)}（exit {', '.join(str(x['code']) for x in a)}） | {sum(x['secs'] for x in a)} s | {r['start']} → {r['end']} | `{r['sha256'][:12]}…` | `{a[-1]['log']}`（失敗嘗試的 log 同目錄 `.tryN.log`）{(' ' + r['note']) if r.get('note') else ''} |")
     for n, why in NOT_RUN:
-        md.append(f'| {n} | {why} | — | — | — |')
+        md.append(f'| {n} | {why} | — | — | — | — | — |')
     npass = sum(1 for r in rows if r['status'] == 'pass')
-    md += ['', f'通過 {npass}／{len(rows)}；未跑 {len(NOT_RUN)}（見表）。']
+    md += ['', f'完整建置 SHA256：`{build_sha()}`', f'通過 {npass}／{len(rows)}；未跑 {len(NOT_RUN)}（見表）。逐套串行：每套的「開始 → 結束」時段互不重疊。']
+    notes = OUT / 'regression_notes.md'   # hand-written explanations that must survive a re-generation of the table
+    if notes.exists():
+        md += ['', notes.read_text().rstrip()]
     (OUT / 'regression.md').write_text('\n'.join(md) + '\n')
     print('\n'.join(md[-4:]))
 

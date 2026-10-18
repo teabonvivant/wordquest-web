@@ -164,6 +164,7 @@ const WQArcPlus=(()=>{
   }
   try{if(q.type==='word')r37Speak(q.answer);}catch(_){}
   dockDirty=true;
+  try{hudTick(g,s);}catch(_){}
  }
  function powerUp(g,s,r){
   const L=livesOf(g);
@@ -486,6 +487,9 @@ const WQArcPlus=(()=>{
    const cv=vp.querySelector('#pg-canvas');if(cv&&cv.nextSibling)vp.insertBefore(dockEl,cv.nextSibling);else vp.appendChild(dockEl);
    dockDirty=true;
   }
+  if(!vp._apRO&&typeof ResizeObserver!=='undefined'){   /* the viewport changes size when a hint row folds away or the ⋯ sheet / keys come and go: refit the canvas then */
+   let q=0;vp._apRO=new ResizeObserver(()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;lastLay='';try{layout(vp);}catch(_){}});});vp._apRO.observe(vp);
+  }
   const cv=vp.querySelector('#pg-canvas');
   if(cv&&!cv.dataset.apPtr){cv.dataset.apPtr='1';cv.addEventListener('pointerdown',canvasDown,true);}
   return vp;
@@ -504,14 +508,21 @@ const WQArcPlus=(()=>{
   const m=/^(?:Digit|Numpad)([1-3])$/.exec(e.code||'');if(!m)return;
   e.preventDefault();e.stopImmediatePropagation();answerQ(g,s,+m[1]-1,'key');
  },true);
+ /* lives + score: the two numbers that must always equal the engine's (also refreshed right after a28RulesTick, which sets the lives of the miss-counting games AFTER the game's own tick) */
+ function hudValues(g,s){
+  if(!hudEl||!hudEl.isConnected)return;
+  const H=hudEl._c;if(!H)return;
+  const L=livesOf(g),lv=H.lv,key='L'+L+'S'+(s.shield?1:0);
+  if(lv.dataset.k!==key){lv.dataset.k=key;const n=Math.max(3,L||0);lv.innerHTML=L==null?'':Array.from({length:Math.min(5,n)},(_,i)=>`<i class="${i<L?'on':''}">${HEART}</i>`).join('')+(s.shield?'<i class="sh" title="護盾">🛡️</i>':'');lv.setAttribute('aria-label',L==null?'無生命':`生命 ${L} 格`);}
+  const sc=Math.floor(g.score||0),b=H.b;if(b.textContent!==String(sc))b.textContent=sc;
+ }
+ const priorRules=a28RulesTick;
+ a28RulesTick=function(){const out=priorRules.apply(this,arguments);try{const g=live();if(g&&pgPlaying){const s=S_.get(g);if(s)hudValues(g,s);}}catch(_){}return out;};
  function hudTick(g,s){
   const vp=mount(g,s);if(!vp)return;
   const L=livesOf(g);
   const H=hudEl._c||(hudEl._c={lv:hudEl.querySelector('.ap-lives'),b:hudEl.querySelector('.ap-score b'),mm:hudEl.querySelector('.ap-mult'),fg:hudEl.querySelector('.ap-mult .fg'),mb:hudEl.querySelector('.ap-mult b'),wave:hudEl.querySelector('.ap-wave'),nm:hudEl.querySelector('.ap-name'),pb:hudEl.querySelector('.ap-prog')});
-  const lv=H.lv;
-  const key='L'+L+'S'+(s.shield?1:0);
-  if(lv.dataset.k!==key){lv.dataset.k=key;const n=Math.max(3,L||0);lv.innerHTML=L==null?'':Array.from({length:Math.min(5,n)},(_,i)=>`<i class="${i<L?'on':''}">${HEART}</i>`).join('')+(s.shield?'<i class="sh" title="護盾">🛡️</i>':'');lv.setAttribute('aria-label',L==null?'無生命':`生命 ${L} 格`);}
-  const sc=Math.floor(g.score||0),b=H.b;if(b.textContent!==String(sc))b.textContent=sc;
+  hudValues(g,s);
   const m=clamp(multOf(s.combo)*(s.x2>0?2:1),1,8),mm=H.mm;
   if(mm.dataset.m!==String(m)){mm.dataset.m=String(m);H.mb.textContent='×'+m;if(!calm()){mm.classList.remove('pop');void mm.offsetWidth;mm.classList.add('pop');}}
   const nxt=MULT.slice().reverse().find(([k])=>k>s.combo),frac=nxt?(s.combo-(MULT.find(([k])=>s.combo>=k)||[0])[0])/(nxt[0]-(MULT.find(([k])=>s.combo>=k)||[0])[0]):1;
@@ -567,6 +578,7 @@ const WQArcPlus=(()=>{
   if(play.classList.contains('r2-immersive')){play.classList.remove('ap-fit');play.style.removeProperty('--ap-h');}
   else{
    play.classList.add('ap-fit');play.classList.toggle('ap-short',phone&&innerHeight<700);
+   {const tl=play.querySelector('.a28-tools'),hv=!!(tl&&tl.children.length>=6);if(play.classList.contains('ap-heavy')!==hv)play.classList.toggle('ap-heavy',hv);}
    const pr=play.getBoundingClientRect(),main=play.closest('main')||document.body,tail=Math.max(0,main.getBoundingClientRect().bottom-pr.bottom);
    const h=Math.max(300,Math.floor(innerHeight-(pr.top+scrollY)-tail));
    play.style.setProperty('--ap-h',h+'px');
@@ -574,7 +586,18 @@ const WQArcPlus=(()=>{
    if(scrollY>0)scrollTo(0,0);
    const vh=v.clientHeight,tight=!phone&&vh<470;if(play.classList.contains('ap-tight')!==tight)play.classList.toggle('ap-tight',tight);
   }
+  try{landTools(play);}catch(_){}
   try{r2Fit();}catch(_){}
+ }
+ /* landscape: size the left column to the game's tool buttons (rows that fit the window height, as many columns as needed, widest label per column) */
+ function landTools(play){
+  const tools=play.querySelector('.a28-tools'),clear=()=>{play.style.removeProperty('--ap-left');play.style.removeProperty('--ap-rows');};
+  if(!play.classList.contains('ap-land')||!play.classList.contains('r2-immersive')||!tools||!tools.children.length){clear();return;}
+  const dir=play.querySelector('.wq34-kg-dir'),dirH=dir&&dir.offsetParent?dir.getBoundingClientRect().height+6:0;
+  const rows=Math.max(1,Math.floor((innerHeight-14-dirH+5)/49));
+  play.style.setProperty('--ap-rows',String(rows));
+  const side=parseFloat(getComputedStyle(play).getPropertyValue('--wq34-side'))||131,w=Math.ceil(tools.scrollWidth)+4;
+  play.style.setProperty('--ap-left',Math.max(side,Math.min(w,300))+'px');
  }
  addEventListener('resize',()=>{lastLay='';});
 
@@ -599,11 +622,24 @@ const WQArcPlus=(()=>{
   /* wrong ones first (they are the ones to remember), at most 2 lines, the rest as "＋N 個" - never hidden by clipping */
   const sorted=f.learn.slice().sort((a,b)=>(a.ok?1:0)-(b.ok?1:0)),shown=sorted.slice(0,2),more=sorted.length-shown.length;
   const items=f.learn.length?shown.map(x=>x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):'<li class="none">本局未遇到字晶</li>';
-  return `<div class="ap-res" data-ap="result"><div class="ap-rs"><span><b>×${f.maxCombo}</b><small>最高連擊</small></span><span><b>${f.phase}/3</b><small>到達波次</small></span><span><b>${f.ok}/${f.ok+f.bad}</b><small>字晶答對</small></span></div><ul class="ap-rl" aria-label="本局生字">${items}</ul></div>`;
+  return `<div class="ap-res" data-ap="result"><div class="ap-rs"><span><small>最高連擊</small> <b>×${f.maxCombo}</b></span><span><small>到達波次</small> <b>${f.phase}/3</b></span><span><small>字晶答對</small> <b>${f.ok}/${f.ok+f.bad}</b></span></div><ul class="ap-rl" aria-label="本局生字">${items}</ul></div>`;
  }
+ /* The ready / pause / result card never scrolls and never lets two lines sit on top of each other: when its natural height is more than the room it has,
+  * optional blocks are dropped step by step (see data-ap-lv in s70_arcplus.css): word list, duplicate record banner, sub-title + footnote, challenge stars, best-score line. */
+ function fitCard(){
+  try{
+   const card=document.querySelector('#pg-overlay:not([hidden]) .a28-overlaycard');if(!card||!card.clientHeight)return;
+   const pl=card.closest('.a28-play');if(!pl||!pl.classList.contains('ap-on'))return;
+   let lv=0;card.dataset.apLv='0';
+   while(card.scrollHeight>card.clientHeight+1&&lv<5){lv++;card.dataset.apLv=String(lv);}
+  }catch(_){}
+ }
+ function queueFit(){requestAnimationFrame(fitCard);setTimeout(fitCard,350);}
+ addEventListener('resize',()=>{setTimeout(fitCard,120);});
  const priorOverlay2=pgOverlay;
  pgOverlay=function(){
   const out=priorOverlay2.apply(this,arguments);
+  queueFit();
   try{
    const g=pgGame;if(g&&!g.preview&&COIN28.ids.includes(g.meta.id)){
     const s=S_.get(g);
@@ -679,7 +715,7 @@ const WQArcPlus=(()=>{
   if(kind==='tier'){s.forced.tier=1;s.tier=arg==='low'?'low':'high';if(s.tier==='low')s.parts.length=Math.min(s.parts.length,24);return true;}
   if(kind==='clear'){burst(s,400,260,24,['#FFC94A','#fff']);sfx(s,'clear');return true;}
   if(kind==='burst'){burst(s,400,280,arg||40,['#FFC94A','#fff','#7CC8FF']);return true;}
-  if(kind==='lose'){const L=livesOf(g);if(typeof g.health==='number'){g.health=Math.max(0,g.health-1);return true;}return false;}
+  if(kind==='lose'){if(typeof g.health==='number'){g.health=Math.max(0,g.health-1);if(g.health<=0&&!g.done){g.end('生命用完了','這一局結束');}return true;}return false;}   /* last life: end the run the way the games themselves do (a bare health 0 left the engine without a finished run and the save check refused) */
   if(kind==='shield'){s.shield=true;return true;}
   if(kind==='god'){s.forced.god=arg!==false;return true;}
   return false;

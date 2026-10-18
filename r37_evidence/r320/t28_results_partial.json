@@ -1,5 +1,5 @@
 {
- "bounce-basket": {
+ "forest-pong": {
   "core_mounted": "pass",
   "B1_hud_present": "pass",
   "B1_four_items": "pass",
@@ -42,6 +42,9 @@
   "B6_t09_strings": "pass",
   "B6_wrong_word_with_spelling": "pass",
   "B7_no_errors": "pass",
+  "H1_single_stats": "pass",
+  "H2_hud_equals_engine": "pass",
+  "H3_canvas_badges_dark": "pass",
   "B3_natural_moment": "pass",
   "B7_natural_no_errors": "pass"
  }

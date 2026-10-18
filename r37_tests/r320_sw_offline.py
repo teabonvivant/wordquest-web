@@ -41,6 +41,11 @@ def main():
             if pg.query_selector('#register-grade'):
                 pg.select_option('#register-grade', '3')
             pg.fill('#register-pin', 'R1testPass99'); pg.click('[data-act="register-submit"]'); pg.wait_for_timeout(2500)
+            # R3.20 r2: the app registers its worker only when asked (settings -> offline page); the host closure is not reachable over http, so register the same sw.js the same way
+            try:
+                pg.evaluate("(async()=>{const r=await navigator.serviceWorker.register(new URL('sw.js',location.href),{scope:'./'});await navigator.serviceWorker.ready;return !!r})()")
+            except Exception as e:
+                summary['prepare_error'] = repr(e)[:160]
             # wait for the service worker to be active and controlling
             for _ in range(40):
                 st = pg.evaluate("navigator.serviceWorker?navigator.serviceWorker.getRegistration().then(r=>!!(r&&r.active)):false")
@@ -51,7 +56,9 @@ def main():
             caches = pg.evaluate("caches.keys()")
             summary['caches'] = caches
             summary['checks']['cache_name_in_browser'] = any(c.endswith('-3.20') for c in caches)
-            ctx.set_offline(True)
+            # R3.20 r2: Chromium's set_offline() also fails navigations that the service worker could answer from its cache (ERR_INTERNET_DISCONNECTED on reload, same on the before build);
+            # stopping the local server is a real network failure for the worker's fetch() and lets the cache path run
+            srv.terminate(); srv.wait(timeout=10); time.sleep(1.0)
             failed = []
             pg.on('requestfailed', lambda r: failed.append(r.url[:120]))
             pg.reload(); pg.wait_for_timeout(3000)
@@ -60,6 +67,10 @@ def main():
             pg.screenshot(path=str(OUT / 'offline_kid.png'))
             summary['checks']['offline_kid_home'] = bool(kid)
             pg.evaluate("location.hash='#game'"); pg.wait_for_timeout(2000)
+            try:
+                pg.get_by_role('button', name='全部', exact=True).first.click(); pg.wait_for_timeout(900)   # R3.20 r2: the lobby opens on the 新遊戲 tab
+            except Exception as e:
+                summary['tab_error'] = repr(e)[:120]
             lobby = pg.evaluate("document.querySelectorAll('[data-cabinet]').length")
             pg.screenshot(path=str(OUT / 'offline_game_lobby.png'))
             summary['checks']['offline_arcade_lobby_cards'] = lobby >= 20

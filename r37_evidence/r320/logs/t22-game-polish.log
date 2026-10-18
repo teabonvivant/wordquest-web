@@ -1,9 +1,1 @@
-  FAIL phone arcade play: text contrast >= 7:1 on 0 elements, low: []
-  FAIL phone arcade: crashed TimeoutError: Locator.click: Timeout 45000ms exceeded.
-Call log:
-  - waiting for locator(".arx-more")
-    - locator resolved to <button type="button" data-arx="menu" aria-label="更多選項" aria-haspopup="true" aria-expanded="false" class="arx-hb arx-more">…</button>
-  - attempting click action
-    2 × waiting for elem
-  FAIL land arcade play: text contrast >= 7:1 on 1 elements, low: []
-t22: 164/167 checks passed
+t22: 171/171 checks passed

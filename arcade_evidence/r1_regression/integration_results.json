@@ -5,15 +5,15 @@
     "name": "Host bridge exposes correct version and no mutable database",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.006
+    "seconds": 0.003
   },
   {
     "id": "R1-002",
     "group": "INTEGRATION",
-    "name": "Single homepage has both ordinary maths and Olympiad buttons",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.025
+    "name": "Single homepage has both ordinary maths and Olympiad buttons (R3.6: the maths tile opens the ordinary scope as `home`; the Olympiad has its own tile)",
+    "status": "FAIL",
+    "detail": "subject entries",
+    "seconds": 0.024
   },
   {
     "id": "R1-003",
@@ -21,23 +21,23 @@
     "name": "Maths resolves the real V32 bridge, not standalone profile adapter",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.004
+    "seconds": 0.08
   },
   {
     "id": "R1-004",
     "group": "INTEGRATION",
     "name": "Retained bank contains 28 skills and 84 templates",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.006
+    "status": "FAIL",
+    "detail": "bank count",
+    "seconds": 0.002
   },
   {
     "id": "R1-005",
     "group": "INTEGRATION",
     "name": "Original V32 companion is decoded and visible in maths",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.029
+    "status": "FAIL",
+    "detail": "Locator.evaluate: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\".wqm-v32-companion img\")\n",
+    "seconds": 5.001
   },
   {
     "id": "R1-006",
@@ -51,9 +51,9 @@
     "id": "R1-007",
     "group": "INTEGRATION",
     "name": "Guest unfinished answer survives closing/reopening on same page",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.195
+    "status": "FAIL",
+    "detail": "Locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"#wqm-app-host [data-action=\\\"daily:normal\\\"]\").first\n",
+    "seconds": 5.001
   },
   {
     "id": "R1-008",
@@ -67,41 +67,41 @@
     "id": "R1-009",
     "group": "INTEGRATION",
     "name": "Registered maths opens current English child, without second registry",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.011
+    "status": "FAIL",
+    "detail": "not shared",
+    "seconds": 0.004
   },
   {
     "id": "R1-010",
     "group": "INTEGRATION",
     "name": "Ten-question daily task completed by actual answer inputs",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 6.817
+    "status": "FAIL",
+    "detail": "Locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"#wqm-app-host [data-action=\\\"daily:normal\\\"]\").first\n",
+    "seconds": 5.001
   },
   {
     "id": "R1-011",
     "group": "INTEGRATION",
     "name": "Daily task writes ten maths attempts to the shared child scope",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.008
+    "status": "FAIL",
+    "detail": "attempts",
+    "seconds": 0.003
   },
   {
     "id": "R1-012",
     "group": "INTEGRATION",
     "name": "Eligible maths completion credits the original English coin balance",
-    "status": "PASS",
-    "detail": true,
+    "status": "FAIL",
+    "detail": "expected first daily coin",
     "seconds": 0.002
   },
   {
     "id": "R1-013",
     "group": "INTEGRATION",
     "name": "Outbox settles once after English wallet success",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.024
+    "status": "FAIL",
+    "detail": "unsettled",
+    "seconds": 0.002
   },
   {
     "id": "R1-014",
@@ -109,7 +109,7 @@
     "name": "Repeated flush does not award a second coin",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.006
+    "seconds": 0.005
   },
   {
     "id": "R1-015",
@@ -124,15 +124,15 @@
       ],
       "all_equal": true
     },
-    "seconds": 0.003
+    "seconds": 0.004
   },
   {
     "id": "R1-016",
     "group": "INTEGRATION",
     "name": "Completion-page progress button cannot bypass English parent guard",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.08
+    "status": "FAIL",
+    "detail": "Locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"#wqm-app-host [data-action=\\\"completed-parent\\\"]\").first\n",
+    "seconds": 5.002
   },
   {
     "id": "R1-017",
@@ -140,7 +140,7 @@
     "name": "Maths parent entry redirects to existing English password gate",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.016
+    "seconds": 0.186
   },
   {
     "id": "R1-018",
@@ -148,7 +148,7 @@
     "name": "Incorrect password cannot unlock maths settings",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.349
+    "seconds": 0.752
   },
   {
     "id": "R1-019",
@@ -156,23 +156,23 @@
     "name": "Existing parent password unlocks without another account",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.234
+    "seconds": 0.322
   },
   {
     "id": "R1-020",
     "group": "INTEGRATION",
     "name": "English parent page displays separate maths activity count",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.009
+    "status": "FAIL",
+    "detail": "missing summary",
+    "seconds": 0.006
   },
   {
     "id": "R1-021",
     "group": "INTEGRATION",
-    "name": "Unlocked maths settings open in same program",
+    "name": "Unlocked maths settings open in same program (R3.6: the maths time-limit select is gone, learning has no time limit)",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.025
+    "seconds": 0.004
   },
   {
     "id": "R1-022",
@@ -180,7 +180,7 @@
     "name": "Parent settings persist through guarded UI save",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.411
+    "seconds": 0.155
   },
   {
     "id": "R1-023",
@@ -194,9 +194,9 @@
     "id": "R1-024",
     "group": "INTEGRATION",
     "name": "Serialized reload restores current child and maths attempts",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.024
+    "status": "FAIL",
+    "detail": "reload mismatch",
+    "seconds": 0.018
   },
   {
     "id": "R1-025",
@@ -204,7 +204,7 @@
     "name": "Uncommitted reward event cannot credit wallet",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.012
+    "seconds": 0.003
   },
   {
     "id": "R1-026",
@@ -212,7 +212,7 @@
     "name": "Reward for wrong child scope is rejected",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.003
+    "seconds": 0.002
   },
   {
     "id": "R1-027",
@@ -220,7 +220,7 @@
     "name": "Event payload must match saved outbox",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.012
+    "seconds": 0.003
   },
   {
     "id": "R1-028",
@@ -228,7 +228,7 @@
     "name": "Wallet storage failure leaves original wallet unchanged",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.022
+    "seconds": 0.078
   },
   {
     "id": "R1-029",
@@ -236,7 +236,7 @@
     "name": "Wallet-success/outbox-ack-failure retries without double payout",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.014
+    "seconds": 0.015
   },
   {
     "id": "R1-030",
@@ -244,7 +244,7 @@
     "name": "Maths storage quota failure preserves previous serialized data",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.011
+    "seconds": 0.003
   },
   {
     "id": "R1-031",
@@ -252,7 +252,7 @@
     "name": "Stale maths revision cannot overwrite newer data",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.003
+    "seconds": 0.002
   },
   {
     "id": "R1-032",
@@ -268,7 +268,7 @@
     "name": "Corrupt maths data is read-only and raw bytes are preserved",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.006
+    "seconds": 0.002
   },
   {
     "id": "R1-034",
@@ -276,7 +276,7 @@
     "name": "Backup owned by another child cannot replace current progress",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.005
+    "seconds": 0.002
   },
   {
     "id": "R1-035",
@@ -284,7 +284,7 @@
     "name": "Automatic reward sync rejects an over-seven-day event",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.012
+    "seconds": 0.009
   },
   {
     "id": "R1-036",
@@ -292,7 +292,7 @@
     "name": "Automatic reward sync rejects a future-dated event",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.01
+    "seconds": 0.007
   },
   {
     "id": "R1-037",
@@ -300,7 +300,7 @@
     "name": "Maths uses existing four-task/five-coin daily cap",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.021
+    "seconds": 0.015
   },
   {
     "id": "R1-038",
@@ -308,7 +308,7 @@
     "name": "Backup restore creates recovery copy without replaying coins",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.016
+    "seconds": 0.007
   },
   {
     "id": "R1-039",
@@ -316,7 +316,7 @@
     "name": "Existing English parent UI creates the shared second child",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.197
+    "seconds": 0.536
   },
   {
     "id": "R1-040",
@@ -324,15 +324,15 @@
     "name": "New child starts with isolated maths progress and wallet",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.008
+    "seconds": 0.006
   },
   {
     "id": "R1-041",
     "group": "INTEGRATION",
     "name": "Switching back restores original child progress and coin balance",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.509
+    "status": "FAIL",
+    "detail": "original child not restored",
+    "seconds": 1.103
   },
   {
     "id": "R1-042",
@@ -348,7 +348,7 @@
     "name": "Sidecar deletion failure cancels persisted English child deletion",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.169
+    "seconds": 0.513
   },
   {
     "id": "R1-044",
@@ -356,7 +356,7 @@
     "name": "Deleting English child also removes maths progress and recovery copy",
     "status": "PASS",
     "detail": true,
-    "seconds": 0.148
+    "seconds": 0.512
   },
   {
     "id": "R1-045",
@@ -365,1241 +365,5 @@
     "status": "PASS",
     "detail": true,
     "seconds": 0.0
-  },
-  {
-    "id": "R1-046",
-    "group": "INTEGRATION",
-    "name": "Full ordinary lesson completes all six teaching stages",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 6.482
-  },
-  {
-    "id": "R1-047",
-    "group": "INTEGRATION",
-    "name": "Guided questions remain separate from independent mastery attempts",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.009
-  },
-  {
-    "id": "R1-048",
-    "group": "INTEGRATION",
-    "name": "Full Olympiad lesson completes challenge, teaching and reflection",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 3.922
-  },
-  {
-    "id": "R1-049",
-    "group": "INTEGRATION",
-    "name": "Correct Olympiad reflection earns the real strategy card",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.011
-  },
-  {
-    "id": "R1-050",
-    "group": "INTEGRATION",
-    "name": "Ordinary and Olympiad attempts coexist with separate track fields",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.008
-  },
-  {
-    "id": "R1-051",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.1-T1",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.903
-  },
-  {
-    "id": "R1-052",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.1-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.121
-  },
-  {
-    "id": "R1-053",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.1-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.315
-  },
-  {
-    "id": "R1-054",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.5-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.5-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.301
-  },
-  {
-    "id": "R1-055",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.5-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.5-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.3
-  },
-  {
-    "id": "R1-056",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N1.5-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N1.5-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.305
-  },
-  {
-    "id": "R1-057",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N2.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N2.2-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.293
-  },
-  {
-    "id": "R1-058",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N2.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N2.2-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.322
-  },
-  {
-    "id": "R1-059",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N2.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N2.2-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.34
-  },
-  {
-    "id": "R1-060",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N3.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N3.2-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.332
-  },
-  {
-    "id": "R1-061",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N3.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N3.2-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.325
-  },
-  {
-    "id": "R1-062",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N3.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N3.2-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.298
-  },
-  {
-    "id": "R1-063",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.1-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.297
-  },
-  {
-    "id": "R1-064",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.1-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.309
-  },
-  {
-    "id": "R1-065",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.1-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.289
-  },
-  {
-    "id": "R1-066",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.4-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.4-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.296
-  },
-  {
-    "id": "R1-067",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.4-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.4-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.293
-  },
-  {
-    "id": "R1-068",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 1N4.4-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "1N4.4-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.296
-  },
-  {
-    "id": "R1-069",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.2-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.289
-  },
-  {
-    "id": "R1-070",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.2-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.288
-  },
-  {
-    "id": "R1-071",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.2-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.285
-  },
-  {
-    "id": "R1-072",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.3-T1",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 1.031
-  },
-  {
-    "id": "R1-073",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.3-T2",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.799
-  },
-  {
-    "id": "R1-074",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N1.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N1.3-T3",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.833
-  },
-  {
-    "id": "R1-075",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.1-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.083
-  },
-  {
-    "id": "R1-076",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.1-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.309
-  },
-  {
-    "id": "R1-077",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.1-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.308
-  },
-  {
-    "id": "R1-078",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.3-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.299
-  },
-  {
-    "id": "R1-079",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.3-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.315
-  },
-  {
-    "id": "R1-080",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N2.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N2.3-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.312
-  },
-  {
-    "id": "R1-081",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N3.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N3.3-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.288
-  },
-  {
-    "id": "R1-082",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N3.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N3.3-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.303
-  },
-  {
-    "id": "R1-083",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N3.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N3.3-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.293
-  },
-  {
-    "id": "R1-084",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N4.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N4.2-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.28
-  },
-  {
-    "id": "R1-085",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N4.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N4.2-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.283
-  },
-  {
-    "id": "R1-086",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N4.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N4.2-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.285
-  },
-  {
-    "id": "R1-087",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.1-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.291
-  },
-  {
-    "id": "R1-088",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.1-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.291
-  },
-  {
-    "id": "R1-089",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.1-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.3
-  },
-  {
-    "id": "R1-090",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.3-T1",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.554
-  },
-  {
-    "id": "R1-091",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.3-T2",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.449
-  },
-  {
-    "id": "R1-092",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N5.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N5.3-T3",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.447
-  },
-  {
-    "id": "R1-093",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N6.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N6.2-T1",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.361
-  },
-  {
-    "id": "R1-094",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N6.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N6.2-T2",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.453
-  },
-  {
-    "id": "R1-095",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 2N6.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "2N6.2-T3",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.454
-  },
-  {
-    "id": "R1-096",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N1.2-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N1.2-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.076
-  },
-  {
-    "id": "R1-097",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N1.2-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N1.2-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.308
-  },
-  {
-    "id": "R1-098",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N1.2-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N1.2-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.292
-  },
-  {
-    "id": "R1-099",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N2.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N2.1-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.289
-  },
-  {
-    "id": "R1-100",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N2.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N2.1-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.303
-  },
-  {
-    "id": "R1-101",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N2.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N2.1-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.294
-  },
-  {
-    "id": "R1-102",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N3.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N3.1-T1",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.647
-  },
-  {
-    "id": "R1-103",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N3.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N3.1-T2",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.45
-  },
-  {
-    "id": "R1-104",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N3.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N3.1-T3",
-      "type": "remainder",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.446
-  },
-  {
-    "id": "R1-105",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.3-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.079
-  },
-  {
-    "id": "R1-106",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.3-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.289
-  },
-  {
-    "id": "R1-107",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.3-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.282
-  },
-  {
-    "id": "R1-108",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.4-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.4-T1",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.657
-  },
-  {
-    "id": "R1-109",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.4-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.4-T2",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.348
-  },
-  {
-    "id": "R1-110",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N4.4-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N4.4-T3",
-      "type": "word",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.377
-  },
-  {
-    "id": "R1-111",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.1-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.1-T1",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.35
-  },
-  {
-    "id": "R1-112",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.1-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.1-T2",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.449
-  },
-  {
-    "id": "R1-113",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.1-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.1-T3",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.45
-  },
-  {
-    "id": "R1-114",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.3-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.3-T1",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.802
-  },
-  {
-    "id": "R1-115",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.3-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.3-T2",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.839
-  },
-  {
-    "id": "R1-116",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.3-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.3-T3",
-      "type": "choice",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.849
-  },
-  {
-    "id": "R1-117",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.4-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.4-T1",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.462
-  },
-  {
-    "id": "R1-118",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.4-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.4-T2",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.443
-  },
-  {
-    "id": "R1-119",
-    "group": "TEMPLATE_DOM",
-    "name": "Template 3N5.4-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "3N5.4-T3",
-      "type": "fraction",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.454
-  },
-  {
-    "id": "R1-120",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-CAL-pattern-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-CAL-pattern-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.088
-  },
-  {
-    "id": "R1-121",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-CAL-pattern-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-CAL-pattern-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.295
-  },
-  {
-    "id": "R1-122",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-CAL-pattern-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-CAL-pattern-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.303
-  },
-  {
-    "id": "R1-123",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-NUM-pairs-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-NUM-pairs-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.297
-  },
-  {
-    "id": "R1-124",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-NUM-pairs-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-NUM-pairs-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.317
-  },
-  {
-    "id": "R1-125",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-NUM-pairs-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-NUM-pairs-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.288
-  },
-  {
-    "id": "R1-126",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-APP-queue-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-APP-queue-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.305
-  },
-  {
-    "id": "R1-127",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-APP-queue-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-APP-queue-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.278
-  },
-  {
-    "id": "R1-128",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-APP-queue-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-APP-queue-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.291
-  },
-  {
-    "id": "R1-129",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-GEO-segments-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-GEO-segments-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.281
-  },
-  {
-    "id": "R1-130",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-GEO-segments-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-GEO-segments-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.299
-  },
-  {
-    "id": "R1-131",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-GEO-segments-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-GEO-segments-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.283
-  },
-  {
-    "id": "R1-132",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-LOG-digits-T1: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-LOG-digits-T1",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.314
-  },
-  {
-    "id": "R1-133",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-LOG-digits-T2: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-LOG-digits-T2",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.299
-  },
-  {
-    "id": "R1-134",
-    "group": "TEMPLATE_DOM",
-    "name": "Template O-LOG-digits-T3: render, input, mark, feedback focus",
-    "status": "PASS",
-    "detail": {
-      "template": "O-LOG-digits-T3",
-      "type": "number",
-      "marked_correct": true,
-      "keyboard_feedback_focus": true
-    },
-    "seconds": 0.29
-  },
-  {
-    "id": "R1-135",
-    "group": "INTEGRATION",
-    "name": "No JavaScript errors across all template DOM operations",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.0
-  },
-  {
-    "id": "R1-136",
-    "group": "VIEWPORT",
-    "name": "1280px English subject buttons are visible with no page overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.02
-  },
-  {
-    "id": "R1-137",
-    "group": "VIEWPORT",
-    "name": "1280px maths catalogue has no horizontal content overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.019
-  },
-  {
-    "id": "R1-138",
-    "group": "VIEWPORT",
-    "name": "1280px question and submit button visible",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.014
-  },
-  {
-    "id": "R1-139",
-    "group": "VIEWPORT",
-    "name": "768px English subject buttons are visible with no page overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.018
-  },
-  {
-    "id": "R1-140",
-    "group": "VIEWPORT",
-    "name": "768px maths catalogue has no horizontal content overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.026
-  },
-  {
-    "id": "R1-141",
-    "group": "VIEWPORT",
-    "name": "768px question and submit button visible",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.009
-  },
-  {
-    "id": "R1-142",
-    "group": "VIEWPORT",
-    "name": "390px English subject buttons are visible with no page overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.025
-  },
-  {
-    "id": "R1-143",
-    "group": "VIEWPORT",
-    "name": "390px maths catalogue has no horizontal content overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.023
-  },
-  {
-    "id": "R1-144",
-    "group": "VIEWPORT",
-    "name": "390px question and submit button visible",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.009
-  },
-  {
-    "id": "R1-145",
-    "group": "VIEWPORT",
-    "name": "320px English subject buttons are visible with no page overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.019
-  },
-  {
-    "id": "R1-146",
-    "group": "VIEWPORT",
-    "name": "320px maths catalogue has no horizontal content overflow",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.021
-  },
-  {
-    "id": "R1-147",
-    "group": "VIEWPORT",
-    "name": "320px question and submit button visible",
-    "status": "PASS",
-    "detail": true,
-    "seconds": 0.01
   }
 ]

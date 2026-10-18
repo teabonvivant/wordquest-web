@@ -99,3 +99,30 @@ python3 tools/build_r37.py                                   # 產生 app/index.
 WQ33_APP=$PWD/app/index.html python3 r37_tests/t28_arcade_r320.py     # 26 款共通層＋版面（結果 r37_evidence/r320/t28_results.json）
 python3 r37_tests/t29_runner_gate.py ; python3 r37_tests/t30_fps_focus.py
 ```
+
+## 九、階段 1：底線修復（一屏版面合約）
+
+交付等級：**預覽**。階段 1 只修底線，沒有新玩法、沒有 L2／L3；全部文字不含「完成／可上線／商用版」。逐款見 `docs/R3_20_game_audit.md`，證據在 `r37_evidence/r320/`（`after/`、`compare/`、`perf.json`、`regression.md`、`sw/`），執行記錄見 `_team_runs/r320-p1/build-log.md`。
+
+**改了什麼**（只動 `r37_src/s70_arcplus.js`／`.css`；`fps_game.js`、`runner_game.js` 沒動）：
+- **一屏版面合約**：遊玩頁（遊玩、學習卡、暫停、結算）高度＝視窗高度減頁面頂邊（`layout()` 設 `--ap-h`），CSS 直排：頭列｜遊玩區（吃剩餘高度，內含 HUD／畫布／學習條）｜按鍵｜頁腳；`r2Fit()` 把畫布放進剩餘空間。360×640、390×844、1440×900 不捲動；844×390 沿用沉浸式三欄，左欄按遊戲工具鈕數量自動分欄（`landTools()`）。桌面頁腳只留一行按鈕＋一行說明，音量收成右下小按鈕（點開向上彈出）。360×640 隱藏一次性的「橫向」提示（它要佔 50 px）。學習條無題目時一行、有題目時兩行。
+- **結算卡**：覆蓋在遊玩區中央，精簡排版、不內捲；三格統計「最高連擊 ×N｜到達波次｜字晶答對」；本局生字最多 2 行、其餘「＋N 個」；N＝s70 `maxCombo`＝`WQArc._combo().max`（結算時對齊）。結算後 `_force('learn')` 不開卡。
+- **HUD 單一來源**：遊玩中只有 DOM HUD；`a28RulesTick` 之後再刷新生命／分數（四款「失誤計命」遊戲不再慢一格）；`_debug().hudShown` 從 DOM 讀出。
+- **按鍵**：觸控鍵／工具鈕／結算鈕不折行（`nowrap`）、對比 ≥ 4.5:1；主鍵金色實底。
+- **畫布標籤**：包裝 `D.badge`／`D.message`，遊玩中改畫深色玻璃（`_debug().canvasHud` 記錄）；預覽／大堂縮圖不變。
+- **測試**：新共用探測 `r37_tests/arc_probe.js`（t28、`r320_capture.py`、`r320_probe_run.py` 共用，t28 C5 有反向對照）；t28 新增 H1／H2／H3／K1／R1／C5；`r320_regression.py` 記錄每套建置 SHA256 與起訖時間。
+
+**改動的舊斷言**（皆有 `# R3.20:`）：`t26`（鍵在畫布下方且在視窗內，不再要求在遊玩區方框內）、`t22`（關閉 ⋯ 選單改為點擊背板，不用 evaluate click）、`t30`（F2 以整數格數比較；F3 在單一 evaluate 內逐格量度、斷言剛好 120 格）、`test_fps.py`／`t29`／`t30`（瀏覽器改用 `/usr/bin/chromium`，本機預設 headless shell 不存在）。
+
+**第 2 輪修正**（驗收第 1 輪的問題清單）：star-patrol 360×640 鍵列不再被裁；工具鈕多的款加 `ap-heavy`（學習條浮在畫布下緣、桌面滑鼠用較矮工具鈕、頁腳鈕移到按鍵列下、360×640 縮窄頁面頂邊）；forest-band 說明字對比；準備卡「⚡ 生字補給 3 題」鈕不再溢出；`_force('lose')` 到 0 命時用遊戲的 `end()` 結束（結算卡正常出現，`pgReason='finished'`）；t28 B9 改單一同步 evaluate；探測加 `lowText`（一般文字對比）；離線測試改為停止本機伺服器並直接登記 `sw.js`（證據在 `r37_evidence/r320/sw/`）。after 圖補了 learn 狀態（26×4＋平板 5）。
+
+**第 3 輪修正**（驗收第 2 輪的問題清單，全部在 `s70_arcplus.css`／`.js`）：
+- star-patrol 844×390：右欄動作鍵（護盾／慢移／切換）改貼著第 1–2 行底部，不再被左欄方向鍵撐高的第 1 行推到頁腳鈕上。
+- 1440×900 工具鈕多的款（`ap-heavy`：forest-band、color-workshop、little-engineer、sweet-studio）：頁腳四鈕＋音量鈕移到頭列右側，按鍵列與工具鈕獨佔底部一行，不再互相疊；其他款的音量鈕上移 24 px，不再蓋住說明行。
+- 結算／準備卡：子項不再縮到互相疊壓（`flex-shrink:0`）；`fitCard()` 在內容比卡高時依序收起：生字清單 → 重複的紀錄橫幅 → 副標題及註腳 → 挑戰星 → 最高分行（「最高連擊 ×N」不收）。360 寬「再試一次 · 不扣金幣」字級 15 px、內距 ≥ 8 px。
+- 手機工具鈕最窄 44 px（forest-band 拍子鍵 1–16 放不下就換行）、工具鈕列左右留 4 px。
+- 測試：`arc_probe.js` 加 `overlaps`（按鈕／按鈕、按鈕／文字、按鈕中心被蓋住、結算卡兩行文字重疊、文字內距 < 4 px、貼邊 < 4 px）；t28 把它們與「觸控工具鈕 ≥ 44×44」列為斷言，C5 反向對照加「故意疊兩個鍵必須報錯」；`r320_probe_run.py` 同步。`t21_webkit_smoke.py` 改向系統要空閒埠（固定埠 8791 被本機另一專案佔用，每頁 404 → 30/57；改後 57/57）。`tools/r320_regression_retest.py` 可在同一建置重跑單套並併入 `regression.json`（舊嘗試與 log 保留）。
+
+**測試結果（凍結建置 SHA256 `9e317962…0a01`）**：共用探測 312 組（26 款 × 4 尺寸 × play／learn／result）及 436 張 after 探測全部 0 問題（含重疊、貼邊）；t28 完整跑 2524/2525（forest-pong B2 不穩定，重跑通過），版面（含新斷言）全過；回歸 41／42 套通過，`r1-regression` 在改動前建置同樣失敗；`t19` 整套回歸時 3 次失敗、同一建置單獨重跑 126/126（原因未查明）；`fps-module` 第 2 次通過。效能（4 倍節流）8 款中 3 款不超過改動前，5 款（star-patrol、forest-dash、sky-rescue、honeycomb-puzzle、valley-race）略高，原因是推測，未修。
+
+**限制／未達標**：forest-band 360×640 畫布寬 282.8 px（要求 ≥ 280，只多 2.8 px）、桌面畫布高 497 px 仍比改動前（549 px）小；結算後隱藏的 HUD 內部（star-rhythm、meadow-cricket）仍記 1 顆亮心；結算時成就提示會短暫蓋住結算卡頂部一行小字（及桌面頭列按鈕下緣約 6 px），沒有修；手機上畫布內小字仍小；18 款場景仍是淺色；L2 只有 4 款、L3、答題＝玩法動作未做；沒有真機／兒童實測；平板 768×1024 只截圖不判定。

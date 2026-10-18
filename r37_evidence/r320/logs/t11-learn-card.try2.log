@@ -1,0 +1,85 @@
+PASS fps/phone correct -> learn card for "cat"
+PASS fps/phone correct card shows word + meaning ('cat', '貓')
+PASS fps/phone card big and fully on screen (en 46.8px, zh 23.4px)
+PASS fps/phone Enter before 0.8s does not skip
+PASS fps/phone cannot shoot while the card is up
+PASS fps/phone correct card auto-continues to round 2
+PASS fps/phone wrong -> card shows the correct word "apple", heart lost
+PASS fps/phone wrong card: correct answer, your pick "你選了 egg ＝ 雞蛋", button locked
+PASS fps/phone wrong card fits the screen
+PASS fps/phone wrong card cannot be skipped in the first 2s
+PASS fps/phone after 2s the button unlocks, game still waits
+PASS fps/phone correct word spoken again (x2)
+PASS fps/phone "記住了" resumes the same round
+PASS fps/phone no page errors []
+PASS run/phone correct door -> learn card "apple"
+PASS run/phone card big + on screen (en 46.8px)
+PASS run/phone word spoken with the card
+PASS run/phone correct card auto-continues
+PASS run/phone wrong door -> card with correct "grape"
+PASS run/phone wrong card shows pick "apple" with meaning: 你選了 apple ＝ 蘋果
+PASS run/phone wrong card not skippable in first 2s
+PASS run/phone Space after 2s continues
+PASS run/phone no page errors []
+PASS fps/landscape correct -> learn card for "egg"
+PASS fps/landscape correct card shows word + meaning ('egg', '雞蛋')
+PASS fps/landscape card big and fully on screen (en 46.8px, zh 23.4px)
+PASS fps/landscape Enter before 0.8s does not skip
+PASS fps/landscape cannot shoot while the card is up
+PASS fps/landscape correct card auto-continues to round 2
+PASS fps/landscape wrong -> card shows the correct word "house", heart lost
+PASS fps/landscape wrong card: correct answer, your pick "你選了 egg ＝ 雞蛋", button locked
+PASS fps/landscape wrong card fits the screen
+PASS fps/landscape wrong card cannot be skipped in the first 2s
+PASS fps/landscape after 2s the button unlocks, game still waits
+PASS fps/landscape correct word spoken again (x2)
+PASS fps/landscape "記住了" resumes the same round
+PASS fps/landscape no page errors []
+PASS run/landscape correct door -> learn card "apple"
+PASS run/landscape card big + on screen (en 46.8px)
+PASS run/landscape word spoken with the card
+PASS run/landscape correct card auto-continues
+PASS run/landscape wrong door -> card with correct "grape"
+PASS run/landscape wrong card shows pick "apple" with meaning: 你選了 apple ＝ 蘋果
+PASS run/landscape wrong card not skippable in first 2s
+PASS run/landscape Space after 2s continues
+PASS run/landscape no page errors []
+PASS fps/desktop correct -> learn card for "grape"
+PASS fps/desktop correct card shows word + meaning ('grape', '葡萄')
+PASS fps/desktop card big and fully on screen (en 84px, zh 38px)
+PASS fps/desktop Enter before 0.8s does not skip
+PASS fps/desktop cannot shoot while the card is up
+PASS fps/desktop correct card auto-continues to round 2
+PASS fps/desktop wrong -> card shows the correct word "dog", heart lost
+PASS fps/desktop wrong card: correct answer, your pick "你選了 house ＝ 屋", button locked
+PASS fps/desktop wrong card fits the screen
+FAIL fps/desktop wrong card cannot be skipped in the first 2s
+FAIL fps/desktop after 2s the button unlocks, game still waits
+PASS fps/desktop correct word spoken again (x2)
+
+--- stderr ---
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t11_learn_card.py", line 156, in <module>
+    fps_flow(pw, w, h, name, touch)
+  File "/home/workspace/wordquest-web-dev/r37_tests/t11_learn_card.py", line 91, in fps_flow
+    else: p.locator('.wqlc [data-lc=go]').click()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 17422, in click
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_locator.py", line 163, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_frame.py", line 569, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".wqlc [data-lc=go]")
+

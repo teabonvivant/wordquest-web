@@ -1,385 +1,837 @@
 [
  {
+  "note": "",
   "name": "levels-math-unit",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:22",
+  "end": "2026-10-18 08:44:24",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 3,
+    "start": "2026-10-18 08:44:22",
+    "end": "2026-10-18 08:44:24",
     "log": "r37_evidence/r320/logs/levels-math-unit.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "en-content-unit",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:24",
+  "end": "2026-10-18 08:44:25",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 0,
+    "start": "2026-10-18 08:44:24",
+    "end": "2026-10-18 08:44:25",
     "log": "r37_evidence/r320/logs/en-content-unit.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "math-mark-unit",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:25",
+  "end": "2026-10-18 08:44:25",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 0,
+    "start": "2026-10-18 08:44:25",
+    "end": "2026-10-18 08:44:25",
     "log": "r37_evidence/r320/logs/math-mark-unit.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "morph-unit",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:25",
+  "end": "2026-10-18 08:44:25",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 0,
+    "start": "2026-10-18 08:44:25",
+    "end": "2026-10-18 08:44:25",
     "log": "r37_evidence/r320/logs/morph-unit.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "r319-toolTask",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:25",
+  "end": "2026-10-18 08:44:26",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 1,
+    "secs": 0,
+    "start": "2026-10-18 08:44:25",
+    "end": "2026-10-18 08:44:26",
     "log": "r37_evidence/r320/logs/r319-toolTask.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "arcade-syntax",
   "status": "pass",
-  "attempts": [
-   {
-    "try": 1,
-    "code": 0,
-    "secs": 2,
-    "log": "r37_evidence/r320/logs/arcade-syntax.try1.log"
-   }
-  ]
- },
- {
-  "name": "arcade-core-tests",
-  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:26",
+  "end": "2026-10-18 08:44:28",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 3,
+    "start": "2026-10-18 08:44:26",
+    "end": "2026-10-18 08:44:28",
+    "log": "r37_evidence/r320/logs/arcade-syntax.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "arcade-core-tests",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:28",
+  "end": "2026-10-18 08:44:31",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 2,
+    "start": "2026-10-18 08:44:28",
+    "end": "2026-10-18 08:44:31",
     "log": "r37_evidence/r320/logs/arcade-core-tests.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t01-shell-levels",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:44:31",
+  "end": "2026-10-18 08:45:52",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 86,
+    "secs": 81,
+    "start": "2026-10-18 08:44:31",
+    "end": "2026-10-18 08:45:52",
     "log": "r37_evidence/r320/logs/t01-shell-levels.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t02-math-levels",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:45:52",
+  "end": "2026-10-18 08:46:29",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 38,
+    "secs": 37,
+    "start": "2026-10-18 08:45:52",
+    "end": "2026-10-18 08:46:29",
     "log": "r37_evidence/r320/logs/t02-math-levels.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t03-parent-chars",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:46:29",
+  "end": "2026-10-18 08:47:12",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 48,
+    "secs": 43,
+    "start": "2026-10-18 08:46:29",
+    "end": "2026-10-18 08:47:12",
     "log": "r37_evidence/r320/logs/t03-parent-chars.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t04-games",
-  "status": "fail",
-  "attempts": [
-   {
-    "try": 1,
-    "code": 1,
-    "secs": 77,
-    "log": "r37_evidence/r320/logs/t04-games.try1.log"
-   },
-   {
-    "try": 2,
-    "code": 1,
-    "secs": 81,
-    "log": "r37_evidence/r320/logs/t04-games.try2.log"
-   },
-   {
-    "try": 3,
-    "code": 1,
-    "secs": 73,
-    "log": "r37_evidence/r320/logs/t04-games.try3.log"
-   }
-  ]
- },
- {
-  "name": "t05-admin-regression",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:47:12",
+  "end": "2026-10-18 08:48:15",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 47,
+    "secs": 63,
+    "start": "2026-10-18 08:47:12",
+    "end": "2026-10-18 08:48:15",
+    "log": "r37_evidence/r320/logs/t04-games.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t05-admin-regression",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:48:15",
+  "end": "2026-10-18 08:48:57",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 42,
+    "start": "2026-10-18 08:48:15",
+    "end": "2026-10-18 08:48:57",
     "log": "r37_evidence/r320/logs/t05-admin-regression.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t07-visual-daily",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:48:57",
+  "end": "2026-10-18 08:49:45",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 57,
+    "secs": 49,
+    "start": "2026-10-18 08:48:57",
+    "end": "2026-10-18 08:49:45",
     "log": "r37_evidence/r320/logs/t07-visual-daily.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t08-integration-fx",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:49:45",
+  "end": "2026-10-18 08:50:24",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 44,
+    "secs": 39,
+    "start": "2026-10-18 08:49:45",
+    "end": "2026-10-18 08:50:24",
     "log": "r37_evidence/r320/logs/t08-integration-fx.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t09-arcade",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:50:24",
+  "end": "2026-10-18 08:51:25",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 68,
+    "secs": 61,
+    "start": "2026-10-18 08:50:24",
+    "end": "2026-10-18 08:51:25",
     "log": "r37_evidence/r320/logs/t09-arcade.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t10-fps-levels",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:51:25",
+  "end": "2026-10-18 08:53:13",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 119,
+    "secs": 108,
+    "start": "2026-10-18 08:51:25",
+    "end": "2026-10-18 08:53:13",
     "log": "r37_evidence/r320/logs/t10-fps-levels.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "fps-module",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:53:13",
+  "end": "2026-10-18 08:57:44",
   "attempts": [
    {
     "try": 1,
     "code": 1,
-    "secs": 134,
+    "secs": 126,
+    "start": "2026-10-18 08:53:13",
+    "end": "2026-10-18 08:55:19",
     "log": "r37_evidence/r320/logs/fps-module.try1.log"
    },
    {
     "try": 2,
     "code": 0,
-    "secs": 154,
+    "secs": 145,
+    "start": "2026-10-18 08:55:19",
+    "end": "2026-10-18 08:57:44",
     "log": "r37_evidence/r320/logs/fps-module.try2.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "runner-module",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 08:57:44",
+  "end": "2026-10-18 09:00:39",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 191,
+    "secs": 175,
+    "start": "2026-10-18 08:57:44",
+    "end": "2026-10-18 09:00:39",
     "log": "r37_evidence/r320/logs/runner-module.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t11-learn-card",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:00:39",
+  "end": "2026-10-18 09:01:39",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 64,
+    "secs": 60,
+    "start": "2026-10-18 09:00:39",
+    "end": "2026-10-18 09:01:39",
     "log": "r37_evidence/r320/logs/t11-learn-card.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t12-dictation-import",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:01:39",
+  "end": "2026-10-18 09:02:52",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 78,
+    "secs": 73,
+    "start": "2026-10-18 09:01:39",
+    "end": "2026-10-18 09:02:52",
     "log": "r37_evidence/r320/logs/t12-dictation-import.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t13-morph-import",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:02:52",
+  "end": "2026-10-18 09:03:04",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 14,
+    "secs": 12,
+    "start": "2026-10-18 09:02:52",
+    "end": "2026-10-18 09:03:04",
     "log": "r37_evidence/r320/logs/t13-morph-import.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t14-morph-ui",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:03:04",
+  "end": "2026-10-18 09:04:23",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 84,
+    "secs": 79,
+    "start": "2026-10-18 09:03:04",
+    "end": "2026-10-18 09:04:23",
     "log": "r37_evidence/r320/logs/t14-morph-ui.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t15-dictation-save",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:04:23",
+  "end": "2026-10-18 09:07:00",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 176,
+    "secs": 157,
+    "start": "2026-10-18 09:04:23",
+    "end": "2026-10-18 09:07:00",
     "log": "r37_evidence/r320/logs/t15-dictation-save.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t17-legacy-fit",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:07:00",
+  "end": "2026-10-18 09:10:48",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 189,
+    "secs": 229,
+    "start": "2026-10-18 09:07:00",
+    "end": "2026-10-18 09:10:48",
     "log": "r37_evidence/r320/logs/t17-legacy-fit.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t18-dictation-study",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:10:48",
+  "end": "2026-10-18 09:12:41",
   "attempts": [
    {
     "try": 1,
     "code": 0,
     "secs": 113,
+    "start": "2026-10-18 09:10:48",
+    "end": "2026-10-18 09:12:41",
     "log": "r37_evidence/r320/logs/t18-dictation-study.try1.log"
    }
   ]
  },
  {
+  "note": "重測：第一輪 3 次嘗試失敗（建置 9e317962a869…），其後在同一建置重跑（9e317962a869…）",
   "name": "t19-save-landing",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:12:41",
+  "end": "2026-10-18 12:01:35",
   "attempts": [
    {
     "try": 1,
     "code": 1,
-    "secs": 269,
-    "log": "r37_evidence/r320/logs/t19-save-landing.try1.log"
+    "secs": 287,
+    "start": "2026-10-18 09:12:41",
+    "end": "2026-10-18 09:17:28",
+    "log": "r37_evidence/r320/logs/t19-save-landing.first-run.try1.log"
    },
    {
     "try": 2,
+    "code": 1,
+    "secs": 169,
+    "start": "2026-10-18 09:17:28",
+    "end": "2026-10-18 09:20:17",
+    "log": "r37_evidence/r320/logs/t19-save-landing.first-run.try2.log"
+   },
+   {
+    "try": 3,
+    "code": 1,
+    "secs": 230,
+    "start": "2026-10-18 09:20:17",
+    "end": "2026-10-18 09:24:07",
+    "log": "r37_evidence/r320/logs/t19-save-landing.first-run.try3.log"
+   },
+   {
+    "try": 1,
     "code": 0,
-    "secs": 219,
-    "log": "r37_evidence/r320/logs/t19-save-landing.try2.log"
+    "secs": 184,
+    "start": "2026-10-18 11:58:31",
+    "end": "2026-10-18 12:01:35",
+    "log": "r37_evidence/r320/logs/t19-save-landing.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t20-brand-ui",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:24:07",
+  "end": "2026-10-18 09:26:48",
   "attempts": [
    {
     "try": 1,
     "code": 0,
-    "secs": 169,
+    "secs": 161,
+    "start": "2026-10-18 09:24:07",
+    "end": "2026-10-18 09:26:48",
     "log": "r37_evidence/r320/logs/t20-brand-ui.try1.log"
    }
   ]
  },
  {
+  "note": "重測：第一輪 3 次嘗試失敗（建置 9e317962a869…），其後在同一建置重跑（9e317962a869…）",
   "name": "t21-webkit-smoke",
   "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:26:48",
+  "end": "2026-10-18 12:02:49",
   "attempts": [
    {
     "try": 1,
+    "code": 1,
+    "secs": 50,
+    "start": "2026-10-18 09:26:48",
+    "end": "2026-10-18 09:27:38",
+    "log": "r37_evidence/r320/logs/t21-webkit-smoke.first-run.try1.log"
+   },
+   {
+    "try": 2,
+    "code": 1,
+    "secs": 50,
+    "start": "2026-10-18 09:27:38",
+    "end": "2026-10-18 09:28:28",
+    "log": "r37_evidence/r320/logs/t21-webkit-smoke.first-run.try2.log"
+   },
+   {
+    "try": 3,
+    "code": 1,
+    "secs": 50,
+    "start": "2026-10-18 09:28:28",
+    "end": "2026-10-18 09:29:18",
+    "log": "r37_evidence/r320/logs/t21-webkit-smoke.first-run.try3.log"
+   },
+   {
+    "try": 1,
     "code": 0,
-    "secs": 85,
+    "secs": 74,
+    "start": "2026-10-18 12:01:35",
+    "end": "2026-10-18 12:02:49",
     "log": "r37_evidence/r320/logs/t21-webkit-smoke.try1.log"
    }
   ]
  },
  {
+  "note": "",
   "name": "t22-game-polish",
-  "status": "fail",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:29:18",
+  "end": "2026-10-18 09:31:15",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 117,
+    "start": "2026-10-18 09:29:18",
+    "end": "2026-10-18 09:31:15",
+    "log": "r37_evidence/r320/logs/t22-game-polish.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t23-consistency",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:31:15",
+  "end": "2026-10-18 09:35:42",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 268,
+    "start": "2026-10-18 09:31:15",
+    "end": "2026-10-18 09:35:42",
+    "log": "r37_evidence/r320/logs/t23-consistency.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t24-learning-loop",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:35:42",
+  "end": "2026-10-18 09:36:20",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 38,
+    "start": "2026-10-18 09:35:42",
+    "end": "2026-10-18 09:36:20",
+    "log": "r37_evidence/r320/logs/t24-learning-loop.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t25-dz-syllable",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:36:20",
+  "end": "2026-10-18 09:36:45",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 25,
+    "start": "2026-10-18 09:36:20",
+    "end": "2026-10-18 09:36:45",
+    "log": "r37_evidence/r320/logs/t25-dz-syllable.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t26-r319-ui",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:36:45",
+  "end": "2026-10-18 09:41:34",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 289,
+    "start": "2026-10-18 09:36:45",
+    "end": "2026-10-18 09:41:34",
+    "log": "r37_evidence/r320/logs/t26-r319-ui.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t27-r319-teach",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:41:34",
+  "end": "2026-10-18 09:42:28",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 54,
+    "start": "2026-10-18 09:41:34",
+    "end": "2026-10-18 09:42:28",
+    "log": "r37_evidence/r320/logs/t27-r319-teach.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "retry = subset forest-pong",
+  "name": "t28-arcade-r320",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 09:42:28",
+  "end": "2026-10-18 10:58:37",
   "attempts": [
    {
     "try": 1,
     "code": 1,
-    "secs": 172,
-    "log": "r37_evidence/r320/logs/t22-game-polish.try1.log"
+    "secs": 4316,
+    "start": "2026-10-18 09:42:28",
+    "end": "2026-10-18 10:54:24",
+    "log": "r37_evidence/r320/logs/t28-arcade-r320.try1.log"
    },
    {
     "try": 2,
-    "code": 1,
-    "secs": 174,
-    "log": "r37_evidence/r320/logs/t22-game-polish.try2.log"
+    "code": 0,
+    "secs": 253,
+    "start": "2026-10-18 10:54:24",
+    "end": "2026-10-18 10:58:37",
+    "log": "r37_evidence/r320/logs/t28-arcade-r320.try2.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t29-runner-gate",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 10:58:37",
+  "end": "2026-10-18 10:58:42",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 5,
+    "start": "2026-10-18 10:58:37",
+    "end": "2026-10-18 10:58:42",
+    "log": "r37_evidence/r320/logs/t29-runner-gate.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t30-fps-focus",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 10:58:42",
+  "end": "2026-10-18 10:59:29",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 47,
+    "start": "2026-10-18 10:58:42",
+    "end": "2026-10-18 10:59:29",
+    "log": "r37_evidence/r320/logs/t30-fps-focus.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "arcade-browser",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 10:59:29",
+  "end": "2026-10-18 10:59:47",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 19,
+    "start": "2026-10-18 10:59:29",
+    "end": "2026-10-18 10:59:47",
+    "log": "r37_evidence/r320/logs/arcade-browser.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "arcade-safety",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 10:59:47",
+  "end": "2026-10-18 11:00:07",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 20,
+    "start": "2026-10-18 10:59:47",
+    "end": "2026-10-18 11:00:07",
+    "log": "r37_evidence/r320/logs/arcade-safety.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "arcade-compat",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 11:00:07",
+  "end": "2026-10-18 11:00:31",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 24,
+    "start": "2026-10-18 11:00:07",
+    "end": "2026-10-18 11:00:31",
+    "log": "r37_evidence/r320/logs/arcade-compat.try1.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "r1-regression",
+  "status": "fail",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 11:00:31",
+  "end": "2026-10-18 11:03:06",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 2,
+    "secs": 52,
+    "start": "2026-10-18 11:00:31",
+    "end": "2026-10-18 11:01:23",
+    "log": "r37_evidence/r320/logs/r1-regression.try1.log"
+   },
+   {
+    "try": 2,
+    "code": 2,
+    "secs": 51,
+    "start": "2026-10-18 11:01:23",
+    "end": "2026-10-18 11:02:14",
+    "log": "r37_evidence/r320/logs/r1-regression.try2.log"
    },
    {
     "try": 3,
-    "code": 1,
-    "secs": 178,
-    "log": "r37_evidence/r320/logs/t22-game-polish.try3.log"
+    "code": 2,
+    "secs": 52,
+    "start": "2026-10-18 11:02:14",
+    "end": "2026-10-18 11:03:06",
+    "log": "r37_evidence/r320/logs/r1-regression.try3.log"
+   }
+  ]
+ },
+ {
+  "note": "",
+  "name": "t16-dictation-real",
+  "status": "pass",
+  "sha256": "9e317962a869e9c41fdfc1238b686b5021714da1954a0e32c7c7e3c587f50a01",
+  "start": "2026-10-18 11:03:06",
+  "end": "2026-10-18 11:47:09",
+  "attempts": [
+   {
+    "try": 1,
+    "code": 0,
+    "secs": 2643,
+    "start": "2026-10-18 11:03:06",
+    "end": "2026-10-18 11:47:09",
+    "log": "r37_evidence/r320/logs/t16-dictation-real.try1.log"
    }
   ]
  }

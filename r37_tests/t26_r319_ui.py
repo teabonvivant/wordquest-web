@@ -295,8 +295,9 @@ def sec_arcade(pg, name, phone):
     if phone:
         C.ok(d['vp']['h'] >= 380, f'{name} arcade play zone >= 380px tall ({d["vp"]["h"]:.0f}); canvas {d["cv"]["w"]:.0f}x{d["cv"]["h"]:.0f} (10:7, width-limited)')
         C.ok(d['cv']['w'] >= d['vw'] - 12, f'{name} arcade canvas runs full width ({d["cv"]["w"]:.0f} of {d["vw"]})')
-        C.ok(d['tc'] and d['tc']['t'] >= d['vp']['t'] and d['tc']['b'] <= d['vp']['b'] + 1 and d['tc']['t'] >= d['cv']['b'] - 1,
-             f'{name} arcade touch keys sit in the lower part of the play zone, under the canvas {d["tc"]} {d["vp"]}')
+        # R3.20: the one-screen layout contract puts the keys in their own row right under the play zone (they no longer overlap its bottom padding): under the canvas and fully inside the window
+        C.ok(d['tc'] and d['tc']['t'] >= d['cv']['b'] - 1 and d['tc']['b'] <= d['vh'] + 1,
+             f'{name} arcade touch keys sit under the canvas and inside the window {d["tc"]} {d["vp"]}')
         C.ok(d['tc']['h'] >= 64 or d['tc']['h'] >= 56, f'{name} arcade touch keys >= 56px high ({d["tc"]["h"]})')
         C.ok(d['foot'] and d['foot']['b'] <= d['vh'], f'{name} arcade goal card inside the screen {d["foot"]}')
     # M13 rotate hint flagged as shown (once per session)

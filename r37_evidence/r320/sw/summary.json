@@ -1,0 +1,19 @@
+{
+ "sw_cache_name": "-3.20",
+ "checks": {
+  "sw_cache_name_ends_-3.20": true,
+  "sw_active": true,
+  "cache_name_in_browser": true,
+  "offline_kid_home": true,
+  "offline_arcade_lobby_cards": true,
+  "offline_game_opens": true,
+  "no_external_failures_except_fonts_speech": true
+ },
+ "failed_requests_offline": [],
+ "caches": [
+  "wordquest-r3-shell-%2F-3.20"
+ ],
+ "lobby_cards": 26,
+ "page_errors": [],
+ "all_pass": true
+}

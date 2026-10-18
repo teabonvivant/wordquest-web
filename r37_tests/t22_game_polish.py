@@ -248,7 +248,7 @@ def arcade(p, w, h, touch, size):
         sheet = pg.evaluate("(()=>{const d=document.querySelector('.a28-game-footer>div');const s=getComputedStyle(d);const r=d.getBoundingClientRect();return {disp:s.display,pos:s.position,btn:[...d.querySelectorAll('.btn')].filter(b=>b.getBoundingClientRect().height>=44).length,on:r.bottom<=innerHeight&&r.top>=0}})()")
         C.ok(sheet['disp'] == 'grid' and sheet['pos'] == 'fixed' and sheet['btn'] == 4 and sheet['on'], f'{size} arcade play: ⋯ opens the function sheet {sheet}')
         shot(pg, size, 'arc_menu')
-        pg.locator('.arx-more').click(force=True) if False else pg.evaluate("document.querySelector('.arx-more').click()")
+        pg.locator('.arx-sheet-bk').click(position={'x': 12, 'y': 12})   # R3.20: close the sheet like a child does (tap the dimmed backdrop); the ⋯ button is under the backdrop, so no force / evaluate click
         pg.wait_for_timeout(200)
     shot(pg, size, 'arc_play')
     # finish a round -> result card: gold primary, no stray one-letter line, readable

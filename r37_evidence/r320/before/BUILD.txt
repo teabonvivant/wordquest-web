@@ -1,0 +1,2 @@
+before build: /home/workspace/wordquest-web-dev/_team_runs/r320/work/before/app/index.html
+sha256 6433435495c4d0a6be688c005d643a9825f179b746070bbfd2387c7187ef3bb7
