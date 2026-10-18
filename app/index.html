@@ -3159,7 +3159,7 @@ html body:has(#wq29-test-banner):not(.r37leg):not(.r37){padding-top:26px}
 .ap-rl li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ap-rl li.more{color:#C9D0F5}
 .ap-rl li.ok b{color:#7EE3A1}.ap-rl li.bad b{color:#FF9AA8}
-.ap-rl small{color:#C9D0F5;font-weight:600;margin-left:6px}
+.ap-rl small{color:#C9D0F5;font-weight:600;margin-left:6px;font-size:12px}
 .ap-rl li.none{color:#C9D0F5}
 
 /* landscape phones: one slim HUD row; the dock only shows as an overlay while a crystal question is open */
@@ -3355,7 +3355,7 @@ html body.r37arc .a28-play.ap-on .a28-overlaycard>*{flex-shrink:0}
 html body.r37arc .a28-overlaycard[data-ap-lv="1"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="2"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="3"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="4"] .ap-rl,html body.r37arc .a28-overlaycard[data-ap-lv="5"] .ap-rl{display:none}
 html body.r37arc .a28-overlaycard:is([data-ap-lv="2"],[data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"]) .arx-rec{display:none}
 html body.r37arc .a28-overlaycard:is([data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"])>p:not(.arx-next),html body.r37arc .a28-overlaycard:is([data-ap-lv="3"],[data-ap-lv="4"],[data-ap-lv="5"])>small{display:none}
-html body.r37arc .a28-overlaycard:is([data-ap-lv="4"],[data-ap-lv="5"]) .arx-res{display:none}
+html body.r37arc .a28-overlaycard:is([data-ap-lv="4"],[data-ap-lv="5"]) .arx-res>:not(.ap-combo){display:none}
 html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 /* 360 px wide: the long label 「再試一次 · 不扣金幣」 keeps >= 8 px of air on both sides of its button */
 @media (max-width:380px){html body.r37arc .a28-play.ap-on:is(.ap-fit,.ap-land) .a28-overlaycard .row .btn.primary:not(.arx-pw){font-size:15px;padding:0 8px}}
@@ -20444,6 +20444,7 @@ const WQArcPlus=(()=>{
 
  /* ---------------------------------------------------------------- tick wrapper */
  function afterTick(g,s,dt){
+  if(s.final)return;   /* the run is scored: nothing may change the combo behind the result card */
   const sc=Number(g.score)||0;
   let delta=0;
   if(sc>=s.lastFinal-1e-6){delta=sc-s.lastFinal;}
@@ -20834,7 +20835,7 @@ const WQArcPlus=(()=>{
   try{
    const g=pgGame;if(g&&!g.preview&&COIN28.ids.includes(g.meta.id)){
     const s=S_.get(g);
-    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;if(!f.learn.length){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
+    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;nx.classList.add('ap-combo');if(!f.learn.length){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
     stateOf(g);mount(g,S_.get(g));
    }
   }catch(e){console.error('WQArcPlus overlay',e);}

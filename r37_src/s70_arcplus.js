@@ -253,6 +253,7 @@ const WQArcPlus=(()=>{
 
  /* ---------------------------------------------------------------- tick wrapper */
  function afterTick(g,s,dt){
+  if(s.final)return;   /* the run is scored: nothing may change the combo behind the result card */
   const sc=Number(g.score)||0;
   let delta=0;
   if(sc>=s.lastFinal-1e-6){delta=sc-s.lastFinal;}
@@ -643,7 +644,7 @@ const WQArcPlus=(()=>{
   try{
    const g=pgGame;if(g&&!g.preview&&COIN28.ids.includes(g.meta.id)){
     const s=S_.get(g);
-    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;if(!f.learn.length){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
+    if(s&&s.final&&!pgPlaying){const card=document.querySelector('#pg-overlay .a28-overlaycard');if(card&&!card.querySelector('.ap-res')){const f=s.final,line=`最高連擊 ×${f.maxCombo} · 到達 ${f.phase}/3 波`+(f.ok+f.bad?` · 字晶 ${f.ok}/${f.ok+f.bad}`:''),nx=[...card.querySelectorAll('.arx-next')].find(e=>/最高連擊/.test(e.textContent));if(nx){nx.textContent=line;nx.classList.add('ap-combo');if(!f.learn.length){card.classList.add('ap-has-res');return out;}}const anchor=card.querySelector('.arx-res')||card.querySelector('.wq34-result')||card.querySelector('p');const t=document.createElement('template');t.innerHTML=resultHtml(s.final);if(anchor)anchor.after(t.content);else card.prepend(t.content);card.classList.add('ap-has-res');}}
     stateOf(g);mount(g,S_.get(g));
    }
   }catch(e){console.error('WQArcPlus overlay',e);}
