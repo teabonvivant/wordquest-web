@@ -275,6 +275,8 @@
       if (s.requeued < maxRe) { s.requeued++; var at = Math.min(queue.length, gapMin + Math.floor(rng() * (gapMax - gapMin + 1)) - 1); queue.splice(Math.max(0, at), 0, it); out.requeued = true; }
       return out;
     };
+    /* the child used a hint on this item: it can no longer count as a first-try hit */
+    L.assisted = function (it) { var s = stats[it.id]; if (!s || s.rv) return; if (s.firstOk === true) { firstOkN--; s.firstOk = false; } else if (s.firstOk === null) { s.firstOk = false; firstN++; } s.hinted = true; };
     L.progress = function () { var okN = 0, k; for (k in stats) if (stats[k].ok && !stats[k].rv) okN++; return { done: okN, total: items.length, tries: Object.keys(stats).reduce(function (n, k) { return n + stats[k].tries; }, 0) }; };
     L.firstAcc = function () { return firstN ? firstOkN / firstN : 0; };
     L.accuracy = function () { var t = 0, ok = 0, k; for (k in stats) { if (stats[k].rv) continue; t += stats[k].tries; if (stats[k].ok) ok++; } return t ? ok / t : 0; };
@@ -450,7 +452,7 @@
       return res;
     };
     S.destroy = function () {
-      if (S.dead) return; S.dead = true; if (rafId) cancelAnimationFrame(rafId); rafId = 0; timers.forEach(clearTimeout); intervals.forEach(clearInterval); timers = []; intervals = [];
+      if (S.dead) return; S.dead = true; try { S.ui.closeAll(); } catch (e) { /* */ } if (rafId) cancelAnimationFrame(rafId); rafId = 0; timers.forEach(clearTimeout); intervals.forEach(clearInterval); timers = []; intervals = [];
       listeners.forEach(function (l) { l[0].removeEventListener(l[1], l[2], l[3]); }); listeners = []; if (offKeys) offKeys(); if (ro) { try { ro.disconnect(); } catch (e) { /* */ } } S.audio.destroy(); S.fx.clear();
       try { speechSynthesis.cancel(); } catch (e) { /* */ } if (cfg.onDestroy) { try { cfg.onDestroy(S); } catch (e) { /* */ } } if (root.parentNode) root.parentNode.removeChild(root);
     };

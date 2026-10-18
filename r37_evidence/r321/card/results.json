@@ -1,0 +1,22 @@
+[
+ {
+  "name": "no art: cards still dealt and framed by CSS",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "no art: the battle still works (damage dealt)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "no art: a drawn monster shape is on the canvas",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "no console errors / page errors in any test",
+  "ok": true,
+  "detail": ""
+ }
+]

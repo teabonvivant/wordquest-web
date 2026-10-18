@@ -15,3 +15,5 @@ venv/
 .DS_Store
 Thumbs.db
 _team_runs/
+r37_evidence/r321/**/*.png
+r37_evidence/r321/**/*.jpg
