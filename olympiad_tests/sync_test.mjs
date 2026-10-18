@@ -46,6 +46,9 @@ const broken=createScopeStore(host,storage,guests);assert.throws(()=>broken.getI
 for(const route of ['','learn','unit','lesson','test','quiz','results','review','progress','guide','plan','sources']){
  const html=read('app/olympiad-classroom/'+(route?route+'/':'')+'index.html');
  assert(!/(?:href|src)="\//.test(html),'No domain-root URLs: '+route);
+ assert(html.includes('assets/theme-tokens.css?v=')&&html.includes('assets/classroom-theme.css?v='),route+' uses shared theme');
+ assert(html.includes('aria-label="課堂功能"')&&html.includes('data-nav="review"'),route+' has the same four classroom destinations');
+ assert(!html.includes('class="brand"'),route+' has no second brand header');
  for(const m of html.matchAll(/(?:href|src)="([^"#]+)"/g)){
   const target=path.resolve(R,'app/olympiad-classroom',route,m[1].split('?')[0]);
   assert(target.startsWith(path.join(R,'app/olympiad-classroom')),m[1]);assert(fs.existsSync(target),target);
@@ -61,4 +64,12 @@ const shell=read('app/index.html');
 for(const page of ['learn','test','review','progress'])assert(shell.includes('data-oly-open="'+page+'"'));
 assert(shell.includes('data-wqm-open="olympiad"'));assert(shell.includes('#lv/olympiad'));assert(shell.includes('data-olympiad-sync'));
 assert(shell.includes("if(subject!=='arcade')return;"),'Retain current arcade-only time policy');
+const tokens=read('app/olympiad-classroom/assets/theme-tokens.css');
+assert.equal(tokens.trim(),read('r37_src/s10_shell.css').match(/:root\{[^}]+\}/)[0],'Exact incumbent fonts and palette');
+const color=name=>tokens.match(new RegExp('--r37-'+name+':([^;}]+)'))[1];
+const luminance=hex=>{const a=hex.slice(1).match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return a[0]*.2126+a[1]*.7152+a[2]*.0722;};
+for(const [fg,bg] of [[color('text'),color('ink')],[color('muted'),color('card')],[color('gold-ink'),color('gold')],['#1c254c','#fbfcff'],['#51439a','#eef1fc'],['#8b302b','#fff0ed']]){
+ const [light,dark]=[luminance(fg),luminance(bg)].sort((a,b)=>b-a);assert((light+.05)/(dark+.05)>=4.5,fg+' on '+bg+' must meet AA text contrast');
+}
 console.log('PASS: 44 lessons / 280 preserved answers; mixed grading; 12 subdirectory routes; child/account/guest/lease/conflict/corruption isolation; existing Olympiad modes retained; no Tracy/audio API.');
+console.log('PASS: all routes use shared theme/fonts; one brand header; correct review tab; six foreground/background pairs meet 4.5:1.');

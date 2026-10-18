@@ -30,8 +30,12 @@ def build():
     for name in ['host.js','host.css','scope-store.mjs']:
         shutil.copyfile(S/name, O/name)
     shutil.copyfile(S/'bridge.js', A/'bridge.js')
+    shutil.copyfile(S/'classroom-theme.css', A/'classroom-theme.css')
+    # The incumbent declaration is the source of truth for fonts and colours.
+    palette = re.search(r':root\{[^}]+\}', (R/'r37_src/s10_shell.css').read_text(encoding='utf-8'))[0]
+    (A/'theme-tokens.css').write_text(palette+'\n',encoding='utf-8')
     with (A/'classroom.css').open('a', encoding='utf-8') as f:
-        f.write('\n.learner-context{max-width:1160px;margin:12px auto 0;padding:0 24px;font-size:13px;color:#59685e}.read-button,#audio-toggle{display:none!important}\n')
+        f.write('\n.read-button,#audio-toggle{display:none!important}\n')
 
     js = (U/'app.js').read_text(encoding='utf-8')
     js = re.sub(r"import \{createRecordedNarration\} from '[^']+';", "import {storage} from './bridge.js';\nconst BASE=new URL('../',import.meta.url).pathname;", js, count=1)
@@ -42,6 +46,7 @@ def build():
     js = re.sub(r'^const readButton=.*$', "const readButton=()=>'';", js, flags=re.M)
     js = once(js, '<button class="button" data-action="listen-start">${speakerIcon}${esc(t(\'listenStart\'))}</button>', '')
     js = js.replace('${esc(t(\'silentStart\'))}', '開始看圖學習')
+    js = once(js, 'class="button secondary" data-action="lesson-next">開始看圖學習', 'class="button" data-action="lesson-next">開始看圖學習')
     js = once(js, 'const url=(p,id)=>`/${p}/', 'const url=(p,id)=>`${BASE}${p}/')
     js = js.replace('href="/', 'href="${BASE}').replace('src="/assets/', 'src="${BASE}assets/')
     for route in ROUTES[1:]:
@@ -51,20 +56,26 @@ def build():
     js = re.sub(r"fetch\('/assets/([^']+)'", r"fetch(BASE+'assets/\1'", js)
     js = js.replace('localStorage.getItem', 'storage.getItem').replace('localStorage.setItem', 'storage.setItem')
     js = js.replace('數學探險所', '學霸星球奧數課堂')
+    js = once(js, "['progress','review'].includes(page)?'progress':''", "page==='review'?'review':page==='progress'?'progress':''")
     js = js.replace('沒有登入及自動同步。換裝置前，可以匯出檔案，再在另一個瀏覽器匯入。', '此區紀錄跟隨目前小朋友，保存在這個瀏覽器，尚未納入家庭整體備份。換裝置前，請家長在這裏另行匯出，再匯入。')
     assert 'Tracy' not in js and 'SpeechSynthesisUtterance' not in js and 'createRecordedNarration' not in js
     # The bundle uses relative imports and content hashes under either localhost or GitHub's project prefix.
-    revision = hashlib.sha256(js.encode() + b''.join(canonical_bytes(p) for p in sorted(S.rglob('*')) if p.is_file() and p.name!='README.md')).hexdigest()[:12]
+    revision = hashlib.sha256(js.encode() + palette.encode() + b''.join(canonical_bytes(p) for p in sorted(S.rglob('*')) if p.is_file() and p.name!='README.md')).hexdigest()[:12]
     js = re.sub(r"from '(\./[^'?]+)(?:\?[^']+)?'", lambda m: "from '"+m[1]+'?v='+revision+"'", js)
     js = re.sub(r'content\.json\?v=[a-f0-9]+', 'content.json?v='+revision, js)
     (A/'app.js').write_text(js, encoding='utf-8')
     host = (O/'host.js').read_text(encoding='utf-8').replace("'./scope-store.mjs'", "'./scope-store.mjs?v="+revision+"'")
     (O/'host.js').write_text(host, encoding='utf-8')
     template = (U/'index.html').read_text(encoding='utf-8').replace('數學探險所', '奧數圖解課堂')
+    template = template.replace('content="#245c4a"','content="#0b1030"')
+    template = once(template, '<link rel="stylesheet" href="/assets/classroom.css">', '<link rel="stylesheet" href="/assets/classroom.css">\n<link rel="stylesheet" href="/assets/theme-tokens.css">\n<link rel="stylesheet" href="/assets/classroom-theme.css">')
+    header = '<header class="site-header"><div class="header-inner"><nav aria-label="課堂功能"><a href="/learn/" data-nav="learn">教學</a><a href="/test/" data-nav="test">小測</a><a href="/review/" data-nav="review">錯題</a><a href="/progress/" data-nav="progress">進度</a></nav><button id="audio-toggle" hidden aria-pressed="false">開啟朗讀</button></div></header>'
+    template, replaced = re.subn(r'<header class="site-header">[\s\S]*?</header>', lambda _:header, template, count=1)
+    assert replaced == 1
     for route in ROUTES:
         prefix = '../' if route else './'
         html = template.replace('href="/', 'href="'+prefix).replace('src="/', 'src="'+prefix)
-        html = re.sub(r'(assets/(?:app\.js|style\.css|classroom\.css))"', r'\1?v='+revision+'"', html)
+        html = re.sub(r'(assets/(?:app\.js|style\.css|classroom\.css|theme-tokens\.css|classroom-theme\.css))"', r'\1?v='+revision+'"', html)
         d = O/route; d.mkdir(parents=True, exist_ok=True); (d/'index.html').write_text(html, encoding='utf-8')
 
     # Update only explicit integration anchors; retain the latest R3.19 English/maths/game changes.

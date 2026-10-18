@@ -10,4 +10,6 @@ The four new entry tiles live on `app/index.html#p/olympiad`. A same-origin ifra
 
 OpenAI voice setup is incomplete. This build intentionally ships no Tracy recordings, browser TTS fallback or API calls; the reading controls are omitted until the requested voice is configured.
 
+The integrated appearance now follows `DESIGN.md`: shared SmartQuest colour/font tokens, the host's actual bottom navigation and SVG icons, one subject header, and light teaching boards within the deep-space shell. The synchronizer applies this skin across all twelve routes while preserving the question snapshot.
+
 Build output: `app/olympiad-classroom/`, with `sync-manifest.json` for hashes. The synchronizer only patches explicit app-shell anchors, preserving R3.19 and later independent changes; changed anchors fail rather than overwrite unknown upstream code.

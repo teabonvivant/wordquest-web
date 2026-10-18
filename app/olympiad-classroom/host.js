@@ -1,15 +1,16 @@
-import {createScopeStore} from './scope-store.mjs?v=7c62d9a3e860';
+import {createScopeStore} from './scope-store.mjs?v=fccadcf3cfb8';
 
 const root = window, guests = new Map();
 const base = new URL('./', import.meta.url);
 let dialog, frame, context, host, previousFocus;
 const pages = new Set(['learn', 'test', 'review', 'progress']);
+let navigation, icons = {};
 
 function notice(message) {
   let box = document.getElementById('wq-olympiad-notice');
   if (!box) {
     box = document.createElement('p'); box.id = 'wq-olympiad-notice'; box.setAttribute('role', 'alert');
-    box.style.cssText = 'padding:16px;background:#fff7dc;color:#382d25;border-radius:12px';
+    box.className = 'oly-shell-notice';
     document.querySelector('#app')?.prepend(box);
   }
   box.textContent = message; box.scrollIntoView({block:'nearest'});
@@ -37,15 +38,35 @@ function open(page = 'learn') {
     }
     previousFocus = document.activeElement;
     context = createScopeStore(host, localStorage, guests);
+    for (const page of pages) {
+      const icon = document.querySelector('[data-oly-open="'+page+'"] .r37-ti svg');
+      if (icon) icons[page] = icon.outerHTML;
+    }
     if (!dialog) {
       dialog = document.createElement('dialog'); dialog.id = 'wq-olympiad-dialog';
       dialog.setAttribute('aria-label', '學霸星球奧數課堂');
-      dialog.innerHTML = '<header class="oly-shell-bar"><strong>學霸星球 · 奧數課堂</strong><button type="button">返回奧數星</button></header><iframe id="wq-olympiad-frame" title="奧數圖解課堂、測試與錯題解說"></iframe>';
+      dialog.innerHTML = '<header class="oly-shell-bar"><button type="button" class="oly-shell-back" aria-label="返回奧數星" title="返回奧數星"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></button><img class="oly-shell-planet" alt="" width="38" height="38"><strong>奧數星<span>圖解課堂</span></strong><span class="oly-shell-learner"></span></header><iframe id="wq-olympiad-frame" title="奧數圖解課堂、測試與錯題解說"></iframe>';
+      dialog.querySelector('.oly-shell-planet').src = new URL('../assets/r316/pl_olympiad.webp',base).href;
       frame = dialog.querySelector('iframe');
       dialog.querySelector('button').addEventListener('click', close);
       dialog.addEventListener('cancel', e => { e.preventDefault(); close(); });
+      // Reuse the live app's actual navigation and SVG family.
+      const source = document.querySelector('.r37-hub .r37-nav') || document.querySelector('.r37-nav');
+      if (source) {
+        navigation = source.cloneNode(true); navigation.classList.add('oly-shell-nav');
+        navigation.querySelectorAll('a').forEach(a => {
+          const active = a.hash === '#p/olympiad'; a.classList.toggle('on', active);
+          if (active) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+        });
+        navigation.addEventListener('click', e => {
+          const a = e.target.closest('a'); if (!a) return;
+          e.preventDefault(); const hash = a.hash; close(); if (hash) location.hash = hash;
+        });
+        dialog.append(navigation);
+      }
       document.body.append(dialog);
     }
+    dialog.querySelector('.oly-shell-learner').textContent = profile.name || '小小探險家';
     frame.src = new URL(page + '/', base).href;
     if (!dialog.open) dialog.showModal();
   } catch (e) { notice(e.message); }
@@ -66,7 +87,8 @@ function connect(child) {
     assertStudy() { check(); root.WQR3?.assertStudy(); },
     canManage() { check(); return host.parentAllowed?.() !== false; },
     persistent: owner.profile.persistent,
-    label: owner.profile.name || '小小探險家'
+    label: owner.profile.name || '小小探險家',
+    icons: Object.freeze({...icons})
   });
 }
 

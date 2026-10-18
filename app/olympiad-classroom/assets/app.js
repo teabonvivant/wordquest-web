@@ -1,8 +1,8 @@
-import {STORAGE_KEY,freshState,normalizeNumber,answered,correct,answerText,initialOrder,chooseQuestions,gradeTest,wrongQuestions,validateState,seenQuestions,lessonEvidence} from './engine.js?v=7c62d9a3e860';
-import {questionSpeech} from './voice-text.js?v=7c62d9a3e860';
-import {storage} from './bridge.js?v=7c62d9a3e860';
+import {STORAGE_KEY,freshState,normalizeNumber,answered,correct,answerText,initialOrder,chooseQuestions,gradeTest,wrongQuestions,validateState,seenQuestions,lessonEvidence} from './engine.js?v=fccadcf3cfb8';
+import {questionSpeech} from './voice-text.js?v=fccadcf3cfb8';
+import {storage} from './bridge.js?v=fccadcf3cfb8';
 const BASE=new URL('../',import.meta.url).pathname;
-import {classroomState,classroomAction,warmup,classroomTool,explainBack,teacherNotes} from './classroom.js?v=7c62d9a3e860';
+import {classroomState,classroomAction,warmup,classroomTool,explainBack,teacherNotes} from './classroom.js?v=fccadcf3cfb8';
 
 const $=s=>document.querySelector(s), esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const main=$('#main'), page=location.pathname.slice(BASE.length).split('/').filter(Boolean)[0]||'home', params=new URLSearchParams(location.search);
@@ -76,7 +76,7 @@ function renderLesson(){
  if(ph===0){
    body=coach(l.teacher,l.title,l.story)+cards([{label:t('lessonStart'),text:l.goal}])+warmup(l.classroom,classroomState(s),data.classroomCopy);
    if(l.prerequisites?.length)body+=`<div class="prerequisites"><span>${esc(t('prerequisiteLabel'))}</span>${l.prerequisites.map(id=>`<a href="${url('lesson',id)}">${esc(lessonById(id).title)}</a>`).join('')}</div>`;
-   bottom=`<button class="button secondary" data-action="lesson-next">開始看圖學習</button>`;
+   bottom=`<button class="button" data-action="lesson-next">開始看圖學習</button>`;
  }else if(ph<=3){
    const step=l.steps[ph-1],frames=step.frames||[],fi=Math.min(frames.length-1,s.demoFrames[ph]||0),pred=s.predictions[ph]||{};
    const atEnd=!frames.length||fi===frames.length-1,ready=atEnd&&(!step.check||pred.ok||pred.help);
@@ -262,4 +262,4 @@ document.addEventListener('submit',e=>{if(e.target.id!=='test-form')return;e.pre
 $('#audio-toggle').addEventListener('click',()=>{state.settings.readAloud=!state.settings.readAloud;save();updateAudioButton();if(state.settings.readAloud)speak(lastAudioText||data.copy.home.teacherWelcome,true);else{speechRequest++;recordedVoice.stop();window.speechSynthesis?.cancel();}});
 function updateAudioButton(){const b=$('#audio-toggle');b.setAttribute('aria-pressed',String(state.settings.readAloud));b.textContent=state.settings.readAloud?'朗讀已開啟':'開啟朗讀';}
 window.addEventListener('pagehide',()=>{speechRequest++;recordedVoice.stop();window.speechSynthesis?.cancel();});
-try{const response=await fetch(BASE+'assets/content.json?v=7c62d9a3e860',{cache:'no-cache'});if(!response.ok)throw new Error('內容尚未載入');data=await response.json();load();const group=['learn','unit','lesson'].includes(page)?'learn':['test','quiz','results'].includes(page)?'test':['progress','review'].includes(page)?'progress':'';document.querySelector(`[data-nav="${group}"]`)?.setAttribute('aria-current','page');updateAudioButton();render();document.querySelector('.site-footer div').insertAdjacentHTML('beforeend',`<a href="${BASE}sources/">`+esc(t('sourceLinkLabel'))+'</a>');if(state.settings.readAloud&&['lesson','quiz'].includes(page))setTimeout(()=>speak(lastAudioText),150);}catch(error){main.innerHTML=`<div class="empty-state"><h1>課堂暫時未能打開</h1><p>請檢查網絡，然後重新載入。</p><a class="button" href="${esc(location.pathname+location.search)}">重新載入</a></div>`;console.error(error);}
+try{const response=await fetch(BASE+'assets/content.json?v=fccadcf3cfb8',{cache:'no-cache'});if(!response.ok)throw new Error('內容尚未載入');data=await response.json();load();const group=['learn','unit','lesson'].includes(page)?'learn':['test','quiz','results'].includes(page)?'test':page==='review'?'review':page==='progress'?'progress':'';document.querySelector(`[data-nav="${group}"]`)?.setAttribute('aria-current','page');updateAudioButton();render();document.querySelector('.site-footer div').insertAdjacentHTML('beforeend',`<a href="${BASE}sources/">`+esc(t('sourceLinkLabel'))+'</a>');if(state.settings.readAloud&&['lesson','quiz'].includes(page))setTimeout(()=>speak(lastAudioText),150);}catch(error){main.innerHTML=`<div class="empty-state"><h1>課堂暫時未能打開</h1><p>請檢查網絡，然後重新載入。</p><a class="button" href="${esc(location.pathname+location.search)}">重新載入</a></div>`;console.error(error);}
