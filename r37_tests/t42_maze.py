@@ -577,11 +577,28 @@ def t_bots(p):
                 lines.append(f'{subj} {nm} d{dd}: {stars}'); ok(all(x >= 4 for x in stars), f'robot child {subj} {nm} d{dd} (5 games, levels 1-3): {stars}')
     print('   ' + ' | '.join(lines)); print(f'   {good}/{tot} games cleared with >= 4 stars (worst {worst})')
 
+# ------------------------------------------------------------------ R. R3.22 polish: letter fly-to-slot, countdown tick, no leftover state
+def t_polish(p):
+    print('R. polish: fly-to-slot, last-5-seconds tick')
+    for reduced in (False, True):
+        b, pg, errs = open_game(p, 'maze_game.js', 'WQ37Maze', 'english', 0, 3, 2, size=(390, 844), touch=True, reduced=reduced, seed=7)
+        pg.evaluate(JS_HELPERS); pg.evaluate("()=>C('manual',true)"); pg.wait_for_timeout(150)
+        if pg.query_selector('.gx-how [data-r=ok]'): pg.click('.gx-how [data-r=ok]')
+        pg.wait_for_selector('[data-r=go]'); pg.click('[data-r=go]'); pg.wait_for_timeout(100); pg.evaluate("()=>{C('noGhosts',true);toPlay();C('ready')}")
+        pg.wait_for_timeout(300)
+        pg.evaluate("()=>{C('eatNext')}"); d = D(pg)
+        eq(d['rd']['i'], 1, 'correct letter still advances')
+        eq(d['flyers'], 0 if reduced else 1, f'letter flies into the slot (reduced={reduced})')
+        pg.wait_for_timeout(700); eq(D(pg)['flyers'], 0, 'flyer lands and is removed')
+        pg.evaluate("()=>C('left',4.6)"); pg.evaluate("()=>ST(2,0.05)"); ok(D(pg)['tickT'] in (4, 5), 'tick counter running inside the last 5 s')
+        pg.evaluate("()=>C('left',30)"); pg.evaluate("()=>ST(1,0.05)"); eq(D(pg)['tickT'], 99, 'tick counter off with time to spare')
+        eq([e for e in errs], [], 'console clean'); b.close()
+
 def main():
     t0 = time.time()
     with sync_playwright() as p:
         only = [a.split('=')[1] for a in sys.argv if a.startswith('--only=')]
-        for fn in [f for f in (t_maze, t_english, t_stats_and_stars, t_difficulty, t_ghosts, t_ghost_hit_and_orb, t_timeout_card, t_world, t_math, t_boss, t_input, t_flow, t_layout, t_destroy, t_review, t_novice, t_cornering, t_bots, t_perf) if not only or f.__name__[2:] in only[0].split(',')]:
+        for fn in [f for f in (t_maze, t_english, t_stats_and_stars, t_difficulty, t_ghosts, t_ghost_hit_and_orb, t_timeout_card, t_world, t_math, t_boss, t_input, t_flow, t_layout, t_destroy, t_review, t_novice, t_cornering, t_bots, t_polish, t_perf) if not only or f.__name__[2:] in only[0].split(',')]:
             try: fn(p)
             except Exception as e:
                 import traceback; traceback.print_exc(); FAILS.append(f'{fn.__name__} crashed: {e!r}')
