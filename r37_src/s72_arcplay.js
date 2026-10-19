@@ -562,7 +562,7 @@
  }
  /* ================================================================= drift-path: turn at the corner so the car passes the lamp that carries the right word */
  {const id='drift-path';
-  withPlay(id,{comboStar:6,first:8});
+  withPlay(id,{comboStar:6,first:8,ownCombo:true});
   const H=hook(id),LF=60,OFF=[20,0,-20];   /* early / on time / late turn = the lamp 20 px inside / on / 20 px past the corner line */
   const spd=g=>[83,108,132][g.d];
   const tr=(g,p)=>({x:310+((p.x-g.camera.x)-(p.y-g.camera.y))*.7,y:365+((p.x-g.camera.x)+(p.y-g.camera.y))*.37});

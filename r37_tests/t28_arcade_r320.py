@@ -665,6 +665,7 @@ def layout_pass(p, ids, sizes):
                 # ---- result card (a combo is set first so "連擊 ×N" is meaningful)
                 force(pg, 'god', False)
                 force(pg, 'combo', 4)
+                if os.environ.get('T28_DBG'): print('   DBG', J(pg, 'JSON.stringify([pgPlaying,WQArcPlus._debug().maxCombo,WQArcPlus._debug().combo,(WQArc._combo()||{}).max,pgGame.done])'), flush=True)
                 J(pg, "pgGame.end('測試結束','測試')")
                 try:
                     pg.wait_for_selector('#pg-overlay .a28-overlaycard', timeout=15000)

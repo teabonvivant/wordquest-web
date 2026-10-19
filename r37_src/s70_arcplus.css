@@ -274,7 +274,7 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 
 /* ===== R3.20 stage 2: play-action questions (the answer is a gameplay action) and the per-run stars ===== */
 .ap-legs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.ap-leg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid var(--c,#fff);background:rgba(255,255,255,.08);color:#F4F6FF;font:900 16px/1.1 inherit;font-family:inherit;pointer-events:none;user-select:none}
+.ap-leg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 8px;border-radius:4px;border:0;border-left:6px solid var(--c,#fff);background:transparent;color:#F4F6FF;font:900 16px/1.1 inherit;font-family:inherit;pointer-events:none;user-select:none}
 .ap-leg i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c,#fff)}
 .ap-missq .ap-qp{color:#7EE3A1}
 .ap-stars{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 4px;font-size:16px;font-weight:900;color:#E8ECFF}

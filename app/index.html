@@ -3362,7 +3362,7 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 
 /* ===== R3.20 stage 2: play-action questions (the answer is a gameplay action) and the per-run stars ===== */
 .ap-legs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.ap-leg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid var(--c,#fff);background:rgba(255,255,255,.08);color:#F4F6FF;font:900 16px/1.1 inherit;font-family:inherit;pointer-events:none;user-select:none}
+.ap-leg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 8px;border-radius:4px;border:0;border-left:6px solid var(--c,#fff);background:transparent;color:#F4F6FF;font:900 16px/1.1 inherit;font-family:inherit;pointer-events:none;user-select:none}
 .ap-leg i{flex:0 0 12px;height:12px;border-radius:50%;background:var(--c,#fff)}
 .ap-missq .ap-qp{color:#7EE3A1}
 .ap-stars{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 4px;font-size:16px;font-weight:900;color:#E8ECFF}
@@ -20381,7 +20381,8 @@ const WQArcPlus=(()=>{
    return;}
   if(PL.layout){try{PL.layout(g,s,q);}catch(e){console.error('WQArcPlus play layout',e);}}   /* positions of the targets (camera / drift) before the visibility and hit tests */
   const live_=q.cr.filter(k=>!k.gone);
-  if(q.visT==null&&live_.length&&live_.every(k=>k.vis!==false&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530)){q.visT=g.t||0;if(q.eta!=null||PL.arm)q.reachT=q.visT+Math.max(q.eta||0,PL.arm||0);}
+  for(const k of live_)k.cov=coveredK(k);   /* R3.20 r2: a target under the dock / HUD does not count as visible (landscape: the dock overlays the canvas) */
+  if(q.visT==null&&live_.length&&live_.every(k=>k.vis!==false&&!k.cov&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530)){q.visT=g.t||0;if(q.eta!=null||PL.arm)q.reachT=q.visT+Math.max(q.eta||0,PL.arm||0);}
   /* reading time: a game whose targets could be touched at once keeps them "inflating" (not hittable) for PL.arm seconds after they are all visible */
   const armed=!PL.arm||(q.visT!=null&&(g.t||0)-q.visT>=PL.arm);q.armed=armed;
   if(!armed)return gone_(g,s,q,PL);
@@ -20394,6 +20395,11 @@ const WQArcPlus=(()=>{
  function gone_(g,s,q,PL){
   let gone=false;try{gone=!!PL.gone(g,s,q);}catch(_){}
   if(gone||q.t>=q.ttl)playMiss(g,s,q);
+ }
+ function coveredK(k){   /* a target whose centre or either side is not on the canvas itself (dock, HUD, touch keys, tool column on top) is not visible */
+  try{const cv=document.querySelector('#pg-canvas');if(!cv)return false;const r=cv.getBoundingClientRect(),sx=r.width/800,sy=r.height/560,hw=(k.w||0)/2*.8;
+   for(const dx of [0,-hw,hw]){const X=r.left+(k.x+dx)*sx,Y=r.top+k.y*sy;if(X<0||Y<0||X>=innerWidth||Y>=innerHeight)return true;if(document.elementFromPoint(X,Y)!==cv)return true;}}catch(_){}
+  return false;
  }
  function playMiss(g,s,q){
   for(const k of q.cr)k.gone=true;
@@ -20415,7 +20421,7 @@ const WQArcPlus=(()=>{
    q.cr=q.opts.map((o,i)=>({x:-999,y:-999,w:0,h:58,font:36,ph:s.rng()*6,o,i,col:['#FF8FC7','#7CC8FF','#7EE3A1'][i],gone:false,vis:false}));
    const f=tileSize(q.cr);for(const k of q.cr)k.w=f;
    q.pos=false;s.q=q;s.learn.asked++;s.miss=null;
-   floatText(s,'看下方提示！',400,120,'#FFE08A',30);sfx(s,'event');
+   sfx(s,'event');   /* no canvas float here: it would sit on the middle target; the dock carries the prompt */
    if(q.kind==='listen'&&q.say)setTimeout(()=>{try{r37Speak(q.say);}catch(_){}},180);
    trySpawn(g,s,q);dockDirty=true;return true;
   }
@@ -20917,7 +20923,7 @@ const WQArcPlus=(()=>{
    const g=live();
    if(g&&pgPlaying){const s=S_.get(g);
     if(s){hideCard(s,true);s.freeze=0;s.q=null;
-     try{const cb=typeof WQArc!=='undefined'&&WQArc._combo(g),m=Math.max(s.maxCombo,cb?cb.max:0);s.maxCombo=m;if(cb)cb.max=m;}catch(_){}   /* one combo number: the card, the s35 record and _debug agree */
+     try{const cb=typeof WQArc!=='undefined'&&WQArc._combo(g),m=s.cfg.ownCombo?s.maxCombo:Math.max(s.maxCombo,cb?cb.max:0);s.maxCombo=m;if(cb)cb.max=m;}catch(_){}   /* one combo number: the card, the s35 record and _debug agree; ownCombo (drift-path): the s35 counter grows on an idle car, so the card uses s70's own combo */
      const win=(()=>{try{return a28Winning(g);}catch(_){return false;}})();
      s.final={win,score:Math.floor(g.score||0),maxCombo:s.maxCombo,phase:s.phaseMax,learn:s.learn.log.slice(),ok:s.learn.ok,bad:s.learn.bad};
      if(s.cfg.play)s.final.stars=starsOf(s,s.final);
@@ -20939,7 +20945,7 @@ const WQArcPlus=(()=>{
  function resultHtml(f){
   /* wrong ones first (they are the ones to remember), at most 2 lines, the rest as "＋N 個" - never hidden by clipping */
   const sorted=f.learn.slice().sort((a,b)=>(a.ok?1:0)-(b.ok?1:0)),shown=sorted.slice(0,2),more=sorted.length-shown.length;
-  const items=f.learn.length?shown.map(x=>x.miss?`<li class="miss"><b>–</b> ${esc2(x.fix)}<small>（錯過了）</small></li>`:x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):'<li class="none">本局未遇到字晶</li>';
+  const items=f.learn.length?shown.map(x=>x.miss?`<li class="miss"><b>–</b> ${esc2(x.fix)}<small>（錯過了）</small></li>`:x.ok?`<li class="ok"><b>✓</b> ${esc2(x.fix)}</li>`:`<li class="bad"><b>✗</b> ${esc2(x.fix)}<small>（你選了 ${esc2(x.picked)}）</small></li>`).join('')+(more>0?`<li class="more">＋${more} 個</li>`:''):`<li class="none">${f.stars?'本局沒有答到生字':'本局未遇到字晶'}</li>`;
   const st=f.stars;
   if(st){
    const cell=(on,label,val,tip)=>`<span class="star${on?' on':''}" title="${esc2(tip)}" aria-label="${esc2(label+' '+val+'，'+tip+'，'+(on?'已得星':'未得星'))}"><em aria-hidden="true">★</em><small>${label}</small> <b>${val}</b></span>`;
@@ -21028,7 +21034,7 @@ const WQArcPlus=(()=>{
  function playDbg(g,s){
   const q=s.q;if(!q||!q.play)return {active:false,pending:false,verb:'',targets:[]};
   return {active:true,pending:!!q.pending,armed:q.armed!==false,verb:q.verb,visibleT:q.visT,reachT:q.reachT,eta:q.eta,t:+q.t.toFixed(2),
-   targets:q.cr.map(k=>({i:k.i,label:k.o.label,ok:k.o.ok,x:+k.x.toFixed(1),y:+k.y.toFixed(1),w:k.w,h:k.h,font:k.font,visible:k.vis!==false&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530,gone:k.gone,col:k.col}))};
+   targets:q.cr.map(k=>({i:k.i,label:k.o.label,ok:k.o.ok,x:+k.x.toFixed(1),y:+k.y.toFixed(1),w:k.w,h:k.h,font:k.font,visible:k.vis!==false&&!coveredK(k)&&k.x>=0&&k.x<=800&&k.y>=60&&k.y<=530,gone:k.gone,col:k.col}))};
  }
  /* what the DOM HUD shows right now, read back from the DOM (tests compare it with the engine) */
  function hudShown(){
@@ -21669,7 +21675,7 @@ Object.assign(WQArcPlus.cfg,{
  }
  /* ================================================================= drift-path: turn at the corner so the car passes the lamp that carries the right word */
  {const id='drift-path';
-  withPlay(id,{comboStar:6,first:8});
+  withPlay(id,{comboStar:6,first:8,ownCombo:true});
   const H=hook(id),LF=60,OFF=[20,0,-20];   /* early / on time / late turn = the lamp 20 px inside / on / 20 px past the corner line */
   const spd=g=>[83,108,132][g.d];
   const tr=(g,p)=>({x:310+((p.x-g.camera.x)-(p.y-g.camera.y))*.7,y:365+((p.x-g.camera.x)+(p.y-g.camera.y))*.37});

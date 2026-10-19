@@ -1,0 +1,147 @@
+== sky-rescue
+    [01:00:03] sky-rescue: targets
+    [01:00:08] sky-rescue: refuse_paths
+    [01:00:08] sky-rescue: right_answer
+    [01:00:10] sky-rescue: wrong_answer
+    [01:00:17] sky-rescue: mech
+    [01:00:17] sky-rescue: phases
+    [01:00:17] sky-rescue: event
+    [01:00:22] sky-rescue: fair_miss_nolearn
+    [01:00:30] sky-rescue: stars
+  sky-rescue: 33/33 (38s)
+== forest-dash
+    [01:01:08] forest-dash: targets
+    [01:01:09] forest-dash: refuse_paths
+    [01:01:09] forest-dash: right_answer
+    [01:01:14] forest-dash: wrong_answer
+    [01:01:20] forest-dash: mech
+    [01:01:23] forest-dash: phases
+    [01:01:23] forest-dash: event
+    [01:01:28] forest-dash: fair_miss_nolearn
+    [01:01:31] forest-dash: stars
+  forest-dash: 33/33 (33s)
+== moon-bells
+    [01:02:10] moon-bells: targets
+    [01:02:11] moon-bells: refuse_paths
+    [01:02:11] moon-bells: right_answer
+    [01:02:12] moon-bells: wrong_answer
+    [01:02:15] moon-bells: mech
+    [01:02:16] moon-bells: phases
+    [01:02:16] moon-bells: event
+    [01:02:20] moon-bells: fair_miss_nolearn
+    [01:02:24] moon-bells: stars
+  moon-bells: 33/33 (24s)
+== drift-path
+    [01:03:04] drift-path: targets
+    [01:03:04] drift-path: refuse_paths
+    [01:03:05] drift-path: right_answer
+    [01:03:09] drift-path: wrong_answer
+    [01:03:15] drift-path: mech
+    [01:03:16] drift-path: phases
+    [01:03:16] drift-path: event
+    [01:03:20] drift-path: fair_miss_nolearn
+    [01:03:24] drift-path: stars
+  drift-path: 33/33 (31s)
+== valley-race
+    [01:03:55] valley-race: targets
+    [01:03:55] valley-race: refuse_paths
+    [01:03:55] valley-race: right_answer
+    [01:03:57] valley-race: wrong_answer
+    [01:04:00] valley-race: mech
+    [01:04:00] valley-race: phases
+    [01:04:01] valley-race: event
+    [01:04:05] valley-race: fair_miss_nolearn
+    [01:04:09] valley-race: stars
+  valley-race: 33/33 (25s)
+== ruins-courier
+    [01:04:39] ruins-courier: targets
+    [01:04:39] ruins-courier: refuse_paths
+    [01:04:39] ruins-courier: right_answer
+    [01:04:41] ruins-courier: wrong_answer
+    [01:04:44] ruins-courier: mech
+    [01:04:44] ruins-courier: phases
+    [01:04:44] ruins-courier: event
+    [01:04:49] ruins-courier: fair_miss_nolearn
+    [01:04:52] ruins-courier: stars
+  ruins-courier: 33/33 (23s)
+== cloud-island
+    [01:05:22] cloud-island: targets
+    [01:05:25] cloud-island: refuse_paths
+    [01:05:25] cloud-island: right_answer
+    [01:05:26] cloud-island: wrong_answer
+    [01:05:33] cloud-island: mech
+    [01:05:33] cloud-island: phases
+    [01:05:34] cloud-island: event
+    [01:05:38] cloud-island: fair_miss_nolearn
+    [01:05:45] cloud-island: stars
+  cloud-island: 34/34 (33s)
+== star-patrol
+    [01:06:19] star-patrol: targets
+    [01:06:22] star-patrol: refuse_paths
+    [01:06:22] star-patrol: right_answer
+    [01:06:24] star-patrol: wrong_answer
+    [01:06:30] star-patrol: mech
+    [01:06:30] star-patrol: phases
+    [01:06:31] star-patrol: event
+    [01:06:35] star-patrol: fair_miss_nolearn
+    [01:06:42] star-patrol: stars
+  star-patrol: 33/33 (33s)
+== lighthouse-well
+    [01:07:17] lighthouse-well: targets
+    [01:07:19] lighthouse-well: refuse_paths
+    [01:07:20] lighthouse-well: right_answer
+    [01:07:21] lighthouse-well: wrong_answer
+    [01:07:28] lighthouse-well: mech
+    [01:07:28] lighthouse-well: phases
+    [01:07:28] lighthouse-well: event
+    [01:07:33] lighthouse-well: fair_miss_nolearn
+    [01:07:39] lighthouse-well: stars
+  lighthouse-well: 33/33 (33s)
+== bounce-basket
+    [01:08:17] bounce-basket: targets
+    [01:08:20] bounce-basket: refuse_paths
+    [01:08:20] bounce-basket: right_answer
+    [01:08:41] bounce-basket: wrong_answer
+    [01:08:56] bounce-basket: mech
+    [01:08:56] bounce-basket: phases
+    [01:08:57] bounce-basket: f2_f3
+    [01:08:58] bounce-basket: event
+    [01:09:02] bounce-basket: fair_miss_nolearn
+    [01:09:09] bounce-basket: stars
+  bounce-basket: 36/36 (62s)
+== forest-pong
+    [01:09:44] forest-pong: targets
+    [01:09:46] forest-pong: refuse_paths
+    [01:09:47] forest-pong: right_answer
+    [01:09:49] forest-pong: wrong_answer
+    [01:09:55] forest-pong: mech
+    [01:09:56] forest-pong: phases
+    [01:09:56] forest-pong: event
+    [01:10:00] forest-pong: fair_miss_nolearn
+    [01:10:06] forest-pong: stars
+  forest-pong: 33/33 (33s)
+== meadow-cricket
+    [01:10:41] meadow-cricket: targets
+    [01:10:44] meadow-cricket: refuse_paths
+    [01:10:44] meadow-cricket: right_answer
+    [01:10:51] meadow-cricket: wrong_answer
+    [01:10:59] meadow-cricket: mech
+    [01:11:02] meadow-cricket: phases
+    [01:11:02] meadow-cricket: event
+    [01:11:06] meadow-cricket: fair_miss_nolearn
+    [01:11:13] meadow-cricket: stars
+  meadow-cricket: 34/34 (42s)
+== harbor-volley
+    [01:11:47] harbor-volley: targets
+    [01:11:50] harbor-volley: refuse_paths
+    [01:11:50] harbor-volley: right_answer
+    [01:11:52] harbor-volley: wrong_answer
+    [01:11:58] harbor-volley: mech
+    [01:11:58] harbor-volley: phases
+    [01:11:59] harbor-volley: event
+    [01:12:03] harbor-volley: fair_miss_nolearn
+    [01:12:10] harbor-volley: stars
+  harbor-volley: 33/33 (33s)
+  FAIL harbor-volley V3_floats_off_targets_fresh_L [{'x': 520.9773333333211, 'y': 180.2500739245916, 'size': 26, 'txt': '🕊️ 海鷗助攻！'}, {'x': 520.9773333333211, 'y': 180.2500739245916, 'size': 26, 'txt': '🕊️ 海鷗助攻！'}]
+t31: 546/547 checks passed; games 13
+  FAIL harbor-volley V3_floats_off_targets_fresh_L [{'x': 520.9773333333211, 'y': 180.2500739245916, 'size': 26, 'txt': '🕊️ 海鷗助攻！'}, {'x': 520.9773333333211, 'y': 180.2500739245916, 'size': 26, 'txt': '🕊️ 海鷗助攻！'}]

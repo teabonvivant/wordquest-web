@@ -126,6 +126,10 @@ def answer_with(pg, gid, want_ok, d, pre, tries=5, accept=None):
     return d, L, d3, False
 
 
+SKY_AWAY = """(()=>{const g=pgGame;window.__skyPin=true;if(!window.__skyIv){window.__skyIv=setInterval(()=>{try{const g=pgGame;if(g.rescued>9)g.rescued=9;if(window.__skyPin){g.p.x=40;g.p.y=50;}}catch(_){}},25);}g.p.x=40;g.p.y=50;return 1})()"""   # (sky-rescue: the idle plane is parked away from the word gems while a question is asked / missed - it would pick one up by chance; and the stubbed ending lets a run rescue more than the saved-game check allows)
+SKY_FREE = "(()=>{window.__skyPin=false;return 1})()"
+
+
 def open_q(pg, cap=14, tries=3):
     """start a question now and wait until its targets are in the world and armed (hittable); a game that had no room for the targets (pending too long) gets a new try"""
     d = None
@@ -139,6 +143,8 @@ def open_q(pg, cap=14, tries=3):
         end = time.time() + cap
         while time.time() < end:
             ensure_play(pg)
+            if J(pg, "pgMeta.id==='sky-rescue'"):
+                J(pg, SKY_AWAY)
             if J(pg, "pgMeta.id==='lighthouse-well'"):   # stand the idle player on a platform ABOVE the word row (it would land on a word platform by chance, or respawn onto one)
                 J(pg, LH_PIN)
             pg.wait_for_timeout(200)
@@ -172,6 +178,7 @@ def drv_dash(pg, i, d):
 
 
 def drv_sky(pg, i, d):
+    J(pg, SKY_FREE)
     J(pg, f"(()=>{{const q=WQArcPlus.stateOf(pgGame).q,k=q.cr[{i}],p=pgGame.p;p.x=Math.max(80,k.wx-170);p.y=k.wy;return 1}})()")
     pg.keyboard.down('ArrowRight')
     try:
@@ -610,6 +617,8 @@ def run_game(p, gid):
         for _ in range(4):
             d = open_q(pg)
             lv = dbg(pg)['cfg']['lives']
+            if gid == 'sky-rescue':
+                J(pg, SKY_AWAY)
             if J(pg, "(()=>{const q=WQArcPlus.stateOf(pgGame).q;if(!q)return 0;q.t=1e3;return 1})()"):
                 break
         wait_until(pg, "!!WQArcPlus._debug().miss", 6, 80)
@@ -689,6 +698,38 @@ def phone_spot(p, gid):
         b.close()
 
 
+def size_spot(p, gid, nm, vw, vh):
+    """R3.20 round 2: a fresh page at a small size (L landscape phone, S small, P portrait phone): every target on the canvas (not under the dock / HUD / keys), floats off the targets, 0.3 s after a question appears the three words are readable"""
+    b, ctx, pg, errs = new_session(p, vw, vh, True, learn=True)
+    keepalive(pg)
+    try:
+        start_game(pg, gid)
+        force(pg, 'god'); pg.wait_for_timeout(1200)
+        d = open_q(pg)
+        ts = d['play']['targets'] if d and d.get('play') else []
+        cov = pg.evaluate("""(ts)=>{const cv=document.querySelector('#pg-canvas'),r=cv.getBoundingClientRect();return ts.map(t=>{const x=r.left+t.x/800*r.width,y=r.top+t.y/560*r.height;const e=document.elementFromPoint(x,y);return e===cv?true:(e?e.tagName+'.'+e.className:'none')})}""", [{'x': t['x'], 'y': t['y']} for t in ts])
+        ok(gid, f'V1_4_targets_on_canvas_{nm}', len(ts) == 3 and all(c is True for c in cov) and all(t['visible'] for t in ts), f'{vw}x{vh} {cov} {[(t["x"], t["y"]) for t in ts]}')
+        fl = J(pg, "WQArcPlus.stateOf(pgGame).floats.map(f=>({x:f.x,y:f.y,size:f.size,txt:f.txt}))") or []
+        hitf = [f for f in fl for t in ts if abs(f['x'] - t['x']) < t['w'] / 2 + len(f['txt']) * f['size'] / 2 and abs(f['y'] - t['y']) < t['h'] / 2 + f['size'] / 2]
+        ok(gid, f'V3_floats_off_targets_{nm}', not hitf, str(hitf))
+        # a fresh question: the "look below" float must not sit on the targets in its first 0.3 s
+        J(pg, "(()=>{const s=WQArcPlus.stateOf(pgGame);if(s.q){for(const c of s.q.cr)c.gone=true;s.q=null;}return 1})()")
+        for _try in range(2):   # (an engine event float - e.g. the gull assist - can pass over a target by chance: look once more)
+            J(pg, "(()=>{const s=WQArcPlus.stateOf(pgGame);if(s.q){for(const c of s.q.cr)c.gone=true;s.q=null;}return 1})()")
+            J(pg, "WQArcPlus.stateOf(pgGame).nextQ=0"); force(pg, 'learn'); pg.wait_for_timeout(300)
+            fl = J(pg, "WQArcPlus.stateOf(pgGame).floats.filter(f=>f.life>0).map(f=>({x:f.x,y:f.y,size:f.size,txt:f.txt}))") or []
+            ts2 = dbg(pg)['play']['targets']
+            hitf = [f for f in fl for t in ts2 if t['x'] > -900 and abs(f['x'] - t['x']) < t['w'] / 2 + len(f['txt']) * f['size'] / 2 and abs(f['y'] - t['y']) < t['h'] / 2 + f['size'] / 2]
+            if not hitf:
+                break
+        ok(gid, f'V3_floats_off_targets_fresh_{nm}', not hitf, str(hitf))
+        ok(gid, f'V1_size_no_errors_{nm}', not errs, str(errs[:2]))
+    except Exception as e:
+        ok(gid, f'V1_size_exception_{nm}', False, repr(e)[:200])
+    finally:
+        b.close()
+
+
 def main():
     with sync_playwright() as p:
         for gid in IDS:
@@ -696,6 +737,8 @@ def main():
             run_game(p, gid)
             if PHONE and gid in ('moon-bells', 'forest-dash', 'harbor-volley'):
                 phone_spot(p, gid)
+            if PHONE:
+                size_spot(p, gid, 'L', 844, 390); size_spot(p, gid, 'S', 360, 640)
     total = sum(len(v) for v in RESULTS.values())
     passed = sum(1 for v in RESULTS.values() for r in v.values() if r == 'pass')
     (OUT / 't31_results.json').write_text(json.dumps({'ids': IDS, 'results': RESULTS, 'fails': FAILS, 'total': total, 'passed': passed}, ensure_ascii=False, indent=1))

@@ -48,7 +48,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "forest-dash": {
    "play_game": "pass",
@@ -86,7 +94,15 @@
    "T9_no_engine_error": "pass",
    "P_phone_targets_visible_on_canvas": "pass",
    "P_phone_legend": "pass",
-   "P_phone_no_errors": "pass"
+   "P_phone_no_errors": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "moon-bells": {
    "play_game": "pass",
@@ -124,7 +140,15 @@
    "T9_no_engine_error": "pass",
    "P_phone_targets_visible_on_canvas": "pass",
    "P_phone_legend": "pass",
-   "P_phone_no_errors": "pass"
+   "P_phone_no_errors": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "drift-path": {
    "play_game": "pass",
@@ -159,7 +183,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "valley-race": {
    "play_game": "pass",
@@ -194,7 +226,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "ruins-courier": {
    "play_game": "pass",
@@ -229,7 +269,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "cloud-island": {
    "play_game": "pass",
@@ -265,7 +313,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "star-patrol": {
    "play_game": "pass",
@@ -300,7 +356,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "lighthouse-well": {
    "play_game": "pass",
@@ -335,7 +399,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "bounce-basket": {
    "play_game": "pass",
@@ -373,7 +445,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "forest-pong": {
    "play_game": "pass",
@@ -408,7 +488,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "meadow-cricket": {
    "play_game": "pass",
@@ -444,7 +532,15 @@
    "T9_star_rules": "pass",
    "V4_2_combo_agree": "pass",
    "T9_no_errors": "pass",
-   "T9_no_engine_error": "pass"
+   "T9_no_engine_error": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   },
   "harbor-volley": {
    "play_game": "pass",
@@ -482,10 +578,18 @@
    "T9_no_engine_error": "pass",
    "P_phone_targets_visible_on_canvas": "pass",
    "P_phone_legend": "pass",
-   "P_phone_no_errors": "pass"
+   "P_phone_no_errors": "pass",
+   "V1_4_targets_on_canvas_L": "pass",
+   "V3_floats_off_targets_L": "pass",
+   "V3_floats_off_targets_fresh_L": "pass",
+   "V1_size_no_errors_L": "pass",
+   "V1_4_targets_on_canvas_S": "pass",
+   "V3_floats_off_targets_S": "pass",
+   "V3_floats_off_targets_fresh_S": "pass",
+   "V1_size_no_errors_S": "pass"
   }
  },
  "fails": [],
- "total": 443,
- "passed": 443
+ "total": 547,
+ "passed": 547
 }
