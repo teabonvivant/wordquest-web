@@ -1562,10 +1562,53 @@ def t_perf(p):
         done(errs, b)
 
 
+def t_r322_polish(p):
+    """R3.22: combo chip, milestone sounds, avatar states, x2 badge placement, layered sounds, shake cap"""
+    print('[r322 polish]')
+    for subj, w, s_ in (('english', 0, 3), ('math', 2, 4)):
+        b, pg, errs = fresh(p, subj, w, s_, 3)
+        C(pg, 'noevent')
+        ids = [h['id'] for h in D(pg)['hand']]
+        # three right answers in a row: chip must show and milestone sounds fire
+        for k in range(3):
+            C(pg, 'player', {'energy': 3})
+            if not D(pg)['hand']:
+                break
+            C(pg, 'select', 0)
+            answer(pg)
+            pg.wait_for_timeout(120)
+        d = D(pg)
+        check('%s: combo chip shows after 3 in a row' % subj, d['combo'] >= 3 and ('連擊' in d['comboChip'] and str(d['combo']) in d['comboChip']), d['comboChip'])
+        pg.wait_for_timeout(700)
+        d = D(pg)
+        check('%s: layered sounds (shoot/pop launch + streak milestone)' % subj, 'streak' in d['sfx'] and ('shoot' in d['sfx'] or 'pop' in d['sfx']), d['sfx'][-12:])
+        # wrong answer resets chip
+        if D(pg)['hand']:
+            C(pg, 'player', {'energy': 3}); C(pg, 'select', 0); answer(pg, wrong=True)
+            d = D(pg)
+            check('%s: wrong answer clears combo chip' % subj, d['combo'] == 0 and d['comboChip'] == '', d['comboChip'])
+            pg.evaluate("()=>{const b=document.querySelector('.gx-learn [data-r=ok]');if(b){b.disabled=false;const pn=performance.now;performance.now=()=>pn.call(performance)+5000;b.click();performance.now=pn;}}")
+        # avatar states
+        C(pg, 'player', {'shield': 5, 'hp': 10, 'maxHp': 52}); d = D(pg)
+        check('%s: avatar shows shield ring and low-hp warning' % subj, 'shd' in d['avClass'] and 'low' in d['avClass'], d['avClass'])
+        C(pg, 'player', {'shield': 0, 'hp': 52}); d = D(pg)
+        check('%s: avatar states clear' % subj, 'shd' not in d['avClass'] and 'low' not in d['avClass'], d['avClass'])
+        # x2 hit badge must sit on the top-right corner, not over the art
+        C(pg, 'mon', {'weak': {'kind': 'cons' if subj == 'english' else 'even'}})
+        ov = pg.evaluate("""()=>{const out=[];document.querySelectorAll('.cd-card').forEach(c=>{const h=c.querySelector('.hit');if(!h||h.hidden)return;const hr=h.getBoundingClientRect(),a=c.querySelector('.in').getBoundingClientRect();const x=Math.max(0,Math.min(hr.right,a.right)-Math.max(hr.left,a.left)),y=Math.max(0,Math.min(hr.bottom,a.bottom)-Math.max(hr.top,a.top));out.push(x*y/(hr.width*hr.height||1));});return out;}""")
+        check('%s: x2 badge barely overlaps card art (%s)' % (subj, ['%.2f' % v for v in ov]), all(v < 0.35 for v in ov))
+        done(errs, b)
+    # shake cap and reduced motion
+    b, pg, errs = fresh(p, 'english', 0, 3, 3)
+    m = pg.evaluate("()=>{const f=WQ37GX.fx({reduced:false});f.shake(30,.3);let mx=0;const c={save(){},translate(x,y){mx=Math.max(mx,Math.abs(x),Math.abs(y));}};f.begin(c);const r=WQ37GX.fx({reduced:true});r.shake(30,.3);return [mx, r.begin(c)];}")
+    check('screen shake capped at 8 px and off under reduced-motion', m[0] <= 8 and m[1] is False, m)
+    done(errs, b)
+
+
 PERF = {}
 KEYS = {}
 TESTS = [t_intro, t_desktop_hints, t_weakness_english, t_weakness_math, t_intent, t_energy, t_wrong_and_requeue, t_evolve, t_stars_first_try, t_cannot_win_without_answering, t_boss,
-         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_finisher_spacing, t_result_sticky, t_regen_avoid, t_noart, t_math_confirm, t_form_rule, t_long_math, t_fullwidth_ime, t_restart_regen, t_requeue_after_ok, t_layout, t_states, t_perf]
+         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_finisher_spacing, t_result_sticky, t_regen_avoid, t_noart, t_math_confirm, t_form_rule, t_long_math, t_fullwidth_ime, t_restart_regen, t_requeue_after_ok, t_layout, t_states, t_r322_polish, t_perf]
 
 
 def main():
