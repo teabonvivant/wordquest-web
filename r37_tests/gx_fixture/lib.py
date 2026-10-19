@@ -27,7 +27,7 @@ window.STARTGAME = function(name, subject, w, s, diff, extra){
   window.OPTS=Object.assign({subject,items,review:MKREVIEW(subject,w,s,diff),difficulty:diff,mode:'level',sound:true,assetBase:'assets/r321/',
     level:{w,s,boss:s===9,title:'測試關',icon:'🌱',hue:205,grade},character:{id:'panda',icon:'🐼',img:'',name:'熊貓',perk:'heart'},
     syllables:e=>{const m=UNITS_SYL[e];return m||e;},
-    regen:()=>{window.REGEN=(window.REGEN||0)+1;return subject==='math'?{items:MKITEMS(subject,w,s,diff,8,12345+window.REGEN*7919),review:MKREVIEW(subject,w,s,diff)}:null;},onFinish:r=>{window.RESULT=r;return r.passed?1:0;},onNext:()=>{window.NEXT=1;},onExit:()=>{window.EXIT=1;}},extra||{});
+    regen:(a)=>{window.REGEN_LAST=a;window.REGEN=(window.REGEN||0)+1;return subject==='math'?{items:MKITEMS(subject,w,s,diff,8,12345+window.REGEN*7919),review:MKREVIEW(subject,w,s,diff)}:null;},onFinish:r=>{window.RESULT=r;return r.passed?1:0;},onNext:()=>{window.NEXT=1;},onExit:()=>{window.EXIT=1;}},extra||{});
   window.G=globalThis[name].start(document.getElementById('box'),window.OPTS);return window.G;
 };
 """

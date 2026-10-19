@@ -27,7 +27,7 @@ null;
 """
 
 def fresh(p, subject='english', w=0, s=0, diff=2, size=(390, 844), touch=True, ghosts_off=True, extra=None, cpu=None, manual=True):
-    b, pg, errs = open_game(p, 'maze_game.js', 'WQ37Maze', subject, w, s, diff, size=size, touch=touch, cpu=cpu, seed=7, **(extra or {}))
+    b, pg, errs = open_game(p, 'maze_game.js', 'WQ37Maze', subject, w, s, diff, size=size, touch=touch, cpu=cpu, **dict({'seed': 7}, **(extra or {})))
     pg.evaluate(JS_HELPERS)
     if manual: pg.evaluate("()=>C('manual',true)")
     pg.wait_for_timeout(150)
@@ -126,7 +126,7 @@ def t_difficulty(p):
     print('  ', json.dumps(rows))
     eq([r['hearts'] for r in rows], [5, 5, 4, 3, 3], 'hearts per difficulty')
     sp = [r['speed'] for r in rows]; ok(all(sp[i] < sp[i + 1] for i in range(4)), f'ghost speed rises with difficulty {sp}')
-    ok(all(.55 - 1e-6 <= sp[i] / 4.4 <= .75 + 1e-6 for i in range(3)), f'difficulty 1-3 ghosts run at 55-75% of the player {[round(x / 4.4, 2) for x in sp[:3]]}')
+    ok(all(.45 - 1e-6 <= sp[i] / 4.4 <= .60 + 1e-6 for i in range(3)), f'difficulty 1-3 ghosts run at 45-60% of the player {[round(x / 4.4, 2) for x in sp[:3]]}')
     ghosts = [r['ghosts'] for r in rows]; ok(ghosts[0] <= ghosts[2] <= ghosts[4] and ghosts[4] > ghosts[0] and all(2 <= g <= 4 for g in ghosts), f'ghost count rises {ghosts}')
     lim = [r['limit'] - 3 * r['seq'] for r in rows]; ok(all(lim[i] > lim[i + 1] for i in range(4)), f'time limit shrinks {lim}')
     # look-alike letters appear only from difficulty 4
@@ -444,20 +444,26 @@ def t_perf(p):
 # ------------------------------------------------------------------ N. review round 1 (B1 glow, H2 forced eats, H3 judge, H5 regen)
 def t_review(p):
     print('N. glow rules / no forced wrong eats / judge / regen')
-    # B1: following the glow never earns stars at difficulty 1-2
-    for subj, w, s, dd in (('english', 0, 0, 1), ('english', 3, 4, 2), ('math', 0, 0, 1), ('math', 3, 2, 2)):
-        b, pg, errs = fresh(p, subj, w, s, dd)
-        r = js(pg, """()=>{ let g=0, seenGlow=0, laterGlowFree=0; while(!D().ended&&g++<9000){ const d=D(); if(d.hold){ C('skipCard'); continue; }
+    # B1: following the glow never earns stars at difficulty 1-2 (only the first letter glows; the rest needs the hint button or a 20 s stall)
+    for subj, w, s_, dd in (('english', 0, 0, 1), ('english', 3, 4, 2), ('math', 0, 0, 1), ('math', 3, 2, 2)):
+        b, pg, errs = fresh(p, subj, w, s_, dd)
+        r = js(pg, """()=>{ let g=0, seenGlow=0, laterGlowFree=0, acts=0; while(!D().ended&&g++<4000){ const d=D(); if(d.hold){ C('skipCard'); continue; }
               if(d.phase==='play'){ if(d.rd.kind==='word'&&d.rd.i>0&&d.glow.length&&!d.assisted) laterGlowFree++; if(d.rd.kind==='word'&&d.rd.i===0&&d.glow.length&&!d.assisted) seenGlow++;
-                 const gl=d.glow; if(gl.length) C('goto',gl[0]); else if(d.rd.kind==='cond'){ if(!C('eatNext')) ST(10);} else ST(30); } else ST(6); }
-            return {res:window.RESULT, seenGlow, laterGlowFree}; }""")
-        res = r['res']; ok(res is not None, f'{subj} d{dd}: glow-follower reaches the end'); ok(r['laterGlowFree'] == 0, f'{subj} d{dd}: no free glow after the first letter ({r["laterGlowFree"]})')
+                 const gl=d.glow; if(gl.length&&d.rd.kind==='word'){ C('goto',gl[0]); acts++; } else if(d.rd.kind==='cond'){ if(!C('eatNext')) ST(10);} else ST(30); } else ST(6); }
+            return {res:window.RESULT, seenGlow, laterGlowFree, d:D().mainDone}; }""")
+        res = r['res']; ok(r['laterGlowFree'] == 0, f'{subj} d{dd}: no free glow after the first letter ({r["laterGlowFree"]})')
         if subj == 'english': ok(r['seenGlow'] > 0, f'{subj} d{dd}: first letter glows')
         else: ok(r['seenGlow'] == 0, f'{subj} d{dd}: maths gives no free glow')
-        ok(res['stars'] < 5 and res['firstTryAccuracy'] < .5, f'{subj} d{dd}: following the glow cannot reach 5 stars (got {res["stars"]}★, first-try {res["firstTryAccuracy"]})'); b.close()
+        ok(res is None or (res['stars'] < 5 and res['firstTryAccuracy'] < .5), f'{subj} d{dd}: a child who only follows the glow cannot get far or reach 5 stars (done {r["d"]}, result {res and res["stars"]})'); b.close()
     # stall: 12 s without progress brings the "think" pulse and cancels the first-try credit
     b, pg, _ = fresh(p, 'english', 0, 0, 2)
-    js(pg, "()=>{toPlay();C('eatNext')}"); d = D(pg); ok(d['glow'] == [] and not d['assisted'], 'after the first letter nothing glows'); js(pg, "()=>ST(60*11)"); ok(D(pg)['glow'] == [], 'still dark after 11 s'); js(pg, "()=>ST(90)"); d = D(pg); ok(d['think'] and d['assisted'] and len(d['glow']) >= 1, 'after 12 s: think pulse + assisted'); b.close()
+    js(pg, "()=>{toPlay();C('eatNext')}"); d = D(pg); ok(d['glow'] == [] and not d['assisted'], 'after the first letter nothing glows'); js(pg, "()=>ST(60*19)"); d = D(pg); ok(d['glow'] == [] and not d['assisted'], 'still dark after 19 s of standing still'); js(pg, "()=>ST(90)"); d = D(pg); ok(d['think'] and d['assisted'] and d['glow'] == [] and d['arrow'] in (0, 1, 2, 3), f'after 20 s: direction pulse only (arrow {d["arrow"]}), assisted'); b.close()
+    # the stall clock does not run while a ghost is near or the child is moving
+    b, pg, _ = fresh(p, 'english', 0, 0, 2, ghosts_off=False)
+    js(pg, "()=>{C('ready');C('eatNext');C('inv',999);const P=D().player;C('place',{i:0,c:P.a+(D().maze.open[P.a*4+1]?1:(D().maze.open[P.a*4+3]?-1:0)),mode:'active'});}")
+    js(pg, "()=>{let mx=0; for(let i=0;i<300;i++){ST(1); if(D().ghosts[0].mode==='active') {} } }"); d = D(pg); ok(d['stallT'] < 3.5, f'stall clock stays low while a ghost is within 4 cells ({d["stallT"]:.1f}s of 5s)'); b.close()
+    b, pg, _ = fresh(p, 'english', 0, 0, 2)
+    js(pg, "()=>{toPlay();C('eatNext');ST(60*5)}"); d = D(pg); ok(4.5 < d['stallT'] < 5.5, f'stall clock runs while standing still ({d["stallT"]:.1f}s)'); b.close()
     # H2: no forced wrong eats, many levels / both orientations
     tot = forced = 0
     for subj, w, s in (('english', 0, 0), ('english', 3, 4), ('english', 6, 9), ('english', 2, 7), ('math', 0, 0), ('math', 3, 9), ('math', 5, 5), ('math', 4, 3)):
@@ -485,12 +491,13 @@ def t_review(p):
     q1 = pg.evaluate("()=>O2.items.map(i=>i.q).join('|')"); ok(q0 != q1, 'restart brings new maths questions'); ok(pg.evaluate("()=>D().rd.item.id.startsWith('r1-')"), 'the new round uses the regenerated items'); b.close()
 
 # ------------------------------------------------------------------ O. round 2: novice friendliness, countdown, how-to text, ok chip
-BOT = """(maxSteps)=>{ let g=0, lastBase=-1, lastSim=-1; while(!D().ended&&g++<maxSteps){ const d=D(); if(d.hold){ C('skipCard'); lastBase=-1; continue; } if(d.phase!=='play'){ ST(6); lastBase=-1; continue; }
+BOT = """(maxSteps)=>{ window.__gh=[]; let g=0, lastBase=-1, lastSim=-1; while(!D().ended&&g++<maxSteps){ const d=D(); if(d.idleOv){ C('closeIdle'); continue; } if(d.hold){ C('skipCard'); lastBase=-1; continue; } if(d.phase!=='play'){ ST(6); lastBase=-1; continue; }
   const P=d.player, base=(P.a===P.b)?P.a:P.b; if(base===lastBase && d.simT-lastSim<0.5){ ST(2); continue; } lastBase=base; lastSim=d.simT;
   const cols=d.cols,M=d.maze.open, rd=d.rd; const tg=new Set(), wrong=new Set();
   d.tiles.forEach(t=>{ const good = rd.kind==='word' ? t.ch===rd.seq[rd.i] : t.tgt; (good?tg:wrong).add(t.c); });
   d.portals.forEach(c=>{ if(!tg.has(c)) wrong.add(c); });
-  const gh=d.ghosts.filter(x=>!x.scared&&(x.mode==='active'||x.mode==='leave'));
+  window.__gh=window.__gh||[]; window.__gh.push([d.simT,d.ghosts.map(x=>({a:x.a,b:x.b,scared:x.scared,mode:x.mode}))]); while(window.__gh.length>1&&window.__gh[1][0]<=d.simT-0.3) window.__gh.shift();
+  const gh=window.__gh[0][1].filter(x=>!x.scared&&(x.mode==='active'||x.mode==='leave'));
   const near=(c,r)=>gh.some(x=>[x.a,x.b].some(z=>Math.abs(z%cols-c%cols)+Math.abs(((z/cols)|0)-((c/cols)|0))<=r));
   const plan=(r)=>{ const seen=new Set([base]), first=new Map(), q=[base]; while(q.length){ const c=q.shift(); if(tg.has(c)) return first.get(c); for(let k=0;k<4;k++) if(M[c*4+k]){ const n=c+[-cols,1,cols,-1][k]; if(seen.has(n)||wrong.has(n)||(r>=0&&near(n,r)&&!tg.has(n))) continue; seen.add(n); first.set(n,c===base?k:first.get(c)); q.push(n);} } return undefined; };
   let k=plan(2); if(k===undefined) k=plan(1); if(k===undefined) k=plan(-1);
@@ -531,11 +538,50 @@ def t_novice(p):
     chip = pg.evaluate("()=>{const e=document.querySelector('.gx-okchip');if(!e)return null;const r=e.getBoundingClientRect();return [r.y,r.height]}"); lo = D(pg)['layout']
     ok(chip is not None and chip[0] >= lo['q']['y'] + lo['q']['h'], f'answer chip is below the question panel ({chip}, panel ends {lo["q"]["y"] + lo["q"]["h"]})'); b.close()
 
+def t_cornering(p):
+    print('P. cornering tolerance, idle prompt, away end')
+    b, pg, _ = fresh(p, 'english', 0, 4, 2)
+    c = js(pg, "()=>{const d=D(),M=d.maze.open; for(let c=0;c<d.maze.N;c++){ if(M[c*4+1]&&M[c*4+2]&&M[(c+1)*4+1]&&!M[(c+1)*4+2]&&!d.tiles.some(t=>t.c===c||t.c===c+1||t.c===c+d.cols)&&c%d.cols<d.cols-3) return c; } }")
+    js(pg, "([c])=>{toPlay();C('player',{c:c,dir:-1});C('dir',1);ST(4)}", [c]); d = D(pg); ok(d['player']['dir'] == 1 and 0.1 < d['player']['p'] < .35, f'moving right, just past the junction (p={d["player"]["p"]:.2f})')
+    js(pg, "()=>C('dir',2)"); d = D(pg); ok(d['player']['dir'] == 2 and d['player']['a'] == c and d['player']['b'] == c + d['cols'], 'a slightly late turn is still taken at the junction'); b.close()
+    # idle prompt: 45 s without input -> "還在嗎？", keys / clicks continue; 90 s -> music off
+    b, pg, _ = fresh(p, 'english', 0, 0, 2, manual=True)
+    js(pg, "()=>{toPlay();C('noGhosts',true);C('left',999);ST(60*44)}"); ok(not D(pg)['idleOv'], 'no prompt before 45 s'); js(pg, "()=>ST(90)"); d = D(pg); ok(d['idleOv'] and d['paused'], 'prompt + pause after 45 s without input'); ok('還在嗎' in pg.inner_text('.gx-root'), 'prompt text shown')
+    pg.wait_for_timeout(500); pg.keyboard.press('ArrowLeft'); pg.wait_for_timeout(100); d = D(pg); ok(not d['idleOv'] and not d['paused'], 'a key press continues'); b.close()
+    b, pg, _ = fresh(p, 'english', 0, 0, 2, manual=True)
+    js(pg, "()=>{toPlay();C('left',999);ST(60*46)}"); pg.wait_for_timeout(500); pg.mouse.click(200, 400); pg.wait_for_timeout(100); ok(not D(pg)['idleOv'], 'a click continues'); b.close()
+    # away: rounds that time out with no input at all -> skipped without a wrong-answer record; 2 in a row ends the level politely
+    b, pg, _ = fresh(p, 'english', 0, 0, 2)
+    js(pg, "()=>{toPlay();C('leftAway',0.01);ST(3)}"); d = D(pg); ok(not d['hold'] and d['phase'] == 'reveal', 'no learn card when nobody touched the game'); js(pg, "()=>ST(150)"); d = D(pg); ok(d['rd']['kind'] == 'word' and d['learnLeft'] <= 8, 'the word is skipped, not requeued as wrong')
+    js(pg, "()=>{C('ready');C('leftAway',0.01);ST(3)}"); d = D(pg); ok(d['ended'], 'second away round ends the level'); res = js(pg, "()=>window.RESULT"); ok(res['cleared'] is False and res['stars'] == 1 and not res['passed'] and res['missed'] == [], f'1 star, not passed, nothing in the wrong list ({res["missed"]})'); b.close()
+    # 4 real time-outs in a row (with input) also end the level
+    b, pg, _ = fresh(p, 'english', 0, 0, 3)
+    for k in range(4):
+        js(pg, "()=>{C('ready');C('left',0.01);ST(3)}")
+        if D(pg)['ended']: break
+        pg.evaluate("()=>C('skipCard')")
+    ok(D(pg)['ended'], 'four time-outs in a row end the level kindly'); b.close()
+
+# ------------------------------------------------------------------ Q. robot children (0.3 s reaction, BFS dodging) must clear world 1
+def t_bots(p):
+    print('Q. robot children: >= 5 games per setting, all cleared with >= 4 stars')
+    tot = good = 0; worst = 5; lines = []
+    for subj in ('english', 'math'):
+        for size, touch, nm in (((390, 844), True, 'portrait'), ((844, 390), True, 'landscape')):
+            for dd in (1, 2, 3):
+                stars = []
+                for k in range(5):
+                    b, pg, _ = fresh(p, subj, 0, k % 3, dd, size=size, touch=touch, ghosts_off=False, extra={'seed': 100 + k * 7 + dd})
+                    r = js(pg, "(f)=>eval(f)(40000)", BOT); res = r['res']; tot += 1
+                    st = res['stars'] if res and res['cleared'] else 0; stars.append(st); good += 1 if st >= 4 else 0; worst = min(worst, st); b.close()
+                lines.append(f'{subj} {nm} d{dd}: {stars}'); ok(all(x >= 4 for x in stars), f'robot child {subj} {nm} d{dd} (5 games, levels 1-3): {stars}')
+    print('   ' + ' | '.join(lines)); print(f'   {good}/{tot} games cleared with >= 4 stars (worst {worst})')
+
 def main():
     t0 = time.time()
     with sync_playwright() as p:
         only = [a.split('=')[1] for a in sys.argv if a.startswith('--only=')]
-        for fn in [f for f in (t_maze, t_english, t_stats_and_stars, t_difficulty, t_ghosts, t_ghost_hit_and_orb, t_timeout_card, t_world, t_math, t_boss, t_input, t_flow, t_layout, t_destroy, t_review, t_novice, t_perf) if not only or f.__name__[2:] in only[0].split(',')]:
+        for fn in [f for f in (t_maze, t_english, t_stats_and_stars, t_difficulty, t_ghosts, t_ghost_hit_and_orb, t_timeout_card, t_world, t_math, t_boss, t_input, t_flow, t_layout, t_destroy, t_review, t_novice, t_cornering, t_bots, t_perf) if not only or f.__name__[2:] in only[0].split(',')]:
             try: fn(p)
             except Exception as e:
                 import traceback; traceback.print_exc(); FAILS.append(f'{fn.__name__} crashed: {e!r}')

@@ -12,13 +12,14 @@
   var CONF = { b: 'd', d: 'b', m: 'n', n: 'mu', p: 'q', q: 'p', u: 'n' };          /* look-alike letters (b/d, m/n, p/q, u/n) */
   var ALPHA = 'abcdefghijklmnopqrstuvwxyz';
   var HEARTS = [5, 5, 4, 3, 3], ERR = [.30, .22, .14, .07, .03], BASE_T = [70, 55, 44, 36, 30], NDIS = [3, 4, 6, 7, 8], NDIS_M = [3, 4, 5, 6, 7];
-  var PSPEED = 4.4, FRIGHT = 6, BOOST = 3, INV = 3, STALL = 12, GHOST_COL = ['#ff6b81', '#8e6bff', '#3ee6d0', '#ffc94a'];
+  var PSPEED = 4.4, FRIGHT = 6, BOOST = 3, INV = 3, STALL = 20, IDLE1 = 45, GHOST_COL = ['#ff6b81', '#8e6bff', '#3ee6d0', '#ffc94a'];
   var STYLE_ON = false;
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
   var CSS = '.mz-dpad{position:absolute;z-index:5;width:168px;height:116px;opacity:.7;touch-action:none;display:none}.mz-dpad.on{display:block}.mz-dpad:active,.mz-dpad.hot{opacity:.85}' +
     '.mz-dpad button{position:absolute;width:56px;height:56px;border-radius:16px;border:1px solid rgba(255,255,255,.4);background:rgba(20,26,70,.78);color:#fff;display:flex;align-items:center;justify-content:center;padding:0;touch-action:none;cursor:pointer}' +
     '.mz-dpad button:active{background:rgba(70,80,170,.9)}.mz-dpad svg{width:26px;height:26px}' +
     '.mz-vig{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,60,90,0) 55%,rgba(255,60,90,.34) 100%)}.mz-fr{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:rgba(108,139,255,.09)}' +
+    '.gx-root .gx-hudbtn{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,16,48,.82)}' +
     '.gx-hudbtn.mz-on{border-color:#ffc94a;color:#ffc94a}.gx-hudbtn.mz-hint{border-color:#ffc94a;color:#ffc94a;background:rgba(60,44,0,.7)}.gx-hudbtn.mz-hint[disabled]{opacity:.4}';
   function injectCss() { if (STYLE_ON) return; STYLE_ON = true; var s = document.createElement('style'); s.setAttribute('data-wq37', 'mz'); s.textContent = CSS; document.head.appendChild(s); }
 
@@ -207,6 +208,7 @@
     function tileOk(c, tiles) {
       var M = G.M, N = M.N, bl = new Uint8Array(N), i, d, nb = 0, all = [c];
       for (i = 0; i < tiles.length; i++) { bl[tiles[i].c] = 1; all.push(tiles[i].c); } bl[c] = 1;
+      for (i = 0; i < G.portals.length; i++) if (!bl[G.portals[i].c]) bl[G.portals[i].c] = 2;      /* portals are never part of a needed route either */
       for (i = 0; i < all.length; i++) { var free = false; for (d = 0; d < 4; d++) if (M.open[all[i] * 4 + d] && !bl[M.nb(all[i], d)]) free = true; if (!free) return false; }
       var total = 0, st = -1; for (i = 0; i < N; i++) if (!bl[i]) { total++; if (st < 0) st = i; }
       if (G.player && !bl[G.player.b]) st = G.player.b;
@@ -241,10 +243,10 @@
 
     function newGame() {
       if (firstGame) firstGame = false; else S.newLearn();
-      S.ended = false; S.result = null; S.ui.closeAll();
+      S.ended = false; S.result = null; S.ui.closeAll(); if (G && G.idleOv && G.idleOv.parentNode) G.idleOv.parentNode.removeChild(G.idleOv); S.paused = false;
       var hearts = HEARTS[diff - 1];
       G = { phase: 'idle', simT: 0, playT: 0, hold: false, hearts: hearts, maxHearts: hearts, score: 0, combo: 0, maxCombo: 0, mainDone: 0, condAfter: 0, condPlayed: 0, condClean: 0, hits: 0, wrongEats: 0,
-        player: { a: 0, b: 0, p: 0, dir: -1, x: 0, y: 0 }, want: -1, wantT: 0, inv: 0, boost: 0, fright: 0, freeze: 0, chain: 0, wave: 'chase', waveT: 12, evT: 14, gap: null, warnT: 0, q: [], tiles: [], respawn: [], gems: [], orbs: [], portals: [], portalCd: 0, ghosts: [], rd: null, baseNeed: true, rdN: 0, layN: 0, hudSig: '', ghostsOff: false, flash: 0, hintBlink: 0, turned: false, stepN: 0, vig: 0, bossOrbT: 0, bgOk: false };
+        player: { a: 0, b: 0, p: 0, dir: -1, x: 0, y: 0 }, want: -1, wantT: 0, inv: 0, boost: 0, fright: 0, freeze: 0, chain: 0, wave: 'chase', waveT: 12, evT: 14, gap: null, warnT: 0, q: [], tiles: [], respawn: [], gems: [], orbs: [], portals: [], portalCd: 0, ghosts: [], rd: null, baseNeed: true, rdN: 0, layN: 0, idleT: 0, near: 99, hudSig: '', ghostsOff: false, flash: 0, hintBlink: 0, turned: false, stepN: 0, vig: 0, bossOrbT: 0, bgOk: false };
       rnd = GX.rng(((lv.w | 0) * 977 + (lv.s | 0) * 31 + diff * 7 + 11) >>> 0);
       G.tileAt = [];
       if (L) {
@@ -296,7 +298,7 @@
       return out;
     }
     function startWord(it) {
-      var so = seqOf(it), rd = G.rd = { kind: 'word', item: it, seq: so.seq, disp: so.disp, i: 0, failed: false, hinted: false, t0: G.simT, limit: limitFor(so.seq.length), left: 0, hintT: 0, think: false, assisted: false, lastProg: 0, qText: isMath ? it.q : it.zh };
+      var so = seqOf(it), rd = G.rd = { kind: 'word', item: it, seq: so.seq, disp: so.disp, i: 0, failed: false, hinted: false, t0: G.simT, limit: limitFor(so.seq.length), left: 0, hintT: 0, think: false, assisted: false, lastProg: 0, stallT: 0, inputN: 0, qText: isMath ? it.q : it.zh };
       rd.left = rd.limit; beginRound(); if (!isMath) S.later(function () { if (G && G.rd === rd && !S.paused) S.say(it); }, 350);
     }
     function startCond() {
@@ -306,7 +308,7 @@
     }
     function beginRound() {
       var rd = G.rd; rd.lastProg = G.simT + .8; G.phase = 'ready'; G.readyT = .8;
-      if (!G.anyRound || (lv.w === 0 && (lv.s | 0) <= 2)) G.calmT = 8; G.anyRound = true; if (G.helpGlow && rd.kind === 'word') { rd.autoHelp = true; assist(rd); } G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; rd.firstWrong = true;
+      if (!G.anyRound || (lv.w === 0 && (lv.s | 0) <= 2)) G.calmT = 12; G.anyRound = true; if (G.helpGlow && rd.kind === 'word') { rd.autoHelp = true; assist(rd); } G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; rd.firstWrong = true;
       placeTiles(false); for (var k = 0; k < 2; k++) { var c = pickFree(2, G.gems); if (c >= 0) G.gems.push({ c: c, born: G.simT }); }
       G.baseNeed = true; G.rdN++; if (bHint) bHint.disabled = false; S.sfx('flip');
     }
@@ -353,7 +355,7 @@
       G.tileAt[c] = null; G.tiles.splice(G.tiles.indexOf(t), 1);
       if (rd.kind === 'word') {
         if (t.key === rd.seq[rd.i]) {
-          var slot = rd.disp.filter(function (d) { return !d.fixed; })[rd.i]; slot.filled = true; slot.ch = isMath ? t.ch : slot.ch; rd.i++; rd.lastProg = G.simT; rd.think = false;
+          var slot = rd.disp.filter(function (d) { return !d.fixed; })[rd.i]; slot.filled = true; slot.ch = isMath ? t.ch : slot.ch; rd.i++; rd.lastProg = G.simT; rd.think = false; rd.stallT = 0;
           G.combo++; if (G.combo > G.maxCombo) G.maxCombo = G.combo; var mul = Math.min(4, 1 + Math.floor(G.combo / 4)); G.score += 10 * mul;
           S.sfx('eat', { i: rd.i - 1 }); S.sfx('key', { i: rd.i - 1 }); S.fx.burst(x, y, { colors: ['#ffc94a', '#fff', '#3ee6d0'], n: 14, speed: 150, shape: 'star' }); S.fx.ring(x, y, { r1: L.cell * .9 });
           S.fx.text(x, y - L.cell * .35, '+' + 10 * mul, { color: '#ffe9a8', size: Math.max(14, Math.round(L.cell * .38)), life: .8 });
@@ -371,7 +373,7 @@
     }
     function completeWord() {
       var rd = G.rd, it = rd.item, ms = (G.simT - rd.t0) * 1000; G.phase = 'done'; G.score += 50 + Math.max(0, Math.round(rd.left)); G.mainDone++;
-      G.toStreak = 0; G.helpGlow = false; S.learn.answer(it, true, ms); S.ui.ok(it, { top: L.my + 6 }); S.sfx('good'); if (!isMath) S.say(it);
+      G.toStreak = 0; G.awayStreak = 0; G.helpGlow = false; S.learn.answer(it, true, ms); S.ui.ok(it, { top: L.my + 6 }); S.sfx('good'); if (!isMath) S.say(it);
       var cx = px(G.cols / 2), cy = py(G.rows / 2); S.fx.burst(cx, cy, { n: 40, speed: 260, shape: 'star', colors: ['#ffc94a', '#fff', '#3ee6d0', '#ff5fa2'], life: .9 }); S.fx.confetti(S.W, { n: 26 });
       G.tiles.forEach(function (t) { S.fx.burst(px(t.c % G.cols + .5), py(((t.c / G.cols) | 0) + .5), { n: 4, speed: 80 }); }); G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = [];
       later(1.05, nextRound);
@@ -384,7 +386,9 @@
       var rd = G.rd; if (!rd) return; S.sfx('lose'); S.fx.flash('#ff6b81', .25);
       if (rd.kind === 'word') {
         var typed = rd.disp.map(function (d) { return d.filled ? d.ch : ''; }).join('');
-        G.toStreak = (G.toStreak | 0) + 1;
+        var away = (rd.inputN | 0) === 0; G.toStreak = (G.toStreak | 0) + 1; G.awayStreak = away ? (G.awayStreak | 0) + 1 : 0;
+        if (G.awayStreak >= 2 || G.toStreak >= 4) { awayEnd(); return; }
+        if (away) { G.combo = 0; G.phase = 'reveal'; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; S.ui.banner('還在嗎？', '這個字先跳過', 1400); later(1.5, nextRound); return; }
         if (G.toStreak >= 3 && !G.helpGlow) { G.helpGlow = true; S.ui.banner('慢慢來', '接下來每個字會亮燈幫你', 2200); }
         roundFail(typed && typed.length < String(isMath ? rd.item.a : rd.item.en).length ? typed : '');
       } else {
@@ -398,15 +402,30 @@
     function later(sec, fn) { G.q.push({ t: G.simT + sec, fn: fn }); }
     function useHint() {
       if (!G || G.hold || S.paused || S.ended || !G.rd || G.phase !== 'play' || !hasHint) return;
-      G.rd.hintT = 4; assist(G.rd); S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '提示：這個字不計首次答對', { color: '#ffe9a8', size: 16, life: 1.4 });
+      touchInput(); G.rd.hintT = 4; assist(G.rd); S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '提示：這個字不計首次答對', { color: '#ffe9a8', size: 16, life: 1.4 });
     }
     /* glow rules: only the FIRST letter of a word glows (English, difficulty 1-2); anything later needs the hint button or 12 s without progress (both cancel the first-try credit) */
     function isHot(t) {
       var rd = G.rd; if (!rd) return false; if (t.reveal) return true;
       if (rd.kind === 'cond') return rd.hintT > 0 && t.tgt;
       if (t.key !== rd.seq[rd.i]) return false;
-      return rd.hintT > 0 || rd.think || rd.autoHelp || (rd.i === 0 && diff <= 2 && !isMath);
+      return rd.hintT > 0 || rd.autoHelp || (rd.i === 0 && diff <= 2 && !isMath);
     }
+    /* ---------------- idle ("still there?") ---------------- */
+    function showIdle() {
+      if (G.idleOv || S.paused || S.ended) return; var el = document.createElement('div'); el.className = 'gx-ov'; el.setAttribute('role', 'dialog'); G.idleAt = performance.now();
+      el.innerHTML = '<div class="gx-card" style="max-width:300px"><h1>還在嗎？</h1><div class="gx-sub">按任何一個鍵或點一下，繼續玩</div><div class="gx-row"><button type="button" class="gx-btn" data-r="back">繼續</button></div></div>';
+      S.root.appendChild(el); G.idleOv = el; S.paused = true; S.on(el, 'pointerup', function () { if (performance.now() - G.idleAt > 380) closeIdle(); });
+      G.idleMusic = S.later(function () { if (G && G.idleOv) { S.audio.stopMusic(); G.idleQuiet = true; } }, 45000);
+    }
+    function closeIdle() {
+      if (!G || !G.idleOv) return; if (performance.now() - G.idleAt < 380) return; var el = G.idleOv; G.idleOv = null; if (el.parentNode) el.parentNode.removeChild(el); S.clearLater(G.idleMusic);
+      S.paused = false; G.idleT = 0; if (G.idleQuiet) { G.idleQuiet = false; S.audio.music(boss ? 'boss' : (diff >= 4 ? 'drive' : 'calm')); }
+    }
+    function awayEnd() {                                                         /* the child has gone away: stop politely, no wrong-answer records, 1 star, not passed */
+      G.phase = 'end'; S.ui.banner('先休息一下', '之後再試！', 2200); G.result = S.finish({ cleared: false, score: Math.round(G.score), maxCombo: G.maxCombo, seconds: G.playT });
+    }
+
     /* ---------------- movement ---------------- */
     function px(cx) { return L.mx + cx * L.cell; }
     function py(cy) { return L.my + cy * L.cell; }
@@ -480,7 +499,7 @@
     }
     function gArrive(g) { if (g.mode === 'leave' && G.homeDist[g.a] >= 2) g.mode = 'active'; }
     function ghostSpeed(g) {
-      var base = PSPEED * (diff <= 3 ? clamp(.55 + .04 * (diff - 1) + .01 * (lv.s | 0), .55, .75) : Math.min(.95, .62 + .05 * diff + .012 * (lv.s | 0))); if (g.boss) base *= .85; if (g.scared) base *= .6; if (g.stun > 0) base *= .25;
+      var base = PSPEED * (diff <= 3 ? clamp(.45 + .03 * (diff - 1) + .008 * (lv.s | 0), .45, .6) : Math.min(.95, .62 + .05 * diff + .012 * (lv.s | 0))); if (g.boss) base *= .85; if (g.scared) base *= .6; if (g.stun > 0) base *= .25;
       if (G.boost > 0 && !g.scared) base *= 1.3; return base;
     }
 
@@ -503,7 +522,11 @@
       for (i = G.q.length - 1; i >= 0; i--) if (G.q[i].t <= G.simT) { var it = G.q.splice(i, 1)[0]; it.fn(); if (!G) return; }
       if (G.phase === 'ready') { G.readyT -= h; if (G.readyT <= 0) { G.phase = 'play'; G.countdown = false; } return; }
       if (G.phase !== 'play' && G.phase !== 'reveal' && G.phase !== 'done') return;
-      if (G.phase === 'play') { G.playT += h; G.rd.left -= h; if (G.rd.hintT > 0) G.rd.hintT -= h; var r0 = G.rd; if (r0.kind === 'word' && diff <= 3 && !r0.think && G.simT - r0.lastProg >= STALL) { r0.think = true; assist(r0); S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '想一想…', { color: '#ffe9a8', size: 18, life: 1.4 }); } }
+      if (G.phase === 'play') { G.playT += h; G.rd.left -= h; if (G.rd.hintT > 0) G.rd.hintT -= h; var r0 = G.rd; if (r0.kind === 'word' && diff <= 3 && !r0.think) {                       /* stall = standing still with no ghost within 4 cells (running away or exploring never counts) */
+          if (G.player.a === G.player.b && (G.near == null || G.near > 4)) r0.stallT += h;
+          if (r0.stallT >= STALL) { r0.think = true; assist(r0); G.arrowT = 0; S.sfx('power'); S.fx.text(S.W / 2, L.my + 20, '想一想…', { color: '#ffe9a8', size: 18, life: 1.4 }); }
+        }
+        G.idleT += h; if (G.idleT >= IDLE1 && !G.idleOv) showIdle(); if (G.phase !== 'play') return; }
       /* timers */
       if (G.inv > 0) G.inv -= h; if (G.boost > 0) G.boost -= h; if (G.freeze > 0) G.freeze -= h; if (G.portalCd > 0) G.portalCd -= h;
       if (G.fright > 0) { G.fright -= h; if (G.fright <= 0) { G.ghosts.forEach(function (g) { g.scared = false; }); G.chain = 0; } }
@@ -522,13 +545,14 @@
       var P = G.player; if (G.phase === 'play') moveEnt(P, h, PSPEED, pChoose, pArrive); if (G.phase !== 'play' || !G) return;
       /* ghosts */
       if (G.ghostsOff) return;
-      if (G.calmT > 0) { G.calmT -= h; G.vig = Math.max(0, G.vig - h * 2); return; }            /* novice calm: the ink sprites sleep for the first seconds */
-      var near = 99;
+      if (G.calmT > 0) { G.calmT -= h; G.near = 99; G.vig = Math.max(0, G.vig - h * 2); return; }            /* novice calm: the ink sprites sleep for the first seconds */
+      var near = 99; G.near = 99;
       G.ghosts.forEach(function (g) {
         if (g.mode === 'home') { g.delay -= h; if (g.delay <= 0) g.mode = 'leave'; return; }
         if (G.freeze > 0) return;
         moveEnt(g, h, ghostSpeed(g), gChoose, function (e) { gArrive(e); }); if (g.mode === 'active' && !g.scared && g.stun <= 0) near = Math.min(near, G.M.bfs(P.b)[g.a === g.b ? g.a : g.b]);
       });
+      G.near = near;
       if (near <= 3 && G.inv <= 0) { G.warnT -= h; G.vig = Math.min(1, G.vig + h * 3); if (G.warnT <= 0) { G.warnT = 3.5; S.sfx('warn'); } } else G.vig = Math.max(0, G.vig - h * 2);
       /* collisions */
       var pp = P; for (i = 0; i < G.ghosts.length; i++) {
@@ -548,13 +572,16 @@
     }
 
     /* ---------------- input ---------------- */
+    function touchInput() { if (!G) return; G.idleT = 0; if (G.rd) G.rd.inputN = (G.rd.inputN | 0) + 1; }
     function setDir(d) {
-      if (!G || G.hold || S.paused || S.ended || G.phase === 'idle' || G.phase === 'end') return; var P = G.player;
+      if (!G || G.hold || S.paused || S.ended || G.phase === 'idle' || G.phase === 'end') return; var P = G.player; touchInput();
+      /* cornering tolerance: a turn asked a moment too late (still < 0.35 cell past the junction) is taken at that junction */
+      if (P.a !== P.b && P.dir >= 0 && d !== P.dir && d !== ((P.dir + 2) & 3) && P.p < .35 && G.M.open[P.a * 4 + d] && !G.M.open[P.b * 4 + d]) { P.b = G.M.nb(P.a, d); P.dir = d; P.p = 0; G.want = -1; updPos(P); return; }
       if (P.a !== P.b && P.dir >= 0 && d === ((P.dir + 2) & 3)) { var t = P.a; P.a = P.b; P.b = t; P.p = 1 - P.p; P.dir = d; G.want = -1; updPos(P); return; }
       G.want = d; G.wantT = G.simT;
     }
     var sw = null;
-    S.on(S.canvas, 'pointerdown', function (e) { sw = { id: e.pointerId, x: e.clientX, y: e.clientY }; });
+    S.on(S.canvas, 'pointerdown', function (e) { touchInput(); sw = { id: e.pointerId, x: e.clientX, y: e.clientY }; });
     S.on(window, 'pointermove', function (e) {
       if (!sw || e.pointerId !== sw.id) return; var dx = e.clientX - sw.x, dy = e.clientY - sw.y, a = Math.max(Math.abs(dx), Math.abs(dy));
       if (a >= 14) { setDir(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0)); sw.x = e.clientX; sw.y = e.clientY; }
@@ -563,8 +590,10 @@
     S.keys({
       onArrow: function (k) { setDir({ up: 0, right: 1, down: 2, left: 3 }[k]); },
       onChar: function (k) { var m = { w: 0, d: 1, s: 2, a: 3 }[k.toLowerCase()]; if (m != null) setDir(m); },
-      onSpace: function () { useHint(); }
+      onSpace: function () { useHint(); },
+      onEsc: function () { if (G && G.idleOv) closeIdle(); else if (S.paused) S.closePause(); else S.openPause(); }
     });
+    S.on(window, 'keydown', function () { if (G && G.idleOv) closeIdle(); else touchInput(); });
 
     /* ---------------- drawing ---------------- */
     function cellRect(c) { return [L.mx + (c % G.cols) * L.cell, L.my + ((c / G.cols) | 0) * L.cell]; }
@@ -689,6 +718,21 @@
         var lb2 = GX.label('吃掉全部符合的方塊', { size: 14, weight: 800, color: '#c3cbf7', dpr: d }); GX.drawLabel(c, lb2, L.slots.x + L.slots.w / 2, L.slots.y + L.slots.h / 2 - (L.land ? 20 : 0));
       }
     }
+    function arrowDir() {                                                          /* first step of the shortest way to the nearest needed tile (the "think" pulse shows only this direction) */
+      var rd = G.rd, M = G.M, pc = G.player.b, dist = M.bfs(pc), best = -1, bd = 1e9, i, d;
+      for (i = 0; i < G.tiles.length; i++) { var t = G.tiles[i]; if (t.key === rd.seq[rd.i] && dist[t.c] >= 0 && dist[t.c] < bd) { bd = dist[t.c]; best = t.c; } }
+      if (best < 0) return -1; var d2 = M.bfs(best), bv = 1e9, bdir = -1;
+      for (d = 0; d < 4; d++) if (M.open[pc * 4 + d]) { var n = M.nb(pc, d); if (d2[n] >= 0 && d2[n] < bv) { bv = d2[n]; bdir = d; } }
+      return bdir;
+    }
+    function drawArrow(c, now) {
+      var rd = G.rd; if (!rd || rd.kind !== 'word' || !rd.think || G.phase !== 'play') { G.arrowD = -1; return; }
+      if (now >= (G.arrowT || 0)) { G.arrowD = arrowDir(); G.arrowT = now + .5; } if (G.arrowD < 0) return;
+      var P = G.player, cs = L.cell, x0 = px(P.x + .5), y0 = py(P.y + .5), d = G.arrowD, dx = DX[d], dy = DY[d], pul = .5 + .5 * Math.sin(now * 6);
+      for (var k = 0; k < 3; k++) { var off = cs * (.75 + k * .32), ax = x0 + dx * off, ay = y0 + dy * off; c.globalAlpha = (.55 - k * .15) * (.5 + .5 * pul); c.strokeStyle = '#ffe9a8'; c.lineWidth = Math.max(3, cs * .1); c.lineCap = 'round';
+        c.beginPath(); c.moveTo(ax - dy * cs * .22 - dx * cs * .12, ay + dx * cs * .22 - dy * cs * .12); c.lineTo(ax + dx * cs * .12, ay + dy * cs * .12); c.lineTo(ax + dy * cs * .22 - dx * cs * .12, ay - dx * cs * .22 - dy * cs * .12); c.stroke(); }
+      c.globalAlpha = 1;
+    }
     function drawPlayer(c) {                                                     /* drawn after the particles so the child's character is never hidden */
       var now = S.t, cs = L.cell, P = G.player, x0 = px(P.x + .5), y0 = py(P.y + .5), ps2 = cs * .98, blink = G.inv > 0 && Math.floor(now * 10) % 2 === 0;
       if (blink) return;
@@ -717,6 +761,7 @@
       G.gems.forEach(function (g) { var x = px(g.c % G.cols + .5), y = py(((g.c / G.cols) | 0) + .5) + Math.sin(now * 4 + g.c) * 2; if (!GX.drawImg(c, A('mz_gem.webp'), x, y, cs * .55, cs * .55, null)) { c.fillStyle = '#8be9ff'; c.beginPath(); c.moveTo(x, y - cs * .2); c.lineTo(x + cs * .16, y); c.lineTo(x, y + cs * .2); c.lineTo(x - cs * .16, y); c.closePath(); c.fill(); } });
       if (G.gap) { var gx2 = G.gap.c % G.cols, gy2 = (G.gap.c / G.cols) | 0, ex = G.gap.d === 1 ? gx2 + 1 : gx2 + .5, ey = G.gap.d === 1 ? gy2 + .5 : gy2 + 1; c.globalAlpha = .5 + .5 * Math.sin(now * 8); c.fillStyle = '#ffe9a8'; c.beginPath(); c.arc(px(ex), py(ey), cs * .09, 0, 6.3); c.fill(); c.globalAlpha = 1; }
       G.tiles.forEach(function (t) { tileSprite(c, t, px(t.c % G.cols + .5), py(((t.c / G.cols) | 0) + .5), cs, now); });
+      drawArrow(c, now);
       /* ghosts */
       if (!G.ghostsOff) G.ghosts.forEach(function (g, gi) {
         var x = px(g.x + .5), y = py(g.y + .5) + Math.sin(now * 5 + gi) * cs * .04, sz = cs * (g.boss ? 1.5 : 1.02), al = g.mode === 'home' ? .55 : 1, scared = g.scared, src = scared ? A('mz_ghost_scared.webp') : g.img;
@@ -760,7 +805,7 @@
         tiles: G.tiles.map(function (t) { return { c: t.c, ch: t.ch, tgt: t.tgt }; }), respawn: G.respawn.length, gems: G.gems.length, orbs: G.orbs.map(function (o) { return { c: o.c, alive: o.alive }; }), portals: G.portals.map(function (p) { return p.c; }), portalCd: G.portalCd,
         ghosts: G.ghosts.map(function (g) { return { idx: g.idx, type: g.type, mode: g.mode, a: g.a, b: g.b, p: g.p, x: g.x, y: g.y, scared: g.scared, stun: g.stun, boss: g.boss, delay: g.delay, orbs: g.orbs, target: g.mode === 'home' ? -1 : aiTarget(g, true), speed: ghostSpeed(g) }; }),
         maze: { open: Array.prototype.slice.call(G.M.open), N: G.M.N }, learnLeft: S.learn.remaining(), ended: !!S.ended, result: S.result || null, layout: { timer: L.timer, cell: L.cell, mx: L.mx, my: L.my, mw: L.mw, mh: L.mh, q: L.q, slots: L.slots, land: L.land }, holdOpen: S.ui.open('learn'),
-        rests: G.rests | 0, calmT: G.calmT | 0, toStreak: G.toStreak | 0, helpGlow: !!G.helpGlow, readyT: G.readyT, countdown: !!G.countdown, glow: G.tiles.filter(isHot).map(function (t) { return t.c; }), think: rd ? !!rd.think : false, assisted: rd ? !!rd.assisted : false, tileCount: G.tiles.length, dpadOn: dpadOn, ghostsOff: G.ghostsOff
+        rests: G.rests | 0, calmT: G.calmT | 0, idleOv: !!G.idleOv, paused: !!S.paused, awayStreak: G.awayStreak | 0, stallT: rd ? rd.stallT : 0, arrow: G.arrowD == null ? -1 : G.arrowD, toStreak: G.toStreak | 0, helpGlow: !!G.helpGlow, readyT: G.readyT, countdown: !!G.countdown, glow: G.tiles.filter(isHot).map(function (t) { return t.c; }), think: rd ? !!rd.think : false, assisted: rd ? !!rd.assisted : false, tileCount: G.tiles.length, dpadOn: dpadOn, ghostsOff: G.ghostsOff
       };
     };
     CUR.cmd = function (name, a) {
@@ -773,7 +818,10 @@
       if (name === 'eatNext') { var rd = G.rd; if (G.phase === 'ready') G.phase = 'play'; var t = G.tiles.filter(function (x) { return rd.kind === 'word' ? x.key === rd.seq[rd.i] : x.tgt; })[0]; if (!t) return false; stand(t.c); return true; }
       if (name === 'eatWrong') { var rd2 = G.rd; if (G.phase === 'ready') G.phase = 'play'; var t2 = G.tiles.filter(function (x) { return rd2.kind === 'word' ? x.key !== rd2.seq[rd2.i] : !x.tgt; })[0]; if (!t2) return false; stand(t2.c); return true; }
       if (name === 'eatChar') { var t3 = G.tiles.filter(function (x) { return x.ch === a; })[0]; if (!t3) return false; stand(t3.c); return true; }
-      if (name === 'left') { G.rd.left = a; return true; }
+      if (name === 'left') { G.rd.left = a; G.rd.inputN = Math.max(1, G.rd.inputN | 0); return true; }
+      if (name === 'leftAway') { G.rd.left = a; return true; }
+      if (name === 'closeIdle') { if (G.idleOv) { G.idleAt = 0; closeIdle(); } return true; }
+      if (name === 'idle') { G.idleT = a; return true; }
       if (name === 'hit') { hitPlayer(); return true; }
       if (name === 'orb') { var o = G.orbs.filter(function (x) { return x.alive; })[0]; if (!o) return false; stand(o.c); return true; }
       if (name === 'place') { var g = G.ghosts[a.i]; g.mode = a.mode || 'active'; g.a = g.b = a.c; g.p = 0; g.prev = a.prev == null ? -1 : a.prev; g.scared = !!a.scared; updPos(g); return true; }

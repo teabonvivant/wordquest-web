@@ -371,7 +371,7 @@
     '.gx-chip svg{width:18px;height:18px}.gx-chip.coin{background:rgba(255,201,74,.18);border-color:rgba(255,201,74,.5);color:' + GOLD + '}.gx-chip.bad{border-color:rgba(255,107,129,.5)}' +
     '.gx-miss{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-height:min(22vh,150px);overflow:auto;margin:6px 0;padding:2px}.gx-miss span{background:rgba(255,107,129,.14);border:1px solid rgba(255,107,129,.45);border-radius:12px;padding:4px 10px;font-size:15px;font-weight:800;line-height:1.3}' +
     '.gx-miss small{display:block;font-size:12px;color:' + MUTED + ';font-weight:600}' +
-    '.gx-rep{margin:4px 0 0;text-align:left}.gx-rep summary{cursor:pointer;color:' + MUTED + ';font-size:14px;font-weight:700;list-style:none;text-align:center;padding:6px;min-height:32px}.gx-rep summary::-webkit-details-marker{display:none}.gx-rep[open] summary{color:' + TEXT + '}' +
+    '.gx-res .gx-row{position:sticky;bottom:-20px;padding:8px 0 2px;background:linear-gradient(180deg,rgba(18,24,68,0),rgba(18,24,68,.96) 30%)}.gx-rep{margin:4px 0 0;text-align:left}.gx-rep summary{cursor:pointer;color:' + MUTED + ';font-size:14px;font-weight:700;list-style:none;text-align:center;padding:6px;min-height:32px}.gx-rep summary::-webkit-details-marker{display:none}.gx-rep[open] summary{color:' + TEXT + '}' +
     '.gx-replist{max-height:min(26vh,190px);overflow:auto;display:flex;flex-direction:column;gap:3px}.gx-replist .r{display:grid;grid-template-columns:22px minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:14px;padding:3px 6px;border-radius:10px;background:rgba(255,255,255,.06)}' +
     '.gx-replist .r i{display:grid;place-items:center}.gx-replist .r.g i{color:' + GOOD + '}.gx-replist .r.y i{color:' + GOLD + '}.gx-replist .r.b i{color:' + BAD + '}.gx-replist b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gx-replist em{font-style:normal;color:' + MUTED + ';font-size:13px;white-space:nowrap}.gx-replist u{text-decoration:none;color:' + MUTED + ';font-size:12px}' +
     '.gx-pv{max-width:340px}.gx-pv .face{min-height:196px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:10px 8px;cursor:pointer}' +
@@ -421,7 +421,7 @@
     };
     S.say = function (it) { if (it && it.en) S.speak(it.en, 'en-US'); };
     function fit() {
-      var r = box.getBoundingClientRect(), w = Math.max(160, Math.round(r.width || root.clientWidth || 320)), h = Math.max(160, Math.round(r.height || root.clientHeight || 480)), d = Math.min(window.devicePixelRatio || 1, 2);
+      var r = box.getBoundingClientRect(), w = Math.max(160, Math.round(r.width || root.clientWidth || 320)), h = Math.max(160, Math.round(r.height || root.clientHeight || 480)), d = Math.min(window.devicePixelRatio || 1, 2, S.dprCap || 2);
       if (w === S.W && h === S.H && d === S.dpr && cv.width) return; S.W = w; S.H = h; S.dpr = d; cv.width = Math.round(w * d); cv.height = Math.round(h * d);
       ctx.setTransform(d, 0, 0, d, 0, 0); S.compact = h < 480 || w < 340; S.landscape = w > h * 1.15; if (cfg.onResize) cfg.onResize(w, h, S);
     }
@@ -434,6 +434,7 @@
     function frame(ts) {
       rafId = 0; if (S.dead) return; rafId = requestAnimationFrame(frame);
       if (!last) last = ts; var dt = Math.min(.05, (ts - last) / 1000); last = ts; S.frameMs = (S.frameMs || 0) * .95 + dt * 1000 * .05;
+      if (!S.paused) { S._slow = (S.frameMs > 24 && !document.hidden) ? (S._slow || 0) + 1 : Math.max(0, (S._slow || 0) - 2); if (S._slow > 90 && S.dpr > 1 && !cfg.fixedDpr) { S._slow = 0; S.dprCap = Math.max(1, S.dpr - .25); S.dpr = 0; fit(); } }
       if (S.paused) return; S.t += dt; S.fx.update(dt);
       if (upd) upd(dt); var sh = S.fx.begin(ctx); if (drw) drw(ctx, S.W, S.H); S.fx.draw(ctx, S.W, S.H); S.fx.end(ctx, sh);
     }

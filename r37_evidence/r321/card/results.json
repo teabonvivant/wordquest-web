@@ -935,6 +935,106 @@
   "detail": ""
  },
  {
+  "name": "one unsolved item left, last strike open on it",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "the miss shows the learn card",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": ">= 2 other (already solved) items are asked before the missed one comes back",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "the fillers are marked as revisits and the missed item is then asked again",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "answering it finally clears the level",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "a missed revisit also shows its learn card",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[land844] result card is up",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[land844] expanded report: 「back」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[land844] expanded report: 「again」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[land844] 再玩 works from the expanded card",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[s360] result card is up",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[s360] expanded report: 「back」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[s360] expanded report: 「again」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[s360] 再玩 works from the expanded card",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[m390] result card is up",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[m390] expanded report: 「back」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[m390] expanded report: 「again」 inside the screen, >= 44 px, and clickable",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[m390] 再玩 works from the expanded card",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "regen was called with {avoid:[previous questions]}",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "the second replay avoids the last game (not the first)",
+  "ok": true,
+  "detail": ""
+ },
+ {
   "name": "no art: cards still dealt and framed by CSS",
   "ok": true,
   "detail": ""
@@ -2215,22 +2315,27 @@
   "detail": ""
  },
  {
-  "name": "en: avg update+draw frame < 8 ms at 4x CPU (0.10 ms, p95 0.10, max 19.90)",
+  "name": "4x CPU autoplay: median frame interval < 20 ms and median >33 ms frames <= 12 per 15 s",
   "ok": true,
   "detail": ""
  },
  {
-  "name": "en: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'end_turn': 0.8, 'enemy_and_deal_20_frames': 4.1}",
+  "name": "en: avg update+draw frame < 8 ms at 4x CPU (0.07 ms, p95 0.10, max 11.20)",
   "ok": true,
   "detail": ""
  },
  {
-  "name": "ma: avg update+draw frame < 8 ms at 4x CPU (0.11 ms, p95 0.10, max 16.80)",
+  "name": "en: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'end_turn': 2.6, 'enemy_and_deal_20_frames': 12.9}",
   "ok": true,
   "detail": ""
  },
  {
-  "name": "ma: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'open_cast': 15.2, 'type': 0.2, 'submit': 21.7, 'frames30': 15.5, 'end_turn': 12, 'enemy_and_deal_20_frames': 9.8}",
+  "name": "ma: avg update+draw frame < 8 ms at 4x CPU (0.12 ms, p95 0.10, max 17.60)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "ma: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'open_cast': 16.2, 'type': 2.8, 'submit': 5.3, 'frames30': 2.5, 'end_turn': 7.8, 'enemy_and_deal_20_frames': 9.1}",
   "ok": true,
   "detail": ""
  },

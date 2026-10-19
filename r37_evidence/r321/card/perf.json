@@ -1,47 +1,93 @@
 {
+ "frames_game_runs": [
+  {
+   "frames": 878,
+   "avg": 17.0,
+   "p95": 16.8,
+   "max": 50,
+   "over33": 1,
+   "over50": 0
+  },
+  {
+   "frames": 885,
+   "avg": 16.9,
+   "p95": 16.8,
+   "max": 66.7,
+   "over33": 1,
+   "over50": 1
+  },
+  {
+   "frames": 871,
+   "avg": 17.1,
+   "p95": 16.8,
+   "max": 66.6,
+   "over33": 4,
+   "over50": 1
+  }
+ ],
+ "frames_control_runs": [
+  {
+   "frames": 896,
+   "avg": 16.7,
+   "p95": 16.7,
+   "max": 16.8,
+   "over33": 0,
+   "over50": 0
+  },
+  {
+   "frames": 896,
+   "avg": 16.7,
+   "p95": 16.7,
+   "max": 16.8,
+   "over33": 0,
+   "over50": 0
+  },
+  {
+   "frames": 896,
+   "avg": 16.7,
+   "p95": 16.8,
+   "max": 16.8,
+   "over33": 0,
+   "over50": 0
+  }
+ ],
+ "frames_summary": {
+  "game_median_over33_per_15s": 1,
+  "control_median_over33_per_15s": 0,
+  "game_median_avg_ms": 17.0,
+  "control_median_avg_ms": 16.7,
+  "game_median_p95": 16.8,
+  "game_median_max": 66.6
+ },
  "control_blank_canvas": {
-  "max": 22,
-  "p95": 2,
+  "max": 21.4,
+  "p95": 1.9,
   "avg": 0.4
  },
  "en": {
   "n": 1280,
-  "avg": 0.1021093750023283,
+  "avg": 0.0747656250023283,
   "p95": 0.10000000149011612,
-  "max": 19.899999998509884,
+  "max": 11.199999999254942,
   "ops_max_ms": {
-   "end_turn": 0.8,
-   "enemy_and_deal_20_frames": 4.1
+   "end_turn": 2.6,
+   "enemy_and_deal_20_frames": 12.9
   },
-  "real": {
-   "frames": 509,
-   "median": 16.7,
-   "p95": 33.3,
-   "over50": 1,
-   "longtasks": 3,
-   "longtask_max": 64
-  }
+  "real": null
  },
  "ma": {
   "n": 1270,
-  "avg": 0.11149606298156611,
+  "avg": 0.1196062992114251,
   "p95": 0.10000000149011612,
-  "max": 16.800000000745058,
+  "max": 17.600000001490116,
   "ops_max_ms": {
-   "open_cast": 15.2,
-   "type": 0.2,
-   "submit": 21.7,
-   "frames30": 15.5,
-   "end_turn": 12,
-   "enemy_and_deal_20_frames": 9.8
+   "open_cast": 16.2,
+   "type": 2.8,
+   "submit": 5.3,
+   "frames30": 2.5,
+   "end_turn": 7.8,
+   "enemy_and_deal_20_frames": 9.1
   },
-  "real": {
-   "frames": 511,
-   "median": 16.7,
-   "p95": 33.2,
-   "over50": 0,
-   "longtasks": 0,
-   "longtask_max": 0
-  }
+  "real": null
  }
 }

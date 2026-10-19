@@ -1255,6 +1255,118 @@ def t_requeue_after_ok(p):
     done(errs, b)
 
 
+def finisher_setup(pg, keep_unsolved=1):
+    """answer all but `keep_unsolved` core items, then kill the monster -> last strike with exactly those left"""
+    C(pg, 'noevent')
+    C(pg, 'mon', {'hp': 900, 'max': 900})
+    C(pg, 'player', {'hp': 90, 'maxHp': 90})
+    core = pg.evaluate("OPTS.items.map(i=>i.id)")
+    for cid in core[:len(core) - keep_unsolved]:
+        play(pg, cid)
+    C(pg, 'kill')
+    C(pg, 'flush')
+    return core
+
+
+def t_finisher_spacing(p):
+    print('[last strike: a miss is not re-asked straight away]')
+    b, pg, errs = fresh(p, 'english', 0, 4, 3, seed=5)
+    core = finisher_setup(pg, 1)
+    d = D(pg)
+    last = core[-1]
+    check('one unsolved item left, last strike open on it', d['phase'] == 'finisher' and d['cast'] and d['cast']['item'] == last and d['fin']['left'] == 1, d['cast'])
+    seq = []
+    answer(pg, wrong=True)
+    check('the miss shows the learn card', D(pg)['learnOpen'])
+    close_learn(pg)
+    guard = 0
+    while guard < 30 and not D(pg)['ended']:
+        guard += 1
+        C(pg, 'flush')
+        d = D(pg)
+        if d['cast']:
+            seq.append((d['cast']['item'], d['cast']['filler']))
+            if d['cast']['item'] == last and not d['cast']['filler']:
+                break
+            answer(pg)
+        elif d['learnOpen']:
+            close_learn(pg)
+        else:
+            step(pg, 30)
+    others = [x for x in seq if x[0] != last]
+    check('>= 2 other (already solved) items are asked before the missed one comes back', len(others) >= 2 and seq[0][0] != last and all(f for _, f in others), seq)
+    check('the fillers are marked as revisits and the missed item is then asked again', seq[-1] == (last, False), seq)
+    answer(pg)
+    pg.wait_for_timeout(300)
+    check('answering it finally clears the level', D(pg)['ended'] and D(pg)['progress']['done'] == len(core), D(pg)['progress'])
+    done(errs, b)
+    # a filler that is answered wrong gets its own learn card and does not break the flow
+    b, pg, errs = fresh(p, 'english', 0, 4, 3, seed=5)
+    finisher_setup(pg, 1)
+    answer(pg, wrong=True)
+    close_learn(pg)
+    C(pg, 'flush')
+    d = D(pg)
+    if d['cast'] and d['cast']['filler']:
+        answer(pg, wrong=True)
+        check('a missed revisit also shows its learn card', D(pg)['learnOpen'])
+        close_learn(pg)
+    done(errs, b)
+
+
+def t_result_sticky(p):
+    print('[result card: buttons reachable with the item report expanded]')
+    for (W, H, touch, tag) in ((844, 390, True, 'land844'), (360, 640, True, 's360'), (390, 844, True, 'm390')):
+        b, pg, errs = fresh(p, 'english', 6, 3, 3, size=(W, H), touch=touch, seed=5)   # 12-word level = long report
+        C(pg, 'noevent')
+        C(pg, 'mon', {'hp': 900, 'max': 900})
+        C(pg, 'player', {'hp': 90, 'maxHp': 90})
+        core = pg.evaluate("OPTS.items.map(i=>i.id)")
+        for k, cid in enumerate(core):
+            if k < 4:
+                play(pg, cid, wrong=True)
+                close_learn(pg)
+            play(pg, cid)
+        C(pg, 'kill')
+        C(pg, 'flush')
+        pg.wait_for_timeout(1800)
+        check('[%s] result card is up' % tag, pg.query_selector('.gx-res') is not None)
+        pg.click('.gx-rep summary')
+        pg.wait_for_timeout(400)
+        m = pg.evaluate("""()=>{const o={W:innerWidth,H:innerHeight};for(const k of ['back','again','next']){const e=document.querySelector('.gx-res [data-r='+k+']');if(!e){o[k]=null;continue}const r=e.getBoundingClientRect();const hit=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);o[k]={l:r.left,t:r.top,r:r.right,b:r.bottom,w:r.width,h:r.height,hit:!!hit&&(e===hit||e.contains(hit))};}return o}""")
+        for k in ('back', 'again', 'next'):
+            r = m[k]
+            if r is None:
+                continue
+            check('[%s] expanded report: 「%s」 inside the screen, >= 44 px, and clickable' % (tag, k), r['l'] >= 0 and r['t'] >= 0 and r['r'] <= m['W'] + 1 and r['b'] <= m['H'] + 1 and r['h'] >= 43 and r['hit'], (r, m['W'], m['H']))
+        shot(pg, 'result_expanded_%s' % tag)
+        pg.click('.gx-res [data-r=again]')
+        pg.wait_for_timeout(500)
+        check('[%s] 再玩 works from the expanded card' % tag, D(pg)['turn'] == 1 and not D(pg)['ended'])
+        done(errs, b)
+
+
+def t_regen_avoid(p):
+    print('[replay passes the previous questions to regen]')
+    b, pg, errs = fresh(p, 'math', 0, 3, 3, seed=7)
+    q1 = pg.evaluate("OPTS.items.map(i=>i.q)")
+    C(pg, 'giveup')
+    C(pg, 'flush')
+    pg.wait_for_timeout(1000)
+    pg.click('.gx-res [data-r=again]')
+    pg.wait_for_timeout(400)
+    arg = pg.evaluate("window.REGEN_LAST")
+    check('regen was called with {avoid:[previous questions]}', arg is not None and arg.get('avoid') == q1, arg)
+    q2 = pg.evaluate("OPTS.items.map(i=>i.q)")
+    C(pg, 'giveup')
+    C(pg, 'flush')
+    pg.wait_for_timeout(1000)
+    pg.click('.gx-res [data-r=again]')
+    pg.wait_for_timeout(400)
+    check('the second replay avoids the last game (not the first)', pg.evaluate("window.REGEN_LAST").get('avoid') == q2)
+    done(errs, b)
+
+
 def t_noart(p):
     print('[missing art falls back to drawn shapes]')
     b, pg, errs = fresh(p, 'english', 1, 9, 3, seed=5, assetBase='assets/none/')
@@ -1369,7 +1481,59 @@ def t_perf_control(p):
     b.close()
 
 
+def autoplay_frames(pg, secs):
+    pg.evaluate("""()=>{const C=WQ37Card;window.__f=[];let l=performance.now();const f=t=>{window.__f.push(t-l);l=t;requestAnimationFrame(f)};requestAnimationFrame(f);
+     window.__iv=setInterval(()=>{const d=C._debug; if(!d||d.ended){const b=document.querySelector('.gx-res [data-r=again]'); if(b) b.click(); return;} if(d.learnOpen||d.phase==='finisher')return;
+      if(d.cast){const it=ITEM(d.cast.item);const full=it.kind==='math'?String(it.a):it.en.replace(/[^A-Za-z]/g,'').slice(d.cast.locked||0);C._cmd('type',full);if(C._debug.cast)C._cmd('submit');return;}
+      if(d.phase==='player'){const i=d.hand.findIndex(c=>c.cost<=d.energy); if(i>=0)C._cmd('select',i); else C._cmd('end');}},650);}""")
+    pg.wait_for_timeout(secs * 1000)
+    f = pg.evaluate("()=>{clearInterval(window.__iv);return window.__f}")[5:]
+    f2 = sorted(f)
+    return {'frames': len(f), 'avg': round(sum(f) / len(f), 1), 'p95': round(f2[int(len(f2) * .95)], 1), 'max': round(f2[-1], 1), 'over33': sum(1 for x in f if x > 34), 'over50': sum(1 for x in f if x > 50)}
+
+
+def control_frames(p, secs):
+    b = p.chromium.launch(args=['--no-sandbox'])
+    ctx = b.new_context(viewport=dict(width=390, height=844), has_touch=True, device_scale_factor=2)
+    pg = ctx.new_page()
+    c = ctx.new_cdp_session(pg)
+    pg.set_content("<canvas id=c style='position:fixed;inset:0;width:100%;height:100%'></canvas>")
+    pg.evaluate("""()=>{const c=document.getElementById('c');c.width=780;c.height=1688;const x=c.getContext('2d');const loop=()=>{x.fillStyle='#123';x.fillRect(0,0,780,1688);requestAnimationFrame(loop)};loop();
+      window.__f=[];let l=performance.now();const f=t=>{window.__f.push(t-l);l=t;requestAnimationFrame(f)};requestAnimationFrame(f);}""")
+    c.send('Emulation.setCPUThrottlingRate', {'rate': 4})
+    pg.wait_for_timeout(secs * 1000)
+    f = pg.evaluate('window.__f')[5:]
+    f2 = sorted(f)
+    b.close()
+    return {'frames': len(f), 'avg': round(sum(f) / len(f), 1), 'p95': round(f2[int(len(f2) * .95)], 1), 'max': round(f2[-1], 1), 'over33': sum(1 for x in f if x > 34), 'over50': sum(1 for x in f if x > 50)}
+
+
+def t_perf_frames(p):
+    print('[frame intervals, 4x CPU, 15 s x 3 alternating runs: game vs blank canvas of the same size]')
+    import statistics
+    G_, C_ = [], []
+    for k in range(3):
+        b, pg, errs = open_game(p, 'card_game.js', 'WQ37Card', 'english', 1, 3, 3, size=(390, 844), touch=True, seed=4)
+        pg.evaluate("()=>{window.ITEM=(id)=>OPTS.items.concat(OPTS.review).find(x=>x.id===String(id).replace(/^fl\\d+:/,''));}")
+        boot(pg)
+        C(pg, 'noevent')
+        C(pg, 'mon', {'hp': 900, 'max': 900})
+        C(pg, 'player', {'hp': 900, 'maxHp': 900})
+        cdp = pg.context.new_cdp_session(pg)
+        cdp.send('Emulation.setCPUThrottlingRate', {'rate': 4})
+        G_.append(autoplay_frames(pg, 15))
+        done(errs, b)
+        C_.append(control_frames(p, 15))
+    med = lambda L, key: statistics.median(x[key] for x in L)
+    PERF['frames_game_runs'] = G_
+    PERF['frames_control_runs'] = C_
+    PERF['frames_summary'] = {'game_median_over33_per_15s': med(G_, 'over33'), 'control_median_over33_per_15s': med(C_, 'over33'), 'game_median_avg_ms': med(G_, 'avg'), 'control_median_avg_ms': med(C_, 'avg'), 'game_median_p95': med(G_, 'p95'), 'game_median_max': med(G_, 'max')}
+    print('   ', PERF['frames_summary'])
+    check('4x CPU autoplay: median frame interval < 20 ms and median >33 ms frames <= 12 per 15 s', med(G_, 'avg') < 20 and med(G_, 'over33') <= 12, PERF['frames_summary'])
+
+
 def t_perf(p):
+    t_perf_frames(p)
     t_perf_control(p)
     print('[performance cpu=4]')
     for (subj, w, s, diff, tag) in (('english', 1, 3, 3, 'en'), ('math', 3, 5, 3, 'ma')):
@@ -1394,46 +1558,14 @@ def t_perf(p):
           T('end_turn',()=>C._cmd('end',{force:true})); for(let k=0;k<14;k++) T('enemy_and_deal_20_frames',()=>C._step(20,1/60)); return out;}""")
         PERF[tag]['ops_max_ms'] = {k: round(v, 1) for k, v in ops.items()}
         check('%s: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: %s' % (tag, PERF[tag]['ops_max_ms']), max(ops.values()) < 40, ops)
-        # real-time session under the same 4x throttle: rAF intervals + long tasks while cards are dealt, cast, played and the monster acts
-        pg.evaluate("""()=>{window.__f=[];window.__lt=[];let l=performance.now();const f=t=>{window.__f.push(t-l);l=t;requestAnimationFrame(f)};requestAnimationFrame(f);
-          try{new PerformanceObserver(li=>{for(const e of li.getEntries())window.__lt.push(e.duration)}).observe({type:'longtask',buffered:false})}catch(_){}}""")
-        t0 = time.time()
-        while time.time() - t0 < 9:
-            d = D(pg)
-            if d['ended']:
-                break
-            if d['learnOpen']:
-                pg.wait_for_timeout(2100)
-                pg.evaluate("document.querySelector('.gx-learn [data-r=ok]')&&document.querySelector('.gx-learn [data-r=ok]').click()")
-                continue
-            if d['cast']:
-                C(pg, 'type', cast_text(pg))
-                if D(pg)['cast']:
-                    C(pg, 'submit')
-                pg.wait_for_timeout(450)
-                continue
-            if d['phase'] == 'player':
-                idx = [i for i, c in enumerate(d['hand']) if c['cost'] <= d['energy']]
-                if idx:
-                    C(pg, 'select', idx[0])
-                    pg.wait_for_timeout(250)
-                else:
-                    pg.click('.cd-end')
-                    pg.wait_for_timeout(300)
-            else:
-                pg.wait_for_timeout(200)
-        f = pg.evaluate('window.__f')[5:]
-        lt = pg.evaluate('window.__lt')
-        f2 = sorted(f)
-        PERF[tag]['real'] = {'frames': len(f), 'median': round(f2[len(f2) // 2], 1), 'p95': round(f2[int(len(f2) * .95)], 1), 'over50': sum(1 for x in f if x > 50), 'longtasks': len(lt), 'longtask_max': round(max(lt), 1) if lt else 0}
-        print('   real-time session', tag, PERF[tag]['real'])
+        PERF[tag]['real'] = None
         done(errs, b)
 
 
 PERF = {}
 KEYS = {}
 TESTS = [t_intro, t_desktop_hints, t_weakness_english, t_weakness_math, t_intent, t_energy, t_wrong_and_requeue, t_evolve, t_stars_first_try, t_cannot_win_without_answering, t_boss,
-         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_noart, t_math_confirm, t_form_rule, t_long_math, t_fullwidth_ime, t_restart_regen, t_requeue_after_ok, t_layout, t_states, t_perf]
+         t_difficulty, t_input_touch, t_input_keyboard, t_pause_restart, t_full_clear, t_destroy, t_finisher_spacing, t_result_sticky, t_regen_avoid, t_noart, t_math_confirm, t_form_rule, t_long_math, t_fullwidth_ime, t_restart_regen, t_requeue_after_ok, t_layout, t_states, t_perf]
 
 
 def main():

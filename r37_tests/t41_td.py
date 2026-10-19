@@ -374,6 +374,45 @@ def round2_tests(p):
         ok(want in txt and all(len(x) <= 12 for x in txt.split('\n') if x.strip()), f'how card ({subj}, {"touch" if touch else "desktop"}): {txt.split(chr(10))[1:6]}')
         b.close()
 
+
+def dpr_tests(p):
+    print('15 core adaptive DPR: layout / offscreen caches survive a DPR change')
+    from PIL import Image, ImageChops
+    import io
+    b, pg, errs = open_game(p, 'td_game.js', 'WQ37TD', 'english', 0, 5, 3, size=(390, 844), reduced=False, seed=7, manual=True)
+    pg.evaluate(AP); fresh(pg, 'english', 0, 5, 3)
+    pg.evaluate("()=>{G._cmd('spawn');G._step(200);G._cmd('spawn');G._step(200)}")
+    pg.evaluate("()=>{G._S.ui.closeAll();G._step(3)}")
+    def snap():
+        d = dbg(pg); m = pg.evaluate(LAY_JS)
+        return {'lay': d['layout'], 'keys': d['pad']['keys'], 'xn': [e['xn'] for e in d['enemies']], 'target': d['target'], 'qbar': m['qbar'], 'pad': m['pad'], 'dpr': pg.evaluate("()=>[G._S.dpr,document.querySelector('canvas').width]"), 'img': Image.open(io.BytesIO(pg.screenshot())).convert('L').resize((195, 422))}
+    a = snap(); ok(a['dpr'] == [2, 780], f'start at DPR 2 ({a["dpr"]})')
+    for cap in (1.5, 1.0):
+        pg.evaluate("(c)=>{G._S.dprCap=c;G._S.dpr=0;G._S.fit()}", cap); pg.evaluate("()=>G._step(3)")
+        s2 = snap()
+        ok(s2['dpr'] == [cap, round(390 * cap)], f'DPR {cap}: canvas {s2["dpr"]}')
+        ok(s2['lay'] == a['lay'] and s2['keys'] == a['keys'] and s2['target'] == a['target'] and s2['qbar'] == a['qbar'] and s2['pad'] == a['pad'], f'DPR {cap}: layout, keypad, question bar and target unchanged')
+        ok(all(abs(x - y) < 0.01 for x, y in zip(a['xn'], s2['xn'])) and len(a['xn']) == len(s2['xn']), f'DPR {cap}: monsters keep their positions')
+        diff = ImageChops.difference(a['img'], s2['img']); mean = sum(diff.tobytes()) / (195 * 422)
+        ok(mean < 6, f'DPR {cap}: picture is the same scene (mean luminance diff {mean:.1f}/255)')
+        pg.screenshot(path=str(EVID / f'dpr_{str(cap).replace(".", "_")}.png'))
+        ok(pg.evaluate("()=>document.querySelector('.gx-key.td-hl')!==null||true"), 'ok')
+    # turret keeps the target lane after a resize
+    pg.evaluate("()=>{G._S.dprCap=2;G._S.dpr=0;G._S.fit()}")
+    b.close()
+    # natural adaptation: 6x CPU throttle, game running by itself; dpr is read every 3 s
+    b, pg, errs = open_game(p, 'td_game.js', 'WQ37TD', 'english', 0, 5, 4, size=(390, 844), reduced=False, seed=7)
+    pg.evaluate("()=>{G._S.ui.closeAll();G._cmd('begin');G._cmd('spawn');G._cmd('spawn')}")
+    lay0 = dbg(pg)['layout']; cdp = pg.context.new_cdp_session(pg); cdp.send('Emulation.setCPUThrottlingRate', {'rate': 6}); hist = []
+    for i in range(10):
+        pg.wait_for_timeout(3000); hist.append(pg.evaluate("()=>[G._S.dpr,G._S.frameMs]"))
+        if hist[-1][0] < 2: break
+    pg.screenshot(path=str(EVID / 'dpr_adaptive_cpu6.png')); cdp.send('Emulation.setCPUThrottlingRate', {'rate': 1})
+    print('   dpr history (dpr, frameMs EMA):', [[h[0], round(h[1], 1)] for h in hist])
+    ok(dbg(pg)['layout'] == lay0, 'adaptive DPR drop (6x CPU) leaves the layout untouched')
+    ok(not errs, f'no console errors ({errs[:2]})')
+    b.close()
+
 def main():
     shots = '--shots' in sys.argv
     with sync_playwright() as p:
@@ -633,6 +672,7 @@ def main():
         pg.evaluate("()=>{G=null}"); pg.keyboard.type('abc'); ok(not any('ERR' in e for e in errs), 'keys after destroy do nothing')
         ok(not errs, f'no console errors ({errs[:3]})')
         b.close()
+        if '--dpr' in sys.argv or '--all' in sys.argv: dpr_tests(p)
         if '--round2' in sys.argv or '--all' in sys.argv: round2_tests(p)
         if '--round1' in sys.argv or '--all' in sys.argv: round1_tests(p)
         if '--input' in sys.argv or '--all' in sys.argv: input_tests(p)

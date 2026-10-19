@@ -1,0 +1,89 @@
+{
+ "before": {
+  "over33_per_trial": [
+   1,
+   1,
+   5
+  ],
+  "max_per_trial": [
+   33.3,
+   50,
+   50
+  ],
+  "avg_per_trial": [
+   16.69,
+   16.72,
+   16.84
+  ],
+  "p95_per_trial": [
+   16.7,
+   16.7,
+   16.8
+  ]
+ },
+ "after": {
+  "over33_per_trial": [
+   1,
+   0,
+   3
+  ],
+  "max_per_trial": [
+   33.4,
+   16.8,
+   33.4
+  ],
+  "avg_per_trial": [
+   16.69,
+   16.67,
+   16.75
+  ],
+  "p95_per_trial": [
+   16.7,
+   16.7,
+   16.7
+  ]
+ },
+ "control": {
+  "over33_per_trial": [
+   0,
+   0,
+   0
+  ],
+  "max_per_trial": [
+   16.8,
+   16.8,
+   16.8
+  ],
+  "avg_per_trial": [
+   16.67,
+   16.67,
+   16.67
+  ],
+  "p95_per_trial": [
+   16.8,
+   16.7,
+   16.7
+  ]
+ },
+ "trace_events_per_second": {
+  "before": {
+   "Paint": 121.0,
+   "RasterTask": 60.5,
+   "UpdateLayoutTree": 60.5,
+   "FireAnimationFrame": 121.0
+  },
+  "after": {
+   "Paint": 0.0,
+   "RasterTask": 0.0,
+   "UpdateLayoutTree": 60.2,
+   "FireAnimationFrame": 120.5
+  },
+  "control": {
+   "Paint": 0.0,
+   "RasterTask": 0.0,
+   "UpdateLayoutTree": 0.0,
+   "FireAnimationFrame": 120.5
+  }
+ },
+ "method": "3 trials x 10 s, 390x844 DPR2, CDP CPU throttle 4x, in-page rAF logger, no page.evaluate polling while measuring; machine shared with other jobs (1 core), so compare within a run"
+}
