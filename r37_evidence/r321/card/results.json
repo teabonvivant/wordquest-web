@@ -1,0 +1,32 @@
+[
+ {
+  "name": "4x CPU autoplay: median frame interval < 20 ms and median >33 ms frames <= 12 per 15 s",
+  "ok": false,
+  "detail": "{'game_median_over33_per_15s': 18, 'control_median_over33_per_15s': 0, 'game_median_avg_ms': 19.0, 'control_median_avg_ms': 16.7, 'game_median_p95': 33.3, 'game_median_max': 183.3}"
+ },
+ {
+  "name": "en: avg update+draw frame < 8 ms at 4x CPU (0.09 ms, p95 0.10, max 10.90)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "en: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'end_turn': 2.9, 'enemy_and_deal_20_frames': 11.8}",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "ma: avg update+draw frame < 8 ms at 4x CPU (0.09 ms, p95 0.10, max 14.50)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "ma: worst single operation (cast open / type / submit / end turn+deal) < 40 ms at 4x: {'open_cast': 26.2, 'type': 0.2, 'submit': 22.3, 'frames30': 0.1, 'end_turn': 5.3, 'enemy_and_deal_20_frames': 13}",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "no console errors / page errors in any test",
+  "ok": true,
+  "detail": ""
+ }
+]

@@ -1,0 +1,77 @@
+{
+ "before": {
+  "over33_per_trial": [
+   60,
+   81
+  ],
+  "max_per_trial": [
+   466.6,
+   100.1
+  ],
+  "avg_per_trial": [
+   70.43,
+   27.1
+  ],
+  "p95_per_trial": [
+   166.7,
+   66.6
+  ]
+ },
+ "after": {
+  "over33_per_trial": [
+   56,
+   54
+  ],
+  "max_per_trial": [
+   250.1,
+   83.4
+  ],
+  "avg_per_trial": [
+   77.62,
+   21.53
+  ],
+  "p95_per_trial": [
+   200,
+   49.9
+  ]
+ },
+ "control": {
+  "over33_per_trial": [
+   71,
+   43
+  ],
+  "max_per_trial": [
+   150.1,
+   116.7
+  ],
+  "avg_per_trial": [
+   37.61,
+   20.69
+  ],
+  "p95_per_trial": [
+   100,
+   50
+  ]
+ },
+ "trace_events_per_second": {
+  "before": {
+   "Paint": 106.0,
+   "RasterTask": 52.8,
+   "UpdateLayoutTree": 53.0,
+   "FireAnimationFrame": 106.0
+  },
+  "after": {
+   "Paint": 0.0,
+   "RasterTask": 0.0,
+   "UpdateLayoutTree": 57.2,
+   "FireAnimationFrame": 114.5
+  },
+  "control": {
+   "Paint": 0.0,
+   "RasterTask": 0.0,
+   "UpdateLayoutTree": 0.0,
+   "FireAnimationFrame": 107.5
+  }
+ },
+ "method": "2 trials x 6 s, 390x844 DPR2, CDP CPU throttle 4x, in-page rAF logger, no page.evaluate polling while measuring; machine shared with other jobs (1 core), so compare within a run"
+}

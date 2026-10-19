@@ -97,6 +97,61 @@ function r37FpsPay(w,s,res){
  if(coins)r37AddCoins(coins);
  return coins;
 }
+/* ---- R3.21: the three learning games (字母砲台 td / 字母迷宮 mz / 字卡征途 cd), English and maths. Track keys td-en td-ma mz-en mz-ma cd-en cd-ma ---- */
+const R37_G3={
+ td:{name:'字母砲台',icon:'🏰',lib:'WQ37TD',hue:265,tag:'拼對才發炮'},
+ mz:{name:'字母迷宮',icon:'🌀',lib:'WQ37Maze',hue:190,tag:'按序吃字母'},
+ cd:{name:'字卡征途',icon:'🃏',lib:'WQ37Card',hue:335,tag:'解題才出牌'}
+};
+const r37G3Track=(g,subj)=>g+'-'+(subj==='math'?'ma':'en');
+const r37G3Worlds=subj=>subj==='math'?WQ37Math.worlds('math'):R37_TRACKS.english.worlds;
+const r37G3Grade=(subj,w)=>subj==='math'?(['小一二','小二','小三','小四','小五','小六'][w]||''):'詞彙 '+(w+1);
+/* a level is open after the previous level of the same game and subject, after the matching lesson level (English unit / maths level) was passed, or for Admin */
+function r37G3Open(g,subj,w,s){
+ if(adminUnlocks())return true;const t=r37G3Track(g,subj);
+ if(r37Entry(t,w,s)?.passed)return true;
+ if(s>0?r37Entry(t,w,s-1)?.passed:(w===0||r37Entry(t,w-1,9)?.passed))return true;
+ return !!r37Entry(subj==='math'?'math':'english',w,s)?.passed;
+}
+function r37G3WorldOpen(g,subj,w){for(let s=0;s<10;s++)if(r37G3Open(g,subj,w,s))return true;return false;}
+function r37G3Next(g,subj,w,s){let nw=w,ns=s+1;if(ns>9){nw++;ns=0;}return nw<r37G3Worlds(subj).length?{w:nw,s:ns}:null;}
+function r37G3Items(subj,w,s,diff,seed){
+ if(subj==='math'){
+  const qs=WQ37Math.make('math',w,s,8,diff,seed,(r37Get().recent.math||[]).slice(-30));
+  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));
+ }
+ return r37EnStage(w,s).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'',ex:x.ex||''}));
+}
+/* up to two words / problems the child got wrong before (the existing wrong bank), else a couple from the previous level: slipped into the deck as spaced review, never counted in the stars */
+function r37G3Review(subj,w,s,diff,seed,items){
+ const have=new Set(items.map(x=>x.en||x.q)),o=r37Get();
+ if(subj==='math'){
+  const sk=new Set(o.miss.filter(m=>m.t==='math'&&m.w===w&&m.sk).map(m=>m.sk));
+  if(s===0&&!sk.size)return [];
+  try{return WQ37Math.make('math',w,Math.max(0,s-1),6,diff,seed+97).filter(x=>!have.has(x.q)&&(!sk.size||sk.has(x.skill))).slice(0,2).map((x,i)=>({id:'m'+w+'-rv-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));}catch(_){return [];}
+ }
+ let pool=o.wrong.filter(x=>!have.has(x.en)&&x.zh).sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,2).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''}));
+ if(pool.length<2&&s>0)pool=pool.concat(r37EnStage(w,s-1).filter(x=>!have.has(x.en)&&!pool.some(p=>p.en===x.en)).slice(0,2-pool.length).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''})));
+ return pool;
+}
+function r37G3Pay(g,subj,w,s,res,items){
+ const o=r37Get(),k=r37LvKey(r37G3Track(g,subj),w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=!!(res&&res.passed);
+ const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
+ if(passed){if(!old.passed){coins+=1+(s===9?2:0);r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
+ /* learning loop: a first-try miss goes into the same wrong bank / maths mistake list the quiz uses, so the warm-up and review pick it up; a first-try hit clears a word from the bank */
+ const now=Date.now(),by={};items.forEach(x=>{by[x.id]=x;});
+ for(const p of (res&&res.perItem)||[]){
+  if(p.rv){if(subj!=='math'&&p.firstOk&&p.en){const j=o.wrong.findIndex(x=>x.en===p.en);if(j>=0){o.wrong[j].n--;if(o.wrong[j].n<=0)o.wrong.splice(j,1);}}continue;}
+  if(!p.tries)continue;const it=by[p.id];if(!it)continue;
+  if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();}continue;}
+  const i=o.wrong.findIndex(x=>x.en===p.en);
+  if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}}
+  else if(i>=0&&o.wrong[i].n<=1)o.wrong.splice(i,1);
+  try{if(isLoggedIn()){const c=activeChild(),wd=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(p.en));if(wd){recordAttempt(wd,'spell',!!p.firstOk,p.firstOk?p.en:'',p.en,'遊戲',{src:'g3-'+g,track:'english',w,s});}}}catch(_){}
+ }
+ const fc=((res&&res.perItem)||[]).filter(p=>!p.rv&&p.firstOk).length;if(fc){r37Bump('correct',fc);if(subj!=='math')r37Bump('enok',fc);}
+ r37Save();if(!isLoggedIn())coins=0;if(coins)r37AddCoins(coins);return coins;
+}
 function r37WorldStars(t,w){let n=0;for(let s=0;s<10;s++)n+=r37Entry(t,w,s)?.best||0;return n;}
 function r37WorldDone(t,w){let n=0;for(let s=0;s<10;s++)if(r37Entry(t,w,s)?.passed)n++;return n;}
 function r37TrackWorlds(t){return t==='english'?R37_TRACKS.english.worlds:(globalThis.WQ37Math?WQ37Math.worlds(t):[]);}

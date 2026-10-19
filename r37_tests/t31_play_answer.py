@@ -660,7 +660,8 @@ def run_game(p, gid):
             tgt = J(pg, 'WQArc.targets(pgMeta.id)[0]')
             ok(gid, 'T9_star_rules', st['scoreOk'] == (st['score'] >= tgt) and st['words'] == (st['wordsAsked'] >= 2 and st['wordsOk'] / max(1, st['wordsAsked']) >= .75) and st['combo'] == (st['maxCombo'] >= st['comboTarget']), str(st))
             mc = J(pg, 'WQArc._combo(pgGame).max')
-            ok(gid, 'V4_2_combo_agree', fin['maxCombo'] == mc and f"×{mc}" in res['text'] and len(set(re.findall(r'×(\d+)', res['text']))) == 1, f"final {fin['maxCombo']} arc {mc} {set(re.findall(r'×(\d+)', res['text']))}")
+            combos = set(re.findall(r'×(\d+)', res['text']))
+            ok(gid, 'V4_2_combo_agree', fin['maxCombo'] == mc and f"×{mc}" in res['text'] and len(combos) == 1, f"final {fin['maxCombo']} arc {mc} {combos}")
         else:
             ok(gid, 'T9_stars_match', False, str(fin)[:200])
         ok(gid, 'T9_no_errors', not errs, str(errs[:3]))
