@@ -1,89 +1,77 @@
 {
  "before": {
   "over33_per_trial": [
-   1,
-   1,
-   5
+   60,
+   81
   ],
   "max_per_trial": [
-   33.3,
-   50,
-   50
+   466.6,
+   100.1
   ],
   "avg_per_trial": [
-   16.69,
-   16.72,
-   16.84
+   70.43,
+   27.1
   ],
   "p95_per_trial": [
-   16.7,
-   16.7,
-   16.8
+   166.7,
+   66.6
   ]
  },
  "after": {
   "over33_per_trial": [
-   1,
-   0,
-   3
+   56,
+   54
   ],
   "max_per_trial": [
-   33.4,
-   16.8,
-   33.4
+   250.1,
+   83.4
   ],
   "avg_per_trial": [
-   16.69,
-   16.67,
-   16.75
+   77.62,
+   21.53
   ],
   "p95_per_trial": [
-   16.7,
-   16.7,
-   16.7
+   200,
+   49.9
   ]
  },
  "control": {
   "over33_per_trial": [
-   0,
-   0,
-   0
+   71,
+   43
   ],
   "max_per_trial": [
-   16.8,
-   16.8,
-   16.8
+   150.1,
+   116.7
   ],
   "avg_per_trial": [
-   16.67,
-   16.67,
-   16.67
+   37.61,
+   20.69
   ],
   "p95_per_trial": [
-   16.8,
-   16.7,
-   16.7
+   100,
+   50
   ]
  },
  "trace_events_per_second": {
   "before": {
-   "Paint": 121.0,
-   "RasterTask": 60.5,
-   "UpdateLayoutTree": 60.5,
-   "FireAnimationFrame": 121.0
+   "Paint": 106.0,
+   "RasterTask": 52.8,
+   "UpdateLayoutTree": 53.0,
+   "FireAnimationFrame": 106.0
   },
   "after": {
    "Paint": 0.0,
    "RasterTask": 0.0,
-   "UpdateLayoutTree": 60.2,
-   "FireAnimationFrame": 120.5
+   "UpdateLayoutTree": 57.2,
+   "FireAnimationFrame": 114.5
   },
   "control": {
    "Paint": 0.0,
    "RasterTask": 0.0,
    "UpdateLayoutTree": 0.0,
-   "FireAnimationFrame": 120.5
+   "FireAnimationFrame": 107.5
   }
  },
- "method": "3 trials x 10 s, 390x844 DPR2, CDP CPU throttle 4x, in-page rAF logger, no page.evaluate polling while measuring; machine shared with other jobs (1 core), so compare within a run"
+ "method": "2 trials x 6 s, 390x844 DPR2, CDP CPU throttle 4x, in-page rAF logger, no page.evaluate polling while measuring; machine shared with other jobs (1 core), so compare within a run"
 }

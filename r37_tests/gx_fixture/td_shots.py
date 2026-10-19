@@ -5,7 +5,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from lib import open_game, sync_playwright, R  # noqa: E402
 
-OUT = R / 'r37_evidence' / 'r321' / 'td'; OUT.mkdir(parents=True, exist_ok=True)
+import os
+OUT = R / 'r37_evidence' / os.environ.get('TD_SHOT_DIR', 'r321/td'); OUT.mkdir(parents=True, exist_ok=True)
 SIZES = [(390, 844, 'p390'), (360, 640, 'p360'), (844, 390, 'l844'), (1440, 900, 'd1440'), (768, 1024, 't768')]
 CASES = [('english', 0, 2, 2, 'en'), ('english', 3, 9, 3, 'enboss'), ('math', 3, 4, 3, 'ma'), ('math', 4, 6, 2, 'mafrac'), ('math', 5, 9, 4, 'maboss')]
 
@@ -38,7 +39,7 @@ def run(sel=None):
                 pg.screenshot(path=str(OUT / f'{tag}_{name}_play.png'))
                 if name in ('en', 'ma'):
                     for tn, combo in (('fire', 3), ('ice', 5), ('thunder', 8)):
-                        pg.evaluate("(c)=>{G._cmd('combo',c-1);G._cmd('solve');G._step(14)}", combo); pg.wait_for_timeout(60)
+                        pg.evaluate("(c)=>{const t=G._debug.enemies.find(e=>e.state==='walk'&&!e.typed);if(t)G._cmd('select',t.uid);G._cmd('combo',c-1);G._cmd('solve');G._step(14)}", combo); pg.wait_for_timeout(60)
                         pg.screenshot(path=str(OUT / f'{tag}_{name}_fx_{tn}.png'))
                         pg.evaluate("()=>G._step(60)")
                     pg.evaluate("()=>{G._cmd('event','meteor');G._step(40)}"); pg.screenshot(path=str(OUT / f'{tag}_{name}_meteor.png'))

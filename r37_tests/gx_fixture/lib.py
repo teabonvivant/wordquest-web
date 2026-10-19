@@ -8,7 +8,8 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright  # noqa: F401
 
 R = Path(__file__).resolve().parents[2]
-SRC = R / 'r37_src'
+import os
+SRC = Path(os.environ['GX_SRC']) if os.environ.get('GX_SRC') else R / 'r37_src'
 UNITS = json.loads((Path(__file__).parent / 'en_units.json').read_text())
 
 BOOT = """

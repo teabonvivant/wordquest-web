@@ -105,7 +105,7 @@
   var PENTA = [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24];
   function hz(semi, base) { return (base || 261.63) * Math.pow(2, semi / 12); }
   GX.audio = function (soundOn) {
-    var enabled = soundOn !== false, muted = loadMute(), master = null, mt = 0, mtheme = null, stepN = 0, dead = false, noiseBuf = null, lastSfx = {};
+    var enabled = soundOn !== false, muted = loadMute(), master = null, mt = 0, mtheme = null, stepN = 0, dead = false, noiseBuf = null, lastSfx = {}, layerN = 0;
     var API = {};
     function ac() { if (dead || !enabled) return null; var c = ctxGet(); if (!c) return null; if (!master) { master = c.createGain(); master.gain.value = muted ? 0 : 0.8; master.connect(c.destination); } return c; }
     function tone(c, f, dur, type, vol, o) {
@@ -149,8 +149,22 @@
       eat: function (c, o) { var n = PENTA[(o.i || 0) % PENTA.length]; tone(c, hz(n + 5), .1, 'square', .09); },
       ghost: function (c) { tone(c, 90, .3, 'sawtooth', .08, { slide: 1.6 }); },
       boss: function (c) { tone(c, 82, .8, 'sawtooth', .16, { slide: .8 }); tone(c, 123, .8, 'square', .08, { slide: .8, delay: .05 }); noise(c, .6, .2, 400, 100); },
-      flip: function (c) { noise(c, .09, .14, 5000, 1800, { type: 'highpass' }); tone(c, 600, .06, 'sine', .06, { slide: 1.5 }); }
+      flip: function (c) { noise(c, .09, .14, 5000, 1800, { type: 'highpass' }); tone(c, 600, .06, 'sine', .06, { slide: 1.5 }); },
+      /* R3.22 additions (layered action sounds; used by the tower-defence game, harmless for the others) */
+      kill: function (c, o) { var t = o.t || 0; tone(c, hz(7 + t * 3), .1, 'sine', .2, { slide: 2.4 }); tone(c, hz(19 + t * 3), .16, 'triangle', .07, { delay: .05 }); noise(c, .14, .16, 3800, 600); tone(c, hz(-5), .18, 'sine', .16, { slide: .5 }); },
+      tierup: function (c, o) {
+        var t = o.t || 1;
+        if (t === 1) { noise(c, .4, .3, 600, 3000, { type: 'bandpass' }); [0, 4, 7, 12].forEach(function (n, i) { tone(c, hz(n), .2, 'square', .08, { delay: i * .06 }); }); tone(c, hz(-12), .4, 'sawtooth', .1, { slide: 1.8 }); }
+        else if (t === 2) { [12, 19, 24, 28].forEach(function (n, i) { tone(c, hz(n), .5, 'sine', .11, { delay: i * .08 }); tone(c, hz(n + .08), .5, 'sine', .06, { delay: i * .08 }); }); noise(c, .3, .1, 7000, 3000, { type: 'highpass' }); }
+        else { tone(c, 900, .25, 'sawtooth', .1, { slide: .2 }); noise(c, .35, .22, 6000, 500, { type: 'highpass' }); [0, 7, 12, 16, 19].forEach(function (n, i) { tone(c, hz(n + 5), .24, 'square', .08, { delay: .1 + i * .05 }); }); }
+      },
+      basehit: function (c) { tone(c, 78, .45, 'sine', .42, { slide: .45 }); noise(c, .32, .34, 700, 70); tone(c, 330, .12, 'square', .09); tone(c, 247, .18, 'square', .09, { delay: .13 }); },
+      shieldbreak: function (c) { noise(c, .22, .22, 9000, 2500, { type: 'highpass' }); tone(c, 2400, .2, 'triangle', .08, { slide: .4 }); tone(c, 1800, .26, 'sine', .07, { slide: .5, delay: .03 }); tone(c, hz(12), .22, 'triangle', .1, { delay: .08 }); },
+      streak: function (c, o) { var n = Math.max(1, o.n || 1), i = n % PENTA.length, oct = Math.min(2, Math.floor(n / PENTA.length)) * 12, f = hz(PENTA[i] + 7 + oct); tone(c, f, .15, 'triangle', .13); tone(c, f * 2, .22, 'sine', .07, { delay: .04 }); if (n >= 5) tone(c, f * 3, .12, 'sine', .04, { delay: .08 }); if (n >= 10) tone(c, f * 4, .1, 'triangle', .03, { delay: .12 }); },
+      freezeon: function (c) { noise(c, .3, .2, 8000, 2000, { type: 'highpass' }); [24, 19, 16, 12].forEach(function (n, i) { tone(c, hz(n), .3, 'sine', .09, { delay: i * .06 }); }); },
+      bossdie: function (c) { noise(c, .7, .45, 1800, 50); tone(c, 140, .8, 'sawtooth', .16, { slide: .2 }); [0, 4, 7, 12, 16, 19, 24].forEach(function (n, i) { tone(c, hz(n + 7), .3, 'triangle', .12, { delay: .25 + i * .07 }); }); }
     };
+    API.names = function () { return Object.keys(R); };
     API.sfx = function (name, o) {
       o = o || {}; var c = ac(); if (!c || muted || !R[name]) return;
       var now = c.currentTime; if (lastSfx[name] && now - lastSfx[name] < .025) return; lastSfx[name] = now;
@@ -171,11 +185,17 @@
         if (k % 2 === 0) { var s = T.scale[(k * 3 + (k >> 2)) % T.scale.length]; tone(c, hz(T.root + s + 12), beat * 1.6, 'triangle', T.vol, { delay: Math.max(0, t) }); }
         if (k % 4 === 0) tone(c, hz(T.root + T.bass[bar] - 12), beat * 3.4, 'sine', T.vol * 1.4, { delay: Math.max(0, t) });
         if (mtheme === 'boss' || mtheme === 'drive') { if (k % 2 === 1) noise(c, .04, T.vol * 1.2, 7000, 4000, { type: 'highpass', delay: Math.max(0, t) }); }
+        if (layerN >= 1 && (mtheme === 'boss' || mtheme === 'drive')) {       /* R3.22 intensity layers (kick, then 16th hats + a high echo voice); default 0 = unchanged */
+          if (k % 4 === 0) tone(c, 62, .16, 'sine', T.vol * 2.6, { delay: Math.max(0, t), slide: .45 });
+          if (layerN >= 2) { noise(c, .025, T.vol * .9, 9000, 6000, { type: 'highpass', delay: Math.max(0, t) + beat / 2 }); if (k % 2 === 1) tone(c, hz(T.root + T.scale[(k * 2 + 1) % T.scale.length] + 24), beat * .8, 'sine', T.vol * .7, { delay: Math.max(0, t) }); }
+        }
         API._next += beat;
       }
     }
+    API.layer = function (n) { layerN = n | 0; };
+    API.warm = function () { var c = ac(); if (c && !noiseBuf) { noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate); var d = noiseBuf.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; } };
     API.music = function (theme) {
-      if (dead) return; mtheme = theme || 'calm'; API._next = 0; stepN = 0;
+      if (dead) return; mtheme = theme || 'calm'; API._next = 0; stepN = 0; layerN = 0;
       if (!mt && enabled && API.musicOn()) mt = setInterval(musTick, 80);
     };
     API.setMusicOn = function (v) { try { localStorage.setItem(MUSKEY, v ? '0' : '1'); } catch (e) { /* */ } if (!v) { if (mt) { clearInterval(mt); mt = 0; } } else if (mtheme && enabled && !mt && !dead) mt = setInterval(musTick, 80); };
@@ -228,7 +248,9 @@
       for (i = 0; i < R.length; i++) { p = R[i]; t = 1 - p.life / p.max; c.globalAlpha = (1 - t) * .9; c.strokeStyle = p.col; c.lineWidth = p.w * (1 - t * .6); c.beginPath(); c.arc(p.x, p.y, lerp(p.r0, p.r1, ease.out(t)), 0, 6.3); c.stroke(); }
       for (i = 0; i < T.length; i++) {
         p = T[i]; t = 1 - p.life / p.max; var sc = p.pop ? (t < .18 ? .6 + ease.back(t / .18) * .55 : 1.15 - Math.min(.15, (t - .18))) : 1;
-        c.globalAlpha = t > .7 ? (1 - t) / .3 : 1; c.font = '900 ' + Math.round(p.size * sc) + 'px ' + FONT; c.textAlign = 'center'; c.textBaseline = 'middle'; c.lineJoin = 'round'; c.lineWidth = Math.max(3, p.size * .22); c.strokeStyle = p.sk; c.strokeText(p.str, p.x, p.y - p.rise * ease.out(t)); c.fillStyle = p.col; c.fillText(p.str, p.x, p.y - p.rise * ease.out(t));
+        c.globalAlpha = t > .7 ? (1 - t) / .3 : 1;
+        if (!p.lb) p.lb = GX.label(p.str, { size: p.size, weight: 900, fam: FONT, color: p.col, stroke: p.sk, strokeW: Math.max(3, p.size * .22) / 2, dpr: 2 });   /* rasterised once per floater (cached by text), blitted + scaled per frame */
+        c.drawImage(p.lb.c, p.x - p.lb.w * sc / 2, p.y - p.rise * ease.out(t) - p.lb.h * sc / 2, p.lb.w * sc, p.lb.h * sc);
       }
       c.globalAlpha = 1;
       if (flashA > .01) { c.globalAlpha = Math.min(.6, flashA); c.fillStyle = flashC; c.fillRect(0, 0, W, H); c.globalAlpha = 1; }

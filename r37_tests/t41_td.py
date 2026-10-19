@@ -413,6 +413,93 @@ def dpr_tests(p):
     ok(not errs, f'no console errors ({errs[:2]})')
     b.close()
 
+BLIND = """(a)=>{let x=a.seed;const rnd=()=>{x=(x*1103515245+12345)&0x7fffffff;return x/0x7fffffff};let it=0,cards=0;window.RESULT=null;
+ while(it++<80000){const d=G._debug;if(d.ended)break;if(d.frozen){FF(2200);cards++;const b=document.querySelector('.gx-learn [data-r=ok]');if(b){b.disabled=false;b.click();}continue}
+  if(d.state!=='play'){G._step(10);continue}
+  let pool=d.pad.keys.filter(k=>/^[a-z0-9]$/.test(k));if(!pool.length)pool=a.math?'0123456789'.split(''):'abcdefghijklmnopqrstuvwxyz'.split('');
+  if(a.hint){G._cmd('hint');const e=d.enemies.find(q=>q.uid===d.target&&q.state==='walk');if(e&&!e.math){const nx=e.answer[e.typed.length];if(nx&&/[a-z]/i.test(nx))G._cmd('key',nx.toLowerCase());G._step(4);continue}}
+  G._cmd('key',pool[Math.floor(rnd()*pool.length)]);G._step(4);}
+ const r=window.RESULT||null;return {ended:G._debug.ended,passed:!!(r&&r.passed),stars:r&&r.stars,cleared:r&&r.cleared,fta:r?r.firstTryAccuracy:0,cards}}"""
+
+
+def r322_tests(p):
+    print('R3.22 additions')
+    b, pg, errs = open_game(p, 'td_game.js', 'WQ37TD', 'english', 0, 2, 2, size=(390, 844), touch=True, reduced=False, seed=7, manual=True)
+    pg.evaluate(AP)
+    # ---- 12 blind-play bots: not reading the question must never pass (pad-aware random bot, and a hint-following bot)
+    for subj, w, s in (('english', 0, 1), ('english', 3, 6), ('math', 1, 3), ('math', 3, 5)):
+        for d in (1, 3, 5):
+            passes = 0; best = 0
+            for k in range(6):
+                fresh(pg, subj, w, s, d); r = pg.evaluate(BLIND, {'seed': 1000 + k * 77, 'math': subj == 'math'}); passes += r['passed']; best = max(best, r['fta'])
+            ok(passes == 0 and best < 0.5, f'12 blind bot ({subj} w{w} s{s} d{d}): 0/6 pass, best first-try {best:.0%} (<50%)')
+    for d in (3,):
+        fresh(pg, 'english', 3, 6, d); r = pg.evaluate(BLIND, {'seed': 5, 'math': False, 'hint': True})
+        ok(r['ended'] and not r['passed'] and r['fta'] < 0.7, f'12 hint-following bot at d{d} cannot pass (first-try {r["fta"]:.0%}, stars {r["stars"]})')
+    # ---- 5 difficulty is felt: an unattended monster reaches the base later on easy
+    times = []
+    for d in range(1, 6):
+        fresh(pg, 'english', 3, 5, d); t = pg.evaluate("()=>{let n=0;while(n++<9000&&!G._debug.frozen)G._step(1);return G._debug.playT}"); times.append(t)
+    ok(all(times[i] > times[i + 1] for i in range(4)) and times[0] / times[4] >= 1.25, f'5 time until the base is hit shrinks with difficulty: {[round(x, 1) for x in times]} s')
+    # ---- 1 pre-rendered sprites: caches are filled once and stay flat while playing; a keystroke does not rebuild the question picture
+    fresh(pg, 'english', 3, 5, 3); pg.evaluate("()=>{G._cmd('spawn');G._step(120);G._cmd('spawn');G._step(120)}"); c0 = dbg(pg)['cache']
+    pg.evaluate("()=>{G._step(600)}"); c1 = dbg(pg)['cache']
+    ok(c0['sprites'] >= 2 and c1['sprites'] == c0['sprites'] and c1['pips'] <= c0['pips'] + 12, f'1 sprite cache is flat while playing ({c0} -> {c1})')
+    pg.evaluate("()=>{window.__pic=document.querySelector('.td-pic>*');window.__fs=document.querySelector('.td-txt').style.fontSize}")
+    pg.evaluate("()=>{const e=G._debug.enemies.find(x=>x.uid===G._debug.target);G._cmd('key',e.answer[e.typed.length])}")
+    same = pg.evaluate("()=>({pic:window.__pic===document.querySelector('.td-pic>*')||!window.__pic,fs:window.__fs===document.querySelector('.td-txt').style.fontSize,slots:document.querySelectorAll('.td-slots i.f,.td-slots i.p').length})")
+    ok(same['pic'] and same['fs'] and same['slots'] >= 1, f'1 keystroke only touches the answer slots (picture node and fitted font kept; {same})')
+    # ---- 3/4 sound + effect hooks, checked through a spy on the shell's sfx/fx; every name must exist in the synth table
+    pg.evaluate("""()=>{window.__sx=[];window.__sh=[];const S=G._S,o=S.sfx;S.sfx=function(n,a){window.__sx.push([n,a&&a.t,a&&a.n]);return o.apply(S,arguments)};const f=S.fx.shake;S.fx.shake=function(m,d){window.__sh.push(m);return f.apply(S.fx,arguments)};}""")
+    pg.evaluate("()=>{G._cmd('combo',2);G._cmd('solve');G._step(30)}"); names = pg.evaluate("()=>window.__sx.map(x=>x[0])")
+    ok(all(n in names for n in ('key', 'kill', 'streak', 'good', 'hit')) or all(n in names for n in ('key', 'kill', 'streak', 'great')), f'3 a kill plays layered sounds {sorted(set(names))}')
+    pg.evaluate("()=>{window.__sx.length=0;G._cmd('spawn');G._step(40);G._cmd('combo',2);G._cmd('solve');G._step(30)}"); tu = pg.evaluate("()=>window.__sx.filter(x=>x[0]==='tierup').map(x=>x[1])")
+    ok(tu == [1], f'3 combo 3 -> tier-up sound for tier 1 ({tu})')
+    kills = {}
+    for cmb in (1, 4, 7):
+        pg.evaluate("(c)=>{window.__sx.length=0;G._cmd('spawn');G._step(40);G._cmd('combo',c);G._cmd('solve');G._step(30)}", cmb); kills[cmb] = pg.evaluate("()=>window.__sx.filter(x=>x[0]==='kill').map(x=>x[1])")
+    ok(kills[1] != kills[4] != kills[7] and all(len(v) == 1 for v in kills.values()), f'3 the kill sound is voiced per cannon tier {kills}')
+    st = pg.evaluate("()=>{window.__sx.length=0;G._cmd('combo',3);G._cmd('spawn');G._step(40);const e=G._debug.enemies.find(x=>x.state==='walk');G._cmd('select',e.uid);G._cmd('wrong');G._step(2);return window.__sx.map(x=>x[0])}")
+    ok('bad' in st, f'3 wrong answer sound ({sorted(set(st))})')
+    dismiss_card(pg)
+    pg.evaluate("()=>{window.__sx.length=0;G._cmd('hearts',5);G._cmd('spawn');G._step(2);const e=G._debug.enemies.find(x=>x.state==='walk');G._cmd('select',e.uid);G._cmd('timeout');G._step(2)}"); bn = pg.evaluate("()=>window.__sx.map(x=>x[0])")
+    ok('basehit' in bn, f'3 base hit has its own deep thud ({sorted(set(bn))})'); dismiss_card(pg)
+    pg.evaluate("()=>{window.__sx.length=0;G._cmd('event','freeze')}"); ok('freezeon' in pg.evaluate("()=>window.__sx.map(x=>x[0])"), '3 freeze power-up has its own sound')
+    allnames = pg.evaluate("()=>G._S.audio.names()"); heard = pg.evaluate("()=>[...new Set(window.__sx.map(x=>x[0]))]")
+    ok(all(n in allnames for n in heard) and {'kill', 'tierup', 'basehit', 'streak', 'freezeon', 'shieldbreak', 'bossdie'} <= set(allnames), f'3 every sound used exists in the synth table; new voices present ({sorted(set(heard) - set(allnames))})')
+    ok(max(pg.evaluate("()=>window.__sh") or [0]) <= 8, f'4 screen shake never above 8 px (max {max(pg.evaluate("()=>window.__sh") or [0])})')
+    # boss: shield break sound, intensity layers, boss kill sound + slow motion, music layer back to 0 afterwards
+    fresh(pg, 'english', 3, 9, 3); pg.evaluate("()=>{window.__sx=[];const S=G._S,o=S.sfx;S.sfx=function(n,a){window.__sx.push([n,a&&a.t]);return o.apply(S,arguments)}}")
+    for _ in range(60):
+        pg.evaluate("()=>AP({maxIter:400,stopBoss:true})")
+        if dbg(pg)['boss']['alive']: break
+        if dbg(pg)['frozen']: dismiss_card(pg)
+    g = dbg(pg); bo = next((e for e in g['enemies'] if e['boss']), None)
+    ok(bo is not None, '3 boss appears for the boss-sound checks')
+    if bo:
+        pg.evaluate("()=>G._step(70)"); g = dbg(pg)
+        ok(g['music'] == 'boss' and 'layer:1' in g['events'], f'3 boss music starts with the kick layer (events {[e for e in g["events"] if e.startswith("layer")]})')
+        pg.evaluate("(n)=>{G._cmd('select',%d);G._cmd('type',n)}" % bo['uid'], bo['answer'][:bo['segEnds'][0]] if bo['segEnds'] else bo['answer']); pg.evaluate("()=>G._step(30)")
+        ok('shieldbreak' in pg.evaluate("()=>window.__sx.map(x=>x[0])"), '3 breaking a boss shield has a glass sound')
+        pg.evaluate("()=>{G._cmd('solve');G._step(14)}"); sl = dbg(pg)['slowT']
+        pg.evaluate("()=>G._step(120)"); g = dbg(pg)
+        ok(g['boss']['won'] and 'bossdie' in pg.evaluate("()=>window.__sx.map(x=>x[0])") and g['slowT'] <= 0, f'3 boss kill: fanfare + slow-motion finished (slowT {sl:.2f} -> {g["slowT"]:.2f})')
+    ok(not errs, f'no console errors ({errs[:2]})'); b.close()
+    # ---- 6/7 banners and the right-answer card stay out of the way on a phone
+    b, pg, errs = open_game(p, 'td_game.js', 'WQ37TD', 'english', 3, 9, 3, size=(390, 844), touch=True, reduced=False, seed=7, manual=True); pg.evaluate(AP)
+    fresh(pg, 'english', 3, 9, 3)
+    for _ in range(60):
+        pg.evaluate("()=>AP({maxIter:400,stopBoss:true})")
+        if dbg(pg)['boss']['alive']: break
+        if dbg(pg)['frozen']: dismiss_card(pg)
+    pg.evaluate("()=>G._step(2)"); m = pg.evaluate("()=>{const q=document.querySelector('.td-q').getBoundingClientRect(),bn=document.querySelector('.gx-banner'),r=bn&&bn.getBoundingClientRect(),L=G._debug.layout;return {qb:q.bottom,bt:r&&r.top,bb:r&&r.bottom,fy:L.fy,lt:G._debug.layout.fy+(G._debug.layout.fh-G._debug.layout.laneH*3)/2}}")
+    ok(m['bt'] is not None and m['bt'] >= m['qb'] - 1 and m['bb'] <= m['lt'] + 6, f'6 phone: the banner sits in the sky strip, not over the lanes (banner {m["bt"]:.0f}-{m["bb"]:.0f}, lanes start {m["lt"]:.0f})')
+    fresh(pg, 'english', 3, 4, 2); pg.evaluate("()=>{G._cmd('spawn');G._step(60);G._cmd('solve');G._step(30)}")
+    m = pg.evaluate("()=>{const c=document.querySelector('.gx-okchip');const r=c&&c.getBoundingClientRect(),L=G._debug.layout,lb=L.fy+(L.fh+L.laneH*0)/2;return {top:r&&r.top,bottom:r&&r.bottom,padTop:document.querySelector('.gx-pad').getBoundingClientRect().top,lanesBottom:L.fy+(L.fh-L.laneH*3)/2+L.laneH*3}}")
+    ok(m['top'] is not None and m['top'] >= m['lanesBottom'] - 1 and m['bottom'] <= m['padTop'] + 1, f'7 phone: the right-answer card sits below the lanes, so it never hides a monster ({m["top"]:.0f}-{m["bottom"]:.0f}, lanes end {m["lanesBottom"]:.0f}, keypad {m["padTop"]:.0f})')
+    ok(not errs, f'no console errors ({errs[:2]})'); b.close()
+
+
 def main():
     shots = '--shots' in sys.argv
     with sync_playwright() as p:
@@ -678,6 +765,7 @@ def main():
         if '--input' in sys.argv or '--all' in sys.argv: input_tests(p)
         if '--layout' in sys.argv or '--all' in sys.argv: layout_tests(p, shots)
         if '--perf' in sys.argv or '--all' in sys.argv: perf_tests(p)
+        r322_tests(p)
     print(f'\nt41_td: {N[0] - len(FAILS)}/{N[0]} checks passed')
     if FAILS:
         print('FAILED:'); [print(' -', f) for f in FAILS]; sys.exit(1)

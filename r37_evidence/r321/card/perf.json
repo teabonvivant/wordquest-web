@@ -1,92 +1,92 @@
 {
  "frames_game_runs": [
   {
-   "frames": 878,
-   "avg": 17.0,
-   "p95": 16.8,
-   "max": 50,
-   "over33": 1,
-   "over50": 0
+   "frames": 786,
+   "avg": 19.0,
+   "p95": 33.3,
+   "max": 183.3,
+   "over33": 18,
+   "over50": 10
   },
   {
-   "frames": 885,
-   "avg": 16.9,
-   "p95": 16.8,
-   "max": 66.7,
-   "over33": 1,
-   "over50": 1
+   "frames": 847,
+   "avg": 17.6,
+   "p95": 33.2,
+   "max": 83.3,
+   "over33": 3,
+   "over50": 2
   },
   {
-   "frames": 871,
-   "avg": 17.1,
-   "p95": 16.8,
-   "max": 66.6,
-   "over33": 4,
-   "over50": 1
+   "frames": 779,
+   "avg": 19.1,
+   "p95": 33.3,
+   "max": 200,
+   "over33": 19,
+   "over50": 11
   }
  ],
  "frames_control_runs": [
   {
-   "frames": 896,
-   "avg": 16.7,
-   "p95": 16.7,
-   "max": 16.8,
-   "over33": 0,
-   "over50": 0
+   "frames": 764,
+   "avg": 19.5,
+   "p95": 33.4,
+   "max": 266.6,
+   "over33": 28,
+   "over50": 13
   },
   {
-   "frames": 896,
-   "avg": 16.7,
-   "p95": 16.7,
-   "max": 16.8,
-   "over33": 0,
-   "over50": 0
-  },
-  {
-   "frames": 896,
+   "frames": 895,
    "avg": 16.7,
    "p95": 16.8,
-   "max": 16.8,
+   "max": 33.3,
+   "over33": 0,
+   "over50": 0
+  },
+  {
+   "frames": 893,
+   "avg": 16.7,
+   "p95": 16.7,
+   "max": 33.4,
    "over33": 0,
    "over50": 0
   }
  ],
  "frames_summary": {
-  "game_median_over33_per_15s": 1,
+  "game_median_over33_per_15s": 18,
   "control_median_over33_per_15s": 0,
-  "game_median_avg_ms": 17.0,
+  "game_median_avg_ms": 19.0,
   "control_median_avg_ms": 16.7,
-  "game_median_p95": 16.8,
-  "game_median_max": 66.6
+  "game_median_p95": 33.3,
+  "game_median_max": 183.3
  },
  "control_blank_canvas": {
-  "max": 21.4,
-  "p95": 1.9,
+  "max": 16.5,
+  "p95": 1.7,
   "avg": 0.4
  },
  "en": {
   "n": 1280,
-  "avg": 0.0747656250023283,
+  "avg": 0.09109375000698491,
   "p95": 0.10000000149011612,
-  "max": 11.199999999254942,
+  "max": 10.899999998509884,
   "ops_max_ms": {
-   "end_turn": 2.6,
-   "enemy_and_deal_20_frames": 12.9
+   "end_turn": 2.9,
+   "enemy_and_deal_20_frames": 11.8
   },
   "real": null
  },
  "ma": {
   "n": 1270,
-  "avg": 0.1196062992114251,
+  "avg": 0.0932283464672528,
   "p95": 0.10000000149011612,
-  "max": 17.600000001490116,
+  "max": 14.5,
   "ops_max_ms": {
-   "open_cast": 16.2,
-   "type": 2.8,
-   "submit": 5.3,
-   "frames30": 2.5,
-   "end_turn": 7.8,
-   "enemy_and_deal_20_frames": 9.1
+   "open_cast": 26.2,
+   "type": 0.2,
+   "submit": 22.3,
+   "frames30": 0.1,
+   "end_turn": 5.3,
+   "enemy_and_deal_20_frames": 13
   },
   "real": null
  }
