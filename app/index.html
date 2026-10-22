@@ -3412,6 +3412,192 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 .ap-rs span.star small{font-size:12px}
 @media (prefers-reduced-motion:reduce){.ap-leg{transition:none}}
 </style>
+<style id="wq37-s80-css">
+/* R3.23 s80 - 奧數路線: hub, grade maps, lesson player, strategy cards. Deep-space tokens come from s10_shell.css; motion <= 300ms for UI, all off under prefers-reduced-motion. */
+.r80-hub,.r80-map,.r80-cards,.r80-wrong{--r80-ease:var(--r37-ease,cubic-bezier(.23,1,.32,1))}
+/* ---- hub: one screen, nothing scrolls ---- */
+.r80-hm{position:relative;z-index:1;flex:1;min-height:0;width:100%;max-width:820px;margin:0 auto;padding:0 14px 10px;display:grid;gap:10px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:"hd" "gr" "sd"}
+.r80-hd{grid-area:hd;display:flex;align-items:center;gap:10px;min-width:0}
+.r80-hd h1,.r80-hd2 h1{margin:0;font-size:26px;font-weight:900;letter-spacing:.04em}
+.r80-hs{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:var(--r37-card);border:1px solid rgba(255,201,74,.5);font-weight:900;font-size:15px;color:#ffe9a8}
+.r80-grades{grid-area:gr;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:10px}
+.r80-g{position:relative;display:flex;align-items:center;gap:10px;min-height:0;padding:6px 12px 6px 8px;border-radius:20px;color:#fff;text-decoration:none;overflow:hidden;
+ background:linear-gradient(160deg,hsl(var(--h) 52% 30%),hsl(var(--h) 58% 17%));border:1px solid hsl(var(--h) 70% 62% / .55);box-shadow:0 4px 0 var(--r37-shade);transition:transform .15s var(--r80-ease),box-shadow .15s var(--r80-ease)}
+.r80-g::after{content:"";position:absolute;right:-18px;top:-18px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,hsl(var(--h) 90% 70% / .35),transparent 70%);pointer-events:none}
+.r80-g:active{transform:translateY(2px);box-shadow:0 2px 0 var(--r37-shade)}
+.r80-g:focus-visible,.r80-cont:focus-visible,.r80-sec:focus-visible,.r80-nd:focus-visible,.r80-gtab:focus-visible,.r80-opt:focus-visible,.r80-tool:focus-visible,.r80-prev:focus-visible,.r80-next:focus-visible,.r80-skip:focus-visible,.r80-x:focus-visible,.r80-cw:focus-visible{outline:3px solid var(--r37-gold);outline-offset:2px}
+.r80-gi{flex:none;display:grid;place-items:center;width:clamp(40px,min(11vw,7.5vh),58px);aspect-ratio:1;border-radius:50%;font-size:clamp(22px,min(6vw,4.4vh),34px);background:radial-gradient(circle at 34% 28%,hsl(var(--h) 60% 32%),hsl(var(--h) 62% 22%));box-shadow:inset 0 -4px 0 rgba(0,0,0,.22),0 2px 6px rgba(0,0,0,.35)}
+.r80-gt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.r80-gt b{font-size:clamp(17px,2.6vh,22px);font-weight:900;line-height:1.1}
+.r80-gt small{font-size:12px;font-weight:700;color:hsl(var(--h) 80% 86%);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r80-pips{display:flex;gap:4px;margin-top:2px}
+.r80-pips i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25)}
+.r80-pips i.half{background:hsl(var(--h) 80% 60% / .55)}
+.r80-pips i.on{background:var(--r37-gold);box-shadow:0 0 8px rgba(255,201,74,.7)}
+.r80-g em{position:absolute;right:10px;bottom:6px;font-style:normal;font-weight:900;font-size:13px;color:#ffe9a8;font-variant-numeric:tabular-nums}
+.r80-side{grid-area:sd;display:flex;flex-direction:column;gap:10px;min-width:0;min-height:0}
+.r80-cont{display:flex;align-items:center;gap:12px;min-height:66px;padding:8px 18px 8px 12px;border-radius:22px;text-decoration:none;color:#3b2600;background:var(--r37-cta);box-shadow:0 5px 0 var(--r37-cta-edge);transition:transform .15s var(--r80-ease)}
+.r80-cont:active{transform:translateY(3px);box-shadow:0 2px 0 var(--r37-cta-edge)}
+.r80-ci{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:50%;background:rgba(59,38,0,.14);font-size:24px}
+.r80-ctx{display:flex;flex-direction:column;min-width:0;flex:1}
+.r80-ctx b{font-size:24px;font-weight:900;line-height:1.1}
+.r80-ctx small{font-size:14px;font-weight:800;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r80-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.r80-sec{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 12px;border-radius:18px;background:var(--r37-card);border:1px solid var(--r37-line);color:#fff;text-decoration:none;font-weight:900;font-size:17px;box-shadow:0 3px 0 var(--r37-shade);cursor:pointer;font-family:inherit;transition:transform .15s var(--r80-ease)}
+.r80-sec:active{transform:translateY(2px);box-shadow:0 1px 0 var(--r37-shade)}
+.r80-sec em{font-style:normal;color:#ffe9a8;font-size:14px;font-variant-numeric:tabular-nums}
+.r80-sec.sm{min-height:48px;font-size:15px;padding:0 14px;margin-left:auto}
+@media(min-aspect-ratio:5/4){.r80-hm{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);grid-template-areas:"hd hd" "gr sd";gap:8px 14px}
+ .r80-grades{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+ .r80-side{justify-content:center}.r80-cont{flex:1;max-height:120px}.r80-two{grid-template-columns:1fr;grid-auto-rows:minmax(48px,1fr)}
+ .r80-g{padding:6px 8px}.r80-gt small{display:none}.r80-g em{display:none}.r80-hd h1{font-size:22px}}
+@media(min-aspect-ratio:5/4) and (min-height:700px){.r80-gt small{display:block}.r80-g em{display:block}}
+/* ---- grade map ---- */
+.r80-gtabs{position:relative;z-index:1;display:flex;gap:6px;padding:0 12px 6px;flex:none;overflow-x:auto;scrollbar-width:none}
+.r80-gtabs::-webkit-scrollbar{display:none}
+.r80-gtab{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;min-width:54px;min-height:48px;border-radius:14px;background:var(--r37-card);border:1px solid var(--r37-line);color:#fff;text-decoration:none;font-weight:900;font-size:14px}
+.r80-gtab.on{background:hsl(var(--h) 55% 34%);border-color:hsl(var(--h) 85% 68%);box-shadow:0 0 12px hsl(var(--h) 90% 60% / .45)}
+.r80-gtab span{font-size:17px}
+.r80-gtitle{position:relative;z-index:1;display:flex;align-items:center;gap:12px;padding:0 14px 6px;flex:none}
+.r80-gic{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;font-size:26px;background:radial-gradient(circle at 34% 28%,hsl(var(--h) 60% 32%),hsl(var(--h) 62% 22%));box-shadow:inset 0 -4px 0 rgba(0,0,0,.22)}
+.r80-gtitle h1{margin:0;font-size:22px;font-weight:900}.r80-gtitle small{display:block;font-size:13px;font-weight:800;color:#ffe9a8}.r80-gtitle>div{flex:1;min-width:0}
+.r80-isles{position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;justify-content:space-around;gap:4px;padding:4px 14px 10px;-webkit-overflow-scrolling:touch}
+.r80-trail{position:absolute;left:0;top:0;z-index:0;pointer-events:none;overflow:visible}
+.r80-trail path{fill:none;stroke:rgba(255,255,255,.3);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1 11}
+.r80-trail path.lit{stroke:var(--r37-gold);stroke-dasharray:1 8;filter:drop-shadow(0 0 4px rgba(255,201,74,.8))}
+.r80-isle{position:relative;z-index:1;display:flex;align-items:center;gap:12px;min-height:0;flex:none}
+.r80-isle:nth-child(odd){flex-direction:row-reverse;justify-content:flex-end}
+.r80-isle:nth-child(odd) .r80-ib,.r80-isle:nth-child(even) .r80-ib{align-items:flex-start;text-align:left}
+.r80-isle:nth-child(odd){flex-direction:row}
+.r80-isle:nth-child(odd){margin-right:auto;margin-left:0}.r80-isle:nth-child(even){flex-direction:row-reverse;margin-left:auto;margin-right:0}
+.r80-isle:nth-child(even) .r80-ib{align-items:flex-end;text-align:right}
+.r80-cov{position:relative;flex:none;display:grid;place-items:center;width:clamp(64px,10vh,88px);aspect-ratio:1;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,hsl(var(--h) 55% 34%),hsl(var(--h) 60% 18%));border:2px solid hsl(var(--h) 70% 62% / .6);box-shadow:0 4px 0 var(--r37-shade);text-decoration:none}
+.r80-cov img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.r80-cf{font-size:clamp(28px,5vh,42px)}.r80-cf::before,.r80-sil::before,.r80-wi::before{content:attr(data-i)}
+.r80-isle.done .r80-cov{border-color:var(--r37-gold);box-shadow:0 0 14px rgba(255,201,74,.6),0 4px 0 var(--r37-shade)}
+.r80-isle.cur .r80-cov{border-color:#fff;animation:r80cur 2.2s ease-in-out infinite}
+.r80-isle.closed .r80-cov{filter:saturate(.45) brightness(.8)}
+@keyframes r80cur{50%{box-shadow:0 0 0 7px hsl(var(--h) 90% 65% / .35),0 4px 0 var(--r37-shade)}}
+.r80-ib{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.r80-un{font-size:clamp(15px,2.4vh,18px);font-weight:900;line-height:1.15}
+.r80-im{font-size:12px;font-weight:800;color:hsl(var(--h) 80% 86%)}
+.r80-draft{font-style:normal;margin-left:6px;padding:1px 6px;border-radius:8px;background:rgba(255,255,255,.14);font-size:10px;font-weight:800;color:#c3cbf7;vertical-align:middle}
+.r80-nodes{display:flex;gap:6px;margin-top:3px}
+.r80-nd{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;padding:0;border:2px solid var(--r37-line);background:var(--r37-card2);color:#fff;font:inherit;font-weight:900;font-size:18px;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--r37-shade);transition:transform .15s var(--r80-ease)}
+.r80-nd:active:not(:disabled){transform:translateY(2px)}
+.r80-nd span{display:grid;place-items:center;line-height:1}
+.r80-nd.learn{background:hsl(var(--h) 55% 26%)}
+.r80-nd.done{background:var(--r37-cta);border-color:#fff1c4;color:var(--r37-cta-ink)}
+.r80-nd.cur{border-color:#fff;animation:r80cur 2.2s ease-in-out infinite}
+.r80-nd.lock{opacity:.5;cursor:default;box-shadow:none}
+.r80-isst{position:absolute;right:0;top:0;display:none}
+@media(min-aspect-ratio:5/4){
+ .r80-isles{flex-direction:row;align-items:flex-start;justify-content:space-between;gap:10px;padding-top:14px}
+ .r80-isle,.r80-isle:nth-child(odd),.r80-isle:nth-child(even){flex:1;min-width:0;flex-direction:column;margin:0;gap:8px;text-align:center}
+ .r80-isle:nth-child(even){margin-top:clamp(0px,7vh,48px)}
+ .r80-isle .r80-ib,.r80-isle:nth-child(odd) .r80-ib,.r80-isle:nth-child(even) .r80-ib{align-items:center;text-align:center}
+ .r80-cov{width:clamp(70px,13vh,120px)}.r80-nodes{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:5px}
+}
+@media(max-width:480px){.r80-gtab span{display:none}.r80-gtab{min-width:0;min-height:48px}.r80-gtitle small{display:none}.r80-gtitle{padding-bottom:2px}.r80-gic{width:38px;height:38px;font-size:22px}}
+@media(max-width:480px) and (max-height:700px){.r80-nodes{gap:5px}.r80-cov{width:58px;border-radius:20px}.r80-im{display:none}.r80-isles{gap:2px}}
+@media(min-aspect-ratio:5/4) and (max-height:520px){.r80-gtitle{display:none}.r80-cov{width:58px;border-radius:20px}.r80-im{display:none}.r80-isle:nth-child(even){margin-top:10px}.r80-isles{padding-top:6px}.r80-isle{gap:4px}}
+/* ---- lesson player ---- */
+.r80-les{--r80-pad:10px;padding:0 var(--r80-pad) var(--r80-pad);gap:8px}
+.r80-lh{position:relative;z-index:2;flex:none;display:flex;align-items:center;gap:10px;min-height:48px;padding-top:6px}
+.r80-x{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--r37-card);border:1px solid var(--r37-line);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 3px 0 var(--r37-shade);padding:0}
+.r80-dots{flex:1;display:flex;gap:6px;align-items:center;justify-content:center;min-width:0}
+.r80-dots i{flex:1;max-width:30px;height:8px;border-radius:4px;background:rgba(255,255,255,.2);transition:background-color .2s var(--r80-ease),transform .2s var(--r80-ease)}
+.r80-dots i.done{background:hsl(var(--h) 70% 60%)}.r80-dots i.on{background:var(--r37-gold);transform:scaleY(1.35);box-shadow:0 0 8px rgba(255,201,74,.7)}
+.r80-skip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;border-radius:999px;border:1px solid var(--r37-line);background:var(--r37-card);color:#dfe4ff;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.r80-skip span{font-size:14px}
+.r80-lb{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
+.r80-scene{position:relative;flex:1;min-height:0;border-radius:22px;overflow:hidden;background:linear-gradient(170deg,rgba(30,38,100,.94),rgba(18,24,66,.94));border:1px solid var(--r37-line);box-shadow:0 4px 0 var(--r37-shade)}
+.r80-wbox{position:absolute;inset:6px}
+.r80-svg text{user-select:none;-webkit-user-select:none}
+.r80-w .r80-chip,.r80-w .r80-handle,.r80-w .r80-frog,.r80-w .r80-tok,.r80-w .r80-slot,.r80-w .r80-sb{cursor:grab;outline:none}
+.r80-w .r80-sb{cursor:pointer}
+.r80-w [tabindex]:focus-visible{filter:drop-shadow(0 0 5px #ffc94a) drop-shadow(0 0 2px #ffc94a)}
+.r80-w .lift{filter:drop-shadow(0 8px 6px rgba(0,0,0,.5))}
+.r80-w .r80-sb:active .r80-sbr{transform:translateY(2px)}
+.r80-sd{flex:none;display:flex;flex-direction:column;gap:6px;min-width:0}
+.r80-say{margin:0;padding:2px 6px;font-size:clamp(17px,2.5vh + 3px,24px);font-weight:900;line-height:1.35;color:#fff;text-align:center;text-shadow:0 1px 6px rgba(4,6,30,.8)}
+.r80-say.ok{color:#9ff0d4}.r80-say.bad{color:#ffd6dd}
+.r80-res{display:inline-block;padding:0 8px;border-radius:10px;font-weight:900}.r80-res.ok{background:#1f7a5c;color:#d4ffee}.r80-res.no{background:#7a4a1f;color:#ffe9c4}
+.r80-ask{margin:0;text-align:center;font-weight:900;font-size:clamp(16px,2.2vh + 2px,22px);color:#ffe9a8}
+.r80-opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.r80-opts.n4{grid-template-columns:repeat(4,minmax(0,1fr))}.r80-opts.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.r80-opt{min-height:50px;border-radius:16px;border:2px solid var(--r37-line);background:var(--r37-card2);color:#fff;font:inherit;font-size:22px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 var(--r37-shade);transition:transform .15s var(--r80-ease),background-color .2s var(--r80-ease)}
+.r80-opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 var(--r37-shade)}
+.r80-opt.ok{background:#1f7a5c;border-color:#7ef0c0}.r80-opt.miss{background:#6b2b3a;border-color:#ff8aa0;opacity:.85}
+.r80-opt:disabled{cursor:default}
+.r80-fill{display:flex;gap:8px}.r80-fill input{flex:1;min-width:0;min-height:50px;border-radius:16px;border:2px solid var(--r37-line);background:#0b1030;color:#fff;font:inherit;font-size:24px;font-weight:900;text-align:center}
+.r80-ok{min-height:50px;padding:0 20px;border:0;border-radius:16px;background:var(--r37-cta);color:var(--r37-cta-ink);font:inherit;font-size:19px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 var(--r37-cta-edge)}
+.r80-tools{display:flex;gap:8px;justify-content:center}
+.r80-tool{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--r37-line);background:var(--r37-card);color:#fff;font:inherit;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 3px 0 var(--r37-shade)}
+.r80-tool span{font-size:16px}
+.r80-lf{position:relative;z-index:2;flex:none;display:flex;gap:10px;min-height:56px}
+.r80-prev,.r80-next{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;border-radius:18px;font:inherit;font-weight:900;cursor:pointer;transition:transform .15s var(--r80-ease),filter .2s var(--r80-ease),opacity .2s var(--r80-ease)}
+.r80-prev{flex:none;min-width:104px;padding:0 16px;font-size:18px;border:1px solid var(--r37-line);background:var(--r37-card);color:#fff;box-shadow:0 4px 0 var(--r37-shade)}
+.r80-prev:disabled{opacity:.35;cursor:default}
+.r80-next{flex:1;font-size:22px;border:0;background:var(--r37-card2);color:#9ea8e8;box-shadow:0 4px 0 var(--r37-shade)}
+.r80-next.lit{background:var(--r37-cta);color:var(--r37-cta-ink);box-shadow:0 5px 0 var(--r37-cta-edge);animation:r80pulse 1.8s ease-in-out 2}
+.r80-next:disabled{opacity:.7;cursor:not-allowed}
+.r80-next:active:not(:disabled),.r80-prev:active:not(:disabled){transform:translateY(3px)}
+@keyframes r80pulse{40%{transform:scale(1.025)}}
+.r80-trystem{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px}
+.r80-stem{margin:0;text-align:center;font-size:clamp(24px,4.4vh,34px);font-weight:900;line-height:1.4;color:#fff}
+.r80-fig{display:flex;justify-content:center}.r80-fig svg{width:min(300px,82%);height:auto;max-height:120px}
+.r80-cardwrap{position:absolute;inset:0;display:grid;place-items:center;container-type:size;padding:8px}
+/* landscape + desktop: scene on the left, say / buttons on the right; the scene fills the full height */
+@media(min-aspect-ratio:5/4){
+ .r80-les{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:"scene head" "scene sd" "scene foot";column-gap:12px;row-gap:6px;padding-top:var(--r80-pad)}
+ .r80-lb{display:contents}.r80-scene{grid-area:scene;min-width:0}
+ .r80-lh{grid-area:head;padding-top:0}.r80-sd{grid-area:sd;justify-content:center;overflow:auto}.r80-lf{grid-area:foot}
+ .r80-skip b{font-size:12px}.r80-say{font-size:clamp(17px,3.4vh,26px)}
+}
+@media(min-aspect-ratio:5/4) and (max-height:480px){.r80-next,.r80-prev{min-height:48px}.r80-lf{min-height:48px}.r80-opt{min-height:46px;font-size:20px}.r80-lh{min-height:44px}}
+/* ---- strategy cards ---- */
+.r80-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3em;width:100%;aspect-ratio:3/4;box-sizing:border-box;padding:.7em .6em;border-radius:1.1em;font-size:clamp(11px,4.2cqw,20px);color:#fff;text-align:center;
+ background:linear-gradient(165deg,hsl(var(--h) 58% 30%),hsl(var(--h) 55% 14%));border:2px solid hsl(var(--h) 80% 66%);box-shadow:0 5px 0 var(--r37-shade),inset 0 0 0 1px rgba(255,255,255,.12),0 0 18px hsl(var(--h) 90% 55% / .25);overflow:hidden}
+.r80-card::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 60%);pointer-events:none}
+.r80-cn{align-self:stretch;text-align:left;font-size:.78em;font-weight:900;color:hsl(var(--h) 85% 85%);letter-spacing:.04em}
+.r80-ca{flex:1;min-height:0;width:100%;display:grid;place-items:center}
+.r80-ca svg{width:100%;height:100%;max-height:100%}
+.r80-ct{font-size:1.15em;font-weight:900;line-height:1.15}
+.r80-cm{font-size:1.05em;font-weight:900;color:var(--r37-gold);line-height:1.2}
+.r80-ce{font-size:.72em;font-weight:800;color:#dfe4ff;line-height:1.25}
+.r80-card.lock{filter:grayscale(1);background:#10153f;border:2px dashed rgba(255,255,255,.25);box-shadow:none;opacity:.7}
+.r80-card.lock .r80-sil{font-size:3.4em;filter:brightness(0);opacity:.45}.r80-card.lock .r80-cm{color:#c3cbf7}.r80-cg{font-size:.72em;font-weight:800;color:#c3cbf7}
+.r80-cards .r80-cbody,.r80-wrong .r80-cbody{position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto;padding:4px 14px 14px;width:100%;max-width:900px;margin:0 auto}
+.r80-hd2{position:relative;z-index:1;display:flex;align-items:center;gap:10px;padding:0 14px 6px;flex:none}
+.r80-cg h2{display:flex;align-items:center;gap:8px;margin:10px 0 8px;font-size:19px;font-weight:900}.r80-cg h2 em{font-style:normal;font-size:14px;color:#ffe9a8}
+.r80-crow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.r80-cw{display:block;container-type:inline-size;text-decoration:none;color:inherit;border-radius:1.1em}
+@media(min-width:600px){.r80-crow{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.r80-cards.one .r80-bigc{position:relative;z-index:1;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;container-type:inline-size;padding:0 20px 10px}
+.r80-card.big,.r80-card.show,.r80-card.got{width:min(78cqw,52vh,360px)}
+.r80-card.show{width:auto;height:100%;max-width:100%;max-height:100%;aspect-ratio:3/4;font-size:clamp(12px,4.4cqh,24px)}
+.r80-bigc .r80-card.big{font-size:clamp(13px,4.6cqw,24px)}
+.r80-wg{margin:10px 0;padding:10px 12px;border-radius:18px;background:var(--r37-card);border:1px solid var(--r37-line)}
+.r80-wg header{display:flex;align-items:center;gap:8px;margin-bottom:6px}.r80-wg header b{font-size:17px;font-weight:900}.r80-wi{font-size:24px}
+.r80-wg ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.r80-wg li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.06);font-size:15px;font-weight:700}
+.r80-wg li .r319-q{flex:1 1 100%;color:#fff}.r80-wg li .r319-a{color:#9ff0d4}.r80-wg li em{margin-left:auto;font-style:normal;color:#ffe9a8}
+.r80-empty{text-align:center;padding:30px 10px;font-weight:900;font-size:18px;color:#c3cbf7}
+/* ---- level screen additions ---- */
+.r80-tolesson{margin-left:auto;cursor:pointer;font:inherit;font-size:15px}
+.r80-tolesson b{font-weight:900}
+.r37-q .r80-fig{margin:2px 0 4px}
+.r80-whyb{display:flex!important;align-items:flex-start;gap:6px;color:#ffe9a8;font-weight:800}
+.r80-got{display:flex;flex-direction:column;align-items:center;gap:4px;margin:4px 0}
+.r80-got b{font-size:17px;font-weight:900;color:var(--r37-gold);white-space:nowrap}
+.r80-got .r80-card.got{width:104px;font-size:11px}
+.r80-flip{perspective:700px;animation:r80flip .8s var(--r80-ease) both}
+.r80-flip.calm{animation:none}
+@keyframes r80flip{0%{transform:rotateY(180deg) scale(.6);opacity:0}60%{transform:rotateY(-12deg) scale(1.08);opacity:1}100%{transform:rotateY(0) scale(1)}}
+@media(max-height:520px){.r80-got .r80-card.got{width:72px;font-size:8px}.r80-got b{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.r80-g,.r80-cont,.r80-nd,.r80-opt,.r80-prev,.r80-next,.r80-dots i,.r80-sec{transition:none!important}.r80-next.lit,.r80-isle.cur .r80-cov,.r80-nd.cur,.r80-flip{animation:none!important}}
+</style>
 </head>
 <body>
 <header class="header"><div class="header-inner">
@@ -5529,6 +5715,8 @@ globalThis.WQ32Art=Object.freeze({"owl-front":"data:image/webp;base64,UklGRnhXAA
 // WQ37Math: pure deterministic question generator for level mode (math + olympiad). No DOM, no Math.random.
 (function(){
 'use strict';
+// R3.23: the 奧數路線 units live in r37_src/oly/ (globalThis.WQOly). In the app they are bundled before this file runs; in Node load them next to it.
+if(typeof require!=='undefined'&&!globalThis.WQOly)require('./oly/load_node.js');
 const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
 const hs=(...xs)=>{let h=2166136261;for(const x of xs){for(const c of String(x))h=Math.imul(h^c.charCodeAt(0),16777619);h=Math.imul(h^35,16777619)}return h>>>0};
 const ri=(r,a,b)=>a+Math.floor(r()*(b-a+1));
@@ -5733,7 +5921,7 @@ const OLY=[
 const TPL={math:MATH,olympiad:OLY};
 const WORLDS={
 math:[['數字小島','🏝️','小一二：20以內及100以內加減'],['乘法森林','🌳','小二：兩位數加減與乘法入門'],['九九城堡','🏰','小三：乘除與九九、多位數運算'],['分數小鎮','🍰','小四：分數與小數入門'],['百分比海洋','🌊','小五：小數、百分數、平均數'],['圖形太空站','🚀','小六：周界、面積、速度、比']],
-olympiad:[['規律迷宮','🧩','數列規律'],['巧算山谷','⚡','巧算：湊整、等差求和、速算'],['邏輯偵探社','🕵️','邏輯推理與排序、植樹問題'],['和差倍工廠','🏭','年齡、和差倍、雞兔同籠'],['計數樂園','🎡','排列、握手、路線、圖形數'],['謎題深淵','🔮','數字謎、餘數與盈虧問題']]
+olympiad:[['小一','🌱','找規律、湊十、排隊'],['小二','🌿','跳數、巧算、植樹、週期'],['小三','🌳','和差倍、年齡、搭配'],['小四','🔥','雞兔、高斯、握手、盈虧'],['小五','🚀','餘數、抽屜、推理、容斥'],['小六','👑','分數、份數、工程、追及、立體']]
 };
 // Curriculum line: LINE[track][world][stage 0..9] = template indexes allowed at that stage.
 // Stages 1-3 teach one skill each, 4-7 add the next skill beside the previous one, 8-10 mix everything seen.
@@ -5775,7 +5963,7 @@ const LESSON={
   combo:'O-R3-L2-count',route:'O-R3-L2-count',arrange:'O-R3-L2-count','arrange-adj':'O-R3-L2-count',knockout:'',
   'rem-shift':'',crt:'',surplus:'',symbols:'',cycle:'','cycle-sum':'','last-digit':''
 };
-const skillLesson=sk=>LESSON[sk]||'';
+const skillLesson=sk=>{const m=/^(p\d-\d):/.exec(sk||'');return m?'oly:'+m[1]:(LESSON[sk]||'')};
 
 const trk=t=>t==='olympiad'?'olympiad':'math';
 const worlds=track=>{const t=trk(track);return WORLDS[t].map((w,i)=>({id:`${t}-${i+1}`,name:w[0],icon:w[1],desc:w[2],stages:10}))};
@@ -5833,9 +6021,49 @@ const exampleFor=(t,wi,ti,sk,stem)=>{
   if(!L){L=[];for(let s=0;s<80&&L.length<3;s++){const x=TPL[t][wi][ti](mb(hs('ex',t,wi,ti,sk,s)),{s:.22,diff:2,stage:2});if(x.sk===sk&&!L.some(y=>y.q===x.q))L.push({skill:sk,q:x.q,answer:x.a,explain:x.e,tip:x.h})}exCache[key]=L}
   const e=L.find(y=>y.q!==stem)||L[0];return e?Object.assign({},e):null;
 };
+// ── R3.23 奧數路線: world = grade (0-5), stage 2k = unit k+1 level A, stage 2k+1 = unit k+1 level B; the generators come from WQOly units ──
+const OLYU=(wi,si)=>{const O=globalThis.WQOly;return O&&O.units['p'+(wi+1)+'-'+((si>>1)+1)]||null};
+const wkey=k=>{k=String(k);return /^-?\d+(\.\d+)?$/.test(k)?fx(+k):k};
+const oexCache={};
+const exampleOly=(U,lv,gi,sk,stem)=>{
+  const key=`${U.id}|${lv}|${gi}|${sk}`;let L=oexCache[key];
+  if(!L){L=[];for(let k=0;k<80&&L.length<3;k++){const x=U.gens[lv][gi](mb(hs('oex',U.id,lv,gi,k)),{s:.04,diff:1,stage:0});if(x.sk===sk&&!L.some(y=>y.q===x.q))L.push({skill:U.id+':'+sk,q:x.q,answer:x.a,explain:x.e,tip:x.h,svg:x.svg||''})}oexCache[key]=L}
+  const e=L.find(y=>y.q!==stem)||L[0];return e?Object.assign({},e):null;
+};
+const makeOly=(wi,si,n,diff,seed,avoid)=>{
+  const U=OLYU(wi,si),lv=si&1?'B':'A',G=U.gens[lv];
+  const r=mb(hs('oly',U.id,lv,n,diff,seed)),av=new Set(avoid||[]),res=[],seen=new Set();
+  const s0=Math.min(1,.08+.8*(diff-1)/4+(lv==='B'?.07:0)+(si===9?.05:0)),off=ri(r,0,G.length-1);
+  for(let k=0;k<n;k++){
+    const mode=k%2?'fill':'mcq';
+    for(let att=0;;att++){
+      if(att>900)throw new Error('WQ37Math: cannot build olympiad question '+U.id+lv);
+      const p={s:Math.min(1,s0+(att>20?(att-20)*.03:0)),diff,stage:si};
+      const gi=att<G.length?(off+k+att)%G.length:ri(r,0,G.length-1);
+      const x=G[gi](r,p);
+      if(seen.has(x.q)||(att<=250&&av.has(x.q)))continue;
+      const why={};if(x.why)for(const kk of Object.keys(x.why)){const w=wkey(kk);if(w!==wkey(x.a))why[w]=x.why[kk]}
+      const wk=Object.keys(why),sk0=x.sk;x.sk=U.id+':'+sk0;
+      x.w=[...wk.map(v=>/^-?\d+(\.\d+)?$/.test(v)?+v:v),...x.w];
+      const q=mk(r,x,diff,mode);
+      if(!q)continue;
+      if(mode==='mcq'&&wk.length){
+        const keep=wk.slice(0,3),rest=q.options.filter(o=>o!==x.a&&!keep.includes(o));
+        q.options=sh(r,[x.a,...keep,...rest].slice(0,4));
+      }
+      seen.add(x.q);
+      q.why=Object.keys(why).length?why:null;q.svg=x.svg||'';q.unit=U.id;q.level=lv;
+      q.ex=exampleOly(U,lv,gi,sk0,x.q);
+      res.push(Object.assign({id:`MO${wi+1}-${si+1}-${k+1}`},q));
+      break;
+    }
+  }
+  return res;
+};
 // make(track, world 0-5, stage 0-9, n, diff 1-5, seed[, avoid]): avoid = stems to skip (e.g. the last 30 the learner saw) so the same list gives the same questions.
 const make=(track,wi,si,n,diff,seed,avoid)=>{
   const t=trk(track);wi=Math.min(5,Math.max(0,wi|0));si=Math.min(9,Math.max(0,si|0));diff=Math.min(5,Math.max(1,diff|0||3));n=Math.max(0,n|0);seed=seed|0;
+  if(t==='olympiad'&&OLYU(wi,si))return makeOly(wi,si,n,diff,seed,avoid);
   const r=mb(hs(t,wi,si,n,diff,seed)),T=TPL[t][wi],boss=si===9,base=Math.min(1,.35*si/9+.65*(diff-1)/4+(boss?.1:0));
   const line=poolOf(t,wi,si,diff),sofar=[...new Set([].concat(...[...Array(si+1)].map((_,i)=>poolOf(t,wi,i,diff))))],all=T.map((_,i)=>i);
   const av=new Set(avoid||[]);
@@ -5859,7 +6087,7 @@ const make=(track,wi,si,n,diff,seed,avoid)=>{
   }
   return res;
 };
-const api={worlds,make,check,checkDetail,skillLesson,lessons:Object.freeze(Object.assign({},LESSON))};
+const api={worlds,make,check,checkDetail,skillLesson,legacy:(w,i)=>OLY[w][i],legacyMath:(w,i)=>MATH[w][i],lessons:Object.freeze(Object.assign({},LESSON))};
 globalThis.WQ37Math=api;
 if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 })();
@@ -13044,6 +13272,1132 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 })();
 
 ;
+/* WQOly core (R3.23): registry of the 30 奧數路線 units + pure helpers for unit generators. No DOM, no Math.random, loads in Node and in the app.
+   A unit is registered with WQOly.register({id:'p1-2', grade:1, n:2, title, icon, card:{motto,example,art}, cover, lesson:[...], gens:{A:[fn],B:[fn]}, verify?}).
+   Generators are pure (r,p)=>WQOly.o(skill, stem, answer, hint, explain, wrongs, calc, accept, {why,svg,form}) with r = seeded rng and p = {s,diff,stage}.
+   p.s (0..1) scales NUMBER SIZE only: use WQOly.N(r,p,lo,hi) for a number that grows with the parent difficulty / stage. */
+(function (root) {
+  'use strict';
+  const mb = a => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const hs = (...xs) => { let h = 2166136261; for (const x of xs) { for (const c of String(x)) h = Math.imul(h ^ c.charCodeAt(0), 16777619); h = Math.imul(h ^ 35, 16777619); } return h >>> 0; };
+  const ri = (r, a, b) => a + Math.floor(r() * (b - a + 1));
+  const pick = (r, a) => a[Math.floor(r() * a.length)];
+  const shuffle = (r, a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  /* a number between lo and hi that grows with p.s (0 = lo end, 1 = whole range) */
+  const N = (r, p, lo, hi) => { if (hi <= lo) return lo; const sp = hi - lo, t = Math.min(hi, lo + Math.max(2, Math.round(sp * p.s))), b = Math.min(t, lo + Math.round(sp * p.s * .5)); return ri(r, b, t); };
+  const gcd = (a, b) => b ? gcd(b, a % b) : a;
+  const fmt = x => String(Math.round(x * 1e6) / 1e6);
+  const CN = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+  /* names carry a pronoun so a girl's name never gets 「他」 */
+  const P = (n, p) => ({ n, p, toString() { return n; } });
+  const NAMES = [P('小明', '他'), P('小美', '她'), P('阿強', '他'), P('小欣', '她'), P('家豪', '他'), P('詩婷', '她')];
+  const name = r => pick(r, NAMES);
+  /* o(skill, stem, answer, hint, explain, wrongs, calc, accept, extra) - extra: a form string ('dec'|'simplest') or {form, why, svg}
+     why: {'<wrong answer>': '一句錯因提示'}  (the wrong answers a child really gives; they are always offered as options in 選擇題)
+     svg: '<svg ...>' small figure shown above the stem */
+  const o = (sk, q, a, h, e, w, calc, acc, extra) => {
+    const x = (typeof extra === 'string') ? { form: extra } : (extra || {});
+    return { sk, q, a: String(a), h, e, w: w || [], calc, acc: acc || [], form: x.form || null, why: x.why || null, svg: x.svg || '' };
+  };
+  const GRADES = [
+    { n: 1, name: '小一', icon: '🌱', hue: 150, theme: '數數與湊十' },
+    { n: 2, name: '小二', icon: '🌿', hue: 190, theme: '跳數與植樹' },
+    { n: 3, name: '小三', icon: '🌳', hue: 215, theme: '和差與搭配' },
+    { n: 4, name: '小四', icon: '🔥', hue: 272, theme: '雞兔與高斯' },
+    { n: 5, name: '小五', icon: '🚀', hue: 322, theme: '餘數、抽屜、追及' },
+    { n: 6, name: '小六', icon: '👑', hue: 28, theme: '比與工程' }
+  ];
+  const units = {}, order = [];
+  const LV = ['A', 'B'];
+  /* register: throws on a malformed unit so a typo is caught by the Node test, never by a child */
+  function register(u) {
+    const bad = m => { throw new Error('WQOly.register ' + (u && u.id) + ': ' + m); };
+    if (!u || !/^p[1-6]-[1-5]$/.test(u.id)) bad('id must look like p1-2');
+    if (u.grade !== +u.id[1] || u.n !== +u.id[3]) bad('grade/n do not match id');
+    if (!u.title || !u.icon) bad('title and icon are required');
+    if (!u.card || !u.card.motto || !u.card.example) bad('card.motto and card.example are required');
+    if (!Array.isArray(u.lesson) || u.lesson.length < 2) bad('lesson needs cards');
+    for (const l of LV) if (!u.gens || !Array.isArray(u.gens[l]) || !u.gens[l].length) bad('gens.' + l + ' needs at least one generator');
+    if (units[u.id] && !units[u.id].draft && u.draft) bad('a final unit may not be replaced by a draft');
+    u.cover = u.cover || 'assets/r323/' + u.id + '.webp';
+    if (!units[u.id]) order.push(u.id);
+    units[u.id] = u;
+    order.sort();
+    return u;
+  }
+  const unitsOf = g => order.map(id => units[id]).filter(u => u.grade === g);
+  /* stub: a walkable placeholder (draft:true) - a short lesson, generators borrowed from the old olympiad templates (WQ37Math.legacy) or given directly.
+     spec: {id,title,icon,motto,example, legacy:{A:[[w,i]...],B:[[w,i]...], s:0.5}, gens?:{A,B}} */
+  function stub(spec) {
+    const m = /^p(\d)-(\d)$/.exec(spec.id);
+    const lg = spec.legacy || {}, k = lg.s || 1;
+    const borrow = list => (list || []).map(([w, i]) => (r, p) => {
+      const M = root.WQ37Math;
+      if (!M || !M.legacy) throw new Error('WQ37Math.legacy is not loaded');
+      return M.legacy(w, i)(r, { s: Math.min(1, .3 + p.s * k * .7), diff: p.diff, stage: p.stage });
+    });
+    const gens = spec.gens || { A: borrow(lg.A), B: borrow(lg.B) };
+    return {
+      id: spec.id, grade: +m[1], n: +m[2], title: spec.title, icon: spec.icon, draft: true,
+      card: { motto: spec.motto, example: spec.example, art: spec.art || '' },
+      lesson: spec.lesson || [
+        { t: 'show', say: '這一課：' + spec.motto + '。', scene: { w: 'banner', p: { icon: spec.icon, title: spec.title, motto: spec.motto, example: spec.example } } },
+        { t: 'card' }
+      ],
+      gens
+    };
+  }
+  /* the question shape the level engine sees, built directly from one generator call (used by the Node tests and the lesson `try` cards) */
+  function sample(id, level, seed, diff) {
+    const u = units[id]; if (!u) throw new Error('no unit ' + id);
+    const r = mb(hs('oly-sample', id, level, seed, diff || 1)), g = u.gens[level];
+    return pick(r, g)(r, { s: Math.min(1, .1 + .8 * ((diff || 1) - 1) / 4), diff: diff || 1, stage: 0 });
+  }
+  const WQOly = { grades: GRADES, units, order, register, unitsOf, stub, sample, unit: id => units[id] || null, levels: LV,
+    helpers: { mb, hs, ri, pick, shuffle, N, gcd, fmt, o, name, NAMES, CN, rng: seed => mb(seed >>> 0) }, mb, hs, ri, pick, shuffle, N, gcd, fmt, o, name, CN, version: '1.0' };
+  root.WQOly = WQOly;
+  if (typeof module !== 'undefined') module.exports = WQOly;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+;
+/* WQOlyWidgets (R3.23): reusable, touch + mouse + keyboard lesson tools for the 奧數路線. SVG only, no dependencies, no voice.
+   WQOlyWidgets.mount(name, el, params, api) -> {check():bool, demo():Promise, reset(), destroy()}
+     params.mode  'do' (interactive, the default) | 'show' (a picture that only plays demo())
+     api          {reduced?:bool, sfx?(name), onChange?()}   reduced = prefers-reduced-motion (demo jumps to the final state)
+   Every tool: drag by pointer (touch + mouse), a keyboard way to do the same thing (Tab / Enter / arrow keys), and 示範 = demo().
+   Colour code (same everywhere): aqua = first part, gold = second part, violet = total, pink = difference / the thing to find. */
+(function (root) {
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const C = { gold: '#ffc94a', goldD: '#c48a00', aqua: '#3ee6d0', aquaD: '#12998a', pink: '#ff8fc7', pinkD: '#c84f8a', blue: '#7cc8ff', violet: '#c6a2ff', violetD: '#7d55c7', green: '#7ee3a1', ink: '#0b1030', card: '#141a46', card2: '#1b2160', text: '#f4f6ff', muted: '#c3cbf7', bad: '#ff6b81', line: 'rgba(255,255,255,.28)' };
+  const PART = { a: [C.aqua, C.aquaD], b: [C.gold, C.goldD], t: [C.violet, C.violetD], d: [C.pink, C.pinkD], g: [C.green, '#2f9d63'], k: [C.blue, '#2e7fb8'] };
+  const FONT = 'ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"PingFang HK","Noto Sans TC","Microsoft JhengHei",sans-serif';
+  const EMOJI = '"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif';
+  const list = {};
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const easeBack = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+
+  /* ---------------------------------------------------------------- svg helpers */
+  function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    if (attrs) for (const k in attrs) if (attrs[k] !== undefined && attrs[k] !== null) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, x, y, s, o) {
+    o = o || {};
+    return el('text', { x, y, 'text-anchor': o.anchor || 'middle', 'dominant-baseline': o.base || 'central', 'font-size': o.size || 20, 'font-weight': o.weight || 800, fill: o.fill || C.text,
+      'font-family': o.emoji ? EMOJI : FONT, 'pointer-events': 'none', opacity: o.opacity, class: o.cls }, parent, s);
+  }
+  function fit(host) {
+    host.innerHTML = '';
+    host.classList.add('r80-w');
+    const r = host.getBoundingClientRect(), cw = r.width || 360, ch = r.height || 360;
+    const W = 400, H = clamp(Math.round(W * ch / cw), 250, 620);
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'xMidYMid meet', class: 'r80-svg', role: 'group', focusable: 'false' }, host);
+    svg.style.width = '100%'; svg.style.height = '100%'; svg.style.display = 'block'; svg.style.touchAction = 'none';
+    return { svg, W, H };
+  }
+  function toPt(svg, ev) {
+    const m = svg.getScreenCTM();
+    if (!m) return { x: ev.clientX, y: ev.clientY };
+    const p = new DOMPoint(ev.clientX, ev.clientY).matrixTransform(m.inverse());
+    return { x: p.x, y: p.y };
+  }
+  const place = (g, x, y, s) => g.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)})${s !== undefined && s !== 1 ? ` scale(${s})` : ''}`);
+  /* pointer drag (touch + mouse). o.start(pt,ev) -> ctx | false ; o.move(pt,ctx,ev) ; o.end(pt,ctx,ev,moved) ; a press that did not move is o.tap(ctx) */
+  function drag(target, svg, o) {
+    target.style.touchAction = 'none';
+    target.addEventListener('pointerdown', ev => {
+      if (ev.button > 0 || target.__busy) return;
+      const pt = toPt(svg, ev), ctx = o.start ? o.start(pt, ev) : {};
+      if (ctx === false) return;
+      ev.preventDefault();
+      try { target.setPointerCapture(ev.pointerId); } catch (_) { /* */ }
+      const p0 = pt; let moved = false;
+      const mv = e2 => { const q = toPt(svg, e2); if (!moved && Math.hypot(q.x - p0.x, q.y - p0.y) < 4) return; moved = true; o.move && o.move(q, ctx, e2); };
+      const up = e2 => {
+        target.removeEventListener('pointermove', mv); target.removeEventListener('pointerup', up); target.removeEventListener('pointercancel', up);
+        try { target.releasePointerCapture(ev.pointerId); } catch (_) { /* */ }
+        const q = toPt(svg, e2);
+        if (!moved && e2.type !== 'pointercancel') { if (o.tap) o.tap(ctx, q); else o.end && o.end(q, ctx, e2, false); } else o.end && o.end(q, ctx, e2, true);
+      };
+      target.addEventListener('pointermove', mv); target.addEventListener('pointerup', up); target.addEventListener('pointercancel', up);
+    });
+  }
+  /* keyboard: Enter / Space act like a tap; arrows map to o.arrow(dx,dy) */
+  function keys(target, o) {
+    target.setAttribute('tabindex', '0');
+    target.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); o.act && o.act(e); }
+      else if (o.arrow) {
+        const d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+        if (d) { e.preventDefault(); o.arrow(d[0], d[1], e); }
+      }
+    });
+  }
+  /* a pill button inside the svg (min 56 units high = 46px on a phone) */
+  function sbtn(parent, o) {
+    const g = el('g', { class: 'r80-sb' + (o.cls ? ' ' + o.cls : ''), role: 'button', 'aria-label': o.aria || o.label }, parent);
+    const w = o.w || 96, h = o.h || 56;
+    el('rect', { x: o.x - w / 2, y: o.y - h / 2 + 4, width: w, height: h, rx: h / 2, fill: o.shade || C.goldD, opacity: .9 }, g);
+    const r = el('rect', { x: o.x - w / 2, y: o.y - h / 2, width: w, height: h, rx: h / 2, fill: o.fill || C.gold, class: 'r80-sbr' }, g);
+    txt(g, o.x, o.y + 1, o.label, { size: o.size || 22, fill: o.ink || '#3b2600', weight: 900 });
+    g.style.cursor = 'pointer';
+    keys(g, { act: () => o.onClick && o.onClick() });
+    g.addEventListener('click', e => { e.preventDefault(); o.onClick && o.onClick(); });
+    g.__rect = r;
+    return g;
+  }
+  /* animation runner: cancellable tweens (reset / destroy stops everything) */
+  function runner(api) {
+    let tok = 0, dead = false;
+    const R = {
+      get reduced() { return !!(api && api.reduced); },
+      cancel() { tok++; },
+      destroy() { dead = true; tok++; },
+      sleep(ms) { const t = tok; return new Promise(res => setTimeout(() => res(t === tok && !dead), R.reduced ? 0 : ms)); },
+      tween(ms, fn, ease) {
+        const t = tok, ez = ease || easeOut;
+        if (R.reduced || ms <= 0) { fn(1); return Promise.resolve(t === tok && !dead); }
+        return new Promise(res => {
+          const s = performance.now();
+          (function f(now) {
+            if (t !== tok || dead) { res(false); return; }
+            const k = clamp((now - s) / ms, 0, 1); fn(ez(k));
+            if (k < 1) requestAnimationFrame(f); else res(true);
+          })(s);
+        });
+      },
+      get token() { return tok; }
+    };
+    return R;
+  }
+  function sfx(api, n) { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } }
+  /* a handful of stars + dots flying out of (x, y); under reduced motion only a still ring */
+  function burst(svg, x, y, api, n) {
+    const g = el('g', { 'pointer-events': 'none' }, svg);
+    if (api && api.reduced) { const ring = el('circle', { cx: x, cy: y, r: 26, fill: 'none', stroke: C.gold, 'stroke-width': 4, opacity: .9 }, g); setTimeout(() => ring.remove(), 900); setTimeout(() => g.remove(), 950); return; }
+    const cols = [C.gold, C.aqua, C.pink, C.violet, '#fff'], ps = [];
+    for (let i = 0; i < (n || 14); i++) {
+      const an = i / (n || 14) * Math.PI * 2 + Math.random() * .4, sp = 38 + Math.random() * 46;
+      const e = i % 3 === 0 ? el('path', { d: 'M0-7 2-2 7-2 3 1 4.5 7 0 3.5-4.5 7-3 1-7-2-2-2z', fill: cols[i % cols.length] }, g) : el('circle', { r: 2.6 + Math.random() * 2.4, fill: cols[i % cols.length] }, g);
+      ps.push({ e, dx: Math.cos(an) * sp, dy: Math.sin(an) * sp - 10 });
+    }
+    const s = performance.now();
+    (function f(now) {
+      const k = clamp((now - s) / 750, 0, 1), z = easeOut(k);
+      ps.forEach(p => { p.e.setAttribute('transform', `translate(${x + p.dx * z} ${y + p.dy * z + 26 * k * k}) scale(${1 - k * .5})`); p.e.setAttribute('opacity', 1 - k * k); });
+      if (k < 1) requestAnimationFrame(f); else g.remove();
+    })(s);
+  }
+  function make(name, def) { list[name] = def; }
+  function mount(name, host, params, api) {
+    const d = list[name];
+    if (!d) throw new Error('WQOlyWidgets: unknown widget ' + name);
+    api = api || {};
+    if (api.reduced === undefined) { try { api.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (_) { api.reduced = false; } }
+    const inst = d.mount(host, params || {}, api);
+    inst.name = name;
+    return inst;
+  }
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+
+  /* ================================================================ tenframe: drag counters between two ten-frames, make-10 merge */
+  make('tenframe', { mount(host, p, api) {
+    const a0 = p.a == null ? 8 : p.a, b0 = p.b == null ? 5 : p.b, T = 10, inter = p.mode !== 'show';
+    const run = runner(api); let svg, W, H, solved = false, cs = [], occ, fr, cell, fw, fh, eq, cntA, cntB, rod = null;
+    function build() {
+      run.cancel(); solved = false; rod = null;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `十格框：左框 ${a0} 粒，右框 ${b0} 粒`);
+      const stack = H >= 400; cell = stack ? Math.min(54, (H - 160) / 4) : 34; fw = cell * 5; fh = cell * 2; const top0 = Math.max(10, (H - (4 * cell + 150)) / 2 + 4);
+      fr = stack ? { A: { x: (W - fw) / 2, y: top0 }, B: { x: (W - fw) / 2, y: top0 + fh + 78 } } : { A: { x: W / 2 - fw - 12, y: H * .22 }, B: { x: W / 2 + 12, y: H * .22 } };
+      for (const k of 'AB') {
+        const f = fr[k];
+        el('rect', { x: f.x - 6, y: f.y - 6, width: fw + 12, height: fh + 12, rx: 14, fill: 'rgba(255,255,255,.07)', stroke: k === 'A' ? C.aqua : C.gold, 'stroke-width': 2.5, class: 'r80-frame-' + k }, svg);
+        for (let i = 1; i < 5; i++) el('line', { x1: f.x + i * cell, y1: f.y, x2: f.x + i * cell, y2: f.y + fh, stroke: C.line, 'stroke-width': 1.5 }, svg);
+        el('line', { x1: f.x, y1: f.y + cell, x2: f.x + fw, y2: f.y + cell, stroke: C.line, 'stroke-width': 1.5 }, svg);
+      }
+      cntA = txt(svg, fr.A.x + fw / 2, fr.A.y + fh + 24, '', { size: 22, fill: C.aqua });
+      cntB = txt(svg, fr.B.x + fw / 2, fr.B.y + fh + 24, '', { size: 22, fill: C.gold });
+      eq = txt(svg, W / 2, stack ? fr.B.y + fh + 66 : fr.A.y + fh + 66, '', { size: 24, fill: C.text });
+      occ = { A: Array(10).fill(null), B: Array(10).fill(null) }; cs = [];
+      const mk = (k, n, col) => { for (let i = 0; i < n; i++) { const c = { k, i, home: k, col }; c.g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `${k === 'A' ? '左' : '右'}框的點` }, svg); el('circle', { r: cell * .37 + 3, fill: 'rgba(0,0,0,.25)', cy: 3 }, c.g); el('circle', { r: cell * .37, fill: col[0], stroke: col[1], 'stroke-width': 3 }, c.g); el('circle', { r: cell * .11, cx: -cell * .13, cy: -cell * .14, fill: '#fff', opacity: .6 }, c.g); occ[k][i] = c; cs.push(c); put(c, k, i); } };
+      mk('A', a0, PART.a); mk('B', b0, PART.b);
+      if (inter) cs.forEach(wire);
+      count();
+    }
+    const sx = (k, i) => fr[k].x + (i % 5) * cell + cell / 2, sy = (k, i) => fr[k].y + Math.floor(i / 5) * cell + cell / 2;
+    function put(c, k, i) { c.k = k; c.i = i; occ[k][i] = c; place(c.g, sx(k, i), sy(k, i)); }
+    function free(k) { for (let i = 0; i < 10; i++) if (!occ[k][i]) return i; return -1; }
+    function nAt(k) { return occ[k].filter(Boolean).length; }
+    function count() {
+      cntA.textContent = nAt('A') + ' 粒'; cntB.textContent = nAt('B') + ' 粒';
+      if (!solved) { const need = T - nAt('A'); eq.textContent = need > 0 ? `左框還差 ${need} 粒` : ''; eq.setAttribute('fill', C.muted); }
+    }
+    async function moveTo(c, k, i, ms) {
+      occ[c.k][c.i] = null; occ[k][i] = c; const x0 = c.x == null ? sx(c.k, c.i) : c.x, y0 = c.y == null ? sy(c.k, c.i) : c.y; c.k = k; c.i = i;
+      const x1 = sx(k, i), y1 = sy(k, i);
+      await run.tween(ms == null ? 260 : ms, t => { c.x = x0 + (x1 - x0) * t; c.y = y0 + (y1 - y0) * t - Math.sin(t * Math.PI) * 14; place(c.g, c.x, c.y); }, easeIO);
+      c.x = x1; c.y = y1; place(c.g, x1, y1); return true;
+    }
+    function wire(c) {
+      let ox = 0, oy = 0;
+      drag(c.g, svg, {
+        start(pt) { if (solved) return false; svg.appendChild(c.g); c.g.classList.add('lift'); const x = sx(c.k, c.i), y = sy(c.k, c.i); ox = pt.x - x; oy = pt.y - y; return {}; },
+        move(pt) { c.x = pt.x - ox; c.y = pt.y - oy; place(c.g, c.x, c.y, 1.12); },
+        async end(pt) {
+          c.g.classList.remove('lift'); let best = null, bd = cell * .95;
+          for (const k of 'AB') for (let i = 0; i < 10; i++) { if (occ[k][i] && occ[k][i] !== c) continue; const d = Math.hypot(pt.x - ox - sx(k, i), pt.y - oy - sy(k, i)); if (d < bd) { bd = d; best = [k, i]; } }
+          if (!best) best = [c.k, c.i];
+          await moveTo(c, best[0], best[1], 160); sfx(api, best[0] === c.k && best[1] === c.i ? 'tap' : 'pop'); after();
+        },
+        tap() { toggle(c); }
+      });
+      keys(c.g, { act: () => toggle(c) });
+    }
+    function toggle(c) {
+      if (solved) return; const to = c.k === 'A' ? 'B' : 'A', i = free(to); if (i < 0) return;
+      moveTo(c, to, i, 220).then(() => { sfx(api, 'pop'); after(); });
+    }
+    function after() { count(); if (!solved && nAt('A') >= T) win(); changed(api); }
+    async function win() {
+      solved = true; cs.forEach(c => { c.g.style.pointerEvents = 'none'; c.g.removeAttribute('tabindex'); });
+      const f = fr.A, cx = f.x + fw / 2, cy = f.y + fh / 2, A = cs.filter(c => c.k === 'A');
+      sfx(api, 'good');
+      await run.tween(520, t => A.forEach(c => place(c.g, sx('A', c.i) + (cx - sx('A', c.i)) * t, sy('A', c.i) + (cy - sy('A', c.i)) * t, 1 - .55 * t)), easeIO);
+      A.forEach(c => { c.g.style.display = 'none'; });
+      rod = el('g', { class: 'r80-rod' }, svg);
+      const rw = fw - 4, rh = cell * 1.5;
+      el('rect', { x: cx - rw / 2, y: cy - rh / 2 + 4, width: rw, height: rh, rx: 16, fill: PART.t[1] }, rod);
+      el('rect', { x: cx - rw / 2, y: cy - rh / 2, width: rw, height: rh, rx: 16, fill: PART.t[0] }, rod);
+      for (let i = 1; i < 10; i++) el('line', { x1: cx - rw / 2 + rw * i / 10, y1: cy - rh / 2 + 8, x2: cx - rw / 2 + rw * i / 10, y2: cy + rh / 2 - 8, stroke: 'rgba(255,255,255,.35)', 'stroke-width': 1.5 }, rod);
+      txt(rod, cx, cy, '10', { size: 34, fill: C.ink, weight: 900 });
+      await run.tween(260, t => rod.setAttribute('opacity', t) || rod.setAttribute('transform', `translate(${cx} ${cy}) scale(${.6 + .4 * t}) translate(${-cx} ${-cy})`), easeBack);
+      burst(svg, cx, cy, api);
+      const rest = nAt('B');
+      eq.textContent = `${a0} ＋ ${b0} ＝ 10 ＋ ${rest} ＝ ${a0 + b0}`; eq.setAttribute('fill', C.gold);
+      changed(api);
+    }
+    build();
+    return {
+      check: () => solved,
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(350);
+        const need = T - a0;
+        for (let n = 0; n < need; n++) {
+          const c = cs.find(x => x.k === 'B' && x.home === 'B' && !x.done); if (!c) break; c.done = true;
+          const i = free('A'); if (i < 0) break; svg.appendChild(c.g);
+          if (!(await moveTo(c, 'A', i, 520))) return false; sfx(api, 'pop'); count(); await run.sleep(120);
+        }
+        if (nAt('A') >= T && !solved) { await win(); }
+        changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ numline: a frog hops along a number line */
+  make('numline', { mount(host, p, api) {
+    const lo = p.min == null ? 0 : p.min, hi = p.max == null ? 20 : p.max, start = p.start == null ? 0 : p.start, target = p.target, steps = p.steps || [1, 2, 5], inter = p.mode !== 'show';
+    const run = runner(api); let svg, W, H, pos, trail, frog, readout, x0, dx, ly, hops, done = false;
+    const X = v => x0 + (v - lo) * dx;
+    function build() {
+      run.cancel(); done = false; hops = [];
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `數線：由 ${start}${target != null ? ' 去 ' + target : ''}`);
+      x0 = 30; dx = (W - 60) / (hi - lo); ly = Math.round(H * (inter ? .46 : .55));
+      el('line', { x1: X(lo) - 10, y1: ly, x2: X(hi) + 10, y2: ly, stroke: C.muted, 'stroke-width': 4, 'stroke-linecap': 'round' }, svg);
+      const need = 26 / dx, every = need <= 1 ? 1 : need <= 2 ? 2 : need <= 5 ? 5 : 10;
+      for (let v = lo; v <= hi; v++) {
+        const big = (v - lo) % every === 0, mark = v === target || v === start;
+        el('line', { x1: X(v), y1: ly - (big || mark ? 9 : 5), x2: X(v), y2: ly + (big || mark ? 9 : 5), stroke: C.muted, 'stroke-width': big || mark ? 3 : 2 }, svg);
+        if (big && !(mark && every > 1)) txt(svg, X(v), ly + 26, v, { size: 16, fill: C.muted, weight: 700 });
+        if (mark && (every > 1 || v === target)) txt(svg, X(v), ly + (every > 1 ? 26 : 50), v, { size: 17, fill: v === target ? C.pink : C.aqua, weight: 900 });
+      }
+      if (target != null) { el('circle', { cx: X(target), cy: ly, r: 11, fill: 'none', stroke: C.pink, 'stroke-width': 3, 'stroke-dasharray': '4 4' }, svg); txt(svg, X(target), ly - 40, '⭐', { size: 22, emoji: true }); }
+      trail = el('g', {}, svg);
+      frog = el('g', { class: 'r80-frog', role: 'slider', 'aria-label': '小青蛙', 'aria-valuemin': lo, 'aria-valuemax': hi }, svg);
+      el('circle', { cx: 0, cy: -4, r: 26, fill: 'rgba(0,0,0,0)' }, frog); el('ellipse', { cx: 0, cy: 14, rx: 15, ry: 5, fill: 'rgba(0,0,0,.3)' }, frog);
+      txt(frog, 0, -6, '🐸', { size: 40, emoji: true });
+      readout = txt(svg, W / 2, Math.max(36, ly - 120), '', { size: 26, fill: C.text });
+      pos = start; setFrog(pos);
+      if (inter) {
+        let ox = 0, from = start;
+        drag(frog, svg, { start(pt) { if (done) return false; svg.appendChild(frog); from = pos; ox = pt.x - X(pos); return {}; }, move(pt) { const v = clamp(Math.round(lo + (pt.x - ox - x0) / dx), lo, hi); pos = v; setFrog(v, true); }, end() { if (pos !== from) { addHop(from, pos); } sfx(api, 'pop'); judge(); } });
+        keys(frog, { arrow: dxk => { if (!done) hopBy(dxk); }, act: () => { } });
+        const bw = 78, nb = steps.length, gap = 12, tot = nb * bw + (nb - 1) * gap + 70;
+        let bx = (W - tot) / 2 + bw / 2; const by = Math.min(H - 44, ly + 100);
+        steps.forEach(s => { sbtn(svg, { x: bx, y: by, w: bw, label: '＋' + s, onClick: () => hopBy(s), aria: `向前跳 ${s} 格` }); bx += bw + gap; });
+        sbtn(svg, { x: bx + 4, y: by, w: 62, label: '↺', fill: PART.k[0], shade: PART.k[1], ink: C.ink, onClick: () => { build(); changed(api); }, aria: '重來' });
+      }
+      note();
+    }
+    function setFrog(v, live) { place(frog, X(v), ly - 22 - (live ? 8 : 0)); frog.setAttribute('aria-valuenow', v); note(); }
+    function note() { if (!readout) return; readout.textContent = hops.length ? [start, ...hops.map(h => h.to)].join(' → ') : String(pos); readout.setAttribute('fill', done ? C.gold : C.text); }
+    function addHop(from, to) {
+      hops.push({ from, to }); const i = hops.length - 1, col = [C.aqua, C.gold, C.pink, C.violet][i % 4], xa = X(from), xb = X(to), h = Math.min(70, 22 + Math.abs(xb - xa) * .35);
+      const g = el('g', {}, trail);
+      el('path', { d: `M${xa} ${ly - 8} Q${(xa + xb) / 2} ${ly - 8 - h * 1.6} ${xb} ${ly - 8}`, fill: 'none', stroke: col, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '1 9' }, g);
+      txt(g, (xa + xb) / 2, ly - 8 - h * .8 - 12, (to >= from ? '＋' : '－') + Math.abs(to - from), { size: 20, fill: col, weight: 900 });
+      note();
+    }
+    async function hopBy(n) {
+      if (done || frog.__hop) return; const to = clamp(pos + n, lo, hi); if (to === pos) return; frog.__hop = true; const from = pos;
+      await run.tween(300, t => { const x = X(from) + (X(to) - X(from)) * t; place(frog, x, ly - 22 - Math.sin(t * Math.PI) * 40); }, easeIO);
+      frog.__hop = false; pos = to; setFrog(to); addHop(from, to); sfx(api, 'pop'); judge();
+    }
+    function judge() { if (target != null && pos === target && !done) { done = true; sfx(api, 'good'); burst(svg, X(pos), ly - 30, api); note(); } changed(api); }
+    build();
+    return {
+      check: () => target == null ? hops.length > 0 : pos === target,
+      reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(300);
+        const plan = p.hops || (target != null ? [{ n: target - start }] : [{ n: steps[0] }]);
+        for (const h of plan) { if (!(await demoHop(h.n))) return false; await run.sleep(150); }
+        done = target != null && pos === target; if (done) { sfx(api, 'good'); burst(svg, X(pos), ly - 30, api); note(); } changed(api); return true;
+      }
+    };
+    async function demoHop(n) {
+      const to = clamp(pos + n, lo, hi), from = pos; if (to === from) return true;
+      const ok = await run.tween(520, t => { const x = X(from) + (X(to) - X(from)) * t; place(frog, x, ly - 22 - Math.sin(t * Math.PI) * 46); }, easeIO);
+      if (!ok) return false; pos = to; setFrog(to); addHop(from, to); sfx(api, 'pop'); return true;
+    }
+  } });
+
+  /* ================================================================ bars: bar model with draggable parts, braces for total / difference */
+  make('bars', { mount(host, p, api) {
+    const rowsD = p.rows || [], braces = p.braces || [], inter = p.mode !== 'show', pad = 14, labW = 52;
+    const run = runner(api); let svg, W, H, rows, ux, rh = 46, gap = 26, y0, solved = false;
+    function build() {
+      run.cancel(); solved = false;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', '棒形圖');
+      const segU = r => r.segs.reduce((s, g) => s + (g.rep || 1) * g.u, 0);
+      rows = rowsD.map(r => ({ label: r.label, segs: r.segs.map(s => Object.assign({}, s, { u0: s.u, rep0: s.rep, u: s.edit && s.start != null ? s.start : s.u, rep: s.rep })) }));
+      const maxU = Math.max(...rows.map(r => r.segs.reduce((s, g) => s + (g.max ? Math.max(g.max, (g.rep || 1) * g.u) : (g.rep || 1) * g.u), 0)), 4);
+      ux = Math.min(46, (W - pad * 2 - labW - (braces.length ? 96 : 24)) / maxU);
+      const totalH = rows.length * rh + (rows.length - 1) * gap; y0 = Math.max(40, (H - totalH) / 2 - (inter ? 28 : 6));
+      rows.forEach((r, ri) => {
+        r.y = y0 + ri * (rh + gap);
+        txt(svg, pad + labW / 2, r.y + rh / 2, r.label || '', { size: 22, fill: C.text });
+        r.segs.forEach((s, si) => {
+          const col = PART[s.c || 'a'] || PART.a;
+          s.g = el('g', {}, svg); s.rect = el('rect', { rx: 8, height: rh, y: r.y, fill: s.dashed ? 'none' : col[0], stroke: s.dashed ? col[0] : col[1], 'stroke-width': s.dashed ? 3 : 2.5, 'stroke-dasharray': s.dashed ? '7 6' : null }, s.g);
+          s.div = el('path', { stroke: s.dashed ? col[0] : col[1], 'stroke-width': 1.6, opacity: .55, fill: 'none' }, s.g);
+          s.label = txt(s.g, 0, r.y + rh / 2, '', { size: 22, fill: s.dashed ? col[0] : C.ink, weight: 900 });
+          if (s.edit && inter) {
+            s.h = el('g', { class: 'r80-handle', role: 'slider', 'aria-label': `${r.label || ''}的長度`, 'aria-valuemin': s.min || 1, 'aria-valuemax': s.max || 12 }, svg);
+            el('circle', { r: 17, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, s.h); el('path', { d: 'M-5-6-9 0-5 6M5-6 9 0 5 6', stroke: '#3b2600', 'stroke-width': 2.6, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, s.h);
+            wire(r, s);
+          }
+        });
+      });
+      braces.forEach(b => { b.p = el('path', { fill: 'none', stroke: PART[b.c || 'd'][0], 'stroke-width': 3.5, 'stroke-linecap': 'round' }, svg); b.t = txt(svg, 0, 0, b.label, { size: 20, fill: PART[b.c || 'd'][0], anchor: 'start' }); });
+      layout(); judge(false);
+    }
+    const unitsOf = s => s.rep ? s.u * s.rep : s.u;
+    function layout() {
+      rows.forEach(r => {
+        let x = pad + labW + 4;
+        r.segs.forEach(s => {
+          const w = unitsOf(s) * ux; s.x = x; s.w = w; s.rect.setAttribute('x', x); s.rect.setAttribute('width', Math.max(0, w));
+          let d = ''; const cnt = unitsOf(s), step = s.rep ? s.u * ux : ux; for (let i = 1; i < (s.rep || cnt); i++) d += `M${x + i * step} ${r.y + 6}V${r.y + rh - 6}`; s.div.setAttribute('d', d);
+          const shown = s.text !== undefined ? s.text : (s.rep ? s.rep + ' 份' : unitsOf(s)); s.label.textContent = s.edit && s.text === undefined ? (s.rep ? s.rep + ' 份' : s.u) : shown; s.label.setAttribute('x', s.h ? x + Math.max(10, (w - 22) / 2) : x + w / 2);
+          if (s.h) place(s.h, x + w, r.y + rh / 2);
+          x += w;
+        });
+        r.end = x;
+      });
+      braces.forEach(b => {
+        const r0 = rows[b.from], r1 = rows[b.to == null ? b.from : b.to], x = Math.max(...rows.map(r => r.end)) + 22, ya = r0.y, yb = r1.y + rh, m = (ya + yb) / 2;
+        b.p.setAttribute('d', `M${x - 8} ${ya}Q${x} ${ya} ${x} ${ya + 8}V${m - 8}Q${x} ${m} ${x + 8} ${m}Q${x} ${m} ${x} ${m + 8}V${yb - 8}Q${x} ${yb} ${x - 8} ${yb}`);
+        b.t.setAttribute('x', x + 14); b.t.setAttribute('y', m); b.t.setAttribute('font-size', 19);
+      });
+    }
+    function wire(r, s) {
+      const key = s.rep ? 'rep' : 'u', mn = s.min || 1, mx = s.max || 12; let x0 = 0;
+      const setv = v => { v = clamp(v, mn, mx); if (v === s[key]) return; s[key] = v; layout(); sfx(api, 'tick'); judge(true); };
+      drag(s.h, svg, { start() { if (solved) return false; x0 = s.x; return {}; }, move(pt) { const un = s.rep ? s.u * ux : ux; setv(Math.round((pt.x - x0) / un)); }, end() { sfx(api, 'pop'); } });
+      keys(s.h, { arrow: dxk => { if (!solved) setv(s[key] + dxk); } });
+      s.h.setAttribute('aria-valuenow', s[key]);
+    }
+    function judge(user) {
+      let ok = true, any = false;
+      rows.forEach(r => r.segs.forEach(s => { if (s.edit) { any = true; const key = s.rep ? 'rep' : 'u'; if (s.h) s.h.setAttribute('aria-valuenow', s[key]); if (s.target != null && s[key] !== s.target) ok = false; } }));
+      if (any && ok && !solved && user) { solved = true; sfx(api, 'good'); const s = rows.flatMap(r => r.segs).find(z => z.edit); burst(svg, s.x + s.w, rows[0].y + rh / 2, api); rows.forEach(r => r.segs.forEach(z => { if (z.h) z.h.style.pointerEvents = 'none'; })); }
+      if (user) changed(api);
+    }
+    build();
+    return {
+      check: () => { let any = false, ok = true; rows.forEach(r => r.segs.forEach(s => { if (s.edit) { any = true; const key = s.rep ? 'rep' : 'u'; if (s[key] !== s.target) ok = false; } })); return any ? ok : true; },
+      reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(300);
+        const eds = rows.flatMap(r => r.segs).filter(s => s.edit);
+        if (!eds.length) {
+          for (const s of rows.flatMap(r => r.segs)) { s.rect.setAttribute('opacity', .35); }
+          for (const s of rows.flatMap(r => r.segs)) { const ok = await run.tween(260, t => s.rect.setAttribute('opacity', .35 + .65 * t)); if (!ok) return false; sfx(api, 'tick'); }
+          changed(api); return true;
+        }
+        for (const s of eds) { const key = s.rep ? 'rep' : 'u'; while (s[key] !== s.target) { s[key] += s[key] < s.target ? 1 : -1; layout(); sfx(api, 'tick'); if (!(await run.sleep(230))) return false; } }
+        solved = true; sfx(api, 'good'); const s0 = eds[0]; burst(svg, s0.x + s0.w, rows[0].y + rh / 2, api); changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ array: a rectangle of cells cut by a draggable line (split a factor) */
+  make('array', { mount(host, p, api) {
+    const cols = p.cols || 12, rowsN = p.rows || 7, goal = p.cut, inter = p.mode !== 'show', run = runner(api);
+    let svg, W, H, cut, cells, line, hdl, t1, t2, tt, solved, cs, gx, gy;
+    function build() {
+      run.cancel(); solved = false; cut = p.start == null ? cols : p.start;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `${cols} 乘 ${rowsN} 的格子`);
+      cs = Math.min(40, (W - 60) / cols, (H - 165) / rowsN); gx = (W - cs * cols) / 2; gy = Math.max(30, (H - cs * rowsN - 130) / 2);
+      cells = [];
+      for (let r = 0; r < rowsN; r++) for (let c = 0; c < cols; c++) cells.push({ c, e: el('rect', { x: gx + c * cs + 1.5, y: gy + r * cs + 1.5, width: cs - 3, height: cs - 3, rx: 5 }, svg) });
+      txt(svg, gx - 4, gy + cs * rowsN / 2, rowsN, { size: 22, fill: C.muted, anchor: 'end' });
+      line = el('line', { y1: gy - 12, y2: gy + cs * rowsN + 12, stroke: C.text, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 7' }, svg);
+      hdl = el('g', { class: 'r80-handle', role: 'slider', 'aria-label': '切開的位置', 'aria-valuemin': 0, 'aria-valuemax': cols }, svg);
+      el('circle', { r: 19, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, hdl); el('path', { d: 'M-5-6-9 0-5 6M5-6 9 0 5 6', stroke: '#3b2600', 'stroke-width': 2.8, fill: 'none', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, hdl);
+      const ty = gy + cs * rowsN + 58;
+      t1 = txt(svg, W * .25, ty, '', { size: 24, fill: C.aqua }); t2 = txt(svg, W * .75, ty, '', { size: 24, fill: C.gold }); tt = txt(svg, W / 2, ty + 42, '', { size: 26, fill: C.text });
+      if (inter) {
+        drag(hdl, svg, { start() { return solved ? false : {}; }, move(pt) { setCut(clamp(Math.round((pt.x - gx) / cs), 0, cols)); }, end() { sfx(api, 'pop'); } });
+        keys(hdl, { arrow: d => { if (!solved) setCut(clamp(cut + d, 0, cols)); } });
+      } else hdl.style.display = 'none';
+      draw();
+    }
+    function setCut(v) { if (v === cut) return; cut = v; sfx(api, 'tick'); draw(); if (goal != null && cut === goal && !solved) { solved = true; sfx(api, 'good'); burst(svg, gx + cut * cs, gy + cs * rowsN / 2, api); } changed(api); }
+    function draw() {
+      cells.forEach(k => { const L = k.c < cut; k.e.setAttribute('fill', L ? C.aqua : C.gold); k.e.setAttribute('opacity', cut === cols || cut === 0 ? .9 : .95); });
+      const x = gx + cut * cs; line.setAttribute('x1', x); line.setAttribute('x2', x); place(hdl, x, gy + cs * rowsN + 18); hdl.setAttribute('aria-valuenow', cut);
+      const a = cut, b = cols - cut;
+      t1.textContent = a ? `${a}×${rowsN}＝${a * rowsN}` : ''; t2.textContent = b ? `${b}×${rowsN}＝${b * rowsN}` : '';
+      tt.textContent = a && b ? `${a * rowsN}＋${b * rowsN}＝${cols * rowsN}` : `${cols}×${rowsN}＝${cols * rowsN}`;
+      tt.setAttribute('fill', solved ? C.gold : C.text);
+    }
+    build();
+    return {
+      check: () => goal == null ? cut !== cols : cut === goal,
+      reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(400); const to = goal == null ? Math.floor(cols / 2) : goal, from = cut;
+        const ok = await run.tween(900, t => { const v = Math.round(from + (to - from) * t); if (v !== cut) { cut = v; draw(); } }, easeIO); if (!ok) return false;
+        cut = to; draw(); solved = true; sfx(api, 'good'); burst(svg, gx + cut * cs, gy + cs * rowsN / 2, api); changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ pairing: Gauss - pair the first with the last, every pair has the same sum */
+  make('pairing', { mount(host, p, api) {
+    const n = p.n || 10, S = n + 1, inter = p.mode !== 'show', run = runner(api);
+    let svg, W, H, chips, pairs, sel, eq, ly, cw, x0, arcs;
+    function build() {
+      run.cancel(); sel = null; pairs = 0;
+      ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `1 加到 ${n}，頭尾配對`);
+      cw = Math.min(46, (W - 24) / n); x0 = (W - cw * n) / 2 + cw / 2; ly = Math.round(H * .62); arcs = el('g', {}, svg); chips = [];
+      for (let i = 1; i <= n; i++) {
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': String(i) }, svg), x = x0 + (i - 1) * cw;
+        const r = Math.min(20, cw * .45);
+        el('circle', { r, cy: 3, fill: 'rgba(0,0,0,.28)' }, g); const c = el('circle', { r, fill: i <= n / 2 ? C.aqua : C.gold, stroke: i <= n / 2 ? C.aquaD : C.goldD, 'stroke-width': 3 }, g);
+        txt(g, 0, 1, i, { size: cw < 34 ? 16 : 20, fill: C.ink, weight: 900 }); place(g, x, ly);
+        const ch = { i, g, c, x, paired: false }; chips.push(ch);
+        if (inter) {
+          drag(g, svg, { start() { svg.appendChild(g); g.classList.add('lift'); return {}; }, move(pt) { place(g, pt.x, pt.y, 1.12); }, end(pt) {
+            g.classList.remove('lift'); place(g, x, ly);
+            const t = chips.find(o => o !== ch && !o.paired && !ch.paired && Math.hypot(pt.x - o.x, pt.y - ly) < cw * .9); if (t) tryPair(ch, t); }, tap() { choose(ch); } });
+          keys(g, { act: () => choose(ch) });
+        }
+      }
+      eq = txt(svg, W / 2, 26, '', { size: 28, fill: C.text });
+      sync();
+    }
+    function sync() { chips.forEach(c => { c.c.setAttribute('stroke-width', c === sel ? 5 : 3); c.g.style.opacity = c.paired ? .95 : 1; c.c.setAttribute('stroke', c === sel ? '#fff' : (c.i <= n / 2 ? C.aquaD : C.goldD)); }); }
+    function choose(ch) {
+      if (ch.paired) return;
+      if (!sel) { sel = ch; sfx(api, 'tap'); sync(); return; }
+      if (sel === ch) { sel = null; sync(); return; }
+      const a = sel; sel = null; tryPair(a, ch);
+    }
+    function tryPair(a, b) {
+      if (a.i + b.i === S) { drawPair(a, b, true); }
+      else { sfx(api, 'bad'); [a, b].forEach(c => c.g.animate && !api.reduced && c.g.animate([{ transform: `translate(${c.x - 5}px,${ly}px)` }, { transform: `translate(${c.x + 5}px,${ly}px)` }, { transform: `translate(${c.x}px,${ly}px)` }], { duration: 180 })); const m = txt(svg, W / 2, ly + 62, `${a.i}＋${b.i}＝${a.i + b.i}，不是 ${S}`, { size: 20, fill: C.bad }); setTimeout(() => m.remove(), 1400); sync(); }
+    }
+    function drawPair(a, b, user) {
+      a.paired = b.paired = true; pairs++; sfx(api, 'good'); sync();
+      const lo = Math.min(a.x, b.x), hi = Math.max(a.x, b.x), hp = 24 + (hi - lo) / (W - 40) * Math.max(40, ly - 120), g = el('g', {}, arcs);
+      const col = [C.violet, C.pink, C.aqua, C.gold, C.green][(pairs - 1) % 5];
+      const path = el('path', { d: `M${lo} ${ly - 24}Q${(lo + hi) / 2} ${ly - 24 - hp * 2} ${hi} ${ly - 24}`, fill: 'none', stroke: col, 'stroke-width': 4, 'stroke-linecap': 'round' }, g);
+      const t = txt(g, (lo + hi) / 2, ly - 24 - hp - 13, S, { size: 22, fill: col, weight: 900 });
+      if (!api.reduced) { const L = path.getTotalLength ? path.getTotalLength() : 200; path.style.strokeDasharray = L; path.style.strokeDashoffset = L; path.getBoundingClientRect(); path.style.transition = 'stroke-dashoffset .35s ease-out'; path.style.strokeDashoffset = 0; t.setAttribute('opacity', 0); setTimeout(() => t.setAttribute('opacity', 1), 260); }
+      if (pairs === n / 2) { eq.textContent = `${S} × ${n / 2} ＝ ${S * n / 2}`; eq.setAttribute('fill', C.gold); setTimeout(() => burst(svg, W / 2, ly - 90, api), 200); }
+      else eq.textContent = `已配 ${pairs} 對，每對都是 ${S}`;
+      if (user) changed(api);
+    }
+    build();
+    return {
+      check: () => pairs === n / 2,
+      reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(350);
+        for (let i = 1; i <= n / 2; i++) { const a = chips[i - 1], b = chips[n - i]; const ok = await run.tween(260, t => { place(a.g, a.x, ly - 14 * t); place(b.g, b.x, ly - 14 * t); }); if (!ok) return false; place(a.g, a.x, ly); place(b.g, b.x, ly); drawPair(a, b, false); if (!(await run.sleep(i === n / 2 ? 100 : 420))) return false; }
+        changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ rowplace: put trees / people on points along a road (line or circle) */
+  make('rowplace', { mount(host, p, api) {
+    const segs = p.segments || 4, ends = p.ends || 'both', circle = !!p.circle, span = p.span, unit = p.unit || '米', item = p.item || '🌳', inter = p.mode !== 'show', run = runner(api);
+    let svg, W, H, slots, trayItems, msg, ly, cx, cy, R;
+    const nSlots = circle ? segs : ends === 'both' ? segs + 1 : ends === 'none' ? segs - 1 : segs;
+    function build() {
+      run.cancel();
+      ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', circle ? `圍成一圈的路，分成 ${segs} 段` : `一條路，分成 ${segs} 段`);
+      slots = []; trayItems = [];
+      const pts = [];
+      if (circle) { cx = W / 2; R = Math.min(W * .32, H * .26); cy = Math.round(H * .4); el('circle', { cx, cy, r: R, fill: 'none', stroke: C.muted, 'stroke-width': 5, 'stroke-dasharray': '2 0' }, svg); for (let i = 0; i < segs; i++) { const a = -Math.PI / 2 + i / segs * Math.PI * 2; pts.push([cx + Math.cos(a) * R, cy + Math.sin(a) * R]); } if (span) txt(svg, cx, cy, `每段 ${span}${unit}`, { size: 20, fill: C.muted }); }
+      else {
+        ly = Math.round(H * .42); const x0 = 34, x1 = W - 34, d = (x1 - x0) / segs;
+        el('line', { x1: x0 - 10, y1: ly, x2: x1 + 10, y2: ly, stroke: C.muted, 'stroke-width': 6, 'stroke-linecap': 'round' }, svg);
+        for (let i = 0; i <= segs; i++) { el('line', { x1: x0 + i * d, y1: ly - 8, x2: x0 + i * d, y2: ly + 8, stroke: C.muted, 'stroke-width': 3 }, svg); if (i < segs) { txt(svg, x0 + i * d + d / 2, ly + 30, span ? `${span}${unit}` : '1 段', { size: 17, fill: C.muted, weight: 700 }); } }
+        const first = ends === 'both' || ends === 'one' ? 0 : 1, last = ends === 'both' ? segs : ends === 'one' ? segs - 1 : segs - 1;
+        for (let i = first; i <= last; i++) pts.push([x0 + i * d, ly]);
+        if (ends !== 'both') { const xe = ends === 'one' ? x1 : null; if (xe) txt(svg, xe, ly - 30, '✕', { size: 22, fill: C.bad }); if (ends === 'none') { txt(svg, x0, ly - 30, '✕', { size: 22, fill: C.bad }); txt(svg, x1, ly - 30, '✕', { size: 22, fill: C.bad }); } }
+      }
+      pts.forEach((pt, i) => {
+        const g = el('g', { class: 'r80-slot', role: inter ? 'button' : 'img', 'aria-label': `第 ${i + 1} 個位置` }, svg);
+        el('circle', { r: 21, fill: 'rgba(255,255,255,.08)', stroke: C.gold, 'stroke-width': 2.5, 'stroke-dasharray': '5 5' }, g); place(g, pt[0], pt[1] - (circle ? 0 : 26));
+        slots.push({ g, x: pt[0], y: pt[1] - (circle ? 0 : 26), item: null });
+        if (inter) { keys(g, { act: () => putNext(i) }); g.addEventListener('click', () => { if (!g.__drag) putNext(i); }); }
+      });
+      const ty = H - 54, tw = Math.min(50, (W - 40) / nSlots);
+      for (let i = 0; i < nSlots; i++) {
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': '放進路上' }, svg), x = W / 2 + (i - (nSlots - 1) / 2) * tw;
+        el('circle', { r: Math.max(22, tw * .5), fill: 'rgba(0,0,0,0)' }, g); txt(g, 0, 0, item, { size: Math.min(36, tw * .8), emoji: true }); place(g, x, ty); const t = { g, x, y: ty, used: false, slot: null }; trayItems.push(t);
+        if (inter) {
+          drag(g, svg, { start() { if (t.used) return false; svg.appendChild(g); g.classList.add('lift'); return {}; }, move(pt) { place(g, pt.x, pt.y, 1.15); }, async end(pt) { g.classList.remove('lift'); let b = null, bd = 40; slots.forEach((s, k) => { if (s.item) return; const d = Math.hypot(pt.x - s.x, pt.y - s.y); if (d < bd) { bd = d; b = k; } }); if (b == null) place(g, t.x, t.y); else await putIn(t, b, 120); }, tap() { putNext(); } });
+          keys(g, { act: () => putNext() });
+        }
+      }
+      msg = txt(svg, W / 2, circle ? Math.round(H * .4 + R + 54) : Math.round(H * .62), '', { size: 24, fill: C.text });
+      refresh();
+    }
+    function refresh() { const k = slots.filter(s => s.item).length; if (k < nSlots) msg.textContent = `還有 ${nSlots - k} 個位置`; msg.setAttribute('fill', C.muted); }
+    async function putIn(t, k, ms) {
+      if (t.used || slots[k].item) return; t.used = true; slots[k].item = t; t.slot = k; const s = slots[k], from = t.g.getAttribute('transform').match(/-?[\d.]+/g).map(Number);
+      s.g.querySelector('circle').setAttribute('stroke', C.aqua);
+      await run.tween(ms == null ? 260 : ms, u => place(t.g, from[0] + (s.x - from[0]) * u, from[1] + (s.y - from[1]) * u - Math.sin(u * Math.PI) * 16), easeIO);
+      place(t.g, s.x, s.y); sfx(api, 'pop'); refresh();
+      if (slots.every(z => z.item)) done(); changed(api);
+    }
+    function putNext(k) { const t = trayItems.find(z => !z.used); if (!t) return; if (k == null || slots[k].item) k = slots.findIndex(z => !z.item); if (k >= 0) putIn(t, k); }
+    function done() {
+      sfx(api, 'good'); burst(svg, W / 2, circle ? cy : ly - 30, api);
+      msg.textContent = circle ? `${segs} 段，${nSlots} 棵：棵數＝段數` : `${segs} 段，${nSlots} 棵：${ends === 'both' ? '棵數＝段數＋1' : ends === 'none' ? '棵數＝段數－1' : '棵數＝段數'}`; msg.setAttribute('fill', C.gold);
+    }
+    build();
+    return {
+      check: () => slots.every(s => s.item), reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() { build(); await run.sleep(350); for (let k = 0; k < slots.length; k++) { if (!trayItems[k]) break; svg.appendChild(trayItems[k].g); await putIn(trayItems[k], k, 360); if (!(await run.sleep(120))) return false; } changed(api); return true; }
+    };
+  } });
+
+  /* ================================================================ dotgraph: people on a circle, link every pair once (handshakes) */
+  make('dotgraph', { mount(host, p, api) {
+    const n = p.n || 5, total = n * (n - 1) / 2, inter = p.mode !== 'show', run = runner(api), faces = p.faces || ['🧒', '👧', '🧑', '👩', '🧔', '👦', '👴', '👵'];
+    let svg, W, H, dots, links, cnt, sel, cx, cy, R, g1, eq;
+    function build() {
+      run.cancel(); sel = null; links = new Map();
+      ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `${n} 個人，每兩個人握手一次`);
+      R = Math.min(W * .3, H * .27); cx = W / 2; cy = Math.round(H * .46); g1 = el('g', {}, svg); dots = [];
+      for (let i = 0; i < n; i++) {
+        const a = -Math.PI / 2 + i / n * Math.PI * 2, x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `第 ${i + 1} 個人` }, svg);
+        el('circle', { r: 27, cy: 3, fill: 'rgba(0,0,0,.28)' }, g); const c = el('circle', { r: 27, fill: C.card2, stroke: C.aqua, 'stroke-width': 3.5 }, g); txt(g, 0, 1, faces[i % faces.length], { size: 30, emoji: true }); place(g, x, y);
+        const d = { i, x, y, g, c }; dots.push(d);
+        if (inter) {
+          drag(g, svg, { start(pt) { sel = d; sync(); rub = el('line', { x1: x, y1: y, x2: x, y2: y, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return {}; },
+            move(pt) { rub.setAttribute('x2', pt.x); rub.setAttribute('y2', pt.y); },
+            end(pt, ctx, e, moved) { rub && rub.remove(); rub = null; if (!moved) return; const t = dots.find(o => o !== d && Math.hypot(pt.x - o.x, pt.y - o.y) < 34); sel = null; if (t) link(d, t, true); else sync(); },
+            tap() { rub && rub.remove(); rub = null; choose(d); } });
+          keys(g, { act: () => choose(d) });
+        }
+      }
+      cnt = txt(svg, W / 2, 30, '', { size: 26, fill: C.text }); eq = txt(svg, W / 2, H - 34, '', { size: 22, fill: C.muted }); sync(); upd();
+    }
+    let rub = null;
+    function choose(d) { if (!sel) { sel = d; sfx(api, 'tap'); sync(); return; } if (sel === d) { sel = null; sync(); return; } const a = sel; sel = null; link(a, d, true); }
+    function sync() { dots.forEach(d => { d.c.setAttribute('stroke', d === sel ? C.gold : C.aqua); d.c.setAttribute('stroke-width', d === sel ? 6 : 3.5); }); }
+    function link(a, b, user) {
+      const k = Math.min(a.i, b.i) + '-' + Math.max(a.i, b.i);
+      if (links.has(k)) { sfx(api, 'bad'); sync(); const m = txt(svg, W / 2, H - 66, '這兩個人已經握過手了', { size: 20, fill: C.bad }); setTimeout(() => m.remove(), 1200); return; }
+      const l = el('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, stroke: [C.violet, C.pink, C.gold, C.aqua, C.green][links.size % 5], 'stroke-width': 4, 'stroke-linecap': 'round', opacity: .9 }, g1); links.set(k, l);
+      if (!api.reduced) { const L = Math.hypot(a.x - b.x, a.y - b.y); l.style.strokeDasharray = L; l.style.strokeDashoffset = L; l.getBoundingClientRect(); l.style.transition = 'stroke-dashoffset .25s ease-out'; l.style.strokeDashoffset = 0; }
+      sfx(api, 'pop'); sync(); upd(); if (links.size === total) { sfx(api, 'good'); burst(svg, cx, cy, api); } if (user) changed(api);
+    }
+    function upd() { cnt.textContent = `握手 ${links.size} 次`; cnt.setAttribute('fill', links.size === total ? C.gold : C.text); eq.textContent = links.size === total ? `${n} 人 × ${n - 1} 次 ÷ 2 ＝ ${total} 次` : `共 ${total} 對`; eq.setAttribute('fill', links.size === total ? C.gold : C.muted); if (links.size !== total) eq.textContent = ''; }
+    build();
+    return {
+      check: () => links.size === total, reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() { build(); await run.sleep(350); for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) { dots[i].c.setAttribute('stroke', C.gold); if (!(await run.sleep(n > 6 ? 130 : 260))) return false; link(dots[i], dots[j], false); dots[i].c.setAttribute('stroke', C.aqua); } changed(api); return true; }
+    };
+  } });
+
+  /* ================================================================ cycle: a wheel of n positions (weekdays, remainders, last digits) */
+  make('cycle', { mount(host, p, api) {
+    const n = p.n || 7, labels = p.labels || Array.from({ length: n }, (_, i) => i + 1), goal = p.steps, startI = p.start || 0, unit = p.unit || '步', inter = p.mode !== 'show', run = runner(api);
+    let svg, W, H, cx, cy, R, steps, tok, cnt, laps, dots, dragA = null, done;
+    const ang = i => -Math.PI / 2 + i / n * Math.PI * 2, posOf = () => (startI + steps) % n;
+    function build() {
+      run.cancel(); steps = 0; done = false;
+      ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `${n} 格的轉盤`);
+      R = Math.max(46, Math.min(W * .32, (H - (inter ? 150 : 96)) / 2)); cx = W / 2; cy = inter ? Math.round(R + 52) : Math.round(H / 2 + 8); dots = [];
+      el('circle', { cx, cy, r: R + 30, fill: 'rgba(255,255,255,.05)', stroke: C.line, 'stroke-width': 2 }, svg);
+      for (let i = 0; i < n; i++) {
+        const x = cx + Math.cos(ang(i)) * R, y = cy + Math.sin(ang(i)) * R, g = el('g', {}, svg);
+        const c = el('circle', { cx: x, cy: y, r: Math.min(26, R * 2 * Math.PI / n / 2.3), fill: C.card2, stroke: i === startI ? C.aqua : C.line, 'stroke-width': i === startI ? 4 : 2.5 }, g); txt(g, x, y + 1, labels[i % labels.length], { size: labels[i % labels.length].toString().length > 1 ? 16 : 20, fill: C.text }); dots.push({ c, x, y });
+      }
+      tok = el('g', { class: 'r80-tok', role: 'slider', 'aria-label': '指針', 'aria-valuemin': 0 }, svg);
+      el('circle', { r: 17, cy: 3, fill: 'rgba(0,0,0,.3)' }, tok); el('circle', { r: 17, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, tok); txt(tok, 0, 1, '▼', { size: 14, fill: '#3b2600' });
+      cnt = txt(svg, cx, cy - 8, '', { size: 36, fill: C.text, weight: 900 }); laps = txt(svg, cx, 16, '', { size: 18, fill: C.muted, weight: 800 });
+      if (inter) {
+        drag(tok, svg, { start(pt) { dragA = Math.atan2(pt.y - cy, pt.x - cx); return {}; }, move(pt) {
+          const a = Math.atan2(pt.y - cy, pt.x - cx), da = a - dragA; let d = Math.round((((da + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI) / (Math.PI * 2 / n));
+          if (d !== 0) { dragA += d * Math.PI * 2 / n; stepBy(d, true); } } , end() { sfx(api, 'pop'); } });
+        keys(tok, { arrow: d => stepBy(d > 0 ? 1 : -1) });
+        const by = Math.min(H - 30, cy + R + 70);
+        sbtn(svg, { x: W / 2 - 108, y: by, w: 104, label: `＋1 ${unit}`, onClick: () => stepBy(1), aria: `走一${unit}` });
+        sbtn(svg, { x: W / 2 + 22, y: by, w: 120, label: `＋${n} 一圈`, onClick: () => stepBy(n), fill: PART.k[0], shade: PART.k[1], ink: C.ink, aria: `走一整圈（${n} ${unit}）` });
+        sbtn(svg, { x: W / 2 + 128, y: by, w: 56, label: '↺', fill: '#fff', shade: '#9aa', ink: C.ink, onClick: () => { build(); changed(api); }, aria: '重來' });
+      }
+      show(false);
+    }
+    function show() {
+      const i = posOf(); place(tok, dots[i].x, dots[i].y); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
+      cnt.textContent = steps ? steps : ''; laps.textContent = steps ? (steps >= n ? `${Math.floor(steps / n)} 圈又 ${steps % n} ${unit}` : `${steps} ${unit}`) : (goal != null ? `目標：走 ${goal} ${unit}` : '');
+      dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
+      cnt.setAttribute('fill', done ? C.gold : (goal != null && steps > goal ? C.bad : C.text));
+    }
+    function stepBy(d, live) {
+      if (done) return; const to = Math.max(0, steps + d); if (to === steps) return;
+      if (goal != null && to > goal + n) return; steps = to; show(); sfx(api, d >= n ? 'pop' : 'tick');
+      if (goal != null && steps === goal) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); laps.textContent = `${Math.floor(goal / n)} 圈又 ${goal % n} ${unit}：停在「${labels[posOf() % labels.length]}」`; laps.setAttribute('fill', C.gold); }
+      changed(api);
+    }
+    build();
+    return {
+      check: () => goal == null ? steps > 0 : steps === goal, reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(350); const g = goal == null ? n + 2 : goal, laps_ = Math.floor(g / n);
+        for (let k = 0; k < laps_; k++) { const from = steps, ok = await run.tween(650, t => { steps = from + Math.round(n * t); show(); }, easeIO); if (!ok) return false; steps = from + n; sfx(api, 'pop'); show(); await run.sleep(160); }
+        for (let k = 0; k < g % n; k++) { steps++; show(); sfx(api, 'tick'); if (!(await run.sleep(300))) return false; }
+        if (goal != null) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); laps.textContent = `${Math.floor(goal / n)} 圈又 ${goal % n} ${unit}：停在「${labels[posOf() % labels.length]}」`; laps.setAttribute('fill', C.gold); }
+        changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ sortcards: drag cards into the right order */
+  make('sortcards', { mount(host, p, api) {
+    const cards = p.cards || [], want = p.order || cards.map(c => c.id), inter = p.mode !== 'show', axis = p.axis || '', run = runner(api);
+    let svg, W, H, cur, els, cw, ch, y0, st;
+    function build() {
+      run.cancel(); ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', '排一排');
+      const n = cards.length; cw = Math.min(96, (W - 28) / n - 6); ch = Math.min(190, Math.max(112, H * .42)); y0 = Math.round(H * .4 + 10);
+      cur = (p.start || cards.map(c => c.id)).slice(); els = {};
+      if (axis) { el('line', { x1: 30, y1: y0 + ch / 2 + 28, x2: W - 40, y2: y0 + ch / 2 + 28, stroke: C.muted, 'stroke-width': 3, 'marker-end': 'url(#r80ah)' }, svg); const d = el('defs', {}, svg); const m = el('marker', { id: 'r80ah', markerWidth: 8, markerHeight: 8, refX: 6, refY: 4, orient: 'auto' }, d); el('path', { d: 'M0 0 8 4 0 8z', fill: C.muted }, m); txt(svg, W / 2, y0 + ch / 2 + 52, axis, { size: 19, fill: C.muted }); }
+      cards.forEach(c => {
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': c.label + (inter ? '（左右鍵移動）' : '') }, svg);
+        const hmax = Math.max(...cards.map(k => k.h || 0), 1), bh = c.h != null ? Math.max(6, c.h / hmax * (ch - 112)) : 0;
+        el('rect', { x: -cw / 2, y: -ch / 2 + 4, width: cw, height: ch, rx: 14, fill: 'rgba(0,0,0,.3)' }, g); el('rect', { x: -cw / 2, y: -ch / 2, width: cw, height: ch, rx: 14, fill: c.color || C.card2, stroke: C.aqua, 'stroke-width': 3 }, g);
+        if (c.emoji) txt(g, 0, -ch / 2 + 34, c.emoji, { size: Math.min(44, cw * .6), emoji: true });
+        txt(g, 0, ch / 2 - 26, c.label, { size: 20, fill: C.text, weight: 900 });
+        if (c.h != null && !c.hide) el('rect', { x: -cw * .22, y: ch / 2 - 50 - bh, width: cw * .44, height: bh, rx: 7, fill: C.gold, opacity: .85 }, g);
+        els[c.id] = { g, x: 0 };
+        if (inter) {
+          let ox = 0;
+          drag(g, svg, { start(pt) { st = els[c.id]; svg.appendChild(g); g.classList.add('lift'); ox = pt.x - st.x; return {}; }, move(pt) { st.x = pt.x - ox; place(g, st.x, y0 - 14, 1.06); const k = clamp(Math.round((st.x - slotX(0)) / (cw + 8)), 0, n - 1), at = cur.indexOf(c.id); if (k !== at) { cur.splice(at, 1); cur.splice(k, 0, c.id); layout(c.id); sfx(api, 'tick'); } },
+            end() { g.classList.remove('lift'); layout(); sfx(api, 'pop'); judge(); } });
+          keys(g, { arrow: d => { const at = cur.indexOf(c.id), k = clamp(at + d, 0, n - 1); if (k !== at) { cur.splice(at, 1); cur.splice(k, 0, c.id); layout(); sfx(api, 'tick'); judge(); g.focus(); } } });
+        }
+      });
+      layout(null, true);
+    }
+    const slotX = k => W / 2 + (k - (cards.length - 1) / 2) * (cw + 8);
+    function layout(skip, instant) { cur.forEach((id, k) => { const e = els[id]; if (id === skip) return; e.x = slotX(k); place(e.g, e.x, y0); e.g.querySelector('rect:nth-of-type(2)').setAttribute('stroke', ok() ? C.gold : C.aqua); }); }
+    const ok = () => cur.length === want.length && cur.every((v, i) => v === want[i]);
+    let was = false;
+    function judge() { const o = ok(); if (o && !was) { sfx(api, 'good'); burst(svg, W / 2, y0, api); layout(); } was = o; changed(api); }
+    build();
+    return {
+      check: () => ok(), reset() { was = false; build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        was = false; build(); await run.sleep(400);
+        for (let guard = 0; guard < 30 && !ok(); guard++) {
+          const k = cur.findIndex((v, i) => v !== want[i]), from = cur.indexOf(want[k]); cur.splice(from, 1); cur.splice(k, 0, want[k]);
+          const e = els[want[k]], x1 = slotX(k), x0_ = e.x; svg.appendChild(e.g);
+          const good = await run.tween(420, t => { e.x = x0_ + (x1 - x0_) * t; place(e.g, e.x, y0 - 22 * Math.sin(t * Math.PI)); }, easeIO); if (!good) return false;
+          layout(); sfx(api, 'pop'); await run.sleep(150);
+        }
+        judge(); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ swap: assume everything is one animal, swap them one by one and watch the legs (雞兔同籠) */
+  make('swap', { mount(host, p, api) {
+    const heads = p.heads || 8, legsT = p.legs || 26, A = p.a || { name: '雞', legs: 2, emoji: '🐔' }, B = p.b || { name: '兔', legs: 4, emoji: '🐰' }, inter = p.mode !== 'show', run = runner(api);
+    let svg, W, H, an, legsTxt, tbl, diffTxt, hint, solved, perRow, cell, gy;
+    const dl = B.legs - A.legs;
+    function build() {
+      run.cancel(); solved = false; ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `${heads} 隻動物，共 ${legsT} 隻腳`);
+      perRow = heads <= 6 || H < 330 ? heads : Math.ceil(heads / 2); const rowsN = Math.ceil(heads / perRow); cell = Math.max(34, Math.min(76, (W - 28) / perRow, (H - 18 - 16 - 108 - 34 - 12) / rowsN - 6)); gy = Math.max(26, (H - (18 + rowsN * (cell + 6) + 16 + 108 + 34)) / 2 + 18);
+      an = []; txt(svg, W / 2, gy - 14, `${heads} 隻頭 · 共 ${legsT} 隻腳`, { size: 22, fill: C.muted });
+      for (let i = 0; i < heads; i++) {
+        const r = Math.floor(i / perRow), c = i % perRow, rowLen = r === rowsN - 1 ? heads - r * perRow : perRow, x = W / 2 + (c - (rowLen - 1) / 2) * cell, y = gy + 8 + cell / 2 + r * (cell + 6);
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `${A.name}（按一下換成${B.name}）` }, svg);
+        el('circle', { r: cell * .43, fill: C.card2, stroke: C.aqua, 'stroke-width': 3 }, g); const e = txt(g, 0, 2, A.emoji, { size: cell * .6, emoji: true }); place(g, x, y);
+        const a = { g, e, b: false, x, y, ring: g.firstChild }; an.push(a);
+        if (inter) {
+          drag(g, svg, { start() { svg.appendChild(g); g.classList.add('lift'); return {}; }, move(pt) { place(g, pt.x, pt.y, 1.1); }, end(pt) { g.classList.remove('lift'); place(g, a.x, a.y); if (pt.y > gy + 8 + rowsN * (cell + 6)) setB(a, !a.b, true); }, tap() { setB(a, !a.b, true); } });
+          keys(g, { act: () => setB(a, !a.b, true) });
+        }
+      }
+      const ty = gy + 8 + rowsN * (cell + 6) + 8, tw = W - 40;
+      el('rect', { x: 20, y: ty, width: tw, height: 108, rx: 16, fill: 'rgba(255,255,255,.06)', stroke: C.line, 'stroke-width': 2 }, svg);
+      tbl = { a: txt(svg, 34, ty + 24, '', { size: 21, anchor: 'start', fill: C.aqua }), b: txt(svg, 34, ty + 54, '', { size: 21, anchor: 'start', fill: C.gold }), s: txt(svg, 34, ty + 84, '', { size: 23, anchor: 'start', fill: C.text }) };
+      legsTxt = tbl.s; diffTxt = txt(svg, W - 34, ty + 84, '', { size: 21, anchor: 'end', fill: C.pink });
+      hint = txt(svg, W / 2, ty + 108 + 16, inter ? `點一隻換成${B.name}，看腳數變化` : '', { size: 19, fill: C.muted });
+      for (let i = 0; i < (p.pre || 0) && i < heads; i++) { const z = an[i]; z.b = true; z.e.textContent = B.emoji; z.ring.setAttribute('stroke', C.gold); }
+      upd();
+      if (p.pre && legsNow() === legsT) { solved = true; hint.textContent = `${B.name} ${nB()} 隻、${A.name} ${heads - nB()} 隻`; hint.setAttribute('fill', C.gold); }
+    }
+    const nB = () => an.filter(a => a.b).length, legsNow = () => heads * A.legs + nB() * dl;
+    function setB(a, v, user) {
+      if (solved && user) return; a.b = v; a.e.textContent = v ? B.emoji : A.emoji; a.ring.setAttribute('stroke', v ? C.gold : C.aqua);
+      if (!api.reduced) a.g.animate && a.g.animate([{ transform: `translate(${a.x}px,${a.y}px) scale(1.25)` }, { transform: `translate(${a.x}px,${a.y}px) scale(1)` }], { duration: 220, easing: 'ease-out' });
+      sfx(api, 'pop'); upd(); if (user) { if (legsNow() === legsT && !solved) { solved = true; sfx(api, 'good'); burst(svg, W / 2, a.y, api); an.forEach(z => { z.g.style.pointerEvents = 'none'; }); hint.textContent = `${B.name} ${nB()} 隻、${A.name} ${heads - nB()} 隻`; hint.setAttribute('fill', C.gold); } changed(api); }
+    }
+    function upd() {
+      const b = nB(), l = legsNow();
+      tbl.a.textContent = `${A.name} ${heads - b} 隻 × ${A.legs} 腳 ＝ ${(heads - b) * A.legs}`; tbl.b.textContent = `${B.name} ${b} 隻 × ${B.legs} 腳 ＝ ${b * B.legs}`; tbl.s.textContent = `腳數 ${l}`;
+      const d = legsT - l; diffTxt.textContent = d === 0 ? '剛好！' : d > 0 ? `還差 ${d} 腳` : `多了 ${-d} 腳`; diffTxt.setAttribute('fill', d === 0 ? C.gold : d > 0 ? C.pink : C.bad); tbl.s.setAttribute('fill', d === 0 ? C.gold : C.text);
+    }
+    build();
+    return {
+      check: () => legsNow() === legsT, reset() { build(); changed(api); }, destroy() { run.destroy(); },
+      async demo() {
+        build(); await run.sleep(500); const need = (legsT - heads * A.legs) / dl;
+        for (let i = 0; i < need; i++) { setB(an[i], true, false); if (!(await run.sleep(560))) return false; }
+        if (legsNow() === legsT) { solved = true; sfx(api, 'good'); burst(svg, W / 2, an[0].y, api); hint.textContent = `${B.name} ${nB()} 隻、${A.name} ${heads - nB()} 隻`; hint.setAttribute('fill', C.gold); }
+        changed(api); return true;
+      }
+    };
+  } });
+
+  /* ================================================================ banner: a title picture for draft units (no interaction) */
+  make('banner', { mount(host, p, api) {
+    const { svg, W, H } = fit(host); svg.setAttribute('aria-label', p.title || '');
+    txt(svg, W / 2, H * .3, p.icon || '⭐', { size: 96, emoji: true }); txt(svg, W / 2, H * .5, p.title || '', { size: 34, fill: C.text, weight: 900 });
+    txt(svg, W / 2, H * .6, p.motto || '', { size: 24, fill: C.gold }); if (p.example) txt(svg, W / 2, H * .7, p.example, { size: 20, fill: C.muted, weight: 700 });
+    return { check: () => true, reset() { }, demo: async () => true, destroy() { } };
+  } });
+
+  root.WQOlyWidgets = { mount, list, C, PART, fit, el, txt, burst, runner, drag, keys, sbtn, toPt, place, make, version: '1.0' };
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+;
+/* 小一 · 5 units. p1-2 湊十 is a finished reference unit; the others are drafts (stubs) to be written to the same standard (see docs/奧數路線-20261022/單元撰寫指引.md). */
+(function () {
+  'use strict';
+  const { o, N, ri, pick, shuffle, name } = WQOly.helpers;
+
+  /* ---- p1-2 湊十 --------------------------------------------------------------------------------------------------------- */
+  /* small picture of two ten-frames: a aqua counters on the left, b gold counters on the right */
+  const frame = (x, n, col, dark) => {
+    let s = `<rect x="${x}" y="8" width="74" height="30" rx="5" fill="rgba(255,255,255,.08)" stroke="${col}" stroke-width="1.6"/><path d="M${x} 23h74M${x + 14.8} 8v30M${x + 29.6} 8v30M${x + 44.4} 8v30M${x + 59.2} 8v30" stroke="rgba(255,255,255,.25)" stroke-width="1"/>`;
+    for (let i = 0; i < n; i++) s += `<circle cx="${x + 7.4 + (i % 5) * 14.8}" cy="${15.5 + Math.floor(i / 5) * 15}" r="5.2" fill="${col}" stroke="${dark}" stroke-width="1"/>`;
+    return s;
+  };
+  const tenSvg = (a, b) => `<svg viewBox="0 0 170 46" role="img" aria-label="左邊 ${a} 個，右邊 ${b} 個">${frame(2, a, '#3ee6d0', '#12998a')}${frame(94, b, '#ffc94a', '#c48a00')}<text x="85" y="27" text-anchor="middle" font-size="18" font-weight="900" fill="#f4f6ff">＋</text></svg>`;
+  const art12 = `<svg viewBox="0 0 120 80"><rect x="6" y="10" width="52" height="22" rx="4" fill="rgba(255,255,255,.1)" stroke="#3ee6d0" stroke-width="2"/><rect x="62" y="10" width="52" height="22" rx="4" fill="rgba(255,255,255,.1)" stroke="#ffc94a" stroke-width="2"/>${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<circle cx="${14 + (i % 5) * 9.5}" cy="${17 + Math.floor(i / 5) * 10}" r="3.6" fill="#3ee6d0"/>`).join('')}${[0, 1, 2, 3, 4].map(i => `<circle cx="${70 + i * 9.5}" cy="21" r="3.6" fill="#ffc94a"/>`).join('')}<path d="M88 34Q80 46 40 40" stroke="#ff8fc7" stroke-width="2.4" fill="none" stroke-dasharray="3 3"/><rect x="14" y="52" width="92" height="20" rx="10" fill="#c6a2ff"/><text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="900" fill="#0b1030">10 ＋ 3</text></svg>`;
+
+  const g12 = {
+    A: [
+      /* a + b with a < 10: make ten first */
+      (r, p) => {
+        const a = N(r, p, 6, 9), b = N(r, p, Math.max(2, 11 - a), 9), need = 10 - a, rest = b - need, s = a + b;
+        return o('add10', `${a}＋${b}＝？先湊成 10。`, s, `${a} 要加 ${need} 才是 10。`,
+          `先湊十：${a}＋${need}＝10，${b} 分成 ${need} 和 ${rest}；再算 10＋${rest}＝${s}。`, [s - 1, s + 1, 10 + need, 10 + b - 1], `${a}+${b}`, [],
+          { svg: tenSvg(a, b), why: { [s - 1]: `${b} 分成 ${need} 和 ${rest}，剩下是 ${rest}，別數少了。`, [10 + need]: `${need} 是拿去湊十的，剩下的是 ${rest}，要再加。` } });
+      },
+      /* how many more to make ten */
+      (r, p) => {
+        const a = N(r, p, 1, 9), s = 10 - a;
+        return o('need10', `${a} 再加幾個就是 10？`, s, `想想 10 比 ${a} 多多少。`, `${a}＋${s}＝10，所以要再加 ${s} 個。`, [a, s + 1, s - 1 > 0 ? s - 1 : s + 2, 10 + a], `10-${a}`, [],
+          { svg: tenSvg(a, 0).replace(/<text.*?<\/text>/, ''), why: { [a]: `${a} 是已經有的，要問還差幾個。` } });
+      },
+      /* a story */
+      (r, p) => {
+        const m = name(r), a = N(r, p, 6, 9), b = N(r, p, Math.max(2, 11 - a), 9), need = 10 - a, s = a + b, it = pick(r, [['糖', '粒'], ['貼紙', '張'], ['卡片', '張']]);
+        return o('story10', `${m}有 ${a} ${it[1]}${it[0]}，又得 ${b} ${it[1]}，共有幾${it[1]}？`, s, `先把 ${a} 湊成 10。`,
+          `先拿 ${need} 湊成 10，${b} 還剩 ${b - need}；10＋${b - need}＝${s}。`, [s - 1, s + 1, a + b - 2, 10 + need], `${a}+${b}`, [],
+          { svg: tenSvg(a, b), why: { [s - 1]: `先湊十，再加剩下的 ${b - need}，別數少了。` } });
+      }
+    ],
+    B: [
+      /* three numbers: spot the pair that makes ten (the extra step) */
+      (r, p) => {
+        const x = N(r, p, 1, 9), e = N(r, p, 2, 9), arr = shuffle(r, [x, 10 - x, e]), s = 10 + e;
+        return o('three10', `${arr.join('＋')}＝？找出湊成 10 的一對。`, s, '哪兩個加起來是 10？', `${x}＋${10 - x}＝10，再加 ${e}：10＋${e}＝${s}。`, [s - 1, s + 1, 10, x + e], `${arr.join('+')}`, [],
+          { why: { 10: `10 只是其中一對的和，還要加上 ${e}。`, [s - 1]: `先找湊成 10 的一對，再加剩下的 ${e}，別數少了。` } });
+      },
+      /* a missing addend: needs two moves (to ten, then the rest) */
+      (r, p) => {
+        const a = N(r, p, 6, 9), T = a + N(r, p, Math.max(3, 11 - a), 9), need = 10 - a, rest = T - 10, s = need + rest;
+        return o('miss10', `${a}＋？＝${T}。？是多少？`, s, `先看 ${a} 湊成 10 要加多少。`, `${a}＋${need}＝10，再加 ${rest} 才是 ${T}；${need}＋${rest}＝${s}。`, [need, rest, s + 1, T - a + 1], `${T}-${a}`, [],
+          { svg: tenSvg(a, 0).replace(/<text.*?<\/text>/, ''), why: { [need]: `${need} 只是湊成 10 用的，之後還要再加 ${rest}。`, [rest]: `${rest} 只是 10 之後的部分，湊十用的 ${need} 也要加。` } });
+      }
+    ]
+  };
+  /* independent recomputation from the stem text (used by test_oly_units.cjs) */
+  const verify12 = q => {
+    let m;
+    if ((m = /^(\d+)＋(\d+)＝？/.exec(q.q))) return String(+m[1] + +m[2]);
+    if ((m = /^(\d+) 再加幾個就是 10？/.exec(q.q))) return String(10 - m[1]);
+    if ((m = /有 (\d+) .{1,2}.*又得 (\d+) /.exec(q.q))) return String(+m[1] + +m[2]);
+    if ((m = /^(\d+)＋(\d+)＋(\d+)＝？/.exec(q.q))) return String(+m[1] + +m[2] + +m[3]);
+    if ((m = /^(\d+)＋？＝(\d+)/.exec(q.q))) return String(m[2] - m[1]);
+    return null;
+  };
+
+  WQOly.register({
+    id: 'p1-2', grade: 1, n: 2, title: '湊十', icon: '🔟',
+    card: { motto: '先湊成 10', example: '8＋5＝10＋3＝13', art: art12 },
+    lesson: [
+      { t: 'show', say: '8＋5 不好數。先湊成 10 就容易！', scene: { w: 'tenframe', p: { a: 8, b: 5 } } },
+      { t: 'predict', say: '8 要湊成 10。', ask: '要從右邊拿幾個過去？', options: ['1', '2', '3'], answer: '2', scene: { w: 'tenframe', p: { a: 8, b: 5 }, still: true }, reveal: '8 差 2 就是 10，拿 2 個過去！' },
+      { t: 'do', say: '把右邊的點拖去左框，湊滿 10。', scene: { w: 'tenframe', p: { a: 8, b: 5 } } },
+      { t: 'show', say: '9 只差 1。拿 1 個過去，剩 5 個。', scene: { w: 'tenframe', p: { a: 9, b: 6 } } },
+      { t: 'do', say: '再試一次：7＋6。拖幾個過去？', scene: { w: 'tenframe', p: { a: 7, b: 6 } } },
+      { t: 'try', say: '6＋8，先湊十再加剩下的。', scene: { w: 'tenframe', p: { a: 6, b: 8 }, still: true },
+        q: { stem: '6＋8＝？', options: ['12', '13', '14'], answer: '14', hint: '6 差 4 才是 10。', why: { 12: '6 差 4 才是 10，不是差 2。', 13: '8 分成 4 和 4，剩下 4，不是 3。' } } },
+      { t: 'card' }
+    ],
+    gens: g12, verify: verify12
+  });
+
+  /* ---- drafts (stubs): the same registry entry, to be replaced by a full unit file ------------------------------------ */
+  WQOly.register(WQOly.stub({ id: 'p1-1', title: '找規律', icon: '🧱', motto: '看一組重複的', example: '🔴🔵🔴🔵🔴？', legacy: { A: [[0, 0]], B: [[0, 6]], s: .3 } }));
+  WQOly.register(WQOly.stub({ id: 'p1-3', title: '有次序地數', icon: '👆', motto: '不漏不重地數', example: '一個一個點著數', legacy: { A: [[4, 3]], B: [[4, 3]], s: .15 } }));
+  WQOly.register(WQOly.stub({ id: 'p1-4', title: '排隊問題', icon: '🚶', motto: '畫出來再數', example: '前 3 後 4 共 8 人', legacy: { A: [[2, 0]], B: [[2, 1]], s: .3 } }));
+  WQOly.register(WQOly.stub({ id: 'p1-5', title: '比較推理', icon: '📏', motto: '由已知推到未知', example: '甲比乙高，乙比丙高', legacy: { A: [[2, 5]], B: [[2, 5]], s: .3 } }));
+})();
+
+;
+/* 小二 · 5 units, all drafts (stubs). Replace a stub by registering a full unit with the same id (see 單元撰寫指引.md). */
+(function () {
+  'use strict';
+  WQOly.register(WQOly.stub({ id: 'p2-1', title: '數列跳數', icon: '🐸', motto: '找相鄰的差', example: '2、4、6、8、？', legacy: { A: [[0, 0]], B: [[0, 1]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p2-2', title: '巧算加減', icon: '🧮', motto: '湊整再補', example: '98＋47＝100＋45', legacy: { A: [[1, 0]], B: [[1, 4]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p2-3', title: '間隔與植樹', icon: '🌳', motto: '棵數＝段數＋1', example: '4 段種 5 棵', legacy: { A: [[2, 2]], B: [[2, 3]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p2-4', title: '數線段', icon: '📐', motto: '由一點出發逐條數', example: '4 點：3＋2＋1＝6', legacy: { A: [[4, 3]], B: [[4, 3]], s: .7 } }));
+  WQOly.register(WQOly.stub({ id: 'p2-5', title: '週期與星期', icon: '📅', motto: '找一輪幾個', example: '7 天一輪', legacy: { A: [[5, 5]], B: [[5, 5]], s: .4 } }));
+})();
+
+;
+/* 小三 · 5 units, all drafts (stubs). p3-5 only splits place values (2-3 digit × 1 digit), per 年級對照研究.md. */
+(function () {
+  'use strict';
+  const { o, N, ri, pick, name } = WQOly.helpers;
+  WQOly.register(WQOly.stub({ id: 'p3-1', title: '和差問題', icon: '⚖️', motto: '和減差再平分', example: '和 10、差 4：大 7 小 3', legacy: { A: [[3, 0]], B: [[3, 6]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p3-2', title: '和倍、差倍', icon: '🍰', motto: '先找 1 份', example: '和 12、2 倍：1 份是 4', legacy: { A: [[3, 1]], B: [[3, 2]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p3-3', title: '年齡問題', icon: '🎂', motto: '年齡差不會變', example: '爸比我大 30 歲，永遠', legacy: { A: [[3, 3]], B: [[3, 3]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p3-4', title: '搭配與樹形圖', icon: '👕', motto: '一層一層分支', example: '2 件上衣 3 條褲：6 款', legacy: { A: [[4, 2]], B: [[4, 4]], s: .3 } }));
+  const split = {
+    A: [(r, p) => {
+      const t = N(r, p, 2, 9), u = ri(r, 1, 9), b = ri(r, 3, 9), a = t * 10 + u, s = a * b;
+      return o('split', `${a}×${b}＝？拆成 ${t * 10} 和 ${u}。`, s, `${a} 拆成 ${t * 10}＋${u}。`, `${a}×${b}＝${t * 10}×${b}＋${u}×${b}＝${t * 10 * b}＋${u * b}＝${s}。`, [t * 10 * b + u, s - 10, s + 10, t * b + u * b], `${a}*${b}`, [],
+        { why: { [t * 10 * b + u]: `${u} 也要乘 ${b}，不是直接加。` } });
+    }],
+    B: [(r, p) => {
+      const h = ri(r, 1, 5), t = ri(r, 1, 9), u = ri(r, 1, 9), b = ri(r, 3, 9), a = h * 100 + t * 10 + u, s = a * b;
+      return o('split3', `${a}×${b}＝？按百位、十位、個位拆開乘。`, s, `${a} 拆成 ${h * 100}＋${t * 10}＋${u}。`, `${h * 100}×${b}＋${t * 10}×${b}＋${u}×${b}＝${h * 100 * b}＋${t * 10 * b}＋${u * b}＝${s}。`, [s - 10, s + 10, s - 100, h * 100 * b + t * 10 * b + u], `${a}*${b}`, [],
+        { why: { [h * 100 * b + t * 10 * b + u]: `個位的 ${u} 也要乘 ${b}。` } });
+    }]
+  };
+  WQOly.register({ id: 'p3-5', grade: 3, n: 5, title: '乘法巧算', icon: '✂️', draft: true, card: { motto: '拆開再乘', example: '23×4＝20×4＋3×4' },
+    lesson: [{ t: 'show', say: '這一課：拆開再乘。', scene: { w: 'banner', p: { icon: '✂️', title: '乘法巧算', motto: '拆開再乘', example: '23×4＝20×4＋3×4' } } }, { t: 'card' }], gens: split,
+    verify: q => { const m = /^(\d+)×(\d+)＝/.exec(q.q); return m ? String(m[1] * m[2]) : null; } });
+})();
+
+;
+/* 小四 · 5 units. p4-1 雞兔同籠 is a finished reference unit; the others are drafts (stubs). */
+(function () {
+  'use strict';
+  const { o, N, ri, pick } = WQOly.helpers;
+
+  /* ---- p4-1 雞兔同籠 ----------------------------------------------------------------------------------------------------- */
+  const cage = (H, F, e1, e2) => {
+    const per = H > 10 ? Math.ceil(H / 2) : H, rows = Math.ceil(H / per), d = Math.min(26, 150 / per);
+    let s = '';
+    for (let i = 0; i < H; i++) { const r = Math.floor(i / per), c = i % per, n = r === rows - 1 ? H - r * per : per, x = 85 + (c - (n - 1) / 2) * d, y = 17 + r * 28; s += `<circle cx="${x}" cy="${y}" r="${d * .42}" fill="#1b2160" stroke="#3ee6d0" stroke-width="1.8"/><text x="${x}" y="${y + 1}" text-anchor="middle" dominant-baseline="central" font-size="${d * .5}" font-weight="900" fill="#c3cbf7">?</text>`; }
+    return `<svg viewBox="0 0 170 ${rows * 28 + 22}" role="img" aria-label="${H} 隻頭，${F} 隻腳">${s}<text x="85" y="${rows * 28 + 13}" text-anchor="middle" font-size="12" font-weight="900" fill="#ffc94a">${H} 隻頭 · ${F} 隻腳</text></svg>`;
+  };
+  const art41 = '<svg viewBox="0 0 120 80"><g font-size="22" text-anchor="middle" dominant-baseline="central"><text x="20" y="20">🐔</text><text x="46" y="20">🐔</text><text x="72" y="20">🐰</text><text x="98" y="20">🐰</text></g><path d="M20 34v10M46 34v10" stroke="#3ee6d0" stroke-width="3" stroke-linecap="round"/><path d="M72 34v10M98 34v10" stroke="#ffc94a" stroke-width="3" stroke-linecap="round"/><rect x="10" y="52" width="100" height="20" rx="10" fill="#ff8fc7"/><text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="900" fill="#0b1030">先當全是雞</text></svg>';
+  const TH = [{ n1: '雞', n2: '兔', l1: 2, l2: 4, part: '腳', u: '隻', at: '籠裏' }, { n1: '單車', n2: '三輪車', l1: 2, l2: 3, part: '輪', u: '輛', at: '車房裏' }];
+  const g41 = {
+    A: [
+      /* heads + legs, assume all of the first kind then swap */
+      (r, p) => {
+        const th = r() < .7 ? TH[0] : TH[1], H = N(r, p, 4, 15), t = ri(r, 1, H - 1), c = H - t, F = th.l1 * c + th.l2 * t, ask2 = r() < .5, D = F - th.l1 * H, dl = th.l2 - th.l1, ans = ask2 ? t : c;
+        const pp = th.part === '腳' ? '隻腳' : '個輪';
+        return o('cr-basic', `${th.at}有${th.n1}和${th.n2}共 ${H} ${th.u}，共 ${F} ${pp}。${ask2 ? th.n2 : th.n1}有幾${th.u}？`, ans,
+          `先假設全部是${th.n1}。`, `假設 ${H} ${th.u}全是${th.n1}：${H}×${th.l1}＝${th.l1 * H}，少了 ${D} ${th.part === '腳' ? '隻腳' : '個輪'}；每換 1 ${th.u}多 ${dl}，${D}÷${dl}＝${t}，所以${th.n2} ${t} ${th.u}、${th.n1} ${c} ${th.u}。`,
+          [ask2 ? c : t, D, F - H, ans + 1], `${ask2 ? D + '/' + dl : H + '-' + D + '/' + dl}`, [],
+          { svg: cage(H, F), why: { [ask2 ? c : t]: `你算出的是${ask2 ? th.n1 : th.n2}的數目，題目問${ask2 ? th.n2 : th.n1}。`, [D]: `${D} 是比全${th.n1}多出的${th.part}，還要除以 ${dl}。` } });
+      }
+    ],
+    B: [
+      /* "rabbits are d more than chickens": take away the extra rabbits' legs first, then 1 chicken + 1 rabbit = 6 legs */
+      (r, p) => {
+        const d = ri(r, 1, 3), c = N(r, p, 2, 8), t = c + d, F = 2 * c + 4 * t, ask = r() < .5;
+        return o('cr-diff', `雞和兔共有 ${F} 隻腳，兔比雞多 ${d} 隻。${ask ? '雞' : '兔'}有幾隻？`, ask ? c : t, `先拿走多出來的 ${d} 隻兔。`,
+          `先拿走多出的 ${d} 隻兔（${4 * d} 隻腳），剩 ${F - 4 * d} 隻腳；雞和兔一樣多，每 1 雞 1 兔有 6 隻腳：${F - 4 * d}÷6＝${c}，雞 ${c} 隻，兔 ${c}＋${d}＝${t} 隻。`,
+          [ask ? t : c, F - 4 * d, F / 6 | 0, (ask ? c : t) + 1], '', [],
+          { why: { [ask ? t : c]: `你算出的是${ask ? '兔' : '雞'}的隻數，題目問${ask ? '雞' : '兔'}。`, [F - 4 * d]: `這是剩下的腳數，還要每 6 隻腳（1 雞 1 兔）分一組。` } });
+      },
+      /* "legs are x fewer than 4 times the heads": assume all rabbits */
+      (r, p) => {
+        const H = N(r, p, 5, 20), c = ri(r, 1, H - 1), x = 2 * c;
+        return o('cr-fourx', `雞和兔共 ${H} 隻，腳數比頭數的 4 倍少 ${x} 隻。雞有幾隻？`, c, `先假設全部是兔。`,
+          `頭數的 4 倍：${H}×4＝${4 * H}，就是全部是兔的腳數；少了 ${x} 隻腳，每隻雞少 2 隻，${x}÷2＝${c} 隻雞。`,
+          [H - c, x, 4 * H, c + 1], `${x}/2`, [],
+          { why: { [H - c]: `你算出的是兔的隻數，題目問雞。`, [x]: `${x} 是少了的腳數，每隻雞少 2 隻腳，還要除以 2。` } });
+      }
+    ]
+  };
+  /* independent recomputation: brute force over every possible split */
+  const verify41 = q => {
+    let m;
+    if ((m = /有(.+?)和(.+?)共 (\d+) .，共 (\d+) .+。(.+?)有幾/.exec(q.q))) {
+      const H = +m[3], F = +m[4], th = TH.find(t => t.n1 === m[1]);
+      for (let t = 0; t <= H; t++) if (th.l1 * (H - t) + th.l2 * t === F) return String(m[5] === th.n2 ? t : H - t);
+      return 'none';
+    }
+    if ((m = /共有 (\d+) 隻腳，兔比雞多 (\d+) 隻。(.)有幾/.exec(q.q))) {
+      const F = +m[1], d = +m[2];
+      for (let c = 0; c <= 80; c++) if (2 * c + 4 * (c + d) === F) return String(m[3] === '雞' ? c : c + d);
+      return 'none';
+    }
+    if ((m = /共 (\d+) 隻，腳數比頭數的 4 倍少 (\d+) 隻/.exec(q.q))) {
+      const H = +m[1], x = +m[2];
+      for (let c = 0; c <= H; c++) if (2 * c + 4 * (H - c) === 4 * H - x) return String(c);
+      return 'none';
+    }
+    return null;
+  };
+
+  WQOly.register({
+    id: 'p4-1', grade: 4, n: 1, title: '雞兔同籠', icon: '🐔',
+    card: { motto: '先假設全是雞', example: '8 頭 26 腳：兔 5 隻', art: art41 },
+    lesson: [
+      { t: 'show', say: '共 8 隻頭、26 隻腳。雞兔各幾隻？', scene: { w: 'swap', p: { heads: 8, legs: 26 }, still: true } },
+      { t: 'show', say: '先假設全部是雞。8 隻雞只有 16 隻腳。', scene: { w: 'swap', p: { heads: 8, legs: 26 }, still: true } },
+      { t: 'predict', say: '把 1 隻雞換成兔。', ask: '腳會多幾隻？', options: ['1', '2', '3'], answer: '2', scene: { w: 'swap', p: { heads: 8, legs: 26 }, still: true }, reveal: '兔 4 腳、雞 2 腳，每換一隻多 2 隻腳！' },
+      { t: 'do', say: '點一點，把雞換成兔，換到腳數剛好 26。', scene: { w: 'swap', p: { heads: 8, legs: 26 } } },
+      { t: 'show', say: '差 10 隻腳，每換一隻多 2 隻。10÷2＝5，兔有 5 隻。', scene: { w: 'swap', p: { heads: 8, legs: 26, pre: 5 }, still: true } },
+      { t: 'do', say: '再試一次：5 隻頭、14 隻腳。', scene: { w: 'swap', p: { heads: 5, legs: 14 } } },
+      { t: 'try', say: '用剛才的方法，答答看。', scene: { w: 'swap', p: { heads: 7, legs: 20 }, still: true },
+        q: { stem: '雞和兔共 7 隻，共 20 隻腳。兔有幾隻？', options: ['3', '4', '6'], answer: '3', hint: '先假設 7 隻全是雞。', why: { 6: '6 是多出來的腳數，每換一隻多 2 隻，還要除以 2。', 4: '4 是雞的隻數，題目問兔。' } } },
+      { t: 'card' }
+    ],
+    gens: g41, verify: verify41
+  });
+
+  /* ---- drafts (stubs) ------------------------------------------------------------------------------------------------- */
+  WQOly.register(WQOly.stub({ id: 'p4-2', title: '高斯求和', icon: '➕', motto: '頭尾配對', example: '1＋…＋10＝11×5', legacy: { A: [[1, 1]], B: [[1, 2]], s: .6 } }));
+  WQOly.register(WQOly.stub({ id: 'p4-3', title: '植樹進階', icon: '🌳', motto: '看兩端、看圍圈', example: '圍圈：棵數＝段數', legacy: { A: [[2, 2]], B: [[2, 3]], s: .7 } }));
+  WQOly.register(WQOly.stub({ id: 'p4-4', title: '握手與組合', icon: '🤝', motto: '每人握手再除 2', example: '5 人：5×4÷2＝10', legacy: { A: [[4, 1]], B: [[4, 4]], s: .5 } }));
+  WQOly.register(WQOly.stub({ id: 'p4-5', title: '盈虧問題', icon: '🍬', motto: '差÷每人差', example: '多 6、少 4：差 10', legacy: { A: [[5, 2]], B: [[5, 2]], s: .6 } }));
+})();
+
+;
+/* 小五 · 5 units, all drafts (stubs). p5-4 = 真假推理, p5-5 = 容斥原理 (two circles only), per 設計書「研究後修訂」. */
+(function () {
+  'use strict';
+  const { o, N, ri, pick, name } = WQOly.helpers;
+  WQOly.register(WQOly.stub({ id: 'p5-1', title: '餘數與週期', icon: '⏰', motto: '看餘數取位置', example: '17÷7＝2 餘 3', legacy: { A: [[5, 0]], B: [[5, 1]], s: .6 } }));
+  WQOly.register(WQOly.stub({ id: 'p5-2', title: '個位循環', icon: '🔁', motto: '只看個位', example: '3、9、7、1 一輪', legacy: { A: [[5, 6]], B: [[5, 6]], s: .6 } }));
+  const drawer = {
+    A: [(r, p) => { const m = N(r, p, 2, 6), k = ri(r, 1, 5), n = m * k + ri(r, 1, m - 1 || 1), s = Math.ceil(n / m);
+      return o('drawer', `把 ${n} 個蘋果放進 ${m} 個盒子，最少有一個盒子有幾個？`, s, '先平均分，再看剩下的。', `${n}÷${m}＝${Math.floor(n / m)} 餘 ${n % m}，餘下的要多放一個，所以最少有一個盒有 ${s} 個。`, [Math.floor(n / m), s + 1, n - m, m], `ceil(${n}/${m})`.replace(/.*/, ''), [], { why: { [Math.floor(n / m)]: '平均分後還有剩，總有一個盒要多放一個。' } }); }],
+    B: [(r, p) => { const c = N(r, p, 2, 5), k = ri(r, 2, 3), x = ri(r, 6, 15), s = c * (k - 1) + 1, col = ['紅', '黃', '藍', '綠', '白'].slice(0, c);
+      return o('drawer-worst', `袋裏有${col.join('、')}球各 ${x} 個。最少取幾個，才一定有 ${k} 個同色？`, s, '想最壞的情況。', `最壞：每種顏色都取 ${k - 1} 個，共 ${c}×${k - 1}＝${c * (k - 1)} 個；再取 1 個就一定有 ${k} 個同色，所以是 ${s}。`, [c * (k - 1), s + 1, c * k, k], '', [], { why: { [c * (k - 1)]: '這是最壞情況取到的個數，再多取 1 個才一定成功。' } }); }]
+  };
+  WQOly.register({ id: 'p5-3', grade: 5, n: 3, title: '抽屜原理', icon: '🗄️', draft: true, card: { motto: '想最壞情況', example: '5 個放 2 盒：至少 3 個' },
+    lesson: [{ t: 'show', say: '這一課：想最壞情況。', scene: { w: 'banner', p: { icon: '🗄️', title: '抽屜原理', motto: '想最壞情況', example: '5 個放 2 盒：至少 3 個' } } }, { t: 'card' }], gens: drawer,
+    verify: q => { let m; if ((m = /把 (\d+) 個蘋果放進 (\d+) 個盒子/.exec(q.q))) return String(Math.ceil(m[1] / m[2])); if ((m = /袋裏有(.+)球各 \d+ 個.*一定有 (\d+) 個同色/.exec(q.q))) { const c = m[1].split('、').length; return String(c * (m[2] - 1) + 1); } return null; } });
+  WQOly.register(WQOly.stub({ id: 'p5-4', title: '真假推理', icon: '🕵️', motto: '假設一個再檢查', example: '假設他說真話，再對照', legacy: { A: [[2, 4]], B: [[2, 4]], s: .6 } }));
+  const inc = {
+    A: [(r, p) => { const a = N(r, p, 8, 30), b = N(r, p, 8, 30), c = ri(r, 2, Math.min(a, b) - 1), s = a + b - c;
+      return o('venn', `班裏 ${a} 人愛跳繩，${b} 人愛游泳，其中 ${c} 人兩樣都愛。至少愛一樣的有幾人？`, s, '兩樣都愛的人被數了兩次。', `${a}＋${b}＝${a + b}，兩樣都愛的 ${c} 人被數了兩次，減去一次：${a + b}－${c}＝${s}。`, [a + b, s + c, s - 1, a - c + b - c], `${a}+${b}-${c}`, [], { why: { [a + b]: `兩樣都愛的 ${c} 人被數了兩次，要減去一次。` } }); }],
+    B: [(r, p) => { const a = N(r, p, 8, 30), b = N(r, p, 8, 30), c = ri(r, 2, Math.min(a, b) - 1), u = a + b - c, N0 = u + ri(r, 2, 12);
+      return o('venn-none', `全班 ${N0} 人，${a} 人愛跳繩，${b} 人愛游泳，${c} 人兩樣都愛。兩樣都不愛的有幾人？`, N0 - u, '先求至少愛一樣的人數。', `至少愛一樣：${a}＋${b}－${c}＝${u}；兩樣都不愛：${N0}－${u}＝${N0 - u}。`, [u, N0 - a - b, N0 - u + c, N0 - u - 1], `${N0}-(${a}+${b}-${c})`, [], { why: { [u]: `${u} 是至少愛一樣的人數，還要用全班人數減去。`, [N0 - a - b]: `兩樣都愛的 ${c} 人被減了兩次，要補回來。` } }); }]
+  };
+  WQOly.register({ id: 'p5-5', grade: 5, n: 5, title: '容斥原理', icon: '⭕', draft: true, card: { motto: '重疊要減一次', example: '12＋9－5＝16' },
+    lesson: [{ t: 'show', say: '這一課：重疊要減一次。', scene: { w: 'banner', p: { icon: '⭕', title: '容斥原理', motto: '重疊要減一次', example: '12＋9－5＝16' } } }, { t: 'card' }], gens: inc,
+    verify: q => { let m; if ((m = /(\d+) 人愛跳繩，(\d+) 人愛游泳，其中 (\d+) 人兩樣都愛/.exec(q.q))) return String(+m[1] + +m[2] - +m[3]); if ((m = /全班 (\d+) 人，(\d+) 人愛跳繩，(\d+) 人愛游泳，(\d+) 人兩樣都愛/.exec(q.q))) return String(m[1] - (+m[2] + +m[3] - +m[4])); return null; } });
+})();
+
+;
+/* 小六 · 5 units, all drafts (stubs). p6-2 = 按份數分配 (no ratio colon), p6-4 = 相遇與追及 (first card teaches 速度＝路程÷時間), per 設計書「研究後修訂」. */
+(function () {
+  'use strict';
+  const { o, N, ri, pick, shuffle, name } = WQOly.helpers;
+  const stubG = (id, title, icon, motto, example, gens, verify, lesson) => WQOly.register({ id, grade: +id[1], n: +id[3], title, icon, draft: true, card: { motto, example },
+    lesson: lesson || [{ t: 'show', say: '這一課：' + motto + '。', scene: { w: 'banner', p: { icon, title, motto, example } } }, { t: 'card' }], gens, verify });
+  /* p6-1 分數巧算 */
+  stubG('p6-1', '分數巧算', '🍕', '拆成兩個相減', '1/(1×2)＝1－1/2', {
+    A: [(r, p) => { const n = N(r, p, 2, 20), s = `${n}/${n + 1}`, sf = pick(r, ['＝？', '的和是多少？（用分數）']); return o('frac-split', `1/(1×2)＋1/(2×3)＋…＋1/(${n}×${n + 1})${sf}`, s, '每一項拆成兩個分數相減。', `1/(k×(k+1))＝1/k－1/(k+1)，中間的全部抵消，只剩 1－1/${n + 1}＝${s}。`, [`${n + 1}/${n + 2}`, `${n - 1}/${n}`, `1/${n + 1}`, `${n}/${n + 2}`], '', [], { why: { [`1/${n + 1}`]: `抵消後剩下 1 和最後一項，要相減：1－1/${n + 1}。` } }); }],
+    B: [(r, p) => { const m = N(r, p, 2, 20), s = `${m}/${2 * m + 1}`, sf = pick(r, ['＝？', '的和是多少？（用分數）']); return o('frac-split2', `1/(1×3)＋1/(3×5)＋…＋1/(${2 * m - 1}×${2 * m + 1})${sf}`, s, '1/(k×(k+2)) ＝ (1/k－1/(k+2))÷2。', `每項＝(1/k－1/(k+2))÷2，抵消後剩 (1－1/${2 * m + 1})÷2＝${s}。`, [`${2 * m}/${2 * m + 1}`, `${m}/${2 * m}`, `${m + 1}/${2 * m + 1}`, `1/${2 * m + 1}`], '', [], { why: { [`${2 * m}/${2 * m + 1}`]: '最後還要除以 2。' } }); }]
+  }, q => { let m; if ((m = /^1\/\(1×2\)＋.*\((\d+)×(\d+)\)(?:＝|的和)/.exec(q.q))) { if (+m[2] === +m[1] + 1) return `${m[1]}/${m[2]}`; } if ((m = /^1\/\(1×3\)＋.*\((\d+)×(\d+)\)(?:＝|的和)/.exec(q.q))) { const k = (+m[1] + 1) / 2; return `${k}/${2 * k + 1}`; } return null; });
+  /* p6-2 按份數分配 */
+  stubG('p6-2', '按份數分配', '🍰', '先求一份', '3 份對 2 份，共 20：一份 4', {
+    A: [(r, p) => { const a = ri(r, 1, 5), b = ri(r, 2, 6), k = N(r, p, 2, 12), T = (a + b) * k, x = r() < .5; return o('parts', `紅珠和藍珠按 ${a} 份對 ${b} 份分，共 ${T} 粒，${x ? '紅' : '藍'}珠有幾粒？`, k * (x ? a : b), '先求一份是多少。', `共 ${a}＋${b}＝${a + b} 份，一份 ${T}÷${a + b}＝${k}；${x ? '紅' : '藍'}珠 ${x ? a : b} 份：${k}×${x ? a : b}＝${k * (x ? a : b)}。`, [k * (x ? b : a), k, T - k * (x ? a : b) + k, k * (x ? a : b) + k], `${T}/${a + b}*${x ? a : b}`, [], { why: { [k * (x ? b : a)]: `你算的是${x ? '藍' : '紅'}珠，題目問${x ? '紅' : '藍'}珠。`, [k]: '這是一份的數目，還要乘份數。' } }); }],
+    B: [(r, p) => { const a = ri(r, 2, 5), b = ri(r, 1, a - 1), k = N(r, p, 2, 12), x = a * k; return o('parts-known', `甲和乙按 ${a} 份對 ${b} 份分，甲有 ${x} 粒，兩人共有幾粒？`, (a + b) * k, '先由甲的粒數求一份。', `甲 ${a} 份是 ${x}，一份 ${x}÷${a}＝${k}；共 ${a}＋${b}＝${a + b} 份：${k}×${a + b}＝${(a + b) * k}。`, [b * k, x + b, k, (a + b) * k - k], `${x}/${a}*(${a}+${b})`, [], { why: { [b * k]: `${b * k} 只是乙的粒數，還要加上甲的。` } }); }]
+  }, q => { let m; if ((m = /按 (\d+) 份對 (\d+) 份分，共 (\d+) 粒，(.)珠/.exec(q.q))) { const a = +m[1], b = +m[2], T = +m[3]; return String(T / (a + b) * (m[4] === '紅' ? a : b)); } if ((m = /按 (\d+) 份對 (\d+) 份分，甲有 (\d+) 粒/.exec(q.q))) return String(m[3] / m[1] * (+m[1] + +m[2])); return null; });
+  /* p6-3 工程問題 */
+  const PAIRS = [[3, 6, 2], [4, 12, 3], [6, 12, 4], [4, 4, 2], [6, 6, 3], [12, 12, 6], [2, 2, 1], [12, 6, 4], [12, 4, 3], [6, 3, 2], [10, 15, 6], [15, 10, 6], [20, 5, 4], [5, 20, 4], [12, 24, 8], [24, 12, 8], [20, 30, 12], [30, 20, 12]];
+  stubG('p6-3', '工程問題', '🏗️', '把全部看成 1', '甲 3 日、乙 6 日：合做 2 日', {
+    A: [(r, p) => { const [a, b, t] = pick(r, PAIRS), w = pick(r, ['獨做', '單獨做']); return o('work', `甲${w} ${a} 日完成，乙${w} ${b} 日完成。兩人合做，幾日完成？`, t, '把全部工作看成 1。', `甲每日做 1/${a}，乙每日做 1/${b}，合共每日做 ${a + b}/${a * b}，全部要 ${a * b}÷${a + b}＝${t} 日。`, [a + b, Math.max(a, b), Math.min(a, b), t + 1], `${a}*${b}/(${a}+${b})`, [], { why: { [a + b]: '日數不能直接相加，要先求每日各做多少。' } }); }],
+    B: [(r, p) => { for (let i = 0; i < 100; i++) { const [a, b] = pick(r, PAIRS), d = ri(r, 1, 3), left = b * (1 - d * (1 / a + 1 / b)); if (Math.abs(left - Math.round(left)) < 1e-9 && Math.round(left) > 0) return o('work-leave', `甲獨做 ${a} 日，乙獨做 ${b} 日。兩人合做 ${d} 日後甲離開，乙再做幾日完成？`, Math.round(left), '先求合做 d 日完成了多少。', `合做 ${d} 日完成 ${d}×(1/${a}＋1/${b})，餘下的由乙每日 1/${b} 做完：${Math.round(left)} 日。`, [b - d, Math.round(left) + 1, d, b], '', [], { why: { [b - d]: '乙不是全程單獨做，合做時甲也做了一部分。' } }); } return o('work-leave', '甲獨做 6 日，乙獨做 12 日。兩人合做 2 日後甲離開，乙再做幾日完成？', 6, '', '', [4, 8, 2, 12]); }]
+  }, q => { let m; if ((m = /甲(?:單獨|獨)做 (\d+) 日完成，乙(?:單獨|獨)做 (\d+) 日完成/.exec(q.q))) return String(m[1] * m[2] / (+m[1] + +m[2])); if ((m = /甲獨做 (\d+) 日，乙獨做 (\d+) 日。.*合做 (\d+) 日後/.exec(q.q))) { const a = +m[1], b = +m[2], d = +m[3]; return String(Math.round(b * (1 - d * (1 / a + 1 / b)))); } return null; });
+  /* p6-4 相遇與追及 (first card teaches speed) */
+  stubG('p6-4', '相遇與追及', '🏃', '速度和、速度差', '相遇：路程÷速度和', {
+    A: [(r, p) => { const a = N(r, p, 40, 90), b = N(r, p, 30, 80), t = ri(r, 2, 8), D = (a + b) * t; return o('meet', `甲乙相距 ${D} 米，甲每分走 ${a} 米，乙每分走 ${b} 米，面對面走，幾分鐘相遇？`, t, '兩人每分共走多少米？', `每分共走 ${a}＋${b}＝${a + b} 米；${D}÷${a + b}＝${t} 分鐘。`, [t + 1, t - 1 || 3, D / a | 0, a + b], `${D}/(${a}+${b})`, [], { why: { [a + b]: `${a + b} 是每分共走的米數，要用路程除以它。` } }); }],
+    B: [(r, p) => { const b = N(r, p, 30, 60), a = b + ri(r, 5, 30), t = ri(r, 2, 8), D = (a - b) * t; return o('chase', `乙在甲前面 ${D} 米，甲每分走 ${a} 米，乙每分走 ${b} 米，同向而行，甲幾分鐘追上乙？`, t, '甲每分比乙多走多少米？', `每分追近 ${a}－${b}＝${a - b} 米；${D}÷${a - b}＝${t} 分鐘。`, [t + 1, D / a | 0, a - b, t * 2], `${D}/(${a}-${b})`, [], { why: { [a - b]: `${a - b} 是每分追近的米數，還要用路程除以它。` } }); }]
+  }, q => { let m; if ((m = /相距 (\d+) 米，甲每分走 (\d+) 米，乙每分走 (\d+) 米，面對面/.exec(q.q))) return String(m[1] / (+m[2] + +m[3])); if ((m = /前面 (\d+) 米，甲每分走 (\d+) 米，乙每分走 (\d+) 米/.exec(q.q))) return String(m[1] / (m[2] - m[3])); return null; },
+  [{ t: 'show', say: '速度＝路程÷時間。每分走 60 米，5 分走 300 米。', scene: { w: 'banner', p: { icon: '🏃', title: '相遇與追及', motto: '速度＝路程÷時間', example: '每分 60 米 × 5 分＝300 米' } } }, { t: 'card' }]);
+  /* p6-5 立體與展開圖 (cubes painted outside) */
+  stubG('p6-5', '立體與展開圖', '🧊', '摺起來想', '3×3×3：1 個在最中間', {
+    A: [(r, p) => { const n = pick(r, [3, 4]), k = pick(r, [['一面', 1], ['兩面', 2], ['三面', 3], ['沒有']]), it = pick(r, ['積木', '木塊', '魔方']), c = { 1: 6 * (n - 2) ** 2, 2: 12 * (n - 2), 3: 8 }, s = k[1] ? c[k[1]] : (n - 2) ** 3;
+      return o('cube', `把 ${n}×${n}×${n} 的${it}外面全部塗色，再切成 ${n ** 3} 個小正方體。${k[1] ? `${k[0]}有色的` : '沒有塗色的'}有幾個？`, s, '想想它們在大正方體的哪個位置。', `${k[1] === 3 ? '三面有色的在 8 個角。' : k[1] === 2 ? `兩面有色的在 12 條邊，每條 ${n - 2} 個。` : k[1] === 1 ? `一面有色的在 6 個面的中間，每面 ${n - 2}×${n - 2} 個。` : `沒有塗色的在最中間，${n - 2}×${n - 2}×${n - 2} 個。`}答案 ${s}。`, [s + 1, s - 1 || 2, n ** 3, 8], '', []); }],
+    B: [(r, p) => { const n = pick(r, [3, 4]), it = pick(r, ['積木', '木塊', '魔方']), j = ri(r, 0, 2), tot = n ** 3 - (n - 2) ** 3, c = { 0: tot, 1: 6 * (n - 2) ** 2 + 12 * (n - 2), 2: 12 * (n - 2) + 8 };
+      const txt = ['至少一面有色的', '一面或兩面有色的', '兩面或三面有色的'][j]; return o('cube2', `把 ${n}×${n}×${n} 的${it}外面全部塗色，再切成 ${n ** 3} 個小正方體。${txt}有幾個？`, c[j], '分開數，再加起來。', `分開數每一種再加起來：答案 ${c[j]}。`, [c[j] + 1, c[j] - 2, n ** 3 - c[j], 6 * (n - 2) ** 2], '', []); }]
+  }, q => { let m; if ((m = /把 (\d)×\d×\d 的.+切成 \d+ 個小正方體。(.+)有幾個/.exec(q.q))) { const n = +m[1]; const f = { '一面有色的': 6 * (n - 2) ** 2, '兩面有色的': 12 * (n - 2), '三面有色的': 8, '沒有塗色的': (n - 2) ** 3, '至少一面有色的': n ** 3 - (n - 2) ** 3, '一面或兩面有色的': 6 * (n - 2) ** 2 + 12 * (n - 2), '兩面或三面有色的': 12 * (n - 2) + 8 }[m[2]]; return f == null ? null : String(f); } return null; });
+})();
+
+;
 </script>
 <script data-wq28="host">
 globalThis.WQ37EnFix={"ex":{"w_5d246d17c8ffb086":"He hits the ball with a bat.","w_6d5d3981cfb49241":"She opens a can of soup.","w_654a43bc179eb167":"Please turn on the fan.","w_df6b8848a0d0fae0":"The man waits for the bus.","w_c8e453511d869f35":"Mum cooks eggs in a pan.","w_4f66bd5d3cc43581":"Turn off the tap, please.","w_f30e214070e47fae":"The cat sleeps on my lap.","w_b0db1f2af2870832":"I like jam on my toast.","w_814d8f4a22a84269":"Dad puts ham in my sandwich.","w_7a0d323c107da715":"The ram is eating grass.","w_6b10fb34594114da":"We eat a hot yam in winter.","w_0c1287e5f6912d4c":"I have ten red pencils.","w_2dbe67b71323bf62":"Two men are on the bus.","w_a000a178920a0ebb":"My pet is a small rabbit.","w_85b5e74eb6b2be3b":"The boy holds a fishing net.","w_6190bbce3a10dde1":"I get a gift from Mum.","w_2f155217b018f33f":"Use a pin to hold the paper.","w_f7b01f8dadb93084":"The shark has a big fin.","w_2da858f8c5510e80":"Put the paper in the bin.","w_77cf5f0d87c2ef51":"Our team can win the game.","w_a7bdbb2b342bc689":"He can hit the ball far.","w_501d9c3565fc4b3a":"These shoes fit me well.","w_f12244cc4eb2c536":"We have a first aid kit.","w_d5d267d3426282fd":"We climb to the top of the hill.","w_29bf48c6ae14203e":"Dad uses a mop to clean the floor.","w_f97b6c04ab773107":"The rabbit can hop very fast.","w_fd9ee21d59a79234":"The balloon will pop soon.","w_19b6cb74c725c1c8":"Draw a dot on the page.","w_10622e0d04fd73a6":"I ate a lot of grapes.","w_cee42511936f39ef":"A small bug is on the leaf.","w_baeee33e1e3c8d12":"I drink milk from a mug.","w_c35abbe85ecea82b":"The dog lies on the rug.","w_f0bab42504ed7d48":"I give Mum a big hug.","w_fff284715ddb0120":"We have fun at the beach.","w_35bd88192d42c8e7":"I eat a bun for breakfast.","w_7aa175afe75c56c2":"The milk smells bad today.","w_19699e4d7d073bd0":"My dad drives me to school.","w_4fe616d5d4eeeea0":"Tom is mad because it rained.","w_9b8af14716aebda1":"Use a rag to clean the desk.","w_4c2e2d06f62e843f":"The dog will wag its tail.","w_efb26a4cdb6ff0ba":"I fed the fish this morning.","w_c2ea83f49b0b27de":"We ride a sled down the hill.","w_e1c03961871816fb":"Hang the sock with a peg.","w_1db4847b2e77d1d6":"The puppy will beg for food.","w_769414b7520ed9dd":"The keg is full of apple juice.","w_55940f387e30961a":"The kid plays with a ball.","w_7e7f65313b69cdbe":"Put the lid on the box.","w_1bc9167d4696c526":"The cat hid under the bed.","w_c3acd10a438011b0":"I did my homework last night.","w_251ed7c31b03cea2":"We dig a hole in the sand.","w_6c497b0fee518234":"She wears a funny wig.","w_5a53cfa3d92b8070":"He has a cut on his lip.","w_e17e76ab6f93ca06":"My bag has a broken zip.","w_09fc41107fc9c276":"The tip of the pencil is sharp.","w_86dd94e45589a5ab":"I see him at the park.","w_eb710a914a39a340":"The room is too dim to read.","w_4d50db7a405b977e":"The cup has a gold rim.","w_ac9f6b20e65ada60":"My uncle is tall and slim.","w_a69e1ea62167c5b8":"The fog is thick this morning.","w_b2fef893a8e1612d":"I jog around the park every morning.","w_0f1e21119299c976":"A big rock is in the river.","w_2cdbd68c8cda27a1":"Dad turns the key in the lock.","w_f19ad3b1871ff3d1":"The ferry stops at the dock.","w_85f6da69e5886984":"Please cut the cake into four.","w_8be7858af0552cb9":"A squirrel is eating a nut.","w_c34e3142dfdf2c0e":"Please shut the door quietly.","w_254e7b5ba403617c":"Good luck on your test.","w_8319366d48e2126a":"A big truck is on the road.","w_6552ecabf675c465":"The cat is stuck in a tree.","w_be3df077d99ce353":"The big ship leaves the port.","w_7917ad23cde83f3f":"I buy sweets at the shop.","w_e3c9b4e5bbcfcb7f":"She finds a shell on the beach.","w_0358c2dfc7e2411f":"Make a wish and blow the candles.","w_2bad6a2c6706c488":"Use a brush to paint the wall.","w_0c056576663a2eae":"He has a small cut on his chin.","w_42123a70e63982ce":"Do you want a potato chip?","w_e4d90ce897003c76":"The rich man has a big house.","w_5681f78ef01cd5c6":"I do not eat much meat.","w_17ff4a2a16950d45":"Please chop the carrot for me.","w_bb138e880e134365":"The doctor listens to his chest.","w_9d732a2d6367ba0c":"This book is very thick.","w_791fab40b6f3e991":"A moth flies around the lamp.","w_70ea0841f35a9060":"I take a bath at night.","w_e6045917c6e278e0":"We walk on a small path.","w_0189c06a21a56739":"I hurt my thumb in the door.","w_610fa40d9e6a2b14":"Brush your teeth every morning.","w_2e7872d91b484ffa":"What is that on the table?","w_f29b8e04c2c21071":"These apples are very sweet.","w_d65940e0891e3534":"Those birds are on the roof.","w_707ec08d35a86a15":"I give them some food.","w_ca876b20cdad750d":"Wash your hands, then eat lunch.","w_872aca4f55a98f51":"Your bag is over there.","w_7d13cd6809c36724":"She wears a gold ring.","w_46d8295d9cee5d4f":"The bird has a hurt wing.","w_7795137cc805a61f":"The king lives in a castle.","w_96a610efd0e5a6cc":"The door shut with a bang.","w_57a664ce41af77bb":"Please hang your coat on the hook.","w_17362e4365f31fc3":"She has a pink umbrella.","w_f70a8e7638a878fc":"Mum goes to the bank today.","w_2ed8d3a4eea8fdc8":"The fish tank is very clean.","w_a0957720e372a2be":"He gives me a wink.","w_fff2d6117ce3894b":"Click the link to open the page.","w_355ca6726e3310a3":"I think the answer is B.","w_db519e15ac8dc4a7":"My back hurts after the game.","w_679a3eaff3db162e":"The giraffe has a long neck.","w_2ca168e8e58387dd":"He can kick the ball far.","w_c1e56d0cbddaa728":"Please pack your bag tonight.","w_25c15b846d739144":"I feel sick, so I stay home.","w_4affb490d9a59c3d":"My phone is on the table.","w_e743231728b85b55":"We sing the alphabet song.","w_fa5447a186933cac":"Look at the graph on page ten.","w_d61982e7914e529c":"My nephew is three years old.","w_1b8bf727caa13560":"Our team wins a gold trophy.","w_4083fdb6ed29bb7c":"The dog has a black spot.","w_cac8d04c54eb5519":"The top can spin very fast.","w_137d985c89803b83":"We skip rope in the playground.","w_e9ffb28f4c533ca8":"Use cream to keep your skin soft.","w_a9bcee49f14173ca":"I smell cakes in the kitchen.","w_a3d78ac61cb5a668":"Mum gives me a big smile.","w_45c519dd00329c1a":"I eat a snack after school.","w_c0a8cfddf542fa82":"The mango is very sweet.","w_832fa858a3aa8d2d":"The cat has black fur.","w_4d97b83ae81b31f2":"Tom stacks a block on the tower.","w_58137824c799dd6b":"Let us clap for the singer.","w_4e82afc5f0fb5604":"The road is long and flat.","w_5be7a60f05e8532a":"Rice is an important crop.","w_736f959e8310bff9":"A black crow sits on the wall.","w_b843e6695ec2d07d":"The grass is green in spring.","w_b7e9865f392feaf8":"He has a big grin on his face.","w_b32dfd8b04c2942c":"A drop of rain falls down.","w_3fe56d106e678bc0":"Entry to the park is free.","w_ecd5134aa320cb6f":"The children play in the sand.","w_9e29da83043c6fff":"The wind is strong today.","w_bd5d2b3936fdaec7":"Ducks swim in the pond.","w_5c132806358c1be4":"We went to the beach yesterday.","w_6cac06aa2d505120":"Please write your name here.","w_9e7350ac85b63737":"We play a game after lunch.","w_9f23abc71dfb502d":"We have the same bag.","w_56f0953f2b5fd5dc":"We row a boat on the lake.","w_b5c8d0abc1e15665":"Please close the gate behind you.","w_803d957eb9135398":"A ball has a round shape.","w_a8293209a8ed32e3":"What time is it now?","w_3ad1defd9a4d5504":"There are five apples in the bowl.","w_85a625104679a599":"Please stand in a line.","w_9880c5a87cf22552":"The class begins at nine o'clock.","w_5b94ee261de15e6d":"He throws a stone into the lake.","w_d65f26d3fe9d4ea7":"I want an ice cream cone.","w_4bc57a641c664c72":"I hope it will be sunny.","w_5a8bbe4ff54ffd6c":"Please write a note for Mum.","w_003efdb083d45845":"An ice cube melts in the sun.","w_5e565dbae0146f1d":"Squeeze the tube to get the paste.","w_83bbec66b2feb617":"The baby panda is so cute.","w_27d9296f5e235fd1":"Our summer holiday starts in June.","w_439868818bfd911a":"The mule carries a heavy bag.","w_b34c50bd8cd00c81":"Please follow the school rule.","w_b97f87a0db0af848":"I can hum that tune.","w_603398457224615c":"The dog wags its tail.","w_dc7f511b1184b0a8":"We paint a picture in art class.","w_c123b6762c03b7fa":"The mail arrives at noon.","w_f7f9e86d7a568413":"The boat has a white sail.","w_0d485cde9fa7a0d3":"Please wait for me at the gate.","w_6bde6293b9694d6b":"Today is a sunny day.","w_60eaa4e68d93231a":"Please say your name to the class.","w_c2a96093892eb7bf":"I stay at home on Sunday.","w_2906e41f2a16633f":"Which way is the MTR station?","w_fdda2c5ab8b5fa19":"She carries a tray of tea cups.","w_a63044fd3c28298d":"Use a spray to clean the window.","w_ab1e2b8c32a796f9":"My feet are tired after walking.","w_4553031f1c05ecb0":"Our team practises on Saturday.","w_d0d660b0c07e14e0":"I read a book every night.","w_3a555e86bc51b778":"We have meat for dinner.","w_fe394d0fffa23aec":"Look both ways before you cross the road.","w_53250f8c44eed61e":"I eat toast with butter.","w_828bbacb3bf2c73a":"The leaf can float on water.","w_eba608726c0e03b5":"Our coach teaches us football.","w_365c4c22d8069c78":"The turtle is very slow.","w_617ea46b99a2bcc0":"Plants need water to grow.","w_f020b6a5d93d2ea1":"I will show you my drawing.","w_1257a7e2cda324a8":"Blow out the candles, Amy.","w_3bfa8333f57eb7a9":"She wears a yellow dress today.","w_9b2c740bca858775":"My pillow is soft and warm.","w_4b8ea691c1ede886":"The stars come out at night.","w_98a0044a8b847837":"Raise your right hand, please.","w_c19f9ed385ca17fc":"The sea is a lovely sight.","w_84fca02c23237da9":"These shoes are too tight.","w_4d1e50b7804487ad":"The kite flies very high.","w_4d5758b1f4dbfae8":"Our flight leaves at noon.","w_ca4e26b9f2806ec9":"Dad wears a blue tie.","w_20e66b3da20ba9b4":"I lie on the bed and read.","w_a0569cab5dc1f79d":"The plants will die without water.","w_b77210721b063536":"The baby cried all night.","w_2ddfd76d549ed3c9":"I tried the new game.","w_847dad07d00294e6":"Mum dried the wet shirts.","w_5f948223904a0a1f":"Flies like to land on food.","w_7b5572b29ab902bf":"She puts on one rain boot.","w_86e4f3d7a941704f":"My room is clean and tidy.","w_6efe8e55e81a2096":"We see lions at the zoo.","w_75d090cfdab3745d":"I swim in the pool.","w_f040be1a9d40251a":"You did a good job.","w_824019be22554bc4":"My left foot hurts a little.","w_19e27a758460c64d":"The table is made of wood.","w_9f6feed3fd49df7e":"This warm scarf is made of wool.","w_874029de0edd448c":"Put the hood on your head.","w_cb066042655ee7af":"I find a coin on the floor.","w_f517385c2e2076ff":"Plants grow in wet soil.","w_91d5c525b9b6c350":"Please boil the water first.","w_8ea913cc8fb34b9a":"Can I join your team?","w_d82df974aab06f52":"Point to the red car.","w_b12014e216b43ced":"The boy kicks the ball.","w_7d99a381d04e4b6c":"The gift brings her great joy.","w_063e39850c9805d1":"The cat runs out of the house.","w_3405919ae0dbd336":"The music is too loud.","w_af095f5ae0171090":"Please come to the table now.","w_1c26c7405720f537":"We visit a farm in the New Territories.","w_7320a9a3f723ece8":"I hurt my arm in the game.","w_d391f2a39c24d3a5":"I send Mum a birthday card.","w_78f51e6be27222b0":"It gets dark at six o'clock.","w_7fe2dbfc59dbe626":"My baby sister was born in Hong Kong.","w_980ba03407aa5644":"A big storm hits the city tonight.","w_1b2b8ecf34bc0c9f":"My favourite sport is swimming.","w_c65700ed7f9b3869":"The wind comes from the north.","w_0878bcb05ed6504d":"I give her a flower.","w_3fe25346da7efdef":"A fern grows in the shade.","w_44616fe940c34a0e":"The new term begins in September.","w_672b721728fd762a":"The girl rides a bicycle.","w_dc02beaa1c57948f":"The nurse helps the sick boy.","w_bd49337f0df842e8":"Turn left at the shop.","w_305545e3fe998404":"The air is fresh in the park.","w_9d83b9fb8cecd279":"She brushes her long hair.","w_5353240fdf73e0d8":"I need a new pair of shoes.","w_a5d8e3ff6889f1ae":"Walk up the stairs slowly.","w_b6c4a6ef202ac192":"It is not fair to push.","w_cefff80a271a3f60":"We go to the airport by bus.","w_77e7256b08900e48":"A rabbit has a long ear.","w_c2de0bb888d68dbd":"Dear Grandma, I miss you very much.","w_75a487b819c6d551":"The water in the lake is clear.","w_a1f761846b4098bc":"Next year I will be ten.","w_5832bdd24c4f65be":"The little boy has a fear of dogs.","w_2f79ed709dde5486":"Santa has a long white beard.","w_236754a0d6b88743":"Two cats sleep on the sofa.","w_1f2ffa07b5d7cc96":"The dogs run in the park.","w_1af8c2da78462c5e":"Many buses stop at this station.","w_03e50f8a09e37db8":"Put your toys in the box.","w_bdb38907d87a419d":"The baby is sleeping now.","w_1b42a36060dea201":"Many babies cry at night.","w_ddaa09a61c9fdafd":"Hong Kong is a busy city.","w_2cb158d75ab73ae9":"Tokyo and Paris are big cities.","w_f21a7cf2c8956477":"The puppy plays with a ball.","w_54c689c903e0613b":"We walked to school this morning.","w_2841491ed15c2417":"I want some orange juice.","w_b59c618a6ee70cd8":"She wanted a red balloon.","w_c0bd028e358d8b0c":"The frog jumped into the pond.","w_69a5c7793ed7d256":"The boys are playing football.","w_6f2441204118b890":"We make a cake for Mum.","w_df7e9832e6d8982a":"Dad is making dinner now.","w_a96b0f5d701a6e28":"My sister is swimming in the pool.","w_9bd42857fec5075b":"This is the smallest box.","w_8ac50b115e3b35b7":"My brother is bigger than me.","w_ab473523473b9bdb":"The whale is the biggest animal.","w_abb3e912b2af3041":"Tom is taller than Amy.","w_987f319b5674c453":"The boy is unhappy today.","w_28f9eda67caf4137":"It is unkind to laugh at others.","w_0704f726737ef269":"The playground is safe for children.","w_9fee87f3ba9cdc62":"It is unsafe to run on the stairs.","w_2f26a0e84db9ccc5":"Let us read a story together.","w_6e6510cd24396141":"Please reread the question once more.","w_97f13ad49df5e302":"May I use your pencil?","w_5975843fdd9749fd":"You must rewrite the sentence.","w_08c9f17cfcd69e01":"We build a sandcastle on the beach.","w_33a7a52a0c1de37b":"They will rebuild the old bridge.","w_461bfc4f74f5712b":"The sunflower faces the sun.","w_cdc600ae1c7bd45c":"We play on the playground after lunch.","w_c20b492755ed56f8":"Please give me a glass of water.","w_cec989584caff04a":"I love my family very much.","w_57aafabd04e87c73":"Please come to my birthday party.","w_1dd5bbab44347817":"May I have some water?","w_b322910ceed2167f":"Mum said dinner is ready.","w_251156ec12e521bf":"Mum does the washing on Sunday.","w_3acbe72ed3407cc6":"She wears a hat on her head.","w_d1a24a0f413fc880":"You did a great job today.","w_eac3d25b44bed067":"Let us take a short break.","w_7c0add81c5f9dfab":"Dad cooks steak for dinner.","w_3cfbb1f55b410caf":"We have two cats at home.","w_29dd6440820ffa3b":"I want to go too.","w_c0b6ed945ccb623c":"Their house is near the park.","w_8a7ed42788da516b":"Please put your bag here.","w_0c49467bdc6f0b15":"We have swimming on Friday.","w_1dd34c729618a3cc":"We visit Grandma on Sunday.","w_c3aebd69125399d7":"My birthday is in May.","w_94d9d8c1b2160ce7":"I live in Hong Kong.","w_6b7e36b30f2b8057":"I'm very happy to see you.","w_fbeb3ba65a1981ec":"Please don't run in the room.","w_addf67706ae89202":"I can't find my red pen.","w_7d65185a84b445ca":"It's time to go home.","w_7a124cfb0c35e6e1":"We're late for the first class.","w_63e674cf45f1063c":"The soup isn't hot now.","w_a75b98413d2a8f69":"You're very kind to me."},"fix":{"w_f30e214070e47fae":{"zh":"膝上"},"w_f70a8e7638a878fc":{"zh":"銀行","image":"1f3e6"},"w_bb138e880e134365":{"zh":"胸膛","image":null},"w_a0569cab5dc1f79d":{"zh":"死","image":null},"w_10622e0d04fd73a6":{"zh":"很多（a lot）","image":null},"w_6b10fb34594114da":{"zh":"番薯","image":"1f360"},"w_42123a70e63982ce":{"zh":"薯片","image":"1f35f"},"w_4848fff2d007ac00":{"zh":"貨車"},"w_4d9e353759c8bee8":{"zh":"飛機"}},"blend":{"core":["r31_brunch","r31_smog","r31_motel","r318_internet","r318_podcast","r318_ginormous"],"ext":["r318_cosplay","r31_sitcom","r31_vlog","r31_webinar","r31_emoticon","r31_staycation","r31_glamping","r31_spork"],"extId":"blend-ext","extTitle":"延伸：更多混合詞","extra":[{"id":"r318_internet","group":"blend","kind":"blend","form":"internet","meaning":"互聯網","parts":["inter","net"],"sources":[{"word":"interconnected","meaning":"互相連接的","take":"inter","start":0,"end":5},{"word":"network","meaning":"網絡","take":"net","start":0,"end":3}],"example":"I read the news on the internet.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_podcast","group":"blend","kind":"blend","form":"podcast","meaning":"播客節目","parts":["pod","cast"],"sources":[{"word":"ipod","meaning":"iPod 播放器","take":"pod","start":1,"end":4},{"word":"broadcast","meaning":"廣播","take":"cast","start":5,"end":9}],"example":"I listen to a podcast on the bus.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_ginormous","group":"blend","kind":"blend","form":"ginormous","meaning":"極其巨大的","parts":["gi","normous"],"sources":[{"word":"gigantic","meaning":"巨大的","take":"gi","start":0,"end":2},{"word":"enormous","meaning":"極大的","take":"normous","start":1,"end":8}],"example":"A ginormous cake is on the table.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"},{"id":"r318_cosplay","group":"blend","kind":"blend","form":"cosplay","meaning":"扮演動漫角色","parts":["cos","play"],"sources":[{"word":"costume","meaning":"服裝","take":"cos","start":0,"end":3},{"word":"play","meaning":"扮演","take":"play","start":0,"end":4}],"example":"She wears a costume for cosplay.","note":"從兩個詞各取一部分，合成一個新詞。這只是幫助記憶，不能自己亂造詞。先學好原來的兩個詞。","image":null,"level":"延伸探索","source":"","review":"AI-edited; human teacher review pending"}]}};
@@ -18808,6 +20162,10 @@ function r37Get(){
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
  if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
  if(!Array.isArray(o.day.claimed))o.day.claimed=[];
+ /* R3.23: the six-world olympiad levels are replaced by the 30-unit 奧數路線 (same keys 'olympiad:grade:stage', new meaning). Old passes never count as new levels; coins stay with the child. */
+ if(o.olyV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('olympiad:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.olyOld={n,st};o.miss=o.miss.filter(m=>m.t!=='olympiad');if(o.seen)delete o.seen.olympiad;o.olyV=2;}
+ if(!o.oly||typeof o.oly!=='object'||Array.isArray(o.oly))o.oly={seen:{},last:''};
+ if(!o.oly.seen||typeof o.oly.seen!=='object'||Array.isArray(o.oly.seen))o.oly.seen={};
  return r37Mem[k]=o;
 }
 function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
@@ -18832,6 +20190,7 @@ function r37UnitAt(uid){const W=R37_TRACKS.english.worlds;for(let w=0;w<W.length
 let r37ClassDone=()=>null;
 function r37StageOpen(t,w,s){
  if(adminUnlocks())return true;
+ if(t==='olympiad'&&globalThis.WQOly)return r80StageOpen(w,s);
  if(s>0)return !!r37Entry(t,w,s-1)?.passed;
  if(w>0)return !!r37Entry(t,w-1,9)?.passed;
  return true;
@@ -19100,6 +20459,7 @@ function r37Check(q,input){return r37Judge(q,input).ok;}
    light comes from the top left (.h = short highlight stroke there). .y gold is only for coins, stars and the trophy/gift reward icons.
    An icon is a string, or {h:hue,s:body} when its colour is part of the meaning (flame, sprout...). Word illustrations (R37_WORD_ART) keep the old flat art. */
 const R37_ART={
+ '👑':'<path class="a" d="M8 46 6 19l15 12 11-17 11 17 15-12-2 27z"/><path class="b" d="M8 46h48v9H8z"/><path class="h" d="M13 40 11 28"/>',
  '🪐':'<path d="M6 32a26 8 0 0 1 52 0" transform="rotate(-22 32 32)"/><circle class="a" cx="32" cy="32" r="14"/><path class="h" d="M24 24a11 11 0 0 1 7-4"/><path d="M6 32a26 8 0 0 0 52 0" transform="rotate(-22 32 32)"/>',
  '🔤':'<path class="a" d="M16 12h16v40H16a8 8 0 0 1-8-8V20a8 8 0 0 1 8-8z"/><path class="b" d="M32 12h16a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H32z"/><rect x="8" y="12" width="48" height="40" rx="8"/><path d="m15 41 6-17 6 17m-9-5h6M37 24v17h6a4.5 4.5 0 0 0 0-8.5A4.5 4.5 0 0 0 43 24z"/>',
  '🔢':'<rect class="a" x="14" y="7" width="36" height="50" rx="9"/><rect class="b" x="21" y="14" width="22" height="11" rx="3"/><path d="M23 35h.01M32 35h.01M41 35h.01M23 44h.01M32 44h.01M23 52h.01M32 52h.01M41 44v8" stroke-width="4.5"/><path class="h" d="M19 19v-3"/>',
@@ -19293,9 +20653,7 @@ function r37Hub(id){
   tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big','math','小一至小六 · 每個主題兩課')+r37A('🏆','闖關','#lv/math','gold','',`${q.done}/${q.total} 關`)+quiz('math')+r37B('📝','考考自己','data-wqm-open="assessment"')+r37B('🔁','再練一練','data-wqm-open="review"');
   extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total}</b>`,'數學進度');
  }else if(id==='olympiad'){
-  const q=r37TrackProgress('olympiad');
-  tiles=r37B('📚','圖解課堂','data-oly-open="learn"','gold big','olympiad','小一、小二 · 8 個單元 · 44 課')+r37B('📝','課堂小測','data-oly-open="test"','blue')+r37B('🔁','課堂錯題','data-oly-open="review"','green')+r37B('📊','課堂進度','data-oly-open="progress"')+r37A('🏆','闖關','#lv/olympiad','gold','',`${q.done}/${q.total} 關`)+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open="olympiad"')+r37B('🃏','策略卡','data-wqm-open="cards"');
-  extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total}</b>`,'奧數進度');
+  return r80Hub();/* R3.23: one screen - six grade buttons, continue, strategy cards, wrong book (the old tiles' code stays below, no longer an entry) */
  }else if(id==='dictation'){
   const dzR=latestRange(),dzS=dzR&&rangeWords(dzR.id).some(w=>w.kind==='sentence');
   const dzN=dzR?rangeWords(dzR.id).length:0;
@@ -19390,7 +20748,7 @@ function r37Pips(){
 }
 function r37Play(){
  const P=r37P;if(!P)return r37Home();
- const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">${r37Icon('✕')}</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip" role="img" aria-label="第 ${P.dz.lvl} 級：${R37_DZ_NAMES[P.dz.lvl-1]}">${r37Icon(R37_DZ_LV[P.dz.lvl-1])}<b>第 ${P.dz.lvl} 級</b></span>`:`<span class="r37-dchip">${r37Icon(D.icon)}</span>`}</header>`;
+ const D=R37_DIFF[P.diff-1],top=`<header class="r37-ptop"><button type="button" class="r37-x" data-r37="exit" aria-label="離開">${r37Icon('✕')}</button><div class="r37-pips">${P.phase==='quiz'?r37Pips():''}</div>${P.kind==='level'&&P.track==='olympiad'?`<button type="button" class="r37-dchip r80-tolesson" data-r37="oly-lesson" aria-label="看課堂">${r37Icon('📚')}<b>課</b></button>`:''}${P.kind==='level'?`<div class="r37-hearts" aria-label="生命">${r37Hearts()}</div>`:P.kind==='dz'?`<span class="r37-dchip" role="img" aria-label="第 ${P.dz.lvl} 級：${R37_DZ_NAMES[P.dz.lvl-1]}">${r37Icon(R37_DZ_LV[P.dz.lvl-1])}<b>第 ${P.dz.lvl} 級</b></span>`:`<span class="r37-dchip">${r37Icon(D.icon)}</span>`}</header>`;
  if(P.phase==='learn'){
   const card=w=>`<div class="r37-wc${P.kind==='dz'?'':' r37-wcx'}"><button type="button" class="r37-wcb" data-r37="speak" data-t="${esc(w.en)}"><span class="r37-wem" aria-hidden="true">${r37WordArt(w.en)}</span><b lang="en">${w.fi&&w.fi.length?r37Hl(w.en,w.fi):esc(w.en)}</b><span>${esc(w.zh)}</span></button>${P.kind==='dz'?r37SylRow(w.en):''}${P.kind!=='dz'&&w.ex?`<button type="button" class="r37-exl" lang="en" data-r37="speak" data-t="${esc(w.ex)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(w.ex)}</button>`:''}</div>`;
   const sent=P.kind!=='dz'&&P.sentence?`<button type="button" class="r37-us" lang="en" data-r37="speak" data-t="${esc(P.sentence)}"><span aria-hidden="true">${r37Icon('🔊')}</span>${esc(P.sentence)}</button>`:'';
@@ -19405,11 +20763,11 @@ function r37Play(){
  let body='';
  const aud=q.audio?`<button type="button" class="r37-spk" ${q.noleak?'data-r37="qspeak"':`data-r37="speak" data-t="${esc(q.audio)}"`} aria-label="聽">${r37Icon('🔊')}</button>`:'';
  if(q.mode==='mcq'){
-  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
+  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}${r80Fig(q)}<div class="r37-qt ${String(q.prompt).length>14?'long':''}" ${q.kind==='en2zh'?'lang="en"':''}>${esc(q.prompt)}</div>${aud}</div><div class="r37-opts n${q.options.length}">${q.options.map((o,i)=>{const mark=fb?(o===q.answer?'ok':o===fb.value?'bad':''):'';return `<button type="button" class="r37-opt ${mark}" data-r37="pick-opt" data-v="${esc(o)}" ${fb?'disabled':''}><kbd>${i+1}</kbd><span ${q.lang==='en'?'lang="en"':''}>${esc(o)}</span></button>`;}).join('')}</div>`;
  }else if(q.mode==='cells'){
   body=r37DzCellsBody(q,fb,aud);
  }else{
-  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
+  body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}${r80Fig(q)}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
  const nudge=!fb&&P.nudge?`<div class="r37-nudge" role="status"><span aria-hidden="true">${r37Icon('💡')}</span><b>${esc(P.nudge.msg)}</b></div>`:'';
  const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}<b>提示</b></button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
@@ -19433,7 +20791,8 @@ function r37FbHTML(P,q,fb){
   if(dzFill)sub=r37DzYou(q,fb);
   else if(fillEn)sub=r37DzYou(q,fb)+(q.explain?`<small>${esc(q.explain)}</small>`:'');
   else{
-   if(q.explain)sub=`<small>${esc(q.explain)}</small>`;
+   sub=r80Why(q,fb);
+   if(q.explain)sub+=`<small>${esc(q.explain)}</small>`;
    if(q.mode==='mcq'&&q.info&&fb.value&&fb.value!==q.answer&&q.info[fb.value]!==undefined){
     const a=q.kind==='en2zh'?[fb.value,q.info[fb.value]]:[fb.value,q.info[fb.value]];
     sub+=`<small class="r37-picked">你選了 ${esc(a[0])}＝${esc(a[1])}</small>`;
@@ -19464,7 +20823,7 @@ function r37Result(){
   note=P.dz.rv?(r.passed?`<p class="r37-rn">${P.rvDone?'重溫全部完成！':'下一次重溫：'+(P.rvNext||1)+' 天後'}</p>`:'<p class="r37-rn">明天再重溫一次</p>'):lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':'';
  }else{
   const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
-  if(nextOk)next=act('r37-go','data-r37="level-next"','▶','下一關');
+  if(nextOk)next=act('r37-go','data-r37="level-next"','▶',P.track==='olympiad'&&(P.s&1)?'下一單元':'下一關');
   if(P.kind==='level'&&P.track==='english'&&r.passed&&!P.redo&&r37EnStage(P.w,P.s).length>=4)extra=`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`;
   note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題未答對'+(r.hintedFix?'（用了提示答對的不算自己答對）':'')+'，再試一次！':'再試一次！'}</p>`:''):'';
  if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題用了提示才答對，只算半分</p>`;
@@ -19473,7 +20832,7 @@ function r37Result(){
  }
  const exitLabel=P.kind==='dz'?'組別':P.kind==='level'?'地圖':'返回';
  const badge=r.passed?`<img class="r37-badge-win" src="assets/r318/badge_win.webp" alt="" width="120" height="120" decoding="async">`:`<span class="r37-rb-ic">${r37Icon('⭐')}</span>`;
- return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'} ${miss.length?'hasmiss':''}"><div class="r37-rb" aria-hidden="true">${badge}</div>${r37Stars(r.stars)}<div class="r37-rs" aria-label="答對 ${r.correct} 題，共 ${total} 題">${r.correct}/${total}</div>${detail}${note}${r37MissHTML(r)}${extra}
+ return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'} ${miss.length?'hasmiss':''}"><div class="r37-rb" aria-hidden="true">${badge}</div>${r37Stars(r.stars)}<div class="r37-rs" aria-label="答對 ${r.correct} 題，共 ${total} 題">${r.correct}/${total}</div>${detail}${note}${r37MissHTML(r)}${extra}${r80ResultCard(P)}
  <div class="r37-ra">${redo}${lessons}${next}${act('r37-sec','data-r37="retry" aria-label="重做"','↻','再玩')}${act('r37-sec','data-r37="exit" aria-label="'+(P.kind==='dz'?'組別':'返回地圖')+'"','🗺️',exitLabel)}</div></div></section>`;
 }
 /* ---- starting a level: warm-up of old wrong words (English), example card (maths), first learn chunk ---- */
@@ -19517,7 +20876,7 @@ function r37StartLevel(track,w,s,opts){
   }else qs=opts.redo.map(m=>JSON.parse(JSON.stringify(m.q)));
  }
  if(!qs.length){toast('這一關還未準備好。','bad');return;}
- const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,title=(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
+ const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,ou=track==='olympiad'&&r80Unit(w+1,(s>>1)+1),title=ou?`${ou.icon} ${esc(ou.title)} · 闖關 ${s&1?'②':'①'}`:(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
  const chunks=track==='english'&&!opts.redo?r37EnChunks(r37EnStage(w,s)):[];
  /* 30-second warm-up: up to 3 words missed in this world before (English, once a day per world) */
  const warm=[];
@@ -19692,11 +21051,12 @@ function r37Finish(){
   const ranked=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([sk,n])=>({sk,n,code:lessonOf(sk),ex:exOf(sk)})).filter(x=>x.code||x.ex);
   for(const x of ranked){if((x.n>=2||!passed)&&!lessons.some(l=>x.code?l.code===x.code:l.sk===x.sk))lessons.push(x);if(lessons.length>=2)break;}
  }
- let coins=0;
+ let coins=0,newCard='';
  if(P.kind==='level'&&!P.redo){
   const o=r37Get(),k=r37LvKey(P.track,P.w,P.s),old=o.lv[k]||{best:0},boss=P.s===9;
   const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
   const firstPass=passed&&!old.passed;if(passed)e.passed=true;
+  if(firstPass&&P.track==='olympiad'&&(P.s&1)){const ou=r80Unit(P.w+1,(P.s>>1)+1);if(ou)newCard=ou.id;}
   if(stars===5&&!old.five){e.five=true;coins+=boss?3:1;if(r37Char().perk==='coin')coins+=1;r37Bump('five');}
   if(firstPass&&boss)coins+=2;
   if(firstPass)r37Bump('levels');
@@ -19710,11 +21070,11 @@ function r37Finish(){
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
  const list=missed.map(m=>m.en?{en:m.en,zh:m.zh,you:m.value,fixed:m.fixed,kind:m.kind,key:m.key}:{q:m.q.prompt,answer:m.q.answer,you:m.value,fixed:m.fixed,key:m.key,skill:m.skill});
- P.result={stars,passed,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
+ P.result={stars,passed,card:newCard,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
- if(P&&P.kind==='level')location.hash='#lv/'+P.track;else location.hash=P&&P.kind==='dz'?'#dz':P?'#p/'+P.track:'#kid';
+ if(P&&P.kind==='level')location.hash=P.track==='olympiad'?'#oly/'+(P.w+1):'#lv/'+P.track;else location.hash=P&&P.kind==='dz'?'#dz':P?'#p/'+P.track:'#kid';
 }
 function r37Speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=typeof britishVoices==='function'?britishVoices()[0]:null;if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}}
 /* "只重做錯的": only the questions missed this time (English words in another form; maths the same questions) */
@@ -19728,6 +21088,7 @@ function r37Redo(){
 function r37OpenLesson(code,track){
  try{
   if(!code)return false;
+  { const m=/^oly:p(\d)-(\d)$/.exec(code);if(m){r37P=null;clearTimeout(r37Timer);location.hash='#oly/'+m[1]+'/'+m[2]+'/learn';return true;} }
   if(track==='olympiad'||/^O-/.test(code)){
    const A=globalThis.WQMathApp;if(!A)return false;A.open('olympiad');
    const root=document.getElementById('wqm-app-host')?.shadowRoot;if(!root)return true;
@@ -20155,7 +21516,7 @@ document.addEventListener('click',e=>{
 },true);
 
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps|td|mz|cd)|lp\/play|dz|fps|fp\/play|rn\/play|g3\/play)$/;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps|td|mz|cd)|lp\/play|dz|fps|fp\/play|rn\/play|g3\/play|oly(?:\/[\w\/-]+)?)$/;
 let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null,r37G3Handle=null,r37G3Sel=null;
 function r37G3Stop(){if(r37G3Handle){try{r37G3Handle.destroy();}catch(_){}r37G3Handle=null;}}
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
@@ -20244,7 +21605,7 @@ render=function(){
  if(route!=='g3/play')r37G3Stop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play'||/^oly\/[1-6]\/[1-5]\/learn$/.test(route));
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
@@ -20254,6 +21615,8 @@ render=function(){
  else if(route==='lv/runner')html=r37RunMap();
  else if(route==='lv/fps')html=r37FpsMap();
  else if(/^lv\/(td|mz|cd)$/.test(route))html=r37G3Map(route.slice(3));
+ else if(route==='lv/olympiad'){location.replace('#oly/'+(r37Mem._og||1));return;}
+ else if(route==='oly'||route.startsWith('oly/'))html=r80Html(route);
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='dz')html=r37DzHome();
@@ -20263,6 +21626,7 @@ render=function(){
  else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
  $('#app').innerHTML=html;
  r37Layout();
+ if(route==='oly'||route.startsWith('oly/'))r80Mount(route);
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
  if(route==='fps')r37FpsMount();
  if(route==='fp/play')r37FpsLvMount();
@@ -20334,7 +21698,8 @@ document.addEventListener('click',e=>{
  else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
  else if(a==='retry'&&P){if(P.kind==='dz'){if(P.dz.rv)r37DzReview(P.dz.g);else r37DzStart(P.dz.g,P.dz.lvl,true);}else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
- else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}r37StartLevel(P.track,w,s);}
+ else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}if(P.track==='olympiad'&&!(s&1)&&!r80Seen('p'+(w+1)+'-'+((s>>1)+1))&&!adminUnlocks()){r37P=null;location.hash='#oly/'+(w+1)+'/'+((s>>1)+1)+'/learn';}else r37StartLevel(P.track,w,s);}
+ else if(a==='oly-lesson'&&P&&P.track==='olympiad'){const g=P.w+1,n=(P.s>>1)+1;r37P=null;clearTimeout(r37Timer);location.hash='#oly/'+g+'/'+n+'/learn';}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}const t=r37DiffT(el.dataset.t||r37Mem._dsub||'english');r37Get().diffs[t]=+el.dataset.n;r37Save();render();}
  else if(a==='dsub'){r37Mem._dsub=el.dataset.k;render();}
  else if(a==='redo-miss')r37Redo();
@@ -25232,6 +26597,270 @@ Object.assign(WQArcPlus.cfg,{
   };
  }
 })();
+
+/* R3.23 s80 - 奧數路線 UI: planet hub, grade star-path maps, picture-card lesson player, strategy cards, wrong book.
+   Units live in r37_src/oly (WQOly registry + WQOlyWidgets tools). Level play itself stays in the shared level engine (r37StartLevel / r37Play / r37Finish);
+   the 'olympiad' track = 6 grade worlds x 10 stages, stage 2k = unit k+1 level A, stage 2k+1 = unit k+1 level B.
+   No voice anywhere in here (no speech buttons, no TTS calls). Everything animated honours prefers-reduced-motion (r37Calm). */
+const r80Units=()=>globalThis.WQOly?WQOly.order.map(id=>WQOly.units[id]):[];
+const r80Unit=(g,n)=>globalThis.WQOly&&WQOly.units['p'+g+'-'+n]||null;
+const r80Grade=g=>WQOly.grades[g-1];
+const r80O=()=>{const o=r37Get();if(!o.oly||typeof o.oly!=='object')o.oly={seen:{},last:''};return o.oly;};
+const r80Seen=id=>!!r80O().seen[id];
+const r80Passed=(g,n,lv)=>!!r37Entry('olympiad',g-1,2*(n-1)+lv)?.passed;
+const r80UnitOpen=(g,n)=>adminUnlocks()||n===1||r80Passed(g,n-1,0);
+/* the shared stage lock (r37StageOpen) for the olympiad track: A needs the unit open + its lesson seen; B needs A; a unit opens when the previous unit's A is passed; any grade may be entered */
+function r80StageOpen(w,s){
+ if(adminUnlocks())return true;
+ const g=w+1,n=(s>>1)+1,u=r80Unit(g,n);if(!u)return false;
+ if(s&1)return r80Passed(g,n,0);
+ return r80UnitOpen(g,n)&&(r80Seen(u.id)||r80Passed(g,n,0));
+}
+function r80Mark(id){const o=r80O();if(!o.seen[id]){o.seen[id]=Date.now();}o.last=id;r37Save();}
+const r80Sfx=(n,o)=>{try{if(!sfxEnabled())return;(r80Sfx.a=r80Sfx.a||WQ37GX.audio(true)).sfx(n,o);}catch(_){}};
+const r80Esc=s=>esc(String(s==null?'':s));
+function r80Collected(){return r80Units().filter(u=>r80Passed(u.grade,u.n,1));}
+function r80GradeStat(g){const us=WQOly.unitsOf(g);return {done:us.filter(u=>r80Passed(g,u.n,1)).length,aDone:us.filter(u=>r80Passed(g,u.n,0)).length,total:us.length};}
+/* where "繼續" goes: the first unfinished unit at or after the one touched last */
+function r80Next(){
+ const us=r80Units(),last=r80O().last;let from=Math.max(0,us.findIndex(u=>u.id===last));
+ let pick=null;
+ for(let k=0;k<us.length&&!pick;k++){const u=us[(from+k)%us.length];if(!r80Passed(u.grade,u.n,1)&&r80UnitOpen(u.grade,u.n))pick=u;}
+ if(!pick)return {u:us[0],kind:'learn',done:true};
+ const kind=!r80Seen(pick.id)&&!r80Passed(pick.grade,pick.n,0)?'learn':!r80Passed(pick.grade,pick.n,0)?'A':'B';
+ return {u:pick,kind,done:false};
+}
+const r80Label=x=>x.kind==='learn'?'圖解課':x.kind==='A'?'闖關 ①':'闖關 ②';
+const r80WrongList=()=>{const by={};for(const m of r37Get().miss){if(m.t!=='olympiad')continue;const k=m.q;const b=by[k]=by[k]||{q:m.q,a:m.a,n:0,at:0,sk:m.sk};b.n++;b.at=Math.max(b.at,m.at||0);}return Object.values(by).sort((a,b)=>b.at-a.at);};
+const r80UnitOfSk=sk=>{const m=/^(p\d-\d):/.exec(sk||'');return m&&globalThis.WQOly?WQOly.units[m[1]]:null;};
+
+/* ---------------------------------------------------------------------------------------------- strategy card */
+function r80ArtDefault(u){return `<svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="30" fill="rgba(255,255,255,.08)"/><text x="60" y="42" text-anchor="middle" dominant-baseline="central" font-size="40">${esc(u.icon)}</text></svg>`;}
+function r80CardHTML(u,own,cls=''){
+ const g=r80Grade(u.grade);
+ if(!own)return `<div class="r80-card lock ${cls}" style="--h:${g.hue}" role="img" aria-label="未收集的策略卡：${g.name}第 ${u.n} 單元"><div class="r80-ca"><span class="r80-sil" data-i="${esc(u.icon)}"></span></div><b class="r80-cm">？？？</b><small class="r80-cg">${g.name} · 第 ${u.n} 單元</small></div>`;
+ return `<div class="r80-card ${cls}" style="--h:${g.hue}"><span class="r80-cn">${g.name} · ${u.n}</span><div class="r80-ca">${u.card.art||r80ArtDefault(u)}</div><b class="r80-ct">${r80Esc(u.title)}</b><b class="r80-cm">${r80Esc(u.card.motto)}</b><small class="r80-ce">${r80Esc(u.card.example)}</small></div>`;
+}
+/* ---------------------------------------------------------------------------------------------- hub */
+function r80Hub(){
+ const nx=r80Next(),col=r80Collected().length,wr=r80WrongList().length;
+ const tiles=WQOly.grades.map(g=>{const st=r80GradeStat(g.n);
+  return `<a class="r80-g" href="#oly/${g.n}" style="--h:${g.hue}" data-g="${g.n}" aria-label="${g.name}，已收集 ${st.done} 張策略卡，共 ${st.total} 張"><span class="r80-gi" aria-hidden="true">${r37Icon(g.icon)}</span><span class="r80-gt"><b>${g.name}</b><small>${esc(g.theme)}</small><span class="r80-pips" aria-hidden="true">${Array.from({length:st.total},(_,i)=>`<i class="${i<st.done?'on':i<st.aDone?'half':''}"></i>`).join('')}</span></span><em>${st.done}/${st.total}</em></a>`;}).join('');
+ const href=nx.kind==='learn'?`#oly/${nx.u.grade}/${nx.u.n}/learn`:`#oly/${nx.u.grade}`;
+ const cont=`<a class="r80-cont r80-go" href="${href}" data-r80="cont" data-g="${nx.u.grade}" data-n="${nx.u.n}" data-kind="${nx.kind}"><span class="r80-ci" aria-hidden="true">${r37Icon('▶')}</span><span class="r80-ctx"><b>繼續</b><small>${r80Grade(nx.u.grade).name} · ${r80Esc(nx.u.title)} · ${r80Label(nx)}</small></span></a>`;
+ return `<section class="r37-hub r80-hub" data-pl="olympiad" style="--h:272">${r37Top()}
+ <div class="r80-hm"><div class="r80-hd"><h1>奧數星</h1><span class="r80-hs">${col}/30 張策略卡</span></div>
+ <div class="r80-grades" role="list">${tiles}</div>
+ <div class="r80-side">${cont}<div class="r80-two"><a class="r80-sec" href="#oly/cards" data-r80="cards"><span aria-hidden="true">${r37Icon('🃏')}</span><b>策略卡</b><em>${col}/30</em></a><a class="r80-sec" href="#oly/wrong" data-r80="wrong"><span aria-hidden="true">${r37Icon('📝')}</span><b>錯題</b><em>${wr}</em></a></div></div></div>
+ ${r37Nav('p/olympiad')}</section>`;
+}
+/* ---------------------------------------------------------------------------------------------- grade map */
+function r80Map(g){
+ r37Mem._og=g;
+ const G=r80Grade(g),us=WQOly.unitsOf(g),st=r80GradeStat(g),diff=r37Diff('olympiad');
+ const cur=us.find(u=>!r80Passed(g,u.n,1)&&r80UnitOpen(g,u.n));
+ const tabs=WQOly.grades.map(x=>`<a class="r80-gtab ${x.n===g?'on':''}" href="#oly/${x.n}" style="--h:${x.hue}" ${x.n===g?'aria-current="page"':''}><span aria-hidden="true">${r37Icon(x.icon)}</span><b>${x.name}</b></a>`).join('');
+ const isles=us.map((u,i)=>{
+  const open=r80UnitOpen(g,u.n),seen=r80Seen(u.id)||r80Passed(g,u.n,0),pa=r80Passed(g,u.n,0),pb=r80Passed(g,u.n,1),isCur=cur&&cur.id===u.id;
+  const w=g-1,sa=2*(u.n-1),eA=r37Entry('olympiad',w,sa),eB=r37Entry('olympiad',w,sa+1);
+  const nd=(cls,inner,attrs,label)=>`<${attrs.startsWith('href')?'a':'button type="button"'} class="r80-nd ${cls}" ${attrs} aria-label="${label}"><span>${inner}</span></${attrs.startsWith('href')?'a':'button'}>`;
+  const nodes=[
+   nd(`learn ${seen?'done':''} ${isCur&&!seen?'cur':''}`,r37Icon('📖'),`href="#oly/${g}/${u.n}/learn"`,`${u.title}：圖解課${seen?'（已看）':''}`),
+   nd(`lv ${pa?'done':''} ${r80StageOpen(w,sa)?'':'lock'} ${isCur&&seen&&!pa?'cur':''}`,r80StageOpen(w,sa)?'①':r37Icon('🔒'),r80StageOpen(w,sa)?`data-r37="level" data-track="olympiad" data-w="${w}" data-s="${sa}"`:'disabled',`${u.title}：闖關 ①${pa?'（已過關）':r80StageOpen(w,sa)?'':'（未開放）'}`),
+   nd(`lv ${pb?'done':''} ${r80StageOpen(w,sa+1)?'':'lock'} ${isCur&&pa&&!pb?'cur':''}`,r80StageOpen(w,sa+1)?'②':r37Icon('🔒'),r80StageOpen(w,sa+1)?`data-r37="level" data-track="olympiad" data-w="${w}" data-s="${sa+1}"`:'disabled',`${u.title}：闖關 ②${pb?'（已過關）':r80StageOpen(w,sa+1)?'':'（未開放）'}`),
+   nd(`card ${pb?'done':'lock'}`,pb?r37Icon('🃏'):r37Icon('🔒'),pb?`href="#oly/cards?u=${u.id}"`:'disabled',`${u.title}：策略卡${pb?'':'（過關 ② 後得到）'}`)
+  ].join('');
+  const stars=`<span class="r80-isst" aria-hidden="true">${[eA,eB].map(e=>`<i class="${e&&e.passed?'on':''}">${r37Icon('⭐')}</i>`).join('')}</span>`;
+  return `<article class="r80-isle ${pb?'done':''} ${isCur?'cur':''} ${open?'':'closed'}" data-n="${u.n}"><a class="r80-cov" href="#oly/${g}/${u.n}/learn" tabindex="-1" aria-hidden="true"><span class="r80-cf" data-i="${esc(u.icon)}"></span><img src="${esc(u.cover)}" alt="" width="160" height="160" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></a><div class="r80-ib"><b class="r80-un">${u.n}. ${r80Esc(u.title)}${u.draft?'<i class="r80-draft">草稿</i>':''}</b><small class="r80-im">${r80Esc(u.card.motto)}</small><div class="r80-nodes">${nodes}</div></div>${stars}</article>`;
+ }).join('');
+ return `<section class="r37-hub r80-map" data-g="${g}" style="--h:${G.hue}">${r37Top('<a class="r37-back2" href="#p/olympiad" aria-label="奧數星">←</a>')}
+ <nav class="r80-gtabs" aria-label="年級">${tabs}</nav>
+ <div class="r80-gtitle"><span class="r80-gic" aria-hidden="true">${r37Icon(G.icon)}</span><div><h1>${G.name}奧數</h1><small>${st.done}/${st.total} 張策略卡 · ${esc(G.theme)}</small></div><span class="r37-dchip" title="難度">${r37Icon(diff.icon)}${diff.n}</span></div>
+ <div class="r80-isles"><svg class="r80-trail" aria-hidden="true" focusable="false"></svg>${isles}</div>
+ ${r37Nav('p/olympiad')}</section>`;
+}
+/* a winding dashed star path from island to island (centre of each cover), re-measured after every render / resize */
+function r80DrawTrail(){
+ const box=document.querySelector('.r80-isles');if(!box)return;
+ const sv=box.querySelector(':scope>.r80-trail');if(!sv)return;
+ const W=box.scrollWidth,H=box.scrollHeight,bx=box.getBoundingClientRect(),sx=box.scrollLeft,sy=box.scrollTop;
+ sv.setAttribute('viewBox',`0 0 ${W} ${H}`);sv.style.width=W+'px';sv.style.height=H+'px';
+ const cs=[...box.querySelectorAll('.r80-cov')].map(c=>{const r=c.getBoundingClientRect();return [r.left-bx.left+sx+r.width/2,r.top-bx.top+sy+r.height/2];});
+ const done=[...box.querySelectorAll('.r80-isle')].map(e=>e.classList.contains('done'));
+ let d='';sv.innerHTML='';
+ for(let i=0;i<cs.length-1;i++){
+  const a=cs[i],b=cs[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len,bul=Math.min(46,len*.28)*(i%2?-1:1);
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d',`M${a[0].toFixed(1)} ${a[1].toFixed(1)}C${(a[0]+dx/3+nx*bul).toFixed(1)} ${(a[1]+dy/3+ny*bul).toFixed(1)} ${(a[0]+dx*2/3-nx*bul).toFixed(1)} ${(a[1]+dy*2/3-ny*bul).toFixed(1)} ${b[0].toFixed(1)} ${b[1].toFixed(1)}`);
+  if(done[i])p.setAttribute('class','lit');sv.appendChild(p);
+ }
+}
+/* ---------------------------------------------------------------------------------------------- strategy cards page + wrong book */
+function r80Cards(){
+ const q=new URLSearchParams((location.hash.split('?')[1]||'')),one=q.get('u'),U=one&&WQOly.units[one];
+ if(U&&r80Passed(U.grade,U.n,1)){
+  return `<section class="r37-hub r80-cards one" style="--h:${r80Grade(U.grade).hue}">${r37Top('<a class="r37-back2" href="#oly/cards" aria-label="策略卡">←</a>')}<div class="r80-bigc">${r80CardHTML(U,true,'big')}<div class="r80-bigact"><a class="r80-sec" href="#oly/${U.grade}/${U.n}/learn"><span aria-hidden="true">${r37Icon('📖')}</span><b>看課堂</b></a></div></div>${r37Nav('p/olympiad')}</section>`;
+ }
+ const body=WQOly.grades.map(g=>{const us=WQOly.unitsOf(g.n),n=us.filter(u=>r80Passed(g.n,u.n,1)).length;
+  return `<section class="r80-cg" style="--h:${g.hue}"><h2><span aria-hidden="true">${r37Icon(g.icon)}</span>${g.name}<em>${n}/${us.length}</em></h2><div class="r80-crow">${us.map(u=>{const own=r80Passed(g.n,u.n,1);return own?`<a class="r80-cw" href="#oly/cards?u=${u.id}" aria-label="${r80Esc(u.title)}策略卡">${r80CardHTML(u,true)}</a>`:`<div class="r80-cw">${r80CardHTML(u,false)}</div>`;}).join('')}</div></section>`;}).join('');
+ return `<section class="r37-hub r80-cards" style="--h:272">${r37Top('<a class="r37-back2" href="#p/olympiad" aria-label="奧數星">←</a>')}<div class="r80-hd2"><h1>我的策略卡</h1><span class="r80-hs">${r80Collected().length}/30</span></div><div class="r80-cbody">${body}</div>${r37Nav('p/olympiad')}</section>`;
+}
+function r80Wrong(){
+ const list=r80WrongList(),by={};
+ for(const x of list){const u=r80UnitOfSk(x.sk),k=u?u.id:'?';(by[k]=by[k]||{u,items:[]}).items.push(x);}
+ const groups=Object.values(by).map(gr=>{const u=gr.u;
+  return `<section class="r80-wg"><header><span class="r80-wi" aria-hidden="true" data-i="${u?esc(u.icon):'🧩'}"></span><b>${u?`${r80Grade(u.grade).name} · ${r80Esc(u.title)}`:'其他'}</b>${u?`<a class="r80-sec sm" href="#oly/${u.grade}/${u.n}/learn" data-r80="wrong-lesson">${r37Icon('📖')} 看課堂</a>`:''}</header><ul>${gr.items.map(x=>`<li><span class="r319-q">${r80Esc(x.q)}</span><span class="r319-a">答案：<b>${r80Esc(x.a)}</b></span><em>${x.n} 次</em></li>`).join('')}</ul></section>`;}).join('');
+ return `<section class="r37-hub r80-wrong" style="--h:272">${r37Top('<a class="r37-back2" href="#p/olympiad" aria-label="奧數星">←</a>')}<div class="r80-hd2"><h1>錯題</h1><span class="r80-hs">${list.length} 題</span></div><div class="r80-cbody">${list.length?groups:'<p class="r80-empty">暫時沒有奧數錯題，真棒！</p>'}</div>${r37Nav('p/olympiad')}</section>`;
+}
+/* ---------------------------------------------------------------------------------------------- lesson player */
+let r80L=null;
+function r80LessonShell(g,n){return `<section class="r37-play r80-les" id="r80-les" data-g="${g}" data-n="${n}" style="--h:${r80Grade(g).hue}"></section>`;}
+function r80LesStart(g,n){
+ const u=r80Unit(g,n);if(!u){location.replace('#oly/'+g);return;}
+ if(r80L&&r80L.w){try{r80L.w.destroy();}catch(_){}}
+ const q=new URLSearchParams((location.hash.split('?')[1]||'')),c=Math.max(0,Math.min(u.lesson.length-1,(+q.get('c')||1)-1));
+ r80L={g,n,u,i:c,st:u.lesson.map(()=>({})),w:null};
+ r80O().last=u.id;r37Save();
+ r80LesDraw();
+}
+function r80LesCard(){return r80L.u.lesson[r80L.i];}
+function r80LesDraw(){
+ const L=r80L,root=document.getElementById('r80-les');if(!L||!root)return;
+ if(L.w){try{L.w.destroy();}catch(_){}L.w=null;}
+ const u=L.u,c=r80LesCard(),S=L.st[L.i],last=L.i===u.lesson.length-1,calm=r37Calm();
+ const dots=u.lesson.map((_,k)=>`<i class="${k<L.i?'done':k===L.i?'on':''}"></i>`).join('');
+ const gate=c.t==='predict'||c.t==='do'||c.t==='try';
+ const needs=gate&&!S.done;
+ let side='',scene='';
+ if(c.t==='card'){scene=`<div class="r80-cardwrap">${r80CardHTML(u,true,'show')}</div>`;}
+ else if(c.t==='try'&&!c.scene){scene=`<div class="r80-trystem"><p class="r80-stem">${r80Esc(c.q.stem)}</p>${c.q.svg?`<div class="r80-fig">${c.q.svg}</div>`:''}</div>`;}
+ else scene=`<div class="r80-wbox" id="r80-wbox"></div>`;
+ const say=c.t==='card'?(c.say||'做完闖關 ②，這張卡就是你的！'):(c.say||'');
+ let tools='';
+ if(c.t==='show'&&c.scene&&c.scene.w!=='banner')tools=`<button type="button" class="r80-tool" data-r80="replay" aria-label="重播動畫"><span aria-hidden="true">↻</span><b>重播</b></button>`;
+ if(c.t==='do')tools=`<button type="button" class="r80-tool" data-r80="demo" aria-label="示範一次"><span aria-hidden="true">▶</span><b>示範一次</b></button><button type="button" class="r80-tool" data-r80="reset" aria-label="重來"><span aria-hidden="true">↺</span><b>重來</b></button>`;
+ if(c.t==='predict'){
+  side=`${c.ask?`<p class="r80-ask">${r80Esc(c.ask)}</p>`:''}<div class="r80-opts n${c.options.length}" role="group" aria-label="選擇答案">${c.options.map((o,k)=>`<button type="button" class="r80-opt ${S.picked===k?(String(o)===String(c.answer)?'ok':'miss'):(S.done&&String(o)===String(c.answer)?'ok':'')}" data-r80="predict" data-k="${k}" ${S.done?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`;
+ }else if(c.t==='try'){
+  const q=c.q;
+  side=`${c.scene?`<p class="r80-ask">${r80Esc(q.stem)}</p>`:''}${q.options?`<div class="r80-opts n${q.options.length}" role="group" aria-label="選擇答案">${q.options.map((o,k)=>`<button type="button" class="r80-opt ${S.done&&String(o)===String(q.answer)?'ok':S.bad&&S.bad.includes(String(o))?'miss':''}" data-r80="try" data-v="${r80Esc(o)}" ${S.done||(S.bad&&S.bad.includes(String(o)))?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`:`<form class="r80-fill" data-r80-form="1"><input id="r80-in" type="text" inputmode="decimal" autocomplete="off" aria-label="答案" placeholder="答案" ${S.done?'disabled':''}><button type="submit" class="r80-ok" ${S.done?'disabled':''}>確定</button></form>`}`;
+ }
+ const sayHtml=S.msg!==undefined?S.msg:r80Esc(say);
+ root.innerHTML=`<header class="r80-lh"><button type="button" class="r80-x" data-r80="close" aria-label="離開課堂">${r37Icon('✕')}</button><div class="r80-dots" role="progressbar" aria-label="課堂進度" aria-valuemin="1" aria-valuemax="${u.lesson.length}" aria-valuenow="${L.i+1}">${dots}</div>${last?'':`<button type="button" class="r80-skip" data-r80="skip"><span aria-hidden="true">⏭</span><b>我懂了，直接闖關</b></button>`}</header>
+ <div class="r80-lb"><div class="r80-scene ${c.t}">${scene}</div><div class="r80-sd"><p class="r80-say ${S.bad&&S.bad.length&&!S.done?'bad':''}" id="r80-say" role="status" aria-live="polite">${sayHtml}</p>${side}${tools?`<div class="r80-tools">${tools}</div>`:''}</div></div>
+ <footer class="r80-lf"><button type="button" class="r80-prev" data-r80="prev" aria-label="上一步" ${L.i?'':'disabled'}><span aria-hidden="true">←</span><b>上一步</b></button><button type="button" class="r80-next ${needs?'':'lit'}" data-r80="next" id="r80-next" ${needs?'disabled aria-disabled="true"':''}><b>${last?'去闖關':'下一步'}</b><span aria-hidden="true">→</span></button></footer>`;
+ r80LesWidget();
+ if(last)r80Mark(u.id);
+ r80Focus();
+}
+function r80Focus(){const b=document.getElementById('r80-next');if(b&&!b.disabled){}}
+function r80LesWidget(){
+ const L=r80L,c=r80LesCard(),box=document.getElementById('r80-wbox');if(!box||!c.scene)return;
+ const S=L.st[L.i],still=!!c.scene.still;
+ if(c.t==='try'||c.t==='predict'||c.t==='show'||c.t==='do'){
+  const mode=c.t==='do'?'do':'show';
+  const api={reduced:r37Calm(),sfx:r80Sfx,onChange:()=>r80Changed()};
+  try{L.w=WQOlyWidgets.mount(c.scene.w,box,Object.assign({},c.scene.p,{mode}),api);}catch(e){box.innerHTML='<p class="r80-empty">圖片載入不了</p>';return;}
+  if(c.t==='show'&&!still)setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
+  if(c.t==='predict'&&S.done&&L.w)L.w.demo();
+  if(c.t==='do'&&S.done&&L.w&&L.w.check())r80Changed();
+ }
+}
+function r80Changed(){
+ const L=r80L;if(!L)return;const c=r80LesCard(),S=L.st[L.i];
+ if(c.t!=='do'||S.done||!L.w)return;
+ if(L.w.check()){
+  S.done=true;const b=document.getElementById('r80-next'),say=document.getElementById('r80-say');
+  if(b){b.disabled=false;b.removeAttribute('aria-disabled');b.classList.add('lit');}
+  if(say){say.textContent='做到了！按「下一步」繼續。';S.msg='做到了！按「下一步」繼續。';say.classList.add('ok');}
+  r80Sfx('good');
+ }
+}
+function r80LesMove(d){
+ const L=r80L;if(!L)return;const n=L.i+d;
+ if(n<0)return;
+ if(n>=L.u.lesson.length){r80LesGo();return;}
+ if(d>0){const c=r80LesCard(),S=L.st[L.i];if((c.t==='predict'||c.t==='do'||c.t==='try')&&!S.done)return;}
+ L.i=n;r80Sfx('tap');r80LesDraw();
+}
+function r80LesGo(){const L=r80L;if(!L)return;r80Mark(L.u.id);const g=L.g,sa=2*(L.n-1);r80L=null;if(r80StageOpen(g-1,sa))r37StartLevel('olympiad',g-1,sa);else location.hash='#oly/'+g;}
+function r80LesPredict(k){
+ const L=r80L,c=r80LesCard(),S=L.st[L.i];if(S.done)return;
+ S.picked=k;S.done=true;const ok=String(c.options[k])===String(c.answer);
+ S.msg=`<b class="r80-res ${ok?'ok':'no'}">${ok?'估對了！':'差一點！'}</b> ${r80Esc(c.reveal||'')}`;
+ r80Sfx(ok?'good':'tap');
+ const w=L.w;r80LesDraw();
+}
+function r80LesTry(v){
+ const L=r80L,c=r80LesCard(),S=L.st[L.i],q=c.q;if(S.done)return;
+ v=String(v).trim();if(!v)return;
+ const norm=x=>String(x).replace(/\s+/g,'');
+ if(norm(v)===norm(q.answer)||(globalThis.WQ37Math&&WQ37Math.check({answer:String(q.answer),accept:q.accept||[]},v))){
+  S.done=true;S.msg=`<b class="r80-res ok">答對了！</b> ${r80Esc(q.explain||'')}`;r80Sfx('great');r80LesDraw();
+  try{r37Fx.burst(innerWidth/2,innerHeight*.45,22);}catch(_){}
+ }else{
+  S.bad=(S.bad||[]).concat(String(v));const why=q.why&&q.why[v];
+  S.msg=`<span aria-hidden="true">💭</span> ${r80Esc(why||('再想想。'+(q.hint?q.hint:'')))}`;r80Sfx('bad');
+  if(S.bad.length>=3&&q.options){S.done=true;S.msg=`答案是 ${r80Esc(q.answer)}。${r80Esc(q.explain||'')}`;}
+  r80LesDraw();
+  const sc=document.querySelector('.r80-sd');if(sc&&!r37Calm())sc.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:240});
+ }
+}
+document.addEventListener('click',e=>{
+ const el=e.target.closest?.('[data-r80]');if(!el)return;
+ const a=el.dataset.r80;
+ if(a==='next'){r80LesMove(1);}
+ else if(a==='prev'){r80LesMove(-1);}
+ else if(a==='close'){const g=r80L?r80L.g:1;r80L=null;location.hash='#oly/'+g;}
+ else if(a==='skip'&&r80L){r80L.i=r80L.u.lesson.length-1;r80LesGo();}
+ else if(a==='replay'&&r80L&&r80L.w){r80L.w.reset();setTimeout(()=>r80L&&r80L.w&&r80L.w.demo(),40);}
+ else if(a==='demo'&&r80L&&r80L.w){r80L.w.demo();}
+ else if(a==='reset'&&r80L&&r80L.w){const S=r80L.st[r80L.i];S.done=false;S.msg=undefined;r80L.w.reset();const b=document.getElementById('r80-next');if(b){b.disabled=true;b.setAttribute('aria-disabled','true');b.classList.remove('lit');}const s=document.getElementById('r80-say');if(s){s.classList.remove('ok');s.textContent=r80LesCard().say||'';}}
+ else if(a==='predict')r80LesPredict(+el.dataset.k);
+ else if(a==='try')r80LesTry(el.dataset.v);
+});
+document.addEventListener('submit',e=>{if(!e.target.closest?.('[data-r80-form]'))return;e.preventDefault();const i=document.getElementById('r80-in');if(i)r80LesTry(i.value);});
+document.addEventListener('keydown',e=>{
+ if(!r80L||!document.getElementById('r80-les')||e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.key==='Escape'){const g=r80L.g;r80L=null;location.hash='#oly/'+g;return;}
+ const t=e.target,inWidget=t&&t.closest&&t.closest('.r80-wbox,input,textarea');
+ if(inWidget)return;
+ if(e.key==='ArrowRight'){e.preventDefault();r80LesMove(1);}
+ else if(e.key==='ArrowLeft'){e.preventDefault();r80LesMove(-1);}
+});
+/* routing hooks used by the shell (s30) */
+function r80Html(route){
+ const p=route.split('/');
+ if(!globalThis.WQOly||!globalThis.WQOlyWidgets)return '<section class="r37-hub"><div class="r37-card"><h2>奧數路線準備中</h2></div></section>';
+ if(p[1]==='cards')return r80Cards();
+ if(p[1]==='wrong')return r80Wrong();
+ if(/^[1-6]$/.test(p[1]||'')){if(p[2]&&p[3]==='learn')return r80LessonShell(+p[1],+p[2]);return r80Map(+p[1]);}
+ return r80Hub();
+}
+function r80Mount(route){
+ const p=route.split('/');
+ if(/^[1-6]$/.test(p[1]||'')&&p[3]==='learn')r80LesStart(+p[1],+p[2]);
+ else{
+  if(/^[1-6]$/.test(p[1]||'')){r80DrawTrail();const c=document.querySelector('.r80-isle.cur')||document.querySelector('.r80-isle');if(c&&c.scrollIntoView)c.scrollIntoView({block:'center',inline:'center'});}
+  r80L=null;
+ }
+}
+addEventListener('resize',()=>{try{r80DrawTrail();}catch(_){}});
+{const host=document.getElementById('app')||document.body;new MutationObserver(rs=>{if(rs.every(r=>r.target.closest&&r.target.closest('.r80-trail')))return;if(host.querySelector('.r80-map'))r80DrawTrail();}).observe(host,{childList:true,subtree:true});}
+/* strategy card flip on the level result (first pass of level B) */
+function r80ResultCard(P){
+ const r=P.result;if(!r||!r.card||!globalThis.WQOly)return '';
+ const u=WQOly.units[r.card];if(!u)return '';
+ return `<div class="r80-got" role="status"><div class="r80-flip ${r37Calm()?'calm':''}">${r80CardHTML(u,true,'got')}</div><b>得到策略卡！</b></div>`;
+}
+
+/* olympiad figure (small svg above the stem) and the 錯因 hint in the feedback bar */
+function r80Fig(q){return q&&q.mq&&q.mq.svg?`<div class="r80-fig" aria-hidden="false">${q.mq.svg}</div>`:'';}
+function r80Why(q,fb){
+ const w=q&&q.mq&&q.mq.why;if(!w||!fb||fb.ok)return '';
+ const k=String(fb.value||'').replace(/[\s　]+/g,''),t=w[k]||w[String(Math.round(Number(k)*1e6)/1e6)];
+ return t?`<small class="r80-whyb"><span aria-hidden="true">${r37Icon('💡')}</span>${esc(t)}</small>`:'';
+}
 
 installMediaEvents();
 render();

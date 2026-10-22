@@ -42,6 +42,25 @@ with sync_playwright() as p:
         C.ok(d['modes'] == 'fill,mcq', f'{track}: exactly the two modes {d["modes"]}')
         C.ok(d['mcqOk'], f'{track}: every MCQ has 4 distinct options with the answer; check() accepts every answer')
         C.ok(d['same'], f'{track}: deterministic for the same seed')
+        if track == 'olympiad':
+            # R3.23: the olympiad map is the 奧數路線 star path (t50 covers the UI); here the shared level engine plays unit 1 level A, then level B fails and keeps the next locked
+            ev(pg, "r80Mark('p1-1')")
+            ev(pg, "r37StartLevel('olympiad',0,0)"); pg.wait_for_timeout(300)
+            C.ok(ev(pg, 'r37P.phase') in ('quiz', 'example'), f'{track}: levels go straight to questions')
+            if ev(pg, 'r37P.phase') == 'example':
+                pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+            play_all(pg, True)
+            C.ok(ev(pg, 'r37P.result.passed') and ev(pg, 'r37P.result.stars') == 5, f'{track}: all correct = passed with 5 stars')
+            pg.click('[data-r37="exit"]'); pg.wait_for_timeout(300)
+            C.ok(ev(pg, "r37StageOpen('olympiad',0,1)") is True, f'{track}: pass unlocks level B of the unit')
+            ev(pg, "r37StartLevel('olympiad',0,1)"); pg.wait_for_timeout(300)
+            if ev(pg, 'r37P.phase') == 'example':
+                pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
+            play_all(pg, False)
+            C.ok(ev(pg, 'r37P.phase') == 'result' and ev(pg, 'r37P.result.passed') is False, f'{track}: all wrong fails the stage')
+            pg.click('[data-r37="exit"]'); pg.wait_for_timeout(300)
+            C.ok(ev(pg, "r37StageOpen('olympiad',0,2)") is False, f'{track}: failed stage does not unlock the next unit')
+            continue
         # stage open order
         go(pg, f'#lv/{track}', 400)
         C.ok(pg.evaluate("document.querySelectorAll('.r37-node:not(.lock)').length") == 1, f'{track}: only stage 1 open at the start')
@@ -68,7 +87,7 @@ with sync_playwright() as p:
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(200)
     # parent difficulty changes the next quiz length
     ev(pg, 'r37Get().diffs.olympiad=5'); go(pg, '#p/olympiad')
-    pg.click('[data-mode="mcq"]'); pg.wait_for_timeout(300)
+    ev(pg, "r37StartQuiz('olympiad','mcq')"); pg.wait_for_timeout(300)  # R3.23: the hub no longer lists the old quiz tiles; the engine still serves them
     C.ok(ev(pg, 'r37P.qs.length>=10&&r37P.qs.every(q=>q.mode==="mcq")'), '奧數 選擇題 quiz at difficulty 5 has >=10 MCQ questions')
     pg.click('[data-r37="exit"]'); pg.wait_for_timeout(200)
     ev(pg, 'r37Get().diffs.olympiad=3')

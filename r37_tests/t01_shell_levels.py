@@ -21,6 +21,11 @@ with sync_playwright() as p:
         for hub in HUBS + ['lv/english', 'lv/math', 'lv/olympiad']:
             go(pg, '#' + hub)
             sel = '.r37-tile,.r37-wtab,.r37-node,.r37-ptab,.r37-df,.r37-login' if not hub.startswith('p/games') else '.r37-tile'
+            # R3.23: the olympiad hub is the new one-screen 奧數路線 hub; #lv/olympiad redirects to the grade-1 star path (checked in t50 in detail)
+            if hub == 'p/olympiad':
+                sel = '.r80-g,.r80-cont,.r80-sec'
+            elif hub == 'lv/olympiad':
+                sel = '.r80-gtab,.r80-nd'
             C.ok(fits(pg, sel), f'{name}: {hub} controls inside the viewport')
             C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), f'{name}: {hub} needs no page scroll')
         pg.screenshot(path=str(SHOTS / f'lv_{name}.png'))

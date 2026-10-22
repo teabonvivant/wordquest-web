@@ -67,12 +67,12 @@ def build(only=None, out=None, base_only=False):
         s = s.replace('R3.6.0', 'R3.7.0')
         sw = sw.replace("-3.6.0'", "-3.20'")
         # R3.19: precache the shipped art (planets, characters) and serve it cache-first offline
-        art = sorted(f'assets/{d}/{f.name}' for d in ('r316', 'r318', 'r321') for f in (R / 'app/assets' / d).glob('*.webp'))
+        art = sorted(f'assets/{d}/{f.name}' for d in ('r316', 'r318', 'r321', 'r323') for f in (R / 'app/assets' / d).glob('*.webp'))
         sw = once(sw, "await c.addAll([new URL('index.html',BASE).href]);",
                   "await c.addAll([new URL('index.html',BASE).href]);try{await c.addAll(" + json.dumps(art)
                   + ".map(a=>new URL(a,BASE).href));}catch(_){}")
         sw = once(sw, " if(u.pathname===new URL('index.html',BASE).pathname",
-                  " if(/\\/assets\\/r3(?:16|18|21)\\/[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
+                  " if(/\\/assets\\/r3(?:16|18|21|23)\\/[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
                   " if(u.pathname===new URL('index.html',BASE).pathname")
         if out == R and not only:
             for anchor, names in (('<script>/* WordQuest Maths 0.1.2', ['course_data.js']),

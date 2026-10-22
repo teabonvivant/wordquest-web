@@ -55,6 +55,10 @@ function r37Get(){
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
  if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
  if(!Array.isArray(o.day.claimed))o.day.claimed=[];
+ /* R3.23: the six-world olympiad levels are replaced by the 30-unit 奧數路線 (same keys 'olympiad:grade:stage', new meaning). Old passes never count as new levels; coins stay with the child. */
+ if(o.olyV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('olympiad:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.olyOld={n,st};o.miss=o.miss.filter(m=>m.t!=='olympiad');if(o.seen)delete o.seen.olympiad;o.olyV=2;}
+ if(!o.oly||typeof o.oly!=='object'||Array.isArray(o.oly))o.oly={seen:{},last:''};
+ if(!o.oly.seen||typeof o.oly.seen!=='object'||Array.isArray(o.oly.seen))o.oly.seen={};
  return r37Mem[k]=o;
 }
 function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
@@ -79,6 +83,7 @@ function r37UnitAt(uid){const W=R37_TRACKS.english.worlds;for(let w=0;w<W.length
 let r37ClassDone=()=>null;
 function r37StageOpen(t,w,s){
  if(adminUnlocks())return true;
+ if(t==='olympiad'&&globalThis.WQOly)return r80StageOpen(w,s);
  if(s>0)return !!r37Entry(t,w,s-1)?.passed;
  if(w>0)return !!r37Entry(t,w-1,9)?.passed;
  return true;

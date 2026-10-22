@@ -1,5 +1,5 @@
 /* R3.7 s30 - routing, events, keyboard, fps mount, navigation clean-up. */
-const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps|td|mz|cd)|lp\/play|dz|fps|fp\/play|rn\/play|g3\/play)$/;
+const R37_ROUTE=/^(kid|p\/(english|math|olympiad|games|dictation|parent|chars)|lv\/(english|math|olympiad|runner|fps|td|mz|cd)|lp\/play|dz|fps|fp\/play|rn\/play|g3\/play|oly(?:\/[\w\/-]+)?)$/;
 let r37FpsHandle=null,r37RunHandle=null,r37RunSel=null,r37FpsSel=null,r37G3Handle=null,r37G3Sel=null;
 function r37G3Stop(){if(r37G3Handle){try{r37G3Handle.destroy();}catch(_){}r37G3Handle=null;}}
 function r37RunStop(){if(r37RunHandle){try{r37RunHandle.destroy();}catch(_){}r37RunHandle=null;}}
@@ -88,7 +88,7 @@ render=function(){
  if(route!=='g3/play')r37G3Stop();
  lastRoute=route;
  const c=activeChild();$('#header-child').textContent=c?.name||'未設定';$('#header-auth').textContent=isLoggedIn()?'登出':'登入';updateSfxButton();
- document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play');
+ document.body.classList.add('r37');document.body.classList.remove('quiz-active','r37leg','r37arc');document.body.classList.toggle('r37-playing',route==='lp/play'||route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play'||/^oly\/[1-6]\/[1-5]\/learn$/.test(route));
  let html='';
  if(route==='kid')html=r37Home();
  else if(route==='p/chars')html=r37Chars();
@@ -98,6 +98,8 @@ render=function(){
  else if(route==='lv/runner')html=r37RunMap();
  else if(route==='lv/fps')html=r37FpsMap();
  else if(/^lv\/(td|mz|cd)$/.test(route))html=r37G3Map(route.slice(3));
+ else if(route==='lv/olympiad'){location.replace('#oly/'+(r37Mem._og||1));return;}
+ else if(route==='oly'||route.startsWith('oly/'))html=r80Html(route);
  else if(route.startsWith('lv/'))html=r37LevelMap(route.slice(3));
  else if(route==='rn/play')html=r37RunSel?'<section class="r37-fps"><div id="r37-run-box"></div></section>':(location.replace('#lv/runner'),'');
  else if(route==='dz')html=r37DzHome();
@@ -107,6 +109,7 @@ render=function(){
  else if(route==='fp/play')html=r37FpsSel?'<section class="r37-fps"><div id="r37-fps-box"></div></section>':(location.replace('#lv/fps'),'');
  $('#app').innerHTML=html;
  r37Layout();
+ if(route==='oly'||route.startsWith('oly/'))r80Mount(route);
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
  if(route==='fps')r37FpsMount();
  if(route==='fp/play')r37FpsLvMount();
@@ -178,7 +181,8 @@ document.addEventListener('click',e=>{
  else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
  else if(a==='retry'&&P){if(P.kind==='dz'){if(P.dz.rv)r37DzReview(P.dz.g);else r37DzStart(P.dz.g,P.dz.lvl,true);}else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
- else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}r37StartLevel(P.track,w,s);}
+ else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}if(P.track==='olympiad'&&!(s&1)&&!r80Seen('p'+(w+1)+'-'+((s>>1)+1))&&!adminUnlocks()){r37P=null;location.hash='#oly/'+(w+1)+'/'+((s>>1)+1)+'/learn';}else r37StartLevel(P.track,w,s);}
+ else if(a==='oly-lesson'&&P&&P.track==='olympiad'){const g=P.w+1,n=(P.s>>1)+1;r37P=null;clearTimeout(r37Timer);location.hash='#oly/'+g+'/'+n+'/learn';}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}const t=r37DiffT(el.dataset.t||r37Mem._dsub||'english');r37Get().diffs[t]=+el.dataset.n;r37Save();render();}
  else if(a==='dsub'){r37Mem._dsub=el.dataset.k;render();}
  else if(a==='redo-miss')r37Redo();

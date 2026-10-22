@@ -1,6 +1,8 @@
 // WQ37Math: pure deterministic question generator for level mode (math + olympiad). No DOM, no Math.random.
 (function(){
 'use strict';
+// R3.23: the 奧數路線 units live in r37_src/oly/ (globalThis.WQOly). In the app they are bundled before this file runs; in Node load them next to it.
+if(typeof require!=='undefined'&&!globalThis.WQOly)require('./oly/load_node.js');
 const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
 const hs=(...xs)=>{let h=2166136261;for(const x of xs){for(const c of String(x))h=Math.imul(h^c.charCodeAt(0),16777619);h=Math.imul(h^35,16777619)}return h>>>0};
 const ri=(r,a,b)=>a+Math.floor(r()*(b-a+1));
@@ -205,7 +207,7 @@ const OLY=[
 const TPL={math:MATH,olympiad:OLY};
 const WORLDS={
 math:[['數字小島','🏝️','小一二：20以內及100以內加減'],['乘法森林','🌳','小二：兩位數加減與乘法入門'],['九九城堡','🏰','小三：乘除與九九、多位數運算'],['分數小鎮','🍰','小四：分數與小數入門'],['百分比海洋','🌊','小五：小數、百分數、平均數'],['圖形太空站','🚀','小六：周界、面積、速度、比']],
-olympiad:[['規律迷宮','🧩','數列規律'],['巧算山谷','⚡','巧算：湊整、等差求和、速算'],['邏輯偵探社','🕵️','邏輯推理與排序、植樹問題'],['和差倍工廠','🏭','年齡、和差倍、雞兔同籠'],['計數樂園','🎡','排列、握手、路線、圖形數'],['謎題深淵','🔮','數字謎、餘數與盈虧問題']]
+olympiad:[['小一','🌱','找規律、湊十、排隊'],['小二','🌿','跳數、巧算、植樹、週期'],['小三','🌳','和差倍、年齡、搭配'],['小四','🔥','雞兔、高斯、握手、盈虧'],['小五','🚀','餘數、抽屜、推理、容斥'],['小六','👑','分數、份數、工程、追及、立體']]
 };
 // Curriculum line: LINE[track][world][stage 0..9] = template indexes allowed at that stage.
 // Stages 1-3 teach one skill each, 4-7 add the next skill beside the previous one, 8-10 mix everything seen.
@@ -247,7 +249,7 @@ const LESSON={
   combo:'O-R3-L2-count',route:'O-R3-L2-count',arrange:'O-R3-L2-count','arrange-adj':'O-R3-L2-count',knockout:'',
   'rem-shift':'',crt:'',surplus:'',symbols:'',cycle:'','cycle-sum':'','last-digit':''
 };
-const skillLesson=sk=>LESSON[sk]||'';
+const skillLesson=sk=>{const m=/^(p\d-\d):/.exec(sk||'');return m?'oly:'+m[1]:(LESSON[sk]||'')};
 
 const trk=t=>t==='olympiad'?'olympiad':'math';
 const worlds=track=>{const t=trk(track);return WORLDS[t].map((w,i)=>({id:`${t}-${i+1}`,name:w[0],icon:w[1],desc:w[2],stages:10}))};
@@ -305,9 +307,49 @@ const exampleFor=(t,wi,ti,sk,stem)=>{
   if(!L){L=[];for(let s=0;s<80&&L.length<3;s++){const x=TPL[t][wi][ti](mb(hs('ex',t,wi,ti,sk,s)),{s:.22,diff:2,stage:2});if(x.sk===sk&&!L.some(y=>y.q===x.q))L.push({skill:sk,q:x.q,answer:x.a,explain:x.e,tip:x.h})}exCache[key]=L}
   const e=L.find(y=>y.q!==stem)||L[0];return e?Object.assign({},e):null;
 };
+// ── R3.23 奧數路線: world = grade (0-5), stage 2k = unit k+1 level A, stage 2k+1 = unit k+1 level B; the generators come from WQOly units ──
+const OLYU=(wi,si)=>{const O=globalThis.WQOly;return O&&O.units['p'+(wi+1)+'-'+((si>>1)+1)]||null};
+const wkey=k=>{k=String(k);return /^-?\d+(\.\d+)?$/.test(k)?fx(+k):k};
+const oexCache={};
+const exampleOly=(U,lv,gi,sk,stem)=>{
+  const key=`${U.id}|${lv}|${gi}|${sk}`;let L=oexCache[key];
+  if(!L){L=[];for(let k=0;k<80&&L.length<3;k++){const x=U.gens[lv][gi](mb(hs('oex',U.id,lv,gi,k)),{s:.04,diff:1,stage:0});if(x.sk===sk&&!L.some(y=>y.q===x.q))L.push({skill:U.id+':'+sk,q:x.q,answer:x.a,explain:x.e,tip:x.h,svg:x.svg||''})}oexCache[key]=L}
+  const e=L.find(y=>y.q!==stem)||L[0];return e?Object.assign({},e):null;
+};
+const makeOly=(wi,si,n,diff,seed,avoid)=>{
+  const U=OLYU(wi,si),lv=si&1?'B':'A',G=U.gens[lv];
+  const r=mb(hs('oly',U.id,lv,n,diff,seed)),av=new Set(avoid||[]),res=[],seen=new Set();
+  const s0=Math.min(1,.08+.8*(diff-1)/4+(lv==='B'?.07:0)+(si===9?.05:0)),off=ri(r,0,G.length-1);
+  for(let k=0;k<n;k++){
+    const mode=k%2?'fill':'mcq';
+    for(let att=0;;att++){
+      if(att>900)throw new Error('WQ37Math: cannot build olympiad question '+U.id+lv);
+      const p={s:Math.min(1,s0+(att>20?(att-20)*.03:0)),diff,stage:si};
+      const gi=att<G.length?(off+k+att)%G.length:ri(r,0,G.length-1);
+      const x=G[gi](r,p);
+      if(seen.has(x.q)||(att<=250&&av.has(x.q)))continue;
+      const why={};if(x.why)for(const kk of Object.keys(x.why)){const w=wkey(kk);if(w!==wkey(x.a))why[w]=x.why[kk]}
+      const wk=Object.keys(why),sk0=x.sk;x.sk=U.id+':'+sk0;
+      x.w=[...wk.map(v=>/^-?\d+(\.\d+)?$/.test(v)?+v:v),...x.w];
+      const q=mk(r,x,diff,mode);
+      if(!q)continue;
+      if(mode==='mcq'&&wk.length){
+        const keep=wk.slice(0,3),rest=q.options.filter(o=>o!==x.a&&!keep.includes(o));
+        q.options=sh(r,[x.a,...keep,...rest].slice(0,4));
+      }
+      seen.add(x.q);
+      q.why=Object.keys(why).length?why:null;q.svg=x.svg||'';q.unit=U.id;q.level=lv;
+      q.ex=exampleOly(U,lv,gi,sk0,x.q);
+      res.push(Object.assign({id:`MO${wi+1}-${si+1}-${k+1}`},q));
+      break;
+    }
+  }
+  return res;
+};
 // make(track, world 0-5, stage 0-9, n, diff 1-5, seed[, avoid]): avoid = stems to skip (e.g. the last 30 the learner saw) so the same list gives the same questions.
 const make=(track,wi,si,n,diff,seed,avoid)=>{
   const t=trk(track);wi=Math.min(5,Math.max(0,wi|0));si=Math.min(9,Math.max(0,si|0));diff=Math.min(5,Math.max(1,diff|0||3));n=Math.max(0,n|0);seed=seed|0;
+  if(t==='olympiad'&&OLYU(wi,si))return makeOly(wi,si,n,diff,seed,avoid);
   const r=mb(hs(t,wi,si,n,diff,seed)),T=TPL[t][wi],boss=si===9,base=Math.min(1,.35*si/9+.65*(diff-1)/4+(boss?.1:0));
   const line=poolOf(t,wi,si,diff),sofar=[...new Set([].concat(...[...Array(si+1)].map((_,i)=>poolOf(t,wi,i,diff))))],all=T.map((_,i)=>i);
   const av=new Set(avoid||[]);
@@ -331,7 +373,7 @@ const make=(track,wi,si,n,diff,seed,avoid)=>{
   }
   return res;
 };
-const api={worlds,make,check,checkDetail,skillLesson,lessons:Object.freeze(Object.assign({},LESSON))};
+const api={worlds,make,check,checkDetail,skillLesson,legacy:(w,i)=>OLY[w][i],legacyMath:(w,i)=>MATH[w][i],lessons:Object.freeze(Object.assign({},LESSON))};
 globalThis.WQ37Math=api;
 if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 })();

@@ -83,7 +83,7 @@ def build():
     old = "tiles=r37A('🏆','闖關','#lv/olympiad','gold big','olympiad',`${q.done}/${q.total} 關`)+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open=\"olympiad\"')+r37B('🃏','策略卡','data-wqm-open=\"cards\"');"
     new = "tiles=r37B('📚','圖解課堂','data-oly-open=\"learn\"','gold big','olympiad','小一、小二 · 8 個單元 · 44 課')+r37B('📝','課堂小測','data-oly-open=\"test\"','blue')+r37B('🔁','課堂錯題','data-oly-open=\"review\"','green')+r37B('📊','課堂進度','data-oly-open=\"progress\"')+r37A('🏆','闖關','#lv/olympiad','gold','',`${q.done}/${q.total} 關`)+quiz('olympiad')+r37B('🗼','思維之塔','data-wqm-open=\"olympiad\"')+r37B('🃏','策略卡','data-wqm-open=\"cards\"');"
     if old in text: text = once(text, old, new)
-    elif text.count(new) != 1: raise ValueError('Olympiad hub anchor changed')
+    elif text.count(new) != 1 and 'return r80Hub();' not in text: raise ValueError('Olympiad hub anchor changed')  # R3.23: the planet hub is the new 奧數路線 hub (r37_src/s80_oly.js); the iframe classroom stays as code only
     marker = '<!-- OLYMPIAD_CLASSROOM_SYNC -->'
     tags = marker+'\n<link rel="stylesheet" href="olympiad-classroom/host.css?v='+revision+'" data-olympiad-sync>\n<script type="module" src="olympiad-classroom/host.js?v='+revision+'" data-olympiad-sync></script>\n<!-- /OLYMPIAD_CLASSROOM_SYNC -->'
     if marker in text: text = re.sub(re.escape(marker)+r'[\s\S]*?<!-- /OLYMPIAD_CLASSROOM_SYNC -->', lambda _:tags, text)

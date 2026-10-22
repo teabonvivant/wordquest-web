@@ -79,7 +79,8 @@ def session(p, w, h, touch):
 def open_dialog(pg, planet, key, sub=None):
     pg.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")
     go(pg, '#p/' + planet, 450)
-    pg.evaluate("(k)=>document.querySelector(`[data-wqm-open=\"${k}\"]`)?.click()", key)
+    # R3.23: the olympiad hub no longer carries the 思維之塔 / 策略卡 tiles, so a temporary opener button stands in for them
+    pg.evaluate("(k)=>{let b=document.querySelector(`[data-wqm-open=\"${k}\"]`);if(!b){b=document.createElement('button');b.dataset.wqmOpen=k;b.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;opacity:0';document.body.appendChild(b);}b.click()}", key)
     pg.wait_for_timeout(1300)
     if sub:
         pg.evaluate("(a)=>{const r=document.querySelector('#wqm-app-host').shadowRoot;r.querySelector(a)?.click()}", sub)
@@ -98,6 +99,8 @@ def run():
             for r in MAPS:
                 go(pg, '#' + r, 700)
                 view(pg, f'{name}/{r}')
+                if r == 'lv/olympiad':
+                    continue  # R3.23: the olympiad map is the 奧數路線 star path (islands, not 10 nodes); t50 checks it
                 d = pg.evaluate("""()=>{const n=[...document.querySelectorAll('.r37-path>.r37-node')];
                   return {n:n.length,st:n.filter(x=>x.querySelectorAll('.r37-st3 i').length===3).length,cur:n.filter(x=>x.classList.contains('cur')).length,
                   here:document.querySelectorAll('.r37-node.cur .r37-here img').length,lock:n.filter(x=>x.classList.contains('lock')).length,

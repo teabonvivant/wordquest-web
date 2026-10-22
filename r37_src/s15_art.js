@@ -3,6 +3,7 @@
    light comes from the top left (.h = short highlight stroke there). .y gold is only for coins, stars and the trophy/gift reward icons.
    An icon is a string, or {h:hue,s:body} when its colour is part of the meaning (flame, sprout...). Word illustrations (R37_WORD_ART) keep the old flat art. */
 const R37_ART={
+ '👑':'<path class="a" d="M8 46 6 19l15 12 11-17 11 17 15-12-2 27z"/><path class="b" d="M8 46h48v9H8z"/><path class="h" d="M13 40 11 28"/>',
  '🪐':'<path d="M6 32a26 8 0 0 1 52 0" transform="rotate(-22 32 32)"/><circle class="a" cx="32" cy="32" r="14"/><path class="h" d="M24 24a11 11 0 0 1 7-4"/><path d="M6 32a26 8 0 0 0 52 0" transform="rotate(-22 32 32)"/>',
  '🔤':'<path class="a" d="M16 12h16v40H16a8 8 0 0 1-8-8V20a8 8 0 0 1 8-8z"/><path class="b" d="M32 12h16a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H32z"/><rect x="8" y="12" width="48" height="40" rx="8"/><path d="m15 41 6-17 6 17m-9-5h6M37 24v17h6a4.5 4.5 0 0 0 0-8.5A4.5 4.5 0 0 0 43 24z"/>',
  '🔢':'<rect class="a" x="14" y="7" width="36" height="50" rx="9"/><rect class="b" x="21" y="14" width="22" height="11" rx="3"/><path d="M23 35h.01M32 35h.01M41 35h.01M23 44h.01M32 44h.01M23 52h.01M32 52h.01M41 44v8" stroke-width="4.5"/><path class="h" d="M19 19v-3"/>',
