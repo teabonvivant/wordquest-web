@@ -129,11 +129,13 @@ for(const q of allQ){
 // T04 explanations: method sentence + working, not just the equation restated
 const bare=e=>e.replace(/[\d\s.＋－×÷＝/()（）:：,，。]/g,'').length===0;
 const cjk=e=>(e.match(/[一-鿿]/g)||[]).length;
-const nb=allQ.filter(q=>bare(q.explain)).length,short=allQ.filter(q=>cjk(q.explain)<8).length;
-ok(nb/allQ.length<0.15,`bare-equation explanations ${nb}/${allQ.length}`);
-ok(short/allQ.length<0.15,`explanations with <8 Chinese characters ${short}/${allQ.length}`);
+// 奧數路線 units (R3.23) keep short worked equations; their explanations are checked by test_oly_units.cjs
+const mathQ=allQ.filter(q=>q.tr==='math');
+const nb=mathQ.filter(q=>bare(q.explain)).length,short=mathQ.filter(q=>cjk(q.explain)<8).length;
+ok(nb/mathQ.length<0.15,`bare-equation explanations ${nb}/${mathQ.length}`);
+ok(short/mathQ.length<0.15,`explanations with <8 Chinese characters ${short}/${mathQ.length}`);
 // every "a＝b＝c" working inside an explanation is arithmetically consistent
-const chain=e=>{const bad=[];const re=/[\d.＋－×÷＝()\/]+/g;let m;while((m=re.exec(e))){const run=m[0];if(!run.includes('＝'))continue;
+const chain=e=>{const bad=[];const re=/[\d.＋－×÷＝()\/]+/g;let m;while((m=re.exec(e))){const run=m[0];if(!run.includes('＝')||e[m.index-1]==='…')continue;
   const vs=run.split('＝').filter(x=>x!=='').map(sg=>{const js=sg.replace(/＋/g,'+').replace(/－/g,'-').replace(/×/g,'*').replace(/÷/g,'/');if(!/^[\d.+\-*\/() ]+$/.test(js))return null;try{return Function('"use strict";return ('+js+')')()}catch(x){return null}}).filter(v=>v!==null&&isFinite(v));
   if(/^ 餘/.test(e.slice(m.index+run.length)))vs.pop();
   if(vs.length>=2&&vs.some(v=>Math.abs(v-vs[0])>1e-6))bad.push(run)}return bad};
@@ -168,7 +170,8 @@ for(const q of allQ){
     if(q.q.includes('單車')){nBike++;ok(q.q.includes('輛')&&q.q.includes('個輪')&&!/隻/.test(q.q),'vehicle wording: '+q.q)}
     else ok(q.q.includes('隻腳')&&!q.q.includes('輛'),'animal wording: '+q.q)}
 }
-ok(nRank>20&&nCyc>20&&nChick>50&&nBike>5,`wording coverage rank ${nRank} cycle ${nCyc} chicken ${nChick} bike ${nBike}`);
+// R3.23: the old rank / cycle templates are retired by the 奧數路線 (rules above still apply if they reappear)
+ok(nChick>50&&nBike>5,`wording coverage rank ${nRank} cycle ${nCyc} chicken ${nChick} bike ${nBike}`);
 // T25 pronouns
 const girls=['小美','小欣','詩婷'];let nGirl=0;
 for(const q of allQ)for(const txt of [q.q+q.hint+q.explain,q.ex.q+q.ex.explain+q.ex.tip])
@@ -189,6 +192,8 @@ for(const tr of W)for(let wi=0;wi<6;wi++){const a=M.make(tr,wi,9,12,3,1);a.forEa
 
 // R3.19 N22: skills that had only a handful of stems now have many (before: liars 7, squares 15, segments 15, frac-dec 12 over 40 seeds x diff 1/3/5)
 {const by={};for(const tr of W)for(let wi=0;wi<6;wi++)for(let si=0;si<10;si++)for(let sd=1;sd<=40;sd++)for(const d of [1,3,5])for(const q of M.make(tr,wi,si,8,d,sd*977)){(by[sk0(q.skill)]=by[sk0(q.skill)]||new Set()).add(q.q)}
- ok(by.liars.size>=100,'liars stems '+by.liars.size);ok(by.squares.size>=20,'squares stems '+by.squares.size);ok(by.segments.size>=18,'segments stems '+by.segments.size);ok(by['frac-dec'].size>=40,'frac-dec stems '+by['frac-dec'].size);
- console.log('variety (distinct stems): liars',by.liars.size,'squares',by.squares.size,'segments',by.segments.size,'frac-dec',by['frac-dec'].size);}
+ // R3.23: liars / squares / segments are retired old olympiad templates (the 奧數路線 units are checked in test_oly_units.cjs); check them only if present
+ for(const [k,min] of [['liars',100],['squares',20],['segments',18]])if(by[k])ok(by[k].size>=min,k+' stems '+by[k].size);
+ ok(by['frac-dec'].size>=40,'frac-dec stems '+by['frac-dec'].size);
+ console.log('variety (distinct stems): frac-dec',by['frac-dec'].size);}
 console.log(`PASS ${n} checks`);

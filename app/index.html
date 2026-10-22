@@ -13613,12 +13613,13 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       svg.setAttribute('aria-label', `數線：由 ${start}${target != null ? ' 去 ' + target : ''}`);
       x0 = 30; dx = (W - 60) / (hi - lo); ly = Math.round(H * (inter ? .46 : .55));
       el('line', { x1: X(lo) - 10, y1: ly, x2: X(hi) + 10, y2: ly, stroke: C.muted, 'stroke-width': 4, 'stroke-linecap': 'round' }, svg);
-      const need = 26 / dx, every = need <= 1 ? 1 : need <= 2 ? 2 : need <= 5 ? 5 : 10;
+      const lw = Math.max(String(lo).length, String(hi).length) * 10 + 10, need = lw / dx, every = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000].find(e => e >= need) || 1000, mk = [start, target].filter(v => v != null), near = v => mk.some(m => m !== v && Math.abs(m - v) * dx < lw);
+      let lastMark = null;
       for (let v = lo; v <= hi; v++) {
-        const big = (v - lo) % every === 0, mark = v === target || v === start;
+        const big = v % every === 0, mark = v === target || v === start;
         el('line', { x1: X(v), y1: ly - (big || mark ? 9 : 5), x2: X(v), y2: ly + (big || mark ? 9 : 5), stroke: C.muted, 'stroke-width': big || mark ? 3 : 2 }, svg);
-        if (big && !(mark && every > 1)) txt(svg, X(v), ly + 26, v, { size: 16, fill: C.muted, weight: 700 });
-        if (mark && (every > 1 || v === target)) txt(svg, X(v), ly + (every > 1 ? 26 : 50), v, { size: 17, fill: v === target ? C.pink : C.aqua, weight: 900 });
+        if (big && !mark && !near(v)) txt(svg, X(v), ly + 26, v, { size: 16, fill: C.muted, weight: 700 });
+        if (mark) { const low = (every === 1 && v === target) || (lastMark != null && (v - lastMark) * dx < lw); lastMark = v; txt(svg, X(v), ly + (low ? 50 : 26), v, { size: 17, fill: v === target ? C.pink : C.aqua, weight: 900 }); }
       }
       if (target != null) { el('circle', { cx: X(target), cy: ly, r: 11, fill: 'none', stroke: C.pink, 'stroke-width': 3, 'stroke-dasharray': '4 4' }, svg); txt(svg, X(target), ly - 40, '⭐', { size: 22, emoji: true }); }
       trail = el('g', {}, svg);
@@ -13705,11 +13706,15 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     const unitsOf = s => s.rep ? s.u * s.rep : s.u;
     function layout() {
       rows.forEach(r => {
-        let x = pad + labW + 4;
+        let x = pad + labW + 4, prevH = false;
         r.segs.forEach(s => {
           const w = unitsOf(s) * ux; s.x = x; s.w = w; s.rect.setAttribute('x', x); s.rect.setAttribute('width', Math.max(0, w));
           let d = ''; const cnt = unitsOf(s), step = s.rep ? s.u * ux : ux; for (let i = 1; i < (s.rep || cnt); i++) d += `M${x + i * step} ${r.y + 6}V${r.y + rh - 6}`; s.div.setAttribute('d', d);
-          const shown = s.text !== undefined ? s.text : (s.rep ? s.rep + ' 份' : unitsOf(s)); s.label.textContent = s.edit && s.text === undefined ? (s.rep ? s.rep + ' 份' : s.u) : shown; s.label.setAttribute('x', s.h ? x + Math.max(10, (w - 22) / 2) : x + w / 2);
+          const shown = s.text !== undefined ? s.text : (s.rep ? s.rep + ' 份' : unitsOf(s)); s.label.textContent = s.edit && s.text === undefined ? (s.rep ? s.rep + ' 份' : s.u) : shown; const inL = prevH ? 17 : 0, inR = s.h ? 17 : 0, avail = w - inL - inR - 8; let fs = 22; s.label.setAttribute('font-size', fs); let tw = 0; try { tw = s.label.getBBox().width; } catch (e) { tw = String(s.label.textContent).length * 20; }
+          if (tw > avail) { fs = 16; s.label.setAttribute('font-size', fs); tw = tw * 16 / 22; }
+          const out = tw > avail; s.label.setAttribute('y', out ? r.y - 12 : r.y + rh / 2);
+          s.label.setAttribute('fill', out ? (s.dashed ? (PART[s.c || 'a'] || PART.a)[0] : C.text) : (s.dashed ? (PART[s.c || 'a'] || PART.a)[0] : C.ink));
+          s.label.setAttribute('x', out ? x + w / 2 : x + inL + (w - inL - inR) / 2); prevH = !!s.h;
           if (s.h) place(s.h, x + w, r.y + rh / 2);
           x += w;
         });
@@ -13780,7 +13785,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       cells.forEach(k => { const L = k.c < cut; k.e.setAttribute('fill', L ? C.aqua : C.gold); k.e.setAttribute('opacity', cut === cols || cut === 0 ? .9 : .95); });
       const x = gx + cut * cs; line.setAttribute('x1', x); line.setAttribute('x2', x); place(hdl, x, gy + cs * rowsN + 18); hdl.setAttribute('aria-valuenow', cut);
       const a = cut, b = cols - cut;
-      t1.textContent = a ? `${a}×${rowsN}＝${a * rowsN}` : ''; t2.textContent = b ? `${b}×${rowsN}＝${b * rowsN}` : '';
+      t1.textContent = a && b ? `${a}×${rowsN}＝${a * rowsN}` : ''; t2.textContent = a && b ? `${b}×${rowsN}＝${b * rowsN}` : '';
       tt.textContent = a && b ? `${a * rowsN}＋${b * rowsN}＝${cols * rowsN}` : `${cols}×${rowsN}＝${cols * rowsN}`;
       tt.setAttribute('fill', solved ? C.gold : C.text);
     }
@@ -13925,7 +13930,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
         el('circle', { r: 27, cy: 3, fill: 'rgba(0,0,0,.28)' }, g); const c = el('circle', { r: 27, fill: C.card2, stroke: C.aqua, 'stroke-width': 3.5 }, g); txt(g, 0, 1, faces[i % faces.length], { size: 30, emoji: true }); place(g, x, y);
         const d = { i, x, y, g, c }; dots.push(d);
         if (inter) {
-          drag(g, svg, { start(pt) { sel = d; sync(); rub = el('line', { x1: x, y1: y, x2: x, y2: y, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return {}; },
+          drag(g, svg, { start(pt) { d.c.setAttribute('stroke', C.gold); rub = el('line', { x1: x, y1: y, x2: x, y2: y, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return {}; },
             move(pt) { rub.setAttribute('x2', pt.x); rub.setAttribute('y2', pt.y); },
             end(pt, ctx, e, moved) { rub && rub.remove(); rub = null; if (!moved) return; const t = dots.find(o => o !== d && Math.hypot(pt.x - o.x, pt.y - o.y) < 34); sel = null; if (t) link(d, t, true); else sync(); },
             tap() { rub && rub.remove(); rub = null; choose(d); } });
@@ -14425,8 +14430,8 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       /* two people in a queue: how many between them */
       (r, p) => {
         const [m1, m2] = twoNames(r), k = N(r, p, 1, 7), j = k + ri(r, 2, N(r, p, 3, 8)), ans = j - k - 1;
-        return o('q-between', `${m1}排第 ${k} 個，${m2}排第 ${j} 個。中間有幾人？`, ans, '中間不包括他們兩個。', `${j}－${k}＝${j - k}，其中包括${m2}，要再減 1：${ans}。`, [j - k, ans + 1, ans - 1, j, k], `${j}-${k}-1`, [],
-          { svg: queueSvg(j, { [k - 1]: 'me', [j - 1]: 'm2' }, `${m1}排第 ${k}，${m2}排第 ${j}`), why: why([j - k, `${j}－${k} 連${m2}也數進去了，中間不包括他們。`], [ans - 1, '中間的人全部都要數，別減多了。'], [ans + 2, '兩個人的位置都不能數進中間。']) });
+        return o('q-between', `${m1}排第 ${k} 個，${m2}排第 ${j} 個。中間有幾人？`, ans, '中間不包括這兩人。', `${j}－${k}＝${j - k}，其中包括${m2}，要再減 1：${ans}。`, [j - k, ans + 1, ans - 1, j, k], `${j}-${k}-1`, [],
+          { svg: queueSvg(j, { [k - 1]: 'me', [j - 1]: 'm2' }, `${m1}排第 ${k}，${m2}排第 ${j}`), why: why([j - k, `${j}－${k} 連${m2}也數進去了，中間不包括這兩人。`], [ans - 1, '中間的人全部都要數，別減多了。'], [ans + 2, '兩個人的位置都不能數進中間。']) });
       },
       /* people leave / join behind: first find the whole queue */
       (r, p) => {
@@ -14554,6 +14559,96 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 
 ;
 /* 小二 · 5 units, all finished. See docs/奧數路線-20261022/單元撰寫指引.md. Numbers stay within 100 (week = 7, other rounds 2-7). */
+/* ---- g2_segs（小二 p2-4 數線段專用教具）：直線上 n 點，逐對點選／拖拉畫線段，重複不計，畫齊 n(n-1)/2 條達標。
+   p: {n:3-6, labels?:['A','B',..]}  鍵盤：Tab 到點、Enter 選第一點再 Enter 選第二點。 ----------------------------------------------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, drag, keys, sbtn, place, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const COL = [C.aqua, C.gold, C.pink, C.violet, C.green];
+  WQOlyWidgets.make('g2_segs', { mount(host, p, api) {
+    const n = Math.max(3, Math.min(6, p.n || 4)), total = n * (n - 1) / 2, inter = p.mode !== 'show';
+    const L = (p.labels && p.labels.length >= n ? p.labels : 'ABCDEF'.split('')).slice(0, n);
+    const run = runner(api); let svg, W, H, pts, links, sel, cnt, note, g1, ly, areaH, timers = [], rub = null, chipRows, solved;
+    const later = (f, ms) => { const t = setTimeout(f, ms); timers.push(t); };
+    const key = (i, j) => (i < j ? i + '-' + j : j + '-' + i);
+    function build() {
+      run.cancel(); timers.forEach(clearTimeout); timers = []; links = new Map(); sel = null; solved = false;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `直線上有 ${n} 個點，每兩點連成一條線段`);
+      chipRows = Math.ceil(total / 8); const chipH = chipRows * 27, top = 62;
+      let line = Math.min(H - 10 - chipH - 46, top + 170);
+      const extra = Math.max(0, H - 10 - top - ((line - top) + 46 + chipH));
+      ly = line + extra / 2; areaH = ly - top;
+      const dx = (W - 80) / (n - 1);
+      cnt = txt(svg, W / 2, 28, '', { size: 26, fill: C.text });
+      note = txt(svg, W / 2, 52, '', { size: 18, fill: C.muted, weight: 700 });
+      el('line', { x1: 24, y1: ly, x2: W - 24, y2: ly, stroke: C.muted, 'stroke-width': 5, 'stroke-linecap': 'round' }, svg);
+      g1 = el('g', {}, svg);
+      pts = [];
+      for (let i = 0; i < n; i++) {
+        const x = 40 + i * dx, g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `點 ${L[i]}` }, svg);
+        el('circle', { r: 30, fill: 'rgba(0,0,0,0)' }, g);
+        const ring = el('circle', { r: 20, fill: 'none', stroke: C.gold, 'stroke-width': 4, opacity: 0 }, g);
+        el('circle', { r: 12, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, g);
+        txt(g, 0, 36, L[i], { size: 22, fill: C.aqua, weight: 900 });
+        place(g, x, ly); const d = { i, x, g, ring }; pts.push(d);
+        if (inter) {
+          drag(g, svg, {
+            start(pt) { const prev = sel; sel = d; sync(); rub = el('line', { x1: x, y1: ly - 14, x2: x, y2: ly - 14, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return { prev }; },
+            move(pt) { rub && (rub.setAttribute('x2', pt.x), rub.setAttribute('y2', Math.min(pt.y, ly - 14))); },
+            end(pt, ctx, e, moved) { rub && rub.remove(); rub = null; if (!moved) return; const t = pts.find(o => o !== d && Math.hypot(pt.x - o.x, pt.y - ly) < Math.min(36, dx * .5)); sel = null; if (t) link(d, t); else sync(); },
+            tap(ctx) { rub && rub.remove(); rub = null; sel = ctx.prev; choose(d); }
+          });
+          keys(g, { act: () => choose(d) });
+        }
+      }
+      /* chips: one per drawn segment */
+      const cy0 = ly + 56; svg.__cy0 = cy0;
+      sync(); upd();
+    }
+    function sync() { pts.forEach(d => d.ring.setAttribute('opacity', d === sel ? 1 : 0)); }
+    function upd() {
+      cnt.textContent = `已數 ${links.size} 條` + (solved ? ' ✓' : ''); cnt.setAttribute('fill', solved ? C.gold : C.text);
+      if (solved) { note.textContent = Array.from({ length: n - 1 }, (_, i) => n - 1 - i).join('＋') + `＝${total} 條`; note.setAttribute('fill', C.gold); }
+    }
+    function say(s) { if (solved) return; note.textContent = s; note.setAttribute('fill', C.bad); later(() => { if (!solved && note.textContent === s) note.textContent = ''; }, 1400); }
+    function choose(d) {
+      if (!sel) { sel = d; sfx(api, 'tap'); sync(); return; }
+      if (sel === d) { sel = null; sync(); return; }
+      const a = sel; sel = null; link(a, d);
+    }
+    function link(a, b) {
+      if (a.i > b.i) { const t = a; a = b; b = t; }
+      const k = key(a.i, b.i);
+      if (links.has(k)) { sfx(api, 'bad'); sync(); say(`${L[a.i]}${L[b.i]} 已經數過了`); return; }
+      const s = b.i - a.i, h = 16 + (areaH - 30) * (s / (n - 1)), col = COL[a.i % COL.length], y = ly - 16;
+      const path = el('path', { d: `M${a.x} ${y} Q${(a.x + b.x) / 2} ${y - 2 * h} ${b.x} ${y}`, fill: 'none', stroke: col, 'stroke-width': 4.5, 'stroke-linecap': 'round', opacity: .95 }, g1);
+      if (!api.reduced) { const len = path.getTotalLength ? path.getTotalLength() : 200; path.style.strokeDasharray = len; path.style.strokeDashoffset = len; path.getBoundingClientRect(); path.style.transition = 'stroke-dashoffset .28s ease-out'; path.style.strokeDashoffset = 0; }
+      const fl = el('line', { x1: a.x, y1: ly, x2: b.x, y2: ly, stroke: C.pink, 'stroke-width': 11, 'stroke-linecap': 'round', opacity: .75, 'pointer-events': 'none' }, svg);
+      if (api.reduced) fl.remove(); else later(() => fl.remove(), 650);
+      const idx = links.size, cw = 42, per = 8, row = Math.floor(idx / per), inRow = Math.min(per, total - row * per), col0 = idx % per;
+      const cx = W / 2 - (inRow * (cw + 2)) / 2 + col0 * (cw + 2) + cw / 2, cy = svg.__cy0 + row * 27;
+      const g = el('g', {}, svg); el('rect', { x: cx - cw / 2, y: cy - 11, width: cw, height: 22, rx: 11, fill: col }, g); txt(g, cx, cy + 1, L[a.i] + L[b.i], { size: 14, fill: C.ink, weight: 900 });
+      links.set(k, { path, g }); sfx(api, 'pop'); sync();
+      if (links.size === total) { solved = true; sfx(api, 'good'); burst(svg, W / 2, ly - 30, api); }
+      upd(); changed(api);
+    }
+    build();
+    return {
+      check: () => links.size === total,
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); timers.forEach(clearTimeout); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) { link(pts[i], pts[j]); if (!(await run.sleep(420))) return false; }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle, name } = WQOly.helpers;
@@ -14857,9 +14952,9 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     lesson: [
       { t: 'show', say: '4 個點 A、B、C、D。由 A 出發有 3 條。', scene: stairs(4) },
       { t: 'predict', say: '由 A 出發數了 3 條。', ask: '再由 B 出發（不重複），有幾條？', options: ['1', '2', '3'], answer: '2', scene: stairs(4), reveal: 'B 只數 BC、BD，共 2 條！' },
-      { t: 'do', say: '點像人，線段像握手：每兩點連一條。', scene: { w: 'dotgraph', p: { n: 4, faces: ['A', 'B', 'C', 'D'] } } },
+      { t: 'do', say: '逐對點選兩個點，連成線段。', scene: { w: 'g2_segs', p: { n: 4 } } },
       { t: 'show', say: '5 個點：4＋3＋2＋1＝10 條。', scene: stairs(5) },
-      { t: 'do', say: '5 個點，連連看。要連幾條？', scene: { w: 'dotgraph', p: { n: 5, faces: ['A', 'B', 'C', 'D', 'E'] } } },
+      { t: 'do', say: '5 個點，逐對連線。要連幾條？', scene: { w: 'g2_segs', p: { n: 5 } } },
       { t: 'try', say: '逐點出發，不重複地數。', scene: stairs(5),
         q: { stem: '直線上有 5 個點，一共有幾條線段？', options: ['8', '10', '15'], answer: '10', hint: '4＋3＋2＋1。', why: { 8: '逐點數：4＋3＋2＋1，別漏了。', 15: '4＋3＋2＋1＝10，不是 15。' } } },
       { t: 'card' }
@@ -14902,7 +14997,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       /* the date: day 1 is given */
       (r, p) => {
         const x = ri(r, 1, 7), d = N(r, p, 8, 30), ans = wdAns(x, d - 1);
-        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（日＝7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天；星期${WD[x - 1]}再過 ${(d - 1) % 7} 天是星期${WD[ans - 1]}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
+        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（日＝7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天，即 ${Math.floor((d - 1) / 7)} 個星期${(d - 1) % 7 ? `又 ${(d - 1) % 7} 天；星期${WD[x - 1]}再數 ${(d - 1) % 7} 天是星期${WD[ans - 1]}` : `，剛好整星期，仍是星期${WD[ans - 1]}`}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
           { why: why([wdAns(x, d), `1 日到 ${d} 日是過了 ${d - 1} 天，不是 ${d} 天。`], [wdAns(x, d - 2), `是過了 ${d - 1} 天，別少算一天。`], [x, '多數幾輪之後星期不一定回到原位，要數多出的天。']) });
       },
       /* every p days, which weekday is the n-th time */
@@ -14952,7 +15047,97 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 
 ;
 /* 小三 · 5 完成版單元（g34）：和差、和倍差倍、年齡、搭配與樹形圖、乘法巧算（p3-5 只做二、三位數×一位數的位值拆分）。
-   全部使用現成教具（bars / array），沒有新增工具。數字範圍依 docs/奧數路線-20261022/年級對照研究.md 的小三一節。 */
+   使用現成教具（bars / array），另有專用教具 g3_tree（搭配樹形圖，見檔首）。數字範圍依 docs/奧數路線-20261022/年級對照研究.md 的小三一節。 */
+/* ---- g3_tree（小三 p3-4 搭配與樹形圖專用教具）：左邊 a 件上衣，點上衣長出 b 條褲的分枝；點分枝完成一個搭配，右邊計數。
+   p: {a:2-4, b:2-4, tops?:[emoji..], bottoms?:[emoji..]}  達標＝a×b 個搭配全做齊。鍵盤：Tab 到上衣／分枝，Enter 展開／完成。 -------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, keys, sbtn, place, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+  WQOlyWidgets.make('g3_tree', { mount(host, p, api) {
+    const a = clamp(p.a || 2, 2, 4), b = clamp(p.b || 3, 2, 4), total = a * b, inter = p.mode !== 'show';
+    const TOPS = p.tops || ['👕', '👔', '🧥', '👚'], BOT = p.bottoms || ['👖', '🩳', '👖', '🩳'];
+    const run = runner(api); let svg, W, H, cols, count, big, sub, eq, solved;
+    function build() {
+      run.cancel(); solved = false; cols = []; count = 0;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `${a} 件上衣、${b} 條褲的搭配樹形圖`);
+      const cw = (W - 78) / a, bw = Math.min(cw, 100), LH = clamp((H - 78 - 10) / b - 4, 26, 56), x00 = 6, oy = Math.max(0, (H - (78 + b * (LH + 4)) - 12) / 2);
+      for (let i = 0; i < a; i++) {
+        const bx = x00 + i * cw + (cw - bw) / 2, col = { i, bx, open: false, leaves: [], lines: null, done: 0 };
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `第 ${i + 1} 件上衣` }, svg);
+        el('rect', { x: 0, y: 4, width: 56, height: 50, rx: 16, fill: 'rgba(0,0,0,.28)' }, g);
+        col.rect = el('rect', { x: 0, y: 0, width: 56, height: 50, rx: 16, fill: C.card2, stroke: C.aqua, 'stroke-width': 3.5 }, g);
+        txt(g, 28, 26, TOPS[i % TOPS.length], { size: 30, emoji: true });
+        col.chk = txt(g, 50, 6, '✓', { size: 18, fill: C.green, weight: 900, opacity: 0 });
+        place(g, bx, 14 + oy); col.g = g; col.top = { y: 64 + oy };
+        col.leafY = k => oy + 76 + k * (LH + 4) + LH / 2; col.oy = oy; col.ES = Math.min(22, (bw - 28) * .3, LH * .5); col.LH = LH; col.LW = bw - 28;
+        cols.push(col);
+        if (inter) {
+          g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); expand(col, true); }); keys(g, { act: () => expand(col, true) });
+        }
+      }
+      /* right side counter */
+      const cx = W - 36;
+      txt(svg, cx, H * .5 - 50, '已搭', { size: 16, fill: C.muted, weight: 800 });
+      big = txt(svg, cx, H * .5 - 14, '0', { size: 40, fill: C.violet, weight: 900 });
+      sub = txt(svg, cx, H * .5 + 22, `共 ${total} 套`, { size: 16, fill: C.muted, weight: 800 });
+      eq = txt(svg, cx, H * .5 + 48, '', { size: 18, fill: C.gold, weight: 900 });
+      if (!inter) cols.forEach(c => expand(c, false));
+    }
+    function expand(col, user) {
+      if (col.open) return; col.open = true; if (user) sfx(api, 'pop');
+      const x = col.bx + 14, gl = el('g', {}, svg); col.lines = gl;
+      const yEnd = col.leafY(b - 1);
+      el('line', { x1: x, y1: 64 + col.oy, x2: x, y2: yEnd, stroke: C.muted, 'stroke-width': 3, 'stroke-linecap': 'round' }, gl);
+      for (let k = 0; k < b; k++) {
+        const y = col.leafY(k); el('line', { x1: x, y1: y, x2: col.bx + 28, y2: y, stroke: C.muted, 'stroke-width': 3, 'stroke-linecap': 'round' }, gl);
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `第 ${col.i + 1} 件上衣配第 ${k + 1} 條褲` }, svg);
+        const w = col.LW, h = col.LH;
+        const r = el('rect', { x: 0, y: -h / 2, width: w, height: h, rx: Math.min(14, h / 2), fill: 'rgba(255,200,74,.12)', stroke: C.gold, 'stroke-width': 3, 'stroke-dasharray': '6 4' }, g);
+        const t1 = txt(g, w / 2 - w * .2, 1, BOT[k % BOT.length], { size: col.ES, emoji: true, opacity: .75 });
+        const t2 = txt(g, w / 2 + w * .22, 1, String(k + 1), { size: Math.min(18, h * .45), fill: C.gold, weight: 900 });
+        const t3 = txt(g, w / 2 - w * .22, 1, TOPS[col.i % TOPS.length], { size: col.ES, emoji: true, opacity: 0 });
+        const leaf = { g, r, t1, t2, t3, done: false };
+        place(g, col.bx + 28, y); col.leaves.push(leaf);
+        if (inter) { g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); finish(col, leaf, true); }); keys(g, { act: () => finish(col, leaf, true) }); }
+        if (!api.reduced && user) { g.setAttribute('opacity', 0); run.sleep(80 * k).then(ok => ok && run.tween(240, t => { g.setAttribute('opacity', t); place(g, col.bx + 28 - 14 * (1 - t), y); })); }
+      }
+      col.rect.setAttribute('stroke', C.gold);
+      if (!api.reduced && user) { gl.setAttribute('opacity', 0); run.tween(240, t => gl.setAttribute('opacity', t)); }
+      changed(api);
+    }
+    function finish(col, leaf, user) {
+      if (leaf.done || solved) return; leaf.done = true; col.done++; count++;
+      const k = col.leaves.indexOf(leaf), h = col.LH, w = col.LW;
+      const tint = [[C.violet, C.violetD], [C.pink, '#c84f8a'], [C.blue, '#2e7fb8'], [C.green, '#2f9d63']][k % 4]; leaf.r.setAttribute('fill', tint[0]); leaf.r.setAttribute('stroke', tint[1]); leaf.r.removeAttribute('stroke-dasharray');
+      leaf.t1.setAttribute('x', w / 2 + w * .22); leaf.t1.setAttribute('opacity', 1); leaf.t3.setAttribute('x', w / 2 - w * .22); leaf.t3.setAttribute('opacity', 1);
+      leaf.t1.textContent = BOT[k % BOT.length]; leaf.t2.textContent = '';
+      if (!api.reduced) run.tween(260, t => place(leaf.g, col.bx + 28, col.leafY(k), 1 + .12 * Math.sin(t * Math.PI)));
+      if (col.done === b) { col.chk.setAttribute('opacity', 1); col.rect.setAttribute('stroke', C.green); }
+      big.textContent = String(count); sfx(api, 'pop');
+      if (count === total) { solved = true; big.setAttribute('fill', C.gold); eq.textContent = `${a}×${b}`; sfx(api, 'good'); burst(svg, W - 36, H * .5 - 14, api, 10); }
+      changed(api);
+    }
+    build();
+    return {
+      check: () => count === total,
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        for (const col of cols) {
+          expand(col, true); if (!(await run.sleep(420))) return false;
+          for (const lf of col.leaves) { finish(col, lf, false); if (!(await run.sleep(260))) return false; }
+        }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle } = WQOly.helpers;
@@ -15300,10 +15485,10 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     lesson: [
       { t: 'show', say: '有 2 件上衣、3 條褲。像樹一樣一層層分枝。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')] }, still: true } },
       { t: 'predict', say: '上衣和褲各選一件來穿。', ask: '一共有幾款配搭？', options: ['5', '6', '8'], answer: '6', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '共 ? 款', c: 't' }] }, still: true }, reveal: '每件上衣配 3 款，3＋3＝6，就是 2×3。' },
-      { t: 'do', say: '紅上衣和藍上衣，都拉到 3 條褲。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a', 3), pantsRow('藍', 'b', 3)], braces: [{ from: 0, to: 1, label: '共 6 款', c: 't' }] } } },
+      { t: 'do', say: '點上衣長出褲，再逐條點，完成搭配。', scene: { w: 'g3_tree', p: { a: 2, b: 3 } } },
       { t: 'show', say: '每枝都分 3 枝，2 枝就是 2×3＝6 款。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '2×3＝6', c: 't' }] }, still: true } },
       { t: 'predict', say: '再多 2 頂帽子。每款再配帽。', ask: '一共有幾款？', options: ['8', '10', '12'], answer: '12', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '6 款', c: 't' }] }, still: true }, reveal: '6 款每款配 2 頂帽：6×2＝12。' },
-      { t: 'do', say: '3 件上衣、2 條褲。每件拉到 2 條褲。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a', 2), pantsRow('黃', 'b', 2), pantsRow('藍', 't', 2)], braces: [{ from: 0, to: 2, label: '共 6 款', c: 't' }] } } },
+      { t: 'do', say: '3 件上衣、2 條褲。做齊所有搭配。', scene: { w: 'g3_tree', p: { a: 3, b: 2 } } },
       { t: 'try', say: '一層一層分，答答看。', scene: { w: 'bars', p: { rows: [pantsRow('甲', 'a'), pantsRow('乙', 'b'), pantsRow('丙', 'g')] }, still: true },
         q: { stem: '3 款麵、4 款湯，各選一款。共有幾種配搭？', options: ['7', '12', '16'], answer: '12', hint: '每款麵都能配 4 款湯。', why: { 7: '7 是加出來的，每款麵都要配每款湯。', 16: '16 是 4×4，麵只有 3 款。' } } },
       { t: 'card' }
@@ -15791,7 +15976,215 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
 
 ;
 /* 小五 · 5 units (finished). p5-4 = 真假推理, p5-5 = 容斥原理 (two circles only), per 設計書「研究後修訂」.
-   Tools: only the existing ones (cycle, bars, sortcards) - no new widget, so the unit test's widget list stays valid. */
+   Tools: cycle, bars, sortcards + the dedicated g5_venn (defined at the top of this file). */
+/* ---- g5_venn（小五 p5-5 容斥專用教具）：兩個重疊圓圈（青＝A、金＝B、重疊＝粉紅），把人物卡拖入「只 A／兩樣都／只 B／都不是」。
+   p: {aName:'跳繩', bName:'游泳', cards:[{e:'🧒', n:'小明', zone:'a'|'ab'|'b'|'n'}…]}  達標＝全部卡放對；放錯會彈回。
+   鍵盤：卡片聚焦後按 1–4 放進對應區（1 只A、2 兩樣都、3 只B、4 都不是）；或點選卡片再點區域／下方按鈕。
+   mode 'show' 且 p.formula !== false：不出卡盤，示範 A＋B－重疊＝合共。 ---------------------------------------------------------------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, drag, keys, place, toPt, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+  const easeBack = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+  const ZONES = ['a', 'ab', 'b', 'n'];
+  const ZC = { a: [C.aqua, C.aquaD], ab: [C.pink, C.pinkD], b: [C.gold, C.goldD], n: [C.violet, C.violetD] };
+  const DEF = [['🧒', '小明', 'a'], ['👧', '小美', 'ab'], ['🧑', '阿強', 'b'], ['👩', '家欣', 'a'], ['🧔', '大偉', 'ab'], ['👦', '阿傑', 'n'], ['👴', '爺爺', 'b'], ['👵', '嫲嫲', 'a']];
+  let uid = 0;
+  WQOlyWidgets.make('g5_venn', { mount(host, p, api) {
+    const show = p.mode === 'show', aN = p.aName || '跳繩', bN = p.bName || '游泳', id = 'gv' + (++uid);
+    const raw = (p.cards && p.cards.length ? p.cards : DEF.map(d => ({ e: d[0], n: d[1], zone: d[2] }))).slice(0, 12);
+    const run = runner(api); const names = { a: '只' + aN, ab: '兩樣都', b: '只' + bN, n: '都不是' };
+    const cntOf = z => raw.filter(c => c.zone === z).length;
+    const A = cntOf('a') + cntOf('ab'), B = cntOf('b') + cntOf('ab'), AB = cntOf('ab'), T = A + B - AB;
+    let trayR, svg, W, H, cards, tokens, sel, geo, legend, msg, solved, chips, timers = [], trayG, tray, slots, shown;
+    const later = (f, ms) => { const t = setTimeout(f, ms); timers.push(t); };
+    function zoneAt(pt) {
+      const dA = Math.hypot(pt.x - geo.cA, pt.y - geo.cy) <= geo.r, dB = Math.hypot(pt.x - geo.cB, pt.y - geo.cy) <= geo.r;
+      if (dA && dB) return 'ab'; if (dA) return 'a'; if (dB) return 'b';
+      return pt.x >= geo.vx && pt.x <= geo.vx + geo.vw && pt.y >= geo.vy && pt.y <= geo.vy + geo.vh ? 'n' : null;
+    }
+    function slotList(z) {
+      const m = 11 * geo.ts, g = geo, out = [];
+      const ok = (x, y) => {
+        const a = Math.hypot(x - g.cA, y - g.cy), b = Math.hypot(x - g.cB, y - g.cy);
+        if (z === 'a') return a < g.r - m && b > g.r + m * .6;
+        if (z === 'b') return b < g.r - m && a > g.r + m * .6;
+        if (z === 'ab') return a < g.r - m * .8 && b < g.r - m * .8;
+        return a > g.r + m * .7 && b > g.r + m * .7 && x > g.vx + 16 && x < g.vx + g.vw - 16 && y > g.vy + (g.side ? 16 : 34) && y < g.vy + g.vh - 16 && !(g.side ? (x < g.vx + 74 && y > g.vy + g.vh - 36) : (Math.abs(x - (g.vx + g.vw / 2)) < 34 && y > g.vy + g.vh - 36));
+      };
+      for (let y = g.vy + 30; y < g.vy + g.vh; y += 13) for (let x = g.vx + 12; x < g.vx + g.vw; x += 13) if (ok(x, y)) out.push([x, y]);
+      /* greedy pick: spacing 27, start near the zone's visual centre */
+      const c = z === 'a' ? [g.cA - g.r * .4, g.cy] : z === 'b' ? [g.cB + g.r * .4, g.cy] : z === 'ab' ? [(g.cA + g.cB) / 2, g.cy] : [g.vx + g.vw - 34, g.vy + g.vh - 34];
+      out.sort((p1, p2) => Math.hypot(p1[0] - c[0], p1[1] - c[1]) - Math.hypot(p2[0] - c[0], p2[1] - c[1]));
+      let pick = [];
+      for (const f of [1, .88, .76, .66]) { pick = []; for (const q of out) { if (pick.every(r => Math.hypot(r[0] - q[0], r[1] - q[1]) >= 24 * geo.ts * f)) pick.push(q); } if (pick.length >= cntOf(z)) break; }
+      let k = 0; while (pick.length < 14) { pick.push([c[0] + (k % 3 - 1) * 20 * geo.ts, c[1] + (Math.floor(k / 3) - 1) * 20 * geo.ts]); k++; }
+      return pick;
+    }
+    function build() {
+      run.cancel(); timers.forEach(clearTimeout); timers = []; solved = false; sel = null; cards = []; tokens = []; chips = null; shown = {};
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `兩個圈圈：${aN}和${bN}，重疊的是兩樣都愛`);
+      const legendH = show ? 0 : 52, fH = show ? 60 : 0;
+      const free = H - 16 - legendH - (show ? 0 : 12) - fH - (show ? 6 : 0), n = raw.length;
+      let vx = 8, vy = 8, vw = W - 16, vh, horiz = false, tx, ty, tw, th;
+      if (show) vh = free;
+      else {
+        const trayW = W - 16, perRow = Math.max(1, Math.floor(trayW / 63)), need = Math.ceil(n / perRow) * 73 + 4, trayH = Math.min(need, free * .5);
+        vh = free - trayH - 6;
+        if (vh < 150) { horiz = true; vw = Math.round(W * .62); vh = free; tx = vx + vw + 8; ty = vy; tw = W - 8 - tx; th = free; }
+        else { tx = 8; ty = vy + vh + 6; tw = trayW; th = trayH; }
+      }
+      const need = 16 + 19 * Math.max(aN.length, bN.length), rTop = Math.min((vh - 64) / 2, vw / 2.85 - 4), rSide = Math.min((vh - 16) / 2, (vw - 2 * need) / 2.85), side = rSide >= Math.max(30, rTop * 1.12);
+      const r = Math.max(30, side ? rSide : rTop), cy = side ? vy + vh / 2 : vy + 34 + r, mid = vx + vw / 2;
+      geo = { vx, vy, vw, vh, r, cy, side, cA: mid - r * .425, cB: mid + r * .425, ts: clamp(r / 62, .8, 1.5) };
+      /* frame = 都不是 */
+      el('rect', { x: vx, y: vy, width: vw, height: vh, rx: 16, fill: 'rgba(255,255,255,.05)', stroke: C.line, 'stroke-width': 2.5, 'stroke-dasharray': '7 6' }, svg);
+      if (side) txt(svg, vx + 14, vy + vh - 15, '都不是', { size: 14, fill: C.muted, weight: 800, anchor: 'start' }); else txt(svg, mid, vy + vh - 13, '都不是', { size: 14, fill: C.muted, weight: 800 });
+      const defs = el('defs', {}, svg), cp = el('clipPath', { id: id + 'c' }, defs); el('circle', { cx: geo.cA, cy, r }, cp);
+      el('circle', { cx: geo.cA, cy, r, fill: C.aqua, 'fill-opacity': .2, stroke: C.aqua, 'stroke-width': 3.5 }, svg);
+      el('circle', { cx: geo.cB, cy, r, fill: C.gold, 'fill-opacity': .2, stroke: C.gold, 'stroke-width': 3.5 }, svg);
+      el('circle', { cx: geo.cB, cy, r, fill: C.pink, 'fill-opacity': .42, 'clip-path': `url(#${id}c)` }, svg);
+      el('circle', { cx: geo.cA, cy, r, fill: 'none', stroke: C.aqua, 'stroke-width': 3.5 }, svg);
+      if (side) { txt(svg, geo.cA - r - 8, cy, aN, { size: 19, fill: C.aqua, weight: 900, anchor: 'end' }); txt(svg, geo.cB + r + 8, cy, bN, { size: 19, fill: C.gold, weight: 900, anchor: 'start' }); }
+      else { txt(svg, geo.cA - r * .4, vy + 19, aN, { size: 19, fill: C.aqua, weight: 900 }); txt(svg, geo.cB + r * .4, vy + 19, bN, { size: 19, fill: C.gold, weight: 900 }); }
+      slots = {}; ZONES.forEach(z => { slots[z] = slotList(z); });
+      /* legend (also big tap targets) */
+      legend = {};
+      if (!show) {
+        const lw = (W - 16 - 18) / 4, ly = H - 8 - 52;
+        ZONES.forEach((z, k) => {
+          const g = el('g', { class: 'r80-sb', role: 'button', 'aria-label': `${k + 1} ${names[z]}` }, svg), x = 8 + k * (lw + 6);
+          const rc = el('rect', { x, y: ly, width: lw, height: 52, rx: 14, fill: C.card2, stroke: ZC[z][0], 'stroke-width': 3 }, g);
+          txt(g, x + lw / 2, ly + 16, `${k + 1} ${names[z]}`, { size: 15, fill: ZC[z][0], weight: 900 });
+          const ct = txt(g, x + lw / 2, ly + 38, '0', { size: 22, fill: C.text, weight: 900 });
+          g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); if (sel) attempt(sel, z, true); });
+          keys(g, { act: () => { if (sel) attempt(sel, z, true); } });
+          legend[z] = { rc, ct };
+        });
+        msg = txt(svg, W / 2, H - 8 - 52 - 9, '', { size: 16, fill: C.bad, weight: 800 });
+        /* tap a region of the picture to drop the selected card there */
+        svg.addEventListener('click', ev => { if (!sel || solved) return; const z = zoneAt(toPt(svg, ev)); if (z) attempt(sel, z, true); });
+      }
+      trayR = { x: tx, y: ty, w: tw, h: th };
+      /* tray + cards */
+      trayG = el('g', {}, svg);
+      if (!show) {
+        let best = null;
+        for (let cols = 1; cols <= 7; cols++) { const rows = Math.ceil(n / cols), s = Math.min(1, (tw / cols - 3) / 60, (th / rows - 3) / 70); if (!best || s > best.s + 1e-6) best = { cols, rows, s }; }
+        const { cols, rows, s } = best, pw = tw / cols, ph = Math.min(th / rows, 76);
+        const y0 = ty + (th - ph * rows) / 2;
+        raw.forEach((c, i) => {
+          const o = { ...c, i, s, x: tx + pw * (i % cols) + pw / 2, y: y0 + ph * Math.floor(i / cols) + ph / 2, placed: false };
+          o.hx = o.x; o.hy = o.y; makeCard(o); cards.push(o);
+        });
+      } else {
+        raw.forEach((c, i) => { const o = { ...c, i }; tokens.push(addToken(o, false)); shown[i] = true; });
+        drawChips(tx = 8, ty = vy + vh + 6 + 0, vw);
+      }
+      counts();
+    }
+    function makeCard(o) {
+      const g = el('g', { class: 'r80-chip', role: 'button', 'aria-label': `${o.n}：${o.zone === 'a' ? '只' + aN : o.zone === 'b' ? '只' + bN : o.zone === 'ab' ? '兩樣都' : '都不是'}？按 1 至 4 放區` }, svg);
+      o.g = g;
+      const inner = el('g', {}, g);
+      el('rect', { x: -30, y: -31, width: 60, height: 70, rx: 14, fill: 'rgba(0,0,0,.28)' }, inner);
+      o.body = el('rect', { x: -30, y: -35, width: 60, height: 70, rx: 14, fill: C.card2, stroke: C.line, 'stroke-width': 2.5 }, inner);
+      txt(inner, 0, -19, o.e, { size: 26, emoji: true });
+      txt(inner, 0, 3, o.n || '', { size: 13, fill: C.text, weight: 800 });
+      const has = { a: o.zone === 'a' || o.zone === 'ab', b: o.zone === 'b' || o.zone === 'ab' };
+      [['a', -15, C.aqua, aN], ['b', 15, C.gold, bN]].forEach(([k, x, col, nm]) => {
+        el('rect', { x: x - 13, y: 12, width: 26, height: 18, rx: 9, fill: has[k] ? col : 'none', stroke: has[k] ? col : C.muted, 'stroke-width': 1.8, 'stroke-dasharray': has[k] ? null : '3 3', opacity: has[k] ? 1 : .6 }, inner);
+        txt(inner, x, 21.5, nm[0], { size: 13, fill: has[k] ? C.ink : C.muted, weight: 900, opacity: has[k] ? 1 : .7 });
+      });
+      place(g, o.x, o.y, o.s);
+      let ox = 0, oy = 0;
+      drag(g, svg, {
+        start(pt) { if (solved || o.placed) return false; svg.appendChild(g); ox = pt.x - o.x; oy = pt.y - o.y; g.classList.add('lift'); return {}; },
+        move(pt) { o.x = pt.x - ox; o.y = pt.y - oy; place(g, o.x, o.y, o.s * 1.12); const z = zoneAt({ x: o.x, y: o.y }); hot(z); },
+        async end(pt, ctx, e, moved) { g.classList.remove('lift'); hot(null); if (!moved) return; attempt(o, zoneAt({ x: o.x, y: o.y }), false); },
+        tap() { g.classList.remove('lift'); select(o); }
+      });
+      g.setAttribute('tabindex', '0');
+      g.addEventListener('keydown', e => {
+        if (e.key >= '1' && e.key <= '4') { e.preventDefault(); attempt(o, ZONES[+e.key - 1], true); }
+        else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(o); }
+      });
+    }
+    function hot(z) { for (const k in legend) legend[k].rc.setAttribute('stroke-width', k === z ? 7 : 3); }
+    function select(o) {
+      if (solved || o.placed) return; sel = sel === o ? null : o; sfx(api, 'tap');
+      cards.forEach(c => c.body && c.body.setAttribute('stroke', c === sel ? C.gold : C.line)); cards.forEach(c => c.body && c.body.setAttribute('stroke-width', c === sel ? 5 : 2.5));
+    }
+    function say(s) { if (!msg) return; msg.textContent = s; later(() => { if (msg.textContent === s) msg.textContent = ''; }, 1500); }
+    function addToken(o, pop) {
+      const k = tokens.filter(t => t.z === o.zone).length, [x, y] = slots[o.zone][k] || slots[o.zone][0];
+      const g = el('g', { 'pointer-events': 'none' }, svg); el('circle', { r: 12 * geo.ts, fill: C.card2, stroke: ZC[o.zone][0], 'stroke-width': 2.5 }, g); txt(g, 0, 1, o.e, { size: 15 * geo.ts, emoji: true });
+      place(g, x, y); const t = { g, x, y, z: o.zone, o };
+      if (pop && !api.reduced) run.tween(260, v => place(g, x, y, Math.max(.01, v)), easeBack);
+      return t;
+    }
+    async function attempt(o, z, snap) {
+      if (solved || o.placed || o.busy) return;
+      if (!z) { await goHome(o); return; }
+      if (z !== o.zone) {
+        sfx(api, 'bad'); say(`${o.n} 不屬於「${names[z]}」，再看看圈圈`);
+        o.busy = true; const x0 = o.x;
+        if (!api.reduced) await run.tween(260, t => place(o.g, x0 + Math.sin(t * Math.PI * 4) * 7 * (1 - t), o.y, o.s)); 
+        o.busy = false; await goHome(o); return;
+      }
+      o.placed = true; o.busy = true; sel = null; cards.forEach(c => { c.body.setAttribute('stroke', C.line); c.body.setAttribute('stroke-width', 2.5); });
+      const k = tokens.filter(t => t.z === z).length, [sx, sy] = slots[z][k] || slots[z][0], x0 = o.x, y0 = o.y; svg.appendChild(o.g);
+      await run.tween(300, t => { o.x = x0 + (sx - x0) * t; o.y = y0 + (sy - y0) * t - Math.sin(t * Math.PI) * 14; place(o.g, o.x, o.y, o.s + (.42 - o.s) * t); });
+      o.g.remove(); o.busy = false; tokens.push(addToken(o, true)); sfx(api, 'pop'); counts();
+      if (cards.every(c => c.placed)) win(); changed(api);
+    }
+    async function goHome(o) { const x0 = o.x, y0 = o.y; o.busy = true; await run.tween(220, t => { o.x = x0 + (o.hx - x0) * t; o.y = y0 + (o.hy - y0) * t; place(o.g, o.x, o.y, o.s); }); o.busy = false; o.x = o.hx; o.y = o.hy; place(o.g, o.x, o.y, o.s); }
+    function counts() { if (show) return; ZONES.forEach(z => { legend[z].ct.textContent = String(tokens.filter(t => t.z === z).length); }); }
+    function win() {
+      solved = true; sfx(api, 'good'); burst(svg, (geo.cA + geo.cB) / 2, geo.cy, api);
+      const g = el('g', {}, trayG), cx = trayR.x + trayR.w / 2, cyT = trayR.y + trayR.h / 2;
+      txt(g, cx, cyT - 28, `${aN}＋${bN}－重疊`, { size: 14, fill: C.muted, weight: 800 });
+      txt(g, cx, cyT, `${A} ＋ ${B} － ${AB}`, { size: 20, fill: C.text, weight: 900 });
+      txt(g, cx, cyT + 30, `＝ ${T}`, { size: 30, fill: C.gold, weight: 900 });
+    }
+    function drawChips(x, y, w) {
+      const items = [[aN, A, C.aqua], [bN, B, C.gold], ['重疊', AB, C.pink], ['合共', T, C.violet]], ops = ['＋', '－', '＝'], cw = Math.min(78, (w - 3 * 20) / 4), tot = cw * 4 + 60, x0 = x + (w - tot) / 2;
+      chips = [];
+      items.forEach((it, i) => {
+        const cx = x0 + i * (cw + 20) + cw / 2, cyc = y + 28, g = el('g', {}, svg);
+        const rc = el('rect', { x: cx - cw / 2, y: cyc - 26, width: cw, height: 54, rx: 14, fill: C.card2, stroke: it[2], 'stroke-width': 3 }, g);
+        const lab = txt(g, cx, cyc - 11, it[0], { size: 14, fill: it[2], weight: 900 });
+        const num = txt(g, cx, cyc + 12, '？', { size: 24, fill: C.muted, weight: 900 });
+        chips.push({ rc, num, lab, v: it[1], col: it[2] });
+        if (i < 3) txt(svg, cx + cw / 2 + 10, cyc + 1, ops[i], { size: 24, fill: C.text, weight: 900 });
+      });
+    }
+    function light(i) { const c = chips[i]; c.num.textContent = String(c.v); c.num.setAttribute('fill', C.text); c.rc.setAttribute('fill', c.col); c.rc.setAttribute('fill-opacity', .85); c.num.setAttribute('fill', C.ink); c.lab.setAttribute('fill', C.ink); sfx(api, 'pop'); }
+    build();
+    return {
+      check: () => show ? !!(chips && chips.every(c => c.num.textContent !== '？')) : cards.every(c => c.placed),
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); timers.forEach(clearTimeout); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        if (show) {
+          tokens.forEach(t => t.g.remove()); tokens = [];
+          const put = async zs => { for (const o of raw.map((c, i) => ({ ...c, i })).filter(c => zs.includes(c.zone))) { tokens.push(addToken(o, true)); sfx(api, 'pop'); if (!(await run.sleep(170))) return false; } return true; };
+          if (!(await put(['a', 'ab']))) return false; light(0); if (!(await run.sleep(350))) return false;
+          if (!(await put(['b']))) return false; light(1); if (!(await run.sleep(350))) return false;
+          light(2); tokens.filter(t => t.z === 'ab').forEach(t => t.g.firstChild.setAttribute('stroke-width', 5)); if (!(await run.sleep(450))) return false;
+          if (!(await put(['n']))) return false; light(3); sfx(api, 'good'); burst(svg, (geo.cA + geo.cB) / 2, geo.cy, api); changed(api); return true;
+        }
+        for (const o of cards) { if (o.placed) continue; svg.appendChild(o.g); await attempt(o, o.zone, true); if (!(await run.sleep(180))) return false; }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle } = WQOly.helpers;
@@ -16004,7 +16397,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
   const g53 = {
     A: [
       (r, p) => {
-        const m = ri(r, 2, 6), n = m * ri(r, 1, 6) + ri(r, 1, m - 1) + (r() < .15 ? m - 1 : 0), itc = pick(r, [['蘋果', '個'], ['糖', '粒'], ['橙', '個'], ['書', '本']]), it = itc[0], cl = itc[1], s = Math.ceil(n / m), fl = Math.floor(n / m);
+        const m = ri(r, 2, 6), n = m * ri(r, 1, 6) + ri(r, 1, m - 1) + (r() < .15 ? m : 0), itc = pick(r, [['蘋果', '個'], ['糖', '粒'], ['橙', '個'], ['書', '本']]), it = itc[0], cl = itc[1], s = Math.ceil(n / m), fl = Math.floor(n / m);
         return O('drawer', `把 ${n} ${cl}${it}放進 ${m} 個盒子，最少有一個盒子有幾${cl}？`, s, '先平均分，再看餘下的。',
           `${n}÷${m}＝${fl} 餘 ${n % m}。餘下的要多放一個，所以最少有一盒有 ${fl}＋1＝${s} 個。`,
           [fl, s + 1, n - m, m], '', [], { svg: boxSvg(n, m, it), why: { [fl]: '平均分後還有剩，總有一個盒要多放一個，所以要加 1。', [s + 1]: '餘下的只要多放一個，不用再多加。', [n - m]: '不是拿總數減盒數，要用除法平均分。' } });
@@ -16237,6 +16630,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     return null;
   };
   /* bars as a "Venn on a number line": the overlap sits under both circles */
+  const VCARDS = [{ e: '🧒', n: '小明', zone: 'a' }, { e: '👧', n: '小美', zone: 'a' }, { e: '🧑', n: '阿強', zone: 'a' }, { e: '👩', n: '家欣', zone: 'ab' }, { e: '🧔', n: '大偉', zone: 'ab' }, { e: '👦', n: '阿傑', zone: 'ab' }, { e: '👴', n: '爺爺', zone: 'ab' }, { e: '👵', n: '嫲嫲', zone: 'ab' }, { e: '🧓', n: '婆婆', zone: 'b' }, { e: '👨', n: '叔叔', zone: 'b' }];
   const VB = (a, b, c) => [
     { label: '跳繩', segs: [{ u: a - c, c: 'a', text: '只跳' }, { u: c, c: 'd', text: '都愛' }] },
     { label: '游泳', segs: [{ u: a - c, c: 'a', dashed: true, text: '' }, { u: c, c: 'd', text: '都愛' }, { u: b - c, c: 'b', text: '只游' }] }
@@ -16247,7 +16641,8 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     lesson: [
       { t: 'show', say: '8 人愛跳繩，7 人愛游泳，5 人兩樣都愛。', scene: { w: 'bars', p: { rows: VB(8, 7, 5) } } },
       { t: 'predict', say: '粉紅色的 5 人，兩邊都數到。', ask: '至少愛一樣的有幾人？', options: ['15', '10', '12'], answer: '10', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 10, c: 't', text: '？' }] }]) }, still: true }, reveal: '粉紅的 5 人數了兩次。15－5＝10。' },
-      { t: 'do', say: '拉動把手，把粉紅色的人只數一次。', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 15, c: 't', edit: true, target: 10, min: 1, max: 15 }] }]) } } },
+      { t: 'do', say: '把每個人拖進正確的區。', scene: { w: 'g5_venn', p: { aName: '跳繩', bName: '游泳', cards: VCARDS } } },
+      { t: 'show', say: '跳繩 8，游泳 7，粉紅色數了兩次。', scene: { w: 'g5_venn', p: { aName: '跳繩', bName: '游泳', cards: VCARDS, formula: true } } },
       { t: 'show', say: '8＋7－5＝10。重疊的人要減一次。', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 10, c: 't', text: '10 人' }] }]) }, still: true } },
       { t: 'predict', say: '全班 13 人。', ask: '兩樣都不愛的有幾人？', options: ['3', '5', '2'], answer: '3', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '全班', segs: [{ u: 10, c: 't', text: '10 人' }, { u: 3, c: 'd', dashed: true, text: '？' }] }]) }, still: true }, reveal: '至少愛一樣的有 10 人。13－10＝3，有 3 人都不愛。' },
       { t: 'try', say: '用同一方法。', scene: { w: 'bars', p: { rows: VB(11, 9, 4) }, still: true },
@@ -16472,16 +16867,17 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
   /* ---- p6-3 工程問題 ---------------------------------------------------------------------------------------------------- */
   const art63 = '<svg viewBox="0 0 120 80"><rect x="10" y="10" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="10" width="66" height="14" rx="3" fill="#3ee6d0" fill-opacity=".5"/><rect x="10" y="30" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="30" width="33" height="14" rx="3" fill="#ffc94a" fill-opacity=".5"/><rect x="10" y="52" width="100" height="22" rx="11" fill="#ff8fc7"/><text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="900" fill="#0b1030">全部看成 1</text></svg>';
   const PAIRS = [[3, 6, 2], [4, 12, 3], [6, 12, 4], [4, 4, 2], [6, 6, 3], [12, 12, 6], [2, 2, 1], [12, 6, 4], [12, 4, 3], [6, 3, 2]];
+  const lcm = (a, b) => a / gcd(a, b) * b;
   const g63 = {
     A: [
       (r, p) => {
         const [a, b, t] = pick(r, PAIRS), w = pick(r, ['獨做', '單獨做']);
-        return O('work', `甲${w} ${a} 日完成，乙${w} ${b} 日完成。兩人合做，幾日完成？`, t, '把全部工作看成 1。', `甲每日做 1/${a}，乙每日做 1/${b}，合共每日做 ${a + b}/${a * b}，全部要 ${a * b}÷${a + b}＝${t} 日。`,
+        return O('work', `甲${w} ${a} 日完成，乙${w} ${b} 日完成。兩人合做，幾日完成？`, t, '把全部工作看成幾份。', `全部看成 ${lcm(a, b)} 份：甲每日做 ${lcm(a, b) / a} 份，乙每日做 ${lcm(a, b) / b} 份，合共 ${lcm(a, b) / a + lcm(a, b) / b} 份；${lcm(a, b)}÷${lcm(a, b) / a + lcm(a, b) / b}＝${t} 日。`,
           [a + b, Math.max(a, b), Math.min(a, b), t + 1], `${a}*${b}/(${a}+${b})`, [], { svg: workSvg(a, b, ['甲', '乙']), why: { [a + b]: '日數不能直接相加，要先求每日各做多少。', [Math.max(a, b)]: '合做一定比單獨做快，日數比較少。' } });
       },
       (r, p) => {
         const [a, b, t] = pick(r, PAIRS);
-        return O('work-pipe', `水池有甲、乙兩根水管。單開甲管 ${a} 小時注滿，單開乙管 ${b} 小時注滿。兩管齊開，幾小時注滿？`, t, '把整池水看成 1。', `甲管每小時注 1/${a}，乙管每小時注 1/${b}，合共 ${a + b}/${a * b}，全池要 ${a * b}÷${a + b}＝${t} 小時。`,
+        return O('work-pipe', `水池有甲、乙兩根水管。單開甲管 ${a} 小時注滿，單開乙管 ${b} 小時注滿。兩管齊開，幾小時注滿？`, t, '把整池水看成幾份。', `整池看成 ${lcm(a, b)} 份：甲管每小時注 ${lcm(a, b) / a} 份，乙管注 ${lcm(a, b) / b} 份，合共 ${lcm(a, b) / a + lcm(a, b) / b} 份；${lcm(a, b)}÷${lcm(a, b) / a + lcm(a, b) / b}＝${t} 小時。`,
           [a + b, Math.max(a, b), Math.min(a, b), t + 1], `${a}*${b}/(${a}+${b})`, [], { svg: workSvg(a, b, ['甲管', '乙管']), why: { [a + b]: '時間不能直接相加，要先求每小時各注多少。', [Math.min(a, b)]: '兩管齊開，一定比最快的一根還要快。' } });
       },
       (r, p) => {
@@ -16494,7 +16890,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       (r, p) => {
         for (let i = 0; i < 100; i++) {
           const [a, b] = pick(r, PAIRS), d = ri(r, 1, 3), left = b * (1 - d * (1 / a + 1 / b)), L = Math.round(left);
-          if (Math.abs(left - L) < 1e-9 && L > 0 && L <= 12) return O('work-leave', `甲獨做 ${a} 日，乙獨做 ${b} 日。兩人合做 ${d} 日後甲離開，乙再做幾日完成？`, L, '先求合做 ' + d + ' 日完成了多少。', `合做 ${d} 日完成 ${d}×(1/${a}＋1/${b})＝${frac(d * (a + b), a * b)}，餘下 ${frac(a * b - d * (a + b), a * b)}，乙每日 1/${b}，要 ${L} 日。`,
+          if (Math.abs(left - L) < 1e-9 && L > 0 && L <= 12) return O('work-leave', `甲獨做 ${a} 日，乙獨做 ${b} 日。兩人合做 ${d} 日後甲離開，乙再做幾日完成？`, L, '先求合做 ' + d + ' 日完成了多少。', `全部看成 ${lcm(a, b)} 份：合做每日 ${lcm(a, b) / a + lcm(a, b) / b} 份，${d} 日做了 ${d * (lcm(a, b) / a + lcm(a, b) / b)} 份，餘下 ${lcm(a, b) - d * (lcm(a, b) / a + lcm(a, b) / b)} 份；乙每日 ${lcm(a, b) / b} 份，要 ${L} 日。`,
             [b - d, L + 1, d, b], '', [], { svg: workSvg(a, b, ['甲', '乙']), why: { [b - d]: '乙不是全程單獨做，合做時甲也做了一部分。', [b]: '乙合做那幾日也做了工作，不用整個 ' + b + ' 日。' } });
         }
         return O('work-leave', '甲獨做 6 日，乙獨做 12 日。兩人合做 2 日後甲離開，乙再做幾日完成？', 6, '先求合做 2 日完成了多少。', '合做 2 日完成 1/2，餘下 1/2，乙每日 1/12，要 6 日。', [4, 8, 2, 12], '', [], { svg: workSvg(6, 12, ['甲', '乙']), why: { 4: '乙不是全程單獨做，合做時甲也做了一部分。', 12: '乙合做那幾日也做了工作。' } });
@@ -16507,7 +16903,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       (r, p) => {
         for (let i = 0; i < 200; i++) {
           const [a, b, t] = pick(r, PAIRS.filter(x => x[0] > 2)), d = ri(r, 1, a - 1), days = (a - d) * t / a;
-          if (Number.isInteger(days) && days >= 1) return O('work-head', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。甲先獨做 ${d} 日，乙才加入合做，再做幾日完成？`, days, `先求甲做了 ${d} 日，餘下多少。`, `甲做 ${d} 日完成 ${d}/${a}，餘下 ${a - d}/${a}。合做每日 ${a + b}/${a * b}：(${a - d}/${a})÷(${a + b}/${a * b})＝${days} 日。`,
+          if (Number.isInteger(days) && days >= 1) return O('work-head', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。甲先獨做 ${d} 日，乙才加入合做，再做幾日完成？`, days, `先求甲做了 ${d} 日，餘下多少。`, `全部看成 ${lcm(a, b)} 份：甲每日 ${lcm(a, b) / a} 份，先做 ${d} 日共 ${d * lcm(a, b) / a} 份，餘下 ${lcm(a, b) - d * lcm(a, b) / a} 份；合做每日 ${lcm(a, b) / a + lcm(a, b) / b} 份，${lcm(a, b) - d * lcm(a, b) / a}÷${lcm(a, b) / a + lcm(a, b) / b}＝${days} 日。`,
             [d, t, days + 1, a - d], '', [], { svg: workSvg(a, b, ['甲', '乙']), why: { [t]: `${t} 日是由頭合做的日數，甲先做了一部分，合做會少些。`, [a - d]: `${a - d} 是甲餘下的日數，乙加入後兩人合做更快。` } });
         }
         return O('work-head', '甲獨做 6 日完成，乙獨做 12 日完成。甲先獨做 3 日，乙才加入合做，再做幾日完成？', 2, '', '甲做 3 日完成 1/2，餘下 1/2，合做每日 1/4，要 2 日。', [3, 4, 1, 6], '', [], { svg: workSvg(6, 12, ['甲', '乙']), why: { 4: '甲先做了一部分，合做會少些。', 3: '這是甲先做的日數。' } });
@@ -16711,8 +17107,8 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       { t: 'do', say: '展開圖橫排四格，圍成一圈。從 2 走 2 步，找 2 的對面。', scene: { w: 'cycle', p: { n: 4, labels: [2, 5, 1, 4], steps: 2, unit: '步' } } },
       { t: 'try', say: '想想它們在哪個位置。', scene: { w: 'bars', p: { rows: [{ label: '全部', segs: [{ u: 27, c: 't', text: '27 塊' }] }, { label: '一面', segs: [{ u: 6, c: 'g', text: '？' }] }] }, still: true },
         q: { stem: '把 3×3×3 的積木外面全部塗色，再切成 27 個小正方體。一面有色的有幾個？', options: ['6', '8', '12'], answer: '6', hint: '一面有色的在 6 個面的中間。', why: { 8: '8 是三面有色的角塊。', 12: '12 是兩面有色的邊塊。' } } },
-      { t: 'try', say: '用「對面隔一格」。', scene: { w: 'cycle', p: { n: 4, labels: [2, 5, 1, 4], steps: 2, unit: '步' }, still: true },
-        q: { stem: '展開圖橫排四格 2、5、1、4，3 在 5 上面，6 在 1 下面。摺成正方體，2 的對面是幾？', options: ['1', '5', '4'], answer: '1', hint: '橫排四格圍成一圈，對面隔一格。', why: { 5: '5 在 2 的旁邊，是鄰面。', 4: '4 也在 2 的旁邊（圍成一圈後相連）。' } } },
+      { t: 'try', say: '用「對面隔一格」。',
+        q: { svg: netSvg([2, 5, 1, 4], 1, 3, 2, 6, 2), stem: '展開圖橫排四格 2、5、1、4，3 在 5 上面，6 在 1 下面。摺成正方體，2 的對面是幾？', options: ['1', '5', '4'], answer: '1', hint: '橫排四格圍成一圈，對面隔一格。', why: { 5: '5 在 2 的旁邊，是鄰面。', 4: '4 也在 2 的旁邊（圍成一圈後相連）。' } } },
       { t: 'card' }
     ],
     gens: g65, verify: verify65

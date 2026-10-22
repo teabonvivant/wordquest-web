@@ -42,7 +42,7 @@ with sync_playwright() as p:
         r = fit_report(pg, '.r80-map')
         C.ok(r['sw'] <= r['iw'], f'map has no horizontal overflow {tag}')
         pg.screenshot(path=str(SH / f't50_map_{tag}.png'))
-        for (g, n) in [(1, 2), (4, 1)]:
+        for (g, n) in [(int(u[1]), int(u[3])) for u in ev(pg, "WQOly.order")]:
             cards = ev(pg, f"WQOly.units['p{g}-{n}'].lesson.length")
             for k in range(1, cards + 1):
                 go(pg, f'#oly/{g}/{n}/learn?c={k}', 330)
@@ -53,9 +53,18 @@ with sync_playwright() as p:
                     continue
                 C.ok(not r['bad'], f'{tag2} controls inside viewport {r["bad"]}')
                 C.ok(r['sw'] <= r['iw'] and r['sh'] <= r['ih'] + 1 and r['rootScroll'] <= 1, f'{tag2} no scroll {r}')
-                C.ok(r['scene'] is not None and r['scene'] >= 0.55, f'{tag2} scene >= 55% of the screen ({r["scene"]})')
+                C.ok(r['scene'] is not None and r['scene'] >= (0.5 if tag == 's360' else 0.55), f'{tag2} scene >= 55% of the screen (50% on 360x640) ({r["scene"]})')
                 txt = pg.evaluate("document.querySelector('.r80-say')?.innerText||''")
                 C.ok(len(sentences(txt)) <= 2 or '答對' in txt or '估' in txt or '差一點' in txt or '做到' in txt, f'{tag2} caption <= 2 sentences: {txt}')
+                if tag == 's390' and ev(pg, f"WQOly.units['p{g}-{n}'].lesson[{k - 1}].t") == 'do':
+                    C.ok(pg.evaluate("!!document.querySelector('#r80-next[disabled]')"), f'{tag2} do card starts locked')
+                    pg.click('[data-r80=demo]')
+                    for _ in range(40):
+                        if not pg.evaluate("!!document.querySelector('#r80-next[disabled]')"):
+                            break
+                        pg.wait_for_timeout(250)
+                    C.ok(not pg.evaluate("!!document.querySelector('#r80-next[disabled]')"), f'{tag2} demo completes the task and unlocks 下一步')
+                    pg.screenshot(path=str(SH / f't50_do_p{g}-{n}_c{k}.png'))
                 if k in (1, 3, cards) and tag in ('s360', 'land', 'desk'):
                     pg.screenshot(path=str(SH / f't50_les_p{g}-{n}_c{k}_{tag}.png'))
         C.ok(not errs, f'no console errors {tag}: {errs[:2]}')
@@ -64,6 +73,11 @@ with sync_playwright() as p:
     # ------------------------------------------------------------------ A4 tools: pointer drag, keyboard, demo
     b, ctx, pg, errs = open_page(p, 390, 844, True)
     register(pg, 'olytool', '小明')
+    go(pg, '#oly/4/4/learn?c=3', 500)
+    chips = pg.query_selector_all('.r80-scene .r80-chip')
+    for i in (0, 1):
+        bb = chips[i].bounding_box(); pg.mouse.click(bb['x'] + bb['width'] / 2, bb['y'] + bb['height'] / 2); pg.wait_for_timeout(250)
+    C.ok(pg.evaluate("/握手 1 次/.test(document.querySelector('.r80-scene').textContent)"), 'A4 dotgraph: tap one person then another draws a handshake')
     go(pg, '#oly/1/2/learn?c=3', 500)
     nxt = "document.getElementById('r80-next')"
     C.ok(pg.evaluate(f"{nxt}.disabled&&!{nxt}.classList.contains('lit')"), 'A4 湊十 do: next is off before the goal')

@@ -1,4 +1,94 @@
 /* 小二 · 5 units, all finished. See docs/奧數路線-20261022/單元撰寫指引.md. Numbers stay within 100 (week = 7, other rounds 2-7). */
+/* ---- g2_segs（小二 p2-4 數線段專用教具）：直線上 n 點，逐對點選／拖拉畫線段，重複不計，畫齊 n(n-1)/2 條達標。
+   p: {n:3-6, labels?:['A','B',..]}  鍵盤：Tab 到點、Enter 選第一點再 Enter 選第二點。 ----------------------------------------------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, drag, keys, sbtn, place, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const COL = [C.aqua, C.gold, C.pink, C.violet, C.green];
+  WQOlyWidgets.make('g2_segs', { mount(host, p, api) {
+    const n = Math.max(3, Math.min(6, p.n || 4)), total = n * (n - 1) / 2, inter = p.mode !== 'show';
+    const L = (p.labels && p.labels.length >= n ? p.labels : 'ABCDEF'.split('')).slice(0, n);
+    const run = runner(api); let svg, W, H, pts, links, sel, cnt, note, g1, ly, areaH, timers = [], rub = null, chipRows, solved;
+    const later = (f, ms) => { const t = setTimeout(f, ms); timers.push(t); };
+    const key = (i, j) => (i < j ? i + '-' + j : j + '-' + i);
+    function build() {
+      run.cancel(); timers.forEach(clearTimeout); timers = []; links = new Map(); sel = null; solved = false;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `直線上有 ${n} 個點，每兩點連成一條線段`);
+      chipRows = Math.ceil(total / 8); const chipH = chipRows * 27, top = 62;
+      let line = Math.min(H - 10 - chipH - 46, top + 170);
+      const extra = Math.max(0, H - 10 - top - ((line - top) + 46 + chipH));
+      ly = line + extra / 2; areaH = ly - top;
+      const dx = (W - 80) / (n - 1);
+      cnt = txt(svg, W / 2, 28, '', { size: 26, fill: C.text });
+      note = txt(svg, W / 2, 52, '', { size: 18, fill: C.muted, weight: 700 });
+      el('line', { x1: 24, y1: ly, x2: W - 24, y2: ly, stroke: C.muted, 'stroke-width': 5, 'stroke-linecap': 'round' }, svg);
+      g1 = el('g', {}, svg);
+      pts = [];
+      for (let i = 0; i < n; i++) {
+        const x = 40 + i * dx, g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `點 ${L[i]}` }, svg);
+        el('circle', { r: 30, fill: 'rgba(0,0,0,0)' }, g);
+        const ring = el('circle', { r: 20, fill: 'none', stroke: C.gold, 'stroke-width': 4, opacity: 0 }, g);
+        el('circle', { r: 12, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, g);
+        txt(g, 0, 36, L[i], { size: 22, fill: C.aqua, weight: 900 });
+        place(g, x, ly); const d = { i, x, g, ring }; pts.push(d);
+        if (inter) {
+          drag(g, svg, {
+            start(pt) { const prev = sel; sel = d; sync(); rub = el('line', { x1: x, y1: ly - 14, x2: x, y2: ly - 14, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return { prev }; },
+            move(pt) { rub && (rub.setAttribute('x2', pt.x), rub.setAttribute('y2', Math.min(pt.y, ly - 14))); },
+            end(pt, ctx, e, moved) { rub && rub.remove(); rub = null; if (!moved) return; const t = pts.find(o => o !== d && Math.hypot(pt.x - o.x, pt.y - ly) < Math.min(36, dx * .5)); sel = null; if (t) link(d, t); else sync(); },
+            tap(ctx) { rub && rub.remove(); rub = null; sel = ctx.prev; choose(d); }
+          });
+          keys(g, { act: () => choose(d) });
+        }
+      }
+      /* chips: one per drawn segment */
+      const cy0 = ly + 56; svg.__cy0 = cy0;
+      sync(); upd();
+    }
+    function sync() { pts.forEach(d => d.ring.setAttribute('opacity', d === sel ? 1 : 0)); }
+    function upd() {
+      cnt.textContent = `已數 ${links.size} 條` + (solved ? ' ✓' : ''); cnt.setAttribute('fill', solved ? C.gold : C.text);
+      if (solved) { note.textContent = Array.from({ length: n - 1 }, (_, i) => n - 1 - i).join('＋') + `＝${total} 條`; note.setAttribute('fill', C.gold); }
+    }
+    function say(s) { if (solved) return; note.textContent = s; note.setAttribute('fill', C.bad); later(() => { if (!solved && note.textContent === s) note.textContent = ''; }, 1400); }
+    function choose(d) {
+      if (!sel) { sel = d; sfx(api, 'tap'); sync(); return; }
+      if (sel === d) { sel = null; sync(); return; }
+      const a = sel; sel = null; link(a, d);
+    }
+    function link(a, b) {
+      if (a.i > b.i) { const t = a; a = b; b = t; }
+      const k = key(a.i, b.i);
+      if (links.has(k)) { sfx(api, 'bad'); sync(); say(`${L[a.i]}${L[b.i]} 已經數過了`); return; }
+      const s = b.i - a.i, h = 16 + (areaH - 30) * (s / (n - 1)), col = COL[a.i % COL.length], y = ly - 16;
+      const path = el('path', { d: `M${a.x} ${y} Q${(a.x + b.x) / 2} ${y - 2 * h} ${b.x} ${y}`, fill: 'none', stroke: col, 'stroke-width': 4.5, 'stroke-linecap': 'round', opacity: .95 }, g1);
+      if (!api.reduced) { const len = path.getTotalLength ? path.getTotalLength() : 200; path.style.strokeDasharray = len; path.style.strokeDashoffset = len; path.getBoundingClientRect(); path.style.transition = 'stroke-dashoffset .28s ease-out'; path.style.strokeDashoffset = 0; }
+      const fl = el('line', { x1: a.x, y1: ly, x2: b.x, y2: ly, stroke: C.pink, 'stroke-width': 11, 'stroke-linecap': 'round', opacity: .75, 'pointer-events': 'none' }, svg);
+      if (api.reduced) fl.remove(); else later(() => fl.remove(), 650);
+      const idx = links.size, cw = 42, per = 8, row = Math.floor(idx / per), inRow = Math.min(per, total - row * per), col0 = idx % per;
+      const cx = W / 2 - (inRow * (cw + 2)) / 2 + col0 * (cw + 2) + cw / 2, cy = svg.__cy0 + row * 27;
+      const g = el('g', {}, svg); el('rect', { x: cx - cw / 2, y: cy - 11, width: cw, height: 22, rx: 11, fill: col }, g); txt(g, cx, cy + 1, L[a.i] + L[b.i], { size: 14, fill: C.ink, weight: 900 });
+      links.set(k, { path, g }); sfx(api, 'pop'); sync();
+      if (links.size === total) { solved = true; sfx(api, 'good'); burst(svg, W / 2, ly - 30, api); }
+      upd(); changed(api);
+    }
+    build();
+    return {
+      check: () => links.size === total,
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); timers.forEach(clearTimeout); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) { link(pts[i], pts[j]); if (!(await run.sleep(420))) return false; }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle, name } = WQOly.helpers;
@@ -302,9 +392,9 @@
     lesson: [
       { t: 'show', say: '4 個點 A、B、C、D。由 A 出發有 3 條。', scene: stairs(4) },
       { t: 'predict', say: '由 A 出發數了 3 條。', ask: '再由 B 出發（不重複），有幾條？', options: ['1', '2', '3'], answer: '2', scene: stairs(4), reveal: 'B 只數 BC、BD，共 2 條！' },
-      { t: 'do', say: '點像人，線段像握手：每兩點連一條。', scene: { w: 'dotgraph', p: { n: 4, faces: ['A', 'B', 'C', 'D'] } } },
+      { t: 'do', say: '逐對點選兩個點，連成線段。', scene: { w: 'g2_segs', p: { n: 4 } } },
       { t: 'show', say: '5 個點：4＋3＋2＋1＝10 條。', scene: stairs(5) },
-      { t: 'do', say: '5 個點，連連看。要連幾條？', scene: { w: 'dotgraph', p: { n: 5, faces: ['A', 'B', 'C', 'D', 'E'] } } },
+      { t: 'do', say: '5 個點，逐對連線。要連幾條？', scene: { w: 'g2_segs', p: { n: 5 } } },
       { t: 'try', say: '逐點出發，不重複地數。', scene: stairs(5),
         q: { stem: '直線上有 5 個點，一共有幾條線段？', options: ['8', '10', '15'], answer: '10', hint: '4＋3＋2＋1。', why: { 8: '逐點數：4＋3＋2＋1，別漏了。', 15: '4＋3＋2＋1＝10，不是 15。' } } },
       { t: 'card' }
@@ -347,7 +437,7 @@
       /* the date: day 1 is given */
       (r, p) => {
         const x = ri(r, 1, 7), d = N(r, p, 8, 30), ans = wdAns(x, d - 1);
-        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（日＝7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天；星期${WD[x - 1]}再過 ${(d - 1) % 7} 天是星期${WD[ans - 1]}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
+        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（日＝7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天，即 ${Math.floor((d - 1) / 7)} 個星期${(d - 1) % 7 ? `又 ${(d - 1) % 7} 天；星期${WD[x - 1]}再數 ${(d - 1) % 7} 天是星期${WD[ans - 1]}` : `，剛好整星期，仍是星期${WD[ans - 1]}`}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
           { why: why([wdAns(x, d), `1 日到 ${d} 日是過了 ${d - 1} 天，不是 ${d} 天。`], [wdAns(x, d - 2), `是過了 ${d - 1} 天，別少算一天。`], [x, '多數幾輪之後星期不一定回到原位，要數多出的天。']) });
       },
       /* every p days, which weekday is the n-th time */

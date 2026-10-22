@@ -211,16 +211,17 @@
   /* ---- p6-3 工程問題 ---------------------------------------------------------------------------------------------------- */
   const art63 = '<svg viewBox="0 0 120 80"><rect x="10" y="10" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="10" width="66" height="14" rx="3" fill="#3ee6d0" fill-opacity=".5"/><rect x="10" y="30" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="30" width="33" height="14" rx="3" fill="#ffc94a" fill-opacity=".5"/><rect x="10" y="52" width="100" height="22" rx="11" fill="#ff8fc7"/><text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="900" fill="#0b1030">全部看成 1</text></svg>';
   const PAIRS = [[3, 6, 2], [4, 12, 3], [6, 12, 4], [4, 4, 2], [6, 6, 3], [12, 12, 6], [2, 2, 1], [12, 6, 4], [12, 4, 3], [6, 3, 2]];
+  const lcm = (a, b) => a / gcd(a, b) * b;
   const g63 = {
     A: [
       (r, p) => {
         const [a, b, t] = pick(r, PAIRS), w = pick(r, ['獨做', '單獨做']);
-        return O('work', `甲${w} ${a} 日完成，乙${w} ${b} 日完成。兩人合做，幾日完成？`, t, '把全部工作看成 1。', `甲每日做 1/${a}，乙每日做 1/${b}，合共每日做 ${a + b}/${a * b}，全部要 ${a * b}÷${a + b}＝${t} 日。`,
+        return O('work', `甲${w} ${a} 日完成，乙${w} ${b} 日完成。兩人合做，幾日完成？`, t, '把全部工作看成幾份。', `全部看成 ${lcm(a, b)} 份：甲每日做 ${lcm(a, b) / a} 份，乙每日做 ${lcm(a, b) / b} 份，合共 ${lcm(a, b) / a + lcm(a, b) / b} 份；${lcm(a, b)}÷${lcm(a, b) / a + lcm(a, b) / b}＝${t} 日。`,
           [a + b, Math.max(a, b), Math.min(a, b), t + 1], `${a}*${b}/(${a}+${b})`, [], { svg: workSvg(a, b, ['甲', '乙']), why: { [a + b]: '日數不能直接相加，要先求每日各做多少。', [Math.max(a, b)]: '合做一定比單獨做快，日數比較少。' } });
       },
       (r, p) => {
         const [a, b, t] = pick(r, PAIRS);
-        return O('work-pipe', `水池有甲、乙兩根水管。單開甲管 ${a} 小時注滿，單開乙管 ${b} 小時注滿。兩管齊開，幾小時注滿？`, t, '把整池水看成 1。', `甲管每小時注 1/${a}，乙管每小時注 1/${b}，合共 ${a + b}/${a * b}，全池要 ${a * b}÷${a + b}＝${t} 小時。`,
+        return O('work-pipe', `水池有甲、乙兩根水管。單開甲管 ${a} 小時注滿，單開乙管 ${b} 小時注滿。兩管齊開，幾小時注滿？`, t, '把整池水看成幾份。', `整池看成 ${lcm(a, b)} 份：甲管每小時注 ${lcm(a, b) / a} 份，乙管注 ${lcm(a, b) / b} 份，合共 ${lcm(a, b) / a + lcm(a, b) / b} 份；${lcm(a, b)}÷${lcm(a, b) / a + lcm(a, b) / b}＝${t} 小時。`,
           [a + b, Math.max(a, b), Math.min(a, b), t + 1], `${a}*${b}/(${a}+${b})`, [], { svg: workSvg(a, b, ['甲管', '乙管']), why: { [a + b]: '時間不能直接相加，要先求每小時各注多少。', [Math.min(a, b)]: '兩管齊開，一定比最快的一根還要快。' } });
       },
       (r, p) => {
@@ -233,7 +234,7 @@
       (r, p) => {
         for (let i = 0; i < 100; i++) {
           const [a, b] = pick(r, PAIRS), d = ri(r, 1, 3), left = b * (1 - d * (1 / a + 1 / b)), L = Math.round(left);
-          if (Math.abs(left - L) < 1e-9 && L > 0 && L <= 12) return O('work-leave', `甲獨做 ${a} 日，乙獨做 ${b} 日。兩人合做 ${d} 日後甲離開，乙再做幾日完成？`, L, '先求合做 ' + d + ' 日完成了多少。', `合做 ${d} 日完成 ${d}×(1/${a}＋1/${b})＝${frac(d * (a + b), a * b)}，餘下 ${frac(a * b - d * (a + b), a * b)}，乙每日 1/${b}，要 ${L} 日。`,
+          if (Math.abs(left - L) < 1e-9 && L > 0 && L <= 12) return O('work-leave', `甲獨做 ${a} 日，乙獨做 ${b} 日。兩人合做 ${d} 日後甲離開，乙再做幾日完成？`, L, '先求合做 ' + d + ' 日完成了多少。', `全部看成 ${lcm(a, b)} 份：合做每日 ${lcm(a, b) / a + lcm(a, b) / b} 份，${d} 日做了 ${d * (lcm(a, b) / a + lcm(a, b) / b)} 份，餘下 ${lcm(a, b) - d * (lcm(a, b) / a + lcm(a, b) / b)} 份；乙每日 ${lcm(a, b) / b} 份，要 ${L} 日。`,
             [b - d, L + 1, d, b], '', [], { svg: workSvg(a, b, ['甲', '乙']), why: { [b - d]: '乙不是全程單獨做，合做時甲也做了一部分。', [b]: '乙合做那幾日也做了工作，不用整個 ' + b + ' 日。' } });
         }
         return O('work-leave', '甲獨做 6 日，乙獨做 12 日。兩人合做 2 日後甲離開，乙再做幾日完成？', 6, '先求合做 2 日完成了多少。', '合做 2 日完成 1/2，餘下 1/2，乙每日 1/12，要 6 日。', [4, 8, 2, 12], '', [], { svg: workSvg(6, 12, ['甲', '乙']), why: { 4: '乙不是全程單獨做，合做時甲也做了一部分。', 12: '乙合做那幾日也做了工作。' } });
@@ -246,7 +247,7 @@
       (r, p) => {
         for (let i = 0; i < 200; i++) {
           const [a, b, t] = pick(r, PAIRS.filter(x => x[0] > 2)), d = ri(r, 1, a - 1), days = (a - d) * t / a;
-          if (Number.isInteger(days) && days >= 1) return O('work-head', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。甲先獨做 ${d} 日，乙才加入合做，再做幾日完成？`, days, `先求甲做了 ${d} 日，餘下多少。`, `甲做 ${d} 日完成 ${d}/${a}，餘下 ${a - d}/${a}。合做每日 ${a + b}/${a * b}：(${a - d}/${a})÷(${a + b}/${a * b})＝${days} 日。`,
+          if (Number.isInteger(days) && days >= 1) return O('work-head', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。甲先獨做 ${d} 日，乙才加入合做，再做幾日完成？`, days, `先求甲做了 ${d} 日，餘下多少。`, `全部看成 ${lcm(a, b)} 份：甲每日 ${lcm(a, b) / a} 份，先做 ${d} 日共 ${d * lcm(a, b) / a} 份，餘下 ${lcm(a, b) - d * lcm(a, b) / a} 份；合做每日 ${lcm(a, b) / a + lcm(a, b) / b} 份，${lcm(a, b) - d * lcm(a, b) / a}÷${lcm(a, b) / a + lcm(a, b) / b}＝${days} 日。`,
             [d, t, days + 1, a - d], '', [], { svg: workSvg(a, b, ['甲', '乙']), why: { [t]: `${t} 日是由頭合做的日數，甲先做了一部分，合做會少些。`, [a - d]: `${a - d} 是甲餘下的日數，乙加入後兩人合做更快。` } });
         }
         return O('work-head', '甲獨做 6 日完成，乙獨做 12 日完成。甲先獨做 3 日，乙才加入合做，再做幾日完成？', 2, '', '甲做 3 日完成 1/2，餘下 1/2，合做每日 1/4，要 2 日。', [3, 4, 1, 6], '', [], { svg: workSvg(6, 12, ['甲', '乙']), why: { 4: '甲先做了一部分，合做會少些。', 3: '這是甲先做的日數。' } });
@@ -450,8 +451,8 @@
       { t: 'do', say: '展開圖橫排四格，圍成一圈。從 2 走 2 步，找 2 的對面。', scene: { w: 'cycle', p: { n: 4, labels: [2, 5, 1, 4], steps: 2, unit: '步' } } },
       { t: 'try', say: '想想它們在哪個位置。', scene: { w: 'bars', p: { rows: [{ label: '全部', segs: [{ u: 27, c: 't', text: '27 塊' }] }, { label: '一面', segs: [{ u: 6, c: 'g', text: '？' }] }] }, still: true },
         q: { stem: '把 3×3×3 的積木外面全部塗色，再切成 27 個小正方體。一面有色的有幾個？', options: ['6', '8', '12'], answer: '6', hint: '一面有色的在 6 個面的中間。', why: { 8: '8 是三面有色的角塊。', 12: '12 是兩面有色的邊塊。' } } },
-      { t: 'try', say: '用「對面隔一格」。', scene: { w: 'cycle', p: { n: 4, labels: [2, 5, 1, 4], steps: 2, unit: '步' }, still: true },
-        q: { stem: '展開圖橫排四格 2、5、1、4，3 在 5 上面，6 在 1 下面。摺成正方體，2 的對面是幾？', options: ['1', '5', '4'], answer: '1', hint: '橫排四格圍成一圈，對面隔一格。', why: { 5: '5 在 2 的旁邊，是鄰面。', 4: '4 也在 2 的旁邊（圍成一圈後相連）。' } } },
+      { t: 'try', say: '用「對面隔一格」。',
+        q: { svg: netSvg([2, 5, 1, 4], 1, 3, 2, 6, 2), stem: '展開圖橫排四格 2、5、1、4，3 在 5 上面，6 在 1 下面。摺成正方體，2 的對面是幾？', options: ['1', '5', '4'], answer: '1', hint: '橫排四格圍成一圈，對面隔一格。', why: { 5: '5 在 2 的旁邊，是鄰面。', 4: '4 也在 2 的旁邊（圍成一圈後相連）。' } } },
       { t: 'card' }
     ],
     gens: g65, verify: verify65

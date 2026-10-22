@@ -307,8 +307,8 @@
       /* two people in a queue: how many between them */
       (r, p) => {
         const [m1, m2] = twoNames(r), k = N(r, p, 1, 7), j = k + ri(r, 2, N(r, p, 3, 8)), ans = j - k - 1;
-        return o('q-between', `${m1}排第 ${k} 個，${m2}排第 ${j} 個。中間有幾人？`, ans, '中間不包括他們兩個。', `${j}－${k}＝${j - k}，其中包括${m2}，要再減 1：${ans}。`, [j - k, ans + 1, ans - 1, j, k], `${j}-${k}-1`, [],
-          { svg: queueSvg(j, { [k - 1]: 'me', [j - 1]: 'm2' }, `${m1}排第 ${k}，${m2}排第 ${j}`), why: why([j - k, `${j}－${k} 連${m2}也數進去了，中間不包括他們。`], [ans - 1, '中間的人全部都要數，別減多了。'], [ans + 2, '兩個人的位置都不能數進中間。']) });
+        return o('q-between', `${m1}排第 ${k} 個，${m2}排第 ${j} 個。中間有幾人？`, ans, '中間不包括這兩人。', `${j}－${k}＝${j - k}，其中包括${m2}，要再減 1：${ans}。`, [j - k, ans + 1, ans - 1, j, k], `${j}-${k}-1`, [],
+          { svg: queueSvg(j, { [k - 1]: 'me', [j - 1]: 'm2' }, `${m1}排第 ${k}，${m2}排第 ${j}`), why: why([j - k, `${j}－${k} 連${m2}也數進去了，中間不包括這兩人。`], [ans - 1, '中間的人全部都要數，別減多了。'], [ans + 2, '兩個人的位置都不能數進中間。']) });
       },
       /* people leave / join behind: first find the whole queue */
       (r, p) => {

@@ -1,5 +1,213 @@
 /* 小五 · 5 units (finished). p5-4 = 真假推理, p5-5 = 容斥原理 (two circles only), per 設計書「研究後修訂」.
-   Tools: only the existing ones (cycle, bars, sortcards) - no new widget, so the unit test's widget list stays valid. */
+   Tools: cycle, bars, sortcards + the dedicated g5_venn (defined at the top of this file). */
+/* ---- g5_venn（小五 p5-5 容斥專用教具）：兩個重疊圓圈（青＝A、金＝B、重疊＝粉紅），把人物卡拖入「只 A／兩樣都／只 B／都不是」。
+   p: {aName:'跳繩', bName:'游泳', cards:[{e:'🧒', n:'小明', zone:'a'|'ab'|'b'|'n'}…]}  達標＝全部卡放對；放錯會彈回。
+   鍵盤：卡片聚焦後按 1–4 放進對應區（1 只A、2 兩樣都、3 只B、4 都不是）；或點選卡片再點區域／下方按鈕。
+   mode 'show' 且 p.formula !== false：不出卡盤，示範 A＋B－重疊＝合共。 ---------------------------------------------------------------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, drag, keys, place, toPt, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+  const easeBack = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+  const ZONES = ['a', 'ab', 'b', 'n'];
+  const ZC = { a: [C.aqua, C.aquaD], ab: [C.pink, C.pinkD], b: [C.gold, C.goldD], n: [C.violet, C.violetD] };
+  const DEF = [['🧒', '小明', 'a'], ['👧', '小美', 'ab'], ['🧑', '阿強', 'b'], ['👩', '家欣', 'a'], ['🧔', '大偉', 'ab'], ['👦', '阿傑', 'n'], ['👴', '爺爺', 'b'], ['👵', '嫲嫲', 'a']];
+  let uid = 0;
+  WQOlyWidgets.make('g5_venn', { mount(host, p, api) {
+    const show = p.mode === 'show', aN = p.aName || '跳繩', bN = p.bName || '游泳', id = 'gv' + (++uid);
+    const raw = (p.cards && p.cards.length ? p.cards : DEF.map(d => ({ e: d[0], n: d[1], zone: d[2] }))).slice(0, 12);
+    const run = runner(api); const names = { a: '只' + aN, ab: '兩樣都', b: '只' + bN, n: '都不是' };
+    const cntOf = z => raw.filter(c => c.zone === z).length;
+    const A = cntOf('a') + cntOf('ab'), B = cntOf('b') + cntOf('ab'), AB = cntOf('ab'), T = A + B - AB;
+    let trayR, svg, W, H, cards, tokens, sel, geo, legend, msg, solved, chips, timers = [], trayG, tray, slots, shown;
+    const later = (f, ms) => { const t = setTimeout(f, ms); timers.push(t); };
+    function zoneAt(pt) {
+      const dA = Math.hypot(pt.x - geo.cA, pt.y - geo.cy) <= geo.r, dB = Math.hypot(pt.x - geo.cB, pt.y - geo.cy) <= geo.r;
+      if (dA && dB) return 'ab'; if (dA) return 'a'; if (dB) return 'b';
+      return pt.x >= geo.vx && pt.x <= geo.vx + geo.vw && pt.y >= geo.vy && pt.y <= geo.vy + geo.vh ? 'n' : null;
+    }
+    function slotList(z) {
+      const m = 11 * geo.ts, g = geo, out = [];
+      const ok = (x, y) => {
+        const a = Math.hypot(x - g.cA, y - g.cy), b = Math.hypot(x - g.cB, y - g.cy);
+        if (z === 'a') return a < g.r - m && b > g.r + m * .6;
+        if (z === 'b') return b < g.r - m && a > g.r + m * .6;
+        if (z === 'ab') return a < g.r - m * .8 && b < g.r - m * .8;
+        return a > g.r + m * .7 && b > g.r + m * .7 && x > g.vx + 16 && x < g.vx + g.vw - 16 && y > g.vy + (g.side ? 16 : 34) && y < g.vy + g.vh - 16 && !(g.side ? (x < g.vx + 74 && y > g.vy + g.vh - 36) : (Math.abs(x - (g.vx + g.vw / 2)) < 34 && y > g.vy + g.vh - 36));
+      };
+      for (let y = g.vy + 30; y < g.vy + g.vh; y += 13) for (let x = g.vx + 12; x < g.vx + g.vw; x += 13) if (ok(x, y)) out.push([x, y]);
+      /* greedy pick: spacing 27, start near the zone's visual centre */
+      const c = z === 'a' ? [g.cA - g.r * .4, g.cy] : z === 'b' ? [g.cB + g.r * .4, g.cy] : z === 'ab' ? [(g.cA + g.cB) / 2, g.cy] : [g.vx + g.vw - 34, g.vy + g.vh - 34];
+      out.sort((p1, p2) => Math.hypot(p1[0] - c[0], p1[1] - c[1]) - Math.hypot(p2[0] - c[0], p2[1] - c[1]));
+      let pick = [];
+      for (const f of [1, .88, .76, .66]) { pick = []; for (const q of out) { if (pick.every(r => Math.hypot(r[0] - q[0], r[1] - q[1]) >= 24 * geo.ts * f)) pick.push(q); } if (pick.length >= cntOf(z)) break; }
+      let k = 0; while (pick.length < 14) { pick.push([c[0] + (k % 3 - 1) * 20 * geo.ts, c[1] + (Math.floor(k / 3) - 1) * 20 * geo.ts]); k++; }
+      return pick;
+    }
+    function build() {
+      run.cancel(); timers.forEach(clearTimeout); timers = []; solved = false; sel = null; cards = []; tokens = []; chips = null; shown = {};
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `兩個圈圈：${aN}和${bN}，重疊的是兩樣都愛`);
+      const legendH = show ? 0 : 52, fH = show ? 60 : 0;
+      const free = H - 16 - legendH - (show ? 0 : 12) - fH - (show ? 6 : 0), n = raw.length;
+      let vx = 8, vy = 8, vw = W - 16, vh, horiz = false, tx, ty, tw, th;
+      if (show) vh = free;
+      else {
+        const trayW = W - 16, perRow = Math.max(1, Math.floor(trayW / 63)), need = Math.ceil(n / perRow) * 73 + 4, trayH = Math.min(need, free * .5);
+        vh = free - trayH - 6;
+        if (vh < 150) { horiz = true; vw = Math.round(W * .62); vh = free; tx = vx + vw + 8; ty = vy; tw = W - 8 - tx; th = free; }
+        else { tx = 8; ty = vy + vh + 6; tw = trayW; th = trayH; }
+      }
+      const need = 16 + 19 * Math.max(aN.length, bN.length), rTop = Math.min((vh - 64) / 2, vw / 2.85 - 4), rSide = Math.min((vh - 16) / 2, (vw - 2 * need) / 2.85), side = rSide >= Math.max(30, rTop * 1.12);
+      const r = Math.max(30, side ? rSide : rTop), cy = side ? vy + vh / 2 : vy + 34 + r, mid = vx + vw / 2;
+      geo = { vx, vy, vw, vh, r, cy, side, cA: mid - r * .425, cB: mid + r * .425, ts: clamp(r / 62, .8, 1.5) };
+      /* frame = 都不是 */
+      el('rect', { x: vx, y: vy, width: vw, height: vh, rx: 16, fill: 'rgba(255,255,255,.05)', stroke: C.line, 'stroke-width': 2.5, 'stroke-dasharray': '7 6' }, svg);
+      if (side) txt(svg, vx + 14, vy + vh - 15, '都不是', { size: 14, fill: C.muted, weight: 800, anchor: 'start' }); else txt(svg, mid, vy + vh - 13, '都不是', { size: 14, fill: C.muted, weight: 800 });
+      const defs = el('defs', {}, svg), cp = el('clipPath', { id: id + 'c' }, defs); el('circle', { cx: geo.cA, cy, r }, cp);
+      el('circle', { cx: geo.cA, cy, r, fill: C.aqua, 'fill-opacity': .2, stroke: C.aqua, 'stroke-width': 3.5 }, svg);
+      el('circle', { cx: geo.cB, cy, r, fill: C.gold, 'fill-opacity': .2, stroke: C.gold, 'stroke-width': 3.5 }, svg);
+      el('circle', { cx: geo.cB, cy, r, fill: C.pink, 'fill-opacity': .42, 'clip-path': `url(#${id}c)` }, svg);
+      el('circle', { cx: geo.cA, cy, r, fill: 'none', stroke: C.aqua, 'stroke-width': 3.5 }, svg);
+      if (side) { txt(svg, geo.cA - r - 8, cy, aN, { size: 19, fill: C.aqua, weight: 900, anchor: 'end' }); txt(svg, geo.cB + r + 8, cy, bN, { size: 19, fill: C.gold, weight: 900, anchor: 'start' }); }
+      else { txt(svg, geo.cA - r * .4, vy + 19, aN, { size: 19, fill: C.aqua, weight: 900 }); txt(svg, geo.cB + r * .4, vy + 19, bN, { size: 19, fill: C.gold, weight: 900 }); }
+      slots = {}; ZONES.forEach(z => { slots[z] = slotList(z); });
+      /* legend (also big tap targets) */
+      legend = {};
+      if (!show) {
+        const lw = (W - 16 - 18) / 4, ly = H - 8 - 52;
+        ZONES.forEach((z, k) => {
+          const g = el('g', { class: 'r80-sb', role: 'button', 'aria-label': `${k + 1} ${names[z]}` }, svg), x = 8 + k * (lw + 6);
+          const rc = el('rect', { x, y: ly, width: lw, height: 52, rx: 14, fill: C.card2, stroke: ZC[z][0], 'stroke-width': 3 }, g);
+          txt(g, x + lw / 2, ly + 16, `${k + 1} ${names[z]}`, { size: 15, fill: ZC[z][0], weight: 900 });
+          const ct = txt(g, x + lw / 2, ly + 38, '0', { size: 22, fill: C.text, weight: 900 });
+          g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); if (sel) attempt(sel, z, true); });
+          keys(g, { act: () => { if (sel) attempt(sel, z, true); } });
+          legend[z] = { rc, ct };
+        });
+        msg = txt(svg, W / 2, H - 8 - 52 - 9, '', { size: 16, fill: C.bad, weight: 800 });
+        /* tap a region of the picture to drop the selected card there */
+        svg.addEventListener('click', ev => { if (!sel || solved) return; const z = zoneAt(toPt(svg, ev)); if (z) attempt(sel, z, true); });
+      }
+      trayR = { x: tx, y: ty, w: tw, h: th };
+      /* tray + cards */
+      trayG = el('g', {}, svg);
+      if (!show) {
+        let best = null;
+        for (let cols = 1; cols <= 7; cols++) { const rows = Math.ceil(n / cols), s = Math.min(1, (tw / cols - 3) / 60, (th / rows - 3) / 70); if (!best || s > best.s + 1e-6) best = { cols, rows, s }; }
+        const { cols, rows, s } = best, pw = tw / cols, ph = Math.min(th / rows, 76);
+        const y0 = ty + (th - ph * rows) / 2;
+        raw.forEach((c, i) => {
+          const o = { ...c, i, s, x: tx + pw * (i % cols) + pw / 2, y: y0 + ph * Math.floor(i / cols) + ph / 2, placed: false };
+          o.hx = o.x; o.hy = o.y; makeCard(o); cards.push(o);
+        });
+      } else {
+        raw.forEach((c, i) => { const o = { ...c, i }; tokens.push(addToken(o, false)); shown[i] = true; });
+        drawChips(tx = 8, ty = vy + vh + 6 + 0, vw);
+      }
+      counts();
+    }
+    function makeCard(o) {
+      const g = el('g', { class: 'r80-chip', role: 'button', 'aria-label': `${o.n}：${o.zone === 'a' ? '只' + aN : o.zone === 'b' ? '只' + bN : o.zone === 'ab' ? '兩樣都' : '都不是'}？按 1 至 4 放區` }, svg);
+      o.g = g;
+      const inner = el('g', {}, g);
+      el('rect', { x: -30, y: -31, width: 60, height: 70, rx: 14, fill: 'rgba(0,0,0,.28)' }, inner);
+      o.body = el('rect', { x: -30, y: -35, width: 60, height: 70, rx: 14, fill: C.card2, stroke: C.line, 'stroke-width': 2.5 }, inner);
+      txt(inner, 0, -19, o.e, { size: 26, emoji: true });
+      txt(inner, 0, 3, o.n || '', { size: 13, fill: C.text, weight: 800 });
+      const has = { a: o.zone === 'a' || o.zone === 'ab', b: o.zone === 'b' || o.zone === 'ab' };
+      [['a', -15, C.aqua, aN], ['b', 15, C.gold, bN]].forEach(([k, x, col, nm]) => {
+        el('rect', { x: x - 13, y: 12, width: 26, height: 18, rx: 9, fill: has[k] ? col : 'none', stroke: has[k] ? col : C.muted, 'stroke-width': 1.8, 'stroke-dasharray': has[k] ? null : '3 3', opacity: has[k] ? 1 : .6 }, inner);
+        txt(inner, x, 21.5, nm[0], { size: 13, fill: has[k] ? C.ink : C.muted, weight: 900, opacity: has[k] ? 1 : .7 });
+      });
+      place(g, o.x, o.y, o.s);
+      let ox = 0, oy = 0;
+      drag(g, svg, {
+        start(pt) { if (solved || o.placed) return false; svg.appendChild(g); ox = pt.x - o.x; oy = pt.y - o.y; g.classList.add('lift'); return {}; },
+        move(pt) { o.x = pt.x - ox; o.y = pt.y - oy; place(g, o.x, o.y, o.s * 1.12); const z = zoneAt({ x: o.x, y: o.y }); hot(z); },
+        async end(pt, ctx, e, moved) { g.classList.remove('lift'); hot(null); if (!moved) return; attempt(o, zoneAt({ x: o.x, y: o.y }), false); },
+        tap() { g.classList.remove('lift'); select(o); }
+      });
+      g.setAttribute('tabindex', '0');
+      g.addEventListener('keydown', e => {
+        if (e.key >= '1' && e.key <= '4') { e.preventDefault(); attempt(o, ZONES[+e.key - 1], true); }
+        else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(o); }
+      });
+    }
+    function hot(z) { for (const k in legend) legend[k].rc.setAttribute('stroke-width', k === z ? 7 : 3); }
+    function select(o) {
+      if (solved || o.placed) return; sel = sel === o ? null : o; sfx(api, 'tap');
+      cards.forEach(c => c.body && c.body.setAttribute('stroke', c === sel ? C.gold : C.line)); cards.forEach(c => c.body && c.body.setAttribute('stroke-width', c === sel ? 5 : 2.5));
+    }
+    function say(s) { if (!msg) return; msg.textContent = s; later(() => { if (msg.textContent === s) msg.textContent = ''; }, 1500); }
+    function addToken(o, pop) {
+      const k = tokens.filter(t => t.z === o.zone).length, [x, y] = slots[o.zone][k] || slots[o.zone][0];
+      const g = el('g', { 'pointer-events': 'none' }, svg); el('circle', { r: 12 * geo.ts, fill: C.card2, stroke: ZC[o.zone][0], 'stroke-width': 2.5 }, g); txt(g, 0, 1, o.e, { size: 15 * geo.ts, emoji: true });
+      place(g, x, y); const t = { g, x, y, z: o.zone, o };
+      if (pop && !api.reduced) run.tween(260, v => place(g, x, y, Math.max(.01, v)), easeBack);
+      return t;
+    }
+    async function attempt(o, z, snap) {
+      if (solved || o.placed || o.busy) return;
+      if (!z) { await goHome(o); return; }
+      if (z !== o.zone) {
+        sfx(api, 'bad'); say(`${o.n} 不屬於「${names[z]}」，再看看圈圈`);
+        o.busy = true; const x0 = o.x;
+        if (!api.reduced) await run.tween(260, t => place(o.g, x0 + Math.sin(t * Math.PI * 4) * 7 * (1 - t), o.y, o.s)); 
+        o.busy = false; await goHome(o); return;
+      }
+      o.placed = true; o.busy = true; sel = null; cards.forEach(c => { c.body.setAttribute('stroke', C.line); c.body.setAttribute('stroke-width', 2.5); });
+      const k = tokens.filter(t => t.z === z).length, [sx, sy] = slots[z][k] || slots[z][0], x0 = o.x, y0 = o.y; svg.appendChild(o.g);
+      await run.tween(300, t => { o.x = x0 + (sx - x0) * t; o.y = y0 + (sy - y0) * t - Math.sin(t * Math.PI) * 14; place(o.g, o.x, o.y, o.s + (.42 - o.s) * t); });
+      o.g.remove(); o.busy = false; tokens.push(addToken(o, true)); sfx(api, 'pop'); counts();
+      if (cards.every(c => c.placed)) win(); changed(api);
+    }
+    async function goHome(o) { const x0 = o.x, y0 = o.y; o.busy = true; await run.tween(220, t => { o.x = x0 + (o.hx - x0) * t; o.y = y0 + (o.hy - y0) * t; place(o.g, o.x, o.y, o.s); }); o.busy = false; o.x = o.hx; o.y = o.hy; place(o.g, o.x, o.y, o.s); }
+    function counts() { if (show) return; ZONES.forEach(z => { legend[z].ct.textContent = String(tokens.filter(t => t.z === z).length); }); }
+    function win() {
+      solved = true; sfx(api, 'good'); burst(svg, (geo.cA + geo.cB) / 2, geo.cy, api);
+      const g = el('g', {}, trayG), cx = trayR.x + trayR.w / 2, cyT = trayR.y + trayR.h / 2;
+      txt(g, cx, cyT - 28, `${aN}＋${bN}－重疊`, { size: 14, fill: C.muted, weight: 800 });
+      txt(g, cx, cyT, `${A} ＋ ${B} － ${AB}`, { size: 20, fill: C.text, weight: 900 });
+      txt(g, cx, cyT + 30, `＝ ${T}`, { size: 30, fill: C.gold, weight: 900 });
+    }
+    function drawChips(x, y, w) {
+      const items = [[aN, A, C.aqua], [bN, B, C.gold], ['重疊', AB, C.pink], ['合共', T, C.violet]], ops = ['＋', '－', '＝'], cw = Math.min(78, (w - 3 * 20) / 4), tot = cw * 4 + 60, x0 = x + (w - tot) / 2;
+      chips = [];
+      items.forEach((it, i) => {
+        const cx = x0 + i * (cw + 20) + cw / 2, cyc = y + 28, g = el('g', {}, svg);
+        const rc = el('rect', { x: cx - cw / 2, y: cyc - 26, width: cw, height: 54, rx: 14, fill: C.card2, stroke: it[2], 'stroke-width': 3 }, g);
+        const lab = txt(g, cx, cyc - 11, it[0], { size: 14, fill: it[2], weight: 900 });
+        const num = txt(g, cx, cyc + 12, '？', { size: 24, fill: C.muted, weight: 900 });
+        chips.push({ rc, num, lab, v: it[1], col: it[2] });
+        if (i < 3) txt(svg, cx + cw / 2 + 10, cyc + 1, ops[i], { size: 24, fill: C.text, weight: 900 });
+      });
+    }
+    function light(i) { const c = chips[i]; c.num.textContent = String(c.v); c.num.setAttribute('fill', C.text); c.rc.setAttribute('fill', c.col); c.rc.setAttribute('fill-opacity', .85); c.num.setAttribute('fill', C.ink); c.lab.setAttribute('fill', C.ink); sfx(api, 'pop'); }
+    build();
+    return {
+      check: () => show ? !!(chips && chips.every(c => c.num.textContent !== '？')) : cards.every(c => c.placed),
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); timers.forEach(clearTimeout); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        if (show) {
+          tokens.forEach(t => t.g.remove()); tokens = [];
+          const put = async zs => { for (const o of raw.map((c, i) => ({ ...c, i })).filter(c => zs.includes(c.zone))) { tokens.push(addToken(o, true)); sfx(api, 'pop'); if (!(await run.sleep(170))) return false; } return true; };
+          if (!(await put(['a', 'ab']))) return false; light(0); if (!(await run.sleep(350))) return false;
+          if (!(await put(['b']))) return false; light(1); if (!(await run.sleep(350))) return false;
+          light(2); tokens.filter(t => t.z === 'ab').forEach(t => t.g.firstChild.setAttribute('stroke-width', 5)); if (!(await run.sleep(450))) return false;
+          if (!(await put(['n']))) return false; light(3); sfx(api, 'good'); burst(svg, (geo.cA + geo.cB) / 2, geo.cy, api); changed(api); return true;
+        }
+        for (const o of cards) { if (o.placed) continue; svg.appendChild(o.g); await attempt(o, o.zone, true); if (!(await run.sleep(180))) return false; }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle } = WQOly.helpers;
@@ -212,7 +420,7 @@
   const g53 = {
     A: [
       (r, p) => {
-        const m = ri(r, 2, 6), n = m * ri(r, 1, 6) + ri(r, 1, m - 1) + (r() < .15 ? m - 1 : 0), itc = pick(r, [['蘋果', '個'], ['糖', '粒'], ['橙', '個'], ['書', '本']]), it = itc[0], cl = itc[1], s = Math.ceil(n / m), fl = Math.floor(n / m);
+        const m = ri(r, 2, 6), n = m * ri(r, 1, 6) + ri(r, 1, m - 1) + (r() < .15 ? m : 0), itc = pick(r, [['蘋果', '個'], ['糖', '粒'], ['橙', '個'], ['書', '本']]), it = itc[0], cl = itc[1], s = Math.ceil(n / m), fl = Math.floor(n / m);
         return O('drawer', `把 ${n} ${cl}${it}放進 ${m} 個盒子，最少有一個盒子有幾${cl}？`, s, '先平均分，再看餘下的。',
           `${n}÷${m}＝${fl} 餘 ${n % m}。餘下的要多放一個，所以最少有一盒有 ${fl}＋1＝${s} 個。`,
           [fl, s + 1, n - m, m], '', [], { svg: boxSvg(n, m, it), why: { [fl]: '平均分後還有剩，總有一個盒要多放一個，所以要加 1。', [s + 1]: '餘下的只要多放一個，不用再多加。', [n - m]: '不是拿總數減盒數，要用除法平均分。' } });
@@ -445,6 +653,7 @@
     return null;
   };
   /* bars as a "Venn on a number line": the overlap sits under both circles */
+  const VCARDS = [{ e: '🧒', n: '小明', zone: 'a' }, { e: '👧', n: '小美', zone: 'a' }, { e: '🧑', n: '阿強', zone: 'a' }, { e: '👩', n: '家欣', zone: 'ab' }, { e: '🧔', n: '大偉', zone: 'ab' }, { e: '👦', n: '阿傑', zone: 'ab' }, { e: '👴', n: '爺爺', zone: 'ab' }, { e: '👵', n: '嫲嫲', zone: 'ab' }, { e: '🧓', n: '婆婆', zone: 'b' }, { e: '👨', n: '叔叔', zone: 'b' }];
   const VB = (a, b, c) => [
     { label: '跳繩', segs: [{ u: a - c, c: 'a', text: '只跳' }, { u: c, c: 'd', text: '都愛' }] },
     { label: '游泳', segs: [{ u: a - c, c: 'a', dashed: true, text: '' }, { u: c, c: 'd', text: '都愛' }, { u: b - c, c: 'b', text: '只游' }] }
@@ -455,7 +664,8 @@
     lesson: [
       { t: 'show', say: '8 人愛跳繩，7 人愛游泳，5 人兩樣都愛。', scene: { w: 'bars', p: { rows: VB(8, 7, 5) } } },
       { t: 'predict', say: '粉紅色的 5 人，兩邊都數到。', ask: '至少愛一樣的有幾人？', options: ['15', '10', '12'], answer: '10', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 10, c: 't', text: '？' }] }]) }, still: true }, reveal: '粉紅的 5 人數了兩次。15－5＝10。' },
-      { t: 'do', say: '拉動把手，把粉紅色的人只數一次。', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 15, c: 't', edit: true, target: 10, min: 1, max: 15 }] }]) } } },
+      { t: 'do', say: '把每個人拖進正確的區。', scene: { w: 'g5_venn', p: { aName: '跳繩', bName: '游泳', cards: VCARDS } } },
+      { t: 'show', say: '跳繩 8，游泳 7，粉紅色數了兩次。', scene: { w: 'g5_venn', p: { aName: '跳繩', bName: '游泳', cards: VCARDS, formula: true } } },
       { t: 'show', say: '8＋7－5＝10。重疊的人要減一次。', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '合共', segs: [{ u: 10, c: 't', text: '10 人' }] }]) }, still: true } },
       { t: 'predict', say: '全班 13 人。', ask: '兩樣都不愛的有幾人？', options: ['3', '5', '2'], answer: '3', scene: { w: 'bars', p: { rows: VB(8, 7, 5).concat([{ label: '全班', segs: [{ u: 10, c: 't', text: '10 人' }, { u: 3, c: 'd', dashed: true, text: '？' }] }]) }, still: true }, reveal: '至少愛一樣的有 10 人。13－10＝3，有 3 人都不愛。' },
       { t: 'try', say: '用同一方法。', scene: { w: 'bars', p: { rows: VB(11, 9, 4) }, still: true },

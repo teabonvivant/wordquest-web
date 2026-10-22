@@ -251,12 +251,13 @@
       svg.setAttribute('aria-label', `數線：由 ${start}${target != null ? ' 去 ' + target : ''}`);
       x0 = 30; dx = (W - 60) / (hi - lo); ly = Math.round(H * (inter ? .46 : .55));
       el('line', { x1: X(lo) - 10, y1: ly, x2: X(hi) + 10, y2: ly, stroke: C.muted, 'stroke-width': 4, 'stroke-linecap': 'round' }, svg);
-      const need = 26 / dx, every = need <= 1 ? 1 : need <= 2 ? 2 : need <= 5 ? 5 : 10;
+      const lw = Math.max(String(lo).length, String(hi).length) * 10 + 10, need = lw / dx, every = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000].find(e => e >= need) || 1000, mk = [start, target].filter(v => v != null), near = v => mk.some(m => m !== v && Math.abs(m - v) * dx < lw);
+      let lastMark = null;
       for (let v = lo; v <= hi; v++) {
-        const big = (v - lo) % every === 0, mark = v === target || v === start;
+        const big = v % every === 0, mark = v === target || v === start;
         el('line', { x1: X(v), y1: ly - (big || mark ? 9 : 5), x2: X(v), y2: ly + (big || mark ? 9 : 5), stroke: C.muted, 'stroke-width': big || mark ? 3 : 2 }, svg);
-        if (big && !(mark && every > 1)) txt(svg, X(v), ly + 26, v, { size: 16, fill: C.muted, weight: 700 });
-        if (mark && (every > 1 || v === target)) txt(svg, X(v), ly + (every > 1 ? 26 : 50), v, { size: 17, fill: v === target ? C.pink : C.aqua, weight: 900 });
+        if (big && !mark && !near(v)) txt(svg, X(v), ly + 26, v, { size: 16, fill: C.muted, weight: 700 });
+        if (mark) { const low = (every === 1 && v === target) || (lastMark != null && (v - lastMark) * dx < lw); lastMark = v; txt(svg, X(v), ly + (low ? 50 : 26), v, { size: 17, fill: v === target ? C.pink : C.aqua, weight: 900 }); }
       }
       if (target != null) { el('circle', { cx: X(target), cy: ly, r: 11, fill: 'none', stroke: C.pink, 'stroke-width': 3, 'stroke-dasharray': '4 4' }, svg); txt(svg, X(target), ly - 40, '⭐', { size: 22, emoji: true }); }
       trail = el('g', {}, svg);
@@ -343,11 +344,15 @@
     const unitsOf = s => s.rep ? s.u * s.rep : s.u;
     function layout() {
       rows.forEach(r => {
-        let x = pad + labW + 4;
+        let x = pad + labW + 4, prevH = false;
         r.segs.forEach(s => {
           const w = unitsOf(s) * ux; s.x = x; s.w = w; s.rect.setAttribute('x', x); s.rect.setAttribute('width', Math.max(0, w));
           let d = ''; const cnt = unitsOf(s), step = s.rep ? s.u * ux : ux; for (let i = 1; i < (s.rep || cnt); i++) d += `M${x + i * step} ${r.y + 6}V${r.y + rh - 6}`; s.div.setAttribute('d', d);
-          const shown = s.text !== undefined ? s.text : (s.rep ? s.rep + ' 份' : unitsOf(s)); s.label.textContent = s.edit && s.text === undefined ? (s.rep ? s.rep + ' 份' : s.u) : shown; s.label.setAttribute('x', s.h ? x + Math.max(10, (w - 22) / 2) : x + w / 2);
+          const shown = s.text !== undefined ? s.text : (s.rep ? s.rep + ' 份' : unitsOf(s)); s.label.textContent = s.edit && s.text === undefined ? (s.rep ? s.rep + ' 份' : s.u) : shown; const inL = prevH ? 17 : 0, inR = s.h ? 17 : 0, avail = w - inL - inR - 8; let fs = 22; s.label.setAttribute('font-size', fs); let tw = 0; try { tw = s.label.getBBox().width; } catch (e) { tw = String(s.label.textContent).length * 20; }
+          if (tw > avail) { fs = 16; s.label.setAttribute('font-size', fs); tw = tw * 16 / 22; }
+          const out = tw > avail; s.label.setAttribute('y', out ? r.y - 12 : r.y + rh / 2);
+          s.label.setAttribute('fill', out ? (s.dashed ? (PART[s.c || 'a'] || PART.a)[0] : C.text) : (s.dashed ? (PART[s.c || 'a'] || PART.a)[0] : C.ink));
+          s.label.setAttribute('x', out ? x + w / 2 : x + inL + (w - inL - inR) / 2); prevH = !!s.h;
           if (s.h) place(s.h, x + w, r.y + rh / 2);
           x += w;
         });
@@ -418,7 +423,7 @@
       cells.forEach(k => { const L = k.c < cut; k.e.setAttribute('fill', L ? C.aqua : C.gold); k.e.setAttribute('opacity', cut === cols || cut === 0 ? .9 : .95); });
       const x = gx + cut * cs; line.setAttribute('x1', x); line.setAttribute('x2', x); place(hdl, x, gy + cs * rowsN + 18); hdl.setAttribute('aria-valuenow', cut);
       const a = cut, b = cols - cut;
-      t1.textContent = a ? `${a}×${rowsN}＝${a * rowsN}` : ''; t2.textContent = b ? `${b}×${rowsN}＝${b * rowsN}` : '';
+      t1.textContent = a && b ? `${a}×${rowsN}＝${a * rowsN}` : ''; t2.textContent = a && b ? `${b}×${rowsN}＝${b * rowsN}` : '';
       tt.textContent = a && b ? `${a * rowsN}＋${b * rowsN}＝${cols * rowsN}` : `${cols}×${rowsN}＝${cols * rowsN}`;
       tt.setAttribute('fill', solved ? C.gold : C.text);
     }
@@ -563,7 +568,7 @@
         el('circle', { r: 27, cy: 3, fill: 'rgba(0,0,0,.28)' }, g); const c = el('circle', { r: 27, fill: C.card2, stroke: C.aqua, 'stroke-width': 3.5 }, g); txt(g, 0, 1, faces[i % faces.length], { size: 30, emoji: true }); place(g, x, y);
         const d = { i, x, y, g, c }; dots.push(d);
         if (inter) {
-          drag(g, svg, { start(pt) { sel = d; sync(); rub = el('line', { x1: x, y1: y, x2: x, y2: y, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return {}; },
+          drag(g, svg, { start(pt) { d.c.setAttribute('stroke', C.gold); rub = el('line', { x1: x, y1: y, x2: x, y2: y, stroke: C.gold, 'stroke-width': 4, 'stroke-linecap': 'round', 'stroke-dasharray': '2 8', 'pointer-events': 'none' }, svg); return {}; },
             move(pt) { rub.setAttribute('x2', pt.x); rub.setAttribute('y2', pt.y); },
             end(pt, ctx, e, moved) { rub && rub.remove(); rub = null; if (!moved) return; const t = dots.find(o => o !== d && Math.hypot(pt.x - o.x, pt.y - o.y) < 34); sel = null; if (t) link(d, t, true); else sync(); },
             tap() { rub && rub.remove(); rub = null; choose(d); } });

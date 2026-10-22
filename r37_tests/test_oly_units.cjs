@@ -14,7 +14,13 @@ const ev = s => { const t = s.match(/\d+\.?\d*|[-+*\/%()]/g); let i = 0; if (t.j
   const F = () => { if (t[i] === '(') { i++; const v = E(); i++; return v; } return parseFloat(t[i++]); }; return E(); };
 const LIM = { 1: 30, 2: 40, 3: 55, 4: 65, 5: 75, 6: 85 };
 const widgetsSrc = fs.readFileSync(path.join(root, 'r37_src/oly/oly_widgets.js'), 'utf8');
-const WIDGETS = new Set([...widgetsSrc.matchAll(/make\('(\w+)'/g)].map(m => m[1]));
+const unitSrc = [1, 2, 3, 4, 5, 6].map(g => fs.readFileSync(path.join(root, 'r37_src/oly/p' + g + '.js'), 'utf8')).join('\n');
+/* every "a＝b＝c" run inside an explanation must be arithmetically consistent (same rule as test_levels_math.cjs) */
+const chain=e=>{const bad=[];const re=/[\d.＋－×÷＝()\/]+/g;let m;while((m=re.exec(e))){const run=m[0];if(!run.includes('＝')||e[m.index-1]==='…')continue;
+  const vs=run.split('＝').filter(x=>x!=='').map(sg=>{const js=sg.replace(/＋/g,'+').replace(/－/g,'-').replace(/×/g,'*').replace(/÷/g,'/');if(!/^[\d.+\-*\/() ]+$/.test(js))return null;try{return Function('"use strict";return ('+js+')')()}catch(x){return null}}).filter(v=>v!==null&&isFinite(v));
+  if(/^ 餘/.test(e.slice(m.index+run.length)))vs.pop();
+  if(vs.length>=2&&vs.some(v=>Math.abs(v-vs[0])>1e-6))bad.push(run)}return bad};
+const WIDGETS = new Set([...widgetsSrc.matchAll(/make\('(\w+)'/g), ...unitSrc.matchAll(/WQOlyWidgets\.make\('(\w+)'/g)].map(m => m[1]));
 ok(O.order.length === 30, '30 units registered, got ' + O.order.length);
 ok(M.worlds('olympiad').length === 6, '6 grade worlds');
 const sentences = t => String(t || '').split(/[。！？]/).map(x => x.trim()).filter(Boolean);
@@ -56,6 +62,7 @@ for (const id of O.order) {
         ok(q.mode === (k % 2 ? 'fill' : 'mcq'), tg + ' mode');
         ok(!stems.has(q.q), tg + ' duplicate stem'); stems.add(q.q);
         ok(q.hint && q.explain && q.skill.startsWith(id + ':'), tg + ' fields/skill');
+        { const b = chain(q.explain); ok(b.length === 0, tg + ' explanation arithmetic ' + b + ' in ' + q.explain); }
         ok(q.lesson === 'oly:' + id && M.skillLesson(q.skill) === 'oly:' + id, tg + ' lesson link');
         ok(M.check(q, q.answer), tg + ' check answer');
         ok(/^[0-9.\/]+$/.test(q.answer), tg + ' answer charset ' + q.answer);

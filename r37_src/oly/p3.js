@@ -1,5 +1,95 @@
 /* 小三 · 5 完成版單元（g34）：和差、和倍差倍、年齡、搭配與樹形圖、乘法巧算（p3-5 只做二、三位數×一位數的位值拆分）。
-   全部使用現成教具（bars / array），沒有新增工具。數字範圍依 docs/奧數路線-20261022/年級對照研究.md 的小三一節。 */
+   使用現成教具（bars / array），另有專用教具 g3_tree（搭配樹形圖，見檔首）。數字範圍依 docs/奧數路線-20261022/年級對照研究.md 的小三一節。 */
+/* ---- g3_tree（小三 p3-4 搭配與樹形圖專用教具）：左邊 a 件上衣，點上衣長出 b 條褲的分枝；點分枝完成一個搭配，右邊計數。
+   p: {a:2-4, b:2-4, tops?:[emoji..], bottoms?:[emoji..]}  達標＝a×b 個搭配全做齊。鍵盤：Tab 到上衣／分枝，Enter 展開／完成。 -------- */
+if (typeof WQOlyWidgets !== 'undefined') (function () {
+  'use strict';
+  const { el, txt, fit, burst, runner, keys, sbtn, place, C } = WQOlyWidgets;
+  const sfx = (api, n) => { try { api && api.sfx && api.sfx(n); } catch (_) { /* */ } };
+  const changed = api => { try { api.onChange && api.onChange(); } catch (_) { /* */ } };
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+  WQOlyWidgets.make('g3_tree', { mount(host, p, api) {
+    const a = clamp(p.a || 2, 2, 4), b = clamp(p.b || 3, 2, 4), total = a * b, inter = p.mode !== 'show';
+    const TOPS = p.tops || ['👕', '👔', '🧥', '👚'], BOT = p.bottoms || ['👖', '🩳', '👖', '🩳'];
+    const run = runner(api); let svg, W, H, cols, count, big, sub, eq, solved;
+    function build() {
+      run.cancel(); solved = false; cols = []; count = 0;
+      ({ svg, W, H } = fit(host));
+      svg.setAttribute('aria-label', `${a} 件上衣、${b} 條褲的搭配樹形圖`);
+      const cw = (W - 78) / a, bw = Math.min(cw, 100), LH = clamp((H - 78 - 10) / b - 4, 26, 56), x00 = 6, oy = Math.max(0, (H - (78 + b * (LH + 4)) - 12) / 2);
+      for (let i = 0; i < a; i++) {
+        const bx = x00 + i * cw + (cw - bw) / 2, col = { i, bx, open: false, leaves: [], lines: null, done: 0 };
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `第 ${i + 1} 件上衣` }, svg);
+        el('rect', { x: 0, y: 4, width: 56, height: 50, rx: 16, fill: 'rgba(0,0,0,.28)' }, g);
+        col.rect = el('rect', { x: 0, y: 0, width: 56, height: 50, rx: 16, fill: C.card2, stroke: C.aqua, 'stroke-width': 3.5 }, g);
+        txt(g, 28, 26, TOPS[i % TOPS.length], { size: 30, emoji: true });
+        col.chk = txt(g, 50, 6, '✓', { size: 18, fill: C.green, weight: 900, opacity: 0 });
+        place(g, bx, 14 + oy); col.g = g; col.top = { y: 64 + oy };
+        col.leafY = k => oy + 76 + k * (LH + 4) + LH / 2; col.oy = oy; col.ES = Math.min(22, (bw - 28) * .3, LH * .5); col.LH = LH; col.LW = bw - 28;
+        cols.push(col);
+        if (inter) {
+          g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); expand(col, true); }); keys(g, { act: () => expand(col, true) });
+        }
+      }
+      /* right side counter */
+      const cx = W - 36;
+      txt(svg, cx, H * .5 - 50, '已搭', { size: 16, fill: C.muted, weight: 800 });
+      big = txt(svg, cx, H * .5 - 14, '0', { size: 40, fill: C.violet, weight: 900 });
+      sub = txt(svg, cx, H * .5 + 22, `共 ${total} 套`, { size: 16, fill: C.muted, weight: 800 });
+      eq = txt(svg, cx, H * .5 + 48, '', { size: 18, fill: C.gold, weight: 900 });
+      if (!inter) cols.forEach(c => expand(c, false));
+    }
+    function expand(col, user) {
+      if (col.open) return; col.open = true; if (user) sfx(api, 'pop');
+      const x = col.bx + 14, gl = el('g', {}, svg); col.lines = gl;
+      const yEnd = col.leafY(b - 1);
+      el('line', { x1: x, y1: 64 + col.oy, x2: x, y2: yEnd, stroke: C.muted, 'stroke-width': 3, 'stroke-linecap': 'round' }, gl);
+      for (let k = 0; k < b; k++) {
+        const y = col.leafY(k); el('line', { x1: x, y1: y, x2: col.bx + 28, y2: y, stroke: C.muted, 'stroke-width': 3, 'stroke-linecap': 'round' }, gl);
+        const g = el('g', { class: 'r80-chip', role: inter ? 'button' : 'img', 'aria-label': `第 ${col.i + 1} 件上衣配第 ${k + 1} 條褲` }, svg);
+        const w = col.LW, h = col.LH;
+        const r = el('rect', { x: 0, y: -h / 2, width: w, height: h, rx: Math.min(14, h / 2), fill: 'rgba(255,200,74,.12)', stroke: C.gold, 'stroke-width': 3, 'stroke-dasharray': '6 4' }, g);
+        const t1 = txt(g, w / 2 - w * .2, 1, BOT[k % BOT.length], { size: col.ES, emoji: true, opacity: .75 });
+        const t2 = txt(g, w / 2 + w * .22, 1, String(k + 1), { size: Math.min(18, h * .45), fill: C.gold, weight: 900 });
+        const t3 = txt(g, w / 2 - w * .22, 1, TOPS[col.i % TOPS.length], { size: col.ES, emoji: true, opacity: 0 });
+        const leaf = { g, r, t1, t2, t3, done: false };
+        place(g, col.bx + 28, y); col.leaves.push(leaf);
+        if (inter) { g.style.cursor = 'pointer'; g.addEventListener('click', e => { e.preventDefault(); finish(col, leaf, true); }); keys(g, { act: () => finish(col, leaf, true) }); }
+        if (!api.reduced && user) { g.setAttribute('opacity', 0); run.sleep(80 * k).then(ok => ok && run.tween(240, t => { g.setAttribute('opacity', t); place(g, col.bx + 28 - 14 * (1 - t), y); })); }
+      }
+      col.rect.setAttribute('stroke', C.gold);
+      if (!api.reduced && user) { gl.setAttribute('opacity', 0); run.tween(240, t => gl.setAttribute('opacity', t)); }
+      changed(api);
+    }
+    function finish(col, leaf, user) {
+      if (leaf.done || solved) return; leaf.done = true; col.done++; count++;
+      const k = col.leaves.indexOf(leaf), h = col.LH, w = col.LW;
+      const tint = [[C.violet, C.violetD], [C.pink, '#c84f8a'], [C.blue, '#2e7fb8'], [C.green, '#2f9d63']][k % 4]; leaf.r.setAttribute('fill', tint[0]); leaf.r.setAttribute('stroke', tint[1]); leaf.r.removeAttribute('stroke-dasharray');
+      leaf.t1.setAttribute('x', w / 2 + w * .22); leaf.t1.setAttribute('opacity', 1); leaf.t3.setAttribute('x', w / 2 - w * .22); leaf.t3.setAttribute('opacity', 1);
+      leaf.t1.textContent = BOT[k % BOT.length]; leaf.t2.textContent = '';
+      if (!api.reduced) run.tween(260, t => place(leaf.g, col.bx + 28, col.leafY(k), 1 + .12 * Math.sin(t * Math.PI)));
+      if (col.done === b) { col.chk.setAttribute('opacity', 1); col.rect.setAttribute('stroke', C.green); }
+      big.textContent = String(count); sfx(api, 'pop');
+      if (count === total) { solved = true; big.setAttribute('fill', C.gold); eq.textContent = `${a}×${b}`; sfx(api, 'good'); burst(svg, W - 36, H * .5 - 14, api, 10); }
+      changed(api);
+    }
+    build();
+    return {
+      check: () => count === total,
+      reset() { build(); changed(api); },
+      destroy() { run.destroy(); },
+      async demo() {
+        build(); if (!(await run.sleep(350))) return false;
+        for (const col of cols) {
+          expand(col, true); if (!(await run.sleep(420))) return false;
+          for (const lf of col.leaves) { finish(col, lf, false); if (!(await run.sleep(260))) return false; }
+        }
+        changed(api); return true;
+      }
+    };
+  } });
+})();
+
 (function () {
   'use strict';
   const { o, N, ri, pick, shuffle } = WQOly.helpers;
@@ -347,10 +437,10 @@
     lesson: [
       { t: 'show', say: '有 2 件上衣、3 條褲。像樹一樣一層層分枝。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')] }, still: true } },
       { t: 'predict', say: '上衣和褲各選一件來穿。', ask: '一共有幾款配搭？', options: ['5', '6', '8'], answer: '6', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '共 ? 款', c: 't' }] }, still: true }, reveal: '每件上衣配 3 款，3＋3＝6，就是 2×3。' },
-      { t: 'do', say: '紅上衣和藍上衣，都拉到 3 條褲。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a', 3), pantsRow('藍', 'b', 3)], braces: [{ from: 0, to: 1, label: '共 6 款', c: 't' }] } } },
+      { t: 'do', say: '點上衣長出褲，再逐條點，完成搭配。', scene: { w: 'g3_tree', p: { a: 2, b: 3 } } },
       { t: 'show', say: '每枝都分 3 枝，2 枝就是 2×3＝6 款。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '2×3＝6', c: 't' }] }, still: true } },
       { t: 'predict', say: '再多 2 頂帽子。每款再配帽。', ask: '一共有幾款？', options: ['8', '10', '12'], answer: '12', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '6 款', c: 't' }] }, still: true }, reveal: '6 款每款配 2 頂帽：6×2＝12。' },
-      { t: 'do', say: '3 件上衣、2 條褲。每件拉到 2 條褲。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a', 2), pantsRow('黃', 'b', 2), pantsRow('藍', 't', 2)], braces: [{ from: 0, to: 2, label: '共 6 款', c: 't' }] } } },
+      { t: 'do', say: '3 件上衣、2 條褲。做齊所有搭配。', scene: { w: 'g3_tree', p: { a: 3, b: 2 } } },
       { t: 'try', say: '一層一層分，答答看。', scene: { w: 'bars', p: { rows: [pantsRow('甲', 'a'), pantsRow('乙', 'b'), pantsRow('丙', 'g')] }, still: true },
         q: { stem: '3 款麵、4 款湯，各選一款。共有幾種配搭？', options: ['7', '12', '16'], answer: '12', hint: '每款麵都能配 4 款湯。', why: { 7: '7 是加出來的，每款麵都要配每款湯。', 16: '16 是 4×4，麵只有 3 款。' } } },
       { t: 'card' }
