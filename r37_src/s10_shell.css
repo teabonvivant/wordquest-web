@@ -642,3 +642,5 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 @media(prefers-reduced-motion:reduce){.r37-comp.ok .r37-compav,.r37-comp.no .r37-compav,.r37-comp.ok::after{animation:none!important}.r37-comp.ok::after{opacity:0}}
 .r37-wtitle small{white-space:nowrap}
 @media(max-width:420px){.r37-wtitle{gap:8px;padding:6px 12px}.r37-wtitle small{gap:4px}.r37-wtitle small .r37-st{font-size:15px}.r37-wtitle h1{font-size:22px}}
+/* R3.25: short landscape - the hub tile planet picture would sit on the label, so it is left out */
+@media(max-height:520px){.r37-tile .r37-tpl{display:none}}

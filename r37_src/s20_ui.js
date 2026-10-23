@@ -314,7 +314,7 @@ function r37StartLevel(track,w,s,opts){
   }else qs=opts.redo.map(m=>JSON.parse(JSON.stringify(m.q)));
  }
  if(!qs.length){toast('這一關還未準備好。','bad');return;}
- const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,ou=track==='olympiad'&&r80Unit(w+1,(s>>1)+1),title=ou?`${ou.icon} ${esc(ou.title)} · 闖關 ${s&1?'②':'①'}`:(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
+ const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,ou=track==='olympiad'&&r80Unit(w+1,(s>>1)+1),title=ou?`${r37Icon(r80Grade(w+1).icon)} ${esc(ou.title)} · 闖關 ${s&1?'②':'①'}`:(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
  const chunks=track==='english'&&!opts.redo?r37EnChunks(r37EnStage(w,s)):[];
  /* 30-second warm-up: up to 3 words missed in this world before (English, once a day per world) */
  const warm=[];

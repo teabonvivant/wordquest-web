@@ -2,7 +2,7 @@
 
 Four sizes (390x844, 844x390, 768x1024, 1440x900), a normal (non-Admin) family account with seeded progress, then every
 legacy page (t17 page table), the six hubs, the level maps (english / math / runner / fps), the answer flow (learn card,
-question, wrong feedback, result) and the maths dialogs (HK-M4 course + thinking tower / strategy cards, shadow DOM):
+question, wrong feedback, result) and the maths dialogs (HK-M4 course, shadow DOM) and the 奧數路線 pages:
   - no light card surface (dark card token) except the listed paper / reading surfaces,
   - the only filled primary button colour is #ffc94a,
   - no system emoji used as an entrance icon (teaching content excluded),
@@ -115,6 +115,10 @@ def run():
             st = pg.evaluate("""()=>{const q=s=>document.querySelector(s);const dn=q('.r37-node.done');return {done:dn?dn.querySelectorAll('.r37-st3 i.on').length:-1,
               lock:!!q('.r37-node.lock')&&getComputedStyle(q('.r37-node.lock')).borderStyle.includes('dashed')}}""")
             C.ok(st['done'] >= 1 and st['lock'], f'{name}: done node has gold stars, locked node is dashed {st}')
+            # ---------------- R3.23 奧數路線 pages (replaced the 思維之塔 / 策略卡 dialogs)
+            for r in ['oly/1', 'oly/6', 'oly/cards', 'oly/wrong']:
+                go(pg, '#' + r, 700)
+                view(pg, f'{name}/{r}')
             # ---------------- characters
             go(pg, '#p/chars', 700)
             view(pg, f'{name}/p/chars')
@@ -162,8 +166,7 @@ def run():
                 view(pg, f'{name}/{k}')
                 C.ok(pg.evaluate("!!document.querySelector('.r37-nav')&&!!document.querySelector('.r37-bar')"), f'{name}/{k}: shell bar and nav present')
             # ---------------- maths dialogs
-            for planet, key, sub, nm in [('math', 'normal', None, 'course home'), ('math', 'assessment', None, 'course check'), ('math', 'review', None, 'course review'),
-                                         ('olympiad', 'olympiad', None, 'tower'), ('olympiad', 'olympiad', '[data-action="nav:cards"]', 'strategy cards')]:
+            for planet, key, sub, nm in [('math', 'normal', None, 'course home'), ('math', 'assessment', None, 'course check'), ('math', 'review', None, 'course review')]:
                 open_dialog(pg, planet, key, sub)
                 course = pg.evaluate("!!document.querySelector('dialog#wq-course-dialog[open]')")
                 tag = f'{name}/{nm}'

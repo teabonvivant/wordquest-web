@@ -30,7 +30,7 @@
     { n: 2, name: '小二', icon: '🌿', hue: 190, theme: '跳數與植樹' },
     { n: 3, name: '小三', icon: '🌳', hue: 215, theme: '和差與搭配' },
     { n: 4, name: '小四', icon: '🔥', hue: 272, theme: '雞兔與高斯' },
-    { n: 5, name: '小五', icon: '🚀', hue: 322, theme: '餘數、抽屜、追及' },
+    { n: 5, name: '小五', icon: '🚀', hue: 322, theme: '餘數與抽屜' },
     { n: 6, name: '小六', icon: '👑', hue: 28, theme: '比與工程' }
   ];
   const units = {}, order = [];

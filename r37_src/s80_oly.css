@@ -145,14 +145,16 @@
 .r80-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3em;width:100%;aspect-ratio:3/4;box-sizing:border-box;padding:.7em .6em;border-radius:1.1em;font-size:clamp(11px,4.2cqw,20px);color:#fff;text-align:center;
  background:linear-gradient(165deg,hsl(var(--h) 58% 30%),hsl(var(--h) 55% 14%));border:2px solid hsl(var(--h) 80% 66%);box-shadow:0 5px 0 var(--r37-shade),inset 0 0 0 1px rgba(255,255,255,.12),0 0 18px hsl(var(--h) 90% 55% / .25);overflow:hidden}
 .r80-card::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 60%);pointer-events:none}
-.r80-cn{align-self:stretch;text-align:left;font-size:.78em;font-weight:900;color:hsl(var(--h) 85% 85%);letter-spacing:.04em}
+.r80-cn{align-self:stretch;text-align:left;font-size:max(12px,.78em);font-weight:900;color:hsl(var(--h) 85% 85%);letter-spacing:.04em}
 .r80-ca{flex:1;min-height:0;width:100%;display:grid;place-items:center}
 .r80-ca svg{width:100%;height:100%;max-height:100%}
 .r80-ct{font-size:1.15em;font-weight:900;line-height:1.15}
-.r80-cm{font-size:1.05em;font-weight:900;color:var(--r37-gold);line-height:1.2}
-.r80-ce{font-size:.72em;font-weight:800;color:#dfe4ff;line-height:1.25}
+.r80-cm{font-size:1.05em;font-weight:900;color:#fff0b8;line-height:1.2}
+.r80-ce{font-size:max(12px,.72em);font-weight:800;color:#fff;line-height:1.25}
+/* R3.25: grid thumbnails keep grade tag, picture and title (all >= 12px); the motto and example are read on the big card */
+.r80-cw .r80-card:not(.lock) .r80-cm,.r80-cw .r80-card:not(.lock) .r80-ce{display:none}.r80-cw .r80-ct{font-size:max(13px,1.15em)}
 .r80-card.lock{filter:grayscale(1);background:#10153f;border:2px dashed rgba(255,255,255,.25);box-shadow:none;opacity:.7}
-.r80-card.lock .r80-sil{font-size:3.4em;filter:brightness(0);opacity:.45}.r80-card.lock .r80-cm{color:#c3cbf7}.r80-cg{font-size:.72em;font-weight:800;color:#c3cbf7}
+.r80-card.lock .r80-sil{font-size:3.4em;filter:brightness(0) invert(.85);opacity:.3}.r80-card.lock .r80-cm{color:#c3cbf7;font-size:max(12px,1.05em)}.r80-cl{font-size:max(12px,.72em);font-weight:800;color:#c3cbf7}
 .r80-cards .r80-cbody,.r80-wrong .r80-cbody{position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto;padding:4px 14px 14px;width:100%;max-width:900px;margin:0 auto}
 .r80-hd2{position:relative;z-index:1;display:flex;align-items:center;gap:10px;padding:0 14px 6px;flex:none}
 .r80-cg h2{display:flex;align-items:center;gap:8px;margin:10px 0 8px;font-size:19px;font-weight:900}.r80-cg h2 em{font-style:normal;font-size:14px;color:#ffe9a8}
@@ -170,7 +172,7 @@
 .r80-wg li .r319-q{flex:1 1 100%;color:#fff}.r80-wg li .r319-a{color:#9ff0d4}.r80-wg li em{margin-left:auto;font-style:normal;color:#ffe9a8}
 .r80-empty{text-align:center;padding:30px 10px;font-weight:900;font-size:18px;color:#c3cbf7}
 /* ---- level screen additions ---- */
-.r80-tolesson{margin-left:auto;cursor:pointer;font:inherit;font-size:15px}
+.r80-tolesson{margin-left:auto;cursor:pointer;font:inherit;font-size:15px;min-height:44px}
 .r80-tolesson b{font-weight:900}
 .r37-q .r80-fig{margin:2px 0 4px}
 .r80-whyb{display:flex!important;align-items:flex-start;gap:6px;color:#ffe9a8;font-weight:800}

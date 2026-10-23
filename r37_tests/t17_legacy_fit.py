@@ -47,9 +47,9 @@ PAGES = {
 COURSE = {'wqm-home', 'wqm-normal', 'wqm-tools'}
 WQM = {'wqm-home': ('math', 'normal', None, 'button.btn.primary'),
        'wqm-normal': ('math', 'assessment', None, '.actions.sticky .btn.primary'),
-       'wqm-tools': ('math', 'review', None, 'button.btn.primary'),
-       'wqm-olympiad': ('olympiad', 'olympiad', None, '[data-action^="olylevel"]'),
-       'wqm-cards': ('olympiad', 'olympiad', '[data-action="nav:cards"]', '.badge-card')}
+       'wqm-tools': ('math', 'review', None, 'button.btn.primary')}
+# R3.23: the 思維之塔 / 策略卡 dialogs were replaced by the 奧數路線 pages (no entry opens them any more); the new pages are checked here
+OLY = {'oly-hub': ('#p/olympiad', '.r80-cont'), 'oly-cards': ('#oly/cards', '.r80-cw')}
 
 
 def admin(p, w, h, touch):
@@ -85,7 +85,7 @@ def check_page(pg, errs, pid, vp, shadow=False):
     C.ok(len(m['back_controls']) <= 1, f'{tag}: at most one back control {m["back_controls"]}')
     course = pid in COURSE  # long-form HK-M4 course content scrolls by design; its primary action is checked separately
     # R3.18: the arcade lobby (#game) scrolls as one page by design (s35: whole-page scroll, sticky progress bar), so it is exempt from the one-screen rule
-    C.ok(course or pid == 'game' or m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
+    C.ok(course or pid in ('game', 'oly-cards') or m['need_px_nolist'] <= 8, f'{tag}: everything outside list containers fits (need_px_nolist={m["need_px_nolist"]}, raw {m["need_px"]})')
     tiny = [t for t in m['tiny_sample'] if not (course and t['sel'] == 'input')] if course else m['tiny_sample']
     C.ok((len(tiny) if course else m['tiny_count']) == 0, f'{tag}: touch targets >= 44px ({m["tiny_count"]} tiny {m["tiny_sample"][:3]})')
     C.ok(m['min_font'] is None or m['min_font'] >= 12, f'{tag}: font floor 12px (min {m["min_font"]})')
@@ -108,6 +108,11 @@ def run():
                 C.ok(r.get('found') and r.get('ok'), f'{pid}@{name}: main action {primary!r} inside the first screen {r}')
                 hh = pg.evaluate("(()=>{const h=[...document.querySelectorAll('.r37-legbody h1,.r37-legbody h2,.r37-legt')].find(e=>e.getBoundingClientRect().height>0);if(!h)return null;const r=h.getBoundingClientRect();return {top:r.top,bottom:r.bottom}})()")
                 C.ok(hh is not None and hh['top'] >= 0 and hh['bottom'] <= h, f'{pid}@{name}: title inside the first screen {hh}')
+            for pid, (hash_, primary) in OLY.items():
+                go(pg, '#kid', 250); go(pg, hash_, 700)
+                check_page(pg, errs, pid, vp)
+                r = in_first_screen(pg, primary)
+                C.ok(r.get('found') and r.get('ok'), f'{pid}@{name}: main action {primary!r} inside the first screen {r}')
             # ---- maths / olympiad dialogs (shadow DOM)
             for pid, (planet, key, sub, primary) in WQM.items():
                 pg.evaluate("document.querySelectorAll('dialog[open]').forEach(d=>d.close())")

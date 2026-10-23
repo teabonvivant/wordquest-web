@@ -1777,6 +1777,8 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 @media(prefers-reduced-motion:reduce){.r37-comp.ok .r37-compav,.r37-comp.no .r37-compav,.r37-comp.ok::after{animation:none!important}.r37-comp.ok::after{opacity:0}}
 .r37-wtitle small{white-space:nowrap}
 @media(max-width:420px){.r37-wtitle{gap:8px;padding:6px 12px}.r37-wtitle small{gap:4px}.r37-wtitle small .r37-st{font-size:15px}.r37-wtitle h1{font-size:22px}}
+/* R3.25: short landscape - the hub tile planet picture would sit on the label, so it is left out */
+@media(max-height:520px){.r37-tile .r37-tpl{display:none}}
 
 /* R3.14 dictation study: group cards, learn grid, letter cells */
 .r37-dzh{position:relative;z-index:2;flex:none;display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 14px 6px;font-weight:900;font-size:clamp(18px,3vh,26px)}.r37-dzh>span{display:grid;font-size:1.4em}
@@ -3560,14 +3562,16 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 .r80-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3em;width:100%;aspect-ratio:3/4;box-sizing:border-box;padding:.7em .6em;border-radius:1.1em;font-size:clamp(11px,4.2cqw,20px);color:#fff;text-align:center;
  background:linear-gradient(165deg,hsl(var(--h) 58% 30%),hsl(var(--h) 55% 14%));border:2px solid hsl(var(--h) 80% 66%);box-shadow:0 5px 0 var(--r37-shade),inset 0 0 0 1px rgba(255,255,255,.12),0 0 18px hsl(var(--h) 90% 55% / .25);overflow:hidden}
 .r80-card::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 60%);pointer-events:none}
-.r80-cn{align-self:stretch;text-align:left;font-size:.78em;font-weight:900;color:hsl(var(--h) 85% 85%);letter-spacing:.04em}
+.r80-cn{align-self:stretch;text-align:left;font-size:max(12px,.78em);font-weight:900;color:hsl(var(--h) 85% 85%);letter-spacing:.04em}
 .r80-ca{flex:1;min-height:0;width:100%;display:grid;place-items:center}
 .r80-ca svg{width:100%;height:100%;max-height:100%}
 .r80-ct{font-size:1.15em;font-weight:900;line-height:1.15}
-.r80-cm{font-size:1.05em;font-weight:900;color:var(--r37-gold);line-height:1.2}
-.r80-ce{font-size:.72em;font-weight:800;color:#dfe4ff;line-height:1.25}
+.r80-cm{font-size:1.05em;font-weight:900;color:#fff0b8;line-height:1.2}
+.r80-ce{font-size:max(12px,.72em);font-weight:800;color:#fff;line-height:1.25}
+/* R3.25: grid thumbnails keep grade tag, picture and title (all >= 12px); the motto and example are read on the big card */
+.r80-cw .r80-card:not(.lock) .r80-cm,.r80-cw .r80-card:not(.lock) .r80-ce{display:none}.r80-cw .r80-ct{font-size:max(13px,1.15em)}
 .r80-card.lock{filter:grayscale(1);background:#10153f;border:2px dashed rgba(255,255,255,.25);box-shadow:none;opacity:.7}
-.r80-card.lock .r80-sil{font-size:3.4em;filter:brightness(0);opacity:.45}.r80-card.lock .r80-cm{color:#c3cbf7}.r80-cg{font-size:.72em;font-weight:800;color:#c3cbf7}
+.r80-card.lock .r80-sil{font-size:3.4em;filter:brightness(0) invert(.85);opacity:.3}.r80-card.lock .r80-cm{color:#c3cbf7;font-size:max(12px,1.05em)}.r80-cl{font-size:max(12px,.72em);font-weight:800;color:#c3cbf7}
 .r80-cards .r80-cbody,.r80-wrong .r80-cbody{position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto;padding:4px 14px 14px;width:100%;max-width:900px;margin:0 auto}
 .r80-hd2{position:relative;z-index:1;display:flex;align-items:center;gap:10px;padding:0 14px 6px;flex:none}
 .r80-cg h2{display:flex;align-items:center;gap:8px;margin:10px 0 8px;font-size:19px;font-weight:900}.r80-cg h2 em{font-style:normal;font-size:14px;color:#ffe9a8}
@@ -3585,7 +3589,7 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 .r80-wg li .r319-q{flex:1 1 100%;color:#fff}.r80-wg li .r319-a{color:#9ff0d4}.r80-wg li em{margin-left:auto;font-style:normal;color:#ffe9a8}
 .r80-empty{text-align:center;padding:30px 10px;font-weight:900;font-size:18px;color:#c3cbf7}
 /* ---- level screen additions ---- */
-.r80-tolesson{margin-left:auto;cursor:pointer;font:inherit;font-size:15px}
+.r80-tolesson{margin-left:auto;cursor:pointer;font:inherit;font-size:15px;min-height:44px}
 .r80-tolesson b{font-weight:900}
 .r37-q .r80-fig{margin:2px 0 4px}
 .r80-whyb{display:flex!important;align-items:flex-start;gap:6px;color:#ffe9a8;font-weight:800}
@@ -13304,7 +13308,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     { n: 2, name: '小二', icon: '🌿', hue: 190, theme: '跳數與植樹' },
     { n: 3, name: '小三', icon: '🌳', hue: 215, theme: '和差與搭配' },
     { n: 4, name: '小四', icon: '🔥', hue: 272, theme: '雞兔與高斯' },
-    { n: 5, name: '小五', icon: '🚀', hue: 322, theme: '餘數、抽屜、追及' },
+    { n: 5, name: '小五', icon: '🚀', hue: 322, theme: '餘數與抽屜' },
     { n: 6, name: '小六', icon: '👑', hue: 28, theme: '比與工程' }
   ];
   const units = {}, order = [];
@@ -23594,7 +23598,7 @@ function r37StartLevel(track,w,s,opts){
   }else qs=opts.redo.map(m=>JSON.parse(JSON.stringify(m.q)));
  }
  if(!qs.length){toast('這一關還未準備好。','bad');return;}
- const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,ou=track==='olympiad'&&r80Unit(w+1,(s>>1)+1),title=ou?`${ou.icon} ${esc(ou.title)} · 闖關 ${s&1?'②':'①'}`:(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
+ const W=r37TrackWorlds(track)[w],u=track==='english'&&typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,ou=track==='olympiad'&&r80Unit(w+1,(s>>1)+1),title=ou?`${r37Icon(r80Grade(w+1).icon)} ${esc(ou.title)} · 闖關 ${s&1?'②':'①'}`:(s===9?r37Icon('👹'):'')+r37Icon(W?.icon||'')+' '+(u?esc(u.title):(W?.name||'')+' · '+(s+1));
  const chunks=track==='english'&&!opts.redo?r37EnChunks(r37EnStage(w,s)):[];
  /* 30-second warm-up: up to 3 words missed in this world before (English, once a day per world) */
  const warm=[];
@@ -29392,7 +29396,7 @@ const r80UnitOfSk=sk=>{const m=/^(p\d-\d):/.exec(sk||'');return m&&globalThis.WQ
 function r80ArtDefault(u){return `<svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="30" fill="rgba(255,255,255,.08)"/><text x="60" y="42" text-anchor="middle" dominant-baseline="central" font-size="40">${esc(u.icon)}</text></svg>`;}
 function r80CardHTML(u,own,cls=''){
  const g=r80Grade(u.grade);
- if(!own)return `<div class="r80-card lock ${cls}" style="--h:${g.hue}" role="img" aria-label="未收集的策略卡：${g.name}第 ${u.n} 單元"><div class="r80-ca"><span class="r80-sil" data-i="${esc(u.icon)}"></span></div><b class="r80-cm">？？？</b><small class="r80-cg">${g.name} · 第 ${u.n} 單元</small></div>`;
+ if(!own)return `<div class="r80-card lock ${cls}" style="--h:${g.hue}" role="img" aria-label="未收集的策略卡：${g.name}第 ${u.n} 單元"><div class="r80-ca"><span class="r80-sil" data-i="${esc(u.icon)}"></span></div><b class="r80-cm">？？？</b><small class="r80-cl">${g.name} · 第 ${u.n} 單元</small></div>`;
  return `<div class="r80-card ${cls}" style="--h:${g.hue}"><span class="r80-cn">${g.name} · ${u.n}</span><div class="r80-ca">${u.card.art||r80ArtDefault(u)}</div><b class="r80-ct">${r80Esc(u.title)}</b><b class="r80-cm">${r80Esc(u.card.motto)}</b><small class="r80-ce">${r80Esc(u.card.example)}</small></div>`;
 }
 /* ---------------------------------------------------------------------------------------------- hub */
@@ -29500,7 +29504,7 @@ function r80LesDraw(){
   side=`${c.scene?`<p class="r80-ask">${r80Esc(q.stem)}</p>`:''}${q.options?`<div class="r80-opts n${q.options.length}" role="group" aria-label="選擇答案">${q.options.map((o,k)=>`<button type="button" class="r80-opt ${S.done&&String(o)===String(q.answer)?'ok':S.bad&&S.bad.includes(String(o))?'miss':''}" data-r80="try" data-v="${r80Esc(o)}" ${S.done||(S.bad&&S.bad.includes(String(o)))?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`:`<form class="r80-fill" data-r80-form="1"><input id="r80-in" type="text" inputmode="decimal" autocomplete="off" aria-label="答案" placeholder="答案" ${S.done?'disabled':''}><button type="submit" class="r80-ok" ${S.done?'disabled':''}>確定</button></form>`}`;
  }
  const sayHtml=S.msg!==undefined?S.msg:r80Esc(say);
- root.innerHTML=`<header class="r80-lh"><button type="button" class="r80-x" data-r80="close" aria-label="離開課堂">${r37Icon('✕')}</button><div class="r80-dots" role="progressbar" aria-label="課堂進度" aria-valuemin="1" aria-valuemax="${u.lesson.length}" aria-valuenow="${L.i+1}">${dots}</div>${last?'':`<button type="button" class="r80-skip" data-r80="skip"><span aria-hidden="true">⏭</span><b>我懂了，直接闖關</b></button>`}</header>
+ root.innerHTML=`<header class="r80-lh"><button type="button" class="r80-x" data-r80="close" aria-label="離開課堂">${r37Icon('✕')}</button><div class="r80-dots" role="progressbar" aria-label="課堂進度" aria-valuemin="1" aria-valuemax="${u.lesson.length}" aria-valuenow="${L.i+1}">${dots}</div>${last?'':`<button type="button" class="r80-skip" data-r80="skip"><span aria-hidden="true">${r37Icon('▶')}</span><b>我懂了，直接闖關</b></button>`}</header>
  <div class="r80-lb"><div class="r80-scene ${c.t}">${scene}</div><div class="r80-sd"><p class="r80-say ${S.bad&&S.bad.length&&!S.done?'bad':''}" id="r80-say" role="status" aria-live="polite">${sayHtml}</p>${side}${tools?`<div class="r80-tools">${tools}</div>`:''}</div></div>
  <footer class="r80-lf"><button type="button" class="r80-prev" data-r80="prev" aria-label="上一步" ${L.i?'':'disabled'}><span aria-hidden="true">←</span><b>上一步</b></button><button type="button" class="r80-next ${needs?'':'lit'}" data-r80="next" id="r80-next" ${needs?'disabled aria-disabled="true"':''}><b>${last?'去闖關':'下一步'}</b><span aria-hidden="true">→</span></button></footer>`;
  r80LesWidget();
