@@ -976,10 +976,13 @@ function s50Rebuild(d,old){
     if(t!==c.en&&t){c.en=t;const g=V20.gloss(t,v20Dictionary);c.known=g.known;c.choices=g.choices;c.example=g.example;if(!c.zh)c.zh=g.zh;
      c.reviewReasons=c.reviewReasons.filter(r=>!/題庫沒有/.test(r)||!g.known);}
    }
-   if(c.kind==='word'&&c.selected&&/^[A-Z][a-z]{1,}$/.test(c.en)&&!c.known&&!S50_NAME_SUFFIX.test(c.en)&&!lowerSeen.has(c.en.toLowerCase())){
+   /* R3.27: a name from the proper-noun list (Peter, Chan, Mr) counts even when known; one that is also a common word (Mark, Rose)
+    * only away from the start of a sentence */
+   const pn=window.wqProper?window.wqProper(c.en):null,listed=pn&&['name','surname','title'].includes(pn.type);
+   if(c.kind==='word'&&c.selected&&/^[A-Z][a-z]{1,}\.?$/.test(c.en)&&(listed||!c.known&&!S50_NAME_SUFFIX.test(c.en))&&!lowerSeen.has(c.en.toLowerCase())){
     const a=here+(c.span?c.span[0]:0),before=raw.slice(0,a).replace(/[\s"'“‘(]+$/,'');
     const prev=(/([A-Za-z']+)$/.exec(before)||[])[1];
-    if(!(prev&&S50_ARTICLE.has(prev.toLowerCase()))){c.selected=false;c.s50x.name=true;}
+    if(!(prev&&S50_ARTICLE.has(prev.toLowerCase()))&&!(pn&&pn.common&&(!before||/[.!?:]$/.test(before)))){c.selected=false;c.s50x.name=true;}
    }
    out.push(c);nProse++;
   }

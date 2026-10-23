@@ -138,14 +138,17 @@ function s56Tag(c){
  if(!c||c.kind==='sentence')return null;
  const m=c.s50||{},en=String(c.en||'');
  if(m.learned)return {kind:'learned',text:'已學過 '+m.learned,title:'孩子的詞庫已有 '+m.learned};
- if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（題庫沒有、句中大寫），預設沒有選；要默寫的話按一下加回'};
+ if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（句中大寫），預設沒有選；要默寫的話按一下加回'};
  if(m.root)return {kind:'root',text:'同字根 '+m.rootEn,title:en+' 與 '+m.rootEn+' 同字根（同一個字），只預選了先寫的一個；按一下可加回'};
  let L=null;
  try{L=window.s55Info&&window.s55Info(en);}catch(_){}
  /* a word that is itself a dictionary entry (quickly, children) is never "a form of" another card; only the plain
   * relation "from quick" is told for it */
  if(!L){const a=s56Look(en).a;if(a&&a.derived&&s55HasRaw(s56Fold(en)))L=a;}
- if(!L||!L.base)return null;
+ if(!L||!L.base){
+  const P=window.wqProper&&window.wqProper(en);
+  return P&&!P.common?{kind:'name',text:P.tag,title:en+' 是'+P.tag}:null;
+ }
  if(L.derived)return {kind:'derived',text:'來自 '+L.base,title:en+' 由 '+L.base+' 變來，不是同一個字'};
  if(L.form==='spelling'){
   const side=s56Side(en,L.base);

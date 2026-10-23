@@ -70,6 +70,8 @@ html body #import-v20 .s50-grid .v20-candidate{position:relative;border-radius:1
 html body #import-v20 .s50-grid .v20-candidate.is-selected{background:#fff0df;border:2px solid var(--s50-amber)}
 html body #import-v20 .s50-grid .v20-candidate.is-review{border:2px dashed #b45309;background:#fff6dc}
 html body #import-v20 .s50-grid .v20-candidate{min-height:88px}
+/* R3.27: an un-selected card had the galaxy shell's light text on this cream face (about 1.1:1); keep it dark and dimmed instead */
+html body #import-v20 .s50-grid .v20-candidate:not(.is-selected):not(.is-review){background:rgba(14,18,48,.62);border:1.5px dashed rgba(220,226,255,.45);color:#d9def5}
 html body #import-v20 .s50-grid .v20-token{display:block;flex:1;padding:8px 6px 44px 8px;min-height:88px}
 html body #import-v20 .s50-grid .v20-token strong{font-size:16px;line-height:1.25;overflow-wrap:anywhere}
 html body #import-v20 .s50-grid .v20-token strong[data-len="l"]{font-size:13.5px}
@@ -180,3 +182,12 @@ html body #import-v20 .s50-gate.s50-flash{outline:3px solid var(--s50-amber);out
 html body .s50-auth-note{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 10px;padding:8px 12px;border-radius:12px;background:#fff6dc;border:1.5px solid #b45309;color:#5a2d00;font-size:15px;font-weight:700}
 html body .s50-auth-note .btn{min-height:44px;font-size:15px;font-weight:800}
 html body #s50-gate-note{margin:0 0 10px;padding:8px 12px;border-radius:10px;background:#fff6dc;border:1.5px solid #b45309;color:#5a2d00;font-weight:700}
+/* R3.27 contrast: these labels inherited the galaxy shell's light (or the old dark) text on a face of the same tone (1.0-1.9:1) */
+html body.r37 #app #import-v20 .p40-steps li.done .p40-name{color:#1d2158!important}
+html body.r37 #app #import-v20 #v20-message{color:#c9d0f0!important}
+html body.r37 #app #import-v20 .s50-filters .s50-sw span,html body.r37 #app #import-v20 .s50-filters .s50-sw small{color:#e6e9fb!important}
+html body.r37 #app #import-v20 .s50-filters .s50-sw small{opacity:.8!important}
+html body.r37 #app #import-v20 .s50-tools .s50-more>summary{color:#1d2158!important}
+html body.r37 #app #import-v20 .s50-skipped,html body.r37 #app #import-v20 .s50-skipped>summary,html body.r37 #app #import-v20 .s50-skipped>summary *{color:#4a3a2c!important}
+html body.r37 #v20-import-dock #s50-review{color:#7a3b00!important}
+html body.r37 #app #import-v20 .s50-grid .v20-candidate:not(.is-selected):not(.is-review) .v20-candidate-foot button{color:#d9def5!important}

@@ -5,7 +5,9 @@
  * db.words keeps its original shape on purpose: validateDb() rebuilds every word from a fixed field list, so a new field such as
  * base/form would be dropped on the next load. The base is cheap to recompute with s55Lemma(word.en). */
 const s55RawHas=Map.prototype.has,s55RawGet=Map.prototype.get;
-const s55HasRaw=k=>s55RawHas.call(v20Dictionary,k);
+/* R3.27: a proper-noun entry (Peter, Max, Chan) is never the base of a word form: maxed is not "Max 的過去式" */
+const s55Proper=k=>{const e=s55RawGet.call(v20Dictionary,k);return !!(e&&e.senses&&e.senses[0]&&e.senses[0].category==='proper_noun');};
+const s55HasRaw=k=>s55RawHas.call(v20Dictionary,k)&&!s55Proper(k);
 const s55PosOf=k=>{const e=s55RawGet.call(v20Dictionary,k);return e&&Array.isArray(e.senses)?[...new Set(e.senses.map(s=>s&&s.pos).filter(Boolean))]:null;};
 const s55Cache=new Map(),s55Synth=new Map();let s55CacheSize=-1;
 /* R3.13: an -ly adverb that is not itself a dictionary entry (softly, rudely, simply, comfortably) is the same lesson word as its
@@ -22,6 +24,7 @@ function s55Lemma(word){
  const key=V20.fold(word);
  if(s55Cache.has(key))return s55Cache.get(key);
  let r=null;
+ if(s55Proper(key)){s55Cache.set(key,r);return r;}
  /* R3.26: the irregular-form table (went -> go, mice -> mouse, bacteria -> bacterium) answers first; a dictionary entry still wins */
  const tf=window.WQ_FORMS&&!s55HasRaw(key)&&Object.prototype.hasOwnProperty.call(window.WQ_FORMS,key)?window.WQ_FORMS[key]:null;
  if(tf&&s55HasRaw(tf[0]))r={base:tf[0],form:tf[1],label:window.WQMorph.LABEL[tf[1]]||'',derived:false};
@@ -58,7 +61,7 @@ function s55Entry(key){
  if(hit)return hit;
  const base=s55RawGet.call(v20Dictionary,L.base);
  if(!base||!Array.isArray(base.senses))return undefined;
- let senses=base.senses.map(s=>Object.assign({},s,{headword:key}));
+ let senses=base.senses.filter(s=>s&&s.category!=='proper_name').map(s=>Object.assign({},s,{headword:key}));   // bills is not 比爾
  if(L.adverb){
   const adj=senses.filter(s=>s&&s.pos==='adj');
   senses=(adj.length?adj:senses).map(s=>Object.assign(s,{zhHK:s55AdvZh(s.zhHK),pos:'adv'}));
