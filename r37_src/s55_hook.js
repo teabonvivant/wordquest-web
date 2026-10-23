@@ -22,7 +22,10 @@ function s55Lemma(word){
  const key=V20.fold(word);
  if(s55Cache.has(key))return s55Cache.get(key);
  let r=null;
- try{r=window.WQMorph.analyse(key,s55HasRaw,s55PosOf);}catch(_){r=null;}
+ /* R3.26: the irregular-form table (went -> go, mice -> mouse, bacteria -> bacterium) answers first; a dictionary entry still wins */
+ const tf=window.WQ_FORMS&&!s55HasRaw(key)&&Object.prototype.hasOwnProperty.call(window.WQ_FORMS,key)?window.WQ_FORMS[key]:null;
+ if(tf&&s55HasRaw(tf[0]))r={base:tf[0],form:tf[1],label:window.WQMorph.LABEL[tf[1]]||'',derived:false};
+ else try{r=window.WQMorph.analyse(key,s55HasRaw,s55PosOf);}catch(_){r=null;}
  if(r&&r.derived&&r.form==='adv'&&!s55HasRaw(key)&&s55AdvOk(key,r.base)){
   const sn=s55RawGet.call(v20Dictionary,r.base);
   if(sn&&Array.isArray(sn.senses)&&sn.senses.length)r=Object.assign({},r,{derived:false,adverb:true});   // soft -> 柔軟地 (several meanings: the parent picks)
@@ -73,7 +76,30 @@ v20Dictionary.has=function(k){return s55RawHas.call(this,k)||(typeof k==='string
 v20Dictionary.get=function(k){const e=s55RawGet.call(this,k);return e!==undefined||typeof k!=='string'?e:s55Entry(k);};
 window.s55Lemma=word=>{const r=s55Lemma(word);return r?Object.assign({},r):null;};
 window.s55Info=word=>{const r=s55Lemma(word);return r?Object.assign({word:V20.fold(word)},r):null;};
-window.s55SameWord=(a,b)=>window.WQMorph?window.WQMorph.sameWord(a,b,s55HasRaw,s55PosOf):V20.fold(a)===V20.fold(b);
+/* R3.26: two dictionary entries that are the same word in two forms (play / playing / played, go / went, child / children) are one
+ * word family. Verb and adjective forms always count; a plural / -s form counts only when both entries share a Chinese meaning, so
+ * glass (玻璃) and glasses (眼鏡) stay apart. */
+const S55_FAMILY_FORMS=new Set(['past','pp','past-pp','ing','comp','sup']),S55_PLURAL_FORMS=new Set(['plural','third','plural-third']);
+const s55ZhTokens=k=>{const e=s55RawGet.call(v20Dictionary,k);return e&&Array.isArray(e.senses)?e.senses.flatMap(x=>String(x&&x.zhHK||'').replace(/[（(][^）)]*[）)]/g,'').split(/[；;，,、\s]+/)).filter(Boolean):[];};
+const s55ZhShare=(a,b)=>{const ta=s55ZhTokens(a),tb=s55ZhTokens(b);return ta.some(x=>tb.some(y=>x===y||x.length>=2&&y.length>=2&&(x.includes(y)||y.includes(x))));};
+function s55FormOf(x,other){
+ let r=null;
+ try{r=window.WQMorph.analyse(x,k=>k!==x&&(k===other||s55HasRaw(k)),s55PosOf);}catch(_){}
+ return r&&!r.derived?r:null;
+}
+window.s55SameWord=(a,b)=>{
+ if(!window.WQMorph)return V20.fold(a)===V20.fold(b);
+ if(window.WQMorph.sameWord(a,b,s55HasRaw,s55PosOf))return true;
+ const fa=V20.fold(a),fb=V20.fold(b);
+ if(!fa||!fb)return false;
+ const ra=s55FormOf(fa,fb),rb=s55FormOf(fb,fa);
+ const ba=ra?ra.base:fa,bb=rb?rb.base:fb;
+ if(ba!==bb&&ba!==fb&&bb!==fa)return false;
+ const bothEntries=s55HasRaw(fa)&&s55HasRaw(fb);
+ if(!bothEntries)return true;
+ const forms=[ra,rb].filter(Boolean).map(r=>r.form);
+ return forms.some(f=>S55_FAMILY_FORMS.has(f))||forms.some(f=>S55_PLURAL_FORMS.has(f))&&s55ZhShare(fa,fb);
+};
 
 /* fill what the base word knows into a freshly imported word; never overwrite what the parent typed */
 function s55FillWord(w){

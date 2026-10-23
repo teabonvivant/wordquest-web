@@ -125,13 +125,13 @@ function r37DzMcq(w,k,D,rng){
   for(const x of r37Shuf(near,rng)){if(opts.length>=3)break;take(x);}
  }
  const answer=zhOpt?zh:en,base={mode:'mcq',kind,answer,options:r37Shuf([answer,...opts],rng),audio:en,explain:(zh?zh+' = ':'')+en,word:en,lang:zhOpt?'zh':'en',dz:{wid:w.id,lvl:1,type:kind==='listen'?'listenChoice':'meaning'}};
- if(kind==='zh2en')return Object.assign(base,{prompt:zh,emoji:r37Emoji(en)});
- if(kind==='en2zh')return Object.assign(base,{prompt:en,emoji:r37Emoji(en)});
+ if(kind==='zh2en')return Object.assign(base,{prompt:zh,emoji:r37Pic(en)});
+ if(kind==='en2zh')return Object.assign(base,{prompt:en,emoji:r37Pic(en)});
  return Object.assign(base,{prompt:'🔊',emoji:'',autoPlay:true});
 }
 function r37DzCell(w,lvl){
  const en=w.en.trim(),zh=String(w.zh||'').trim();
- const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Emoji(en),word:en,answer:en,accept:[en],cs:/[A-Z]/.test(en),audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
+ const q={mode:lvl===2?'cells':'fill',kind:'dz'+lvl,prompt:zh||'🔊',emoji:r37Pic(en),word:en,answer:en,accept:[en],cs:/[A-Z]/.test(en),audio:en,autoPlay:true,noleak:true,explain:(zh?zh+' = ':'')+en,dz:{wid:w.id,lvl,type:lvl===2?'spell':'listenSpell'}};
  if(lvl===2){
   const m=r37DzMaskSyl(en);
   if(m){q.hide=[...m.hide].sort((a,b)=>a-b);q.syl=m.ranges.map(r=>[r.from,r.to]);}

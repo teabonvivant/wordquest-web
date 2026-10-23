@@ -72,7 +72,7 @@ def build(only=None, out=None, base_only=False):
                   "await c.addAll([new URL('index.html',BASE).href]);try{await c.addAll(" + json.dumps(art)
                   + ".map(a=>new URL(a,BASE).href));}catch(_){}")
         sw = once(sw, " if(u.pathname===new URL('index.html',BASE).pathname",
-                  " if(/\\/assets\\/r3(?:16|18|21|23)\\/[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
+                  " if(/\\/assets\\/r3(?:16|18|21|23|26)\\/(?:words\\/)?[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
                   " if(u.pathname===new URL('index.html',BASE).pathname")
         if out == R and not only:
             for anchor, names in (('<script>/* WordQuest Maths 0.1.2', ['course_data.js']),

@@ -125,7 +125,7 @@ function r37G3Items(subj,w,s,diff,seed){
   const qs=WQ37Math.make('math',w,s,8,diff,seed,(r37Get().recent.math||[]).slice(-30));
   return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));
  }
- return r37EnStage(w,s).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'',ex:x.ex||''}));
+ return r37EnStage(w,s).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Pic(x.en)||'',ex:x.ex||''}));
 }
 /* up to two words / problems the child got wrong before (the existing wrong bank), else a couple from the previous level: slipped into the deck as spaced review, never counted in the stars */
 function r37G3Review(subj,w,s,diff,seed,items){
@@ -135,8 +135,8 @@ function r37G3Review(subj,w,s,diff,seed,items){
   if(s===0&&!sk.size)return [];
   try{return WQ37Math.make('math',w,Math.max(0,s-1),6,diff,seed+97).filter(x=>!have.has(x.q)&&(!sk.size||sk.has(x.skill))).slice(0,2).map((x,i)=>({id:'m'+w+'-rv-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));}catch(_){return [];}
  }
- let pool=o.wrong.filter(x=>!have.has(x.en)&&x.zh).sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,2).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''}));
- if(pool.length<2&&s>0)pool=pool.concat(r37EnStage(w,s-1).filter(x=>!have.has(x.en)&&!pool.some(p=>p.en===x.en)).slice(0,2-pool.length).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||''})));
+ let pool=o.wrong.filter(x=>!have.has(x.en)&&x.zh).sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,2).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Pic(x.en)||''}));
+ if(pool.length<2&&s>0)pool=pool.concat(r37EnStage(w,s-1).filter(x=>!have.has(x.en)&&!pool.some(p=>p.en===x.en)).slice(0,2-pool.length).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Pic(x.en)||''})));
  return pool;
 }
 function r37G3Pay(g,subj,w,s,res,items){
@@ -265,12 +265,14 @@ function r37Emoji(en){
  if(d==='🪙'&&!/^(coin|coins|money|gold)$/.test(en))d='';
  return r37UnitEmoji(en)||R37_EMO[en]||R37_UEMO[en]||d||'';
 }
+/* R3.26: picture slot of a question / study card: the emoji, or '🖼️' as the marker for a drawn card (r37WordArt draws it); games keep r37Emoji */
+function r37Pic(en){return r37Emoji(en)||(typeof window.wqImgWord==='function'&&window.wqImgWord(en)?'🖼️':'');}
 function r37Scaffold(en,mode){if(mode==='first')return en[0]+' '+[...en].slice(1).map(()=>'＿').join(' ');if(mode==='blanks')return [...en].map(()=>'＿').join(' ');return '';}
 
 /* ---- question builders: every question is {mode:'mcq'|'fill', kind, prompt, sub, emoji, options, answer, accept, audio, hint, explain, scaffold, word} ---- */
 /* one English question for word wd of the given kind: zh2en | en2zh | listen (choice), fill | fill-listen (typed) */
 function r37EnBuild(wd,kind,c){
- const D=c.D,rng=c.rng,emoji=R37_NOEMO.has(wd.en)?'':r37Emoji(wd.en),ck=c.ck;
+ const D=c.D,rng=c.rng,emoji=R37_NOEMO.has(wd.en)?'':r37Pic(wd.en),ck=c.ck;
  const syn=r37Syns(wd.en),forms=r37FormMates(wd.en),zhShort=r37ZhKey(wd.zh);
  if(kind==='fill'||kind==='fill-listen'){
   const listen=kind==='fill-listen';

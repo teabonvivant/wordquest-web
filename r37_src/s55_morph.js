@@ -432,9 +432,9 @@ function analyse(word,hasIn,posIn){
     const L=t.length;
     // -s / -es / -ies / -ves
     if(L>=3&&t.endsWith('s')&&!NOT_PLURAL.has(t)&&!/(ss|us|is|'s)$/.test(t)&&!(/ics$/.test(t)&&!/^(comics|topics|critics|classics|lyrics|tactics|epics|antics|basics)$/.test(t))){
-      if(/ves$/.test(t)){push(t.slice(0,-3)+'f','plural');push(t.slice(0,-3)+'fe','plural');}
       push(t.slice(0,-1),null,notAdjOnly,sLabel);
       if(/(?:s|x|z|ch|sh|o)es$/.test(t))push(t.slice(0,-2),null,notAdjOnly,sLabel);
+      if(/ves$/.test(t)){push(t.slice(0,-3)+'f','plural');push(t.slice(0,-3)+'fe','plural');}
       if(/zzes$/.test(t))push(t.slice(0,-3),null,notAdjOnly,sLabel);
       if(/ies$/.test(t)&&L>4)push(t.slice(0,-3)+'y',null,notAdjOnly,sLabel);
     }
