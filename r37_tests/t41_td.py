@@ -442,7 +442,7 @@ def r322_tests(p):
         fresh(pg, 'english', 3, 5, d); t = pg.evaluate("()=>{let n=0;while(n++<9000&&!G._debug.frozen)G._step(1);return G._debug.playT}"); times.append(t)
     ok(all(times[i] > times[i + 1] for i in range(4)) and times[0] / times[4] >= 1.25, f'5 time until the base is hit shrinks with difficulty: {[round(x, 1) for x in times]} s')
     # ---- 1 pre-rendered sprites: caches are filled once and stay flat while playing; a keystroke does not rebuild the question picture
-    fresh(pg, 'english', 3, 5, 3); pg.evaluate("()=>{G._cmd('spawn');G._step(120);G._cmd('spawn');G._step(120)}"); c0 = dbg(pg)['cache']
+    fresh(pg, 'english', 3, 5, 3, classic=True); pg.evaluate("()=>{G._cmd('spawn');G._step(120);G._cmd('spawn');G._step(120)}"); c0 = dbg(pg)['cache']
     pg.evaluate("()=>{G._step(600)}"); c1 = dbg(pg)['cache']
     ok(c0['sprites'] >= 2 and c1['sprites'] == c0['sprites'] and c1['pips'] <= c0['pips'] + 12, f'1 sprite cache is flat while playing ({c0} -> {c1})')
     pg.evaluate("()=>{window.__pic=document.querySelector('.td-pic>*');window.__fs=document.querySelector('.td-txt').style.fontSize}")
@@ -588,7 +588,7 @@ def main():
         ok(all(e['id'] != before['enemies'][0]['id'] or e['state'] != 'walk' for e in g['enemies']), 'the wrong monster is removed')
         ok(g['learn']['remaining'] >= 1 and pg.evaluate("(i)=>G._S.learn.stats[i].requeued", before['enemies'][0]['id']) == 1, 'item requeued once')
         # English: a monster reaching the base also opens the card + costs a heart
-        fresh(pg, 'english', 0, 2, 3); pg.evaluate("()=>{G._cmd('spawn');G._step(2);G._cmd('timeout');G._step(2)}"); g = dbg(pg)
+        fresh(pg, 'english', 0, 2, 3, classic=True); pg.evaluate("()=>{G._cmd('spawn');G._step(2);G._cmd('timeout');G._step(2)}"); g = dbg(pg)
         ok(g['frozen'] and g['ui']['learn'] and g['hearts'] == 3, 'monster reaching base: card + one heart lost')
         card = pg.evaluate("()=>document.querySelector('.gx-learn').innerText"); ok(g and len(card) > 3, 'card text present')
 

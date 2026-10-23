@@ -1,0 +1,98 @@
+/* R3.28 s90 - answer feedback on the legacy teaching pages.
+   Root cause of the near-white-on-pale text: s60_legacy.css sets the legacy body to near-white ink and forces `color:inherit` on every
+   descendant, which also defeats the dark ink the old pale cards (hints, options, feedback boxes) carried. These rules give every pale
+   surface its own dark ink again (>= 4.5:1) and add the shared right / wrong look: wrong = red + x, right = green + tick. */
+:root{--s90-ink:#23273d;--s90-mute:#4a5166;--s90-ok-bg:#d9f5e2;--s90-ok-bd:#18884b;--s90-ok-ink:#0b4224;--s90-no-bg:#ffdfe2;--s90-no-bd:#d23a4e;--s90-no-ink:#7a0d1e}
+
+/* ---- 1. pale surfaces get dark ink back ---- */
+html body.r37 #app .r37-legbody :is(.p40-hint,.p40-voice-note,.p40-why,.p40-copy,.p40-prompt,.p40-studyline,.p40-encourage,.q36-quiz-intro,.l30-qcard,.l31-workbench,.l30-feedback,.l31-feedback,.feedback,.option,.l30-choice,.task-actions,details.p20-more>summary,.p40-fb){
+ color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody :is(.p40-hint,.p40-voice-note,.p40-why,.p40-copy,.p40-prompt,.p40-studyline,.p40-encourage,.q36-quiz-intro,.l30-qcard,.l31-workbench,.l30-feedback,.l31-feedback,.feedback,.option,.l30-choice,.task-actions,.p40-fb)
+ :is(h1,h2,h3,h4,p,li,strong,b,span,div,label,summary,.word,.correct-answer,.l30-prompt,.l30-eyebrow):not(.btn):not(.l30-btn):not(.s90-head):not(.p20-tag){color:inherit!important}
+html body.r37 #app .r37-legbody :is(.p40-hint,.p40-voice-note,.p40-why,.p40-copy,.p40-prompt,.p40-studyline,.p40-encourage,.q36-quiz-intro,.l30-qcard,.l31-workbench,.l30-feedback,.l31-feedback,.feedback,.option,.l30-choice,.task-actions,.p40-fb)
+ :is(.muted,.small,small,p.small,.p40-note,.l30-eyebrow,.l30-subtle){color:var(--s90-mute)!important}
+html body.r37 #app .r37-legbody :is(.p40-voice-note,.task-actions,.p40-help) :is(.btn.secondary,.btn.quiet,.btn.soft){color:var(--s90-ink)!important;background:#fff!important;border:2px solid #8b93b3!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody details.p20-more>summary{background:#fff!important}
+html body.r37 #app .r37-legbody .l31-workbench :is(.l30-btn,.l31-btn):not(.primary){color:var(--s90-ink)!important;background:#fff!important;border:2px solid #8b93b3!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody .l31-workbench :is(.l31-large-word,.l31-meaning){color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody details.example,html body.r37 #app .r37-legbody details.example :is(summary,p){color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody details.p30-fold>summary,html body.r37 #app .r37-legbody details:not(.p20-more)>summary{color:inherit}
+html body.r37 #app .r37-legbody .p40-why{background:#fff6dc;border-left:4px solid #c9921f;border-radius:8px}
+
+/* ---- 2. one headline for right / wrong ---- */
+html body.r37 #app .r37-legbody .s90-head{display:flex;align-items:center;gap:8px;margin:0 0 4px;font-size:21px;line-height:1.3;font-weight:900;letter-spacing:.01em}
+html body.r37 #app .r37-legbody .s90-head::before{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;font-size:18px;line-height:1;color:#fff;font-weight:900}
+html body.r37 #app .r37-legbody .s90-head.no{color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .s90-head.no::before{content:'✕';background:#d23a4e}
+html body.r37 #app .r37-legbody .s90-head.ok{color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .s90-head.ok::before{content:'✓';background:#18884b}
+html body.r37 #app .r37-legbody .s90-head small{font-size:15px;font-weight:700;color:inherit!important}
+
+/* feedback boxes */
+html body.r37 #app .r37-legbody .feedback{border-width:2px;border-style:solid;border-radius:16px;align-items:flex-start}
+html body.r37 #app .r37-legbody .feedback.ok{background:var(--s90-ok-bg);border-color:var(--s90-ok-bd);color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .feedback.bad{background:var(--s90-no-bg);border-color:var(--s90-no-bd);color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .feedback.ok strong{color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .feedback.bad strong{color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .feedback>span[aria-hidden]{font-weight:900;font-size:22px}
+html body.r37 #app .r37-legbody .p40-encourage{text-align:left;background:var(--s90-no-bg);border:2px solid var(--s90-no-bd);color:var(--s90-no-ink)!important;font-weight:700}
+html body.r37 #app .r37-legbody .p40-encourage .s90-head{margin-bottom:2px}
+
+/* ---- 3. 默書星 options ---- */
+html body.r37 #app .r37-legbody .option{background:#fff;color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody .option.selected{background:#fff1df;border-color:#c97b49}
+html body.r37 #app .r37-legbody .option.p40-nope,html body.r37 #app .r37-legbody .option.p40-nope:disabled,html body.r37 #app .r37-legbody .option.s90-wrong,html body.r37 #app .r37-legbody .option.s90-wrong:disabled{
+ opacity:1;filter:none;text-decoration:none;background:var(--s90-no-bg)!important;border:3px solid var(--s90-no-bd)!important;color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .option.p40-nope::before,html body.r37 #app .r37-legbody .option.s90-wrong::before{content:'✕ ';font-weight:900}
+html body.r37 #app .r37-legbody .option.s90-right,html body.r37 #app .r37-legbody .option.s90-right:disabled{
+ opacity:1;background:var(--s90-ok-bg)!important;border:3px solid var(--s90-ok-bd)!important;color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .option.s90-right::before{content:'✓ ';font-weight:900}
+html body.r37 #app .r37-legbody .option:disabled:not(.p40-nope):not(.s90-right):not(.s90-wrong){opacity:.72}
+
+/* ---- 4. 英文課堂 考考你 (l30) ---- */
+html body.r37 #app .r37-legbody .l30-qcard{background:#fff}
+html body.r37 #app .r37-legbody .l30-qcard .l30-prompt{color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice{background:#f7faf7;border:2px solid #8b93b3;color:var(--s90-ink)!important}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice[aria-pressed=true]{background:#eef0ff;border-color:#4b55a8}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice:disabled:not(.p20-answer):not(.p20-retry){opacity:.72}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice.p20-retry{border:3px solid var(--s90-no-bd)!important;background:var(--s90-no-bg)!important;color:var(--s90-no-ink)!important;opacity:1}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice.p20-retry .p20-tag{color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice.p20-retry .p20-tag::before{content:'✕ ';font-weight:900}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice.p20-answer{border:4px solid var(--s90-ok-bd)!important;background:var(--s90-ok-bg)!important;color:var(--s90-ok-ink)!important;opacity:1}
+html body.r37 #app .r37-legbody .l30-qcard .l30-choice.p20-answer .p20-tag{color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .l30-feedback{border-radius:16px;padding:12px 14px;border:2px solid #8b93b3;background:#fff6e9}
+html body.r37 #app .r37-legbody .l30-feedback.s90-no{background:var(--s90-no-bg);border-color:var(--s90-no-bd);color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .l30-feedback.s90-ok{background:var(--s90-ok-bg);border-color:var(--s90-ok-bd);color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .l30-feedback.s90-no :is(p,strong,b,span){color:inherit!important}
+html body.r37 #app .r37-legbody .l30-feedback.s90-ok :is(p,strong,b,span){color:inherit!important}
+html body.r37 #app .r37-legbody .l30-qcard input.l30-answer,html body.r37 #app .r37-legbody .l30-qcard input[type=text],html body.r37 #app .r37-legbody .l30-qcard textarea{background:#fff;color:var(--s90-ink)!important;border:2px solid #6a739b}
+html body.r37 #app .r37-legbody .l30-qcard :is(input,textarea)[disabled].s90-no,html body.r37 #app .r37-legbody .l30-qcard .s90-fieldno{border-color:var(--s90-no-bd)!important;background:var(--s90-no-bg)!important;color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .l30-qcard .s90-fieldok{border-color:var(--s90-ok-bd)!important;background:var(--s90-ok-bg)!important;color:var(--s90-ok-ink)!important}
+
+/* ---- 5. 字詞工房 (l31) ---- */
+html body.r37 #app .r37-legbody .l31-feedback{border-radius:16px;padding:12px 14px;border:2px solid #8b93b3;background:#fff6e9;margin-top:12px}
+html body.r37 #app .r37-legbody .l31-feedback.s90-no{background:var(--s90-no-bg);border-color:var(--s90-no-bd);color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .l31-feedback.s90-ok{background:var(--s90-ok-bg);border-color:var(--s90-ok-bd);color:var(--s90-ok-ink)!important}
+html body.r37 #app .r37-legbody .l31-feedback :is(p,b,strong,label){color:inherit!important}
+html body.r37 #app .r37-legbody .l31-feedback .s90-head{font-size:21px}
+html body.r37 #app .r37-legbody .l31-feedback input{background:#fff!important;color:var(--s90-ink)!important;border:2px solid #4b55a8!important;border-radius:12px}
+html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-wrong,html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-wrong:disabled{background:var(--s90-no-bg)!important;border:3px solid var(--s90-no-bd)!important;color:var(--s90-no-ink)!important;opacity:1}
+html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-wrong::before{content:'✕ ';font-weight:900}
+html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-right,html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-right:disabled{background:var(--s90-ok-bg)!important;border:4px solid var(--s90-ok-bd)!important;color:var(--s90-ok-ink)!important;opacity:1}
+html body.r37 #app .r37-legbody .l31-lesson .l30-choice.s90-right::before{content:'✓ ';font-weight:900}
+html body.r37 #app .r37-legbody .l31-lesson .l30-choice:disabled:not(.s90-right):not(.s90-wrong){opacity:.72}
+html body.r37 #app .r37-legbody .l31-lesson .l31-dropzone.s90-no{border:3px solid var(--s90-no-bd)!important;background:var(--s90-no-bg)!important}
+html body.r37 #app .r37-legbody .l31-lesson .l31-dropzone.s90-ok{border:3px solid var(--s90-ok-bd)!important;background:var(--s90-ok-bg)!important}
+html body.r37 #app .r37-legbody .l31-lesson input.l30-answer.s90-no{border:3px solid var(--s90-no-bd)!important;background:var(--s90-no-bg)!important;color:var(--s90-no-ink)!important}
+html body.r37 #app .r37-legbody .l31-lesson input.l30-answer.s90-ok{border:3px solid var(--s90-ok-bd)!important;background:var(--s90-ok-bg)!important;color:var(--s90-ok-ink)!important}
+
+/* level engine (英文／數學／奧數闖關): the global button:disabled dims every answered option to .5; keep the
+   right / wrong pair at full strength, mark them with a tick / cross, and make the wrong pick plainly red */
+html body.r37 .r37-opt:disabled{opacity:.55}
+html body.r37 .r37-opt.ok:disabled,html body.r37 .r37-opt.bad:disabled{opacity:1}
+html body.r37 .r37-opt.ok,html body.r37 .r37-opt.bad{position:relative}
+html body.r37 .r37-opt.bad{background:linear-gradient(160deg,#c23a52,#8e1f36);border:2px solid #ffb3be;color:#fff}
+html body.r37 .r37-opt.ok{border-width:2px}
+html body.r37 .r37-opt.ok::after,html body.r37 .r37-opt.bad::after{position:absolute;top:8px;right:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:900;line-height:1;color:#fff}
+html body.r37 .r37-opt.ok::after{content:"✓";background:#22a565;box-shadow:0 0 0 2px #c6ffd9}
+html body.r37 .r37-opt.bad::after{content:"✗";background:#d4384f;box-shadow:0 0 0 2px #ffd0d6}

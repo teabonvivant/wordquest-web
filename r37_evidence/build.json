@@ -1,8 +1,8 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "8ef577ce0360db2f8b0c0d7b683d81f3c4daca2a08aae99ce6746a47361b7f84",
-  "swSHA256": "59c3d756a739518808e1d3c4ac807ae0a9fc22bca9ad28f648878d47e03816e6",
+  "appSHA256": "94c8b004a665e45be6cc44c4722c68d0b9c9e20aeb3d77db84ace5369c1e1e05",
+  "swSHA256": "65b8e792e574f9278d74adfc90722cd7126974e74ec0758770b1c9d780277f50",
   "modules": [
     "s10_shell",
     "s20_modes",
@@ -14,6 +14,7 @@
     "s58_mathmark",
     "s60_legacy",
     "s70_arcplus",
-    "s80_olypath"
+    "s80_olypath",
+    "s90_feedback"
   ]
 }

@@ -187,8 +187,8 @@ function r80LesGo(){const L=r80L;if(!L)return;r80Mark(L.u.id);const g=L.g,sa=2*(
 function r80LesPredict(k){
  const L=r80L,c=r80LesCard(),S=L.st[L.i];if(S.done)return;
  S.picked=k;S.done=true;const ok=String(c.options[k])===String(c.answer);
- S.msg=`<b class="r80-res ${ok?'ok':'no'}">${ok?'估對了！':'差一點！'}</b> ${r80Esc(c.reveal||'')}`;
- r80Sfx(ok?'good':'tap');
+ S.msg=`<b class="r80-res ${ok?'ok':'no'}">${ok?'✓ 答對了！':'✕ 再想想，答案是 '+r80Esc(c.answer)}</b> ${r80Esc(c.reveal||'')}`;
+ r80Sfx(ok?'good':'bad');
  const w=L.w;r80LesDraw();
 }
 function r80LesTry(v){
@@ -196,11 +196,11 @@ function r80LesTry(v){
  v=String(v).trim();if(!v)return;
  const norm=x=>String(x).replace(/\s+/g,'');
  if(norm(v)===norm(q.answer)||(globalThis.WQ37Math&&WQ37Math.check({answer:String(q.answer),accept:q.accept||[]},v))){
-  S.done=true;S.msg=`<b class="r80-res ok">答對了！</b> ${r80Esc(q.explain||'')}`;r80Sfx('great');r80LesDraw();
+  S.done=true;S.msg=`<b class="r80-res ok">✓ 答對了！</b> ${r80Esc(q.explain||'')}`;r80Sfx('great');r80LesDraw();
   try{r37Fx.burst(innerWidth/2,innerHeight*.45,22);}catch(_){}
  }else{
   S.bad=(S.bad||[]).concat(String(v));const why=q.why&&q.why[v];
-  S.msg=`<span aria-hidden="true">💭</span> ${r80Esc(why||('再想想。'+(q.hint?q.hint:'')))}`;r80Sfx('bad');
+  S.msg=`<b class="r80-res no">✕ 再想想</b> ${r80Esc(why||(q.hint?q.hint:''))}`;r80Sfx('bad');
   if(S.bad.length>=3&&q.options){S.done=true;S.msg=`答案是 ${r80Esc(q.answer)}。${r80Esc(q.explain||'')}`;}
   r80LesDraw();
   const sc=document.querySelector('.r80-sd');if(sc&&!r37Calm())sc.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:240});

@@ -76,7 +76,7 @@ def page(pg, h, wait=1100):
 
 # ---------------------------------------------------------------- sections
 def sec_hubs(pg, name, phone):
-    for hub in ['p/english', 'p/math', 'p/olympiad', 'p/games']:
+    for hub in ['p/english', 'p/math', 'p/games']:  # R3.23: 奧數星改為年級路線，由 t50 檢查
         page(pg, '#' + hub)
         r = pg.evaluate("""()=>{const g=document.querySelector('.r37-tiles');const gr=g.getBoundingClientRect();
           const T=[...g.querySelectorAll(':scope>.r37-tile')].map(t=>{const r=t.getBoundingClientRect();const i=t.querySelector('.r37-ti'),n=t.querySelector('.r37-tn');
@@ -91,7 +91,7 @@ def sec_hubs(pg, name, phone):
         C.ok(r['iBad'] == 0 and r['nBad'] == 0, f'{name} {hub}: icon and label stay inside their tile {r}')
         if phone:
             C.ok(r['holes'] == 0, f'{name} {hub}: no orphan tile leaving a hole in the row {r}')
-            C.ok(r['minH'] >= 72, f'{name} {hub}: every tile >= 72px high (min {r["minH"]})')
+            C.ok(r['minH'] >= 64, f'{name} {hub}: every tile >= 64px high (R3.21: 7 tiles on games star; touch target still >= 44) (min {r["minH"]})')
         if name in ('small', 'phone') and hub in ('p/games', 'p/english'):
             shot(pg, f'{name}_{hub.replace("/", "_")}')
 
@@ -111,7 +111,7 @@ def sec_maps(pg, name):
 
 
 def sec_world_icons(pg, name):
-    for hub in ['lv/math', 'lv/olympiad']:
+    for hub in ['lv/math']:  # R3.23: lv/olympiad redirects to the grade path (t50)
         page(pg, '#' + hub)
         r = pg.evaluate("""()=>{const t=[...document.querySelectorAll('.r37-wtab,.r37-wic')];return {n:t.length,emoji:t.filter(e=>/[\\u{1F300}-\\u{1FAFF}\\u2600-\\u27BF]/u.test(e.textContent)).map(e=>e.textContent),svg:t.filter(e=>e.querySelector('svg')).length}}""")
         C.ok(r['n'] >= 6 and not r['emoji'] and r['svg'] >= 6, f'{name} {hub}: world tabs and title icon are SVG, no emoji {r}')
