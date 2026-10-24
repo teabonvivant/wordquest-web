@@ -597,7 +597,7 @@
       } else {
         G.combo = 0; if (card.el) { card.el.classList.add('brk'); var be = card.el; S.later(function () { if (be.parentNode) be.parentNode.removeChild(be); }, 650); card.el = null; } G.discard.push({ item: it, meta: card.meta, broken: true, uid: card.uid });
         S.sfx('bad'); S.fx.shake(3, .2); S.fx.flash('#ff4060', .18); S.fx.text(S.W / 2, S.H * 0.45, '牌破損了…', { color: '#ff8a9a', size: 26 });
-        if (opts.character && opts.character.perk === 'shield' && !G.wrongFirst) { G.wrongFirst = true; G.energy = Math.min(MAX_EN, G.energy + costOf(card)); S.fx.text(S.W / 2, S.H * 0.52, '小兔守護：能量退還', { color: '#9fd0ff', size: 16 }); }
+        if (opts.character && opts.character.perk === 'shield' && !G.wrongFirst) { G.wrongFirst = true; G.energy = Math.min(MAX_EN, G.energy + costOf(card)); S.fx.text(S.W / 2, S.H * 0.52, (opts.character.name||'角色')+'守護：能量退還', { color: '#9fd0ff', size: 16 }); }
         G.phase = 'player'; layoutHand(); hud(); S.ui.learn(it, { typed: !isMath(it) ? typed : '', onDone: function () { G.lockUntil = G.clock + 0.2; hud(); } });
         void out;
       }

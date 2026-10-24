@@ -58,11 +58,11 @@
     hint: [1, 1, 0, 0, 0]                      /* answer bubble pulses after 4s */
   };
   var TIERS = [
-    { ic: '🌱', si: 'sprout', name: '輕鬆', sub: '慢慢來', desc: '限時 40 秒 · 有提示 · 干擾字少' },
-    { ic: '🙂', si: 'smile', name: '簡單', sub: '輕鬆玩', desc: '限時 34 秒 · 有提示' },
+    { ic: '🌱', si: 'sprout', name: '萌芽', sub: '慢慢來', desc: '限時 40 秒 · 有提示 · 干擾字少' },
+    { ic: '🙂', si: 'smile', name: '起步', sub: '輕鬆玩', desc: '限時 34 秒 · 有提示' },
     { ic: '⭐', si: 'star', name: '標準', sub: '剛剛好', desc: '限時 28 秒 · 快答有加分' },
-    { ic: '🔥', si: 'flame', name: '進階', sub: '有啲挑戰', desc: '限時 24 秒 · 干擾字多 · 字形相近' },
-    { ic: '👑', si: 'crown', name: '高手', sub: '極速挑戰', desc: '限時 20 秒 · 最多相近干擾字' }
+    { ic: '🔥', si: 'flame', name: '挑戰', sub: '有點挑戰', desc: '限時 24 秒 · 干擾字多 · 字形相近' },
+    { ic: '👑', si: 'crown', name: '極速', sub: '全速挑戰', desc: '限時 20 秒 · 最多相近干擾字' }
   ];
   var QT = ['zh', 'listen', 'pic'];
   var OFF1 = [0], OFF3 = [-0.14, 0, 0.14];
@@ -1231,17 +1231,17 @@
     function bossCounter() {
       var B = G.boss;
       B.atk = 0.9; B.reveal = true; G.combo = 0; B.wrongShot = true;
-      hint = { text: '怪獸反擊!要射字母「' + B.letters[B.idx] + '」', t: 2.4, e: null };
+      hint = { text: '怪獸反擊！要射字母「' + B.letters[B.idx] + '」', t: 2.4, e: null };
       setFlash(0, 0.5); SFX.roar();
       loseHeart('boss');
     }
     function bossDefeated() {
       var B = G.boss; B.dead = true; B.hp = 0; G.bossBeaten = true; G.score += 500 * multOf(Math.max(1, G.combo)); targets.length = 0;
-      floater('打敗怪獸!', cw / 2, ch * 0.62, '#ffe36a', 44);
+      floater('打敗怪獸！', cw / 2, ch * 0.62, '#ffe36a', 44);
       burst(B.x, B.y, 1.0, 120, ['#ffe36a', '#ff5fa2', '#7fe3ff', '#fff', '#8e6bff'], 2.4);
       fxSprite(2, B.x, B.y, 0.9, 0.7, 5.5, 0, 3); fxSprite(2, B.x, B.y, 0.9, 0.5, 3.2, 0, 2); sparks(B.x, B.y, 0.9, 30, 2);
       setFlash(2, 0.45); SFX.boom();
-      G.confT = 2.4; G.banner = { t: 1.2, max: 1.2, text: '勝利!', sub: '字母怪獸被打敗了', boss: false, e1: null, e2: null };
+      G.confT = 2.4; G.banner = { t: 1.2, max: 1.2, text: '勝利！', sub: '字母怪獸被打敗了', boss: false, e1: null, e2: null };
       finish(true);
     }
     function comboFx(m) {
@@ -1249,7 +1249,7 @@
       comboM = m;
     }
     function loseHeart(reason) {
-      if (G.shield) { G.shield = false; floater('護盾!', cw / 2, ch * 0.45, '#7fe3ff', 34); SFX.freeze(); return false; }
+      if (G.shield) { G.shield = false; floater('護盾！', cw / 2, ch * 0.45, '#7fe3ff', 34); SFX.freeze(); return false; }
       G.hearts--; G.hpLost++; G.combo = 0; comboM = 1; if (!reduceMotion) shake = 0.45; setFlash(0, 0.4); dmgV = 0.7;
       if (G.hearts <= 0) finish(false);
       return true;
@@ -1297,7 +1297,7 @@
         }
       }
       if (G.freezeW > 0) {
-        if (G.freezeT <= 0 && (bugs.length || spits.length || projs.length)) floater('冰凍!', cw / 2, ch * 0.4, '#bfefff', 36);
+        if (G.freezeT <= 0 && (bugs.length || spits.length || projs.length)) floater('冰凍！', cw / 2, ch * 0.4, '#bfefff', 36);
         G.freezeT = 3; SFX.freeze();
       }
       var corr = null, nWrong = 0, wrong0 = null;
@@ -1328,7 +1328,7 @@
       G.timedOut = true; G.timeouts++;
       var lw = cur;
       wrongPick(); G.wrong++; G.combo = 0; comboM = 1;
-      floater('時間到!', cw / 2, ch * 0.42, '#fff', 34); SFX.bad(0);
+      floater('時間到！', cw / 2, ch * 0.42, '#fff', 34); SFX.bad(0);
       loseHeart('time'); if (state !== 'play') return;
       hinting = true;
       lcShow(false, lw, null);
@@ -1355,8 +1355,8 @@
       shatterLetters(t); sparks(t.x, t.y, 0.55, 14, 1.6); fxSprite(2, t.x, t.y, 0.55, 0.4, 1.3, 0, 3);
       var i, o; for (i = 0; i < targets.length; i++) { o = targets[i]; if (o !== t) burst(o.x, o.y, 0.55, 6, [COLORS[o.col], '#fff'], 0.8); }
       shatterSfx(panOf(t.x, t.y)); setFlash(1, 0.22); speak(cur.en);
-      if (m > 1) floater('分數 x' + m + '!', cw / 2, ch * 0.4, m > 2 ? '#ff5fa2' : '#ffb347', 34);
-      if (G.combo >= 3) floater('連擊 x' + G.combo + '!', cw / 2, ch * 0.34, '#ff9ad0', 34);
+      if (m > 1) floater('分數 x' + m + '！', cw / 2, ch * 0.4, m > 2 ? '#ff5fa2' : '#ffb347', 34);
+      if (G.combo >= 3) floater('連擊 x' + G.combo + '！', cw / 2, ch * 0.34, '#ff9ad0', 34);
       comboFx(m);
       if (G.round >= totalRounds) { targets.length = 0; if (bossOn) startBoss(); else finish(true); return; }
       G.round++; startRound(false);
@@ -1387,10 +1387,10 @@
     function collect(p) {
       var i = pickups.indexOf(p); if (i >= 0) pickups.splice(i, 1);
       var msg = '';
-      if (p.type === 'slow') { G.slow = 7; msg = '慢動作!'; }
-      else if (p.type === 'triple') { G.triple = 12; msg = '散射彈!'; }
-      else if (p.type === 'freeze') { G.freezeW = 12; msg = '冰凍彈! 開火凍住怪物'; }
-      else if (p.type === 'shield') { G.shield = true; msg = '護盾!'; }
+      if (p.type === 'slow') { G.slow = 7; msg = '慢動作！'; }
+      else if (p.type === 'triple') { G.triple = 12; msg = '散射彈！'; }
+      else if (p.type === 'freeze') { G.freezeW = 12; msg = '冰凍彈！ 開火凍住怪物'; }
+      else if (p.type === 'shield') { G.shield = true; msg = '護盾！'; }
       else { G.hearts = Math.min(3, G.hearts + 1); msg = '+1 心'; }
       burst(p.x, p.y, 0.5, 20, ['#fff', '#ffe36a', '#7fe3ff'], 1);
       floater(msg, cw / 2, ch * 0.4, '#fff', 36); SFX.pick();
@@ -1443,7 +1443,7 @@
         if (d < 0.6 && G.invul <= 0) {
           /* R3.20: no heart; the round clock loses 3 s, the combo resets and the player is pushed back */
           rm(bugs, i); G.invul = 1.5; burst(b.x, b.y, 0.3, 12, ['#ffe36a', '#ff6a6a'], 1); SFX.zap();
-          setFlash(4, 0.35); floater(G.roundMax ? '呀! 被電到 -' + DIFF.bugPenalty + ' 秒' : '呀! 被電到', cw / 2, ch * 0.42, '#fff', 32);
+          setFlash(4, 0.35); floater(G.roundMax ? '呀！ 被電到 -' + DIFF.bugPenalty + ' 秒' : '呀！ 被電到', cw / 2, ch * 0.42, '#fff', 32);
           G.bugHits++; G.combo = 0; comboM = 1; if (G.roundMax) G.roundT = Math.max(0, G.roundT - DIFF.bugPenalty);
           var kb = Math.atan2(-dy, -dx), kx2 = P.x + Math.cos(kb) * 0.9, ky2 = P.y + Math.sin(kb) * 0.9;
           if (isFree(kx2, P.y, 0.25)) P.x = kx2; if (isFree(P.x, ky2, 0.25)) P.y = ky2;
@@ -1471,7 +1471,7 @@
         dx = pj.x - P.x; dy = pj.y - P.y;
         if (dx * dx + dy * dy < 0.25 && G.invul <= 0) {
           rm(projs, i); G.invul = 1.2; burst(pj.x, pj.y, 0.45, 16, ['#ffb347', '#ff5a3c', '#fff'], 1.1); SFX.zap();
-          setFlash(5, 0.4); floater('被火球打中!', cw / 2, ch * 0.42, '#fff', 32);
+          setFlash(5, 0.4); floater('被火球打中！', cw / 2, ch * 0.42, '#fff', 32);
           loseHeart('proj'); if (state !== 'play') return;
         }
       }
@@ -1723,8 +1723,8 @@
         tiers += '</div><div class="wq37-tdesc" data-role="tdesc"></div>';
       }
       var hearts = '<span style="color:#FF6B81;display:flex">' + ico('heart', 22) + ico('heart', 22) + ico('heart', 22) + '</span>';
-      showOv('<h1>' + escHtml(plainTitle(title)) + '</h1><div class="wq37-sub">射中正確英文字泡泡!</div>' +
-        '<div class="wq37-legend">' + (touchMode ? tc : kb) + '<div class="wq37-li"><div class="wq37-ic">' + hearts + '</div>3 粒心</div></div>' +
+      showOv('<h1>' + escHtml(plainTitle(title)) + '</h1><div class="wq37-sub">射中正確英文字的泡泡！</div>' +
+        '<div class="wq37-legend">' + (touchMode ? tc : kb) + '<div class="wq37-li"><div class="wq37-ic">' + hearts + '</div>3 顆心</div></div>' +
         tiers + '<button class="wq37-go" data-act="go">開始</button>', { go: beginPlay });
       if (!lockDiff) {
         var bs = ovEl.querySelectorAll('[data-tier]');
@@ -1773,7 +1773,7 @@
     function showResult() {
       resultShown = true; var r = lastResult, acc = Math.round(100 * r.accuracy), st = '', i;
       for (i = 1; i <= 5; i++) st += i <= r.stars ? '★' : '<i>★</i>';
-      var head = G.bossBeaten ? '打敗字母怪獸!' : G.won ? (r.passed ? '好叻!全部完成' : '完成了!再準啲更好') : '再接再厲!';
+      var head = G.bossBeaten ? '打敗字母怪獸！' : G.won ? (r.passed ? '全部完成！' : '完成了！再準一點更好') : '再接再厲！';
       var wd = '';
       if (mode === 'level' && r.perWord.length) {
         wd = '<div class="wq37-words">';
@@ -1783,7 +1783,7 @@
       var go = '';
       if (typeof opts.onNext === 'function' && r.passed) go = '<button class="wq37-go next" data-act="next">▶ 下一關</button>';
       showOv('<h2>' + head + '</h2><div class="wq37-stars">' + st + '</div>' +
-        (r.newRecord ? '<div class="wq37-rec">' + ico('trophy', 20) + ' NEW RECORD! 新紀錄</div>' : '') + (G.coins ? '<div class="wq37-coin">' + ico('coin', 20) + ' +' + G.coins + '</div>' : '') +
+        (r.newRecord ? '<div class="wq37-rec">' + ico('trophy', 20) + ' 新紀錄！</div>' : '') + (G.coins ? '<div class="wq37-coin">' + ico('coin', 20) + ' +' + G.coins + '</div>' : '') +
         '<div class="wq37-stat"><div><span>分數</span>' + r.score + '</div><div><span>最高分</span>' + r.best + '</div><div><span>準確度</span>' + acc + '%</div><div><span>最高連擊</span>' + r.maxCombo + '</div></div>' + wd + go +
         '<div class="wq37-btnrow"><button class="wq37-go' + (go ? ' small' : '') + '" data-act="again">↻ 再玩一次</button><button class="wq37-go alt' + (go ? ' small' : '') + '" data-act="back">返回</button></div>',
         { again: function () { beginPlay(); },
@@ -2360,7 +2360,7 @@
         if (promptSig !== sig) {
           promptSig = sig;
           if (B) genPrompt(cur.emoji || '', cur.zh || cur.en, 0, u);
-          else if (listen) genPrompt('', '聽一聽!', 0, u);
+          else if (listen) genPrompt('', '聽一聽！', 0, u);
           else if (G.qtype === 'pic') genPrompt('', cur.en, 1, u);
           else genPrompt(cur.emoji || '', cur.zh || cur.en, 0, u);
           if (PROMPT.say) {   /* park the DOM replay button at the right end of the capsule */
@@ -2439,7 +2439,7 @@
       }
       /* combo x2 / x3 flash banner */
       if (comboT > 0 && comboM > 1) {
-        var cs2 = comboM > 2 ? 'x3 暴擊連擊!' : 'x2 連擊!';
+        var cs2 = comboM > 2 ? 'x3 暴擊連擊！' : 'x2 連擊！';
         if (hudK.cb !== comboM) { hudK.cb = comboM; HL.comboBig.fill = comboM > 2 ? '#ff5fa2' : '#ffe36a'; HL.comboBig.t = null; hlSet(HL.comboBig, cs2, 44 * u); }
         var cu = 1.1 - comboT, pop = cu < 0.25 ? easeBack(cu / 0.25) : 1;
         ctx.globalAlpha = clamp(comboT * 3, 0, 1);

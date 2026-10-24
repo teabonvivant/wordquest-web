@@ -9,6 +9,18 @@
   parent:/^(parent|children|settings|learning-report|learning-plan|learning-help|assembly-report|assembly-plan|legacy-family|legacy-phonics|offline|credits)$/,
   account:/^(login|admin)$/};
  const ACCOUNT={id:'account',name:'帳戶',icon:'🔐',hue:222};
+ /* R3.29: where the child / parent came from (A-27 back arrow, C-15 planet name). s65Ctx remembers the planet each wrapped page showed. */
+ const AMBIG=/^(game-settings|companions|report|ranges|range-new)$/;
+ let s65Ctx=null,s65Prev='';
+ const s65RouteOf=u=>{const h=String(u||'').split('#')[1]||'';return h.split('?')[0];};
+ let s65Last='';
+ const s65PriorRender=render;
+ render=function(){const r=(location.hash||'#kid').slice(1).split('?')[0];if(r!==s65Last){s65Prev=s65Last;s65Last=r;}return s65PriorRender.apply(this,arguments);};
+ function s65PrevPl(){
+  if(s65Ctx&&s65Ctx.route===s65Prev)return s65Ctx.pl;
+  const m=/^p\/(\w+)$/.exec(s65Prev);if(m)return m[1];
+  return s65Prev==='parent'?'parent':s65Prev==='game'?'games':'';
+ }
  const planetOf=route=>{for(const k in PL)if(PL[k].test(route))return k;return '';};
  const routeNow=()=>(location.hash||'#kid').slice(1).split('?')[0];
  const q$=(s,r)=>(r||document).querySelector(s), q$$=(s,r)=>[...(r||document).querySelectorAll(s)];
@@ -17,10 +29,14 @@
 
  /* ---- one wrapper for every legacy page (replaces s30 r37Wrap; same DOM contract: .r37-leg > .r37-bar + .r37-legbody + .r37-nav) ---- */
  r37Wrap=function(route){
-  const pl=planetOf(route),app=$('#app');if(!pl||!app||app.querySelector(':scope>.r37-leg'))return;
+  let pl=planetOf(route);const app=$('#app');if(!pl||!app||app.querySelector(':scope>.r37-leg'))return;
+  /* R3.29 C-15: a page reached from the parent star keeps the parent star (title and back arrow) */
+  if(AMBIG.test(route)&&s65PrevPl()==='parent')pl='parent';
+  s65Ctx={route,pl};
   if(route==='unit'&&typeof r37UnitLevelBtn==='function')r37UnitLevelBtn();
   const p=pl==='account'?ACCOUNT:r37Planet(pl);
-  const back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?'#game':route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':pl==='account'?'#kid':'#p/'+pl;
+  const sess=route==='learning'&&typeof l30Session==='function'?l30Session():null;
+  const back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?(pl==='parent'?'#p/parent':'#game'):route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':route==='range-new'&&s65Prev==='ranges'?'#ranges':sess&&sess.unit?'#unit?id='+sess.unit:pl==='account'?'#kid':'#p/'+pl;
   for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href',pl==='account'?'#kid':'#p/'+pl);a.textContent='← '+p.name;}}
   const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
   sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="${pl==='account'?'#kid':'#p/'+pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="s60-slot"></span><button type="button" class="s60-more" aria-haspopup="true" aria-expanded="false" aria-label="更多">⋯</button>${r37Coin()}</div>`;
@@ -182,7 +198,7 @@
    fold(c,c.id==='v25-version-panel'||/^每日學習/.test((c.querySelector(':scope>h2')?.textContent||'').trim()));
    helpify(c,'#v25-backup-status,#voice-status,#v24-checkpoint-text,.voice-badge,#v25-inspection');
   });
-  RECIPE_TXT(b,{'每日安排上限（含學字）':'每日上限','舊版小遊戲的每次時間':'小遊戲時長','按年級減少每次的題數':'按年級減題','固定孩子目前練習的範圍':'鎖定練習範圍','角色出場時有簡單的動畫效果':'角色動畫','每天最多新學項目':'每日新字上限'});
+  RECIPE_TXT(b,{'每日安排上限（含學字）':'每日題數上限','舊版小遊戲的每次時間':'舊款小遊戲時長','按年級減少每次的題數':'按年級減題','固定孩子目前練習的範圍':'鎖定練習範圍','角色出場時有簡單的動畫效果':'角色動畫','每天最多新學項目':'每日新字上限'});
  };
  RECIPE.parent=b=>{
   intro(b);
@@ -251,7 +267,7 @@
   if(sel&&!q$('.s60-unitgrid',b)){
    const panel=sel.closest('.l30-panel'),row=q$(':scope>.l30-row',panel);
    const grid=mk('div','s60-unitgrid');
-   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;c.textContent=o.textContent.replace(/\s*·\s*/,' ');if(o.selected)c.classList.add('on');grid.appendChild(c);});
+   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;c.textContent=o.textContent.replace(/^(拼字小課|生活主題)\s*\d+/,o.value).replace(/\s*·\s*/,' ');if(o.selected)c.classList.add('on');grid.appendChild(c);});
    grid.addEventListener('click',e=>{const c=e.target.closest('.s60-chip');if(!c)return;sel.value=c.dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));q$$('.s60-chip',grid).forEach(x=>x.classList.toggle('on',x===c));});
    panel.insertBefore(grid,row||null);sel.classList.add('s60-off');
    panel.classList.add('s60-grow');grid.dataset.s60List='';b.dataset.s60Fit='';
@@ -527,6 +543,41 @@
   obs.observe(app,{childList:true,subtree:true});
  }
  window.addEventListener('resize',()=>{menuClose();});
+})();
+
+/* R3.29: helpers called from the old templates patched in patches/s65_r329_legacy.py */
+(()=>{
+ /* A-05: how many words of a unit the child has not met yet (a 12-word life-topic unit is learnt in two rounds of 8) */
+ window.s65Unseen=u=>{const sm=l30Read().summary||{};return u.words.filter(k=>!(sm[k]&&sm[k].seen)).length;};
+ window.s65DoneLabel=uid=>{
+  const u=LIB30.units.get(uid);if(!u||u.words.length<=8)return '已學完';
+  const n=window.s65Unseen(u);return n>0&&n<u.words.length?'已學 '+(u.words.length-n)+' 個，還有 '+n+' 個新詞':'已學完';
+ };
+ /* A-14: words answered wrongly in the recent attempts, even when a later question was right */
+ window.s65Watch=(c,m)=>{
+  const seen=new Set(),bad=[];
+  for(const a of (c.attempts||[]).slice(-100).reverse()){
+   if(a.mode==='study'||a.technical||a.correct===true)continue;
+   const w=LIB30.words.get(a.target);if(!w||seen.has(w.id))continue;seen.add(w.id);bad.push(w);if(bad.length>=10)break;
+  }
+  const head=m.weak?`有 ${m.weak} 個意思最近答錯。可以分幾次重溫，不用重做所有題目。`:'';
+  if(!bad.length)return head||'最近沒有記錄到答錯的項目。';
+  const list=bad.map(w=>`<b lang="en">${esc(w.form)}</b>`).join('、');
+  return `${head}${head?' ':''}最近曾答錯：${list}。${m.weak?'':'它們之後已答對，但答錯過的字，隔幾天再看一次會更穩。'}`;
+ };
+ /* C-05: the report of the spelling classroom does not hold the level (闖關) results - say so and show the number */
+ window.s65QuestLine=short=>{
+  let q=null;try{q=r37TrackProgress('english');}catch(_){}
+  const n=q?`英文闖關已過 ${q.done}／${q.total} 關。`:'';
+  if(short)return n;
+  return `這裏只計拼字小課，不含英文闖關。${n}<a href="#p/parent" data-s65="prog">到家長星看「進度」</a>`;
+ };
+  /* C-13: what the child answers inside an arcade game */
+ window.s65ArcLearn=id=>{
+  let v='';try{v=WQArcPlus.game[id].play.verb||'';}catch(_){}
+  return v?'遊戲裏要答英文：'+v+'。':'遊戲途中會出現英文字或算式小問題，答對才有加分。';
+ };
+ document.addEventListener('click',e=>{if(e.target.closest?.('[data-s65="prog"]'))r37Mem._ptab='prog';},true);
 })();
 
 /* R3.19 N10: the maths course / thinking-tower hero keeps its copy above the decorative arc (style injected into both shadow roots) */

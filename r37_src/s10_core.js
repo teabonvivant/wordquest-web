@@ -70,7 +70,7 @@ function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];
 function r37Coins(){return activeChild()?.stars||0;}
 function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
-function r37Mission(){const day=r37Get().day;const base=Math.floor(Date.now()/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
+function r37Mission(){const day=r37Get().day;const base=Math.floor(Date.parse(r37Day()+'T00:00:00Z')/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
 function r37Hash(str){let h=2166136261;for(const ch of String(str)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
 function r37Rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 function r37Shuf(arr,rng){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -96,7 +96,7 @@ function r37FpsUnitWords(w,s){return r37EnStage(w,s).map(x=>({en:x.en,zh:x.zh,em
 function r37FpsPay(w,s,res){
  const o=r37Get(),k=r37LvKey('fps',w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=res&&res.passed!==undefined?!!res.passed:stars>=3;
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
- if(passed){if(!old.passed&&s===9)coins+=2;e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
+ if(passed){if(!old.passed){if(s===9)coins+=2;r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  r37Bump('fps');r37Save();
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
@@ -110,7 +110,7 @@ const R37_G3={
 };
 const r37G3Track=(g,subj)=>g+'-'+(subj==='math'?'ma':'en');
 const r37G3Worlds=subj=>subj==='math'?WQ37Math.worlds('math'):R37_TRACKS.english.worlds;
-const r37G3Grade=(subj,w)=>subj==='math'?(['小一二','小二','小三','小四','小五','小六'][w]||''):'詞彙 '+(w+1);
+const r37G3Grade=(subj,w)=>subj==='math'?(['小一二','小二','小三','小四','小五','小六'][w]||''):(R37_TRACKS.english.worlds[w]?.name||'詞彙 '+(w+1));
 /* a level is open after the previous level of the same game and subject, after the matching lesson level (English unit / maths level) was passed, or for Admin */
 function r37G3Open(g,subj,w,s){
  if(adminUnlocks())return true;const t=r37G3Track(g,subj);

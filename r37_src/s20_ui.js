@@ -70,7 +70,7 @@ function r37Nav(active){
  return `<nav class="r37-nav" aria-label="主選單">${items.map(([h,i,t,hue])=>`<a href="#${h}" style="--h:${hue}" class="${active===h?'on':''}" ${active===h?'aria-current="page"':''}><span aria-hidden="true">${r37Icon(i)}</span><b>${t}</b></a>`).join('')}</nav>`;
 }
 function r37Home(){
- const m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)).length,prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
+ const m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)||(day[x.key]||0)>=x.goal).length,prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
  const ring=p=>{const q=prog[p.id];if(!q)return '';const v=Math.round(q.done/Math.max(1,q.total)*100);return v>0?`<span class="r37-pp" style="--p:${v}"><b>${q.done}/${q.total}</b></span>`:'';};
  return `<section class="r37-gx">${r37Top()}
  <div class="r37-sys"><div class="r37-sun" aria-hidden="true"><img class="r37-sunimg" src="${R37_ASSET}core_sun.webp" alt="" width="384" height="384" loading="eager" decoding="async"><b>學霸星球</b><small>SmartQuest Planet</small></div><i class="r37-orbit o1"></i><i class="r37-orbit o2"></i><i class="r37-orbit o3"></i>
@@ -80,12 +80,14 @@ function r37Home(){
 }
 function r37Hub(id){
  const p=r37Planet(id);if(!p)return r37Home();
- let tiles='',extra='';
+ let tiles='',extra='',after='';
  const quiz=t=>r37B('✅','選擇題',`data-r37="quiz" data-track="${t}" data-mode="mcq"`,'blue')+r37B('✍️','填充題',`data-r37="quiz" data-track="${t}" data-mode="fill"`,'green');
  if(id==='english'){
   const q=r37TrackProgress('english');
   tiles=r37A('🏆','闖關','#lv/english','gold big','english',`${q.done}/${q.total} 關`)+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('🔊','拼音','#learning')+r37A('📖','詞庫','#library');
   extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total}</b>`,'英文進度');
+  /* R3.29 C-01: the parent's plan ("安排下一次學習") shows here as a start button */
+  try{const as=typeof l30Read==='function'&&l30Read().assignment,au=as&&LIB30.units.get(as.unit);if(au)after=`<a class="r37-assign" href="#unit?id=${as.unit}"><b>家長安排</b><span>${esc(au.title)} · ${as.count} 個詞</span><i>開始</i></a>`;}catch(_){}
  }else if(id==='math'){
   const q=r37TrackProgress('math');
   tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big','math','小一至小六 · 每個主題兩課')+r37A('🏆','闖關','#lv/math','gold','',`${q.done}/${q.total} 關`)+quiz('math')+r37B('📝','考考自己','data-wqm-open="assessment"')+r37B('🔁','再練一練','data-wqm-open="review"');
@@ -102,10 +104,10 @@ function r37Hub(id){
  }else if(id==='parent'){
   return r37ParentHub();
  }
- return `<section class="r37-hub" data-pl="${id}" style="--h:${p.hue}">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:${p.tilt}deg">${r37OrbHTML(p.id)}</span><h1>${p.name}</h1>${extra}</div><div class="r37-tiles">${tiles}</div>${r37Nav('p/'+id)}</section>`;
+ return `<section class="r37-hub" data-pl="${id}" style="--h:${p.hue}">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:${p.tilt}deg">${r37OrbHTML(p.id)}</span><h1>${p.name}</h1>${extra}</div><div class="r37-tiles">${tiles}</div>${after}${r37Nav('p/'+id)}</section>`;
 }
 function r37GamesHub(){
- const m=r37Mission(),d=r37Get().day,ch=r37Char(),doneN=m.filter(x=>d.claimed.includes(x.id)).length;
+ const m=r37Mission(),d=r37Get().day,ch=r37Char(),doneN=m.filter(x=>d.claimed.includes(x.id)||(d[x.key]||0)>=x.goal).length;
  const quest=m.map(x=>{const v=Math.min(x.goal,d[x.key]||0),ok=v>=x.goal,got=d.claimed.includes(x.id);return `<div class="r37-mq ${ok?'ok':''}"><span class="r37-mi" aria-hidden="true">${r37Icon(x.icon)}</span><b>${x.name}</b><i style="--p:${Math.round(v/x.goal*100)}%"></i><em>${v}/${x.goal}</em>${got?'<span class="r37-got">✓</span>':ok?`<button type="button" data-r37="claim" data-id="${x.id}">${r37Icon('🎁')}+${x.coins}</button>`:`<span class="r37-rw">${r37Icon('🪙')}${x.coins}</span>`}</div>`;}).join('');
  return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:20deg">${r37OrbHTML('games')}</span><h1>遊戲星</h1>${r37Cap(r37Icon('🎁')+`<b>${doneN}/3</b>`,'今日任務')}</div>
  <div class="r37-tiles r37-gt g8">${r37A('🕹️','遊戲街機','#game','gold big','games')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37A('🏰','字母砲台','#lv/td','violet big')+r37A('🌀','字母迷宮','#lv/mz','teal big')+r37A('🃏','字卡征途','#lv/cd','rose big')+r37B(r37ChImg(ch),'角色','data-r37="chars"','blue big')}</div>
@@ -155,7 +157,7 @@ function r37FpsMap(){
  return `<section class="r37-hub r37-map r37-fmap" style="--h:340;--wh:${r37WHue('fps',w)}">${r37Top('<a class="r37-back2" href="#p/games" aria-label="遊戲星">←</a>'+(locked?'<a class="r37-back2 r37-fhint" href="#lv/english" aria-label="先完成英文闖關">'+r37Icon('🔤')+'</a>':''))}
  <div class="r37-worlds${worlds.length>6?' many':''}" role="tablist">${worlds.map((x,i)=>{const o=r37FpsWorldOpen(i);return `<button type="button" role="tab" class="r37-wtab ${i===w?'on':''} ${o?'':'lock'}" data-r37="fworld" data-w="${i}" ${o?'':'disabled'}><span aria-hidden="true">${r37Icon(o||i===w?x.icon||'🌍':'🔒')}</span><b>${i+1}</b></button>`;}).join('')}</div>
  <div class="r37-wtitle"><span class="r37-wic" aria-hidden="true">${r37Icon(W.icon||'🌍')}</span><div><h1>${esc(W.name)}</h1><small>${done}/10 · ${r37Stars(Math.min(5,Math.round(stars/50*5)))}</small></div><a class="r37-dchip r37-lk r37-free" href="#fps" aria-label="自由練習" title="自由練習">${r37Icon('🎲')}<span class="r37-fl">自由練習</span></a><span class="r37-dchip" title="難度">${r37Icon(diff.icon)}${diff.n}</span></div>
- <div class="r37-path">${r37Trail(lit)}${nodes}</div>${r37Nav('p/games')}</section>`;
+ ${locked?'<p class="r37-fnote">每一關要先通過同一關的英文闖關，才會開放。</p>':''}<div class="r37-path">${r37Trail(lit)}${nodes}</div>${r37Nav('p/games')}</section>`;
 }
 function r37G3Map(g){
  const G=R37_G3[g];let subj=r37Mem._gs&&r37Mem._gs[g]||'english';if(subj!=='math')subj='english';
@@ -241,8 +243,8 @@ function r37FbHTML(P,q,fb){
 }
 function r37MissHTML(r){
  const items=(r.missed||[]).slice(0,8);if(!items.length)return '';
- const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}${m.you?`<small>你寫：<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
-  :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span><b>${esc(m.answer)}</b>${m.you?`<small>你答：${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}</li>`;
+ const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}${m.you?`<small>${/^fill/.test(m.kind||'')?'你寫':'你選了'}：<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
+  :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span><b>${esc(m.answer)}</b>${m.you?`<small>你選了：${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}</li>`;
  return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span>這次答錯 <em>${items.length}</em></h2><ul>${items.map(li).join('')}</ul></div>`;
 }
 function r37Result(){
@@ -263,7 +265,7 @@ function r37Result(){
   const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
   if(nextOk)next=act('r37-go','data-r37="level-next"','▶',P.track==='olympiad'&&(P.s&1)?'下一單元':'下一關');
   if(P.kind==='level'&&P.track==='english'&&r.passed&&!P.redo&&r37EnStage(P.w,P.s).length>=4)extra=`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`;
-  note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題未答對'+(r.hintedFix?'（用了提示答對的不算自己答對）':'')+'，再試一次！':'再試一次！'}</p>`:''):'';
+  note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題未答對'+(r.hintedFix?'（用了提示答對的不算自己答對）':'')+'，再試一次！':r.why==='life'?'心用完了，再試一次！':'要第一次答對 '+Math.round(R37_DIFF[P.diff-1].pass*100)+'% 才過關（這次 '+Math.round((total?r.correct/total:0)*100)+'%）'+(r.stars>=3?'。星數另計，過關要看這個答對率':'')+'，再試一次！'}</p>`:''):'';
  if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題用了提示才答對，只算半分</p>`;
   lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
@@ -433,7 +435,7 @@ function r37Answer(value){
    if(q.mq&&q.mq.q){const rc=r37Get().recent,a=rc[P.track]=rc[P.track]||[];a.push(q.mq.q);if(a.length>30)a.splice(0,a.length-30);r37Save();}
   }
  }else if(ok)P.correct+=credit;
- if(ok){if(!q.warm){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
+ if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
  else{
   if(P.kind==='level'&&!q.warm){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
   playSfx('wrong');
@@ -451,7 +453,7 @@ function r37Answer(value){
   r37Timer=setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.ok)r37Next();},wait);
  }
 }
-function r37Cheer(){const P=r37P;P.praise=['做得好！','好叻！','正確！','太棒了！','答對了！'][Math.floor(P.correct)%5];}
+function r37Cheer(){const P=r37P;P.praise=['做得好！','很好！','正確！','太棒了！','答對了！'][Math.floor(P.correct)%5];}
 function r37Next(){
  const P=r37P;if(!P||!P.fb)return;
  if(!P.fb.ok&&P.fb.lock>Date.now())return;
@@ -477,7 +479,7 @@ function r37Finish(){
  let passed,why='';
  if(P.kind==='level'){
   if(P.redo)passed=!failedLife&&unfixed.length===0&&missed.length===0&&correct>=total;
-  else{passed=!failedLife&&ratio>=D.pass&&unfixed.length===0;if(!failedLife&&ratio>=D.pass&&unfixed.length)why='retest';}
+  else{passed=!failedLife&&ratio>=D.pass&&unfixed.length===0;if(!failedLife&&ratio>=D.pass&&unfixed.length)why='retest';else if(failedLife)why='life';}
  }else passed=ratio>=(P.kind==='dz'?.75:D.pass);
  /* maths / olympiad: a skill missed twice, or a level not passed, points to the lesson */
  const lessons=[];
@@ -572,17 +574,18 @@ function r37ParentHub(){
  if(tab==='diff'){
   const sub=['english','math','olympiad'].includes(r37Mem._dsub)?r37Mem._dsub:'english',cur=o.diffs[sub],T=R37_TRACKS[sub];
   const subs=['english','math','olympiad'].map(k=>`<button type="button" class="r37-dsub ${sub===k?'on':''}" data-r37="dsub" data-k="${k}" aria-pressed="${sub===k}"><span aria-hidden="true">${r37Icon(R37_TRACKS[k].icon)}</span><b>${R37_TRACKS[k].name}</b><small>${r37Icon(R37_DIFF[o.diffs[k]-1].icon)}${o.diffs[k]}</small></button>`).join('');
+  const nums=R37_DIFF.map(d=>`<b>${d.n} ${d.name}</b>：${sub==='english'?'至少 '+Math.max(d.qs,8)+' 題':d.qs+' 題'}、${d.hearts} 顆心、答對 ${Math.round(d.pass*100)}% 過關`).join('；');
   const note=sub==='english'
-   ?`<li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格</li><li><b>3</b> 標準：沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字、填充題更多；<b>5</b> 沒有提示${cur===5?'（目前）':''}</li><li>題數是每個生字至少考 1 題；答錯的詞 3 題後換題型補考，合格＝每個詞最後一次答對，星星按第一次答對率計</li>`
-   :`<li><b>題數、心數、合格線</b>跟上面一樣；難度改變的是<b>數字大小與步驟數</b></li><li><b>1–2</b> 較小的數、較少步驟</li><li><b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）</li><li><b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
+   ?`<li>${nums}。每個生字至少考 1 題，頭目關最少 12 題。</li><li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格；<b>3</b> 標準，沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字；<b>5</b> 填充題更多、沒有提示${cur===5?'（目前）':''}</li><li>答錯的詞，3 題後換題型補考。合格＝第一次答對率達標，而且答錯的詞補考要全對；星星按第一次答對率計</li>`
+   :`<li>${nums}。</li><li>難度改變的是<b>數字大小與步驟數</b>：<b>1–2</b> 較小的數、較少步驟；<b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）；<b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
   body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small>${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題 · <span class="r37-hs" aria-label="${d.hearts} 顆心">${r37Icon('❤️').repeat(d.hearts)}</span> · ${Math.round(d.pass*100)}%</small></button>`).join('')}</div>
   <ul class="r37-dl">${note}</ul></div>${today}`;
  }else if(tab==='prog'){
-  body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+r37WrongHTML()+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><span>${r37Icon('✅')}</span><b>${o.day.correct}</b></div></div>`:'');
+  body=['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total}</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+r37WrongHTML()+(c?`<div class="r37-card"><div class="r37-prh"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><small>金幣</small><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><small>今日過關</small><span>${r37Icon('✅')}</span><b>${o.day.correct}</b><small>今日答對</small></div></div>`:'');
  }else if(tab==='kids'){
-  body=`<div class="r37-tiles">${r37A('👦','孩子','#children')+r37A('📝','默書範圍','#ranges')+r37A('📊','學習報告','#report')+r37A('🏆','學習計劃','#learning-plan')}</div>`;
+  body=`<div class="r37-tiles">${r37A('👦','孩子','#children')+r37A('📝','默書範圍','#ranges')+r37A('📊','默書報告','#report')+r37A('📋','拼字課堂報告','#learning-report')+r37A('🏆','安排下一次學習','#learning-plan')}</div>`;
  }else{
   body=`<div class="r37-tiles">${r37A('⚙️','設定／備份','#settings')+r37A('🔐',isLoggedIn()?'登出':'登入','#login')+r37A('📴','離線教材','#offline')+r37A('🖼️','圖片來源','#credits')+(isTestAdmin()?r37A('🧪','測試中心','#admin'):'')}</div>`;
  }
- return `<section class="r37-hub" style="--h:46">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:16deg">${r37OrbHTML('parent')}</span><h1>家長星</h1>${r37Cap(r37Icon(r37Diff().icon)+`<b>難度 ${o.diff}</b>`,'目前難度')}</div><div class="r37-ptabs" role="tablist">${tabs}</div>${body}${r37Nav('p/parent')}</section>`;
+ return `<section class="r37-hub" style="--h:46">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:16deg">${r37OrbHTML('parent')}</span><h1>家長星</h1>${r37Cap(r37Icon(r37Diff().icon)+`<b>英文難度 ${o.diff}</b>`,'英文難度')}</div><div class="r37-ptabs" role="tablist">${tabs}</div>${body}${r37Nav('p/parent')}</section>`;
 }
