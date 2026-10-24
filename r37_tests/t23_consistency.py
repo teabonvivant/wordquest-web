@@ -102,11 +102,11 @@ def run():
                 if r == 'lv/olympiad':
                     continue  # R3.23: the olympiad map is the 奧數路線 star path (islands, not 10 nodes); t50 checks it
                 d = pg.evaluate("""()=>{const n=[...document.querySelectorAll('.r37-path>.r37-node')];
-                  return {n:n.length,st:n.filter(x=>x.querySelectorAll('.r37-st3 i').length===3).length,cur:n.filter(x=>x.classList.contains('cur')).length,
+                  return {n:n.length,st:n.filter(x=>x.querySelectorAll('.r37-st3 i').length===5).length,cur:n.filter(x=>x.classList.contains('cur')).length,
                   here:document.querySelectorAll('.r37-node.cur .r37-here img').length,lock:n.filter(x=>x.classList.contains('lock')).length,
                   curve:[...document.querySelectorAll('.r37-trail path')].filter(p=>/C/.test(p.getAttribute('d')||'')).length,
                   size:Math.round(n[0]?n[0].getBoundingClientRect().width:0)}}""")
-                C.ok(d['n'] >= 3 and d['st'] == d['n'], f'{name}/{r}: every node shows three stars {d}')
+                C.ok(d['n'] >= 3 and d['st'] == d['n'], f'{name}/{r}: every node shows five stars (R3.29 A-10: same scale as the result screen) {d}')
                 C.ok(d['cur'] == 1 and d['here'] == 1, f'{name}/{r}: one current node with the character marker {d}')
                 C.ok(d['curve'] >= d['n'] - 2, f'{name}/{r}: trail is a cubic curve {d}')
                 if r in ('lv/english', 'lv/math', 'lv/olympiad', 'lv/fps'):
@@ -138,7 +138,7 @@ def run():
             ev(pg, "r37Answer(r37P.qs[r37P.i].options.find(o=>o!==r37P.qs[r37P.i].answer))")
             pg.wait_for_timeout(450)
             view(pg, f'{name}/wrong feedback')
-            C.ok(pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');if(!f)return false;const c=getComputedStyle(f).backgroundImage+getComputedStyle(f).backgroundColor;return !/179, 48, 74|b3304a/i.test(c)&&/再試一次/.test(f.textContent)})()"), f'{name}: wrong answer is nebula purple with a soft sentence, not a red bar')
+            C.ok(pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');if(!f)return false;const c=getComputedStyle(f).backgroundImage+getComputedStyle(f).backgroundColor;return !/179, 48, 74|b3304a/i.test(c)&&/正確答案是/.test(f.textContent)})()"), f'{name}: wrong answer is nebula purple with a soft sentence (R3.29 A-07: states the answer), not a red bar')
             for _ in range(40):
                 s = ev(pg, "r37P?r37P.phase:'none'")
                 if s == 'result':

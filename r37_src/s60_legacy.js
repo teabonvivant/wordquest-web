@@ -16,11 +16,15 @@
  const KEEP=/^[★☆✓✔✖✕✗●⭐❤♥🪙🔒🔓🎁🏅]/u;
 
  /* ---- one wrapper for every legacy page (replaces s30 r37Wrap; same DOM contract: .r37-leg > .r37-bar + .r37-legbody + .r37-nav) ---- */
+ /* R3.29 A-27: the page we came from decides where ← goes for the two pages that can be entered from several places */
+ let r37CurHash='',r37OldHash='';/* the router renders before hashchange listeners run, so the previous page is remembered here, one wrap at a time */
  r37Wrap=function(route){
   const pl=planetOf(route),app=$('#app');if(!pl||!app||app.querySelector(':scope>.r37-leg'))return;
   if(route==='unit'&&typeof r37UnitLevelBtn==='function')r37UnitLevelBtn();
   const p=pl==='account'?ACCOUNT:r37Planet(pl);
-  const back=route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?'#game':route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':pl==='account'?'#kid':'#p/'+pl;
+  if(location.hash!==r37CurHash){r37OldHash=r37CurHash;r37CurHash=location.hash;}
+  let back0=null;if(route==='learning'){try{const ls=l30Session();if(ls&&ls.unit&&!ls.finishedAt)back0='#unit?id='+ls.unit;}catch(_){}}else if(route==='range-new'&&/^#ranges/.test(r37OldHash))back0='#ranges';
+  const back=back0||(route==='unit'?'#classroom':route==='assembly-unit'||route==='assembly-learn'?'#assembly':route==='game-settings'?'#game':route==='credits'?'#offline':route==='family-lesson'?'#spelling-family':route==='phonics-lesson'?'#phonics':pl==='account'?'#kid':'#p/'+pl);
   for(const a of app.querySelectorAll('a.l30-back,a.wq32-btn')){const h=a.getAttribute('href');if(h==='#kid'||h==='#parent'){a.setAttribute('href',pl==='account'?'#kid':'#p/'+pl);a.textContent='← '+p.name;}}
   const sec=document.createElement('section');sec.className='r37-hub r37-leg';sec.style.setProperty('--h',p.hue);sec.dataset.pl=pl;
   sec.innerHTML=`<div class="r37-bar"><a class="r37-back2" href="${back}" aria-label="返回">←</a><a class="r37-legt" href="${pl==='account'?'#kid':'#p/'+pl}"><span aria-hidden="true">${r37Icon(p.icon)}</span>${p.name}</a><span class="s60-slot"></span><button type="button" class="s60-more" aria-haspopup="true" aria-expanded="false" aria-label="更多">⋯</button>${r37Coin()}</div>`;
@@ -475,8 +479,10 @@
   if(real.length){if(box)box.remove();return;}
   if(box||!cards.length)return;
   const host=q$('.stack',root)||root;
-  box=mk('div','s60-empty',`<span class="s60-empty-art" aria-hidden="true">${r37Icon('📝')}</span><h2>加入第一份默書</h2><a class="btn primary" href="#range-new">＋ 加入第一份默書</a>`);
+  box=mk('div','s60-empty',`<span class="s60-empty-art" aria-hidden="true">${r37Icon('📝')}</span><h2>加入你自己的第一份默書</h2><a class="btn primary" href="#range-new">＋ 加入第一份默書</a>`);
   host.after(box);
+  /* R3.29 A-22: one entry only while the empty state is shown */
+  for(const l of q$$('a[href="#range-new"]',root))if(!box.contains(l)&&!l.closest('.r37-nav,.r37-bar'))l.hidden=true;
  }
  /* ---- M06: a 28px fade + thin scrollbar show that a fixed frame has more below ---- */
  function flagScroll(e){

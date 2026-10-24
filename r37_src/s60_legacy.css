@@ -55,6 +55,8 @@ html body .r37-legbody .card.pad,html body .r37-legbody .l30-panel{padding:16px}
 html body .r37-legbody h1{font-size:24px;line-height:1.25;margin:2px 0 8px}
 html body .r37-legbody h1:has(>.s60-i){display:flex;align-items:center;gap:8px}
 html body .r37-legbody .l30-eyebrow,html body .r37-legbody>.eyebrow,html body .r37-legbody .eyebrow{display:none}
+/* R3.29 A-06: the question type above a quiz card (看圖選字／聽音選字／串字…) is the instruction, keep it */
+html body .r37-legbody .l30-qcard .l30-eyebrow{display:block;font-size:14px;font-weight:800;margin:0 0 6px}
 html body .r37-legbody h2{font-size:19px;line-height:1.3;margin:0 0 8px}
 html body .r37-legbody .l30-topline{margin-bottom:8px;gap:10px;align-items:center}
 /* fitted pages: fixed head, one scrolling region */

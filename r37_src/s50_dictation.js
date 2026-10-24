@@ -109,7 +109,7 @@ function s50Apply(){
 }
 const s50Shown=c=>!c.s50?.dup&&!c.s50?.skip&&!s50HostExcluded(c);
 function s50ChipLine(list){
- const words=[...new Set(list.map(c=>c.en))];
+ const words=[...new Set(list.map(c=>String(c.en).replace(/\s*[|｜]+\s*$/,'').trim()))];/* R3.29 A-23: a stray | at the end of a skipped line is not shown */
  return words.slice(0,3).join('、')+(words.length>3?'…':'');
 }
 function s50RenderEditor(){
@@ -124,7 +124,7 @@ function s50RenderEditor(){
  const nSkip=skipped.length+excluded.length;
  const sentences=v20.mode==='sentences'||(shown.length>0&&shown.every(c=>c.kind==='sentence'));
  const seg=S50_LENS.map(([v,t])=>`<button type="button" data-s50="len" data-v="${v}" aria-pressed="${P.minLen===v}">${t}</button>`).join('');
- const chips=skipped.map(c=>`<button type="button" class="s50-chip" data-s50="addback" data-id="${esc(c.id)}" aria-label="加回 ${esc(c.en)}"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en)}</span></button>`).join('')
+ const chips=skipped.map(c=>`<button type="button" class="s50-chip" data-s50="addback" data-id="${esc(c.id)}" aria-label="加回 ${esc(c.en)}"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(String(c.en).replace(/\s*[|｜]+\s*$/,'').trim())}</span></button>`).join('')
   +excluded.map(c=>`<button type="button" class="s50-chip s50-chip-odd" data-imp="restore" data-id="${esc(c.id)}" title="${esc(c.excludedReason)}" aria-label="加回 ${esc(c.en)}（${esc(c.excludedReason)}）"><span aria-hidden="true">＋</span><span lang="en-GB">${esc(c.en.length>24?c.en.slice(0,23)+'…':c.en)}</span></button>`).join('');
  const poor=v20Photo&&s50OcrPoor();
  box.innerHTML=`${poor?`<div class="s50-retry s50-retry-2">${s50RetryHtml()}</div>`:''}<div class="s50-filters">

@@ -96,3 +96,8 @@ html body.r37 .r37-opt.ok{border-width:2px}
 html body.r37 .r37-opt.ok::after,html body.r37 .r37-opt.bad::after{position:absolute;top:8px;right:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:900;line-height:1;color:#fff}
 html body.r37 .r37-opt.ok::after{content:"✓";background:#22a565;box-shadow:0 0 0 2px #c6ffd9}
 html body.r37 .r37-opt.bad::after{content:"✗";background:#d4384f;box-shadow:0 0 0 2px #ffd0d6}
+
+/* R3.29 A-03: a won star and an empty star must look different. The legacy body forces `color:inherit` on every span, which made all five
+   stars the same pale blue; won = solid gold, empty = outline only (also readable without colour) */
+html body.r37 #app .r37-legbody .q36-stars .q36-star{color:transparent!important;-webkit-text-stroke:1.5px #9aa3d6;text-shadow:none}
+html body.r37 #app .r37-legbody .q36-stars .q36-star.on{color:#ffc94a!important;-webkit-text-stroke:0;text-shadow:0 0 6px rgba(255,201,74,.45)}

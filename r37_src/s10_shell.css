@@ -645,3 +645,42 @@ dialog#wq-course-dialog,dialog#wqm-dialog{background-color:#0b1030!important;bac
 /* R3.25: short landscape - the hub tile planet picture would sit on the label, so it is left out */
 @media(max-height:520px){.r37-tile .r37-tpl{display:none}}
 .wq-pic{object-fit:contain}
+
+/* ===== R3.29 core fixes ===== */
+/* A-10: five small stars under a map node (same scale as the result screen) */
+.r37-node .r37-st3.r37-st5{gap:0}
+.r37-node .r37-st3.r37-st5 i,.r37-node .r37-st3.r37-st5 .r37-ic{width:11px;height:11px;font-size:11px}
+.r37-node.via{border-style:dashed}
+/* A-18: difficulty chip with its words */
+.r37-dch b{font-size:14px;font-weight:900;white-space:nowrap}
+@media(max-width:380px){.r37-dch b{font-size:12px}.r37-dch{padding:6px 9px;gap:4px}}
+/* A-01: parent assignment card on the English planet, chip on the galaxy home */
+.r37-assign{position:relative;z-index:2;display:flex;align-items:center;gap:10px;margin:0 14px 6px;padding:5px 10px 5px 12px;min-height:50px;border-radius:18px;border:2px solid var(--r37-gold);background:linear-gradient(160deg,var(--r37-card2),var(--r37-card));color:#fff;flex:none;box-shadow:0 4px 0 var(--r37-shade)}
+.r37-asi{display:grid;font-size:24px}.r37-ast{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}.r37-ast small{font-size:12px;font-weight:800;color:var(--r37-gold)}.r37-ast b{font-size:16px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r37-asgo{flex:none;min-width:68px;min-height:44px;padding:0 14px;border:0;border-radius:999px;background:var(--r37-gold);color:#2a1b00;font:inherit;font-size:16px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 3px 0 #c5942b}
+.r37-asgo:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.r37-assignchip{position:relative;z-index:2;display:flex;align-items:center;gap:8px;margin:0 14px 6px;padding:0 14px;min-height:44px;border-radius:999px;border:1px solid var(--r37-gold);background:var(--r37-card);color:#fff;text-decoration:none;font-size:14px;font-weight:800;flex:none}
+.r37-assignchip b{color:var(--r37-gold);white-space:nowrap}.r37-assignchip span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* C-25: finished missions waiting to be claimed */
+.r37-qready{font-style:normal;font-size:14px;font-weight:900;padding:3px 10px;border-radius:999px;background:var(--r37-gold);color:#2a1b00;white-space:nowrap}
+.r37-quest .r37-qready{margin-left:-4px}
+b.r37-qready{font-size:13px;margin-left:4px}
+/* A-08 */
+.r37-dznote{margin:8px 14px 0;text-align:center;font-size:15px;font-weight:800;color:var(--r37-gold)}
+/* C-24: the hint chip has words */
+.r37-fhint{display:inline-flex;align-items:center;gap:4px;width:auto;padding:0 10px;font-size:20px}.r37-fhint b{font-size:13px;font-weight:900;color:#fff;white-space:nowrap}
+/* C-08: difficulty cards keep their numbers on a phone */
+.r37-df small{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 6px}.r37-df small>span+span::before{content:'· '}
+@media(max-width:560px){.r37-df small{display:flex;flex-direction:column;align-items:center;gap:0;font-size:11px;line-height:1.3}.r37-df small .r37-hs{display:none}.r37-df small>span+span::before{content:none}.r37-df b{white-space:nowrap}}
+/* C-18 */
+.r37-prh3{flex-wrap:wrap;row-gap:4px}.r37-prh3 small{font-size:12px;font-weight:800;color:var(--r37-muted);margin-right:6px}
+/* B-H2: figure of a question in the example card / mistake lists */
+.r37-excard .r37-exfig,.r37-miss .r37-mfig,.r319-wrong .r37-mfig{margin:8px auto;max-width:100%;max-height:150px;display:flex;justify-content:center}
+.r37-excard .r37-exfig svg,.r37-miss .r37-mfig svg,.r319-wrong .r37-mfig svg{max-width:100%;max-height:150px;height:auto}
+
+.has-assign .r37-tiles{padding-top:2px;gap:8px}
+.has-assign .r37-tile .r37-ti{font-size:clamp(32px,6vmin,52px)}
+.has-assign .r37-tile.gold{padding:8px 14px;gap:4px}
+.has-assign .r37-hero{margin-bottom:2px}
+/* A-10: the hub progress chip now says 關; keep it on the title row at 360px wide */
+@media(max-width:380px){.r37-hero{gap:8px}.r37-hero .r37-prog{gap:4px;padding:0 8px;margin-left:0}.r37-hero .r37-prog b{font-size:14px;white-space:nowrap}.r37-hero .r37-prog .r37-st{font-size:13px}}

@@ -70,7 +70,7 @@ function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];
 function r37Coins(){return activeChild()?.stars||0;}
 function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
-function r37Mission(){const day=r37Get().day;const base=Math.floor(Date.now()/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
+function r37Mission(){const day=r37Get().day;/* R3.29 C-06: the same Hong Kong day as the counters (dayKey), so the missions change at the same midnight as the counts reset */const base=Math.floor(Date.parse(dayKey()+'T00:00:00Z')/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
 function r37Hash(str){let h=2166136261;for(const ch of String(str)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
 function r37Rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 function r37Shuf(arr,rng){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -96,7 +96,7 @@ function r37FpsUnitWords(w,s){return r37EnStage(w,s).map(x=>({en:x.en,zh:x.zh,em
 function r37FpsPay(w,s,res){
  const o=r37Get(),k=r37LvKey('fps',w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=res&&res.passed!==undefined?!!res.passed:stars>=3;
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
- if(passed){if(!old.passed&&s===9)coins+=2;e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
+ if(passed){if(!old.passed&&s===9)coins+=2;if(!old.passed)r37Bump('levels');/* R3.29 C-07: the first pass of a letter-hunt level counts as a cleared level */e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  r37Bump('fps');r37Save();
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
@@ -176,7 +176,10 @@ function r37StarsFor(correct,total,hinted){const r=total?correct/total:0;if(corr
   const g=G.groups.get('blend');if(!g)return;
   for(const id of B.ext)if(G.recipes.get(id))G.recipes.get(id).group=B.extId;
   g.recipes=B.core.filter(id=>G.recipes.has(id));
-  const x=Object.assign({},g,{id:B.extId,title:B.extTitle,recipes:B.ext.filter(id=>G.recipes.has(id))});
+  const xr=B.ext.filter(id=>G.recipes.has(id)),xw=[];
+  /* R3.29 A-13: the 'familiar parts' of the extension card are this group's own source words (costume, play, situation), not the first blend group's */
+  for(const id of xr)for(const sr of (G.recipes.get(id).sources||[]))if(sr.word&&!xw.includes(sr.word))xw.push(sr.word);
+  const x=Object.assign({},g,{id:B.extId,title:B.extTitle,recipes:xr,baseWords:xw.length?xw.slice(0,3):g.baseWords});
   G.groups.set(B.extId,x);try{G.data.groups.push(x);}catch(_){}
  }catch(_){}
 })();

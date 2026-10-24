@@ -25,7 +25,7 @@ function r37FpsLvMount(){
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
  const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
-  onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
+  onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';},lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */};
  if(s===9)opts.boss=true;
  if(nx&&r37FpsOpen(nx.w,nx.s))opts.onNext=()=>{r37FpsSel={w:nx.w,s:nx.s,from:'#lv/fps'};r37Mem._fw=nx.w;r37Nav37('fp/play');};
  r37FpsHandle=WQ37FPS.start(box,opts);
@@ -60,7 +60,7 @@ function r37RunMount(){
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
  const diff=r37DiffN('english'),ch=r37Char();
  r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
-  onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('fps');return 0;}const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
+  onFinish:res=>{if(r37RunSel&&r37RunSel.endless)return 0;/* R3.29 C-07: endless runs are not letter-hunt rounds */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
    r37Save();if(coins)r37AddCoins(coins);return coins;},
@@ -139,11 +139,15 @@ function r37Wrap(route){
 new MutationObserver(()=>{if(!document.body.classList.contains('r37leg'))return;const app=$('#app');if(app&&!app.querySelector(':scope>.r37-leg')){const r=(location.hash||'#kid').slice(1).split('?')[0];try{r37Wrap(r);}catch(_){}}}).observe(document.getElementById('app')||document.body,{childList:true});
 const r37L30Done=l30UnitDone;
 r37ClassDone=uid=>{try{return r37L30Done(uid);}catch(_){return null;}};
-l30UnitDone=function(uid){const x=r37L30Done(uid);if(x)return x;const at=r37UnitAt(uid);if(!at)return null;const e=r37Get().lv[r37LvKey('english',at.w,at.s)];return e&&e.passed?{at:Date.parse(e.at)||Date.now(),stars:e.best||0,best:e.best||0}:null;};
+l30UnitDone=function(uid){const x=r37L30Done(uid);if(x)return x;const at=r37UnitAt(uid);if(!at)return null;const e=r37Get().lv[r37LvKey('english',at.w,at.s)];return e&&e.passed?{at:Date.parse(e.at)||Date.now(),stars:e.best||0,best:e.best||0,lvOnly:true}:null;};
+/* R3.29 A-04: passing the level opens the next one, but it is not the 20-question lesson: the badge says 闖關已過 and only a finished lesson says 已學完 */
+const r37DoneBadge0=l30DoneBadge;
+l30DoneBadge=function(uid){const x=l30UnitDone(uid);if(x&&x.lvOnly)return `<span class="q36-done"><b class="q36-tick" aria-hidden="true">✓</b><span>闖關已過 · ${l30Day(x.at)}</span>${l30StarsHtml(x.best,'small')}</span>`;return r37DoneBadge0(uid);};
 function r37UnitLevelBtn(){
  const id=new URLSearchParams((location.hash.split('?')[1]||'')).get('id'),at=id&&r37UnitAt(id),row=$('#app .q36-start .l30-row');if(!at||!row)return;
  const open=r37StageOpen('english',at.w,at.s);
- row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} 第 ${at.s+1} 關</a>`);
+ const dn=l30UnitDone(id);if(dn&&dn.lvOnly){const sb=row.querySelector('[data-l30="start"]');if(sb&&sb.textContent.trim()==='再學一次')sb.textContent='開始這一課';}
+ row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} ${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}</a>`);
  if(r37Entry('english',at.w,at.s)?.passed&&r37EnStage(at.w,at.s).length>=4)row.insertAdjacentHTML('beforeend',`<button type="button" class="l30-btn r37-ulv r37-ufps" data-r37="fps-level" data-w="${at.w}" data-s="${at.s}" data-from="#unit?id=${esc(id)}">🎯 射擊鞏固</button>`);
 }
 function r37FixNav(){
