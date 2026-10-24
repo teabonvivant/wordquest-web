@@ -45,7 +45,16 @@ def new_page(pw, touch, reduced=False):
     p = ctx.new_page(); errs = []
     p.on('console', lambda m: errs.append(m.text) if m.type == 'error' else None)
     p.on('pageerror', lambda e: errs.append(str(e)))
-    p.goto('file://' + PAGE)
+    # R3.30: served from an https origin through route() (no network), not file://: in this headless Chromium a reloaded file:// page sometimes has no localStorage left,
+    # and this suite reloads to check that the best score and the mute choice survive (see lib37.serve_https)
+    def _h(route):
+        path = route.request.url.split('fps.test', 1)[1].split('?')[0]
+        if path == '/fps_game.js':
+            return route.fulfill(status=200, content_type='application/javascript; charset=utf-8', body=open(JS, encoding='utf8').read())
+        body = open(PAGE, encoding='utf8').read().replace('file://' + os.path.abspath(JS), 'https://fps.test/fps_game.js')
+        route.fulfill(status=200, content_type='text/html; charset=utf-8', body=body)
+    p.route('https://fps.test/**', _h)
+    p.goto('https://fps.test/page.html')
     return b, p, errs
 
 SHOOT_JS = """(want)=>{const d=WQ37FPS._debug;if(d.state!=='play')return -1;
@@ -116,9 +125,12 @@ def test_desktop(pw):
     d = dbg(p); assert d['state'] == 'play', d
     # keyboard
     a0 = dbg(p)['player']
-    p.keyboard.down('KeyW'); p.wait_for_timeout(500); p.keyboard.up('KeyW')
+    # R3.30: hold the key until the STATE shows the movement (game time), not for a fixed 500 / 400 ms of wall time: a slow machine turns / walks less in the same wall time
+    p.keyboard.down('KeyW')
+    p.wait_for_function("(a)=>{const q=WQ37FPS._debug.player;return Math.hypot(q.x-a.x,q.y-a.y)>0.6}", arg=a0, timeout=20000); p.keyboard.up('KeyW')
     a1 = dbg(p)['player']; assert math.hypot(a1['x']-a0['x'], a1['y']-a0['y']) > 0.5, (a0, a1)
-    p.keyboard.down('ArrowRight'); p.wait_for_timeout(400); p.keyboard.up('ArrowRight')
+    p.keyboard.down('ArrowRight')
+    p.wait_for_function("(a)=>WQ37FPS._debug.player.a-a>0.5", arg=a1['a'], timeout=20000); p.keyboard.up('ArrowRight')
     a2 = dbg(p)['player']; assert a2['a'] - a1['a'] > 0.4, (a1, a2)
     p.wait_for_timeout(400); p.screenshot(path=SHOTS + '/desktop_play.png')
     p.evaluate('game.destroy();boot(1,10)')
@@ -286,7 +298,9 @@ def test_freeze(pw):
     b, p, errs = new_page(pw, False)
     start_game(p, 5, 10)
     cmd(p, 'bug', 8); p.wait_for_timeout(100)
-    e0 = dbg(p)['enemies'][0]; p.wait_for_timeout(400); e1 = dbg(p)['enemies'][0]
+    # R3.30: movement is waited for as a state (it follows game time), not for 400 ms of wall time
+    e0 = dbg(p)['enemies'][0]
+    p.wait_for_function("(a)=>{const e=WQ37FPS._debug.enemies[0];return Math.hypot(e.x-a.x,e.y-a.y)>0.15}", arg=e0, timeout=20000); e1 = dbg(p)['enemies'][0]
     assert math.hypot(e1['x'] - e0['x'], e1['y'] - e0['y']) > 0.15, (e0, e1)
     cmd(p, 'weapon', 'freeze'); d = dbg(p); assert d['freezeW'] > 10
     p.evaluate('WQ37FPS._debugFire(1.2)'); p.wait_for_timeout(100)   # shoot away from the bug: freezing is a side effect of any shot
@@ -294,7 +308,8 @@ def test_freeze(pw):
     f0 = d['enemies'][0]; p.wait_for_timeout(1200); f1 = dbg(p)['enemies'][0]
     assert math.hypot(f1['x'] - f0['x'], f1['y'] - f0['y']) < 0.01, (f0, f1)
     p.screenshot(path=SHOTS + '/desktop_freeze.png')
-    p.wait_for_timeout(2200); t0 = dbg(p)['enemies'][0]; p.wait_for_timeout(400); t1 = dbg(p)['enemies'][0]
+    p.wait_for_function("WQ37FPS._debug.freezeT===0", timeout=30000); t0 = dbg(p)['enemies'][0]
+    p.wait_for_function("(a)=>{const e=WQ37FPS._debug.enemies[0];return Math.hypot(e.x-a.x,e.y-a.y)>0.15}", arg=t0, timeout=20000); t1 = dbg(p)['enemies'][0]
     assert dbg(p)['freezeT'] == 0 and math.hypot(t1['x'] - t0['x'], t1['y'] - t0['y']) > 0.15, (t0, t1)
     assert dbg(p)['freezeW'] < 12
     # spread weapon pickup via the real pick-up path
@@ -306,7 +321,7 @@ def test_freeze(pw):
     b.close()
 
 def test_combo_best_record(pw):
-    """Combo multiplier x2/x3, best score persists across reload, NEW RECORD on the result screen, reduced-motion disables shake."""
+    """Combo multiplier x2/x3, best score persists across reload, 新紀錄 (R3.29 C-17: was NEW RECORD) on the result screen, reduced-motion disables shake."""
     b, p, errs = new_page(pw, False)
     start_game(p, 1, 10)
     mults = []; scores = [dbg(p)['score']]
@@ -328,7 +343,7 @@ def test_combo_best_record(pw):
     for _ in range(8): shoot_correct(p); p.wait_for_timeout(500)
     lose_all(p); fin3 = p.evaluate('finished')
     assert fin3['score'] > fin1['score'] and fin3['newRecord'] is True and fin3['best'] == fin3['score'], (fin1, fin3)
-    p.wait_for_timeout(1500); assert p.locator('text=NEW RECORD').count() == 1
+    p.wait_for_timeout(1500); assert p.locator('text=新紀錄').count() == 1
     assert p.evaluate("localStorage.getItem('wq37-fps-best')") == str(fin3['score'])
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
@@ -349,7 +364,7 @@ def test_touch_new_actions(pw):
     p.wait_for_timeout(1700); n0 = len(p.evaluate('__spoken'))
     box = p.locator('.wq37-say').bounding_box(); assert box['width'] >= 44 and box['height'] >= 44, box
     p.tap('.wq37-say'); p.wait_for_timeout(150)
-    assert len(p.evaluate('__spoken')) == n0 + 1
+    assert len(p.evaluate('__spoken')) >= n0 + 1   # R3.30: >= (was ==): the game also repeats the word by itself now and then; a tap must add at least one reading (flaky at HEAD too, 1 in 3)
     p.screenshot(path=SHOTS + '/mobile_listen.png')
     shoot_correct(p); p.wait_for_timeout(300); shoot_correct(p); p.wait_for_timeout(300)
     d = dbg(p); assert d['boss'] and d['sayVisible'], d   # pronunciation replay is available in every question type, boss included
@@ -520,7 +535,7 @@ def test_mute_and_audio(pw):
     mx = p.evaluate('()=>{let m=0;for(let i=0;i<40;i++){WQ37FPS._debugFire(0);m=Math.max(m,WQ37FPS._debug.voices);}return m}')
     assert mx <= 12, mx
     p.keyboard.press('KeyR'); p.wait_for_timeout(60); assert dbg(p)['ducked'] is True
-    p.wait_for_timeout(2600); assert dbg(p)['ducked'] is False
+    p.wait_for_function("WQ37FPS._debug.ducked===false", timeout=20000); assert dbg(p)['ducked'] is False   # R3.30: wait for the state, not 2.6 s of wall time
     p.keyboard.press('Escape'); p.wait_for_timeout(80); assert dbg(p)['state'] == 'paused'
     assert p.inner_text('[data-act="mute"]') == '🔊'
     p.click('[data-act="mute"]'); p.wait_for_timeout(80)

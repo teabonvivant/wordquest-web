@@ -53,7 +53,7 @@ function r37Get(){
  for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
- if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
+ if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,cn:0,claimed:[]};
  if(!Array.isArray(o.day.claimed))o.day.claimed=[];
  /* R3.23: the six-world olympiad levels are replaced by the 30-unit 奧數路線 (same keys 'olympiad:grade:stage', new meaning). Old passes never count as new levels; coins stay with the child. */
  if(o.olyV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('olympiad:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.olyOld={n,st};o.miss=o.miss.filter(m=>m.t!=='olympiad');if(o.seen)delete o.seen.olympiad;o.olyV=2;}
@@ -68,7 +68,16 @@ function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
 function r37Diff(t){return R37_DIFF[r37DiffN(t)-1];}
 function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];}
 function r37Coins(){return activeChild()?.stars||0;}
-function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
+/* R3.30 C-03: coins from 闖關, 快速測驗, 默書 and the games share a daily cap (day.cn counts them, so it resets at the same Hong Kong midnight as the missions).
+   Coins past the cap are not paid later. 每日任務 claims pass free=true: their total is already fixed by the three missions of the day. Returns the coins really paid. */
+const R37_COIN_CAP=10;
+const r37CoinToday=()=>Math.min(R37_COIN_CAP,(r37Get().day.cn)||0);
+function r37AddCoins(n,free,quiet){
+ const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;
+ if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;r37Get().day.cn=((r37Get().day.cn)||0)+n;r37Save();}
+ c.stars+=n;save();return n;
+}
+try{window.r37CoinToday=r37CoinToday;window.R37_COIN_CAP=R37_COIN_CAP;}catch(_){}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
 function r37Mission(){const day=r37Get().day;/* R3.29 C-06: the same Hong Kong day as the counters (dayKey), so the missions change at the same midnight as the counts reset */const base=Math.floor(Date.parse(dayKey()+'T00:00:00Z')/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
 function r37Hash(str){let h=2166136261;for(const ch of String(str)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
@@ -99,7 +108,7 @@ function r37FpsPay(w,s,res){
  if(passed){if(!old.passed){if(s===9)coins+=2;r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  r37Bump('fps');r37Save();
  if(!isLoggedIn())coins=0;
- if(coins)r37AddCoins(coins);
+ coins=r37AddCoins(coins);
  return coins;
 }
 /* ---- R3.21: the three learning games (字母砲台 td / 字母迷宮 mz / 字卡征途 cd), English and maths. Track keys td-en td-ma mz-en mz-ma cd-en cd-ma ---- */
@@ -155,7 +164,7 @@ function r37G3Pay(g,subj,w,s,res,items){
   try{if(isLoggedIn()){const c=activeChild(),wd=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(p.en));if(wd){recordAttempt(wd,'spell',!!p.firstOk,p.firstOk?p.en:'',p.en,'遊戲',{src:'g3-'+g,track:'english',w,s});}}}catch(_){}
  }
  const fc=((res&&res.perItem)||[]).filter(p=>!p.rv&&p.firstOk).length;if(fc){r37Bump('correct',fc);if(subj!=='math')r37Bump('enok',fc);}
- r37Save();if(!isLoggedIn())coins=0;if(coins)r37AddCoins(coins);return coins;
+ r37Save();if(!isLoggedIn())coins=0;coins=r37AddCoins(coins);return coins;
 }
 function r37WorldStars(t,w){let n=0;for(let s=0;s<10;s++)n+=r37Entry(t,w,s)?.best||0;return n;}
 function r37WorldDone(t,w){let n=0;for(let s=0;s<10;s++)if(r37Entry(t,w,s)?.passed)n++;return n;}

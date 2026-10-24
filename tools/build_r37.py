@@ -12,6 +12,9 @@ import argparse, hashlib, importlib.util, json, re, subprocess, sys
 
 R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
+# R3.30: the service-worker cache name follows this label (plus a signature of the shipped art), so a new release always gets a new cache and the old one is dropped on activate.
+# Bump it with every release; tests/r37 t61 and r320_sw_offline.py read it from sw.js.
+RELEASE = 'R3.30'
 PATCHES = R / 'r37_src/patches'
 
 
@@ -65,9 +68,10 @@ def build(only=None, out=None, base_only=False):
             # inside the host script (a new <script> block would change the block count build_math_m1.py checks)
             s = once(s, '<script data-wq28="host">', f'<script data-wq28="host">\nglobalThis.WQ37EnFix={body};')
         s = s.replace('R3.6.0', 'R3.7.0')
-        sw = sw.replace("-3.6.0'", "-3.20'")
         # R3.19: precache the shipped art (planets, characters) and serve it cache-first offline
         art = sorted(f'assets/{d}/{f.name}' for d in ('r316', 'r318', 'r321', 'r323') for f in (R / 'app/assets' / d).glob('*.webp'))
+        art_sig = hashlib.sha1('|'.join(f'{a}:{(R / "app" / a).stat().st_size}' for a in art).encode()).hexdigest()[:8]
+        sw = sw.replace("-3.6.0'", f"-{RELEASE}-{art_sig}'")
         sw = once(sw, "await c.addAll([new URL('index.html',BASE).href]);",
                   "await c.addAll([new URL('index.html',BASE).href]);try{await c.addAll(" + json.dumps(art)
                   + ".map(a=>new URL(a,BASE).href));}catch(_){}")

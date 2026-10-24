@@ -311,11 +311,13 @@
     L.firstAcc = function () { return firstN ? firstOkN / firstN : 0; };
     L.accuracy = function () { var t = 0, ok = 0, k; for (k in stats) { if (stats[k].rv) continue; t += stats[k].tries; if (stats[k].ok) ok++; } return t ? ok / t : 0; };
     /* cleared:false (lost / quit) can never pass. Items never asked count as not first-try-correct. */
+    /* R3.30 C-09: a level is passed at the parent's pass rate (o.passRate, the same one the 闖關 uses); without one it stays at 70% = 3 stars */
+    L.passRate = o.passRate != null && isFinite(+o.passRate) && +o.passRate > 0 ? +o.passRate : .70;
     L.result = function (x) {
       x = x || {}; var cleared = x.cleared !== false, core = items.length, fa = core ? firstOkN / core : 0;
       var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms) }; });
       var stars = cleared ? GX.starsOf(fa) : 1;
-      return { stars: stars, passed: cleared && stars >= 3, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0; }) };
+      return { stars: stars, passed: cleared && fa >= L.passRate - 1e-9, passRate: L.passRate, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0; }) };
     };
     return L;
   };
@@ -372,6 +374,7 @@
     '.gx-card{background:linear-gradient(160deg,rgba(30,38,96,.97),rgba(18,24,68,.97));border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:18px 18px 20px;max-width:380px;width:100%;max-height:100%;overflow:auto;box-sizing:border-box;text-align:center;box-shadow:0 14px 36px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.12);animation:gxpop .22s cubic-bezier(.23,1,.32,1)}' +
     '.gx-card h1{margin:0 0 6px;font-size:24px;font-weight:900;line-height:1.25;overflow-wrap:anywhere}' +
     '.gx-sub{color:' + MUTED + ';font-size:14px;margin:2px 0 10px}' +
+    '.gx-sub.gx-need{color:#FFD36E;font-size:16px;font-weight:800}' +
     '.gx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;min-width:48px;padding:0 20px;border-radius:999px;border:0;background:' + GOLD + ';color:' + GOLD_INK + ';font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 ' + GOLD_D + ';touch-action:manipulation}' +
     '.gx-btn:active{transform:translateY(2px);box-shadow:0 2px 0 ' + GOLD_D + '}.gx-btn[disabled]{opacity:.45;box-shadow:none;transform:none;cursor:default}' +
     '.gx-btn.ghost{background:rgba(255,255,255,.1);color:' + TEXT + ';border:1px solid rgba(255,255,255,.22);box-shadow:0 3px 0 rgba(0,0,0,.3)}' +
@@ -427,7 +430,7 @@
     S.every = function (fn, ms) { var id = setInterval(function () { if (!S.dead && !S.paused) fn(); }, ms); intervals.push(id); return id; };
     S.clearLater = function (id) { clearTimeout(id); var i = timers.indexOf(id); if (i >= 0) timers.splice(i, 1); };
     S.sfx = function (n, o2) { S.audio.sfx(n, o2); };
-    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed });
+    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed, passRate: opts.passRate });
     S.syl = function (it) { try { if (typeof opts.syllables === 'function' && it && it.en) return String(opts.syllables(it.en) || ''); } catch (e) { /* */ } return it && it.syl ? it.syl : ''; };
     S.speak = function (text, lang) {
       if (!text || S.audio.muted() || opts.sound === false) return;
@@ -438,7 +441,7 @@
     S.newLearn = function () {
       var r = null; try { if (typeof opts.regen === 'function') r = opts.regen(); } catch (e) { /* */ }
       if (r && r.items && r.items.length >= 4) { opts.items = r.items; if (r.review) opts.review = r.review; }
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode });
+      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, passRate: opts.passRate });
       return S.learn;
     };
     S.say = function (it) { if (it && it.en) S.speak(it.en, 'en-US'); };
@@ -559,7 +562,7 @@
       o = o || {}; var miss = (res.missed || []).slice(0, 8), more = (res.missed || []).length - miss.length;
       var stars = [1, 2, 3, 4, 5].map(function (k) { return '<span style="display:contents">' + ico('star', 44).replace('<svg ', '<svg class="' + (k <= res.stars ? 'on' : '') + '" style="animation-delay:' + (k * .12) + 's" ') + '</span>'; }).join('');
       var el = ov('result', '<div class="gx-card gx-res"><h1>' + (res.passed ? (res.stars >= 5 ? '太棒了！' : '過關！') : (res.cleared ? '再試一次' : '再接再厲')) + '</h1><div class="gx-stars" aria-label="' + res.stars + ' 星">' + stars + '</div>'
-        + '<div class="gx-chips"><span class="gx-chip">' + ico('check', 18) + Math.round(res.firstTryAccuracy * 100) + '% 一次答對</span><span class="gx-chip">' + ico('flame', 18) + res.maxCombo + ' 連擊</span><span class="gx-chip">' + ico('clock', 18) + res.seconds + ' 秒</span>' + (o.coins ? '<span class="gx-chip coin">' + ico('coin', 18) + '+' + o.coins + '</span>' : '') + '</div>'
+        + (res.cleared && !res.passed && res.passRate ? '<div class="gx-sub gx-need">要一次答對 ' + Math.round(res.passRate * 100) + '% 才過關</div>' : '') + '<div class="gx-chips"><span class="gx-chip">' + ico('check', 18) + Math.round(res.firstTryAccuracy * 100) + '% 一次答對</span><span class="gx-chip">' + ico('flame', 18) + res.maxCombo + ' 連擊</span><span class="gx-chip">' + ico('clock', 18) + res.seconds + ' 秒</span>' + (o.coins ? '<span class="gx-chip coin">' + ico('coin', 18) + '+' + o.coins + '</span>' : '') + '</div>'
         + (miss.length ? '<div class="gx-sub" style="margin-bottom:2px">要再記一記</div><div class="gx-miss">' + miss.map(function (m) { return '<span>' + esc(m.en || short(m.q) + ' = ' + m.a) + (m.en && m.zh ? '<small>' + esc(m.zh) + '</small>' : '') + '</span>'; }).join('') + (more > 0 ? '<span>+' + more + '</span>' : '') + '</div>' : (res.firstTryAccuracy >= 1 ? '<div class="gx-sub">全部一次答對！</div>' : '<div class="gx-sub">下次會更好</div>'))
         + '<details class="gx-rep"><summary>逐項報告</summary><div class="gx-replist">' + (res.perItem || []).filter(function (p) { return !p.rv; }).map(function (p) { return '<div class="r ' + (p.firstOk ? 'g' : p.ok ? 'y' : 'b') + '"><i>' + (p.firstOk ? ico('check', 16) : p.ok ? ico('replay', 16) : ico('cross', 16)) + '</i><b>' + esc(p.en || short(p.q)) + '</b><em>' + esc(p.en ? p.zh : '= ' + p.a) + '</em><u>' + (p.ms ? Math.max(1, Math.round(p.ms / 1000)) + ' 秒' : '') + '</u></div>'; }).join('') + '</div></details>'
         + '<div class="gx-row"><button type="button" class="gx-btn ghost" data-r="back" aria-label="返回">' + ico('home', 22) + '</button><button type="button" class="gx-btn ghost" data-r="again">' + ico('replay', 22) + '<span>再玩</span></button>' + (o.canNext ? '<button type="button" class="gx-btn" data-r="next"><span>下一關</span>' + ico('next', 22) + '</button>' : '') + '</div></div>');

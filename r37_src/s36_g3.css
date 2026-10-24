@@ -17,8 +17,10 @@
 .r37-tiles.r37-gt.g8 .r37-ti{font-size:clamp(28px,5.6vh,42px);width:1.3em;height:1.3em}
 .r37-tiles.r37-gt.g8 .r37-tn{font-size:clamp(15px,2.3vh,18px);white-space:nowrap;line-height:1.2}
 .r37-tiles.r37-gt.g8 .r37-tile.gold>.r37-tn{font-size:clamp(15px,2.3vh,18px)}
-.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:112%;max-width:none;right:-16%;bottom:-30%;opacity:.92}
-@media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8{grid-template-columns:repeat(4,1fr)}}
+/* R3.30: the planet is a disc tucked into the lower-right corner of the 遊戲街機 tile; at 112% it covered the label on phones and wide screens alike */
+.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:64%;max-width:none;right:-18%;bottom:-32%;opacity:.92}
+@media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8{grid-template-columns:repeat(4,1fr)}
+.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:50%;right:-8%;bottom:-14%}}
 @media(max-height:520px){
  .r37-tiles.r37-gt.g8{grid-auto-rows:minmax(44px,1fr);gap:6px;padding:2px 12px 6px}
  .r37-tiles.r37-gt.g8 .r37-ti{font-size:28px}

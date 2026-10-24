@@ -1,7 +1,11 @@
 """R3.9 t11 - answer learning card in the two vocabulary games (fps_game.js, runner_game.js), card ON (the default).
 Correct: card shows the word + meaning, freezes play, auto-continues after LC_OK.max; Enter is ignored before LC_OK.min.
 Wrong: card shows the CORRECT word + meaning and what the child picked, the continue button stays locked for LC_BAD.min,
-the correct word is spoken twice; the game stays frozen until the child continues. Size/fit checked at phone, landscape, desktop."""
+the correct word is spoken twice; the game stays frozen until the child continues. Size/fit checked at phone, landscape, desktop.
+
+R3.30: every timing rule (0.8 s / 2 s lock, auto-continue, second reading) is measured in GAME time, the card's own clock (`_debug.learn.t`), never in wall-clock sleeps:
+a screenshot or a busy machine takes 0.5-1 s of wall time while the card keeps counting, which used to make "Enter before 0.8 s does not skip" fail although the game was right.
+Presses happen before any slow step and are accepted only when the game clock really was inside the window (reported as such); waits are `wait_for_function` on the state."""
 import json
 import sys
 from pathlib import Path
@@ -43,6 +47,17 @@ CARD = """()=>{const c=document.querySelector('.wqlc');if(!c)return null;const r
   area:r.width*r.height/(innerWidth*innerHeight),anim:getComputedStyle(c).animationName}}"""
 
 
+def lc_t(dbg, p):
+    """game-time seconds the learning card has been up (None when there is no card)"""
+    d = dbg(p); l = d.get('learn') if d else None
+    return None if not l else l['t']
+
+
+def wait_lc_t(dbg_js, p, t, timeout=20000):
+    """wait until the card's own clock reached t (game seconds)"""
+    p.wait_for_function("(a)=>{const d=%s;return !d||!d.learn||d.learn.t>=a[0]}" % dbg_js, arg=[t], timeout=timeout)
+
+
 def card(p):
     # measure the settled card: the 0.24 s scale-in animation is still running 150 ms after the answer (and stretches on a busy machine)
     p.evaluate("()=>Promise.all(document.getAnimations().filter(a=>a.effect&&a.effect.target&&a.effect.target.closest&&a.effect.target.closest('.wqlc')).map(a=>a.finished.catch(()=>0)))")
@@ -59,12 +74,12 @@ def fps_flow(pw, w, h, name, touch):
     ok(d['state'] == 'learn' and d['learn'] and d['learn']['ok'] and d['learn']['word'] == asked, f'fps/{name} correct -> learn card for "{asked}"')
     ok(c and 'ok' in c['cls'] and c['en'] == asked and c['zh'] and '答對' in c['head'], f'fps/{name} correct card shows word + meaning {c and (c["en"], c["zh"])}')
     ok(c and c['enPx'] >= 40 and c['zhPx'] >= 22 and c['fit'] and c['goVis'], f'fps/{name} card big and fully on screen (en {c and c["enPx"]}px, zh {c and c["zhPx"]}px)')
-    p.screenshot(path=str(SHOTS / f'fps_{name}_ok.png'))
-    p.keyboard.press('Enter'); p.wait_for_timeout(100)
-    ok(F.dbg(p)['state'] == 'learn', f'fps/{name} Enter before 0.8s does not skip')
+    t_press = lc_t(F.dbg, p); p.keyboard.press('Enter'); d2 = F.dbg(p)   # before the screenshot: the card clock keeps running while it is taken
+    ok(t_press is not None and t_press < 0.8 and d2['state'] == 'learn', f'fps/{name} Enter before 0.8s (game time {t_press and round(t_press, 2)}s) does not skip')
     sc = F.dbg(p)['correct']; p.evaluate('WQ37FPS._debugFire(0)')
     ok(F.dbg(p)['correct'] == sc, f'fps/{name} cannot shoot while the card is up')
-    p.wait_for_timeout(2600)
+    p.screenshot(path=str(SHOTS / f'fps_{name}_ok.png'))
+    p.wait_for_function("()=>{const d=WQ37FPS._debug;return d&&d.state==='play'&&d.round===%d}" % (r0 + 1), timeout=30000)
     d = F.dbg(p)
     ok(d['state'] == 'play' and d['round'] == r0 + 1 and not card(p), f'fps/{name} correct card auto-continues to round {r0 + 1}')
     # wrong answer
@@ -80,12 +95,14 @@ def fps_flow(pw, w, h, name, touch):
     ok(d['state'] == 'learn' and not d['learn']['ok'] and d['learn']['word'] == asked and d['hearts'] == hearts - 1, f'fps/{name} wrong -> card shows the correct word "{asked}", heart lost')
     ok(c and 'bad' in c['cls'] and c['en'] == asked and '正確答案' in c['head'] and '你選了' in c['you'] and c['goDis'], f'fps/{name} wrong card: correct answer, your pick "{c and c["you"]}", button locked')
     ok(c and c['fit'] and c['goVis'] and c['enPx'] >= 40, f'fps/{name} wrong card fits the screen')
+    p.keyboard.press('Enter'); t_press = lc_t(F.dbg, p); d2 = F.dbg(p)   # inside the first 2 s of game time, before the screenshot
+    ok(t_press is not None and t_press < 2.0 and d2['state'] == 'learn' and (card(p) or {}).get('goDis'), f'fps/{name} wrong card cannot be skipped in the first 2s (game time {t_press and round(t_press, 2)}s)')
     p.screenshot(path=str(SHOTS / f'fps_{name}_bad.png'))
-    p.wait_for_timeout(1000); p.keyboard.press('Enter'); p.wait_for_timeout(80)
-    ok(F.dbg(p)['state'] == 'learn', f'fps/{name} wrong card cannot be skipped in the first 2s')
-    p.wait_for_timeout(1800)
-    c = card(p); n2 = p.evaluate('window.__spoken.filter(x=>x===%s).length' % json.dumps(asked))
-    ok(c and not c['goDis'] and F.dbg(p)['state'] == 'learn', f'fps/{name} after 2s the button unlocks, game still waits')
+    wait_lc_t('WQ37FPS._debug', p, 2.05)
+    c = card(p)
+    ok(c and not c['goDis'] and F.dbg(p)['state'] == 'learn', f'fps/{name} after 2s of game time the button unlocks, game still waits')
+    wait_lc_t('WQ37FPS._debug', p, 2.8)   # the second reading comes at 2.6 s
+    n2 = p.evaluate('window.__spoken.filter(x=>x===%s).length' % json.dumps(asked))
     ok(n2 >= spoken0 + 1 and n2 >= 2, f'fps/{name} correct word spoken again (x{n2})')
     if touch: p.locator('.wqlc [data-lc=go]').tap()
     else: p.locator('.wqlc [data-lc=go]').click()
@@ -129,7 +146,7 @@ def run_flow(pw, w, h, name, touch):
     ok(c and c['en'] == asked and c['zh'] and c['enPx'] >= 40 and c['fit'] and c['goVis'], f'run/{name} card big + on screen (en {c and c["enPx"]}px)')
     ok(asked in p.evaluate('window.__spoke'), f'run/{name} word spoken with the card')
     p.screenshot(path=str(SHOTS / f'run_{name}_ok.png'))
-    p.wait_for_timeout(2700)
+    p.wait_for_function("()=>{const d=WQ37Run._debug;return d&&d.state==='play'}", timeout=30000)
     ok(RN.dbg(p)['state'] == 'play' and not card(p), f'run/{name} correct card auto-continues')
     if not RN.dbg(p)['armed']: p.evaluate('WQ37Run._debugAdvanceToGate()')
     d = RN.dbg(p)
@@ -141,10 +158,11 @@ def run_flow(pw, w, h, name, touch):
     d = RN.dbg(p); c = card(p)
     ok(d['state'] == 'learn' and not d['learn']['ok'] and d['learn']['word'] == asked and d['hearts'] == hearts - 1, f'run/{name} wrong door -> card with correct "{asked}"')
     ok(c and picked in c['you'] and c['goDis'] and c['fit'], f'run/{name} wrong card shows pick "{picked}" with meaning: {c and c["you"]}')
+    p.keyboard.press('Space'); t_press = lc_t(RN.dbg, p); d2 = RN.dbg(p)   # inside the first 2 s of game time, before the screenshot
+    ok(t_press is not None and t_press < 2.0 and d2['state'] == 'learn', f'run/{name} wrong card not skippable in first 2s (game time {t_press and round(t_press, 2)}s)')
     p.screenshot(path=str(SHOTS / f'run_{name}_bad.png'))
-    p.wait_for_timeout(900); p.keyboard.press('Space'); p.wait_for_timeout(80)
-    ok(RN.dbg(p)['state'] == 'learn', f'run/{name} wrong card not skippable in first 2s')
-    p.wait_for_timeout(1300); p.keyboard.press('Space'); p.wait_for_timeout(120)
+    wait_lc_t('WQ37Run._debug', p, 2.05)
+    p.keyboard.press('Space'); p.wait_for_function("()=>{const d=WQ37Run._debug;return d&&d.state==='play'}", timeout=10000)
     ok(RN.dbg(p)['state'] == 'play' and not card(p), f'run/{name} Space after 2s continues')
     ok(not errs, f'run/{name} no page errors {errs[:2]}')
     b.close()

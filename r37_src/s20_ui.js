@@ -297,11 +297,17 @@ function r37Result(){
  const detail=`<div class="r37-rdetail">${chip('✅',`正確 ${r.correct}/${total}`)}${r.coins?chip('🪙',`+${r.coins} 金幣`,'r37-rc'):''}${best>1?chip('🔥',`連對 ×${best}`):''}</div>`;
  const act=(cls,attrs,icon,label)=>`<button type="button" class="${cls}" ${attrs}><span class="r37-ai" aria-hidden="true">${r37Icon(icon)}</span><b>${label}</b></button>`;
  const miss=r.missed||[],unfixed=miss.filter(m=>!m.fixed).length;
- let next='',extra='',note='',lessons='',redo='';
+ let next='',extra='',note='',lessons='',redo='',retryBtn=act('r37-sec','data-r37="retry" aria-label="重做"','↻','再玩');
  if(P.kind==='dz'){
   const {g,lvl,n}=P.dz;
-  if(lvl<3)next=act('r37-go','data-r37="dz-next"','▶',`第 ${lvl+1} 級`);
-  else if(g<n-1)next=act('r37-go','data-r37="dz-next"','▶',`下一組 ${g+2}`);
+  /* R3.30: moving up is the main button only after a pass. Below the pass line the main button is another try at this same level (回頭溫習字卡 beside it);
+     the next level stays reachable as a quiet button and from the group page. */
+  const goUp=lvl<3?act(r.passed?'r37-go':'r37-sec','data-r37="dz-next"','▶',`第 ${lvl+1} 級`):g<n-1?act(r.passed?'r37-go':'r37-sec','data-r37="dz-next"','▶',`下一組 ${g+2}`):'';
+  if(r.passed)next=goUp;
+  else{
+   redo=act('r37-go','data-r37="retry"','↻',P.dz.rv?'再試重溫':`再試第 ${lvl} 級`);retryBtn='';
+   next=(P.dz.rv?'':act('r37-sec',`data-r37="dz-go" data-g="${g}" data-l="0"`,'📖','重溫字卡'))+goUp;
+  }
   note=P.dz.rv?(r.passed?`<p class="r37-rn">${P.rvDone?'重溫全部完成！':'下一次重溫：'+(P.rvNext||1)+' 天後'}</p>`:'<p class="r37-rn">明天再重溫一次</p>'):lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':'';
  }else{
   const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
@@ -312,10 +318,11 @@ function r37Result(){
   lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
  }
+ if(r.capped)note+=`<p class="r37-rn r37-rh">今日闖關和遊戲的金幣已達上限（${R37_COIN_CAP} 枚），明天再賺</p>`;
  const exitLabel=P.kind==='dz'?'組別':P.kind==='level'?'地圖':'返回';
  const badge=r.passed?`<img class="r37-badge-win" src="assets/r318/badge_win.webp" alt="" width="120" height="120" decoding="async">`:`<span class="r37-rb-ic">${r37Icon('⭐')}</span>`;
  return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'} ${miss.length?'hasmiss':''}"><div class="r37-rb" aria-hidden="true">${badge}</div>${r37Stars(r.stars)}<div class="r37-rs" aria-label="答對 ${r.correct} 題，共 ${total} 題">${r.correct}/${total}</div>${detail}${note}${r37MissHTML(r)}${extra}${r80ResultCard(P)}
- <div class="r37-ra">${redo}${lessons}${next}${act('r37-sec','data-r37="retry" aria-label="重做"','↻','再玩')}${act('r37-sec','data-r37="exit" aria-label="'+(P.kind==='dz'?'組別':'返回地圖')+'"','🗺️',exitLabel)}</div></div></section>`;
+ <div class="r37-ra">${redo}${lessons}${next}${retryBtn}${act('r37-sec','data-r37="exit" aria-label="'+(P.kind==='dz'?'組別':'返回地圖')+'"','🗺️',exitLabel)}</div></div></section>`;
 }
 /* ---- starting a level: warm-up of old wrong words (English), example card (maths), first learn chunk ---- */
 function r37Lookup(w,s,en){
@@ -555,9 +562,9 @@ function r37Finish(){
   r37Save();
  }
  if(!isLoggedIn())coins=0;
- if(coins)r37AddCoins(coins);
+ const wanted=coins;coins=r37AddCoins(coins,false,true);/* R3.30 C-03: daily cap; the result page says so */
  const list=missed.map(m=>{const mc=!!(m.q&&m.q.mode==='mcq');return m.en?{en:m.en,zh:m.zh,you:m.value,fixed:m.fixed,kind:m.kind,key:m.key,mc}:{q:m.q.prompt,answer:m.q.answer,you:m.value,fixed:m.fixed,key:m.key,skill:m.skill,mc,svg:(m.q.mq&&m.q.mq.svg)||''};});
- P.result={stars,passed,card:newCard,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
+ P.result={stars,passed,card:newCard,correct:Math.round(correct*2)/2,total,coins,capped:wanted>coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}

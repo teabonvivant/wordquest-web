@@ -455,6 +455,7 @@
     '.wq37-btnrow{display:flex;gap:8px}.wq37-btnrow .wq37-go{flex:1;margin-top:10px}' +
     '.wq37-stars{font-size:46px;letter-spacing:4px;color:' + GOLD + ';text-shadow:0 2px 0 ' + INK + '}' +
     '.wq37-stars i{font-style:normal;color:#3A4180;text-shadow:none}' +
+    '.wq37-need{margin:0 0 6px;color:' + GOLD + ';font:800 16px ' + EFONT + '}' +
     '.wq37-rec{display:inline-block;margin:4px 0;padding:4px 16px;border-radius:30px;background:rgba(255,201,74,.16);border:1px solid ' + GOLD + ';color:' + GOLD + ';font:900 18px ' + EFONT + '}' +
     '.wq37-stat{display:flex;gap:8px;justify-content:center;margin:8px 0}.wq37-stat div{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 2px;font-weight:900;font-size:20px;color:#F4F6FF}.wq37-stat span{display:block;font-size:14px;font-weight:700;color:#AEB8E8}' +
     '.wq37-miss{display:flex;flex-direction:column;gap:6px;margin:8px 0;max-height:46vh;overflow-y:auto}.wq37-mw{display:flex;align-items:center;gap:10px;padding:6px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);text-align:left}.wq37-mw b{font:900 22px ' + EFONT + ';letter-spacing:.04em;color:#FFC94A}.wq37-mw span{flex:1;font-weight:800;color:#C3CBF7}' +
@@ -524,6 +525,8 @@
     var mode = opts.mode === 'level' ? 'level' : 'free';
     var tier = clamp(Math.round(opts.difficulty || 1), 1, 5), di = tier - 1;
     var lockDiff = !!opts.lockDifficulty;
+    /* R3.30 C-09: passing = won the level with accuracy at the parent's pass rate (opts.passRate); the default 75% is the old 3-star line */
+    var passRate = opts.passRate > 0 ? +opts.passRate : 0.75;
     var baseRounds = Math.max(1, (opts.rounds | 0) || (mode === 'level' ? words.length : 10));
     var totalRounds = baseRounds;
     var title = opts.title ? String(opts.title) : '字母獵場 Word Blaster';
@@ -1647,7 +1650,7 @@
       var st = stars(), pw = perWord(), asked = 0, first = 0, i;
       for (i = 0; i < PW.length; i++) if (PW[i].asked) { asked++; if (PW[i].ok) first++; }
       lastResult = { score: G.score, correct: G.correct, wrong: G.wrong, rounds: Math.min(G.correct, totalRounds), seconds: Math.round(G.playTime), stars: st, maxCombo: G.maxCombo,
-        best: best, newRecord: isRec, bossBeaten: G.bossBeaten, passed: st >= 3, accuracy: Math.round(accuracyNow() * 1000) / 1000,
+        best: best, newRecord: isRec, bossBeaten: G.bossBeaten, passed: G.won && accuracyNow() >= passRate - 1e-9, passRate: passRate, accuracy: Math.round(accuracyNow() * 1000) / 1000,
         firstTryAccuracy: asked ? Math.round(first / asked * 1000) / 1000 : 0, difficulty: tier, mode: mode, perWord: pw };
       if (win && !G.bossBeaten) { burst(P.x + Math.cos(P.a) * 3, P.y + Math.sin(P.a) * 3, 0.6, 60, ['#ffe36a', '#ff5fa2', '#7fe3ff', '#fff'], 1.8); }
       if (!finishedCalled) { finishedCalled = true; callFinish(); }
@@ -1774,6 +1777,7 @@
       resultShown = true; var r = lastResult, acc = Math.round(100 * r.accuracy), st = '', i;
       for (i = 1; i <= 5; i++) st += i <= r.stars ? '★' : '<i>★</i>';
       var head = G.bossBeaten ? '打敗字母怪獸！' : G.won ? (r.passed ? '全部完成！' : '完成了！再準一點更好') : '再接再厲！';
+      var need = G.won && !r.passed ? '<p class="wq37-need">要準確度 ' + Math.round(100 * r.passRate) + '% 才過關</p>' : '';
       var wd = '';
       if (mode === 'level' && r.perWord.length) {
         wd = '<div class="wq37-words">';
@@ -1782,7 +1786,7 @@
       }
       var go = '';
       if (typeof opts.onNext === 'function' && r.passed) go = '<button class="wq37-go next" data-act="next">▶ 下一關</button>';
-      showOv('<h2>' + head + '</h2><div class="wq37-stars">' + st + '</div>' +
+      showOv('<h2>' + head + '</h2>' + need + '<div class="wq37-stars">' + st + '</div>' +
         (r.newRecord ? '<div class="wq37-rec">' + ico('trophy', 20) + ' 新紀錄！</div>' : '') + (G.coins ? '<div class="wq37-coin">' + ico('coin', 20) + ' +' + G.coins + '</div>' : '') +
         '<div class="wq37-stat"><div><span>分數</span>' + r.score + '</div><div><span>最高分</span>' + r.best + '</div><div><span>準確度</span>' + acc + '%</div><div><span>最高連擊</span>' + r.maxCombo + '</div></div>' + wd + go +
         '<div class="wq37-btnrow"><button class="wq37-go' + (go ? ' small' : '') + '" data-act="again">↻ 再玩一次</button><button class="wq37-go alt' + (go ? ' small' : '') + '" data-act="back">返回</button></div>',
@@ -2583,6 +2587,7 @@
         case 'place': P.x = a; P.y = b; return true;
         case 'score': G.score = a | 0; return true;
         case 'learnskip': lcDone(true); return true;
+        case 'finish': G.correct = a | 0; G.wrong = b | 0; G.hpLost = G.wrong ? Math.max(G.hpLost, 1) : G.hpLost; finish(true); return true;   /* R3.30 tests: end the level as won with this tally */
         case 'shield': G.shield = !!a; return true;
         case 'turn': P.a += a; return true;
         case 'face': P.a = a; return true;

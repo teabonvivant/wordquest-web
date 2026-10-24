@@ -601,19 +601,22 @@
     /* two ways to say the same wheel: moves (p.steps: "走 N 步", the pointer leaves the start) or ordinal (p.nth: "第 N 個", the start counts as the 1st, so N-1 moves).
        p.verb = the verb for moves ("走", "傳"); p.div shows the lesson's division line (N÷n＝q 餘 r) for ordinal wheels */
     const nth = p.nth != null, goal = nth ? p.nth - 1 : p.steps, verb = p.verb || '走', div = !!p.div;
-    let svg, W, H, cx, cy, R, steps, tok, cnt, laps, dots, dragA = null, done;
+    let svg, W, H, cx, cy, R, cellR, steps, tok, cnt, laps, dots, dragA = null, done;
     const ang = i => -Math.PI / 2 + i / n * Math.PI * 2, posOf = () => (startI + steps) % n;
     function build() {
       run.cancel(); steps = 0; done = false;
       ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `${n} 格的轉盤`);
       R = Math.max(46, Math.min(W * .32, (H - (inter ? 150 : 96)) / 2)); cx = W / 2; cy = inter ? Math.round(R + 52) : Math.round(H / 2 + 8); dots = [];
       el('circle', { cx, cy, r: R + 30, fill: 'rgba(255,255,255,.05)', stroke: C.line, 'stroke-width': 2 }, svg);
+      cellR = Math.min(26, R * 2 * Math.PI / n / 2.3);
       for (let i = 0; i < n; i++) {
         const x = cx + Math.cos(ang(i)) * R, y = cy + Math.sin(ang(i)) * R, g = el('g', {}, svg);
-        const c = el('circle', { cx: x, cy: y, r: Math.min(26, R * 2 * Math.PI / n / 2.3), fill: C.card2, stroke: i === startI ? C.aqua : C.line, 'stroke-width': i === startI ? 4 : 2.5 }, g); txt(g, x, y + 1, labels[i % labels.length], { size: labels[i % labels.length].toString().length > 1 ? 16 : 20, fill: C.text }); dots.push({ c, x, y });
+        const c = el('circle', { cx: x, cy: y, r: cellR, fill: C.card2, stroke: i === startI ? C.aqua : C.line, 'stroke-width': i === startI ? 4 : 2.5 }, g); txt(g, x, y + 1, labels[i % labels.length], { size: labels[i % labels.length].toString().length > 1 ? 16 : 20, fill: C.text }); dots.push({ c, x, y, t: g.lastChild });
       }
       tok = el('g', { class: 'r80-tok', role: 'slider', 'aria-label': '指針', 'aria-valuemin': 0 }, svg);
-      el('circle', { r: 17, cy: 3, fill: 'rgba(0,0,0,.3)' }, tok); el('circle', { r: 17, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, tok); txt(tok, 0, 1, '▼', { size: 14, fill: '#3b2600' });
+      /* R3.30: the pointer sits just inside the ring and points out at its cell (it used to sit on the cell and hide the colour / number the child is asked about) */
+      el('circle', { r: 28, fill: 'rgba(0,0,0,0)' }, tok); /* >= 44px touch target around the 22px pointer even when the widget is scaled down to fit */
+      el('circle', { r: 11, cy: 2, fill: 'rgba(0,0,0,.3)' }, tok); el('circle', { r: 11, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, tok); el('path', { d: 'M-5 -3 L5 -3 L0 6 Z', fill: '#3b2600' }, tok);
       cnt = txt(svg, cx, cy - 8, '', { size: 36, fill: C.text, weight: 900 }); laps = txt(svg, cx, 16, '', { size: 18, fill: C.muted, weight: 800 });
       if (inter) {
         drag(tok, svg, { start(pt) { dragA = Math.atan2(pt.y - cy, pt.x - cx); return {}; }, move(pt) {
@@ -639,9 +642,9 @@
       return steps ? lapOf(steps) : (goal != null ? `目標：${verb} ${goal} ${unit}` : '');
     }
     function show() {
-      const i = posOf(); place(tok, dots[i].x, dots[i].y); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
+      const i = posOf(), a = ang(i), rr = Math.max(8, R - cellR - 16); tok.setAttribute('transform', `translate(${(cx + Math.cos(a) * rr).toFixed(2)} ${(cy + Math.sin(a) * rr).toFixed(2)}) rotate(${(a * 180 / Math.PI - 90).toFixed(1)})`); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
       cnt.textContent = nth ? steps + 1 : (steps ? steps : ''); laps.textContent = lapText(); laps.setAttribute('fill', done ? C.gold : C.muted);
-      dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
+      dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.t.setAttribute('fill', k === i ? '#3b2600' : C.text); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
       cnt.setAttribute('fill', done ? C.gold : (goal != null && steps > goal ? C.bad : C.text));
     }
     function stepBy(d, live) {

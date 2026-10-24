@@ -320,7 +320,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     id: 'p2-3', grade: 2, n: 3, title: '間隔與植樹', icon: '🌳',
     card: { motto: '棵數＝段數＋1', example: '4 段種 5 棵', art: art23 },
     lesson: [
-      { t: 'show', say: '路分成 4 段，兩端都種：共種 5 棵。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true } },
+      { t: 'show', say: '路分成 4 段，每段 5 米，兩端都要種樹。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true } },
       { t: 'predict', say: '一條路分成 4 段，兩端都要種。', ask: '要種幾棵樹？', options: ['4', '5', '6'], answer: '5', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true }, reveal: '兩端都種，棵數比段數多 1！' },
       { t: 'do', say: '把樹苗拖到路上，每個圈放一棵。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' } } },
       { t: 'show', say: '只種一端，另一端不種：棵數＝段數。', scene: { w: 'rowplace', p: { segments: 5, ends: 'one', span: 4, unit: '米' }, still: true } },

@@ -140,7 +140,7 @@ function r80LesDraw(){
  else scene=`<div class="r80-wbox" id="r80-wbox"></div>`;
  const say=c.t==='card'?(c.say||'做完闖關 ②，這張卡就是你的！'):(c.say||'');
  let tools='';
- if(c.t==='show'&&c.scene&&c.scene.w!=='banner')tools=`<button type="button" class="r80-tool" data-r80="replay" aria-label="重播動畫"><span aria-hidden="true">↻</span><b>重播</b></button>`;
+ if(c.t==='show'&&c.scene&&c.scene.w!=='banner'){const held=r80Spoils(u,L.i);tools=`<button type="button" class="r80-tool" data-r80="replay" aria-label="${held?'看示範':'重播動畫'}"><span aria-hidden="true">${held?'▶':'↻'}</span><b>${held?'看示範':'重播'}</b></button>`;}
  if(c.t==='do')tools=`<button type="button" class="r80-tool" data-r80="demo" aria-label="示範一次"><span aria-hidden="true">▶</span><b>示範一次</b></button><button type="button" class="r80-tool" data-r80="reset" aria-label="重來"><span aria-hidden="true">↺</span><b>重來</b></button>`;
  if(c.t==='predict'){
   side=`${c.ask?`<p class="r80-ask">${r80Esc(c.ask)}</p>`:''}<div class="r80-opts n${c.options.length}" role="group" aria-label="選擇答案">${c.options.map((o,k)=>`<button type="button" class="r80-opt ${S.picked===k?(String(o)===String(c.answer)?'ok':'miss'):(S.done&&String(o)===String(c.answer)?'ok':'')}" data-r80="predict" data-k="${k}" ${S.done?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`;
@@ -157,6 +157,9 @@ function r80LesDraw(){
  r80Focus();
 }
 function r80Focus(){const b=document.getElementById('r80-next');if(b&&!b.disabled){}}
+/* R3.30 B-L2: a show card plays its demo on entry (so the picture matches the words), except when a later 預測／試試看 card asks about the very same picture:
+   the demo would end on that card's answer (e.g. 「第 7 個，停在 🔴」). Those cards stay at the starting state; 看示範 plays it on request, and a 預測 card only demonstrates after the child answers. */
+function r80Spoils(u,i){const c=u.lesson[i],J=JSON.stringify;if(!c||c.t!=='show'||!c.scene)return false;return u.lesson.slice(i+1).some(d=>(d.t==='predict'||d.t==='try')&&d.scene&&d.scene.w===c.scene.w&&J(d.scene.p)===J(c.scene.p));}
 function r80LesWidget(){
  const L=r80L,c=r80LesCard(),box=document.getElementById('r80-wbox');if(!box||!c.scene)return;
  const S=L.st[L.i];
@@ -164,7 +167,7 @@ function r80LesWidget(){
   const mode=c.t==='do'?'do':'show';
   const api={reduced:r37Calm(),sfx:r80Sfx,onChange:()=>r80Changed()};
   try{L.w=WQOlyWidgets.mount(c.scene.w,box,Object.assign({},c.scene.p,{mode}),api);}catch(e){box.innerHTML='<p class="r80-empty">圖片載入不了</p>';return;}
-  if(c.t==='show')setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
+  if(c.t==='show'&&!r80Spoils(L.u,L.i))setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
   if(c.t==='predict'&&S.done&&L.w)L.w.demo();
   if(c.t==='do'&&S.done&&L.w&&L.w.check())r80Changed();
  }
@@ -266,6 +269,4 @@ function r80Why(q,fb){
  return t?`<small class="r80-whyb"><span aria-hidden="true">${r37Icon('💡')}</span>${esc(t)}</small>`:'';
 }
 
-/* wrong book keeps the figure of an olympiad question (the stem alone says "下面的圖形…" without it): r37NoteWrong (s20) writes the record, this adds the svg */
-{const noteWrong=r37NoteWrong;r37NoteWrong=function(P,q,value){noteWrong(P,q,value);
- try{const svg=P&&P.track==='olympiad'&&q&&q.mq&&q.mq.svg;if(!svg)return;const m=r37Get().miss,x=m[m.length-1];if(x&&x.t==='olympiad'&&x.q===q.mq.q&&!x.svg){x.svg=svg;r37Save();}}catch(_){}};}
+/* R3.30: the wrong book keeps the figure of an olympiad question (the stem alone says "下面的圖形…" without it). The record, svg included, is written in one place only: r37NoteWrong (s20_ui.js); every generated olympiad figure is under its 6000-character limit (largest 5,494 over 27,678 questions, _team_runs/r330/work/svgsize.cjs). */

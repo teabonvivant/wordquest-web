@@ -119,9 +119,17 @@ with sync_playwright() as p:
     C.ok(ev(pg, 'r37Coins()') == c0 + reward, 'a forged second claim pays nothing')
 
     # ---- persistence ----
+    C.ok(not errs, f'no console errors {errs[:3]}')
+    b.close()
+    # R3.30: on the https origin (lib37.serve_https): after a reload a file:// page in this headless Chromium sometimes comes back with no localStorage at all (the same loss as t19's
+    # second tab), which has nothing to do with the app. The check is the same: save, reload, the signed-in child still has the level.
+    b, ctx, pg, errs = open_https_page(p, 390, 844, True)
+    register_form(pg, 'r37persist', remember=False)
     ev(pg, "r37Get().lv={};r37Get().lv['english:0:0']={best:4,passed:true};r37Save()")
-    pg.reload(); pg.wait_for_timeout(1500)
-    C.ok(ev(pg, "r37Get().lv['english:0:0'].best") == 4, 'level progress survives a reload for the logged-in child')
+    pg.reload()
+    pg.wait_for_function("()=>typeof window.__r37==='function'&&window.__r37('isLoggedIn()')===true", timeout=60000)
+    pg.wait_for_timeout(300)
+    C.ok(ev(pg, "(r37Get().lv['english:0:0']||{}).best") == 4, 'level progress survives a reload for the logged-in child')
     C.ok(not errs, f'no console errors {errs[:3]}')
     b.close()
 

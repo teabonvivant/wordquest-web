@@ -149,7 +149,7 @@ html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycar
 html body.r37arc .a28-overlaycard .wq34-new,html body.r37arc .a28-overlaycard .arx-new{background:rgba(255,201,74,.16)!important;color:#FFC94A!important;border:1px solid #FFC94A}
 html body.r37arc .a28-overlaycard .arx-rec,html body.r37arc .a28-overlaycard .arx-rec.first{background:rgba(255,201,74,.14)!important;color:#FFC94A!important;border:1px solid #FFC94A;box-shadow:none}
 html body.r37arc .a28-overlaycard .arx-rec :is(b,span){color:#FFC94A!important}
-html body.r37arc .a28-overlaycard .arx-stars i{color:#3A4180}html body.r37arc .a28-overlaycard .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body.r37arc .a28-overlaycard .arx-stars i{color:#6872B8}html body.r37arc .a28-overlaycard .arx-stars i.on{color:#FFC94A;text-shadow:none}
 html body.r37arc .a28-overlaycard .btn.primary,html body.r37arc .a28-overlaycard .a28-btn.a33-locked{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important;border-radius:16px;min-height:52px;font-weight:900}
 html body.r37arc .a28-overlaycard .a28-btn.a33-locked{opacity:.6}
 html body.r37arc .a28-overlaycard .btn.soft,html body.r37arc .a28-overlaycard .btn.secondary,html body.r37arc .a28-overlaycard .btn.quiet,html body.r37arc .a28-overlaycard .arx-pw{background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:16px}
@@ -220,7 +220,7 @@ html body #pg-dialog.a28-dialog::backdrop{background:rgba(5,6,30,.7)}
 html body #pg-dialog .a28-dialog-top,html body #pg-dialog .p30-actions{background:transparent!important;border:0}
 html body #pg-dialog :is(h2,h3,p,span,strong,small,div):not(.a28-preview *):not(.arx-best):not(.arx-stars *):not(.a28-coin):not(button *){color:#F4F6FF}
 html body #pg-dialog .a28-eyebrow,html body #pg-dialog .p30-k,html body #pg-dialog .arx-tg,html body #pg-dialog .p30-fine{color:#C9D0F5!important}
-html body #pg-dialog .arx-stars i{color:#3A4180}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body #pg-dialog .arx-stars i{color:#6872B8}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
 html body #pg-dialog .arx-best{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.18)}
 html body #pg-dialog .arx-best:not(.none){background:rgba(255,201,74,.16);color:#FFC94A;border-color:#FFC94A}
 html body #pg-dialog .a28-preview-progress,html body #pg-dialog .p30-goal{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14);color:#F4F6FF!important;border-radius:12px}

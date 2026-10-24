@@ -246,7 +246,7 @@ html body .r37-legbody .s60-morebox>*:not(summary){margin-top:10px}
 [data-s60=game] .a28-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 8px;padding:0 0 2px;scrollbar-width:none;flex:none}
 [data-s60=game] .a28-tabs::-webkit-scrollbar{display:none}
 [data-s60=game] .a28-tabs .a28-btn{flex:none;min-height:44px}
-[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
+[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
 [data-s60=game] .p30-card{padding:8px!important;border-radius:18px!important;display:flex;flex-direction:column;gap:6px}
 [data-s60=game] .p30-card .p30-shot{max-height:96px;overflow:hidden;border-radius:12px;cursor:pointer}
 [data-s60=game] .p30-card h3{font-size:16px;margin:0}
@@ -368,9 +368,10 @@ html body .r37-legbody details:not([open])>*:not(summary){display:none!important
 [data-s60=assembly] .s60-scroll>.l30-panel{margin:0;padding:10px 12px!important}
 
 /* ---- 18. 80-unit picker (learning-plan), 拼字家族, 拼字專家 ---- */
-.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
+.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
 .s60-chip{min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid #cfd4f3;background:#fff;color:#1d2158;font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-align:left;line-height:1.25}
 .s60-chip.on{border-color:hsl(var(--h,200) 75% 40%);background:hsl(var(--h,200) 80% 94%);box-shadow:0 0 0 2px hsl(var(--h,200) 75% 40%)}
+.s60-chip{position:relative}.s60-chip .s60-ok{position:absolute;right:12px;top:6px;font-style:normal;font-weight:900;color:#7ee2a8}.s60-chip b{display:block;font-weight:800}.s60-chip small{display:block;margin-top:1px;font-size:13px;font-weight:600;opacity:.9}.s60-unitgrid .s60-chip{border-radius:16px;padding:6px 12px}
 [data-s60=learning-plan]>.l30-panel{margin-bottom:10px}
 [data-s60=learning-plan] .l30-panel.s60-grow{display:flex;flex-direction:column;gap:8px;padding:10px!important}
 [data-s60=learning-plan] .l30-row{display:flex;gap:8px;flex-wrap:wrap}
@@ -561,6 +562,7 @@ html body.r37 #app .r37-legbody .s60-more{box-shadow:0 3px 0 #070a26}
 /* tabs (parent area) and chips that pick things */
 html body.r37 #app .r37-legbody a.tab,html body.r37 #app .r37-legbody button.tab,html body.r37 #app .r37-legbody .s60-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#f4f6ff;border-radius:999px;font-weight:800;box-shadow:none}
 html body.r37 #app .r37-legbody :is(a.tab.active,a.tab[aria-current],button.tab.active,.tab.on,.tab.current){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
+html body.r37 #app .r37-legbody .s60-unitgrid .s60-chip{border-radius:16px;padding:6px 14px}
 html body.r37 #app .r37-legbody .s60-chip.on{background:rgba(255,201,74,.16);border-color:#ffc94a;box-shadow:0 0 0 1px #ffc94a;color:#fff}
 html body.r37 #app .r37-legbody [aria-pressed="true"]:is(button,a):not(.btn):not(.primary):not(.l30-btn){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
 /* --- form fields (M04) --- */
@@ -689,7 +691,10 @@ html body:has(#wq29-test-banner):not(.r37leg):not(.r37){padding-top:26px}
 @media(min-width:1024px) and (min-height:560px){html body.r37 #toast{bottom:calc(var(--r37-nav,62px) + 46px)!important}}
 
 /* R3.29 A-26: a word without a picture shows a quiet placeholder, not an instruction */
-html body .r37-legbody .l30-noart{display:grid;place-items:center;font-weight:900;font-size:18px;opacity:.45;border-radius:10px;background:rgba(255,255,255,.08)}
+html body .r37-legbody .l30-noart{display:flex;align-items:center;justify-content:center;gap:1px;font-weight:900;font-size:22px;line-height:1;color:#fff;border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(0,0,0,.2)),var(--nc,#2F6FD6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);text-shadow:0 1px 2px rgba(0,0,0,.3)}
+html body .r37-legbody .l30-noart span+span{font-size:.72em;font-weight:800;opacity:.92}
+html body .r37-legbody .l30-noart[data-k="0"]{--nc:#2F6FD6}html body .r37-legbody .l30-noart[data-k="1"]{--nc:#7B4BC9}html body .r37-legbody .l30-noart[data-k="2"]{--nc:#C23B7A}html body .r37-legbody .l30-noart[data-k="3"]{--nc:#C4491F}
+html body .r37-legbody .l30-noart[data-k="4"]{--nc:#1A7A63}html body .r37-legbody .l30-noart[data-k="5"]{--nc:#23778F}html body .r37-legbody .l30-noart[data-k="6"]{--nc:#8A5A12}html body .r37-legbody .l30-noart[data-k="7"]{--nc:#5B6AD0}
 
 /* R3.29 C-24: why the hunting-ground levels are locked (the parent's plan card of C-01 is .r37-assign in s10_shell.css) */
 .r37-fnote{margin:2px 14px 4px;text-align:center;font-size:14px;line-height:1.5;color:#dfe8ff}

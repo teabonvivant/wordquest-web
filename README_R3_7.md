@@ -123,6 +123,18 @@
 - **N19**：P4–P6 74 課 `toolTask` 依該課 `modelSteps` 改寫成「操作→觀察→解釋」3 句；88 課 `connections` 句尾換成本課特有的關聯句。來源 `math_course_src/classroom-upper.json`，`tools/build_r37.py`（會跑 `build_math_m1.py`）寫進 `app/index.html`。測試 `math_course_tests/r319_toolTask_test.cjs`。
 - 測試：`t27_r319_teach.py`、`test_math_mark.cjs`、`r319_toolTask_test.cjs`；新增樣式 `r37_src/s27_teach.css`（併入 `patches/s10_shell.py`）。
 
+### R3.30 R3.29 遺留問題全數修正（2026-10-24）
+
+- **奧數講解卡自動示範**（`s80_oly.js` 的 `r80Spoils`）：「看圖」卡進頁自動示範，但後面有預測／試試看卡用**同一幅圖**時不自動播（示範會停在那題的答案），改顯示起始狀態＋「看示範」鈕；預測卡答了才示範。p2-3 第 1 張文字不再寫出「共種 5 棵」。
+- **默書結果**（`s20_ui.js` `r37Result`）：未合格時主按鈕是「再試第 N 級」（重溫模式「再試重溫」），旁邊「重溫字卡」＋安靜的「第 N+1 級」；合格才是金色「第 N+1 級／下一組」。
+- **金幣每日上限**（`s10_core.js` `R37_COIN_CAP=10`、`r37AddCoins(n,free,quiet)`）：闖關、快速測驗、默書、字母獵場、星際跑酷、字母砲台／迷宮／字卡征途合共每日最多 10 枚（`day.cn`，與任務同一個香港午夜重設）；每日任務獎勵 `free=true` 不計；超出的不補發。結果頁「今日闖關和遊戲的金幣已達上限」，其他遊戲彈提示。規則頁（`#game-settings`，`s65_r329_legacy.py` 的 `RULES`）寫出上限與今日已得。
+- **字母遊戲過關條件**：字母砲台／迷宮／字卡征途（`GX.Learn({passRate})`）及字母獵場闖關（`passRate`）用家長設定的合格率過關（預設仍是 70%／75%＝3 星）；未合格而星數≥3 時結果卡寫「要一次答對／準確度 N% 才過關」。字母獵場除錯指令 `_cmd('finish',對,錯)`。
+- **學習計劃晶片**（`s60_legacy.js`）：按孩子的闖關地圖命名——課題名＋「世界 · 第 N 關（· 已過關）」，不再是 U56 這類內部編號。
+- **外觀**：桌面遊戲星「遊戲街機」的星球圖縮到右下角；街機說明頁空心星 `#6872B8`（≥3:1）；無圖詞卡是首字母色塊（`window.s65Initial`，8 色皆 ≥4.5:1）；轉盤指針移到環內並指向目標格（`oly_widgets.js` cycle，48px 觸控範圍）；未開放單元的「闖關」鈕縮短不再溢出。
+- **service worker 快取名**：`tools/build_r37.py` 的 `RELEASE='R3.30'`＋美術清單簽名（`-R3.30-<8 位>`）；每次出版要改 `RELEASE`。`r320_sw_offline.py` 讀同一個值。
+- **程式**：奧數錯題圖只由 `r37NoteWrong`（`s20_ui.js`）一處寫入（上限 6000 字，實測最大 5,494），刪除 `s80_oly.js` 的包裝。
+- **測試**：新增 `t61_r330.py`（每項修正一組業務斷言，87 項）；`t11` 的計時改按遊戲時間（`_debug.learn.t`），不再用牆鐘睡眠；`t19`／`t03` 的「重載／新分頁後仍登入」改在 https 來源跑（`lib37.serve_https`／`open_https_page`／`register_form`）——file:// 頁在這個 headless Chromium 有時重載後或在第二個分頁取不到同一份 localStorage（約一半機會，與程式無關；https 3/3 及 t19 全套 126/126）；`t18` 的「下一題」改成先看狀態（答對會自動前進，舊寫法硬點會逾時）；`t09` 的連擊用夠大的分數跳升並等狀態；`test_fps`／`test_runner` 的「新紀錄」字眼及幾處牆鐘計時改成等狀態；`classroom_test.cjs` 改為「app 內嵌的 10 份課堂腳本＝`math_course_src` 現行檔」＋「其餘腳本＝整合前基線建置（`build_r37.py --out`）」。報告 `_team_runs/r330/報告.md`。
+
 ## 重建與測試
 
 ```sh

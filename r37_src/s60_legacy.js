@@ -268,7 +268,12 @@
   if(sel&&!q$('.s60-unitgrid',b)){
    const panel=sel.closest('.l30-panel'),row=q$(':scope>.l30-row',panel);
    const grid=mk('div','s60-unitgrid');
-   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;c.textContent=o.textContent.replace(/^(拼字小課|生活主題)\s*\d+/,o.value).replace(/\s*·\s*/,' ');if(o.selected)c.classList.add('on');grid.appendChild(c);});
+   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;
+    /* R3.30 C-22: a chip names the lesson the way the child's map does (title, world · stage, passed or not) instead of its internal code U56 */
+    const title=o.textContent.replace(/^(拼字小課|生活主題)\s*\d+\s*·\s*/,''),pos=(()=>{try{return r37UnitAt(o.value);}catch(_){return null;}})();
+    let sub='',ok=false;if(pos){const W=R37_TRACKS.english.worlds[pos.w];ok=!!r37Entry('english',pos.w,pos.s)?.passed;sub=(W?W.name+' · ':'')+'第 '+(pos.s+1)+' 關';}
+    c.innerHTML='<b>'+esc(title)+'</b>'+(sub?'<small>'+esc(sub)+'</small>':'')+(ok?'<i class="s60-ok" aria-hidden="true">✓</i>':'');c.setAttribute('aria-label',title+(sub?'，'+sub:'')+(ok?'，已過關':''));if(ok)c.dataset.passed='1';
+    if(o.selected)c.classList.add('on');grid.appendChild(c);});
    grid.addEventListener('click',e=>{const c=e.target.closest('.s60-chip');if(!c)return;sel.value=c.dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));q$$('.s60-chip',grid).forEach(x=>x.classList.toggle('on',x===c));});
    panel.insertBefore(grid,row||null);sel.classList.add('s60-off');
    panel.classList.add('s60-grow');grid.dataset.s60List='';b.dataset.s60Fit='';
@@ -575,7 +580,12 @@
   if(short)return n;
   return `這裏只計拼字小課，不含英文闖關。${n}<a href="#p/parent" data-s65="prog">到家長星看「進度」</a>`;
  };
-  /* C-13: what the child answers inside an arcade game */
+  /* R3.30: a word without a picture gets a tile with its first letter (upper + lower case); the colour follows the letter, so the same word always looks the same */
+ window.s65Initial=f=>{
+  const ch=[...String(f||'').trim()].find(c=>/\p{L}/u.test(c))||'A',k=ch.toLowerCase().charCodeAt(0)%8;
+  return '<div class="l30-noart" aria-hidden="true" data-k="'+k+'"><span>'+ch.toUpperCase()+'</span><span>'+ch.toLowerCase()+'</span></div>';
+ };
+ /* C-13: what the child answers inside an arcade game */
  window.s65ArcLearn=id=>{
   let v='';try{v=WQArcPlus.game[id].play.verb||'';}catch(_){}
   return v?'遊戲裏要答英文：'+v+'。':'遊戲途中會出現英文字或算式小問題，答對才有加分。';

@@ -14,6 +14,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import lib37 as L  # noqa: E402
+from playwright.sync_api import TimeoutError as PWTimeout  # noqa: E402
+
+T = int(os.environ.get('WQ37_TIMEOUT', '60000'))   # R3.30: states are waited for, generously; a loaded machine (17 MB page, one core) needs 10+ s for what takes 1 s idle
 
 C = L.Checker('t18 dictation study')
 SHOTS = Path(os.environ.get('T18_SHOTS', str(HERE.parent / 'r37_evidence' / 't18')))
@@ -35,7 +38,7 @@ def add_range(pg, words, title='測試範圍'):
 
 def boot(pg, name='dzuser'):
     L.register(pg, name, '小明')
-    pg.wait_for_function('typeof window.__r37==="function"', timeout=15000)
+    pg.wait_for_function('typeof window.__r37==="function"', timeout=T)
     L.ev(pg, 'r37Mem._seed=7')
 
 
@@ -50,6 +53,17 @@ def show(pg, h, wait=350):
 
 def cur(pg):
     return json.loads(L.ev(pg, "JSON.stringify((()=>{const P=r37P,q=P&&P.qs[P.i];return {ph:P&&P.phase,i:P&&P.i,n:P&&P.qs.length,lvl:P&&P.dz&&P.dz.lvl,g:P&&P.dz&&P.dz.g,q:q&&{mode:q.mode,kind:q.kind,answer:q.answer,options:q.options,hide:q.hide,word:q.word,dz:q.dz}};})())"))
+
+
+def nxt(pg):
+    """press 下一題 on the feedback bar. A correct answer also moves on by itself after a moment, so the bar can be gone before the click lands:
+    click while it is up, otherwise require that the question really moved on (R3.30: the old bare click timed out when the automatic advance won the race)."""
+    s0 = cur(pg)
+    try:
+        pg.click('.r37-fb .r37-next', timeout=4000)
+    except PWTimeout:
+        s1 = cur(pg)
+        assert s1['ph'] != 'quiz' or s1['i'] != s0['i'], 'the feedback bar is neither clickable nor has the question moved on'
 
 
 def nopage_scroll(pg):
@@ -87,7 +101,7 @@ def answer(pg, wrong=False):
     else:
         pg.fill('#r37-in', ('xx' + q['answer']) if wrong else q['answer'])
         pg.keyboard.press('Enter')
-    pg.wait_for_selector('.r37-fb', timeout=3000)
+    pg.wait_for_selector('.r37-fb', timeout=T)
     return s
 
 
@@ -101,7 +115,7 @@ def play(pg, wrong_at=()):
         i = s['i']
         a = answer(pg, i in wrong_at)
         out.append((a['q']['word'], i not in wrong_at))
-        pg.click('.r37-fb .r37-next')
+        nxt(pg)
         pg.wait_for_timeout(120)
     return out
 
@@ -149,7 +163,7 @@ with L.sync_playwright() as p:
     res = play(pg, wrong_at=(1, 4))
     wrong1 = {w for w, ok in res if not ok}
     C.ok(len(res) == 8 and len(wrong1) == 2, 'level 1 played: 6 right, 2 wrong')
-    pg.wait_for_selector('.r37-result', timeout=3000)
+    pg.wait_for_selector('.r37-result', timeout=T)
     C.ok('6/8' in pg.inner_text('.r37-rs') and pg.evaluate("document.querySelectorAll('.r37-result .r37-st i.on').length") == 3, 'result shows 6/8 and 3 stars')
     att = json.loads(L.ev(pg, ATT))
     C.ok(len(att) - n0 == 8, f'one attempt per question ({len(att) - n0})')
@@ -201,9 +215,9 @@ with L.sync_playwright() as p:
         C.ok(pg.evaluate("!document.querySelector('.r37-fb')"), 'Enter with empty cells does not submit')
         for i in q['hide'][1:]:
             pg.keyboard.type(ans[i])
-    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=3000)
+    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=T)
     C.ok(True, 'level 2: completed word is judged right')
-    pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
+    nxt(pg); pg.wait_for_timeout(150)
     # wrong answer feedback
     s = cur(pg); q = s['q']; ans = q['answer']
     answer(pg, wrong=True)
@@ -211,9 +225,9 @@ with L.sync_playwright() as p:
       cellBad:document.querySelectorAll('.r37-cell.bad').length,spoken:true}:null})()""")
     C.ok(fb and fb['ans'].replace('·', '') == ans and fb['bad'] >= 1 and fb['cellBad'] >= 1 and fb['you'], f'level 2 wrong (R3.18: the answer is shown by syllable, el·e·phant): big correct answer, wrong letters coloured {fb}')
     shot(pg, 'phone', 'l2_wrong')
-    pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
+    nxt(pg); pg.wait_for_timeout(150)
     res = play(pg)
-    pg.wait_for_selector('.r37-result', timeout=3000)
+    pg.wait_for_selector('.r37-result', timeout=T)
     best = json.loads(L.ev(pg, f"JSON.stringify(r37DzBest('{rid}',0))"))
     # 1 right + 1 wrong + 6 right = 7/8 -> 3 stars
     C.ok(best[1] == 3 and best[0] == 3, f'level 2 best stars saved without touching level 1 {best}')
@@ -234,19 +248,19 @@ with L.sync_playwright() as p:
     C.ok(pg.evaluate("!!document.querySelector('.r37-spk')"), 'level 3: replay button')
     # case + extra spaces tolerated (use a phrase later if present; here upper case + padding)
     pg.fill('#r37-in', '  ' + ans.upper().replace(' ', '   ') + ' ')
-    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=3000)
+    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=T)
     C.ok(True, 'level 3: UPPER case and repeated spaces accepted')
-    pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
+    nxt(pg); pg.wait_for_timeout(150)
     s = cur(pg); ans = s['q']['answer']
     pg.fill('#r37-in', ans[0] + ans[2:])
-    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.bad', timeout=3000)
+    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.bad', timeout=T)
     fb = pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');return {ans:f.querySelector('.r37-ans').textContent.replace(/\\s+/g,' ').trim(),bad:f.querySelectorAll('.r37-ans i.bad').length,you:f.querySelector('.r37-you')?.textContent||''};})()")
     C.ok(fb['ans'].replace('·', '') == ans and fb['bad'] == 1 and fb['you'].startswith('你寫'), f'level 3 wrong: answer shown big, the one missing letter coloured {fb}')
     shot(pg, 'phone', 'l3_wrong')
-    pg.click('.r37-fb .r37-next'); pg.wait_for_timeout(150)
+    nxt(pg); pg.wait_for_timeout(150)
     # 8 questions: 1 right + 1 wrong done; remaining 6 -> force 5 right, 1 wrong => 6/8 pass
     play(pg, wrong_at=(7,))
-    pg.wait_for_selector('.r37-result', timeout=3000)
+    pg.wait_for_selector('.r37-result', timeout=T)
     best = json.loads(L.ev(pg, f"JSON.stringify(r37DzBest('{rid}',0))"))
     C.ok(best[2] >= 3, f'level 3 with 6/8 is stored {best}')
     ls = [a for a in json.loads(L.ev(pg, ATT)) if a['t'] == 'listenSpell']
@@ -261,7 +275,7 @@ with L.sync_playwright() as p:
     start_group(pg, 1, 3)
     begin_quiz(pg)
     play(pg, wrong_at=(0, 1, 2))
-    pg.wait_for_selector('.r37-result', timeout=3000)
+    pg.wait_for_selector('.r37-result', timeout=T)
     best1 = json.loads(L.ev(pg, f"JSON.stringify(r37DzBest('{rid}',1))"))
     C.ok(best1[2] == 0 and '再試' in pg.inner_text('.r37-result'), f'level 3 at 5/8 is not stored, try again {best1}')
     pg.click('[data-r37="retry"]'); pg.wait_for_timeout(300)
@@ -309,7 +323,7 @@ with L.sync_playwright() as p:
     # ------------------------------------------------------------------ guest: no records, no coins
     b, ctx, pg, errs = L.open_page(p, 390, 844, True)
     pg.goto(L.URL); pg.wait_for_timeout(1200)
-    pg.wait_for_function('typeof window.__r37==="function"', timeout=15000)
+    pg.wait_for_function('typeof window.__r37==="function"', timeout=T)
     L.ev(pg, 'r37Mem._seed=7')
     show(pg, '#dz', 500)
     ngr = pg.evaluate("document.querySelectorAll('.r37-dzc').length")
@@ -318,7 +332,7 @@ with L.sync_playwright() as p:
     pg.click('.r37-dzc[data-g="0"] .r37-dzm'); pg.wait_for_timeout(300)
     begin_quiz(pg)
     play(pg)
-    pg.wait_for_selector('.r37-result', timeout=3000)
+    pg.wait_for_selector('.r37-result', timeout=T)
     C.ok(L.ev(pg, "db.attempts.length") == n_att, 'guest answers are not written to the learning record')
     C.ok(pg.evaluate("!document.querySelector('.r37-rc')"), 'guest gets no coin reward')
     C.ok(not errs, f'guest: no errors {errs[:2]}')
@@ -350,8 +364,8 @@ with L.sync_playwright() as p:
         answer(pg, wrong=True)
         C.ok(nopage_scroll(pg) and L.fits(pg, '.r37-opt,.r37-fb .r37-next'), f'{name}: level 1 feedback fits')
         shot(pg, name, 'l1_wrong')
-        pg.click('.r37-fb .r37-next'); play(pg)
-        pg.wait_for_selector('.r37-result', timeout=3000)
+        nxt(pg); play(pg)
+        pg.wait_for_selector('.r37-result', timeout=T)
         C.ok(nopage_scroll(pg) and L.fits(pg, '.r37-go,.r37-sec'), f'{name}: result fits')
         shot(pg, name, 'result')
         pg.click('[data-r37="dz-next"]'); pg.wait_for_timeout(300)
@@ -360,16 +374,16 @@ with L.sync_playwright() as p:
         answer(pg, wrong=True)
         C.ok(nopage_scroll(pg) and L.fits(pg, '.r37-cell,.r37-fb .r37-next,.r37-ans'), f'{name}: level 2 feedback fits')
         shot(pg, name, 'l2_wrong')
-        pg.click('.r37-fb .r37-next'); play(pg)
-        pg.wait_for_selector('.r37-result', timeout=3000)
+        nxt(pg); play(pg)
+        pg.wait_for_selector('.r37-result', timeout=T)
         pg.click('[data-r37="dz-next"]'); pg.wait_for_timeout(300)
         C.ok(nopage_scroll(pg) and L.fits(pg, '#r37-in,.r37-ok,.r37-x'), f'{name}: level 3 question fits')
         shot(pg, name, 'l3_question')
         answer(pg, wrong=True)
         C.ok(nopage_scroll(pg) and L.fits(pg, '#r37-in,.r37-fb .r37-next,.r37-ans'), f'{name}: level 3 feedback fits')
         shot(pg, name, 'l3_wrong')
-        pg.click('.r37-fb .r37-next'); play(pg)
-        pg.wait_for_selector('.r37-result', timeout=3000)
+        nxt(pg); play(pg)
+        pg.wait_for_selector('.r37-result', timeout=T)
         C.ok(nopage_scroll(pg) and L.fits(pg, '.r37-go,.r37-sec'), f'{name}: level 3 result fits')
         shot(pg, name, 'l3_result')
         C.ok(not errs, f'{name}: no console / page errors {errs[:2]}')

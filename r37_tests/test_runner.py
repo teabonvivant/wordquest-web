@@ -490,7 +490,7 @@ def test_endless(pw):
     d = dbg(p); assert d['state'] == 'over' and d['hearts'] == 0, d
     r = p.evaluate('finished')[0]
     assert r['mode'] == 'endless' and r['newRecord'] and r['distance'] > 0 and r['best']['dist'] == r['distance'] and r['best']['score'] == r['score'], r
-    p.wait_for_timeout(1900); assert p.locator('text=NEW RECORD').count() == 1
+    p.wait_for_timeout(1900); assert p.locator('text=新紀錄').count() == 1
     p.screenshot(path=SHOTS + '/desk_endless_result.png')
     st = json.loads(p.evaluate("localStorage.getItem('wq37-run-best')")); assert st == {'dist': r['distance'], 'score': r['score']}, st
     # shorter second run: no record, the best is kept
@@ -498,7 +498,7 @@ def test_endless(pw):
     for _ in range(3): take(p, False)
     r2 = p.evaluate('finished')[1]
     assert r2['mode'] == 'endless' and not r2['newRecord'] and r2['distance'] < r['distance'] and r2['best']['dist'] == r['distance'], r2
-    p.wait_for_timeout(1900); assert p.locator('text=NEW RECORD').count() == 0
+    p.wait_for_timeout(1900); assert p.locator('text=新紀錄').count() == 0
     p.evaluate('game.destroy()')
     # persists across page loads; a better run replaces it
     p.reload(); assert p.evaluate('WQ37Run.getBest().dist') == r['distance']

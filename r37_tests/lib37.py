@@ -23,14 +23,10 @@ def patched_html():
     return s.replace(ANCHOR, '\nwindow.__r37=(c)=>eval(c);' + ANCHOR, 1)
 
 
-def open_page(p, w=390, h=844, touch=True, learn=False):
-    b, ctx, pg, errs = new_page(p, w, h, touch=touch)
-    if not learn:  # R3.9 learning card off for the older flow tests; t11 covers it
-        ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
-    html = patched_html()
-    pg.route(URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
-    # R3.20: the merged Olympiad classroom loads host.js as a module; from file:// the browser blocks it (CORS) and logs a console error on every page.
-    # Serving those files through route() with an allow-origin header gives the page the same files the website serves - nothing is filtered or ignored.
+def route_oly(pg):
+    """R3.20: the merged Olympiad classroom loads host.js as a module; from file:// the browser blocks it (CORS) and logs a console error on every page.
+    Serving those files through route() with an allow-origin header gives the page the same files the website serves - nothing is filtered or ignored.
+    R3.30: a function of its own, so a second tab opened by a test (t19 new_tab) gets the same route as the first one."""
     def _oly(route):
         import mimetypes
         from urllib.parse import urlparse, unquote
@@ -41,6 +37,72 @@ def open_page(p, w=390, h=844, touch=True, learn=False):
             return route.fallback()
         route.fulfill(status=200, body=body, content_type=mimetypes.guess_type(str(f))[0] or 'application/octet-stream', headers={'access-control-allow-origin': '*'})
     pg.route('**/olympiad-classroom/**', _oly)
+
+
+HTTPS_ORIGIN = 'https://wq37.test'
+HTTPS_URL = HTTPS_ORIGIN + '/index.html'
+_HTML = None
+
+
+def serve_https(pg):
+    """R3.30: serve the page under test (plus the files next to it: assets/, olympiad-classroom/) from a real https origin through route(), no network.
+    Use it for tests about what the BROWSER STORAGE keeps (a reload, a second tab): in this headless Chromium a file:// page is not reliably given the same localStorage
+    after a reload or in a second tab (probes _team_runs/r330/logs/t19_probe5/6.log: about half of the runs lost every key; the same flow over https lost none, 3/3 and then
+    the whole of t19). The website is https, so this is also the closer model."""
+    import mimetypes
+    from urllib.parse import urlparse, unquote
+    global _HTML
+    if _HTML is None:
+        _HTML = patched_html()
+    appdir = wq33.APP.parent
+
+    def h(route):
+        path = unquote(urlparse(route.request.url).path)
+        if path in ('/', '/index.html'):
+            return route.fulfill(status=200, content_type='text/html; charset=utf-8', body=_HTML)
+        f = appdir / path.lstrip('/')
+        try:
+            body = f.read_bytes()
+        except OSError:
+            return route.fulfill(status=404, body=b'')
+        route.fulfill(status=200, body=body, content_type=mimetypes.guess_type(str(f))[0] or 'application/octet-stream')
+    pg.route(HTTPS_ORIGIN + '/**', h)
+
+
+def open_https_page(p, w=390, h=844, touch=True, learn=False):
+    """open_page, but on the https origin of serve_https; returns (browser, ctx, page, errs) with the app loaded and the bridge ready"""
+    b, ctx, pg, errs = open_page(p, w, h, touch, learn)
+    serve_https(pg)
+    pg.goto(HTTPS_URL)
+    pg.wait_for_function('typeof window.__r37==="function"', timeout=int(__import__("os").environ.get("WQ37_TIMEOUT", "60000")))
+    pg.wait_for_timeout(700)
+    return b, ctx, pg, errs
+
+
+def register_form(pg, name='tester', child='小明', pw=None, remember=True):
+    """create an account through the real form (like t19) on whatever origin the page is on"""
+    pg.evaluate("location.hash='#login'")
+    pg.wait_for_selector('#register-name')
+    pg.fill('#register-name', name)
+    pg.fill('#register-child', child)
+    if pg.query_selector('#register-grade'):
+        pg.select_option('#register-grade', '3')
+    pg.fill('#register-pin', pw or wq33.PW)
+    cb = pg.query_selector('#s52-rem-reg')
+    if cb and cb.is_checked() != remember:
+        cb.click()
+    pg.click('[data-act="register-submit"]')
+    pg.wait_for_function("()=>window.__r37('isLoggedIn()')", timeout=int(__import__("os").environ.get("WQ37_TIMEOUT", "60000")))
+    pg.wait_for_timeout(1200)
+
+
+def open_page(p, w=390, h=844, touch=True, learn=False):
+    b, ctx, pg, errs = new_page(p, w, h, touch=touch)
+    if not learn:  # R3.9 learning card off for the older flow tests; t11 covers it
+        ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
+    html = patched_html()
+    pg.route(URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
+    route_oly(pg)
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)
     pg.emulate_media(reduced_motion='reduce')
     pg.set_default_timeout(int(__import__("os").environ.get("WQ37_TIMEOUT","60000")))

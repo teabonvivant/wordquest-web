@@ -2144,7 +2144,7 @@ html body.r37arc .a28-overlaycard .wq34-goalbox,html body.r37arc .a28-overlaycar
 html body.r37arc .a28-overlaycard .wq34-new,html body.r37arc .a28-overlaycard .arx-new{background:rgba(255,201,74,.16)!important;color:#FFC94A!important;border:1px solid #FFC94A}
 html body.r37arc .a28-overlaycard .arx-rec,html body.r37arc .a28-overlaycard .arx-rec.first{background:rgba(255,201,74,.14)!important;color:#FFC94A!important;border:1px solid #FFC94A;box-shadow:none}
 html body.r37arc .a28-overlaycard .arx-rec :is(b,span){color:#FFC94A!important}
-html body.r37arc .a28-overlaycard .arx-stars i{color:#3A4180}html body.r37arc .a28-overlaycard .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body.r37arc .a28-overlaycard .arx-stars i{color:#6872B8}html body.r37arc .a28-overlaycard .arx-stars i.on{color:#FFC94A;text-shadow:none}
 html body.r37arc .a28-overlaycard .btn.primary,html body.r37arc .a28-overlaycard .a28-btn.a33-locked{background:#FFC94A!important;color:#3B2600!important;border:0!important;border-bottom:4px solid #C48A00!important;box-shadow:none!important;border-radius:16px;min-height:52px;font-weight:900}
 html body.r37arc .a28-overlaycard .a28-btn.a33-locked{opacity:.6}
 html body.r37arc .a28-overlaycard .btn.soft,html body.r37arc .a28-overlaycard .btn.secondary,html body.r37arc .a28-overlaycard .btn.quiet,html body.r37arc .a28-overlaycard .arx-pw{background:rgba(255,255,255,.08)!important;color:#F4F6FF!important;border:1px solid rgba(255,255,255,.28)!important;box-shadow:none!important;border-radius:16px}
@@ -2215,7 +2215,7 @@ html body #pg-dialog.a28-dialog::backdrop{background:rgba(5,6,30,.7)}
 html body #pg-dialog .a28-dialog-top,html body #pg-dialog .p30-actions{background:transparent!important;border:0}
 html body #pg-dialog :is(h2,h3,p,span,strong,small,div):not(.a28-preview *):not(.arx-best):not(.arx-stars *):not(.a28-coin):not(button *){color:#F4F6FF}
 html body #pg-dialog .a28-eyebrow,html body #pg-dialog .p30-k,html body #pg-dialog .arx-tg,html body #pg-dialog .p30-fine{color:#C9D0F5!important}
-html body #pg-dialog .arx-stars i{color:#3A4180}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
+html body #pg-dialog .arx-stars i{color:#6872B8}html body #pg-dialog .arx-stars i.on{color:#FFC94A;text-shadow:none}
 html body #pg-dialog .arx-best{background:rgba(255,255,255,.1);color:#F4F6FF;border:1px solid rgba(255,255,255,.18)}
 html body #pg-dialog .arx-best:not(.none){background:rgba(255,201,74,.16);color:#FFC94A;border-color:#FFC94A}
 html body #pg-dialog .a28-preview-progress,html body #pg-dialog .p30-goal{background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14);color:#F4F6FF!important;border-radius:12px}
@@ -2266,8 +2266,10 @@ html body .r37-legbody[data-s60=game] .p30-card{padding:8px!important;gap:8px}
 .r37-tiles.r37-gt.g8 .r37-ti{font-size:clamp(28px,5.6vh,42px);width:1.3em;height:1.3em}
 .r37-tiles.r37-gt.g8 .r37-tn{font-size:clamp(15px,2.3vh,18px);white-space:nowrap;line-height:1.2}
 .r37-tiles.r37-gt.g8 .r37-tile.gold>.r37-tn{font-size:clamp(15px,2.3vh,18px)}
-.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:112%;max-width:none;right:-16%;bottom:-30%;opacity:.92}
-@media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8{grid-template-columns:repeat(4,1fr)}}
+/* R3.30: the planet is a disc tucked into the lower-right corner of the 遊戲街機 tile; at 112% it covered the label on phones and wide screens alike */
+.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:64%;max-width:none;right:-18%;bottom:-32%;opacity:.92}
+@media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8{grid-template-columns:repeat(4,1fr)}
+.r37-tiles.r37-gt.g8 .r37-tile.gold .r37-tpl{height:50%;right:-8%;bottom:-14%}}
 @media(max-height:520px){
  .r37-tiles.r37-gt.g8{grid-auto-rows:minmax(44px,1fr);gap:6px;padding:2px 12px 6px}
  .r37-tiles.r37-gt.g8 .r37-ti{font-size:28px}
@@ -2746,7 +2748,7 @@ html body .r37-legbody .s60-morebox>*:not(summary){margin-top:10px}
 [data-s60=game] .a28-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 0 8px;padding:0 0 2px;scrollbar-width:none;flex:none}
 [data-s60=game] .a28-tabs::-webkit-scrollbar{display:none}
 [data-s60=game] .a28-tabs .a28-btn{flex:none;min-height:44px}
-[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
+[data-s60=game] .p30-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:10px;align-content:start;min-height:0;flex:1 1 auto;overflow:auto;padding:2px 2px 8px}
 [data-s60=game] .p30-card{padding:8px!important;border-radius:18px!important;display:flex;flex-direction:column;gap:6px}
 [data-s60=game] .p30-card .p30-shot{max-height:96px;overflow:hidden;border-radius:12px;cursor:pointer}
 [data-s60=game] .p30-card h3{font-size:16px;margin:0}
@@ -2868,9 +2870,10 @@ html body .r37-legbody details:not([open])>*:not(summary){display:none!important
 [data-s60=assembly] .s60-scroll>.l30-panel{margin:0;padding:10px 12px!important}
 
 /* ---- 18. 80-unit picker (learning-plan), 拼字家族, 拼字專家 ---- */
-.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
+.s60-unitgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:max-content;gap:8px;align-content:start;overflow:auto;padding:2px}
 .s60-chip{min-height:44px;padding:4px 8px;border-radius:14px;border:2px solid #cfd4f3;background:#fff;color:#1d2158;font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-align:left;line-height:1.25}
 .s60-chip.on{border-color:hsl(var(--h,200) 75% 40%);background:hsl(var(--h,200) 80% 94%);box-shadow:0 0 0 2px hsl(var(--h,200) 75% 40%)}
+.s60-chip{position:relative}.s60-chip .s60-ok{position:absolute;right:12px;top:6px;font-style:normal;font-weight:900;color:#7ee2a8}.s60-chip b{display:block;font-weight:800}.s60-chip small{display:block;margin-top:1px;font-size:13px;font-weight:600;opacity:.9}.s60-unitgrid .s60-chip{border-radius:16px;padding:6px 12px}
 [data-s60=learning-plan]>.l30-panel{margin-bottom:10px}
 [data-s60=learning-plan] .l30-panel.s60-grow{display:flex;flex-direction:column;gap:8px;padding:10px!important}
 [data-s60=learning-plan] .l30-row{display:flex;gap:8px;flex-wrap:wrap}
@@ -3061,6 +3064,7 @@ html body.r37 #app .r37-legbody .s60-more{box-shadow:0 3px 0 #070a26}
 /* tabs (parent area) and chips that pick things */
 html body.r37 #app .r37-legbody a.tab,html body.r37 #app .r37-legbody button.tab,html body.r37 #app .r37-legbody .s60-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#f4f6ff;border-radius:999px;font-weight:800;box-shadow:none}
 html body.r37 #app .r37-legbody :is(a.tab.active,a.tab[aria-current],button.tab.active,.tab.on,.tab.current){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
+html body.r37 #app .r37-legbody .s60-unitgrid .s60-chip{border-radius:16px;padding:6px 14px}
 html body.r37 #app .r37-legbody .s60-chip.on{background:rgba(255,201,74,.16);border-color:#ffc94a;box-shadow:0 0 0 1px #ffc94a;color:#fff}
 html body.r37 #app .r37-legbody [aria-pressed="true"]:is(button,a):not(.btn):not(.primary):not(.l30-btn){background:#2a3282;border-color:rgba(255,255,255,.5);color:#fff}
 /* --- form fields (M04) --- */
@@ -3189,7 +3193,10 @@ html body:has(#wq29-test-banner):not(.r37leg):not(.r37){padding-top:26px}
 @media(min-width:1024px) and (min-height:560px){html body.r37 #toast{bottom:calc(var(--r37-nav,62px) + 46px)!important}}
 
 /* R3.29 A-26: a word without a picture shows a quiet placeholder, not an instruction */
-html body .r37-legbody .l30-noart{display:grid;place-items:center;font-weight:900;font-size:18px;opacity:.45;border-radius:10px;background:rgba(255,255,255,.08)}
+html body .r37-legbody .l30-noart{display:flex;align-items:center;justify-content:center;gap:1px;font-weight:900;font-size:22px;line-height:1;color:#fff;border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(0,0,0,.2)),var(--nc,#2F6FD6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);text-shadow:0 1px 2px rgba(0,0,0,.3)}
+html body .r37-legbody .l30-noart span+span{font-size:.72em;font-weight:800;opacity:.92}
+html body .r37-legbody .l30-noart[data-k="0"]{--nc:#2F6FD6}html body .r37-legbody .l30-noart[data-k="1"]{--nc:#7B4BC9}html body .r37-legbody .l30-noart[data-k="2"]{--nc:#C23B7A}html body .r37-legbody .l30-noart[data-k="3"]{--nc:#C4491F}
+html body .r37-legbody .l30-noart[data-k="4"]{--nc:#1A7A63}html body .r37-legbody .l30-noart[data-k="5"]{--nc:#23778F}html body .r37-legbody .l30-noart[data-k="6"]{--nc:#8A5A12}html body .r37-legbody .l30-noart[data-k="7"]{--nc:#5B6AD0}
 
 /* R3.29 C-24: why the hunting-ground levels are locked (the parent's plan card of C-01 is .r37-assign in s10_shell.css) */
 .r37-fnote{margin:2px 14px 4px;text-align:center;font-size:14px;line-height:1.5;color:#dfe8ff}
@@ -6745,6 +6752,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     '.wq37-btnrow{display:flex;gap:8px}.wq37-btnrow .wq37-go{flex:1;margin-top:10px}' +
     '.wq37-stars{font-size:46px;letter-spacing:4px;color:' + GOLD + ';text-shadow:0 2px 0 ' + INK + '}' +
     '.wq37-stars i{font-style:normal;color:#3A4180;text-shadow:none}' +
+    '.wq37-need{margin:0 0 6px;color:' + GOLD + ';font:800 16px ' + EFONT + '}' +
     '.wq37-rec{display:inline-block;margin:4px 0;padding:4px 16px;border-radius:30px;background:rgba(255,201,74,.16);border:1px solid ' + GOLD + ';color:' + GOLD + ';font:900 18px ' + EFONT + '}' +
     '.wq37-stat{display:flex;gap:8px;justify-content:center;margin:8px 0}.wq37-stat div{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:6px 2px;font-weight:900;font-size:20px;color:#F4F6FF}.wq37-stat span{display:block;font-size:14px;font-weight:700;color:#AEB8E8}' +
     '.wq37-miss{display:flex;flex-direction:column;gap:6px;margin:8px 0;max-height:46vh;overflow-y:auto}.wq37-mw{display:flex;align-items:center;gap:10px;padding:6px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);text-align:left}.wq37-mw b{font:900 22px ' + EFONT + ';letter-spacing:.04em;color:#FFC94A}.wq37-mw span{flex:1;font-weight:800;color:#C3CBF7}' +
@@ -6814,6 +6822,8 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     var mode = opts.mode === 'level' ? 'level' : 'free';
     var tier = clamp(Math.round(opts.difficulty || 1), 1, 5), di = tier - 1;
     var lockDiff = !!opts.lockDifficulty;
+    /* R3.30 C-09: passing = won the level with accuracy at the parent's pass rate (opts.passRate); the default 75% is the old 3-star line */
+    var passRate = opts.passRate > 0 ? +opts.passRate : 0.75;
     var baseRounds = Math.max(1, (opts.rounds | 0) || (mode === 'level' ? words.length : 10));
     var totalRounds = baseRounds;
     var title = opts.title ? String(opts.title) : '字母獵場 Word Blaster';
@@ -7937,7 +7947,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       var st = stars(), pw = perWord(), asked = 0, first = 0, i;
       for (i = 0; i < PW.length; i++) if (PW[i].asked) { asked++; if (PW[i].ok) first++; }
       lastResult = { score: G.score, correct: G.correct, wrong: G.wrong, rounds: Math.min(G.correct, totalRounds), seconds: Math.round(G.playTime), stars: st, maxCombo: G.maxCombo,
-        best: best, newRecord: isRec, bossBeaten: G.bossBeaten, passed: st >= 3, accuracy: Math.round(accuracyNow() * 1000) / 1000,
+        best: best, newRecord: isRec, bossBeaten: G.bossBeaten, passed: G.won && accuracyNow() >= passRate - 1e-9, passRate: passRate, accuracy: Math.round(accuracyNow() * 1000) / 1000,
         firstTryAccuracy: asked ? Math.round(first / asked * 1000) / 1000 : 0, difficulty: tier, mode: mode, perWord: pw };
       if (win && !G.bossBeaten) { burst(P.x + Math.cos(P.a) * 3, P.y + Math.sin(P.a) * 3, 0.6, 60, ['#ffe36a', '#ff5fa2', '#7fe3ff', '#fff'], 1.8); }
       if (!finishedCalled) { finishedCalled = true; callFinish(); }
@@ -8064,6 +8074,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       resultShown = true; var r = lastResult, acc = Math.round(100 * r.accuracy), st = '', i;
       for (i = 1; i <= 5; i++) st += i <= r.stars ? '★' : '<i>★</i>';
       var head = G.bossBeaten ? '打敗字母怪獸！' : G.won ? (r.passed ? '全部完成！' : '完成了！再準一點更好') : '再接再厲！';
+      var need = G.won && !r.passed ? '<p class="wq37-need">要準確度 ' + Math.round(100 * r.passRate) + '% 才過關</p>' : '';
       var wd = '';
       if (mode === 'level' && r.perWord.length) {
         wd = '<div class="wq37-words">';
@@ -8072,7 +8083,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       }
       var go = '';
       if (typeof opts.onNext === 'function' && r.passed) go = '<button class="wq37-go next" data-act="next">▶ 下一關</button>';
-      showOv('<h2>' + head + '</h2><div class="wq37-stars">' + st + '</div>' +
+      showOv('<h2>' + head + '</h2>' + need + '<div class="wq37-stars">' + st + '</div>' +
         (r.newRecord ? '<div class="wq37-rec">' + ico('trophy', 20) + ' 新紀錄！</div>' : '') + (G.coins ? '<div class="wq37-coin">' + ico('coin', 20) + ' +' + G.coins + '</div>' : '') +
         '<div class="wq37-stat"><div><span>分數</span>' + r.score + '</div><div><span>最高分</span>' + r.best + '</div><div><span>準確度</span>' + acc + '%</div><div><span>最高連擊</span>' + r.maxCombo + '</div></div>' + wd + go +
         '<div class="wq37-btnrow"><button class="wq37-go' + (go ? ' small' : '') + '" data-act="again">↻ 再玩一次</button><button class="wq37-go alt' + (go ? ' small' : '') + '" data-act="back">返回</button></div>',
@@ -8873,6 +8884,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
         case 'place': P.x = a; P.y = b; return true;
         case 'score': G.score = a | 0; return true;
         case 'learnskip': lcDone(true); return true;
+        case 'finish': G.correct = a | 0; G.wrong = b | 0; G.hpLost = G.wrong ? Math.max(G.hpLost, 1) : G.hpLost; finish(true); return true;   /* R3.30 tests: end the level as won with this tally */
         case 'shield': G.shield = !!a; return true;
         case 'turn': P.a += a; return true;
         case 'face': P.a = a; return true;
@@ -10691,11 +10703,13 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     L.firstAcc = function () { return firstN ? firstOkN / firstN : 0; };
     L.accuracy = function () { var t = 0, ok = 0, k; for (k in stats) { if (stats[k].rv) continue; t += stats[k].tries; if (stats[k].ok) ok++; } return t ? ok / t : 0; };
     /* cleared:false (lost / quit) can never pass. Items never asked count as not first-try-correct. */
+    /* R3.30 C-09: a level is passed at the parent's pass rate (o.passRate, the same one the 闖關 uses); without one it stays at 70% = 3 stars */
+    L.passRate = o.passRate != null && isFinite(+o.passRate) && +o.passRate > 0 ? +o.passRate : .70;
     L.result = function (x) {
       x = x || {}; var cleared = x.cleared !== false, core = items.length, fa = core ? firstOkN / core : 0;
       var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms) }; });
       var stars = cleared ? GX.starsOf(fa) : 1;
-      return { stars: stars, passed: cleared && stars >= 3, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0; }) };
+      return { stars: stars, passed: cleared && fa >= L.passRate - 1e-9, passRate: L.passRate, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0; }) };
     };
     return L;
   };
@@ -10752,6 +10766,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     '.gx-card{background:linear-gradient(160deg,rgba(30,38,96,.97),rgba(18,24,68,.97));border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:18px 18px 20px;max-width:380px;width:100%;max-height:100%;overflow:auto;box-sizing:border-box;text-align:center;box-shadow:0 14px 36px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.12);animation:gxpop .22s cubic-bezier(.23,1,.32,1)}' +
     '.gx-card h1{margin:0 0 6px;font-size:24px;font-weight:900;line-height:1.25;overflow-wrap:anywhere}' +
     '.gx-sub{color:' + MUTED + ';font-size:14px;margin:2px 0 10px}' +
+    '.gx-sub.gx-need{color:#FFD36E;font-size:16px;font-weight:800}' +
     '.gx-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;min-width:48px;padding:0 20px;border-radius:999px;border:0;background:' + GOLD + ';color:' + GOLD_INK + ';font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 ' + GOLD_D + ';touch-action:manipulation}' +
     '.gx-btn:active{transform:translateY(2px);box-shadow:0 2px 0 ' + GOLD_D + '}.gx-btn[disabled]{opacity:.45;box-shadow:none;transform:none;cursor:default}' +
     '.gx-btn.ghost{background:rgba(255,255,255,.1);color:' + TEXT + ';border:1px solid rgba(255,255,255,.22);box-shadow:0 3px 0 rgba(0,0,0,.3)}' +
@@ -10807,7 +10822,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     S.every = function (fn, ms) { var id = setInterval(function () { if (!S.dead && !S.paused) fn(); }, ms); intervals.push(id); return id; };
     S.clearLater = function (id) { clearTimeout(id); var i = timers.indexOf(id); if (i >= 0) timers.splice(i, 1); };
     S.sfx = function (n, o2) { S.audio.sfx(n, o2); };
-    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed });
+    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed, passRate: opts.passRate });
     S.syl = function (it) { try { if (typeof opts.syllables === 'function' && it && it.en) return String(opts.syllables(it.en) || ''); } catch (e) { /* */ } return it && it.syl ? it.syl : ''; };
     S.speak = function (text, lang) {
       if (!text || S.audio.muted() || opts.sound === false) return;
@@ -10818,7 +10833,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     S.newLearn = function () {
       var r = null; try { if (typeof opts.regen === 'function') r = opts.regen(); } catch (e) { /* */ }
       if (r && r.items && r.items.length >= 4) { opts.items = r.items; if (r.review) opts.review = r.review; }
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode });
+      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, passRate: opts.passRate });
       return S.learn;
     };
     S.say = function (it) { if (it && it.en) S.speak(it.en, 'en-US'); };
@@ -10939,7 +10954,7 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       o = o || {}; var miss = (res.missed || []).slice(0, 8), more = (res.missed || []).length - miss.length;
       var stars = [1, 2, 3, 4, 5].map(function (k) { return '<span style="display:contents">' + ico('star', 44).replace('<svg ', '<svg class="' + (k <= res.stars ? 'on' : '') + '" style="animation-delay:' + (k * .12) + 's" ') + '</span>'; }).join('');
       var el = ov('result', '<div class="gx-card gx-res"><h1>' + (res.passed ? (res.stars >= 5 ? '太棒了！' : '過關！') : (res.cleared ? '再試一次' : '再接再厲')) + '</h1><div class="gx-stars" aria-label="' + res.stars + ' 星">' + stars + '</div>'
-        + '<div class="gx-chips"><span class="gx-chip">' + ico('check', 18) + Math.round(res.firstTryAccuracy * 100) + '% 一次答對</span><span class="gx-chip">' + ico('flame', 18) + res.maxCombo + ' 連擊</span><span class="gx-chip">' + ico('clock', 18) + res.seconds + ' 秒</span>' + (o.coins ? '<span class="gx-chip coin">' + ico('coin', 18) + '+' + o.coins + '</span>' : '') + '</div>'
+        + (res.cleared && !res.passed && res.passRate ? '<div class="gx-sub gx-need">要一次答對 ' + Math.round(res.passRate * 100) + '% 才過關</div>' : '') + '<div class="gx-chips"><span class="gx-chip">' + ico('check', 18) + Math.round(res.firstTryAccuracy * 100) + '% 一次答對</span><span class="gx-chip">' + ico('flame', 18) + res.maxCombo + ' 連擊</span><span class="gx-chip">' + ico('clock', 18) + res.seconds + ' 秒</span>' + (o.coins ? '<span class="gx-chip coin">' + ico('coin', 18) + '+' + o.coins + '</span>' : '') + '</div>'
         + (miss.length ? '<div class="gx-sub" style="margin-bottom:2px">要再記一記</div><div class="gx-miss">' + miss.map(function (m) { return '<span>' + esc(m.en || short(m.q) + ' = ' + m.a) + (m.en && m.zh ? '<small>' + esc(m.zh) + '</small>' : '') + '</span>'; }).join('') + (more > 0 ? '<span>+' + more + '</span>' : '') + '</div>' : (res.firstTryAccuracy >= 1 ? '<div class="gx-sub">全部一次答對！</div>' : '<div class="gx-sub">下次會更好</div>'))
         + '<details class="gx-rep"><summary>逐項報告</summary><div class="gx-replist">' + (res.perItem || []).filter(function (p) { return !p.rv; }).map(function (p) { return '<div class="r ' + (p.firstOk ? 'g' : p.ok ? 'y' : 'b') + '"><i>' + (p.firstOk ? ico('check', 16) : p.ok ? ico('replay', 16) : ico('cross', 16)) + '</i><b>' + esc(p.en || short(p.q)) + '</b><em>' + esc(p.en ? p.zh : '= ' + p.a) + '</em><u>' + (p.ms ? Math.max(1, Math.round(p.ms / 1000)) + ' 秒' : '') + '</u></div>'; }).join('') + '</div></details>'
         + '<div class="gx-row"><button type="button" class="gx-btn ghost" data-r="back" aria-label="返回">' + ico('home', 22) + '</button><button type="button" class="gx-btn ghost" data-r="again">' + ico('replay', 22) + '<span>再玩</span></button>' + (o.canNext ? '<button type="button" class="gx-btn" data-r="next"><span>下一關</span>' + ico('next', 22) + '</button>' : '') + '</div></div>');
@@ -14316,19 +14331,22 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
     /* two ways to say the same wheel: moves (p.steps: "走 N 步", the pointer leaves the start) or ordinal (p.nth: "第 N 個", the start counts as the 1st, so N-1 moves).
        p.verb = the verb for moves ("走", "傳"); p.div shows the lesson's division line (N÷n＝q 餘 r) for ordinal wheels */
     const nth = p.nth != null, goal = nth ? p.nth - 1 : p.steps, verb = p.verb || '走', div = !!p.div;
-    let svg, W, H, cx, cy, R, steps, tok, cnt, laps, dots, dragA = null, done;
+    let svg, W, H, cx, cy, R, cellR, steps, tok, cnt, laps, dots, dragA = null, done;
     const ang = i => -Math.PI / 2 + i / n * Math.PI * 2, posOf = () => (startI + steps) % n;
     function build() {
       run.cancel(); steps = 0; done = false;
       ({ svg, W, H } = fit(host)); svg.setAttribute('aria-label', `${n} 格的轉盤`);
       R = Math.max(46, Math.min(W * .32, (H - (inter ? 150 : 96)) / 2)); cx = W / 2; cy = inter ? Math.round(R + 52) : Math.round(H / 2 + 8); dots = [];
       el('circle', { cx, cy, r: R + 30, fill: 'rgba(255,255,255,.05)', stroke: C.line, 'stroke-width': 2 }, svg);
+      cellR = Math.min(26, R * 2 * Math.PI / n / 2.3);
       for (let i = 0; i < n; i++) {
         const x = cx + Math.cos(ang(i)) * R, y = cy + Math.sin(ang(i)) * R, g = el('g', {}, svg);
-        const c = el('circle', { cx: x, cy: y, r: Math.min(26, R * 2 * Math.PI / n / 2.3), fill: C.card2, stroke: i === startI ? C.aqua : C.line, 'stroke-width': i === startI ? 4 : 2.5 }, g); txt(g, x, y + 1, labels[i % labels.length], { size: labels[i % labels.length].toString().length > 1 ? 16 : 20, fill: C.text }); dots.push({ c, x, y });
+        const c = el('circle', { cx: x, cy: y, r: cellR, fill: C.card2, stroke: i === startI ? C.aqua : C.line, 'stroke-width': i === startI ? 4 : 2.5 }, g); txt(g, x, y + 1, labels[i % labels.length], { size: labels[i % labels.length].toString().length > 1 ? 16 : 20, fill: C.text }); dots.push({ c, x, y, t: g.lastChild });
       }
       tok = el('g', { class: 'r80-tok', role: 'slider', 'aria-label': '指針', 'aria-valuemin': 0 }, svg);
-      el('circle', { r: 17, cy: 3, fill: 'rgba(0,0,0,.3)' }, tok); el('circle', { r: 17, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, tok); txt(tok, 0, 1, '▼', { size: 14, fill: '#3b2600' });
+      /* R3.30: the pointer sits just inside the ring and points out at its cell (it used to sit on the cell and hide the colour / number the child is asked about) */
+      el('circle', { r: 28, fill: 'rgba(0,0,0,0)' }, tok); /* >= 44px touch target around the 22px pointer even when the widget is scaled down to fit */
+      el('circle', { r: 11, cy: 2, fill: 'rgba(0,0,0,.3)' }, tok); el('circle', { r: 11, fill: C.gold, stroke: C.goldD, 'stroke-width': 3 }, tok); el('path', { d: 'M-5 -3 L5 -3 L0 6 Z', fill: '#3b2600' }, tok);
       cnt = txt(svg, cx, cy - 8, '', { size: 36, fill: C.text, weight: 900 }); laps = txt(svg, cx, 16, '', { size: 18, fill: C.muted, weight: 800 });
       if (inter) {
         drag(tok, svg, { start(pt) { dragA = Math.atan2(pt.y - cy, pt.x - cx); return {}; }, move(pt) {
@@ -14354,9 +14372,9 @@ if(typeof module!=='undefined')module.exports=globalThis.WQ37Math;
       return steps ? lapOf(steps) : (goal != null ? `目標：${verb} ${goal} ${unit}` : '');
     }
     function show() {
-      const i = posOf(); place(tok, dots[i].x, dots[i].y); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
+      const i = posOf(), a = ang(i), rr = Math.max(8, R - cellR - 16); tok.setAttribute('transform', `translate(${(cx + Math.cos(a) * rr).toFixed(2)} ${(cy + Math.sin(a) * rr).toFixed(2)}) rotate(${(a * 180 / Math.PI - 90).toFixed(1)})`); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
       cnt.textContent = nth ? steps + 1 : (steps ? steps : ''); laps.textContent = lapText(); laps.setAttribute('fill', done ? C.gold : C.muted);
-      dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
+      dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.t.setAttribute('fill', k === i ? '#3b2600' : C.text); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
       cnt.setAttribute('fill', done ? C.gold : (goal != null && steps > goal ? C.bad : C.text));
     }
     function stepBy(d, live) {
@@ -15247,7 +15265,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     id: 'p2-3', grade: 2, n: 3, title: '間隔與植樹', icon: '🌳',
     card: { motto: '棵數＝段數＋1', example: '4 段種 5 棵', art: art23 },
     lesson: [
-      { t: 'show', say: '路分成 4 段，兩端都種：共種 5 棵。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true } },
+      { t: 'show', say: '路分成 4 段，每段 5 米，兩端都要種樹。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true } },
       { t: 'predict', say: '一條路分成 4 段，兩端都要種。', ask: '要種幾棵樹？', options: ['4', '5', '6'], answer: '5', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' }, still: true }, reveal: '兩端都種，棵數比段數多 1！' },
       { t: 'do', say: '把樹苗拖到路上，每個圈放一棵。', scene: { w: 'rowplace', p: { segments: 4, ends: 'both', span: 5, unit: '米' } } },
       { t: 'show', say: '只種一端，另一端不種：棵數＝段數。', scene: { w: 'rowplace', p: { segments: 5, ends: 'one', span: 4, unit: '米' }, still: true } },
@@ -19543,7 +19561,7 @@ function a28RewardPhonics(s,l,pending){return a28Grant('phonics:'+l.id,s.started
 finishView=function(){const c=a28Child(),n=a28Qualified(),next=COIN28.catalog.find(g=>g.words>n),d=a28TaskInfo();return `<section class="finish-panel card pad"><div class="finish-icon">✓</div><h1>這一輪完成了</h1>${q36SessionBlock(db.session)}<p class="a28-earned">${a28Coin()} ${activeChild().stars} 金幣</p><p>今天完成學習，已得 ${d.earned}/5 枚金幣。${a28LastAward?.owner===a28Own()&&a28LastAward.sessionId===db.session?.id&&a28LastAward.award?`這次得 ${a28LastAward.award} 枚金幣。`:''}</p>${next?`<p>再通過 <strong>${next.words-n}</strong> 項複習，就能開放 ${a28Meta(next.id).name}。</p>`:''}<div class="row">${link('完成，返回首頁','kid','primary')}${link('看看遊戲和下一個目標','game','secondary')}</div></section>`;};
 pgSettingsView=function(){
  if(!isLoggedIn())return loginView();if(!v23ParentAllowed())return v23Gate();const c=a28Child(),d=a28TaskInfo();
- return `${navTabs('settings')}<section class="card pad"><p class="a28-eyebrow">遊戲街機 · 家長</p><h1>金幣與遊戲設定</h1><p>每局要 1 至 4 枚金幣，按遊戲不同。每輪最多玩五局，沒有倒數計時。要再完成新的學習，才能開下一輪，或由你確認開放。</p><div class="grid2"><label>遊戲狀態<select id="a28-paused"><option value="no" ${!c.paused?'selected':''}>按學習進度開放</option><option value="yes" ${c.paused?'selected':''}>暫停全部遊戲</option></select></label><label>遊戲難度<select id="a28-difficulty">${['入門','標準','挑戰'].map((t,i)=>`<option value="${i}" ${pgChild().difficulty===i?'selected':''}>${t}</option>`).join('')}</select></label></div><p class="small muted">難度會在下一次投幣時生效。不能中途切換難度來重設生命。暫停後，進度仍保留。</p><details><summary>每款遊戲的開放設定（沒開放的，也可以預覽）</summary><div class="pg-permissions">${COIN28.catalog.map(g=>`<label>${a28Meta(g.id).name}<select data-a28permission="${g.id}"><option value="auto" ${!(c.permissions[g.id]||pgChild().override[g.legacy])?'selected':''}>按進度：${g.words} 項</option><option value="open" ${(c.permissions[g.id]||pgChild().override[g.legacy])==='open'?'selected':''}>提前開放</option><option value="blocked" ${(c.permissions[g.id]||pgChild().override[g.legacy])==='blocked'?'selected':''}>暫停開放</option></select></label>`).join('')}</div></details><div class="row">${a28Btn('儲存設定','save-settings','','primary')}${a28Btn('家長開放下一輪（五局）','parent-reset','','secondary')}${link('返回遊戲街機','game','soft')}</div><hr><h2>金幣獎勵規則</h2><p>闖關第一次拿滿 5 顆星，得 1 枚金幣；魔王關（第 10 關）得 3 枚，第一次通過魔王關再多 2 枚。選擇題、填充題、默書拿滿 5 顆星，得 1 枚，每日最多 3 次。遊戲星的每日任務完成後可領 1 至 2 枚。部分角色多得 1 枚。答錯不會扣金幣，訂正不會多給。</p><p>街機遊戲每局 1 至 4 枚金幣（按遊戲不同），沒有倒數計時。</p><p>可用 ${activeChild().stars} 金幣 · 本輪已玩 ${c.batch.used}/5 局。金幣不會過期。</p><details><summary>最近的街機金幣紀錄</summary><ul class="list">${c.ledger.slice(-20).reverse().map(e=>`<li><span>${esc(e.note)} · ${new Date(e.at).toLocaleDateString('zh-HK')}</span><strong>${e.amount>0?'+':''}${e.amount} 金幣</strong></li>`).join('')||'<li>未有金幣紀錄。</li>'}</ul></details><p class="notice">請定期備份。</p></section>`;
+ return `${navTabs('settings')}<section class="card pad"><p class="a28-eyebrow">遊戲街機 · 家長</p><h1>金幣與遊戲設定</h1><p>每局要 1 至 4 枚金幣，按遊戲不同。每輪最多玩五局，沒有倒數計時。要再完成新的學習，才能開下一輪，或由你確認開放。</p><div class="grid2"><label>遊戲狀態<select id="a28-paused"><option value="no" ${!c.paused?'selected':''}>按學習進度開放</option><option value="yes" ${c.paused?'selected':''}>暫停全部遊戲</option></select></label><label>遊戲難度<select id="a28-difficulty">${['入門','標準','挑戰'].map((t,i)=>`<option value="${i}" ${pgChild().difficulty===i?'selected':''}>${t}</option>`).join('')}</select></label></div><p class="small muted">難度會在下一次投幣時生效。不能中途切換難度來重設生命。暫停後，進度仍保留。</p><details><summary>每款遊戲的開放設定（沒開放的，也可以預覽）</summary><div class="pg-permissions">${COIN28.catalog.map(g=>`<label>${a28Meta(g.id).name}<select data-a28permission="${g.id}"><option value="auto" ${!(c.permissions[g.id]||pgChild().override[g.legacy])?'selected':''}>按進度：${g.words} 項</option><option value="open" ${(c.permissions[g.id]||pgChild().override[g.legacy])==='open'?'selected':''}>提前開放</option><option value="blocked" ${(c.permissions[g.id]||pgChild().override[g.legacy])==='blocked'?'selected':''}>暫停開放</option></select></label>`).join('')}</div></details><div class="row">${a28Btn('儲存設定','save-settings','','primary')}${a28Btn('家長開放下一輪（五局）','parent-reset','','secondary')}${link('返回遊戲街機','game','soft')}</div><hr><h2>金幣獎勵規則</h2><p>闖關第一次拿滿 5 顆星，得 1 枚金幣；魔王關（第 10 關）得 3 枚，第一次通過魔王關再多 2 枚。選擇題、填充題、默書拿滿 5 顆星，得 1 枚，每日最多 3 次。</p><p>字母獵場、星際跑酷、字母砲台、字母迷宮、字卡征途的關卡，第一次拿滿 5 顆星也得 1 枚，魔王關另有額外獎勵。字母獵場的練習局拿滿 5 顆星，得 1 枚，每日最多 2 次。部分角色多得 1 枚。答錯不會扣金幣，訂正不會多給。</p><p><strong>每日上限：</strong>闖關、練習和遊戲賺到的金幣，每日合共最多 ${window.R37_COIN_CAP||10} 枚（今日已得 ${window.r37CoinToday?window.r37CoinToday():0} 枚）。超出的不會補發，明天重新計算。遊戲星的每日任務完成後可領 1 至 2 枚，不計在上限內。</p><p>街機遊戲每局 1 至 4 枚金幣（按遊戲不同），沒有倒數計時。</p><p>可用 ${activeChild().stars} 金幣 · 本輪已玩 ${c.batch.used}/5 局。金幣不會過期。</p><details><summary>最近的街機金幣紀錄</summary><ul class="list">${c.ledger.slice(-20).reverse().map(e=>`<li><span>${esc(e.note)} · ${new Date(e.at).toLocaleDateString('zh-HK')}</span><strong>${e.amount>0?'+':''}${e.amount} 金幣</strong></li>`).join('')||'<li>未有金幣紀錄。</li>'}</ul></details><p class="notice">請定期備份。</p></section>`;
 };
 function a28SaveSettings(){if(!v24RequireParent()||!a28CanWrite())return;if(!pgPause())return;const before=structuredClone(db);a28Child().paused=$('#a28-paused').value==='yes';pgChild().difficulty=Number($('#a28-difficulty').value);const override={};for(const e of $$('[data-a28permission]'))if(e.value!=='auto')override[e.dataset.a28permission]=e.value;a28Child().permissions=override;pgChild().override={};if(!save()){db=before;return;}toast('遊戲設定已儲存。');render();}
 // All legacy charge/launch routes are retired, including direct hash links.
@@ -19764,7 +19782,7 @@ function l30Classroom(){
  <form class="l30-search" id="l30-unit-search"><label class="sr-only" for="l30-unit-q">搜尋單元或詞語</label><input id="l30-unit-q" name="q" placeholder="搜尋：air、動物、cat…" value="${esc(p.get('q')||'')}" maxlength="80"><select id="l30-track" name="track" aria-label="課程類別"><option value="all" ${filter==='all'?'selected':''}>全部單元</option><option value="family" ${filter==='family'?'selected':''}>60 個拼字單元</option><option value="topic" ${filter==='topic'?'selected':''}>20 個生活主題</option></select><button class="l30-btn primary" type="submit">搜尋</button></form>
  <p class="l30-muted" role="status">找到 ${units.length} 個單元</p><div class="l30-grid three">${l30UnitCards(units,mode)}</div>${units.length?'':'<div class="l30-empty">沒有符合的內容。試試短一點的英文或中文。</div>'}`;
 }
-function l30WordCard(w,unit,{study=false}={}){return `<div class="l30-word" data-l30-exposure="${w.id}">${w.image?l30Picture(w,''): '<div class="l30-noart" aria-hidden="true">Aa</div>'}<strong lang="en">${esc(w.form)}</strong><p>${esc(w.meaning)}</p>${w.example?`<p class="l30-subtle" lang="en">${esc(w.example)}</p>`:''}${study?l30Button('學這個詞','one',`data-word="${w.id}" data-unit="${unit}"`,'small'):''}</div>`;}
+function l30WordCard(w,unit,{study=false}={}){return `<div class="l30-word" data-l30-exposure="${w.id}">${w.image?l30Picture(w,''): window.s65Initial(w.form)}<strong lang="en">${esc(w.form)}</strong><p>${esc(w.meaning)}</p>${w.example?`<p class="l30-subtle" lang="en">${esc(w.example)}</p>`:''}${study?l30Button('學這個詞','one',`data-word="${w.id}" data-unit="${unit}"`,'small'):''}</div>`;}
 function l30UnitDone(uid){
  const d=l30Read(),rows=d.sessions.filter(s=>s.unit===uid&&s.status==='completed'&&s.mode==='lesson'&&s.queue.filter(q=>q.mode!=='study').length>=L30.QUIZ_TOTAL);
  if(!rows.length)return null;const last=rows[rows.length-1];let best=0;for(const r of rows)best=Math.max(best,L30.stars(d,r));
@@ -23245,7 +23263,7 @@ function r37Get(){
  for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
- if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,claimed:[]};
+ if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,cn:0,claimed:[]};
  if(!Array.isArray(o.day.claimed))o.day.claimed=[];
  /* R3.23: the six-world olympiad levels are replaced by the 30-unit 奧數路線 (same keys 'olympiad:grade:stage', new meaning). Old passes never count as new levels; coins stay with the child. */
  if(o.olyV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('olympiad:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.olyOld={n,st};o.miss=o.miss.filter(m=>m.t!=='olympiad');if(o.seen)delete o.seen.olympiad;o.olyV=2;}
@@ -23260,7 +23278,16 @@ function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
 function r37Diff(t){return R37_DIFF[r37DiffN(t)-1];}
 function r37Char(){return R37_CHARS.find(c=>c.id===r37Get().pick)||R37_CHARS[0];}
 function r37Coins(){return activeChild()?.stars||0;}
-function r37AddCoins(n){const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;c.stars+=n;save();return n;}
+/* R3.30 C-03: coins from 闖關, 快速測驗, 默書 and the games share a daily cap (day.cn counts them, so it resets at the same Hong Kong midnight as the missions).
+   Coins past the cap are not paid later. 每日任務 claims pass free=true: their total is already fixed by the three missions of the day. Returns the coins really paid. */
+const R37_COIN_CAP=10;
+const r37CoinToday=()=>Math.min(R37_COIN_CAP,(r37Get().day.cn)||0);
+function r37AddCoins(n,free,quiet){
+ const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;
+ if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;r37Get().day.cn=((r37Get().day.cn)||0)+n;r37Save();}
+ c.stars+=n;save();return n;
+}
+try{window.r37CoinToday=r37CoinToday;window.R37_COIN_CAP=R37_COIN_CAP;}catch(_){}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
 function r37Mission(){const day=r37Get().day;/* R3.29 C-06: the same Hong Kong day as the counters (dayKey), so the missions change at the same midnight as the counts reset */const base=Math.floor(Date.parse(dayKey()+'T00:00:00Z')/86400000)%R37_MISSIONS.length;return [0,1,2].map(i=>R37_MISSIONS[(base+i)%R37_MISSIONS.length]);}
 function r37Hash(str){let h=2166136261;for(const ch of String(str)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
@@ -23291,7 +23318,7 @@ function r37FpsPay(w,s,res){
  if(passed){if(!old.passed){if(s===9)coins+=2;r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  r37Bump('fps');r37Save();
  if(!isLoggedIn())coins=0;
- if(coins)r37AddCoins(coins);
+ coins=r37AddCoins(coins);
  return coins;
 }
 /* ---- R3.21: the three learning games (字母砲台 td / 字母迷宮 mz / 字卡征途 cd), English and maths. Track keys td-en td-ma mz-en mz-ma cd-en cd-ma ---- */
@@ -23347,7 +23374,7 @@ function r37G3Pay(g,subj,w,s,res,items){
   try{if(isLoggedIn()){const c=activeChild(),wd=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(p.en));if(wd){recordAttempt(wd,'spell',!!p.firstOk,p.firstOk?p.en:'',p.en,'遊戲',{src:'g3-'+g,track:'english',w,s});}}}catch(_){}
  }
  const fc=((res&&res.perItem)||[]).filter(p=>!p.rv&&p.firstOk).length;if(fc){r37Bump('correct',fc);if(subj!=='math')r37Bump('enok',fc);}
- r37Save();if(!isLoggedIn())coins=0;if(coins)r37AddCoins(coins);return coins;
+ r37Save();if(!isLoggedIn())coins=0;coins=r37AddCoins(coins);return coins;
 }
 function r37WorldStars(t,w){let n=0;for(let s=0;s<10;s++)n+=r37Entry(t,w,s)?.best||0;return n;}
 function r37WorldDone(t,w){let n=0;for(let s=0;s<10;s++)if(r37Entry(t,w,s)?.passed)n++;return n;}
@@ -23949,11 +23976,17 @@ function r37Result(){
  const detail=`<div class="r37-rdetail">${chip('✅',`正確 ${r.correct}/${total}`)}${r.coins?chip('🪙',`+${r.coins} 金幣`,'r37-rc'):''}${best>1?chip('🔥',`連對 ×${best}`):''}</div>`;
  const act=(cls,attrs,icon,label)=>`<button type="button" class="${cls}" ${attrs}><span class="r37-ai" aria-hidden="true">${r37Icon(icon)}</span><b>${label}</b></button>`;
  const miss=r.missed||[],unfixed=miss.filter(m=>!m.fixed).length;
- let next='',extra='',note='',lessons='',redo='';
+ let next='',extra='',note='',lessons='',redo='',retryBtn=act('r37-sec','data-r37="retry" aria-label="重做"','↻','再玩');
  if(P.kind==='dz'){
   const {g,lvl,n}=P.dz;
-  if(lvl<3)next=act('r37-go','data-r37="dz-next"','▶',`第 ${lvl+1} 級`);
-  else if(g<n-1)next=act('r37-go','data-r37="dz-next"','▶',`下一組 ${g+2}`);
+  /* R3.30: moving up is the main button only after a pass. Below the pass line the main button is another try at this same level (回頭溫習字卡 beside it);
+     the next level stays reachable as a quiet button and from the group page. */
+  const goUp=lvl<3?act(r.passed?'r37-go':'r37-sec','data-r37="dz-next"','▶',`第 ${lvl+1} 級`):g<n-1?act(r.passed?'r37-go':'r37-sec','data-r37="dz-next"','▶',`下一組 ${g+2}`):'';
+  if(r.passed)next=goUp;
+  else{
+   redo=act('r37-go','data-r37="retry"','↻',P.dz.rv?'再試重溫':`再試第 ${lvl} 級`);retryBtn='';
+   next=(P.dz.rv?'':act('r37-sec',`data-r37="dz-go" data-g="${g}" data-l="0"`,'📖','重溫字卡'))+goUp;
+  }
   note=P.dz.rv?(r.passed?`<p class="r37-rn">${P.rvDone?'重溫全部完成！':'下一次重溫：'+(P.rvNext||1)+' 天後'}</p>`:'<p class="r37-rn">明天再重溫一次</p>'):lvl===3&&!r.passed?'<p class="r37-rn">再試一次！</p>':'';
  }else{
   const nextOk=P.kind==='level'&&!P.redo&&r.passed&&(P.s<9||P.w<r37TrackWorlds(P.track).length-1);
@@ -23964,10 +23997,11 @@ function r37Result(){
   lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
  }
+ if(r.capped)note+=`<p class="r37-rn r37-rh">今日闖關和遊戲的金幣已達上限（${R37_COIN_CAP} 枚），明天再賺</p>`;
  const exitLabel=P.kind==='dz'?'組別':P.kind==='level'?'地圖':'返回';
  const badge=r.passed?`<img class="r37-badge-win" src="assets/r318/badge_win.webp" alt="" width="120" height="120" decoding="async">`:`<span class="r37-rb-ic">${r37Icon('⭐')}</span>`;
  return `<section class="r37-play"><div class="r37-result ${r.passed?'win':'lose'} ${miss.length?'hasmiss':''}"><div class="r37-rb" aria-hidden="true">${badge}</div>${r37Stars(r.stars)}<div class="r37-rs" aria-label="答對 ${r.correct} 題，共 ${total} 題">${r.correct}/${total}</div>${detail}${note}${r37MissHTML(r)}${extra}${r80ResultCard(P)}
- <div class="r37-ra">${redo}${lessons}${next}${act('r37-sec','data-r37="retry" aria-label="重做"','↻','再玩')}${act('r37-sec','data-r37="exit" aria-label="'+(P.kind==='dz'?'組別':'返回地圖')+'"','🗺️',exitLabel)}</div></div></section>`;
+ <div class="r37-ra">${redo}${lessons}${next}${retryBtn}${act('r37-sec','data-r37="exit" aria-label="'+(P.kind==='dz'?'組別':'返回地圖')+'"','🗺️',exitLabel)}</div></div></section>`;
 }
 /* ---- starting a level: warm-up of old wrong words (English), example card (maths), first learn chunk ---- */
 function r37Lookup(w,s,en){
@@ -24207,9 +24241,9 @@ function r37Finish(){
   r37Save();
  }
  if(!isLoggedIn())coins=0;
- if(coins)r37AddCoins(coins);
+ const wanted=coins;coins=r37AddCoins(coins,false,true);/* R3.30 C-03: daily cap; the result page says so */
  const list=missed.map(m=>{const mc=!!(m.q&&m.q.mode==='mcq');return m.en?{en:m.en,zh:m.zh,you:m.value,fixed:m.fixed,kind:m.kind,key:m.key,mc}:{q:m.q.prompt,answer:m.q.answer,you:m.value,fixed:m.fixed,key:m.key,skill:m.skill,mc,svg:(m.q.mq&&m.q.mq.svg)||''};});
- P.result={stars,passed,card:newCard,correct:Math.round(correct*2)/2,total,coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
+ P.result={stars,passed,card:newCard,correct:Math.round(correct*2)/2,total,coins,capped:wanted>coins,missed:list,lessons,why,rvNext:P.rvNext||0,hintedRight:P.hintedRight||0,hintedFix:missed.filter(m=>m.hintedFix&&!m.fixed).length};P.missed=missed;P.phase='result';playSfx(passed?'finish':'wrong');render();
 }
 function r37Exit(){
  const P=r37P;r37P=null;clearTimeout(r37Timer);try{speechSynthesis.cancel();}catch(_){}
@@ -24674,14 +24708,14 @@ function r37FpsMount(){
  const box=$('#r37-fps-box');if(!box)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37DiffN('english'),rounds:10,sound:sfxEnabled(),
-  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){d.fc=(d.fc||0)+1;coins=1;r37Save();r37AddCoins(1);}return coins;},
+  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){coins=r37AddCoins(1);if(coins){d.fc=(d.fc||0)+1;r37Save();}}return coins;},
   onExit:()=>{r37FpsStop();location.hash='#p/games';}});
 }
 function r37FpsLvMount(){
  const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
- const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+ const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,passRate:r37Diff('english').pass/* R3.30 C-09 */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
   onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
  if(s===9)opts.boss=true;
@@ -24704,7 +24738,7 @@ function r37G3Mount(){
  const diff=r37DiffN(subj==='math'?'math':'english'),ch=r37Char(),W=r37G3Worlds(subj)[w],items=r37G3Items(subj,w,s,diff,sel.seed),review=r37G3Review(subj,w,s,diff,sel.seed,items);
  if(items.length<4){toast('這一關還未準備好。','bad');location.hash=from;return;}
  const nx=r37G3Next(g,subj,w,s),ut=subj==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(r37UnitId(w,s))?.title||''):'';
- const opts={subject:subj,items,review,difficulty:diff,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
+ const opts={subject:subj,items,review,difficulty:diff,passRate:r37Diff(subj==='math'?'math':'english').pass/* R3.30 C-09: the parent's pass rate, same as the 闖關 */,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
   title:G.name,level:{w,s,boss:s===9,title:ut||(W&&W.name)||'',icon:(W&&W.icon)||'',hue:G.hue,grade:r37G3Grade(subj,w)},
   character:{id:ch.id,icon:ch.icon,img:ch.img,name:ch.name,perk:ch.perk},syllables:r37SylText,
   regen:()=>{if(subj!=='math')return null;const sd=(Date.now()&0xfffff)+1,its=r37G3Items(subj,w,s,diff,sd);return {items:its,review:r37G3Review(subj,w,s,diff,sd,its)};},speak:t=>{try{r37Speak(t);}catch(_){}},
@@ -24721,7 +24755,7 @@ function r37RunMount(){
   onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('run');return 0;}/* R3.29 C-07: endless runs have their own count, not the letter-hunt mission */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
-   r37Save();if(coins)r37AddCoins(coins);return coins;},
+   r37Save();coins=r37AddCoins(coins);return coins;},
   onExit:()=>{r37RunStop();location.hash='#lv/runner';}});
 }
 function r37Layout(){
@@ -24805,7 +24839,7 @@ function r37UnitLevelBtn(){
  const id=new URLSearchParams((location.hash.split('?')[1]||'')).get('id'),at=id&&r37UnitAt(id),row=$('#app .q36-start .l30-row');if(!at||!row)return;
  const open=r37StageOpen('english',at.w,at.s);
  const dn=l30UnitDone(id);if(dn&&dn.lvOnly){const sb=row.querySelector('[data-l30="start"]');if(sb&&sb.textContent.trim()==='再學一次')sb.textContent='開始這一課';}
- row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} ${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}</a>`);
+ row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english" aria-label="闖關還未開放：${R37_TRACKS.english.worlds[at.w].name} ${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}，要先通過前一關">🔒 闖關：${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}</a>`);
  if(r37Entry('english',at.w,at.s)?.passed&&r37EnStage(at.w,at.s).length>=4)row.insertAdjacentHTML('beforeend',`<button type="button" class="l30-btn r37-ulv r37-ufps" data-r37="fps-level" data-w="${at.w}" data-s="${at.s}" data-from="#unit?id=${esc(id)}">🎯 射擊鞏固</button>`);
 }
 function r37FixNav(){
@@ -24853,7 +24887,7 @@ document.addEventListener('click',e=>{
  else if(a==='chars')location.hash='#p/chars';
  else if(a==='pick'){const o=r37Get();if(o.chars.includes(el.dataset.id)){o.pick=el.dataset.id;r37Save();render();}}
  else if(a==='buy'){const o=r37Get(),ch=R37_CHARS.find(x=>x.id===el.dataset.id),c=activeChild();if(ch&&c&&isLoggedIn()&&!o.chars.includes(ch.id)&&c.stars>=ch.cost){c.stars-=ch.cost;if(save()){o.chars.push(ch.id);o.pick=ch.id;r37Save();playSfx('correct');}else c.stars+=ch.cost;render();}}
- else if(a==='claim'){const m=R37_MISSIONS.find(x=>x.id===el.dataset.id),d=r37Get().day;if(m&&!d.claimed.includes(m.id)&&(d[m.key]||0)>=m.goal){d.claimed.push(m.id);r37Save();r37AddCoins(m.coins);playSfx('correct');render();}}
+ else if(a==='claim'){const m=R37_MISSIONS.find(x=>x.id===el.dataset.id),d=r37Get().day;if(m&&!d.claimed.includes(m.id)&&(d[m.key]||0)>=m.goal){d.claimed.push(m.id);r37Save();r37AddCoins(m.coins,true);playSfx('correct');render();}}
 });
 document.addEventListener('submit',e=>{
  if(!e.target.closest?.('[data-r37-form]'))return;e.preventDefault();
@@ -27853,7 +27887,12 @@ s50FixLabels=function(){
   if(sel&&!q$('.s60-unitgrid',b)){
    const panel=sel.closest('.l30-panel'),row=q$(':scope>.l30-row',panel);
    const grid=mk('div','s60-unitgrid');
-   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;c.textContent=o.textContent.replace(/^(拼字小課|生活主題)\s*\d+/,o.value).replace(/\s*·\s*/,' ');if(o.selected)c.classList.add('on');grid.appendChild(c);});
+   [...sel.options].forEach(o=>{const c=mk('button','s60-chip');c.type='button';c.dataset.v=o.value;
+    /* R3.30 C-22: a chip names the lesson the way the child's map does (title, world · stage, passed or not) instead of its internal code U56 */
+    const title=o.textContent.replace(/^(拼字小課|生活主題)\s*\d+\s*·\s*/,''),pos=(()=>{try{return r37UnitAt(o.value);}catch(_){return null;}})();
+    let sub='',ok=false;if(pos){const W=R37_TRACKS.english.worlds[pos.w];ok=!!r37Entry('english',pos.w,pos.s)?.passed;sub=(W?W.name+' · ':'')+'第 '+(pos.s+1)+' 關';}
+    c.innerHTML='<b>'+esc(title)+'</b>'+(sub?'<small>'+esc(sub)+'</small>':'')+(ok?'<i class="s60-ok" aria-hidden="true">✓</i>':'');c.setAttribute('aria-label',title+(sub?'，'+sub:'')+(ok?'，已過關':''));if(ok)c.dataset.passed='1';
+    if(o.selected)c.classList.add('on');grid.appendChild(c);});
    grid.addEventListener('click',e=>{const c=e.target.closest('.s60-chip');if(!c)return;sel.value=c.dataset.v;sel.dispatchEvent(new Event('change',{bubbles:true}));q$$('.s60-chip',grid).forEach(x=>x.classList.toggle('on',x===c));});
    panel.insertBefore(grid,row||null);sel.classList.add('s60-off');
    panel.classList.add('s60-grow');grid.dataset.s60List='';b.dataset.s60Fit='';
@@ -28160,7 +28199,12 @@ s50FixLabels=function(){
   if(short)return n;
   return `這裏只計拼字小課，不含英文闖關。${n}<a href="#p/parent" data-s65="prog">到家長星看「進度」</a>`;
  };
-  /* C-13: what the child answers inside an arcade game */
+  /* R3.30: a word without a picture gets a tile with its first letter (upper + lower case); the colour follows the letter, so the same word always looks the same */
+ window.s65Initial=f=>{
+  const ch=[...String(f||'').trim()].find(c=>/\p{L}/u.test(c))||'A',k=ch.toLowerCase().charCodeAt(0)%8;
+  return '<div class="l30-noart" aria-hidden="true" data-k="'+k+'"><span>'+ch.toUpperCase()+'</span><span>'+ch.toLowerCase()+'</span></div>';
+ };
+ /* C-13: what the child answers inside an arcade game */
  window.s65ArcLearn=id=>{
   let v='';try{v=WQArcPlus.game[id].play.verb||'';}catch(_){}
   return v?'遊戲裏要答英文：'+v+'。':'遊戲途中會出現英文字或算式小問題，答對才有加分。';
@@ -30120,7 +30164,7 @@ function r80LesDraw(){
  else scene=`<div class="r80-wbox" id="r80-wbox"></div>`;
  const say=c.t==='card'?(c.say||'做完闖關 ②，這張卡就是你的！'):(c.say||'');
  let tools='';
- if(c.t==='show'&&c.scene&&c.scene.w!=='banner')tools=`<button type="button" class="r80-tool" data-r80="replay" aria-label="重播動畫"><span aria-hidden="true">↻</span><b>重播</b></button>`;
+ if(c.t==='show'&&c.scene&&c.scene.w!=='banner'){const held=r80Spoils(u,L.i);tools=`<button type="button" class="r80-tool" data-r80="replay" aria-label="${held?'看示範':'重播動畫'}"><span aria-hidden="true">${held?'▶':'↻'}</span><b>${held?'看示範':'重播'}</b></button>`;}
  if(c.t==='do')tools=`<button type="button" class="r80-tool" data-r80="demo" aria-label="示範一次"><span aria-hidden="true">▶</span><b>示範一次</b></button><button type="button" class="r80-tool" data-r80="reset" aria-label="重來"><span aria-hidden="true">↺</span><b>重來</b></button>`;
  if(c.t==='predict'){
   side=`${c.ask?`<p class="r80-ask">${r80Esc(c.ask)}</p>`:''}<div class="r80-opts n${c.options.length}" role="group" aria-label="選擇答案">${c.options.map((o,k)=>`<button type="button" class="r80-opt ${S.picked===k?(String(o)===String(c.answer)?'ok':'miss'):(S.done&&String(o)===String(c.answer)?'ok':'')}" data-r80="predict" data-k="${k}" ${S.done?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`;
@@ -30137,6 +30181,9 @@ function r80LesDraw(){
  r80Focus();
 }
 function r80Focus(){const b=document.getElementById('r80-next');if(b&&!b.disabled){}}
+/* R3.30 B-L2: a show card plays its demo on entry (so the picture matches the words), except when a later 預測／試試看 card asks about the very same picture:
+   the demo would end on that card's answer (e.g. 「第 7 個，停在 🔴」). Those cards stay at the starting state; 看示範 plays it on request, and a 預測 card only demonstrates after the child answers. */
+function r80Spoils(u,i){const c=u.lesson[i],J=JSON.stringify;if(!c||c.t!=='show'||!c.scene)return false;return u.lesson.slice(i+1).some(d=>(d.t==='predict'||d.t==='try')&&d.scene&&d.scene.w===c.scene.w&&J(d.scene.p)===J(c.scene.p));}
 function r80LesWidget(){
  const L=r80L,c=r80LesCard(),box=document.getElementById('r80-wbox');if(!box||!c.scene)return;
  const S=L.st[L.i];
@@ -30144,7 +30191,7 @@ function r80LesWidget(){
   const mode=c.t==='do'?'do':'show';
   const api={reduced:r37Calm(),sfx:r80Sfx,onChange:()=>r80Changed()};
   try{L.w=WQOlyWidgets.mount(c.scene.w,box,Object.assign({},c.scene.p,{mode}),api);}catch(e){box.innerHTML='<p class="r80-empty">圖片載入不了</p>';return;}
-  if(c.t==='show')setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
+  if(c.t==='show'&&!r80Spoils(L.u,L.i))setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
   if(c.t==='predict'&&S.done&&L.w)L.w.demo();
   if(c.t==='do'&&S.done&&L.w&&L.w.check())r80Changed();
  }
@@ -30246,9 +30293,7 @@ function r80Why(q,fb){
  return t?`<small class="r80-whyb"><span aria-hidden="true">${r37Icon('💡')}</span>${esc(t)}</small>`:'';
 }
 
-/* wrong book keeps the figure of an olympiad question (the stem alone says "下面的圖形…" without it): r37NoteWrong (s20) writes the record, this adds the svg */
-{const noteWrong=r37NoteWrong;r37NoteWrong=function(P,q,value){noteWrong(P,q,value);
- try{const svg=P&&P.track==='olympiad'&&q&&q.mq&&q.mq.svg;if(!svg)return;const m=r37Get().miss,x=m[m.length-1];if(x&&x.t==='olympiad'&&x.q===q.mq.q&&!x.svg){x.svg=svg;r37Save();}}catch(_){}};}
+/* R3.30: the wrong book keeps the figure of an olympiad question (the stem alone says "下面的圖形…" without it). The record, svg included, is written in one place only: r37NoteWrong (s20_ui.js); every generated olympiad figure is under its 6000-character limit (largest 5,494 over 27,678 questions, _team_runs/r330/work/svgsize.cjs). */
 
 /* R3.28 s90 - answer feedback on the legacy teaching pages (默書星 / 英文課堂 / 字詞工房), same standard as the level engine:
    wrong = red + x, right = green + tick, a short headline (答對了 / 再想想), the wrong sound on every wrong try, and the feedback

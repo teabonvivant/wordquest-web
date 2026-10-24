@@ -17,6 +17,7 @@ sys.path.insert(0, str(HERE))
 import lib37 as L  # noqa: E402
 
 C = L.Checker('t19 save landing')
+TMO = int(os.environ.get('WQ37_TIMEOUT', '60000'))   # R3.30: every wait is for a state and generous (one core, a 17 MB page: 12-15 s was not enough under load)
 SHOTS = Path(os.environ.get('T19_SHOTS', '/home/.z/workspaces/con_EfO3MUQLdW6o7xbL/r315/shots'))
 SHOTS.mkdir(parents=True, exist_ok=True)
 PW = L.wq33.PW
@@ -32,24 +33,30 @@ def html():
     return HTML
 
 
+# R3.30: the page is served from a real https origin (L.serve_https), not from file:// - see its docstring: the whole test is about what a SECOND TAB of the same browser sees.
+URL19 = L.HTTPS_URL
+serve = L.serve_https
+
+
 def new_tab(ctx, errs):
     """a second / fresh tab of the same browser (same localStorage, new sessionStorage)"""
     pg = ctx.new_page()
-    pg.route(L.URL, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html()))
+    serve(pg)
     pg.on('pageerror', lambda e: errs.append('PAGEERR ' + str(e)))
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)
     pg.emulate_media(reduced_motion='reduce')
-    pg.set_default_timeout(12000)
-    pg.goto(L.URL)
-    pg.wait_for_function('typeof window.__r37==="function"', timeout=15000)
+    pg.set_default_timeout(TMO)
+    pg.goto(URL19)
+    pg.wait_for_function('typeof window.__r37==="function"', timeout=TMO)
     pg.wait_for_timeout(700)
     return pg
 
 
 def start(p, w=390, h=844, touch=True):
     b, ctx, pg, errs = L.open_page(p, w, h, touch)
-    pg.goto(L.URL)
-    pg.wait_for_function('typeof window.__r37==="function"', timeout=15000)
+    serve(pg)
+    pg.goto(URL19)
+    pg.wait_for_function('typeof window.__r37==="function"', timeout=TMO)
     pg.wait_for_timeout(700)
     return b, ctx, pg, errs
 

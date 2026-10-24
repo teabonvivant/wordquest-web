@@ -6,11 +6,13 @@ Business rules are checked through the host closure bridge (lib37.ev); games are
 Screenshots (lobby + result card, 390x844 and 1440x900) go to /tmp/arc_shots.
 """
 import json
+import os
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib37 import *  # noqa: E402,F401,F403
 
+T = int(os.environ.get('WQ37_TIMEOUT', '60000'))   # R3.30: wait for the state, generously (one core, 17 MB page); never a short fixed limit
 C = Checker('t09')
 SHOTS = Path('/tmp/arc_shots')
 SHOTS.mkdir(exist_ok=True)
@@ -20,13 +22,13 @@ RESET_STORE = "(()=>{delete r37Mem[r37Key()];try{localStorage.removeItem(r37Key(
 LEAVE = "(()=>{const c=a28Child();if(c.run)COIN28.close(c);pgPlaying=false;pgGame=null;a28Epoch++;pgFree=false;const r=0;for(const id of COIN28.ids)c.permissions[id]='open';c.batch.used=0;activeChild().stars=60;save();go('game');render();return 1;})()"
 
 
-def wait_ev(pg, code, timeout=10000):
+def wait_ev(pg, code, timeout=T):
     pg.wait_for_function("(c)=>window.__r37(c)", arg=code, timeout=timeout)
 
 
 def lobby(pg, wait=700):
     ev(pg, LEAVE)
-    pg.wait_for_selector('[data-a28="filter"]', timeout=15000)
+    pg.wait_for_selector('[data-a28="filter"]', timeout=T)
     pg.locator('[data-a28="filter"][data-filter="全部"]').click()
     pg.wait_for_timeout(wait)
 
@@ -38,9 +40,9 @@ def launch(pg, gid):
     card.scroll_into_view_if_needed()
     card.locator('[data-a28="intro"]').click()
     pg.locator('#pg-dialog [data-a28="buy"]').click()
-    pg.wait_for_selector('#pg-canvas', timeout=10000)
+    pg.wait_for_selector('#pg-canvas', timeout=T)
     wait_ev(pg, f"pgMeta&&pgMeta.id==='{gid}'")
-    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=8000)
+    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=T)
 
 
 def press_play(pg):
@@ -51,7 +53,7 @@ def press_play(pg):
 def finish_round(pg, score):
     """Set the final score the way the engine would have, then end the round through the host's own failure path."""
     ev(pg, f"(()=>{{pgGame.score={score};a28Fail('t09');return 1;}})()")
-    pg.wait_for_selector('#pg-overlay .wq34-result', timeout=8000)
+    pg.wait_for_selector('#pg-overlay .wq34-result', timeout=T)
     pg.wait_for_timeout(250)
 
 
@@ -269,9 +271,11 @@ def flow_suite(p, w, h, touch, tag):
     C.ok(pg.evaluate("document.querySelector('#pg-overlay').hidden===true"), f'{tag}: game starts after a failed quiz (never blocked)')
     # ---- live combo in a real running game: three quick score jumps
     c0 = ev(pg, "(WQArc._combo()||{max:0}).max")
+    # R3.30: the badge is a polled sampler (a jump counts when score / poll interval >= 30 points per second, and only one jump per poll), so the jumps are big enough to count at any
+    # poll rate and each is waited for as a STATE (combo count k+1), not 120 ms: on a loaded machine two jumps inside one poll used to merge into one and the badge showed x2
     for k in range(3):
-        ev(pg, "(()=>{pgGame.score+=3;return pgGame.score;})()")
-        pg.wait_for_timeout(120)
+        ev(pg, "(()=>{pgGame.score+=300;return pgGame.score;})()")
+        pg.wait_for_function("(n)=>{const c=window.__r37('WQArc._combo()');return !!c&&c.n>=n}", arg=k + 1, timeout=T)
     pg.wait_for_timeout(120)
     vis = pg.evaluate("(()=>{const e=document.querySelector('.a28-viewport>.arx-combo');return e?{hidden:e.hidden,text:e.textContent,pe:getComputedStyle(e).pointerEvents,ah:e.getAttribute('aria-hidden')}:null})()")
     C.ok(vis and not vis['hidden'] and '×3' in vis['text'] and vis['pe'] == 'none' and vis['ah'] == 'true', f'{tag}: combo badge shows x3 over the viewport, pointer-events none {vis}')
@@ -292,7 +296,7 @@ def flow_suite(p, w, h, touch, tag):
     C.ok(pg.evaluate("document.querySelectorAll('.arx-toast').length") >= 1, f'{tag}: unlock toast shown')
     # ---- game 1 again: higher score -> new record fanfare with previous best
     pg.locator('#pg-overlay [data-a28="buy"]').click()
-    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=8000)
+    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=T)
     pg.wait_for_timeout(300)
     press_play(pg)
     finish_round(pg, 13)
@@ -303,7 +307,7 @@ def flow_suite(p, w, h, touch, tag):
     pg.screenshot(path=str(SHOTS / f'result_{w}x{h}.png'))
     # lower score on a third run: no record, stars stay
     pg.locator('#pg-overlay [data-a28="buy"]').click()
-    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=8000)
+    pg.wait_for_selector('#pg-overlay .arx-pw', timeout=T)
     pg.wait_for_timeout(300)
     press_play(pg)
     finish_round(pg, 3)

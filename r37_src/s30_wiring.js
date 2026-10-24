@@ -16,14 +16,14 @@ function r37FpsMount(){
  const box=$('#r37-fps-box');if(!box)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37DiffN('english'),rounds:10,sound:sfxEnabled(),
-  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){d.fc=(d.fc||0)+1;coins=1;r37Save();r37AddCoins(1);}return coins;},
+  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){coins=r37AddCoins(1);if(coins){d.fc=(d.fc||0)+1;r37Save();}}return coins;},
   onExit:()=>{r37FpsStop();location.hash='#p/games';}});
 }
 function r37FpsLvMount(){
  const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
- const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+ const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,passRate:r37Diff('english').pass/* R3.30 C-09 */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
   onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
  if(s===9)opts.boss=true;
@@ -46,7 +46,7 @@ function r37G3Mount(){
  const diff=r37DiffN(subj==='math'?'math':'english'),ch=r37Char(),W=r37G3Worlds(subj)[w],items=r37G3Items(subj,w,s,diff,sel.seed),review=r37G3Review(subj,w,s,diff,sel.seed,items);
  if(items.length<4){toast('這一關還未準備好。','bad');location.hash=from;return;}
  const nx=r37G3Next(g,subj,w,s),ut=subj==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(r37UnitId(w,s))?.title||''):'';
- const opts={subject:subj,items,review,difficulty:diff,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
+ const opts={subject:subj,items,review,difficulty:diff,passRate:r37Diff(subj==='math'?'math':'english').pass/* R3.30 C-09: the parent's pass rate, same as the 闖關 */,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
   title:G.name,level:{w,s,boss:s===9,title:ut||(W&&W.name)||'',icon:(W&&W.icon)||'',hue:G.hue,grade:r37G3Grade(subj,w)},
   character:{id:ch.id,icon:ch.icon,img:ch.img,name:ch.name,perk:ch.perk},syllables:r37SylText,
   regen:()=>{if(subj!=='math')return null;const sd=(Date.now()&0xfffff)+1,its=r37G3Items(subj,w,s,diff,sd);return {items:its,review:r37G3Review(subj,w,s,diff,sd,its)};},speak:t=>{try{r37Speak(t);}catch(_){}},
@@ -63,7 +63,7 @@ function r37RunMount(){
   onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('run');return 0;}/* R3.29 C-07: endless runs have their own count, not the letter-hunt mission */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
-   r37Save();if(coins)r37AddCoins(coins);return coins;},
+   r37Save();coins=r37AddCoins(coins);return coins;},
   onExit:()=>{r37RunStop();location.hash='#lv/runner';}});
 }
 function r37Layout(){
@@ -147,7 +147,7 @@ function r37UnitLevelBtn(){
  const id=new URLSearchParams((location.hash.split('?')[1]||'')).get('id'),at=id&&r37UnitAt(id),row=$('#app .q36-start .l30-row');if(!at||!row)return;
  const open=r37StageOpen('english',at.w,at.s);
  const dn=l30UnitDone(id);if(dn&&dn.lvOnly){const sb=row.querySelector('[data-l30="start"]');if(sb&&sb.textContent.trim()==='再學一次')sb.textContent='開始這一課';}
- row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english">🔒 闖關：${R37_TRACKS.english.worlds[at.w].icon} ${R37_TRACKS.english.worlds[at.w].name} ${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}</a>`);
+ row.insertAdjacentHTML('beforeend',open?`<button type="button" class="l30-btn r37-ulv" data-r37="level" data-track="english" data-w="${at.w}" data-s="${at.s}">🏆 闖關挑戰</button>`:`<a class="l30-btn r37-ulv lock" href="#lv/english" aria-label="闖關還未開放：${R37_TRACKS.english.worlds[at.w].name} ${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}，要先通過前一關">🔒 闖關：${at.s===9?'魔王關':'第 '+(at.s+1)+' 關'}</a>`);
  if(r37Entry('english',at.w,at.s)?.passed&&r37EnStage(at.w,at.s).length>=4)row.insertAdjacentHTML('beforeend',`<button type="button" class="l30-btn r37-ulv r37-ufps" data-r37="fps-level" data-w="${at.w}" data-s="${at.s}" data-from="#unit?id=${esc(id)}">🎯 射擊鞏固</button>`);
 }
 function r37FixNav(){
@@ -195,7 +195,7 @@ document.addEventListener('click',e=>{
  else if(a==='chars')location.hash='#p/chars';
  else if(a==='pick'){const o=r37Get();if(o.chars.includes(el.dataset.id)){o.pick=el.dataset.id;r37Save();render();}}
  else if(a==='buy'){const o=r37Get(),ch=R37_CHARS.find(x=>x.id===el.dataset.id),c=activeChild();if(ch&&c&&isLoggedIn()&&!o.chars.includes(ch.id)&&c.stars>=ch.cost){c.stars-=ch.cost;if(save()){o.chars.push(ch.id);o.pick=ch.id;r37Save();playSfx('correct');}else c.stars+=ch.cost;render();}}
- else if(a==='claim'){const m=R37_MISSIONS.find(x=>x.id===el.dataset.id),d=r37Get().day;if(m&&!d.claimed.includes(m.id)&&(d[m.key]||0)>=m.goal){d.claimed.push(m.id);r37Save();r37AddCoins(m.coins);playSfx('correct');render();}}
+ else if(a==='claim'){const m=R37_MISSIONS.find(x=>x.id===el.dataset.id),d=r37Get().day;if(m&&!d.claimed.includes(m.id)&&(d[m.key]||0)>=m.goal){d.claimed.push(m.id);r37Save();r37AddCoins(m.coins,true);playSfx('correct');render();}}
 });
 document.addEventListener('submit',e=>{
  if(!e.target.closest?.('[data-r37-form]'))return;e.preventDefault();

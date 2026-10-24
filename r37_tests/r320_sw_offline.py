@@ -1,7 +1,7 @@
 """R3.20 H1 - offline: build served by `python3 -m http.server`, service worker installed, then the context goes offline and the page is reloaded.
 
     python3 r37_tests/r320_sw_offline.py [app_dir]        # default: <repo>/app
-Checks: sw.js cache name ends with -3.20; after the SW is active and the context is offline a reload still shows the kid home (#kid) and the arcade
+Checks: sw.js cache name ends with -<RELEASE>-<art signature> (R3.30 on; RELEASE in tools/build_r37.py); after the SW is active and the context is offline a reload still shows the kid home (#kid) and the arcade
 lobby (#game), and one arcade game opens (play page with the HUD). Failed requests while offline are listed (only external fonts / speech may fail).
 Screenshots and a JSON summary go to r37_evidence/r320/sw/."""
 import json, re, subprocess, sys, time, socket
@@ -25,9 +25,11 @@ def main():
     summary = {'sw_cache_name': None, 'checks': {}, 'failed_requests_offline': []}
     try:
         sw = (APP / 'sw.js').read_text()
-        m = re.search(r"['\"]([^'\"]*-3\.20)['\"]", sw)
+        rel = re.search(r"^RELEASE = '([^']+)'", (R / 'tools/build_r37.py').read_text(), re.M).group(1)
+        pat = r"-" + re.escape(rel) + r"-[0-9a-f]{8}"
+        m = re.search(r"['\"]([^'\"]*" + pat + r")['\"]", sw)
         summary['sw_cache_name'] = m.group(1) if m else None
-        summary['checks']['sw_cache_name_ends_-3.20'] = bool(m)
+        summary['checks']['sw_cache_name_follows_release'] = bool(m) and '-3.20' not in sw
         base = f'http://127.0.0.1:{port}/index.html'
         with sync_playwright() as p:
             b = p.chromium.launch(args=['--no-sandbox'])
@@ -55,7 +57,7 @@ def main():
             pg.reload(); pg.wait_for_timeout(2500)
             caches = pg.evaluate("caches.keys()")
             summary['caches'] = caches
-            summary['checks']['cache_name_in_browser'] = any(c.endswith('-3.20') for c in caches)
+            summary['checks']['cache_name_in_browser'] = any(re.search(pat + r'$', c) for c in caches)
             # R3.20 r2: Chromium's set_offline() also fails navigations that the service worker could answer from its cache (ERR_INTERNET_DISCONNECTED on reload, same on the before build);
             # stopping the local server is a real network failure for the worker's fetch() and lets the cache path run
             srv.terminate(); srv.wait(timeout=10); time.sleep(1.0)

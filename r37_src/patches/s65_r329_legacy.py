@@ -75,7 +75,8 @@ def apply(s, ctx):
           "<h1>字詞工房報告</h1><p>分開看：會砌字、明白意思、自己串對、隔日複習。字塊練習只算練習，不算自己掌握。這個頁面只供家長閱讀，不會改動孩子的紀錄。</p>")
 
     # ------------------------------------------------------------------ A-26: a word without a picture shows no instruction text
-    s = o(s, "'<div class=\"l30-noart\">用中文和情境理解</div>'", "'<div class=\"l30-noart\" aria-hidden=\"true\">Aa</div>'")
+    # R3.30: the stand-in is the word's own first letter on a colour tile (window.s65Initial, r37_src/s60_legacy.js), not a generic "Aa"
+    s = o(s, "'<div class=\"l30-noart\">用中文和情境理解</div>'", "window.s65Initial(w.form)")
 
     # ------------------------------------------------------------------ A-14 / C-05: the spelling-classroom report
     s = o(s, "[[m.seen,'看過教學'],[m.meaning,'認得詞義'],[m.independent,'曾自己串對'],[m.delayed,'通過隔日複習']]",
@@ -114,9 +115,12 @@ def apply(s, ctx):
           "<p class=\"p30-goal\">${esc(gm.g)}</p><p class=\"p30-goal p30-learn\">${esc(window.s65ArcLearn(id))}</p>`:`<p>${esc(pgMeta.guide||'')}</p>`)")
 
     # ------------------------------------------------------------------ C-03 / C-23: one coin rule, matching what is really paid
+    # R3.30 C-03: every figure below is what r37Finish / r37FpsPay / r37G3Pay / the runner pay, and the daily cap is r37AddCoins' R37_COIN_CAP
     RULES = ("<p>闖關第一次拿滿 5 顆星，得 1 枚金幣；魔王關（第 10 關）得 3 枚，第一次通過魔王關再多 2 枚。"
-             "選擇題、填充題、默書拿滿 5 顆星，得 1 枚，每日最多 3 次。遊戲星的每日任務完成後可領 1 至 2 枚。"
+             "選擇題、填充題、默書拿滿 5 顆星，得 1 枚，每日最多 3 次。</p>"
+             "<p>字母獵場、星際跑酷、字母砲台、字母迷宮、字卡征途的關卡，第一次拿滿 5 顆星也得 1 枚，魔王關另有額外獎勵。字母獵場的練習局拿滿 5 顆星，得 1 枚，每日最多 2 次。"
              "部分角色多得 1 枚。答錯不會扣金幣，訂正不會多給。</p>"
+             "<p><strong>每日上限：</strong>闖關、練習和遊戲賺到的金幣，每日合共最多 ${window.R37_COIN_CAP||10} 枚（今日已得 ${window.r37CoinToday?window.r37CoinToday():0} 枚）。超出的不會補發，明天重新計算。遊戲星的每日任務完成後可領 1 至 2 枚，不計在上限內。</p>"
              "<p>街機遊戲每局 1 至 4 枚金幣（按遊戲不同），沒有倒數計時。</p>")
     s, nrules = re.subn(r"<p>每次練習或測驗，全部自己答對.*?訂正不會多給金幣。每款遊戲要的金幣不同，由 1 枚到 4 枚。</p>", lambda m: RULES, s, count=1, flags=re.S)
     if nrules != 1:
