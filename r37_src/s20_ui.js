@@ -114,7 +114,7 @@ function r37Hub(id){
  const quiz=t=>r37B('✅','選擇題',`data-r37="quiz" data-track="${t}" data-mode="mcq"`,'blue')+r37B('✍️','填充題',`data-r37="quiz" data-track="${t}" data-mode="fill"`,'green');
  if(id==='english'){
   const q=r37TrackProgress('english');
-  tiles=r37A('🏆','闖關','#lv/english','gold big','english',`${q.done}/${q.total} 關`)+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('📖','繼續學習','#learning')+r37A('📖','詞庫','#library');
+  tiles=r37A('🏆','闖關','#lv/english','gold big','english',`${q.done}/${q.total} 關`)+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('▶','繼續學習','#learning')+r37A('📖','詞庫','#library');
   extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total} 關</b>`,'英文進度：已過 '+q.done+' 關，共 '+q.total+' 關');pre=r37AssignCard();
  }else if(id==='math'){
   const q=r37TrackProgress('math');
@@ -265,7 +265,7 @@ function r37FbHTML(P,q,fb){
   else head=esc(P.praise);
   if(!fb.part&&!fb.syn&&!fb.hint&&q.word&&!q.dz&&R37_DIFF[P.diff-1].n<5)sub=`<small><span lang="en">${esc(q.word)}</span> ＝ ${esc(q.zhOf||'')}</small>`;
  }else{
-  head='正確答案是 '+(dzFill?r37DzAns(q,fb):fillEn?r37DzAns(q,fb):esc(q.answer))+(r37WillRetest(P,q)?'，等一下再考你一次':'');
+  head='正確答案是 '+(dzFill?r37DzAns(q,fb):fillEn?r37DzAns(q,fb):esc(q.answer));
   if(dzFill)sub=r37DzYou(q,fb);
   else if(fillEn)sub=r37DzYou(q,fb)+(q.explain?`<small>${esc(q.explain)}</small>`:'');
   else{
@@ -276,6 +276,8 @@ function r37FbHTML(P,q,fb){
     sub+=`<small class="r37-picked">你選了 ${esc(a[0])}＝${esc(a[1])}</small>`;
    }
   }
+  /* R3.29 integration: the retest promise is its own line (the typed answer is a big block, so a trailing "，等一下…" started a line with a comma) */
+  if(r37WillRetest(P,q))sub=`<small class="r37-rtn">等一下會再考你一次</small>`+sub;
  }
  return `<div class="r37-fb ${fb.ok?(fb.part||fb.hint?'part':'ok'):'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'⭐':'💭')}</span><div><b>${head}</b>${sub}</div><button type="button" class="r37-next" data-r37="next" aria-label="下一題" ${lock?'disabled aria-disabled="true"':''}>▶</button></div>`;
 }
@@ -621,7 +623,7 @@ function r37ParentHub(){
   const subs=['english','math','olympiad'].map(k=>`<button type="button" class="r37-dsub ${sub===k?'on':''}" data-r37="dsub" data-k="${k}" aria-pressed="${sub===k}"><span aria-hidden="true">${r37Icon(R37_TRACKS[k].icon)}</span><b>${R37_TRACKS[k].name}</b><small>${r37Icon(R37_DIFF[o.diffs[k]-1].icon)}${o.diffs[k]}</small></button>`).join('');
   const nums=R37_DIFF.map(d=>`<b>${d.n} ${d.name}</b>：${sub==='english'?'至少 '+Math.max(d.qs,8)+' 題':d.qs+' 題'}、${d.hearts} 顆心、答對 ${Math.round(d.pass*100)}% 過關`).join('；');
   const note=sub==='english'
-   ?`<li>${nums}。每個生字至少考 1 題，頭目關最少 12 題。</li><li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格；<b>3</b> 標準，沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字；<b>5</b> 填充題更多、沒有提示${cur===5?'（目前）':''}</li><li>答錯的詞，3 題後換題型補考。合格＝第一次答對率達標，而且答錯的詞補考要全對；星星按第一次答對率計</li>`
+   ?`<li>${nums}。每個生字至少考 1 題，魔王關最少 12 題。</li><li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格；<b>3</b> 標準，沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字；<b>5</b> 填充題更多、沒有提示${cur===5?'（目前）':''}</li><li>答錯的詞，3 題後換題型補考。合格＝第一次答對率達標，而且答錯的詞補考要全對；星星按第一次答對率計</li>`
    :`<li>${nums}。</li><li>難度改變的是<b>數字大小與步驟數</b>：<b>1–2</b> 較小的數、較少步驟；<b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）；<b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
   body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small><span class="r37-dq">${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題</span><span class="r37-hs" aria-label="${d.hearts} 顆心">${r37Icon('❤️').repeat(d.hearts)}</span><span class="r37-dp">合格 ${Math.round(d.pass*100)}%</span></small></button>`).join('')}</div>
   <ul class="r37-dl">${note}</ul></div>${today}`;

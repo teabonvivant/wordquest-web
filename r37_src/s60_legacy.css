@@ -694,3 +694,8 @@ html body .r37-legbody .l30-noart{display:grid;place-items:center;font-weight:90
 /* R3.29 C-24: why the hunting-ground levels are locked (the parent's plan card of C-01 is .r37-assign in s10_shell.css) */
 .r37-fnote{margin:2px 14px 4px;text-align:center;font-size:14px;line-height:1.5;color:#dfe8ff}
 @media (orientation:landscape) and (max-height:520px){.r37-fnote{display:none}}
+
+/* R3.29 integration: the four number cards of 拼字課堂報告 (.l30-score) kept the old pale mint card while the skin turned their text white (unreadable, also at 9f10376) */
+html body.r37 #app .r37-legbody .l30-score{background:var(--tk-card)!important;border:1px solid var(--tk-line)!important;border-radius:16px!important;color:#f4f6ff!important;box-shadow:none!important}
+html body.r37 #app .r37-legbody .l30-score strong{color:#ffc94a}
+html body.r37 #app .r37-legbody .l30-score span{color:var(--tk-muted)!important}

@@ -1389,7 +1389,7 @@
       var msg = '';
       if (p.type === 'slow') { G.slow = 7; msg = '慢動作！'; }
       else if (p.type === 'triple') { G.triple = 12; msg = '散射彈！'; }
-      else if (p.type === 'freeze') { G.freezeW = 12; msg = '冰凍彈！ 開火凍住怪物'; }
+      else if (p.type === 'freeze') { G.freezeW = 12; msg = '冰凍彈！開火凍住怪物'; }
       else if (p.type === 'shield') { G.shield = true; msg = '護盾！'; }
       else { G.hearts = Math.min(3, G.hearts + 1); msg = '+1 心'; }
       burst(p.x, p.y, 0.5, 20, ['#fff', '#ffe36a', '#7fe3ff'], 1);
@@ -1443,7 +1443,7 @@
         if (d < 0.6 && G.invul <= 0) {
           /* R3.20: no heart; the round clock loses 3 s, the combo resets and the player is pushed back */
           rm(bugs, i); G.invul = 1.5; burst(b.x, b.y, 0.3, 12, ['#ffe36a', '#ff6a6a'], 1); SFX.zap();
-          setFlash(4, 0.35); floater(G.roundMax ? '呀！ 被電到 -' + DIFF.bugPenalty + ' 秒' : '呀！ 被電到', cw / 2, ch * 0.42, '#fff', 32);
+          setFlash(4, 0.35); floater(G.roundMax ? '呀！被電到 -' + DIFF.bugPenalty + ' 秒' : '呀！被電到', cw / 2, ch * 0.42, '#fff', 32);
           G.bugHits++; G.combo = 0; comboM = 1; if (G.roundMax) G.roundT = Math.max(0, G.roundT - DIFF.bugPenalty);
           var kb = Math.atan2(-dy, -dx), kx2 = P.x + Math.cos(kb) * 0.9, ky2 = P.y + Math.sin(kb) * 0.9;
           if (isFree(kx2, P.y, 0.25)) P.x = kx2; if (isFree(P.x, ky2, 0.25)) P.y = ky2;

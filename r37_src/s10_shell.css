@@ -684,3 +684,10 @@ b.r37-qready{font-size:13px;margin-left:4px}
 .has-assign .r37-hero{margin-bottom:2px}
 /* A-10: the hub progress chip now says 關; keep it on the title row at 360px wide */
 @media(max-width:380px){.r37-hero{gap:8px}.r37-hero .r37-prog{gap:4px;padding:0 8px;margin-left:0}.r37-hero .r37-prog b{font-size:14px;white-space:nowrap}.r37-hero .r37-prog .r37-st{font-size:13px}}
+/* R3.29 integration: in "這次答錯" the items are flex children of a height-capped scroll list, so they shrank to 44px and each 你選了／你寫 line
+   spilled onto the next word; they keep their height (the list scrolls) and a hairline separates them */
+.r37-miss li{flex-shrink:0}.r37-miss li+li{border-top:1px solid rgba(255,255,255,.1);padding-top:6px}
+/* a maths item keeps question · answer · ✓ (補考答對) on one row; the figure and 你答 go below (the ✓ sat alone on a third row, the answer under the figure) */
+.r37-miss li.m>b{grid-row:1;grid-column:2}.r37-miss li.m .r37-mk{grid-row:1;grid-column:3}
+/* the three numbers on a difficulty card wrap on narrow cards; a "· " separator then started the second line - spacing alone separates them */
+.r37-df small>span+span::before{content:none}.r37-df small{column-gap:8px}

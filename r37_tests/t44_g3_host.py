@@ -86,7 +86,7 @@ with sync_playwright() as p:
     ws = ev(pg, "r37EnStage(0,0).map(x=>x.en)")
     C.ok(o['subj'] == 'english' and o['n'] == 8 and pg.evaluate(f"{LAST}.items.map(x=>x.en)") == ws, f'English level 0:0 passes exactly the unit words ({o["n"]})')
     C.ok(o['i0']['kind'] == 'word' and o['i0']['zh'] and o['i0']['id'].startswith('e:'), f'English item carries kind/zh/id {o["i0"]}')
-    C.ok(o['diff'] == ev(pg, "r37DiffN('english')") and o['mode'] == 'level' and o['grade'] == '詞彙 1' and not o['boss'], f'difficulty follows the parent English setting; grade label {o["grade"]}')
+    C.ok(o['diff'] == ev(pg, "r37DiffN('english')") and o['mode'] == 'level' and o['grade'] == ev(pg, "R37_TRACKS.english.worlds[0].name") and not o['boss'], f'difficulty follows the parent English setting; grade label = the map world name (R3.29 C-16) {o["grade"]}')
     C.ok(o['rv'] == 0, 'level 0:0 has no review items')
     C.ok(o['nx'] == 'function' and o['fin'] == 'function' and o['ex'] == 'function' and o['sy'] == 'function' and o['assets'] == 'assets/r321/' and o['ch'] == 'panda', 'opts carry onNext/onFinish/onExit/syllables/assetBase/character')
 

@@ -101,3 +101,5 @@ html body.r37 .r37-opt.bad::after{content:"✗";background:#d4384f;box-shadow:0 
    stars the same pale blue; won = solid gold, empty = outline only (also readable without colour) */
 html body.r37 #app .r37-legbody .q36-stars .q36-star{color:transparent!important;-webkit-text-stroke:1.5px #9aa3d6;text-shadow:none}
 html body.r37 #app .r37-legbody .q36-stars .q36-star.on{color:#ffc94a!important;-webkit-text-stroke:0;text-shadow:0 0 6px rgba(255,201,74,.45)}
+/* R3.29 integration: the option number (kbd) on a red / green answer was #e6ecff at 4.4:1; white keeps it above 4.5:1 */
+html body.r37 .r37-opt.ok>kbd,html body.r37 .r37-opt.bad>kbd{color:#fff}
