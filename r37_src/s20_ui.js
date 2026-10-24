@@ -290,7 +290,7 @@ function r37MissHTML(r){
 function r37Result(){
  const P=r37P,r=P.result,total=r.total||P.qs.length;
  /* detail row: correct / coins / best streak in a row */
- let best=0,run=0;for(let i=0;i<P.qs.length;i++){if(P.qs[i].warm||P.qs[i].retest)continue;if(P.res[i]){run++;best=Math.max(best,run);}else run=0;}/* R3.29 B-M4: warm-up and re-test questions do not extend the streak */
+ let best=0,run=0;for(let i=0;i<P.qs.length;i++){if(P.qs[i]&&(P.qs[i].warm||P.qs[i].retest))continue;if(P.res[i]){run++;best=Math.max(best,run);}else run=0;}/* R3.29 B-M4: warm-up and re-test questions do not extend the streak */
  const chip=(icon,txt,cls='')=>`<span class="r37-rd ${cls}">${r37Icon(icon)}<b>${txt}</b></span>`;
  const detail=`<div class="r37-rdetail">${chip('✅',`正確 ${r.correct}/${total}`)}${r.coins?chip('🪙',`+${r.coins} 金幣`,'r37-rc'):''}${best>1?chip('🔥',`連對 ×${best}`):''}</div>`;
  const act=(cls,attrs,icon,label)=>`<button type="button" class="${cls}" ${attrs}><span class="r37-ai" aria-hidden="true">${r37Icon(icon)}</span><b>${label}</b></button>`;

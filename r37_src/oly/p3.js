@@ -345,8 +345,8 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     return null;
   };
   const ageBars = (n, withTimes) => [
-    { label: '小明', segs: [solid(6, 'a', '6'), { u: 1, c: 'b', edit: true, target: n, start: 1, min: 1, max: 6 }] },
-    { label: '爸爸', segs: [solid(6, 'a', ''), dashed(20, '差 20'), { u: 1, c: 'b', edit: true, target: n, start: 1, min: 1, max: 6 }] }
+    { label: '小明', segs: [solid(6, 'a', '6'), { u: 1, c: 'b', edit: true, target: n, start: 1, min: 1, max: 6, text: '年' }] },
+    { label: '爸爸', segs: [solid(6, 'a', ''), dashed(20, '差 20'), { u: 1, c: 'b', edit: true, target: n, start: 1, min: 1, max: 6, text: '年' }] }
   ];
   WQOly.register({
     id: 'p3-3', grade: 3, n: 3, title: '年齡問題', icon: '🎂',
@@ -430,7 +430,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     return null;
   };
   const shirt = (n, c, edit, text) => ({ label: c, segs: [{ u: 1, rep: n, c: edit ? 'a' : 'a', text: text || '褲' }] });
-  const pantsRow = (label, col, edit) => ({ label, segs: [edit ? { u: 1, rep: 1, c: col, edit: true, target: edit, min: 1, max: 5, text: '褲' } : { u: 1, rep: 3, c: col, text: '褲' }] });
+  const pantsRow = (label, col, edit, rep = 3, text = '褲') => ({ label, segs: edit ? [{ u: 1, rep: 1, c: col, edit: true, target: edit, min: 1, max: 5, text }] : [...Array.from({ length: rep }, () => ({ u: 1, rep: 1, c: col, text }))] });
   WQOly.register({
     id: 'p3-4', grade: 3, n: 4, title: '搭配與樹形圖', icon: '👕',
     card: { motto: '一層一層分支', example: '2 件上衣 3 條褲：6 款', art: art34 },
@@ -441,7 +441,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       { t: 'show', say: '每枝都分 3 枝，2 枝就是 2×3＝6 款。', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '2×3＝6', c: 't' }] }, still: true } },
       { t: 'predict', say: '再多 2 頂帽子。每款再配帽。', ask: '一共有幾款？', options: ['8', '10', '12'], answer: '12', scene: { w: 'bars', p: { rows: [pantsRow('紅', 'a'), pantsRow('藍', 'b')], braces: [{ from: 0, to: 1, label: '6 款', c: 't' }] }, still: true }, reveal: '6 款每款配 2 頂帽：6×2＝12。' },
       { t: 'do', say: '3 件上衣、2 條褲。做齊所有搭配。', scene: { w: 'g3_tree', p: { a: 3, b: 2 } } },
-      { t: 'try', say: '一層一層分，答答看。', scene: { w: 'bars', p: { rows: [pantsRow('甲', 'a'), pantsRow('乙', 'b'), pantsRow('丙', 'g')] }, still: true },
+      { t: 'try', say: '一層一層分，答答看。', scene: { w: 'bars', p: { rows: [pantsRow('麵甲', 'a', 0, 4, '湯'), pantsRow('麵乙', 'b', 0, 4, '湯'), pantsRow('麵丙', 'g', 0, 4, '湯')] }, still: true },
         q: { stem: '3 款麵、4 款湯，各選一款。共有幾種配搭？', options: ['7', '12', '16'], answer: '12', hint: '每款麵都能配 4 款湯。', why: { 7: '7 是加出來的，每款麵都要配每款湯。', 16: '16 是 4×4，麵只有 3 款。' } } },
       { t: 'card' }
     ],

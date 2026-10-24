@@ -411,7 +411,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       /* weekday after k days */
       (r, p) => {
         const x = ri(r, 1, 7), k = N(r, p, 8, 40), ans = wdAns(x, k);
-        return o('cyc-week', `今天是星期${WD[x - 1]}，再過 ${k} 天是星期幾？（日＝7）`, ans, '7 天一輪，先看有幾輪、多幾天。', `${k}＝${Math.floor(k / 7)}×7＋${k % 7}；整輪不變，星期${WD[x - 1]}再過 ${k % 7} 天是星期${WD[ans - 1]}。`, [wdAns(x, k - 1), wdAns(x, k + 1), k % 7 || 7, Math.floor(k / 7) || 7, x], `(${x - 1}+${k})%7+1`, [],
+        return o('cyc-week', `今天是星期${WD[x - 1]}，再過 ${k} 天是星期幾？（星期日算 7）`, ans, '7 天一輪，先看有幾輪、多幾天。', `${k}＝${Math.floor(k / 7)}×7＋${k % 7}；整輪不變，星期${WD[x - 1]}再過 ${k % 7} 天是星期${WD[ans - 1]}。`, [wdAns(x, k - 1), wdAns(x, k + 1), k % 7 || 7, Math.floor(k / 7) || 7, x], `(${x - 1}+${k})%7+1`, [],
           { why: why([wdAns(x, k - 1), '今天不算，要由明天起數。'], [wdAns(x, k + 1), '多數了一天，多出的天數要算準。'], [k % 7 === 0 ? undefined : k % 7, `${k % 7} 是多出的天數，還要由星期${WD[x - 1]}往後數。`], [Math.floor(k / 7), '這是幾個星期，題目問星期幾。']) });
       },
       /* position of the k-th bead in a round */
@@ -437,13 +437,13 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       /* the date: day 1 is given */
       (r, p) => {
         const x = ri(r, 1, 7), d = N(r, p, 8, 30), ans = wdAns(x, d - 1);
-        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（日＝7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天，即 ${Math.floor((d - 1) / 7)} 個星期${(d - 1) % 7 ? `又 ${(d - 1) % 7} 天；星期${WD[x - 1]}再數 ${(d - 1) % 7} 天是星期${WD[ans - 1]}` : `，剛好整星期，仍是星期${WD[ans - 1]}`}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
+        return o('cyc-date', `這個月 1 日是星期${WD[x - 1]}，${d} 日是星期幾？（星期日算 7）`, ans, `1 日到 ${d} 日，過了 ${d - 1} 天。`, `過了 ${d}－1＝${d - 1} 天，即 ${Math.floor((d - 1) / 7)} 個星期${(d - 1) % 7 ? `又 ${(d - 1) % 7} 天；星期${WD[x - 1]}再數 ${(d - 1) % 7} 天是星期${WD[ans - 1]}` : `，剛好整星期，仍是星期${WD[ans - 1]}`}。`, [wdAns(x, d), wdAns(x, d - 2), x, (d - 1) % 7 || 7], `(${x - 1}+${d - 1})%7+1`, [],
           { why: why([wdAns(x, d), `1 日到 ${d} 日是過了 ${d - 1} 天，不是 ${d} 天。`], [wdAns(x, d - 2), `是過了 ${d - 1} 天，別少算一天。`], [x, '多數幾輪之後星期不一定回到原位，要數多出的天。']) });
       },
       /* every p days, which weekday is the n-th time */
       (r, p) => {
         const x = ri(r, 1, 7), pp = ri(r, 2, 7), n = ri(r, 3, 8), days = (n - 1) * pp, ans = wdAns(x, days);
-        return o('cyc-after', `今天星期${WD[x - 1]}，每 ${pp} 天洗一次車，今天洗了。第 ${n} 次洗車是星期幾？（日＝7）`, ans, '今天是第 1 次，先算過了幾天。', `第 ${n} 次是過了 ${n - 1}×${pp}＝${days} 天；星期${WD[x - 1]}再過 ${days} 天是星期${WD[ans - 1]}。`, [wdAns(x, n * pp), wdAns(x, n), days % 7 || 7, x], `(${x - 1}+${days})%7+1`, [],
+        return o('cyc-after', `今天星期${WD[x - 1]}，每 ${pp} 天洗一次車，今天洗了。第 ${n} 次是星期幾？（星期日算 7）`, ans, '今天是第 1 次，先算過了幾天。', `第 ${n} 次是過了 ${n - 1}×${pp}＝${days} 天；星期${WD[x - 1]}再過 ${days} 天是星期${WD[ans - 1]}。`, [wdAns(x, n * pp), wdAns(x, n), days % 7 || 7, x], `(${x - 1}+${days})%7+1`, [],
           { why: why([wdAns(x, n * pp), `今天已是第 1 次，到第 ${n} 次只隔 ${n - 1} 個 ${pp} 天。`], [wdAns(x, n), `每次隔 ${pp} 天，不是 1 天。`], [days % 7, `${days % 7} 是多出的天數，還要由星期${WD[x - 1]}往後數。`]) });
       },
       /* how many washes in the next k days */
@@ -463,7 +463,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     if ((m = /^每輪 (\d+) 顆珠子，共排了 (\d+) 顆。排滿幾輪？$/.exec(q.q))) { let left = +m[2], c = 0; while (left >= +m[1]) { left -= +m[1]; c++; } return String(c); }
     if ((m = /^珠子按(.+)重複排，共 (\d+) 顆。(.)色有幾顆？$/.exec(q.q))) { const cs = m[1].split('、'); let c = 0; for (let i = 0; i < +m[2]; i++) if (cs[i % cs.length] === m[3]) c++; return String(c); }
     if ((m = /^這個月 1 日是星期(.)，(\d+) 日是星期幾？/.exec(q.q))) { let x = wd(m[1]); for (let d = 1; d < +m[2]; d++) x = step(x, 1); return String(x); }
-    if ((m = /^今天星期(.)，每 (\d+) 天洗一次車，今天洗了。第 (\d+) 次洗車是星期幾？/.exec(q.q))) { let x = wd(m[1]); for (let t = 1; t < +m[3]; t++) x = step(x, +m[2]); return String(x); }
+    if ((m = /^今天星期(.)，每 (\d+) 天洗一次車，今天洗了。第 (\d+) 次(?:洗車)?是星期幾？/.exec(q.q))) { let x = wd(m[1]); for (let t = 1; t < +m[3]; t++) x = step(x, +m[2]); return String(x); }
     if ((m = /^.+?每 (\d+) 天洗一次車，今天洗了。接着 (\d+) 天裏，還會洗幾次？$/.exec(q.q))) { let c = 0; for (let d = 1; d <= +m[2]; d++) if (d % +m[1] === 0) c++; return String(c); }
     return null;
   };
@@ -478,7 +478,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       { t: 'show', say: '10 天＝1 輪又 3 天。多的 3 天才要數。', scene: Object.assign(wk(10, 2), { still: true }) },
       { t: 'do', say: '星期五起再過 12 天。按「一圈」更快！', scene: wk(12, 4) },
       { t: 'try', say: '一輪 7 天，先減去整輪。', scene: Object.assign(wk(9, 0), { still: true }),
-        q: { stem: '今天星期一，再過 9 天是星期幾？（日＝7）', options: ['2', '3', '4'], answer: '3', hint: '9 天＝1 輪又 2 天。', why: { 2: '星期一過 2 天是星期三（3），不是星期二。', 4: '多數了一天，今天不算。' } } },
+        q: { stem: '今天星期一，再過 9 天是星期幾？（星期日算 7）', options: ['2', '3', '4'], answer: '3', hint: '9 天＝1 輪又 2 天。', why: { 2: '星期一過 2 天是星期三（3），不是星期二。', 4: '多數了一天，今天不算。' } } },
       { t: 'card' }
     ],
     gens: g25, verify: verify25

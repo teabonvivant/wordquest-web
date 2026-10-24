@@ -1190,7 +1190,7 @@
       "track": "normal",
       "strand": "N",
       "grade": 2,
-      "name_zh": "港式小店：找續",
+      "name_zh": "港式小店：找贖",
       "name_en": "Find the change",
       "tool": "money",
       "prerequisites": [
@@ -1203,8 +1203,8 @@
       "strategy": null,
       "lesson": {
         "scene": "在文具店買一本簿，付款後要取回多少錢？",
-        "concept": "找續是「付出的錢 − 貨品價錢」，不是貨品的價錢。",
-        "explore": "用簡化港幣圖示砌出找續金額。",
+        "concept": "找贖是「付出的錢 − 貨品價錢」，不是貨品的價錢。",
+        "explore": "用簡化港幣圖示砌出找贖金額。",
         "remedy": "可以從價錢逐步加到付款額，算一共加了多少。",
         "alternative": "",
         "reflection": "",
@@ -1360,7 +1360,7 @@
       "track": "normal",
       "strand": "N",
       "grade": 3,
-      "name_zh": "先計總價，再計找續",
+      "name_zh": "先計總價，再計找贖",
       "name_en": "A two-step shopping problem",
       "tool": "money",
       "prerequisites": [
@@ -1375,7 +1375,7 @@
       "lesson": {
         "scene": "幾個同價麵包，一張紙幣付款，要分兩步計。",
         "concept": "第一步：單價 × 數量；第二步：付款 − 總價。",
-        "explore": "先用數陣表示麵包總價，再用錢幣砌找續。",
+        "explore": "先用數陣表示麵包總價，再用錢幣砌找贖。",
         "remedy": "把題目拆成兩個問題：一共多少錢？還要找回多少？",
         "alternative": "",
         "reflection": "",
@@ -2501,9 +2501,9 @@
       "level": 1,
       "lesson": {
         "scene": "數一數硬幣總值",
-        "concept": "先認出面額，再逐枚點算。今天只湊錢，不做找續。",
-        "explore": "先認出面額，再逐枚點算。今天只湊錢，不做找續。",
-        "remedy": "先認出面額，再逐枚點算。今天只湊錢，不做找續。",
+        "concept": "先認出面額，再逐枚點算。今天只湊錢，不做找贖。",
+        "explore": "先認出面額，再逐枚點算。今天只湊錢，不做找贖。",
+        "remedy": "先認出面額，再逐枚點算。今天只湊錢，不做找贖。",
         "alternative": "換一種硬幣組合，總值仍然可以相同。",
         "reflection": "說說你怎樣檢查答案。",
         "minutes": 8
@@ -2639,7 +2639,7 @@
         "concept": "先看紙幣的面額，再按十元、二十元逐張點算。紙幣的張數不等於總值。",
         "explore": "先看紙幣的面額，再按十元、二十元逐張點算。紙幣的張數不等於總值。",
         "remedy": "先看紙幣的面額，再按十元、二十元逐張點算。紙幣的張數不等於總值。",
-        "alternative": "用 {paid} 減 {cost}；貨價加找續應等於付款。",
+        "alternative": "用 {paid} 減 {cost}；貨價加找贖應等於付款。",
         "reflection": "說說你怎樣檢查答案。",
         "minutes": 8
       },
@@ -6571,7 +6571,7 @@
         "打開教具，按本題的數字試一試。",
         "可以從價錢逐步加到付款額，算一共加了多少。"
       ],
-      "explanation": "找續 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
+      "explanation": "找贖 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
       "visual": "money",
       "speech_yue": "一本簿售 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -6630,7 +6630,7 @@
         "打開教具，按本題的數字試一試。",
         "可以從價錢逐步加到付款額，算一共加了多少。"
       ],
-      "explanation": "找續 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
+      "explanation": "找贖 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
       "visual": "money",
       "speech_yue": "一本簿售 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -6689,7 +6689,7 @@
         "打開教具，按本題的數字試一試。",
         "可以從價錢逐步加到付款額，算一共加了多少。"
       ],
-      "explanation": "找續 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
+      "explanation": "找贖 = 付款 − 價錢：{paid} − {price} = {n}（元）。",
       "visual": "money",
       "speech_yue": "一本簿售 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -7659,7 +7659,7 @@
         "打開教具，按本題的數字試一試。",
         "把題目拆成兩個問題：一共多少錢？還要找回多少？"
       ],
-      "explanation": "總價：{price} × {qty} = {cost}；找續：{paid} − {cost} = {n}（元）。",
+      "explanation": "總價：{price} × {qty} = {cost}；找贖：{paid} − {cost} = {n}（元）。",
       "visual": "money",
       "speech_yue": "Alex 買 {qty} 個麵包，每個 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -7726,7 +7726,7 @@
         "打開教具，按本題的數字試一試。",
         "把題目拆成兩個問題：一共多少錢？還要找回多少？"
       ],
-      "explanation": "總價：{price} × {qty} = {cost}；找續：{paid} − {cost} = {n}（元）。",
+      "explanation": "總價：{price} × {qty} = {cost}；找贖：{paid} − {cost} = {n}（元）。",
       "visual": "money",
       "speech_yue": "Alex 買 {qty} 個麵包，每個 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -7793,7 +7793,7 @@
         "打開教具，按本題的數字試一試。",
         "把題目拆成兩個問題：一共多少錢？還要找回多少？"
       ],
-      "explanation": "總價：{price} × {qty} = {cost}；找續：{paid} − {cost} = {n}（元）。",
+      "explanation": "總價：{price} × {qty} = {cost}；找贖：{paid} − {cost} = {n}（元）。",
       "visual": "money",
       "speech_yue": "Alex 買 {qty} 個麵包，每個 {price} 元，付 {paid} 元。應找回多少元？",
       "difficulty_note": {
@@ -26480,7 +26480,7 @@
       "type": "choice",
       "params": {},
       "constraints": [],
-      "stem_zh": "買8元的物件，付20元。找續應怎樣算？",
+      "stem_zh": "買8元的物件，付20元。找贖應怎樣算？",
       "stem_en": "",
       "answer": {
         "expr": "0"

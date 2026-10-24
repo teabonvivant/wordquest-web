@@ -163,7 +163,7 @@
       { t: 'show', say: '一共 5 對，每對 11。11×5＝55。', scene: { w: 'pairing', p: { n: 10 } } },
       { t: 'predict', say: '1 加到 8，也頭尾配對。', ask: '一共配成幾對？', options: ['3', '4', '8'], answer: '4', scene: { w: 'pairing', p: { n: 8 }, still: true }, reveal: '8 個數，兩個一對，4 對。每對 9。' },
       { t: 'do', say: '2＋4＋6＋…＋12：先數有幾個數。', scene: { w: 'numline', p: { min: 0, max: 12, start: 2, target: 12, steps: [2], hops: Array.from({ length: 5 }, () => ({ n: 2 })) } } },
-      { t: 'try', say: '用頭尾配對，答答看。', scene: { w: 'pairing', p: { n: 10 }, still: true },
+      { t: 'try', say: '用頭尾配對，答答看。', scene: { w: 'pairing', p: { n: 20 }, still: true },
         q: { stem: '1＋2＋3＋…＋20＝？', options: ['190', '210', '420'], answer: '210', hint: '每對 21，共 10 對。', why: { 420: '420 是還沒除以 2。', 190: '每對是 1＋20＝21，不是 19。' } } },
       { t: 'card' }
     ],
@@ -330,7 +330,7 @@
   });
 
   /* ======================================================================= p4-5 盈虧問題 ===================================== */
-  const IT5 = [['糖', '粒'], ['貼紙', '張'], ['書簽', '張'], ['彈珠', '粒']];
+  const IT5 = [['糖', '粒'], ['貼紙', '張'], ['書籤', '張'], ['彈珠', '粒']];
   const art45 = '<svg viewBox="0 0 120 80"><rect x="8" y="8" width="64" height="20" rx="5" fill="#3ee6d0"/><rect x="72" y="8" width="30" height="20" rx="5" fill="none" stroke="#ff8fc7" stroke-width="2.4" stroke-dasharray="5 4"/><rect x="8" y="34" width="64" height="20" rx="5" fill="#ffc94a"/><rect x="72" y="34" width="20" height="20" rx="5" fill="none" stroke="#ff8fc7" stroke-width="2.4" stroke-dasharray="5 4"/><rect x="14" y="60" width="92" height="16" rx="8" fill="#ff8fc7"/><text x="60" y="68" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="900" fill="#0b1030">差 ÷ 每人差</text></svg>';
   /* a: per-person amount (first plan), g: extra per person in the second plan; n people */
   const mk5 = (r, p) => { const n = N(r, p, 3, 12), g = ri(r, 1, 3), a = ri(r, 1, 10 - g); return { n, g, a, b: a + g }; };
@@ -400,7 +400,7 @@
       { t: 'predict', say: '每人多分 2 粒，一共多用 10 粒。', ask: '有幾位小朋友？', options: ['2', '5', '10'], answer: '5', scene: { w: 'bars', p: gap10, still: true }, reveal: '10 粒裏有 5 個 2，所以有 5 位。' },
       { t: 'do', say: '把「2」拉到和 10 一樣長。', scene: { w: 'bars', p: gap10 } },
       { t: 'show', say: '5 位小朋友。糖有 5×5＋6＝31 粒。', scene: Object.assign({ still: true }, sc45a) },
-      { t: 'do', say: '都多：8－2＝6 粒。每人差 2，拉到一樣長。', scene: { w: 'bars', p: { rows: [{ label: '差', segs: [solid(6, 't', '6')] }, { label: '份', segs: [{ u: 2, rep: 1, c: 'd', edit: true, target: 3, min: 1, max: 5 }] }] } } },
+      { t: 'do', say: '每人分 3 粒多 8，分 5 粒多 2。8－2＝6，每人差 2，拉到一樣長。', scene: { w: 'bars', p: { rows: [{ label: '差', segs: [solid(6, 't', '6')] }, { label: '份', segs: [{ u: 2, rep: 1, c: 'd', edit: true, target: 3, min: 1, max: 5 }] }] } } },
       { t: 'try', say: '一多一少，把兩個數加起來。', scene: { w: 'bars', p: { rows: [{ label: '差', segs: [solid(8, 't', '8')] }, { label: '份', segs: [{ u: 2, rep: 1, c: 'd', edit: true, target: 4, min: 1, max: 5 }] }] }, still: true },
         q: { stem: '每人分 4 粒，多 6 粒；每人分 6 粒，少 2 粒。有幾位小朋友？', options: ['2', '4', '8'], answer: '4', hint: '6＋2 是相差的總數，每人差 2。', why: { 8: '8 是相差的總數，還要除以每人差的 2。', 2: '一多一少要相加，不是相減。' } } },
       { t: 'card' }

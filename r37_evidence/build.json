@@ -1,7 +1,7 @@
 {
   "base": "bd28b55",
   "version": "R3.7.0",
-  "appSHA256": "d265c1cf64328ea20758c6367c0b6b05352ba84a2ab3ff0867f35c3cc97f8b55",
+  "appSHA256": "5fa5e0a9b15e8e80293721d95842d67898e8ada4d3213e3dc6f181ec80154f68",
   "swSHA256": "65b8e792e574f9278d74adfc90722cd7126974e74ec0758770b1c9d780277f50",
   "modules": [
     "s10_shell",
@@ -15,7 +15,6 @@
     "s60_legacy",
     "s70_arcplus",
     "s80_olypath",
-    "s90_feedback",
-    "s95_r329_core"
+    "s90_feedback"
   ]
 }

@@ -597,7 +597,10 @@
 
   /* ================================================================ cycle: a wheel of n positions (weekdays, remainders, last digits) */
   make('cycle', { mount(host, p, api) {
-    const n = p.n || 7, labels = p.labels || Array.from({ length: n }, (_, i) => i + 1), goal = p.steps, startI = p.start || 0, unit = p.unit || '步', inter = p.mode !== 'show', run = runner(api);
+    const n = p.n || 7, labels = p.labels || Array.from({ length: n }, (_, i) => i + 1), startI = p.start || 0, unit = p.unit || '步', inter = p.mode !== 'show', run = runner(api);
+    /* two ways to say the same wheel: moves (p.steps: "走 N 步", the pointer leaves the start) or ordinal (p.nth: "第 N 個", the start counts as the 1st, so N-1 moves).
+       p.verb = the verb for moves ("走", "傳"); p.div shows the lesson's division line (N÷n＝q 餘 r) for ordinal wheels */
+    const nth = p.nth != null, goal = nth ? p.nth - 1 : p.steps, verb = p.verb || '走', div = !!p.div;
     let svg, W, H, cx, cy, R, steps, tok, cnt, laps, dots, dragA = null, done;
     const ang = i => -Math.PI / 2 + i / n * Math.PI * 2, posOf = () => (startI + steps) % n;
     function build() {
@@ -618,22 +621,33 @@
           if (d !== 0) { dragA += d * Math.PI * 2 / n; stepBy(d, true); } } , end() { sfx(api, 'pop'); } });
         keys(tok, { arrow: d => stepBy(d > 0 ? 1 : -1) });
         const by = Math.min(H - 30, cy + R + 70);
-        sbtn(svg, { x: W / 2 - 108, y: by, w: 104, label: `＋1 ${unit}`, onClick: () => stepBy(1), aria: `走一${unit}` });
-        sbtn(svg, { x: W / 2 + 22, y: by, w: 120, label: `＋${n} 一圈`, onClick: () => stepBy(n), fill: PART.k[0], shade: PART.k[1], ink: C.ink, aria: `走一整圈（${n} ${unit}）` });
+        sbtn(svg, { x: W / 2 - 108, y: by, w: 104, label: `＋1 ${unit}`, onClick: () => stepBy(1), aria: `前進一${unit}` });
+        sbtn(svg, { x: W / 2 + 22, y: by, w: 120, label: `＋${n} 一圈`, onClick: () => stepBy(n), fill: PART.k[0], shade: PART.k[1], ink: C.ink, aria: `前進一整圈（${n} ${unit}）` });
         sbtn(svg, { x: W / 2 + 128, y: by, w: 56, label: '↺', fill: '#fff', shade: '#9aa', ink: C.ink, onClick: () => { build(); changed(api); }, aria: '重來' });
       }
       show(false);
     }
+    const lapOf = k => k < n ? `${k} ${unit}` : (k % n ? `${Math.floor(k / n)} 圈又 ${k % n} ${unit}` : `${Math.floor(k / n)} 圈`);
+    const stopAt = () => `停在「${labels[posOf() % labels.length]}」`;
+    function lapText() {
+      if (nth) {
+        const k = steps + 1, tail = div ? `${k}÷${n}＝${Math.floor(k / n)} 餘 ${k % n}` : '';
+        if (done) return div ? `${tail}，${stopAt()}` : `第 ${k} 個，${stopAt()}`;
+        return div ? tail : (goal != null ? `目標：第 ${goal + 1} 個` : '');
+      }
+      if (done) return `${lapOf(goal)}：${stopAt()}`;
+      return steps ? lapOf(steps) : (goal != null ? `目標：${verb} ${goal} ${unit}` : '');
+    }
     function show() {
       const i = posOf(); place(tok, dots[i].x, dots[i].y); tok.setAttribute('aria-valuenow', steps); tok.setAttribute('aria-valuemax', goal == null ? 999 : goal);
-      cnt.textContent = steps ? steps : ''; laps.textContent = steps ? (steps >= n ? `${Math.floor(steps / n)} 圈又 ${steps % n} ${unit}` : `${steps} ${unit}`) : (goal != null ? `目標：走 ${goal} ${unit}` : '');
+      cnt.textContent = nth ? steps + 1 : (steps ? steps : ''); laps.textContent = lapText(); laps.setAttribute('fill', done ? C.gold : C.muted);
       dots.forEach((d, k) => { d.c.setAttribute('fill', k === i ? C.gold : C.card2); d.c.setAttribute('stroke', k === i ? C.goldD : k === startI ? C.aqua : C.line); });
       cnt.setAttribute('fill', done ? C.gold : (goal != null && steps > goal ? C.bad : C.text));
     }
     function stepBy(d, live) {
       if (done) return; const to = Math.max(0, steps + d); if (to === steps) return;
       if (goal != null && to > goal + n) return; steps = to; show(); sfx(api, d >= n ? 'pop' : 'tick');
-      if (goal != null && steps === goal) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); laps.textContent = `${Math.floor(goal / n)} 圈又 ${goal % n} ${unit}：停在「${labels[posOf() % labels.length]}」`; laps.setAttribute('fill', C.gold); }
+      if (goal != null && steps === goal) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); }
       changed(api);
     }
     build();
@@ -643,7 +657,7 @@
         build(); await run.sleep(350); const g = goal == null ? n + 2 : goal, laps_ = Math.floor(g / n);
         for (let k = 0; k < laps_; k++) { const from = steps, ok = await run.tween(650, t => { steps = from + Math.round(n * t); show(); }, easeIO); if (!ok) return false; steps = from + n; sfx(api, 'pop'); show(); await run.sleep(160); }
         for (let k = 0; k < g % n; k++) { steps++; show(); sfx(api, 'tick'); if (!(await run.sleep(300))) return false; }
-        if (goal != null) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); laps.textContent = `${Math.floor(goal / n)} 圈又 ${goal % n} ${unit}：停在「${labels[posOf() % labels.length]}」`; laps.setAttribute('fill', C.gold); }
+        if (goal != null) { done = true; show(); sfx(api, 'good'); burst(svg, dots[posOf()].x, dots[posOf()].y, api); }
         changed(api); return true;
       }
     };

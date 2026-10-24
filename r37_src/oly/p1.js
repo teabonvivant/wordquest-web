@@ -174,12 +174,12 @@
     id: 'p1-1', grade: 1, n: 1, title: '找規律', icon: '🧱',
     card: { motto: '找出重複的一組', example: '🔴🔵🔴🔵🔴 → 🔵', art: art11 },
     lesson: [
-      { t: 'show', say: '紅、藍、紅、藍……一直重複！', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], steps: 7, unit: '個' }, still: true } },
-      { t: 'predict', say: '紅、藍、紅、藍、紅、藍……', ask: '下一個是什麼顏色？', options: ['紅', '藍'], answer: '紅', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], steps: 7, unit: '個' }, still: true }, reveal: '一紅一藍是一輪，下一輪又由紅開始！' },
-      { t: 'do', say: '按「＋1 個」，走 7 步，看停在哪。', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], steps: 7, unit: '個' } } },
-      { t: 'show', say: '紅、藍、藍是一輪，每輪 3 個。', scene: { w: 'cycle', p: { n: 3, labels: ['🔴', '🔵', '🔵'], steps: 8, unit: '個' }, still: true } },
-      { t: 'do', say: '這一輪有 3 個。走 10 步，停在哪？', scene: { w: 'cycle', p: { n: 3, labels: ['🔴', '🔵', '🟡'], steps: 10, unit: '個' } } },
-      { t: 'try', say: '先找出一輪，再答。', scene: { w: 'cycle', p: { n: 3, labels: ['1', '2', '3'], steps: 7, unit: '個' }, still: true },
+      { t: 'show', say: '紅、藍、紅、藍……一直重複！', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], nth: 7, unit: '個' }, still: true } },
+      { t: 'predict', say: '紅、藍、紅、藍、紅、藍……', ask: '下一個是什麼顏色？', options: ['紅', '藍'], answer: '紅', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], nth: 7, unit: '個' }, still: true }, reveal: '一紅一藍是一輪，下一輪又由紅開始！' },
+      { t: 'do', say: '按「＋1 個」，數到第 7 個，看停在哪。', scene: { w: 'cycle', p: { n: 2, labels: ['🔴', '🔵'], nth: 7, unit: '個' } } },
+      { t: 'show', say: '紅、藍、藍是一輪，每輪 3 個。', scene: { w: 'cycle', p: { n: 3, labels: ['🔴', '🔵', '🔵'], nth: 6, unit: '個' }, still: true } },
+      { t: 'do', say: '這一輪有 3 個。數到第 10 個，停在哪？', scene: { w: 'cycle', p: { n: 3, labels: ['🔴', '🔵', '🟡'], nth: 10, unit: '個' } } },
+      { t: 'try', say: '先找出一輪，再答。', scene: { w: 'cycle', p: { n: 3, labels: ['1', '2', '3'], nth: 8, unit: '個' }, still: true },
         q: { stem: '1、2、3、1、2、3、1、？', options: ['2', '3', '4'], answer: '2', hint: '一輪是 1、2、3。', why: { 3: '3 是上一輪的尾。1 後面是 2。', 4: '4 沒有出現過，數字只會重複。' } } },
       { t: 'card' }
     ],
