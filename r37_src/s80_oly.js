@@ -31,7 +31,7 @@ function r80Next(){
  return {u:pick,kind,done:false};
 }
 const r80Label=x=>x.kind==='learn'?'圖解課':x.kind==='A'?'闖關 ①':'闖關 ②';
-const r80WrongList=()=>{const by={};for(const m of r37Get().miss){if(m.t!=='olympiad')continue;const k=m.q;const b=by[k]=by[k]||{q:m.q,a:m.a,n:0,at:0,sk:m.sk};b.n++;b.at=Math.max(b.at,m.at||0);}return Object.values(by).sort((a,b)=>b.at-a.at);};
+const r80WrongList=()=>{const by={};for(const m of r37Get().miss){if(m.t!=='olympiad')continue;const k=m.q;const b=by[k]=by[k]||{q:m.q,a:m.a,n:0,at:0,sk:m.sk,svg:''};b.n++;b.at=Math.max(b.at,m.at||0);if(m.svg)b.svg=m.svg;}return Object.values(by).sort((a,b)=>b.at-a.at);};
 const r80UnitOfSk=sk=>{const m=/^(p\d-\d):/.exec(sk||'');return m&&globalThis.WQOly?WQOly.units[m[1]]:null;};
 
 /* ---------------------------------------------------------------------------------------------- strategy card */
@@ -46,8 +46,10 @@ function r80Hub(){
  const nx=r80Next(),col=r80Collected().length,wr=r80WrongList().length;
  const tiles=WQOly.grades.map(g=>{const st=r80GradeStat(g.n);
   return `<a class="r80-g" href="#oly/${g.n}" style="--h:${g.hue}" data-g="${g.n}" aria-label="${g.name}，已收集 ${st.done} 張策略卡，共 ${st.total} 張"><span class="r80-gi" aria-hidden="true">${r37Icon(g.icon)}</span><span class="r80-gt"><b>${g.name}</b><small>${esc(g.theme)}</small><span class="r80-pips" aria-hidden="true">${Array.from({length:st.total},(_,i)=>`<i class="${i<st.done?'on':i<st.aDone?'half':''}"></i>`).join('')}</span></span><em>${st.done}/${st.total}</em></a>`;}).join('');
- const href=nx.kind==='learn'?`#oly/${nx.u.grade}/${nx.u.n}/learn`:`#oly/${nx.u.grade}`;
- const cont=`<a class="r80-cont r80-go" href="${href}" data-r80="cont" data-g="${nx.u.grade}" data-n="${nx.u.n}" data-kind="${nx.kind}"><span class="r80-ci" aria-hidden="true">${r37Icon('▶')}</span><span class="r80-ctx"><b>繼續</b><small>${r80Grade(nx.u.grade).name} · ${r80Esc(nx.u.title)} · ${r80Label(nx)}</small></span></a>`;
+ /* 繼續 goes where its label says: the lesson, or straight into the level (闖關 ① / ②); when all 30 units are passed it points at the strategy cards instead of replaying a lesson */
+ const href=nx.done?'#oly/cards':nx.kind==='learn'?`#oly/${nx.u.grade}/${nx.u.n}/learn`:`#oly/${nx.u.grade}`;
+ const contTxt=nx.done?'<b>全部闖完了</b><small>去看我的策略卡</small>':`<b>繼續</b><small>${r80Grade(nx.u.grade).name} · ${r80Esc(nx.u.title)} · ${r80Label(nx)}</small>`;
+ const cont=`<a class="r80-cont r80-go" href="${href}" data-r80="cont" data-g="${nx.u.grade}" data-n="${nx.u.n}" data-kind="${nx.done?'done':nx.kind}"><span class="r80-ci" aria-hidden="true">${r37Icon(nx.done?'🃏':'▶')}</span><span class="r80-ctx">${contTxt}</span></a>`;
  return `<section class="r37-hub r80-hub" data-pl="olympiad" style="--h:272">${r37Top()}
  <div class="r80-hm"><div class="r80-hd"><h1>奧數星</h1><span class="r80-hs">${col}/30 張策略卡</span></div>
  <div class="r80-grades" role="list">${tiles}</div>
@@ -75,7 +77,7 @@ function r80Map(g){
  }).join('');
  return `<section class="r37-hub r80-map" data-g="${g}" style="--h:${G.hue}">${r37Top('<a class="r37-back2" href="#p/olympiad" aria-label="奧數星">←</a>')}
  <nav class="r80-gtabs" aria-label="年級">${tabs}</nav>
- <div class="r80-gtitle"><span class="r80-gic" aria-hidden="true">${r37Icon(G.icon)}</span><div><h1>${G.name}奧數</h1><small>${st.done}/${st.total} 張策略卡 · ${esc(G.theme)}</small></div><span class="r37-dchip" title="難度">${r37Icon(diff.icon)}${diff.n}</span></div>
+ <div class="r80-gtitle"><span class="r80-gic" aria-hidden="true">${r37Icon(G.icon)}</span><div><h1>${G.name}奧數</h1><small>${st.done}/${st.total} 張策略卡 · ${esc(G.theme)}</small></div><span class="r37-dchip" title="難度" aria-label="難度 ${diff.n}">${r37Icon(diff.icon)}<span class="r37-dn">難度 ${diff.n}</span></span></div>
  <div class="r80-isles"><svg class="r80-trail" aria-hidden="true" focusable="false"></svg>${isles}</div>
  ${r37Nav('p/olympiad')}</section>`;
 }
@@ -109,7 +111,7 @@ function r80Wrong(){
  const list=r80WrongList(),by={};
  for(const x of list){const u=r80UnitOfSk(x.sk),k=u?u.id:'?';(by[k]=by[k]||{u,items:[]}).items.push(x);}
  const groups=Object.values(by).map(gr=>{const u=gr.u;
-  return `<section class="r80-wg"><header><span class="r80-wi" aria-hidden="true" data-i="${u?esc(u.icon):'🧩'}"></span><b>${u?`${r80Grade(u.grade).name} · ${r80Esc(u.title)}`:'其他'}</b>${u?`<a class="r80-sec sm" href="#oly/${u.grade}/${u.n}/learn" data-r80="wrong-lesson">${r37Icon('📖')} 看課堂</a>`:''}</header><ul>${gr.items.map(x=>`<li><span class="r319-q">${r80Esc(x.q)}</span><span class="r319-a">答案：<b>${r80Esc(x.a)}</b></span><em>${x.n} 次</em></li>`).join('')}</ul></section>`;}).join('');
+  return `<section class="r80-wg"><header><span class="r80-wi" aria-hidden="true" data-i="${u?esc(u.icon):'🧩'}"></span><b>${u?`${r80Grade(u.grade).name} · ${r80Esc(u.title)}`:'其他'}</b>${u?`<a class="r80-sec sm" href="#oly/${u.grade}/${u.n}/learn" data-r80="wrong-lesson">${r37Icon('📖')} 看課堂</a>`:''}</header><ul>${gr.items.map(x=>`<li><span class="r319-q">${r80Esc(x.q)}</span>${x.svg?`<div class="r80-fig">${x.svg}</div>`:''}<span class="r319-a">答案：<b>${r80Esc(x.a)}</b></span><em>${x.n} 次</em></li>`).join('')}</ul></section>`;}).join('');
  return `<section class="r37-hub r80-wrong" style="--h:272">${r37Top('<a class="r37-back2" href="#p/olympiad" aria-label="奧數星">←</a>')}<div class="r80-hd2"><h1>錯題</h1><span class="r80-hs">${list.length} 題</span></div><div class="r80-cbody">${list.length?groups:'<p class="r80-empty">暫時沒有奧數錯題，真棒！</p>'}</div>${r37Nav('p/olympiad')}</section>`;
 }
 /* ---------------------------------------------------------------------------------------------- lesson player */
@@ -131,6 +133,7 @@ function r80LesDraw(){
  const dots=u.lesson.map((_,k)=>`<i class="${k<L.i?'done':k===L.i?'on':''}"></i>`).join('');
  const gate=c.t==='predict'||c.t==='do'||c.t==='try';
  const needs=gate&&!S.done;
+ const open=r80UnitOpen(L.g,L.n),prev=r80Unit(L.g,L.n-1);
  let side='',scene='';
  if(c.t==='card'){scene=`<div class="r80-cardwrap">${r80CardHTML(u,true,'show')}</div>`;}
  else if(c.t==='try'&&!c.scene){scene=`<div class="r80-trystem"><p class="r80-stem">${r80Esc(c.q.stem)}</p>${c.q.svg?`<div class="r80-fig">${c.q.svg}</div>`:''}</div>`;}
@@ -146,9 +149,9 @@ function r80LesDraw(){
   side=`${c.scene?`<p class="r80-ask">${r80Esc(q.stem)}</p>`:''}${q.options?`<div class="r80-opts n${q.options.length}" role="group" aria-label="選擇答案">${q.options.map((o,k)=>`<button type="button" class="r80-opt ${S.done&&String(o)===String(q.answer)?'ok':S.bad&&S.bad.includes(String(o))?'miss':''}" data-r80="try" data-v="${r80Esc(o)}" ${S.done||(S.bad&&S.bad.includes(String(o)))?'disabled':''}>${r80Esc(o)}</button>`).join('')}</div>`:`<form class="r80-fill" data-r80-form="1"><input id="r80-in" type="text" inputmode="decimal" autocomplete="off" aria-label="答案" placeholder="答案" ${S.done?'disabled':''}><button type="submit" class="r80-ok" ${S.done?'disabled':''}>確定</button></form>`}`;
  }
  const sayHtml=S.msg!==undefined?S.msg:r80Esc(say);
- root.innerHTML=`<header class="r80-lh"><button type="button" class="r80-x" data-r80="close" aria-label="離開課堂">${r37Icon('✕')}</button><div class="r80-dots" role="progressbar" aria-label="課堂進度" aria-valuemin="1" aria-valuemax="${u.lesson.length}" aria-valuenow="${L.i+1}">${dots}</div>${last?'':`<button type="button" class="r80-skip" data-r80="skip"><span aria-hidden="true">${r37Icon('▶')}</span><b>我懂了，直接闖關</b></button>`}</header>
- <div class="r80-lb"><div class="r80-scene ${c.t}">${scene}</div><div class="r80-sd"><p class="r80-say ${S.bad&&S.bad.length&&!S.done?'bad':''}" id="r80-say" role="status" aria-live="polite">${sayHtml}</p>${side}${tools?`<div class="r80-tools">${tools}</div>`:''}</div></div>
- <footer class="r80-lf"><button type="button" class="r80-prev" data-r80="prev" aria-label="上一步" ${L.i?'':'disabled'}><span aria-hidden="true">←</span><b>上一步</b></button><button type="button" class="r80-next ${needs?'':'lit'}" data-r80="next" id="r80-next" ${needs?'disabled aria-disabled="true"':''}><b>${last?'去闖關':'下一步'}</b><span aria-hidden="true">→</span></button></footer>`;
+ root.innerHTML=`<header class="r80-lh"><button type="button" class="r80-x" data-r80="close" aria-label="離開課堂">${r37Icon('✕')}</button><div class="r80-dots" role="progressbar" aria-label="課堂進度" aria-valuemin="1" aria-valuemax="${u.lesson.length}" aria-valuenow="${L.i+1}">${dots}</div>${last?'':`<button type="button" class="r80-skip" data-r80="skip" ${open?'':'title="闖關 ① 還未開放"'}><span aria-hidden="true">${r37Icon('▶')}</span><b>${open?'我懂了，直接闖關':'我懂了，回地圖'}</b></button>`}</header>
+ <div class="r80-lb"><div class="r80-scene ${c.t}">${scene}</div><div class="r80-sd"><p class="r80-say ${S.bad&&S.bad.length&&!S.done?'bad':''}" id="r80-say" role="status" aria-live="polite">${sayHtml}</p>${!open&&c.t==='card'?`<p class="r80-lockhint" role="note">闖關 ① 還未開放：要先完成${prev?'「'+r80Esc(prev.title)+'」':'上一單元'}的闖關 ①。</p>`:''}${side}${tools?`<div class="r80-tools">${tools}</div>`:''}</div></div>
+ <footer class="r80-lf"><button type="button" class="r80-prev" data-r80="prev" aria-label="上一步" ${L.i?'':'disabled'}><span aria-hidden="true">←</span><b>上一步</b></button><button type="button" class="r80-next ${needs?'':'lit'}" data-r80="next" id="r80-next" ${needs?'disabled aria-disabled="true"':''}><b>${last?(open?'去闖關':'回地圖'):'下一步'}</b><span aria-hidden="true">→</span></button></footer>`;
  r80LesWidget();
  if(last)r80Mark(u.id);
  r80Focus();
@@ -156,12 +159,12 @@ function r80LesDraw(){
 function r80Focus(){const b=document.getElementById('r80-next');if(b&&!b.disabled){}}
 function r80LesWidget(){
  const L=r80L,c=r80LesCard(),box=document.getElementById('r80-wbox');if(!box||!c.scene)return;
- const S=L.st[L.i],still=!!c.scene.still;
+ const S=L.st[L.i];
  if(c.t==='try'||c.t==='predict'||c.t==='show'||c.t==='do'){
   const mode=c.t==='do'?'do':'show';
   const api={reduced:r37Calm(),sfx:r80Sfx,onChange:()=>r80Changed()};
   try{L.w=WQOlyWidgets.mount(c.scene.w,box,Object.assign({},c.scene.p,{mode}),api);}catch(e){box.innerHTML='<p class="r80-empty">圖片載入不了</p>';return;}
-  if(c.t==='show'&&!still)setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
+  if(c.t==='show')setTimeout(()=>{if(r80L===L&&L.w)L.w.demo();},60);
   if(c.t==='predict'&&S.done&&L.w)L.w.demo();
   if(c.t==='do'&&S.done&&L.w&&L.w.check())r80Changed();
  }
@@ -213,6 +216,7 @@ document.addEventListener('click',e=>{
  else if(a==='prev'){r80LesMove(-1);}
  else if(a==='close'){const g=r80L?r80L.g:1;r80L=null;location.hash='#oly/'+g;}
  else if(a==='skip'&&r80L){r80L.i=r80L.u.lesson.length-1;r80LesGo();}
+ else if(a==='cont'&&(el.dataset.kind==='A'||el.dataset.kind==='B')){const g=+el.dataset.g,n=+el.dataset.n,s=2*(n-1)+(el.dataset.kind==='B'?1:0);if(r80StageOpen(g-1,s)){e.preventDefault();r37StartLevel('olympiad',g-1,s);}}
  else if(a==='replay'&&r80L&&r80L.w){r80L.w.reset();setTimeout(()=>r80L&&r80L.w&&r80L.w.demo(),40);}
  else if(a==='demo'&&r80L&&r80L.w){r80L.w.demo();}
  else if(a==='reset'&&r80L&&r80L.w){const S=r80L.st[r80L.i];S.done=false;S.msg=undefined;r80L.w.reset();const b=document.getElementById('r80-next');if(b){b.disabled=true;b.setAttribute('aria-disabled','true');b.classList.remove('lit');}const s=document.getElementById('r80-say');if(s){s.classList.remove('ok');s.textContent=r80LesCard().say||'';}}
@@ -261,3 +265,7 @@ function r80Why(q,fb){
  const k=String(fb.value||'').replace(/[\s　]+/g,''),t=w[k]||w[String(Math.round(Number(k)*1e6)/1e6)];
  return t?`<small class="r80-whyb"><span aria-hidden="true">${r37Icon('💡')}</span>${esc(t)}</small>`:'';
 }
+
+/* wrong book keeps the figure of an olympiad question (the stem alone says "下面的圖形…" without it): r37NoteWrong (s20) writes the record, this adds the svg */
+{const noteWrong=r37NoteWrong;r37NoteWrong=function(P,q,value){noteWrong(P,q,value);
+ try{const svg=P&&P.track==='olympiad'&&q&&q.mq&&q.mq.svg;if(!svg)return;const m=r37Get().miss,x=m[m.length-1];if(x&&x.t==='olympiad'&&x.q===q.mq.q&&!x.svg){x.svg=svg;r37Save();}}catch(_){}};}

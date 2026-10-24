@@ -271,7 +271,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       /* weekday after n days */
       (r, p) => {
         const wd = ri(r, 1, 7), n = N(r, p, 15, 400), rem = n % 7, ans = (wd - 1 + n) % 7 + 1;
-        return O('cyc-week', `今天是星期${CH[wd]}。再過 ${n} 日是星期幾？（答數字，星期日算 7）`, ans, '一星期 7 日，先看餘下幾日。',
+        return O('cyc-week', `今天是星期${CH[wd]}。再過 ${n} 日是星期幾？（星期日算 7）`, ans, '一星期 7 日，先看餘下幾日。',
           `${n}÷7＝${Math.floor(n / 7)} 餘 ${rem}。整星期不變，由星期${CH[wd]}再數 ${rem} 日：星期${CH[ans]}，答 ${ans}。`,
           [wd, rem, Math.floor(n / 7), ans % 7 + 1], '', [],
           { svg: weekSvg(wd), why: { [wd]: rem ? `${wd} 是今天，還要再往後數 ${rem} 日。` : '剛好整星期，星期不變，所以答案和今天一樣。', [rem]: `${rem} 只是多出的日數，要由今天往後數。`, [Math.floor(n / 7)]: '這是過了幾個整星期，不是星期幾。' } });
@@ -314,13 +314,13 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     id: 'p5-1', grade: 5, n: 1, title: '餘數與週期', icon: '⏰',
     card: { motto: '看餘數取位置', example: '17÷5＝3 餘 2', art: art51 },
     lesson: [
-      { t: 'show', say: '5 人圍成一圈傳球。從 1 號開始，傳 17 次。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次' }, still: true } },
-      { t: 'predict', say: '球傳來傳去，繞了好幾圈。', ask: '球最後在幾號手上？', options: ['2', '3', '4'], answer: '3', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次' }, still: true }, reveal: '3 整圈是 15 次。再傳 2 次，球到 3 號。' },
-      { t: 'do', say: '按「一圈」走 3 圈，再按「＋1」走 2 次。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次' } } },
-      { t: 'show', say: '17÷5＝3 餘 2。整圈不用看，只看餘數。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次' }, still: true } },
-      { t: 'predict', say: '這次傳 15 次。', ask: '球最後在幾號手上？', options: ['1', '5', '2'], answer: '1', scene: { w: 'cycle', p: { n: 5, steps: 15, unit: '次' }, still: true }, reveal: '15÷5＝3 餘 0。剛好整圈，球回到 1 號。' },
-      { t: 'do', say: '6 人圍圈，傳 20 次。先走整圈，再走餘下的。', scene: { w: 'cycle', p: { n: 6, steps: 20, unit: '次' } } },
-      { t: 'try', say: '用餘數來答。', scene: { w: 'cycle', p: { n: 4, steps: 11, unit: '次' }, still: true },
+      { t: 'show', say: '5 人圍成一圈傳球。從 1 號開始，傳 17 次。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次', verb: '傳' }, still: true } },
+      { t: 'predict', say: '球傳來傳去，繞了好幾圈。', ask: '球最後在幾號手上？', options: ['2', '3', '4'], answer: '3', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次', verb: '傳' }, still: true }, reveal: '3 整圈是 15 次。再傳 2 次，球到 3 號。' },
+      { t: 'do', say: '按「一圈」走 3 圈，再按「＋1」走 2 次。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次', verb: '傳' } } },
+      { t: 'show', say: '17÷5＝3 餘 2。整圈不用看，只看餘數。', scene: { w: 'cycle', p: { n: 5, steps: 17, unit: '次', verb: '傳' }, still: true } },
+      { t: 'predict', say: '這次傳 15 次。', ask: '球最後在幾號手上？', options: ['1', '5', '2'], answer: '1', scene: { w: 'cycle', p: { n: 5, steps: 15, unit: '次', verb: '傳' }, still: true }, reveal: '15÷5＝3 餘 0。剛好整圈，球回到 1 號。' },
+      { t: 'do', say: '6 人圍圈，傳 20 次。先走整圈，再走餘下的。', scene: { w: 'cycle', p: { n: 6, steps: 20, unit: '次', verb: '傳' } } },
+      { t: 'try', say: '用餘數來答。', scene: { w: 'cycle', p: { n: 4, steps: 11, unit: '次', verb: '傳' }, still: true },
         q: { stem: '4 人圍圈傳球，從 1 號傳 11 次，球在幾號手上？', options: ['3', '4', '2'], answer: '4', hint: '11÷4＝2 餘 3。', why: { 3: '餘 3 是再傳的次數，球要由 1 號再傳 3 次，到 4 號。', 2: '2 是傳了幾整圈，不是球在幾號。' } } },
       { t: 'card' }
     ],
@@ -399,13 +399,13 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     id: 'p5-2', grade: 5, n: 2, title: '個位循環', icon: '🔁',
     card: { motto: '只看個位', example: '3、9、7、1 一輪', art: art52 },
     lesson: [
-      { t: 'show', say: '3×3×3×3…，個位會轉圈：3、9、7、1。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], steps: 3, unit: '個' }, still: true } },
-      { t: 'predict', say: '5 個 3 相乘，是 243。', ask: '那 6 個 3 相乘，個位是幾？', options: ['3', '7', '9'], answer: '9', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], steps: 5, unit: '個' }, still: true }, reveal: '個位轉到 1 後回到 3，再到 9。6 個 3 的個位是 9。' },
-      { t: 'do', say: '走到第 10 個 3。一圈是 4 個，先按「一圈」。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], steps: 9, unit: '個' } } },
-      { t: 'show', say: '10÷4＝2 餘 2。個位是每輪第 2 個：9。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], steps: 9, unit: '個' }, still: true } },
-      { t: 'predict', say: '8 個 3 相乘。', ask: '8÷4 餘 0，個位是幾？', options: ['3', '1', '9'], answer: '1', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], steps: 7, unit: '個' }, still: true }, reveal: '餘 0 就是一輪的最後一個：1。' },
-      { t: 'do', say: '2 的個位是 2、4、8、6。走到第 7 個 2。', scene: { w: 'cycle', p: { n: 4, labels: [2, 4, 8, 6], steps: 6, unit: '個' } } },
-      { t: 'try', say: '換成 7 試試。', scene: { w: 'cycle', p: { n: 4, labels: [7, 9, 3, 1], steps: 9, unit: '個' }, still: true },
+      { t: 'show', say: '3×3×3×3…，個位會轉圈：3、9、7、1。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], nth: 4, unit: '個' }, still: true } },
+      { t: 'predict', say: '5 個 3 相乘，是 243。', ask: '那 6 個 3 相乘，個位是幾？', options: ['3', '7', '9'], answer: '9', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], nth: 6, unit: '個' }, still: true }, reveal: '個位轉到 1 後回到 3，再到 9。6 個 3 的個位是 9。' },
+      { t: 'do', say: '走到第 10 個 3。一圈是 4 個，先按「一圈」。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], nth: 10, unit: '個', div: true } } },
+      { t: 'show', say: '10÷4＝2 餘 2。個位是每輪第 2 個：9。', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], nth: 10, unit: '個', div: true }, still: true } },
+      { t: 'predict', say: '8 個 3 相乘。', ask: '8÷4 餘 0，個位是幾？', options: ['3', '1', '9'], answer: '1', scene: { w: 'cycle', p: { n: 4, labels: [3, 9, 7, 1], nth: 8, unit: '個', div: true }, still: true }, reveal: '餘 0 就是一輪的最後一個：1。' },
+      { t: 'do', say: '2 的個位是 2、4、8、6。走到第 7 個 2。', scene: { w: 'cycle', p: { n: 4, labels: [2, 4, 8, 6], nth: 7, unit: '個', div: true } } },
+      { t: 'try', say: '換成 7 試試。', scene: { w: 'cycle', p: { n: 4, labels: [7, 9, 3, 1], nth: 10, unit: '個', div: true }, still: true },
         q: { stem: '7×7×…×7（共 10 個），個位是幾？', options: ['9', '1', '3'], answer: '9', hint: '7 的個位是 7、9、3、1。', why: { 1: '1 是一輪最後一個，這題餘 2，取第 2 個。', 3: '3 是第 3 個，餘 2 只走到第 2 個。' } } },
       { t: 'card' }
     ],
@@ -427,7 +427,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       },
       (r, p) => {
         const days = pick(r, [['星期', 7], ['月份', 12]]), n = days[1] === 7 ? N(r, p, 8, 40) : N(r, p, 13, 40), s = Math.ceil(n / days[1]), fl = Math.floor(n / days[1]);
-        return O('drawer-cal', `${n} 位同學，每人在一年中某個${days[0] === '星期' ? '星期幾' : '月'}出生。最少有幾人同${days[0] === '星期' ? '一個星期幾' : '月'}出生？`, s, `把 ${days[1]} 個${days[0] === '星期' ? '星期幾' : '月'}當成盒子。`,
+        return O('drawer-cal', `${n} 位同學。每人的出生${days[0] === '星期' ? '日都在星期一至星期日的其中一天' : '月份都在一月至十二月的其中一個'}。最少有幾人在同一個${days[0] === '星期' ? '星期幾' : '月'}出生？`, s, `把 ${days[1]} 個${days[0] === '星期' ? '星期幾' : '月'}當成盒子。`,
           `${n}÷${days[1]}＝${fl} 餘 ${n % days[1]}。${n % days[1] ? `餘下的要多一人：${fl}＋1＝${s}。` : `剛好平均分，最少 ${s} 人。`}`,
           [fl, s + 1, days[1], n - days[1]], '', [], { svg: boxSvg(n, Math.min(days[1], 7), '同學'), why: { [fl]: '還有餘下的人，總有一天（月）要多一人。', [days[1]]: `${days[1]} 是盒子的數目，不是人數。` } });
       }
@@ -442,7 +442,7 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
       /* one colour has fewer balls than k-1 */
       (r, p) => {
         const c = N(r, p, 3, 4), k = ri(r, 3, 4), few = ri(r, 1, k - 2), col = COL.slice(0, c), cnt = col.map((_, i) => i === 0 ? few : ri(r, k + 1, 12)), s = cnt.reduce((t, v) => t + Math.min(v, k - 1), 0) + 1;
-        return O('drawer-few', `袋裏有${col.map((cc, i) => cc + cnt[i] + '個').join('、')}的球。最少取幾個，才一定有 ${k} 個同色？`, s, '數量少的顏色，最壞時全部取走。',
+        return O('drawer-few', `袋裏有${col.map((cc, i) => cc + ' ' + cnt[i] + ' 個').join('、')}的球。最少取幾個，才一定有 ${k} 個同色？`, s, '數量少的顏色，最壞時全部取走。',
           `最壞：${col[0]}球全取（${few} 個），其他每色取 ${k - 1} 個：${few}＋${(c - 1)}×${k - 1}＝${s - 1}。再取 1 個：${s}。`,
           [s - 1, c * (k - 1) + 1, s + 1, c * (k - 1)], '', [], { svg: ballSvg(col, k), why: { [c * (k - 1) + 1]: `${col[0]}球只有 ${few} 個，最壞時取不到 ${k - 1} 個，要全取再算。`, [s - 1]: '這是最壞情況取到的個數，再多取 1 個才一定成功。' } });
       },
@@ -457,9 +457,9 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
   const verify53 = q => {
     let m;
     if ((m = /^把 (\d+) .+放進 (\d+) 個盒子，最少有一個盒子/.exec(q.q))) { const n = +m[1], k = +m[2]; for (let x = 1; ; x++) if (x * k >= n) return String(x); }
-    if ((m = /^(\d+) 位同學，每人在一年中某個(?:星期幾|月)出生。最少有幾人同/.exec(q.q))) { const n = +m[1], k = /月/.test(q.q.slice(0, 22)) ? 12 : 7; for (let x = 1; ; x++) if (x * k >= n) return String(x); }
+    if ((m = /^(\d+) 位同學。每人的出生.+最少有幾人在同一個(?:星期幾|月)出生/.exec(q.q))) { const n = +m[1], k = /出生月份/.test(q.q) ? 12 : 7; for (let x = 1; ; x++) if (x * k >= n) return String(x); }
     if ((m = /^袋裏有(.+)球各 \d+ 個。最少取幾個，才一定有 (\d+) 個同色/.exec(q.q))) { const c = m[1].split('、').length, k = +m[2]; let worst = 0; for (let i = 0; i < c; i++) worst += k - 1; return String(worst + 1); }
-    if ((m = /^袋裏有(.+)的球。最少取幾個，才一定有 (\d+) 個同色/.exec(q.q))) { const k = +m[2], cnt = [...m[1].matchAll(/[^\d、]+(\d+)個/g)].map(x => +x[1]); let worst = 0; for (const v of cnt) worst += v < k ? v : k - 1; return String(worst + 1); }
+    if ((m = /^袋裏有(.+)的球。最少取幾個，才一定有 (\d+) 個同色/.exec(q.q))) { const k = +m[2], cnt = [...m[1].matchAll(/[^\d、 ]+ (\d+) 個/g)].map(x => +x[1]); let worst = 0; for (const v of cnt) worst += v < k ? v : k - 1; return String(worst + 1); }
     if ((m = /^要把.+放進 (\d+) 個盒子，最少要有幾.+，才一定有盒子放到 (\d+) .或以上/.exec(q.q))) return String((+m[1]) * (m[2] - 1) + 1);
     return null;
   };
@@ -467,13 +467,13 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     id: 'p5-3', grade: 5, n: 3, title: '抽屜原理', icon: '🗄️',
     card: { motto: '想最壞情況', example: '5 個放 2 盒：至少 3 個', art: art53 },
     lesson: [
-      { t: 'show', say: '5 粒糖放進 2 個盒。最少有一盒有幾粒？', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], steps: 5, unit: '粒' }, still: true } },
-      { t: 'predict', say: '輪流派糖：甲、乙、甲、乙……', ask: '派完 5 粒，最多的盒有幾粒？', options: ['2', '3', '4'], answer: '3', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], steps: 5, unit: '粒' }, still: true }, reveal: '甲 3 粒、乙 2 粒。最少有一盒有 3 粒！' },
-      { t: 'do', say: '按「＋1 粒」輪流派，派到第 5 粒。', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], steps: 5, unit: '粒' } } },
-      { t: 'show', say: '5÷2＝2 餘 1。餘下的 1 粒，要多放進一盒。', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], steps: 5, unit: '粒' }, still: true } },
-      { t: 'predict', say: '紅、黃、藍球各有很多。取 3 個。', ask: '一定有 2 個同色嗎？', options: ['一定', '不一定'], answer: '不一定', scene: { w: 'cycle', p: { n: 3, labels: ['紅', '黃', '藍'], steps: 3, unit: '個' }, still: true }, reveal: '可能紅、黃、藍各 1 個。要取 4 個才一定。' },
-      { t: 'do', say: '先每色取 1 個，再取第 4 個。', scene: { w: 'cycle', p: { n: 3, labels: ['紅', '黃', '藍'], steps: 4, unit: '個' } } },
-      { t: 'try', say: '用除法加 1 來答。', scene: { w: 'cycle', p: { n: 5, steps: 11, unit: '個' }, still: true },
+      { t: 'show', say: '5 粒糖放進 2 個盒。最少有一盒有幾粒？', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], nth: 5, unit: '粒', div: true }, still: true } },
+      { t: 'predict', say: '輪流派糖：甲、乙、甲、乙……', ask: '派完 5 粒，最多的盒有幾粒？', options: ['2', '3', '4'], answer: '3', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], nth: 5, unit: '粒', div: true }, still: true }, reveal: '甲 3 粒、乙 2 粒。最少有一盒有 3 粒！' },
+      { t: 'do', say: '按「＋1 粒」輪流派，派到第 5 粒。', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], nth: 5, unit: '粒', div: true } } },
+      { t: 'show', say: '5÷2＝2 餘 1。餘下的 1 粒，要多放進一盒。', scene: { w: 'cycle', p: { n: 2, labels: ['甲', '乙'], nth: 5, unit: '粒', div: true }, still: true } },
+      { t: 'predict', say: '紅、黃、藍球各有很多。取 3 個。', ask: '一定有 2 個同色嗎？', options: ['一定', '不一定'], answer: '不一定', scene: { w: 'cycle', p: { n: 3, labels: ['紅', '黃', '藍'], nth: 3, unit: '個' }, still: true }, reveal: '可能紅、黃、藍各 1 個。要取 4 個才一定。' },
+      { t: 'do', say: '先每色取 1 個，再取第 4 個。', scene: { w: 'cycle', p: { n: 3, labels: ['紅', '黃', '藍'], nth: 4, unit: '個' } } },
+      { t: 'try', say: '用除法加 1 來答。', scene: { w: 'cycle', p: { n: 5, nth: 11, unit: '個', div: true }, still: true },
         q: { stem: '把 11 個蘋果放進 5 個盒子，最少有一個盒子有幾個？', options: ['2', '3', '4'], answer: '3', hint: '11÷5＝2 餘 1。', why: { 2: '平均分後還有餘下的 1 個，要多放一盒，所以是 3。', 4: '餘下只有 1 個，多放一個就夠了。' } } },
       { t: 'card' }
     ],

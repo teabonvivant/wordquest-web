@@ -138,7 +138,7 @@ def run():
             ev(pg, "r37Answer(r37P.qs[r37P.i].options.find(o=>o!==r37P.qs[r37P.i].answer))")
             pg.wait_for_timeout(450)
             view(pg, f'{name}/wrong feedback')
-            C.ok(pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');if(!f)return false;const c=getComputedStyle(f).backgroundImage+getComputedStyle(f).backgroundColor;return !/179, 48, 74|b3304a/i.test(c)&&/再試一次/.test(f.textContent)})()"), f'{name}: wrong answer is nebula purple with a soft sentence, not a red bar')
+            C.ok(pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');if(!f)return false;const c=getComputedStyle(f).backgroundImage+getComputedStyle(f).backgroundColor;return !/179, 48, 74|b3304a/i.test(c)&&/正確答案是/.test(f.textContent)})()"), f'{name}: wrong answer is nebula purple with a soft sentence, not a red bar')
             for _ in range(40):
                 s = ev(pg, "r37P?r37P.phase:'none'")
                 if s == 'result':
