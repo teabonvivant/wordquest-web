@@ -23,9 +23,9 @@ function r37FpsLvMount(){
  const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
- const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+ const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
-  onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';},lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */};
+  onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
  if(s===9)opts.boss=true;
  if(nx&&r37FpsOpen(nx.w,nx.s))opts.onNext=()=>{r37FpsSel={w:nx.w,s:nx.s,from:'#lv/fps'};r37Mem._fw=nx.w;r37Nav37('fp/play');};
  r37FpsHandle=WQ37FPS.start(box,opts);
@@ -60,7 +60,7 @@ function r37RunMount(){
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
  const diff=r37DiffN('english'),ch=r37Char();
  r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
-  onFinish:res=>{if(r37RunSel&&r37RunSel.endless)return 0;/* R3.29 C-07: endless runs are not letter-hunt rounds */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
+  onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('run');return 0;}/* R3.29 C-07: endless runs have their own count, not the letter-hunt mission */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
    r37Save();if(coins)r37AddCoins(coins);return coins;},

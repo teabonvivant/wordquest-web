@@ -179,7 +179,7 @@ const WQArc=(()=>{
   if(lobby&&!lobby.querySelector('.arx-bar')){
    const a=A(),n=Object.keys(a.ach).filter(k=>ACH.some(d=>d.id===k)).length,h=lobby.querySelector('h1');
    const bar=document.createElement('div');bar.className='arx-bar';
-   bar.innerHTML=`<button type="button" class="arx-btn" data-arx="ach" aria-haspopup="dialog">🏅 成就 <b>${n}/${ACH.length}</b></button><span class="arx-chip" title="挑戰星">⭐ <b>${totalStars(a)}</b>/${totalMax()}</span><span class="arx-hint">每款遊戲有 3 個分數目標</span>`;
+   bar.innerHTML=`<button type="button" class="arx-btn" data-arx="ach" aria-haspopup="dialog">🏅 成就 <b>${n}/${ACH.length}</b></button><span class="arx-chip" title="挑戰星">⭐ 挑戰星 <b>${totalStars(a)}</b>/${totalMax()}</span><span class="arx-hint">每款遊戲有 3 個分數目標</span>`;
    if(h)h.after(bar);else lobby.prepend(bar);
   }
  }

@@ -96,7 +96,7 @@ function r37FpsUnitWords(w,s){return r37EnStage(w,s).map(x=>({en:x.en,zh:x.zh,em
 function r37FpsPay(w,s,res){
  const o=r37Get(),k=r37LvKey('fps',w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=res&&res.passed!==undefined?!!res.passed:stars>=3;
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
- if(passed){if(!old.passed&&s===9)coins+=2;if(!old.passed)r37Bump('levels');/* R3.29 C-07: the first pass of a letter-hunt level counts as a cleared level */e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
+ if(passed){if(!old.passed){if(s===9)coins+=2;r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  r37Bump('fps');r37Save();
  if(!isLoggedIn())coins=0;
  if(coins)r37AddCoins(coins);
@@ -110,7 +110,7 @@ const R37_G3={
 };
 const r37G3Track=(g,subj)=>g+'-'+(subj==='math'?'ma':'en');
 const r37G3Worlds=subj=>subj==='math'?WQ37Math.worlds('math'):R37_TRACKS.english.worlds;
-const r37G3Grade=(subj,w)=>subj==='math'?(['小一二','小二','小三','小四','小五','小六'][w]||''):'詞彙 '+(w+1);
+const r37G3Grade=(subj,w)=>subj==='math'?(['小一二','小二','小三','小四','小五','小六'][w]||''):(R37_TRACKS.english.worlds[w]?.name||'詞彙 '+(w+1));
 /* a level is open after the previous level of the same game and subject, after the matching lesson level (English unit / maths level) was passed, or for Admin */
 function r37G3Open(g,subj,w,s){
  if(adminUnlocks())return true;const t=r37G3Track(g,subj);

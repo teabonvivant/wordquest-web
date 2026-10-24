@@ -14,11 +14,11 @@
   var FALLBACK = [{ en: 'sun', zh: '太陽', emoji: '☀️' }, { en: 'moon', zh: '月亮', emoji: '🌙' }, { en: 'star', zh: '星星', emoji: '⭐' }];
 
   var WORLDS = [
-    { zh: '草原', sky: ['#5ec3ff', '#b5e8ff', '#effcff'], ground: ['#7bd36f', '#3f9f4d'], track: 'rgba(60,110,40,0.38)', edge: '#fff7c2', tuft: '#2f8f3f', obs: ['🪨', '🐌', '🦔', '🪵'], boss: '🐲', amb: 'petal', ambc: '#ffc6e0' },
-    { zh: '森林', sky: ['#1f6a56', '#58b88a', '#c9efb8'], ground: ['#3c8a4f', '#1f5a36'], track: 'rgba(20,50,30,0.42)', edge: '#d8ffb0', tuft: '#16502f', obs: ['🍄', '🪵', '🐗', '🕸️'], boss: '🦖', amb: 'leaf', ambc: '#b8e65a' },
-    { zh: '沙漠', sky: ['#ff9a4d', '#ffcf80', '#fff0c4'], ground: ['#f4cd7e', '#d9a24a'], track: 'rgba(140,80,20,0.36)', edge: '#fffbe0', tuft: '#b97d2a', obs: ['🌵', '🪨', '🦂', '🏺'], boss: '🦂', amb: 'sand', ambc: '#fff3cf' },
-    { zh: '火山', sky: ['#2a1238', '#8a2f48', '#ff8a3d'], ground: ['#3a2430', '#1c0f1c'], track: 'rgba(0,0,0,0.42)', edge: '#ffb066', tuft: '#ff6a2a', obs: ['🪨', '🔥', '🌋', '♨️'], boss: '🐉', amb: 'ember', ambc: '#ff9d3d' },
-    { zh: '星空', sky: ['#070722', '#241a5e', '#5a2d96'], ground: ['#2a1f66', '#120c36'], track: 'rgba(120,90,255,0.28)', edge: '#9ff6ff', tuft: '#7f6bff', obs: ['🛸', '☄️', '🪐', '🛰️'], boss: '👾', amb: 'star', ambc: '#ffffff' }
+    { zh: '彩虹草原', sky: ['#5ec3ff', '#b5e8ff', '#effcff'], ground: ['#7bd36f', '#3f9f4d'], track: 'rgba(60,110,40,0.38)', edge: '#fff7c2', tuft: '#2f8f3f', obs: ['🪨', '🐌', '🦔', '🪵'], boss: '🐲', amb: 'petal', ambc: '#ffc6e0' },
+    { zh: '迷霧森林', sky: ['#1f6a56', '#58b88a', '#c9efb8'], ground: ['#3c8a4f', '#1f5a36'], track: 'rgba(20,50,30,0.42)', edge: '#d8ffb0', tuft: '#16502f', obs: ['🍄', '🪵', '🐗', '🕸️'], boss: '🦖', amb: 'leaf', ambc: '#b8e65a' },
+    { zh: '金沙沙漠', sky: ['#ff9a4d', '#ffcf80', '#fff0c4'], ground: ['#f4cd7e', '#d9a24a'], track: 'rgba(140,80,20,0.36)', edge: '#fffbe0', tuft: '#b97d2a', obs: ['🌵', '🪨', '🦂', '🏺'], boss: '🦂', amb: 'sand', ambc: '#fff3cf' },
+    { zh: '火焰火山', sky: ['#2a1238', '#8a2f48', '#ff8a3d'], ground: ['#3a2430', '#1c0f1c'], track: 'rgba(0,0,0,0.42)', edge: '#ffb066', tuft: '#ff6a2a', obs: ['🪨', '🔥', '🌋', '♨️'], boss: '🐉', amb: 'ember', ambc: '#ff9d3d' },
+    { zh: '星空宇宙', sky: ['#070722', '#241a5e', '#5a2d96'], ground: ['#2a1f66', '#120c36'], track: 'rgba(120,90,255,0.28)', edge: '#9ff6ff', tuft: '#7f6bff', obs: ['🛸', '☄️', '🪐', '🛰️'], boss: '👾', amb: 'star', ambc: '#ffffff' }
   ];
 
   /* five bosses: attack lists per phase. fall=rocks with warning marker, projL/projH=low/high projectiles, beamL/beamH=sweep (jump/slide), laser=lane beam */
@@ -424,7 +424,7 @@
       } else big.textContent = icon;
       card.appendChild(big);
       card.appendChild(h('div', 'wq37r-t', plain(ch.name || '') + (perk ? ' · ' + ({ heart: '多一顆心', shield: '護盾', coin: '多一枚金幣' }[perk] || '') : '')));
-      card.appendChild(h('div', 'wq37r-t', endless ? '無盡挑戰 · ' + W.zh : W.zh + ' · 第' + (stageI + 1) + '關' + (isBoss ? ' · ' + B.name : '')));
+      card.appendChild(h('div', 'wq37r-t', endless ? '無盡挑戰 · ' + W.zh : W.zh + ' · 第 ' + (stageI + 1) + ' 關' + (isBoss ? ' · ' + B.name : '')));
       if (endless) { var bb = loadBest(); card.appendChild(h('div', 'wq37r-goal', '最佳 ' + bb.dist + ' 米 · ' + bb.score + ' 分')); }
       else card.appendChild(h('div', 'wq37r-goal', isBoss ? N + ' 道門 · 打敗魔王' : '過 ' + N + ' 道門'));
       var keys = h('div', 'wq37r-keys');
@@ -443,7 +443,7 @@
       cardShown = true; var r = lastResult, tot = r.correct + r.wrong, acc = tot ? Math.round(r.correct / tot * 100) : 0;
       var card = makeOverlay();
       card.appendChild(h('div', 'wq37r-t', r.mode === 'endless' ? '挑戰結束' : r.passed ? '過關！' : '再試一次'));
-      if (r.newRecord) card.appendChild(h('div', 'wq37r-rec', 'NEW RECORD！'));
+      if (r.newRecord) card.appendChild(h('div', 'wq37r-rec', '新紀錄！'));
       card.appendChild(h('div', 'wq37r-stars', '★★★★★'.slice(0, r.stars) + '☆☆☆☆☆'.slice(0, 5 - r.stars)));
       if (r.bossDefeated) card.appendChild(h('div', 'wq37r-row', '打敗了' + B.name + '！'));
       if (r.mode === 'endless') {
