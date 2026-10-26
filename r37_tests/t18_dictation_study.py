@@ -96,7 +96,7 @@ def answer(pg, wrong=False):
             c = ch[i]
             if wrong and k == 0:
                 c = 'z' if c.lower() != 'z' else 'q'
-            pg.keyboard.type(c)
+            L.tap_text(pg, c, ''.join(ch))
         pg.keyboard.press('Enter')
     else:
         pg.fill('#r37-in', ('xx' + q['answer']) if wrong else q['answer'])
@@ -199,22 +199,15 @@ with L.sync_playwright() as p:
     C.ok('🔊' in pg.inner_text('.r37-q') or pg.evaluate("!!document.querySelector('.r37-spk')"), 'level 2: replay button and meaning shown')
     zh = dict(W20)[ans]
     C.ok(zh in pg.inner_text('.r37-q'), f'level 2 shows the Chinese meaning ({zh})')
-    # typing jumps, backspace goes back
-    ci0 = pg.evaluate("document.activeElement.dataset.ci")
-    pg.keyboard.type(ans[q['hide'][0]])
-    ci1 = pg.evaluate("document.activeElement.dataset.ci")
-    C.ok(ci0 == str(q['hide'][0]) and (len(q['hide']) == 1 or ci1 == str(q['hide'][1])), f'cell 1 focused first, typing jumps to the next cell {ci0}->{ci1}')
-    if len(q['hide']) > 1:
-        pg.keyboard.press('Backspace')
-        ci2 = pg.evaluate("[document.activeElement.dataset.ci,document.activeElement.value]")
-        C.ok(ci2 == [str(q['hide'][0]), ''], f'Backspace on an empty cell goes back and clears {ci2}')
-        pg.keyboard.type(ans[q['hide'][0]])
-    # empty cells block submit
+    # tiles fill the blanks in order; a filled blank can be tapped to empty it; a partly filled word does not submit
+    C.ok(pg.evaluate("[...document.querySelectorAll('.r37-cell')].every(c=>c.readOnly)"), 'level 2: blanks are read-only (no keyboard)')
+    L.tap_text(pg, ans[q['hide'][0]])
+    C.ok(pg.evaluate("[...document.querySelectorAll('.r37-cell')].filter(c=>c.value).length") == 1, 'a tapped tile fills the first blank')
     if len(q['hide']) > 1:
         pg.keyboard.press('Enter'); pg.wait_for_timeout(150)
         C.ok(pg.evaluate("!document.querySelector('.r37-fb')"), 'Enter with empty cells does not submit')
         for i in q['hide'][1:]:
-            pg.keyboard.type(ans[i])
+            L.tap_text(pg, ans[i])
     pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=T)
     C.ok(True, 'level 2: completed word is judged right')
     nxt(pg); pg.wait_for_timeout(150)

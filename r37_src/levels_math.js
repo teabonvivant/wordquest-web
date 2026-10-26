@@ -231,6 +231,13 @@ olympiad:[
   [[3],[4],[5],[0],[6],[2],[1],ALL,ALL,ALL]
 ]};
 const poolOf=(t,wi,si,diff)=>{const w=LINE[t][wi];return Array.isArray(w)?w[si]:(diff<=3?w.lo:w.hi)[si]};
+// R3.31 variety: levels_math_x_*.js queue extra math templates on WQ37MathX.q ({w,stages,diffs,make:H=>(r,p)=>o(..)}); they are appended to MATH[w] and
+// added to LINE.math[w] at the given stages (diffs 1-3 -> the 'lo' line, 4-5 -> the 'hi' line of a world that splits by difficulty). Same level, more different stems.
+if(typeof require!=='undefined'&&!globalThis.WQ37MathX)['w12','w34','w56'].forEach(k=>{try{require('./levels_math_x_'+k+'.js')}catch(e){if(e.code!=='MODULE_NOT_FOUND')throw e}});
+{const XQ=(globalThis.WQ37MathX&&globalThis.WQ37MathX.q)||[],H={o,ri,pk,sh,N,nm,NM,IT,P,gcd,fr,fx,spread,CN,X,fact,mulHow,timesHow,addHow,subHow,place,mb,hs};
+  LINE.math=LINE.math.map(w=>Array.isArray(w)?w.map(a=>a.slice()):{lo:w.lo.map(a=>a.slice()),hi:w.hi.map(a=>a.slice())});
+  for(const e of XQ){const idx=MATH[e.w].push(e.make(H))-1,ds=e.diffs||[1,2,3,4,5],wl=LINE.math[e.w];
+    for(const si of e.stages){if(Array.isArray(wl))wl[si].push(idx);else{if(ds.some(d=>d<=3))wl.lo[si].push(idx);if(ds.some(d=>d>=4))wl.hi[si].push(idx)}}}}
 
 // skill -> real lesson id.  math: HK-M4 unit code (chapters are <code>-1 / <code>-2, see math_course_src/curriculum-map.json);
 // olympiad: 思維之塔 topic id (math_course_src/active-content.json skills, track olympiad). '' = no matching lesson yet.

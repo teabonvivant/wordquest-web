@@ -110,7 +110,7 @@ with sync_playwright() as p:
     # wrong answer: the first hidden cell gets a wrong letter
     ch = list('beautiful')
     for n, i in enumerate(bq['hide']):
-        pg.keyboard.type('z' if n == 0 else ch[i])
+        L.tap_text(pg, 'z' if n == 0 else ch[i], 'beautiful')
     pg.keyboard.press('Enter')
     pg.wait_for_selector('.r37-fb.bad', timeout=4000)
     ans = pg.evaluate("document.querySelector('.r37-ans').textContent")

@@ -246,21 +246,23 @@ function r37EnReview(w,s){const out=[];for(let x=0;x<s;x++)out.push(...r37EnStag
 function r37EnChunks(words){const out=[];for(let i=0;i<words.length;i+=3)out.push(words.slice(i,i+3));return out;}
 function r37UnitSentence(w,s){try{return (LIB30.units.get(r37UnitId(w,s))||{}).sentence||'';}catch(_){return '';}}
 function r37Hl(en,idx){const set=new Set(idx||[]);return [...en].map((c,i)=>set.has(i)?`<i class="r37-fx">${esc(c)}</i>`:esc(c)).join('');}
-function r37EnDistractors(word,pool,n,near,rng,unit){
- const wk=r37ZhKey(word.zh),cand=pool.filter(x=>x.en!==word.en&&r37ZhKey(x.zh)!==wk);
+function r37EnDistractors(word,pool,n,near,rng,unit,kind,bad){
+ /* R3.31: every English choice question uses the closest wrong answers: spelling for zh2en / listen, meaning (same category + part of speech + similar length) for en2zh. near==='soft' (level 1) picks at random from the closest few */
+ const wk=r37ZhKey(word.zh),ok=x=>x.en!==word.en&&r37ZhKey(x.zh)!==wk&&!(bad&&bad.has(x.en));
+ const shared=(a,b)=>[...new Set(a)].filter(c=>b.includes(c)).length;
+ const sc=kind==='en2zh'
+  ?x=>(x.cat&&word.cat?(x.cat===word.cat?0:3):1.5)+(x.pos&&word.pos?(x.pos===word.pos?0:2):1)+Math.abs(x.zh.length-word.zh.length)*.4-shared(x.zh,word.zh)*.6+r37Edit(x.en,word.en)*.04
+  :x=>r37Edit(x.en,word.en)+(x.pos===word.pos?-.5:0)+Math.abs(x.en.length-word.en.length)*.3;
+ const rank=a=>a.map(x=>({x,d:sc(x)})).sort((p,q)=>p.d-q.d||p.x.en.localeCompare(q.x.en)).map(o=>o.x);
+ const pick=(a,k)=>near==='soft'?r37Shuf(rank(a).slice(0,k*2),rng).slice(0,k):rank(a).slice(0,k);
+ const cand=pool.filter(ok);
  if(unit&&unit.length){
-  /* contrast words from the same unit (cat / can / fan): the unit's own target is what gets tested. Levels 4-5 (near) take the closest spellings first */
-  const same=unit.filter(x=>x.en!==word.en&&r37ZhKey(x.zh)!==wk),want=Math.min(same.length,n);
-  const head=near?same.map(x=>({x,d:r37Edit(x.en,word.en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,want).map(o=>o.x):r37Shuf(same,rng).slice(0,want);
+  const same=unit.filter(ok),want=Math.min(same.length,n),head=pick(same,want);
   if(head.length>=n)return head.slice(0,n);
   const used=new Set(head.map(x=>x.en));
-  return head.concat(r37EnDistractors(word,pool.filter(x=>!used.has(x.en)),n-head.length,near,rng));
+  return head.concat(r37EnDistractors(word,pool.filter(x=>!used.has(x.en)),n-head.length,near,rng,null,kind,bad));
  }
- let ranked;
- if(near)ranked=cand.map(x=>({x,d:r37Edit(x.en,word.en)+(x.pos===word.pos?-.5:0)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,24).map(o=>o.x);
- else ranked=cand.filter(x=>x.pos===word.pos&&Math.abs(x.sc-word.sc)<=3);
- if(ranked.length<n)ranked=cand.filter(x=>Math.abs(x.sc-word.sc)<=4);
- return r37Shuf(ranked,rng).slice(0,n);
+ return pick(cand,n);
 }
 function r37Edit(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n];}
 const R37_UEMO={"pet":"🐾","win":"🏆","sit":"🪑","hit":"🎯","kit":"🧰","top":"🔝","hop":"🐇","pop":"🍿","dot":"⚫","hug":"🤗","fun":"🎉","bad":"👎","mad":"😠","sled":"🛷","beg":"🥺","dig":"⛏️","zip":"🤐","sip":"🥤","jog":"🏃","dock":"⚓","shut":"🚪","luck":"🍀","shell":"🐚","wish":"🌠","chip":"🍟","rich":"💰","lunch":"🍱","mother":"👩","song":"🎤","long":"📏","bang":"💥","hang":"🪝","wink":"😉","link":"🔗","kick":"⚽","pack":"🧳","sick":"🤒","photo":"📷","alphabet":"🔤","step":"👣","spin":"🌀","skip":"⏭️","smell":"👃","small":"🤏","sweet":"🍬","block":"🧱","crop":"🌾","grin":"😁","drop":"💧","free":"🆓","sand":"🏖️","wind":"🌬️","lamp":"💡","jump":"🐸","name":"📛","same":"🟰","plate":"🍽️","time":"⏰","stone":"🪨","hope":"🤞","note":"📝","tube":"🧪","cute":"🥰","June":"📅","tune":"🎵","sail":"⛵","wait":"⏳","day":"☀️","say":"💬","clay":"🏺","see":"👀","team":"👥","meat":"🍖","float":"🛟","slow":"🐢","grow":"🌱","blow":"🎈","yellow":"🟡","right":"➡️","bright":"🔆","sight":"👁️","high":"🪁","flight":"✈️","lie":"🛏️","die":"🎲","cried":"😢","flies":"🪰","room":"🛋️","zoo":"🐼","good":"👍","wool":"🧶","point":"👉","joy":"😄","loud":"📢","brown":"🟫","farm":"🚜","arm":"💪","card":"💳","dark":"🌑","sport":"🏀","north":"🧭","fern":"🌿","turn":"🔄","air":"💨","fair":"⚖️","repair":"🔧","airport":"🛫","hear":"👂","dear":"💌","beard":"🧔","box":"📦","baby":"👶","city":"🏙️","cities":"🏙️","puppy":"🐶","toys":"🧸","walked":"🚶","jumped":"🐸","make":"🛠️","tall":"🦒","unhappy":"😞","kind":"🫶","safe":"🛡️","reuse":"♻️","rewrite":"✍️","build":"🏗️","rebuild":"🏗️","give":"🎁","love":"❤️","said":"🗣️","great":"🌟","steak":"🥩","here":"📍","Monday":"📅","Friday":"📅","Sunday":"📅","May":"📅","calculator":"🧮","brave":"🦁","careful":"⚠️","draw":"✏️","carry":"🎒","open":"🔓","close":"🔒","help":"🤝","wide":"↔️","above":"⬆️","below":"⬇️","afternoon":"🌤️","evening":"🌇","breakfast":"🥞","dinner":"🍲","fan":"🪭","jam":"🍓","ham":"🍖","wet":"💦","mop":"🧹","bun":"🍞","wig":"💇","chest":"🧰","bench":"🪑","moth":"🦋","sink":"🚰","neck":"🦒","pond":"🦆","lake":"🏞️","gate":"🚪","rope":"🪢","cone":"🔺","mule":"🐴","flute":"🪈","tail":"🐕","pillow":"🛏️","pool":"🏊","soil":"🪴","hair":"💇","stairs":"🪜","raincoat":"🧥","playground":"🛝","head":"🙂","spray":"🧴","coach":"🧑‍🏫","path":"🛤️","mat":"🧘","yam":"🍠","men":"👬","get":"🤲","fin":"🦈","fit":"👕","lot":"🏞️","rag":"🧽","wag":"🐕","fed":"🍼","peg":"📎","keg":"🛢️","lid":"🫙","hid":"🙈","big":"🐘","tip":"👆","dim":"🔅","rim":"⭕","slim":"🧍","stuck":"🚧","chin":"🧔","much":"➕","chop":"🔪","thin":"📄","thick":"📚","this":"👇","that":"👉","these":"👇","those":"👉","them":"👥","then":"⏭️","there":"👉","tank":"🚰","back":"🔙","pick":"☝️","nephew":"👦","spot":"🔴","skin":"✋","flat":"➖","went":"🚶","line":"〰️","rule":"📜","stay":"🏠","way":"🛣️","show":"🎭","tight":"🤏","tried":"💪","dried":"☀️","boil":"♨️","join":"🤝","out":"🚪","now":"⏰","short":"🩳","born":"👶","her":"👩","pair":"🧦","near":"📍","clear":"💎","year":"🗓️","fear":"😨","played":"⚽","want":"🙋","wanted":"🙋","playing":"🤸","making":"🛠️","smaller":"🔽","smallest":"🐜","bigger":"🔼","biggest":"🐋","taller":"🦒","unkind":"😠","unfair":"⚖️","unsafe":"⚠️","reread":"📖","use":"🖐️","have":"🎁","come":"👋","some":"🍬","break":"☕","English":"🔤","Tom":"👦","Hong Kong":"🇭🇰","share":"🍰","far":"🔭","inside":"📦","outside":"🌳","today":"📅","tomorrow":"🌅","yesterday":"🌙","weekend":"🎉"};
@@ -291,7 +293,7 @@ function r37EnBuild(wd,kind,c){
   return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,forms,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
  }
  const nOpt=D.opts-1,seenZ=new Set([r37ZhKey(wd.zh)]),seenE=new Set([wd.en]),ds=[];
- for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.near,rng,c.unit)){if(ds.length>=nOpt)break;if(seenZ.has(r37ZhKey(x.zh))||seenE.has(x.en))continue;seenZ.add(r37ZhKey(x.zh));seenE.add(x.en);ds.push(x);}
+ const bad=new Set([...syn,...forms]);for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.n===1?'soft':true,rng,c.unit,kind,bad)){if(ds.length>=nOpt)break;if(seenZ.has(r37ZhKey(x.zh))||seenE.has(x.en))continue;seenZ.add(r37ZhKey(x.zh));seenE.add(x.en);ds.push(x);}
  const opts=r37Shuf([wd,...ds],rng),info={};
  const q={mode:'mcq',kind,answer:wd.en,audio:wd.en,word:wd.en,ck,zhOf:wd.zh};
  if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,lang:'en',info});}

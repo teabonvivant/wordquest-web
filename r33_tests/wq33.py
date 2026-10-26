@@ -59,3 +59,28 @@ def hit(pg, selector):
     return pg.evaluate("""(sel)=>{const e=document.querySelector(sel);if(!e)return null;const r=e.getBoundingClientRect();
       const x=r.left+r.width/2,y=r.top+r.height/2;if(x<0||y<0||x>innerWidth||y>innerHeight)return 'offscreen';
       const t=document.elementFromPoint(x,y);return !!t&&(t===e||e.contains(t)||t.contains(e));}""", selector)
+
+
+# R3.31: fill-in answers are tapped from tiles (WQPad); the inputs are read-only. Page.fill on such an input taps the tiles instead, so every older flow test still answers
+# through the real UI. Characters that are not on the pad are skipped (a deliberately wrong answer stays wrong); a plain input is filled as before.
+from playwright.sync_api import Page as _Page  # noqa: E402
+_plain_fill = _Page.fill
+
+
+def _tile_fill(self, selector, value, **kw):
+    el = self.query_selector(selector)
+    if not el or el.get_attribute('data-wqp') != '1':
+        return _plain_fill(self, selector, value, **kw)
+    self.evaluate("(el)=>{if(el.value){el.value='';el.dispatchEvent(new Event('input',{bubbles:true}))}}", el)
+    sentence = el.evaluate("el=>el.tagName==='TEXTAREA'")
+    for tok in (str(value).split(' ') if sentence else list(str(value))):
+        if not sentence and tok == ' ':
+            tok = '空格'
+        hit_ = self.evaluate("""([el,t])=>{const pad=el._wqpG&&el._wqpG.pad;if(!pad)return false;if(el._wqpG.active!==el)el.click();
+          const b=[...pad.querySelectorAll('.wqp-t')].find(b=>!b.disabled&&b.textContent===t);if(!b)return false;b.click();return true}""", [el, tok])
+        if not hit_ and sentence:
+            continue
+
+
+_Page.fill = _tile_fill
+

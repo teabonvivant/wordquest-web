@@ -11,7 +11,7 @@ def apply(s, ctx):
     js = '\n'.join((src / f).read_text() for f in ('s10_core.js', 's15_art.js', 's20_ui.js', 's22_dz.js', 's25_fx.js', 's30_wiring.js', 's35_arcade.js'))
     libs = ''
     # tools/build_math_m1.py insists on exactly 43 original <script> blocks, so the R3.21 game libraries ride inside the runner-game block
-    groups = (('levels_math.js', 'levels-math'), ('fps_game.js', 'fps-game'), (('runner_game.js', 'gx_core.js', 'td_game.js', 'maze_game.js', 'card_game.js'), 'runner-game'))
+    groups = ((('levels_math_x_w12.js', 'levels_math_x_w34.js', 'levels_math_x_w56.js', 'levels_math.js'), 'levels-math'), ('fps_game.js', 'fps-game'), (('runner_game.js', 'gx_core.js', 'td_game.js', 'maze_game.js', 'card_game.js'), 'runner-game'))
     for names, tag in groups:
         body = ''
         for name in ((names,) if isinstance(names, str) else names):

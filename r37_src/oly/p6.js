@@ -80,6 +80,39 @@
           [`1/${a}`, `1/${a + 1}`, `1/${2 * a + 1}`, `2/${a * (a + 1)}`], '', [], { form: 'simplest', svg: formSvg(`1/${a}－1/${a + 1}`, `＝ 1/(${a}×${a + 1})`), why: { [`1/${2 * a + 1}`]: '分母不能直接相減或相加，要先通分母。', [`1/${a}`]: '還要減去 1/' + (a + 1) + '，不是只剩第一個。' } })
           : O('frac-find', `1/(${a}×${a + 1})＝1/${a}－1/？。？是多少？`, a + 1, '拆成兩個分數相減。', `1/(${a}×${a + 1})＝1/${a}－1/${a + 1}，所以？是 ${a + 1}。`,
             [a, a + 2, a * (a + 1), 1], '', [], { svg: formSvg(`1/(${a}×${a + 1})`, `＝ 1/${a} － 1/？`), why: { [a]: `${a} 是前一個分母，要減去的是下一個：${a + 1}。`, [a * (a + 1)]: '乘出來的是分母，拆開後是兩個相鄰的數。' } });
+      },
+      /* R3.31 variety: start anywhere, other wordings */
+      (r, p) => {
+        const a = ri(r, 1, 5), b = ri(r, a + 2, 9), [sn, sd] = sumFrac(termsOf(a, 1, b)), s = frac(sn, sd), pre = pick(r, ['計算：', '求值：', '算一算：', '求和：']);
+        const wr = [...new Set([`1/${a}`, `1/${b + 1}`, frac(b - a + 1, b + 1), frac(b - a, a * b), frac(b + 1, b + 2), frac(b - 1, b)])].filter(x => x !== s).slice(0, 4);
+        return O('frac-mid', `${pre}1/(${a}×${a + 1})＋1/(${a + 1}×${a + 2})＋…＋1/(${b}×${b + 1})＝？`, s, '每一項拆成兩個分數相減，中間會抵消。', `1/${a}－1/${b + 1}＝${frac(b + 1 - a, a * (b + 1))}；中間的分數全部抵消，只剩首尾：${s}。`,
+          wr, '', [], { form: 'simplest', svg: fracBar(a, b), why: Object.fromEntries([[`1/${a}`, `這是開頭的分數，還要減去最後剩下的 1/${b + 1}。`], [`1/${b + 1}`, `這只是尾巴，要用 1/${a} 去減。`]].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: a story with the pieces 1/2, 1/6, 1/12 ... */
+      (r, p) => {
+        const n = ri(r, 3, 5), sc = pick(r, [['一本書，', '看'], ['一條繩，', '剪'], ['一堆沙，', '運走'], ['一池水，', '排走']]), days = ['第一日', '第二日', '第三日', '第四日', '第五日'].slice(0, n), s = frac(n, n + 1);
+        const wr = [...new Set([frac(n - 1, n), frac(n + 1, n + 2), `1/${n * (n + 1)}`, frac(n, n + 2)])].filter(x => x !== s);
+        return O('frac-split', `${sc[0]}${days.map((d, i) => `${d}${sc[1]} 1/${(i + 1) * (i + 2)}`).join('，')}。共${sc[1]}了全部的幾分之幾？`, s, '每一份都是 1/(k×(k+1))，拆開看看。',
+          `1/2＝1/(1×2)，1/6＝1/(2×3)……拆開後中間抵消，剩 1－1/${n + 1}＝${s}。`, wr, '', [], { form: 'simplest', svg: fracBar(1, n), why: { [`1/${n * (n + 1)}`]: '這只是最後一日的份量，共計要全部加起來。', [frac(n - 1, n)]: `共有 ${n} 日，要加到第 ${n} 日。` } });
+      },
+      /* R3.31 variety: the denominators already multiplied out */
+      (r, p) => {
+        const n = ri(r, 4, 10), pre = pick(r, ['計算：', '求值：', '算一算：', '求和：']), s = frac(n, n + 1);
+        const wr = [...new Set([frac(n - 1, n), frac(n + 1, n + 2), `1/${n + 1}`, frac(n, n + 2)])].filter(x => x !== s);
+        return O('frac-split', `${pre}1/2＋1/6＋1/12＋…＋1/${n * (n + 1)}＝？`, s, `先想：2＝1×2，6＝2×3，12＝3×4……最後 ${n * (n + 1)}＝${n}×${n + 1}。`,
+          `分母是 1×2、2×3、3×4……${n}×${n + 1}；拆開抵消，剩 1－1/${n + 1}＝${s}。`, wr, '', [], { form: 'simplest', svg: fracBar(1, n), why: { [`1/${n + 1}`]: `抵消後剩 1 和最後一項，要用 1 去減 1/${n + 1}。`, [frac(n + 1, n + 2)]: `最後一項是 ${n}×${n + 1}，分母到 ${n + 1}，不是 ${n + 2}。` } });
+      },
+      /* R3.31 variety: how many terms */
+      (r, p) => {
+        const n = ri(r, 3, 9), t = r() < .5;
+        const wr = [...new Set([n + 1, n - 1, n + 2, n * (n + 1)])].filter(x => x !== n);
+        return O('frac-mid', t ? `1/(1×2)＋1/(2×3)＋1/(3×4)＋…，一直加下去，和是 ${n}/${n + 1}。一共加了幾項？` : `從 1/(1×2) 開始，按 1/(2×3)、1/(3×4) 的規律加下去，和是 ${n}/${n + 1}。共有幾項？`, n, '先想：加到第 k 項，和是 k/(k+1)。', `加到第 k 項，和是 1－1/(k+1)＝k/(k+1)，所以 k＝${n}，共 ${n} 項。`, wr, '', [], { why: { [n + 1]: `${n + 1} 是分母，分子 ${n} 才是項數。`, [n - 1]: `和是 ${n}/${n + 1}，項數是 ${n}，不是少一項。` } });
+      },
+      /* R3.31 variety: split a unit fraction */
+      (r, p) => {
+        const a = ri(r, 2, 13), t = r() < .5, d = a * (a + 1);
+        const ans = t ? a + 1 : a, wr = [...new Set(t ? [a, a + 2, d, 1] : [a + 1, a - 1, d, 1])].filter(x => x !== ans);
+        return O('frac-find', t ? `1/${d}＝1/${a}－1/？。？是多少？` : `1/${d}＝1/？－1/${a + 1}。？是多少？`, ans, '想想：分母是兩個相鄰的數相乘。', `${d}＝${a}×${a + 1}，所以 1/${d}＝1/${a}－1/${a + 1}，？是 ${ans}。`, wr, '', [], { svg: formSvg(`1/${d}`, `＝ 1/${a} － 1/${a + 1}`), why: t ? { [a]: `${a} 是前一個分母，要減去的是下一個：${a + 1}。`, [d]: '乘出來的是分母，拆開後是兩個相鄰的數。' } : { [a + 1]: `${a + 1} 是減去的那個，？要填前一個：${a}。`, [d]: '乘出來的是分母，拆開後是兩個相鄰的數。' } });
       }
     ],
     B: [
@@ -97,12 +130,51 @@
         const n = N(r, p, 3, 9);
         return O('frac-times', `（1/(1×2)＋1/(2×3)＋…＋1/(${n}×${n + 1})）×${n + 1}＝？`, n, '括號內先拆開抵消。', `括號內＝${n}/${n + 1}；${n}/${n + 1}×${n + 1}＝${n}。`,
           [n + 1, n - 1, 1, n * (n + 1)], '', [], { svg: fracBar(1, n), why: { [n + 1]: `括號內是 ${n}/${n + 1}，乘 ${n + 1} 後分母消去，剩分子 ${n}。`, [1]: `括號內不是 1，是 1－1/${n + 1}。` } });
+      },
+      /* R3.31 variety: gap sums, start anywhere, other wordings */
+      (r, p) => {
+        const s0 = ri(r, 1, 6), g = pick(r, [2, 3]), m = ri(r, 3, 6), last = s0 + (m - 1) * g, [sn, sd] = sumFrac(termsOf(s0, g, last)), ans = frac(sn, sd), pre = pick(r, ['計算：', '求值：', '算一算：']);
+        const wr = [...new Set([frac(sn * g, sd), `1/${s0}`, frac(sn, sd * g), frac(sn + 1, sd)])].filter(x => x !== ans);
+        return O('frac-gap-mid', `${pre}1/(${s0}×${s0 + g})＋1/(${s0 + g}×${s0 + 2 * g})＋…＋1/(${last}×${last + g})＝？`, ans, `每項分母相差 ${g}，拆開後要除以 ${g}。`, `和＝(1/${s0}－1/${last + g})÷${g}，括號內是 ${frac(sn * g, sd)}，再除以 ${g}：${ans}。`,
+          wr, '', [], { form: 'simplest', svg: formSvg(`1/${s0}－1/${last + g}`, '再除以 ' + g), why: Object.fromEntries([[frac(sn * g, sd), `這是不除以 ${g} 的值，要記得除以 ${g}。`], [`1/${s0}`, '這只是開頭的分數，還要減去尾巴再除。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: multiply the gap sum back by the gap */
+      (r, p) => {
+        const s0 = ri(r, 1, 5), g = pick(r, [2, 3, 4]), m = ri(r, 3, 5), last = s0 + (m - 1) * g, ans = frac(last + g - s0, s0 * (last + g)), [sn, sd] = sumFrac(termsOf(s0, g, last));
+        const wr = [...new Set([frac(sn, sd), `1/${s0}`, `1/${last + g}`, frac(last + g - s0, last + g)])].filter(x => x !== ans);
+        return O('frac-times', `（1/(${s0}×${s0 + g})＋1/(${s0 + g}×${s0 + 2 * g})＋…＋1/(${last}×${last + g})）×${g}＝？`, ans, `括號內每項拆開後要除以 ${g}，再乘 ${g} 就抵消。`, `括號內＝(1/${s0}－1/${last + g})÷${g}；再乘 ${g}，剩 1/${s0}－1/${last + g}＝${ans}。`,
+          wr, '', [], { form: 'simplest', svg: formSvg(`1/${s0}－1/${last + g}`, '括號內除以 ' + g + '，再乘 ' + g), why: Object.fromEntries([[frac(sn, sd), `這是括號內的值，還要乘 ${g}。`], [`1/${s0}`, '這只是開頭，還要減去尾巴。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: numerator equals the gap */
+      (r, p) => {
+        const s0 = ri(r, 1, 5), g = pick(r, [2, 3]), m = ri(r, 3, 6), last = s0 + (m - 1) * g, ans = frac(last + g - s0, s0 * (last + g));
+        const wr = [...new Set([`1/${s0}`, `1/${last + g}`, frac(last + g - s0, last + g), frac(last - s0, s0 * last)])].filter(x => x !== ans);
+        return O('frac-gap', `${g}/(${s0}×${s0 + g})＋${g}/(${s0 + g}×${s0 + 2 * g})＋…＋${g}/(${last}×${last + g})＝？`, ans, `分子剛好是分母兩個數的差，每項可拆成兩個分數相減。`, `${g}/(${s0}×${s0 + g})＝1/${s0}－1/${s0 + g}，其餘各項同理；中間抵消，剩 1/${s0}－1/${last + g}＝${ans}。`,
+          wr, '', [], { form: 'simplest', svg: formSvg(`${g}/(${s0}×${s0 + g})＝1/${s0}－1/${s0 + g}`, '分子＝兩數的差'), why: Object.fromEntries([[`1/${s0}`, '這只是開頭，還要減去尾巴。'], [`1/${last + g}`, `這是尾巴，要用 1/${s0} 去減。`]].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: split with a gap */
+      (r, p) => {
+        const a = ri(r, 1, 9), g = pick(r, [2, 3, 4]), ans = a + g;
+        const wr = [...new Set([a + 1, a * (a + g), g, a + 2 * g])].filter(x => x !== ans);
+        return O('frac-gap', `1/(${a}×${a + g})＝(1/${a}－1/？)÷${g}。？是多少？`, ans, `分母兩個數相差 ${g}，括號內要減去哪一個？`, `1/${a}－1/${a + g}＝${g}/(${a}×${a + g})，除以 ${g} 就是 1/(${a}×${a + g})，所以？是 ${ans}。`,
+          wr, '', [], { svg: formSvg(`1/(${a}×${a + g})`, `＝(1/${a}－1/？)÷${g}`), why: Object.fromEntries([[a + 1, '分母是 ' + a + ' 和 ' + (a + g) + ' 相乘，要填後面那個。'], [a * (a + g), '乘出來的是分母，括號內要填一個數。']].filter(([k]) => wr.includes(k))) });
       }
     ]
   };
   const verify61 = q => {
     let m;
     const ts = [...q.q.matchAll(/1\/\((\d+)×(\d+)\)/g)].map(x => [+x[1], +x[2]]);
+    const addF = ds => { let n = 0, d = 1; for (const [a, b] of ds) { const l = d / gcd(d, b) * b; n = n * (l / d) + a * (l / b); d = l; } const g = gcd(n, d); return frac(n / g, d / g); };
+    if ((m = /^(?:計算：|求值：|算一算：|求和：)1\/2＋1\/6＋1\/12＋…＋1\/(\d+)＝？$/.exec(q.q))) { const d = +m[1]; for (let n = 1; n <= 60; n++) if (n * (n + 1) === d) return frac(n, n + 1); return 'none'; }
+    if (/幾項？$/.test(q.q) && (m = /和是 (\d+)\/(\d+)。/.exec(q.q))) return +m[2] === +m[1] + 1 ? m[1] : 'none';
+    if ((m = /第一日.{1,3} 1\/2，第二日/.exec(q.q))) return addF([...q.q.matchAll(/ 1\/(\d+)/g)].map(x => [1, +x[1]]));
+    if ((m = /^1\/(\d+)＝1\/(\d+)－1\/？。/.exec(q.q))) { const d = +m[1], x = +m[2]; return d * x % (d - x) === 0 ? String(d * x / (d - x)) : 'none'; }
+    if ((m = /^1\/(\d+)＝1\/？－1\/(\d+)。/.exec(q.q))) { const d = +m[1], y = +m[2]; return d * y % (d + y) === 0 ? String(d * y / (d + y)) : 'none'; }
+    if ((m = /^1\/\((\d+)×(\d+)\)＝\(1\/(\d+)－1\/？\)÷(\d+)。/.exec(q.q))) return (+m[2] - +m[1] === +m[4] && +m[3] === +m[1]) ? m[2] : 'none';
+    if ((m = /^(\d+)\/\((\d+)×(\d+)\)＋/.exec(q.q)) && +m[1] > 1) {
+      const all = [...q.q.matchAll(/(\d+)\/\((\d+)×(\d+)\)/g)].map(x => [+x[1], +x[2], +x[3]]); const g = all[0][2 + 0 - 1 + 1] - all[0][1];
+      let x0 = all[0][1]; const last = all[all.length - 1][1]; const ds = []; for (let a = x0; a <= last; a += g) ds.push([g, a * (a + g)]); return addF(ds);
+    }
     if (/^1\/\d+－1\/\d+＝？/.test(q.q) && (m = /^1\/(\d+)－1\/(\d+)＝？/.exec(q.q))) { const a = +m[1], b = +m[2]; return frac(b - a, a * b); }
     if ((m = /^1\/\((\d+)×(\d+)\)＝1\/\d+－1\/？/.exec(q.q))) return String(+m[2]);
     if (ts.length >= 3) {
@@ -212,6 +284,11 @@
   const art63 = '<svg viewBox="0 0 120 80"><rect x="10" y="10" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="10" width="66" height="14" rx="3" fill="#3ee6d0" fill-opacity=".5"/><rect x="10" y="30" width="100" height="14" rx="3" fill="none" stroke="#c3cbf7" stroke-width="1.6"/><rect x="10" y="30" width="33" height="14" rx="3" fill="#ffc94a" fill-opacity=".5"/><rect x="10" y="52" width="100" height="22" rx="11" fill="#ff8fc7"/><text x="60" y="63" text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="900" fill="#0b1030">全部看成 1</text></svg>';
   const PAIRS = [[3, 6, 2], [4, 12, 3], [6, 12, 4], [4, 4, 2], [6, 6, 3], [12, 12, 6], [2, 2, 1], [12, 6, 4], [12, 4, 3], [6, 3, 2]];
   const lcm = (a, b) => a / gcd(a, b) * b;
+  const DRAIN = [], TRIO = [], RELAY = [], DONE = [];
+  for (let a = 2; a <= 12; a++) for (let b = a + 1; b <= 24; b++) if ((a * b) % (b - a) === 0 && a * b / (b - a) <= 24) DRAIN.push([a, b, a * b / (b - a)]);
+  [2, 3, 4, 6, 8, 12, 24].forEach((a, i, V) => V.slice(i).forEach((b, j) => V.slice(i + j).forEach(c => { const L = lcm(lcm(a, b), c), q = L / (L / a + L / b + L / c); if (Number.isInteger(q) && q >= 1 && q <= 12) TRIO.push([a, b, c, q]); })));
+  [4, 5, 6, 8, 10, 12].forEach(a => [3, 4, 6, 8, 10, 12, 15, 20].forEach(b => { for (let d = 1; d < a; d++) { const x = (a - d) * b / a; if (Number.isInteger(x) && x >= 1) RELAY.push([a, b, d, x]); } }));
+  [2, 3, 4, 5, 6, 8, 10, 12].forEach(a => [2, 3, 4, 5, 6, 8, 10, 12].forEach(b => { if (a !== b) for (let d = 1; d * (a + b) < a * b; d++) DONE.push([a, b, d]); }));
   const g63 = {
     A: [
       (r, p) => {
@@ -251,15 +328,55 @@
             [d, t, days + 1, a - d], '', [], { svg: workSvg(a, b, ['甲', '乙']), why: { [t]: `${t} 日是由頭合做的日數，甲先做了一部分，合做會少些。`, [a - d]: `${a - d} 是甲餘下的日數，乙加入後兩人合做更快。` } });
         }
         return O('work-head', '甲獨做 6 日完成，乙獨做 12 日完成。甲先獨做 3 日，乙才加入合做，再做幾日完成？', 2, '', '甲做 3 日完成 1/2，餘下 1/2，合做每日 1/4，要 2 日。', [3, 4, 1, 6], '', [], { svg: workSvg(6, 12, ['甲', '乙']), why: { 4: '甲先做了一部分，合做會少些。', 3: '這是甲先做的日數。' } });
+      },
+      /* R3.31 variety: fill pipe against drain pipe */
+      (r, p) => {
+        const [a, b, t] = pick(r, DRAIN), ob = pick(r, ['水池', '水缸', '浴缸', '魚缸']), L = lcm(a, b);
+        const wr = [...new Set([b - a, a + b, a * b, Math.max(a, b) - t])].filter(x => x !== t && x > 0);
+        return O('work-drain', `${ob}有一根進水管和一根排水管。單開進水管 ${a} 小時注滿，單開排水管 ${b} 小時排完。兩管齊開，幾小時注滿？`, t, '把整個' + ob + '看成幾份，進水是加，排水是減。', `整個看成 ${L} 份：進水每小時 ${L / a} 份，排水每小時 ${L / b} 份，每小時淨進 ${L / a - L / b} 份；${L}÷${L / a - L / b}＝${t} 小時。`,
+          wr, `${a}*${b}/(${b}-${a})`, [], { svg: workSvg(a, b, ['進', '排']), why: Object.fromEntries([[b - a, '時間不能直接相減，要看每小時進、排各多少份。'], [a + b, '排水是把水放走，要減，不是加。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: three workers together */
+      (r, p) => {
+        const [a, b, c, t] = pick(r, TRIO), th = pick(r, ['一幅牆要油漆', '一批貨要搬運', '一塊草地要修剪', '一份工作要完成']), L = lcm(lcm(a, b), c);
+        const wr = [...new Set([a + b + c, Math.min(a, b, c), t + 1, Math.max(t - 1, 1)])].filter(x => x !== t);
+        return O('work-three', `${th}：甲獨做 ${a} 日，乙獨做 ${b} 日，丙獨做 ${c} 日。三人合做，幾日完成？`, t, '把全部看成幾份，三人每日各做幾份？', `全部看成 ${L} 份：三人每日做 ${L / a}、${L / b}、${L / c} 份，合共 ${L / a + L / b + L / c} 份；${L}÷${L / a + L / b + L / c}＝${t} 日。`,
+          wr, `1/(1/${a}+1/${b}+1/${c})`, [], { svg: workSvg(a, b, ['甲', '乙']).replace('每一格是 1 日的工作', '丙也一起做'), why: Object.fromEntries([[a + b + c, '日數不能直接相加，要先求每日各做多少。'], [Math.min(a, b, c), '三人合做一定比最快的一個還要快。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: relay */
+      (r, p) => {
+        const c = pick(r, RELAY), [a, b, d, days] = c;
+        const wr = [...new Set([a - d, b - d, d, b])].filter(x => x !== days && x > 0);
+        return O('work-relay', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。甲先做了 ${d} 日，其餘由乙接手做完。乙要做幾日？`, days, `先求甲做了 ${d} 日，餘下多少。`, `甲做了 ${d}/${a}，餘下 ${frac(a - d, a)}；乙每日做 1/${b}，要 ${frac(a - d, a)}×${b}＝${days} 日。`,
+          wr, `(${a}-${d})/${a}*${b}`, [], { svg: workSvg(a, b, ['甲', '乙']), why: Object.fromEntries([[a - d, '那是甲餘下的日數，乙的速度不同，要看餘下幾分之幾。'], [b, '乙只做餘下的一部分，不用整個 ' + b + ' 日。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: how much is done after working together */
+      (r, p) => {
+        const [a, b, d] = pick(r, DONE), ans = frac(d * (a + b), a * b);
+        const wr = [...new Set([frac(d, a), frac(d, b), frac(d * (a + b), a + b + 1), frac(a * b - d * (a + b), a * b)])].filter(x => x !== ans);
+        return O('work-done', `甲獨做 ${a} 日完成，乙獨做 ${b} 日完成。兩人合做 ${d} 日，完成了全部的幾分之幾？`, ans, '兩人每日各做全部的幾分之一？先加起來。', `甲每日 1/${a}，乙每日 1/${b}，合做每日 ${frac(a + b, a * b)}；${d} 日：${d}×${frac(a + b, a * b)}＝${ans}。`,
+          wr, '', [], { form: 'simplest', svg: workSvg(a, b, ['甲', '乙']), why: Object.fromEntries([[frac(d, a), '這只是甲做的，乙也有做。'], [frac(a * b - d * (a + b), a * b), '這是還沒有做完的部分，題目問做了的。']].filter(([k]) => wr.includes(k))) });
+      },
+      /* R3.31 variety: find the second machine */
+      (r, p) => {
+        const [a, b, t] = pick(r, PAIRS.filter(x => x[0] !== x[1] || x[0] > 2)), th = pick(r, [['抽水機', '抽', '魚塘', '小時'], ['印刷機', '印', '一批傳單', '小時'], ['割草機', '割', '一塊草地', '小時'], ['噴漆機', '噴', '一幅牆', '小時']]);
+        const wr = [...new Set([t, a + t, Math.abs(a - t), a * t])].filter(x => x !== b);
+        return O('work-find', `甲${th[0]}單獨${th[1]}${th[2]}要 ${a} ${th[3]}。甲、乙兩部一起${th[1]}要 ${t} ${th[3]}。乙單獨${th[1]}要幾${th[3]}？`, b, '先求乙每' + th[3] + '做多少。', `合做每${th[3]} 1/${t}，甲每${th[3]} 1/${a}，乙每${th[3]} 1/${t}－1/${a}＝${frac(a - t, a * t)}，乙獨做要 ${b} ${th[3]}。`,
+          wr, '', [], { svg: workSvg(a, t, ['甲', '合做']), why: Object.fromEntries([[t, `${t} 是合做的時間，乙獨做要比合做慢。`], [Math.abs(a - t), '時間不能直接相減，要看每次做多少。']].filter(([k]) => wr.includes(k))) });
       }
     ]
   };
   const verify63 = q => {
     let m;
     const F = (n, d) => [n, d];
+    if ((m = /^甲獨做 (\d+) 日完成，乙獨做 (\d+) 日完成。兩人合做 (\d+) 日，完成了全部/.exec(q.q))) { const a = +m[1], b = +m[2], d = +m[3]; return frac(d * (a + b), a * b); }
     if ((m = /^甲(?:單獨|獨)做 (\d+) 日完成，乙(?:單獨|獨)做 (\d+) 日完成。兩人合做/.exec(q.q)) || (m = /^水池有甲、乙兩根水管。單開甲管 (\d+) 小時注滿，單開乙管 (\d+) 小時注滿/.exec(q.q))) {
       const a = +m[1], b = +m[2]; for (let t = 1; t <= 400; t++) if (t / a + t / b >= 1 - 1e-12) return String(t); return 'none';
     }
+    if ((m = /^.{2,3}有一根進水管和一根排水管。單開進水管 (\d+) 小時注滿，單開排水管 (\d+) 小時排完/.exec(q.q))) { const a = +m[1], b = +m[2]; for (let t = 1; t <= 400; t++) if (Math.abs(t / a - t / b - 1) < 1e-9) return String(t); return 'none'; }
+    if ((m = /^.+：甲獨做 (\d+) 日，乙獨做 (\d+) 日，丙獨做 (\d+) 日。三人合做/.exec(q.q))) { for (let t = 1; t <= 400; t++) if (Math.abs(t / +m[1] + t / +m[2] + t / +m[3] - 1) < 1e-9) return String(t); return 'none'; }
+    if ((m = /^甲獨做 (\d+) 日完成，乙獨做 (\d+) 日完成。甲先做了 (\d+) 日，其餘由乙接手/.exec(q.q))) { for (let t = 1; t <= 400; t++) if (Math.abs(+m[3] / +m[1] + t / +m[2] - 1) < 1e-9) return String(t); return 'none'; }
+    if ((m = /^甲.{2,3}單獨.{1,2}.+要 (\d+) 小時。甲、乙兩部一起.{1,2}要 (\d+) 小時。乙單獨/.exec(q.q))) { const a = +m[1], t = +m[2]; for (let b = 1; b <= 400; b++) if (Math.abs(t / a + t / b - 1) < 1e-9) return String(b); return 'none'; }
     if ((m = /^一項工程，甲獨做 (\d+) 日完成。甲做了 (\d+) 日/.exec(q.q))) return frac(+m[2], +m[1]);
     if ((m = /^甲獨做 (\d+) 日，乙獨做 (\d+) 日。兩人合做 (\d+) 日後甲離開/.exec(q.q))) {
       const a = +m[1], b = +m[2], d = +m[3]; for (let t = 1; t <= 400; t++) if (Math.abs(d / a + d / b + t / b - 1) < 1e-9) return String(t); return 'none';

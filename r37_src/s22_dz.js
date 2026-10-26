@@ -119,11 +119,10 @@ function r37DzMcq(w,k,D,rng){
  const en=w.en.trim(),zh=String(w.zh||'').trim(),kind=zh?['zh2en','listen','en2zh'][k%3]:'listen',zhOpt=kind==='en2zh';
  const used=new Set([zhOpt?zh:norm(en)]),opts=[];
  const take=x=>{const v=zhOpt?String(x.zh||'').trim():String(x.en).trim();if(!v||used.has(zhOpt?v:norm(v))||(kind==='zh2en'&&String(x.zh||'').trim()===zh))return;used.add(zhOpt?v:norm(v));opts.push(v);};
- for(const x of r37Shuf(D.words.filter(x=>x!==w),rng)){if(opts.length>=3)break;take(x);}
- if(opts.length<3){
-  const near=r37EnPool().filter(x=>Math.abs(x.en.length-en.length)<=2&&(!zhOpt||x.zh)).map(x=>({x,d:r37Edit(x.en,en)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).slice(0,20).map(o=>o.x);
-  for(const x of r37Shuf(near,rng)){if(opts.length>=3)break;take(x);}
- }
+ /* R3.31: wrong answers as close as possible: spelling for English choices, similar length / shared characters for Chinese choices; the word's own range first, then the dictionary */
+ const sim=zhOpt?(x=>Math.abs(String(x.zh||'').length-zh.length)+r37Edit(String(x.zh||''),zh)*.3-0.01*r37Edit(x.en,en)):(x=>r37Edit(x.en,en)+Math.abs(x.en.length-en.length)*.3);
+ const mine=D.words.filter(x=>x!==w),poolW=r37EnPool().filter(x=>Math.abs(x.en.length-en.length)<=2&&(!zhOpt||x.zh));
+ for(const x of mine.concat(poolW).map(x=>({x,d:sim(x)+(mine.includes(x)?-.5:0)})).sort((a,b)=>a.d-b.d||a.x.en.localeCompare(b.x.en)).map(o=>o.x)){if(opts.length>=3)break;take(x);}
  const answer=zhOpt?zh:en,base={mode:'mcq',kind,answer,options:r37Shuf([answer,...opts],rng),audio:en,explain:(zh?zh+' = ':'')+en,word:en,zhd:zh,lang:zhOpt?'zh':'en',dz:{wid:w.id,lvl:1,type:kind==='listen'?'listenChoice':'meaning'}};
  if(kind==='zh2en')return Object.assign(base,{prompt:zh,emoji:r37Pic(en)});
  if(kind==='en2zh')return Object.assign(base,{prompt:en,emoji:r37Pic(en)});

@@ -30,7 +30,7 @@ for key,p in classroom.items():
 (S/'school_bundle.js').write_text('/* Generated from school_content.json. Additive IDs preserve historical questions. */\n'+
  'globalThis.WQSchoolData='+json.dumps(json.loads((S/'school_content.json').read_text(encoding='utf-8')),ensure_ascii=False)+';\n'+
  'globalThis.WQMathData.templates.push(...globalThis.WQSchoolData.templates);\n',encoding='utf-8')
-(S/'tools_bundle.js').write_text('globalThis.WQCourseTools='+json.dumps((S/'tools_iframe.html').read_text(encoding='utf-8'),ensure_ascii=False).replace('</script','<\\/script')+';\n',encoding='utf-8')
+(S/'tools_bundle.js').write_text('globalThis.WQCourseTools='+json.dumps((S/'tools_iframe.html').read_text(encoding='utf-8').replace('</body>','<script>'+(S.parent/'r37_src/wq_pad.js').read_text(encoding='utf-8')+'</script></body>'),ensure_ascii=False).replace('</script','<\\/script')+';\n',encoding='utf-8')
 names=['course_data.js','school_bundle.js','course_pedagogy.js','course_engine.js','tools_bundle.js','style_bundle.js','course_visuals.js','classroom_bundle.js','classroom_ui.js','course_ui.js']
 for name in ['classroom_bundle.js','classroom_ui.js']:
  if '<script data-course-m1="'+name+'">' not in s:

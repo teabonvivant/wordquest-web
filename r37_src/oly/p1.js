@@ -48,12 +48,44 @@
         const a = N(r, p, 6, 9), T = a + N(r, p, Math.max(3, 11 - a), 9), need = 10 - a, rest = T - 10, s = need + rest;
         return o('miss10', `${a}＋？＝${T}。？是多少？`, s, `先看 ${a} 湊成 10 要加多少。`, `${a}＋${need}＝10，再加 ${rest} 才是 ${T}；${need}＋${rest}＝${s}。`, [need, rest, s + 1, T - a + 1], `${T}-${a}`, [],
           { svg: tenSvg(a, 0).replace(/<text.*?<\/text>/, ''), why: { [need]: `${need} 只是湊成 10 用的，之後還要再加 ${rest}。`, [rest]: `${rest} 只是 10 之後的部分，湊十用的 ${need} 也要加。` } });
+      },
+      /* R3.31 variety: three kids, two of the amounts make ten */
+      (r, p) => {
+        const x = N(r, p, 1, 9), e = N(r, p, 2, 9), arr = shuffle(r, [x, 10 - x, e]), ns = shuffle(r, WQOly.helpers.NAMES).slice(0, 3), it = pick(r, [['糖', '粒'], ['貼紙', '張'], ['卡片', '張'], ['波子', '粒'], ['橡皮', '個'], ['書籤', '張']]), s = 10 + e;
+        return o('three10', `${ns[0]}有 ${arr[0]} ${it[1]}，${ns[1]}有 ${arr[1]} ${it[1]}，${ns[2]}有 ${arr[2]} ${it[1]}。共有幾${it[1]}？`, s, '哪兩個數加起來是 10？先加那兩個。',
+          `${x}＋${10 - x}＝10，再加 ${e}：10＋${e}＝${s}。`, [s - 1, s + 1, 10, x + e], arr.join('+'), [],
+          { why: { 10: `10 只是其中兩人的和，還要加上 ${e}。`, [s - 1]: `先找湊成 10 的兩個數，再加 ${e}，別數少了。` } });
+      },
+      /* R3.31 variety: fill the blank on the other side of the equals sign */
+      (r, p) => {
+        const a = N(r, p, 6, 9), b = N(r, p, Math.max(3, 11 - a), 9), need = 10 - a, rest = a + b - 10, form = r() < .5;
+        return o('miss10', form ? `${a}＋${b}＝10＋？。？是多少？` : `10＋？＝${a}＋${b}。？是多少？`, rest, `${a} 差 ${need} 湊成 10，${b} 拿走 ${need} 還剩多少？`,
+          `${b} 分成 ${need} 和 ${rest}；${a}＋${need}＝10，再加 ${rest}，所以 ${a}＋${b}＝10＋${rest}。`, [need, rest + 1, rest - 1 > 0 ? rest - 1 : rest + 2, a + b], `${a}+${b}-10`, [],
+          { svg: tenSvg(a, b), why: { [need]: `${need} 是拿去湊成 10 的，10 後面還剩 ${rest}。`, [a + b]: `${a + b} 是全部，10 後面只是超出 10 的部分。` } });
+      },
+      /* R3.31 variety: how much more than ten */
+      (r, p) => {
+        const a = N(r, p, 6, 9), b = N(r, p, Math.max(3, 11 - a), 9), need = 10 - a, rest = a + b - 10, form = r() < .5;
+        return o('miss10', form ? `${a}＋${b} 比 10 多多少？先湊成 10。` : `${b}＋${a} 比 10 多多少？先湊成 10。`, rest, `先算 ${a}＋${b}，再和 10 比。`,
+          `${a}＋${need}＝10，${b} 分成 ${need} 和 ${rest}，所以多出 ${rest}。`, [need, rest + 1, a + b, rest - 1 > 0 ? rest - 1 : rest + 2], `${a}+${b}-10`, [],
+          { svg: tenSvg(a, b), why: { [a + b]: `${a + b} 是全部的數目，問的是比 10 多出來的部分。`, [need]: `${need} 是湊成 10 用的，多出來的是 ${rest}。` } });
+      },
+      /* R3.31 variety: a story, how many more to get */
+      (r, p) => {
+        const m = name(r), a = N(r, p, 6, 9), b = N(r, p, Math.max(3, 11 - a), 9), T = a + b, it = pick(r, [['糖', '粒'], ['貼紙', '張'], ['卡片', '張'], ['波子', '粒'], ['橡皮', '個'], ['書籤', '張']]);
+        return o('miss10', `${m}有 ${a} ${it[1]}${it[0]}，想有 ${T} ${it[1]}，還要再得幾${it[1]}？`, b, `先湊成 10，再看 ${T} 比 10 多多少。`,
+          `${a}＋？＝${T}；${a} 再加 ${10 - a} 是 10，10 再加 ${T - 10} 是 ${T}；${10 - a}＋${T - 10}＝${b}。`, [10 - a, T - 10, b + 1, T], `${T}-${a}`, [],
+          { svg: tenSvg(a, 0).replace(/<text.*?<\/text>/, ''), why: { [10 - a]: `${10 - a} 只是湊成 10 用的，之後還要再加 ${T - 10}。`, [T]: `${T} 是想有的總數，問的是還要再得多少。` } });
       }
     ]
   };
   /* independent recomputation from the stem text (used by test_oly_units.cjs) */
   const verify12 = q => {
     let m;
+    if ((m = /^(\d+)＋(\d+)＝10＋？/.exec(q.q)) || (m = /^10＋？＝(\d+)＋(\d+)/.exec(q.q))) return String(+m[1] + +m[2] - 10);
+    if ((m = /^(\d+)＋(\d+) 比 10 多多少/.exec(q.q))) return String(+m[1] + +m[2] - 10);
+    if ((m = /^..有 (\d+) .+，..有 (\d+) .+，..有 (\d+) .+。共有幾/.exec(q.q))) return String(+m[1] + +m[2] + +m[3]);
+    if ((m = /^..有 (\d+) .+，想有 (\d+) .+，還要再得幾/.exec(q.q))) return String(m[2] - m[1]);
     if ((m = /^(\d+)＋(\d+)＝？/.exec(q.q))) return String(+m[1] + +m[2]);
     if ((m = /^(\d+) 再加幾個就是 10？/.exec(q.q))) return String(10 - m[1]);
     if ((m = /有 (\d+) .{1,2}.*又得 (\d+) /.exec(q.q))) return String(+m[1] + +m[2]);

@@ -14,7 +14,7 @@ R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
 # R3.30: the service-worker cache name follows this label (plus a signature of the shipped art), so a new release always gets a new cache and the old one is dropped on activate.
 # Bump it with every release; tests/r37 t61 and r320_sw_offline.py read it from sw.js.
-RELEASE = 'R3.30'
+RELEASE = 'R3.30.1'
 PATCHES = R / 'r37_src/patches'
 
 

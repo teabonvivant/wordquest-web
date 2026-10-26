@@ -281,6 +281,36 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
         const d = pick(r, [2, 3, 4, 5]), segs = N(r, p, 4, Math.min(20, 100 / d | 0)), L = segs * d;
         return o('plant-circle', `池塘一圈長 ${L} 米，每隔 ${d} 米種一棵樹。共種幾棵？`, segs, '一圈沒有頭尾，想想最後一棵在哪裏。', `${L}÷${d}＝${segs}。圍成一圈，棵數＝段數。`, [segs + 1, segs - 1, L, segs + 2], `${L}/${d}`, [],
           { why: why([segs + 1, '圍成一圈沒有兩端，棵數不用加 1。'], [segs - 1, '一圈上每段的起點都有樹，不用減 1。'], [L, `${L} 是一圈的長度，要除以 ${d}。`]) });
+      },
+      /* R3.31 variety: other objects and verbs, both ends */
+      (r, p) => {
+        const it = pick(r, [['種', '棵', '樹'], ['插', '面', '旗'], ['放', '盞', '燈'], ['掛', '串', '燈籠'], ['擺', '盆', '花']]), d = pick(r, D23), segs = N(r, p, 3, Math.min(14, 100 / d | 0)), L = segs * d, ans = segs + 1;
+        return o('plant-both', `路長 ${L} 米，每隔 ${d} 米${it[0]}一${it[1]}${it[2]}，兩端都${it[0]}。共幾${it[1]}？`, ans, `先算有幾段：${L}÷${d}。`, `${L}÷${d}＝${segs} 段；兩端都${it[0]}，${it[2]}比段數多 1：${segs}＋1＝${ans}。`, [segs, segs + 2, segs - 1, L], `${L}/${d}+1`, [],
+          { svg: roadSvg(segs, d), why: why([segs, `${segs} 是段數。兩端都${it[0]}，要比段數多 1。`], [segs - 1, '兩端都有不是減 1，是加 1。'], [L, `${L} 是路長，要先除以 ${d} 才知道有幾段。`]) });
+      },
+      /* R3.31 variety: a fence story */
+      (r, p) => {
+        const m = name(r), it = pick(r, [['盆', '花'], ['支', '旗'], ['個', '膠樽'], ['盞', '小燈']]), d = pick(r, D23), segs = N(r, p, 3, Math.min(14, 100 / d | 0)), L = segs * d, ans = segs + 1;
+        return o('plant-both', `${m}沿着 ${L} 米長的圍欄，每隔 ${d} 米放一${it[0]}${it[1]}，頭尾都放。要幾${it[0]}？`, ans, `先算圍欄分成幾段：${L}÷${d}。`, `${L}÷${d}＝${segs} 段；頭尾都放，要 ${segs}＋1＝${ans}${it[0]}。`, [segs, segs + 2, segs - 1, L], `${L}/${d}+1`, [],
+          { svg: roadSvg(segs, d), why: why([segs, `${segs} 是段數。頭尾都放，要比段數多 1。`], [segs - 1, '頭尾都放不是減 1，是加 1。'], [L, `${L} 是圍欄的長度，要先除以 ${d}。`]) });
+      },
+      /* R3.31 variety: find the distance from the number planted */
+      (r, p) => {
+        const d = pick(r, D23), segs = N(r, p, 3, Math.min(14, 100 / d | 0)), L = segs * d, n = segs + 1, it = pick(r, [['種', '棵樹'], ['放', '盞燈'], ['插', '面旗']]);
+        return o('plant-len', `路長 ${L} 米，兩端都${it[0]}，共${it[0]}了 ${n} ${it[1]}。每隔幾米一${it[1][0]}？`, d, `${n} 件有幾段？先減 1。`, `${n} ${it[1]}有 ${n}－1＝${segs} 段；${L}÷${segs}＝${d} 米。`, [Math.round(L / n) || 1, L / (segs + 2) | 0 || 1, segs, L], `${L}/(${n}-1)`, [],
+          { svg: roadSvg(segs, '？'), why: why([segs, `${segs} 是段數，每段多長要用 ${L} 除。`], [L, `${L} 是全長，不是每段的長度。`]) });
+      },
+      /* R3.31 variety: one end only */
+      (r, p) => {
+        const it = pick(r, [['種', '棵', '樹'], ['放', '盞', '燈'], ['插', '面', '旗']]), d = pick(r, D23), segs = N(r, p, 3, Math.min(14, 100 / d | 0)), L = segs * d;
+        return o('plant-both', `路長 ${L} 米，每隔 ${d} 米${it[0]}一${it[1]}${it[2]}，只${it[0]}一端。共幾${it[1]}？`, segs, `先算有幾段：${L}÷${d}。`, `${L}÷${d}＝${segs} 段；只${it[0]}一端，每段有一${it[1]}，共 ${segs} ${it[1]}。`, [segs + 1, segs - 1, L, segs + 2], `${L}/${d}`, [],
+          { svg: roadSvg(segs, d), why: why([segs + 1, '兩端都有才加 1，只種一端就等於段數。'], [segs - 1, '只種一端，棵數等於段數，不用減 1。'], [L, `${L} 是路長，要先除以 ${d}。`]) });
+      },
+      /* R3.31 variety: children in a line */
+      (r, p) => {
+        const n = N(r, p, 4, 15), d = N(r, p, 2, 6), ans = (n - 1) * d, who = pick(r, [['同學', '位'], ['小朋友', '位'], ['隊員', '位']]);
+        return o('plant-len', `${n} ${who[1]}${who[0]}排成一行，兩端都有人，相隔都是 ${d} 米。頭尾相距幾米？`, ans, '先算有幾個間隔。', `${n} 人有 ${n - 1} 個間隔；${n - 1}×${d}＝${ans} 米。`, [n * d, (n - 2) * d, n - 1, ans + d], `${n - 1}*${d}`, [],
+          { why: why([n * d, `間隔比人少 1，是 ${n - 1} 個，不是 ${n} 個。`], [(n - 2) * d, `${n} 人有 ${n - 1} 個間隔，不是 ${n - 2}。`], [n - 1, `${n - 1} 是間隔數，每個間隔 ${d} 米，還要乘。`]) });
       }
     ],
     B: [
@@ -310,6 +340,11 @@ if (typeof WQOlyWidgets !== 'undefined') (function () {
     if ((m = /^路長 (\d+) 米，每隔 (\d+) 米種一棵樹，兩端都種。共種幾棵？$/.exec(q.q))) return String(treesAt(+m[1], +m[2], true, true));
     if ((m = /^一排有 (\d+) .+?，相鄰兩.之間算一個間隔。共有幾個間隔？$/.exec(q.q))) { let c = 0; for (let i = 1; i < +m[1]; i++) c++; return String(c); }
     if ((m = /^一排 (\d+) 棵樹，兩端都有樹，每隔 (\d+) 米一棵。全長幾米？$/.exec(q.q))) { let x = 0; for (let i = 1; i < +m[1]; i++) x += +m[2]; return String(x); }
+    if ((m = /^路長 (\d+) 米，每隔 (\d+) 米.一.{1,4}，兩端都.。共幾/.exec(q.q))) return String(treesAt(+m[1], +m[2], true, true));
+    if ((m = /^..沿着 (\d+) 米長的圍欄，每隔 (\d+) 米放一.+，頭尾都放。要幾/.exec(q.q))) return String(treesAt(+m[1], +m[2], true, true));
+    if ((m = /^路長 (\d+) 米，兩端都.，共.了 (\d+) .{2}。每隔幾米一.？$/.exec(q.q))) return String(+m[1] / (+m[2] - 1));
+    if ((m = /^路長 (\d+) 米，每隔 (\d+) 米.一.{1,4}，只.一端。共幾/.exec(q.q))) { let c = 0; for (let x = 0; x < +m[1]; x += +m[2]) c++; return String(c); }
+    if ((m = /^(\d+) .{1,5}排成一行，兩端都有人，相隔都是 (\d+) 米。頭尾相距幾米？$/.exec(q.q))) { let x = 0; for (let i = 1; i < +m[1]; i++) x += +m[2]; return String(x); }
     if ((m = /^池塘一圈長 (\d+) 米，每隔 (\d+) 米種一棵樹。共種幾棵？$/.exec(q.q))) { let c = 0; for (let x = 0; x < +m[1]; x += +m[2]) c++; return String(c); }
     if ((m = /^路長 (\d+) 米，每隔 (\d+) 米放一盞燈，兩端都不放。共放幾盞？$/.exec(q.q))) return String(treesAt(+m[1], +m[2], false, false));
     if ((m = /^一排 (\d+) 棵樹，兩端都有。在每兩棵中間再種一棵，共有幾棵？$/.exec(q.q))) { let c = 0; for (let i = 0; i < +m[1]; i++) { c++; if (i < +m[1] - 1) c++; } return String(c); }

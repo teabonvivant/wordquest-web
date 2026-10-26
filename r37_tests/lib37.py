@@ -139,3 +139,10 @@ def fits(pg, sel):
     return pg.evaluate("""(sel)=>{const els=[...document.querySelectorAll(sel)];if(!els.length)return false;
       const nav=document.querySelector('.r37-nav'),nt=nav?nav.getBoundingClientRect().top:innerHeight;
       return els.every(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);if(s.display==='none'||r.width===0)return true;const lim=nav&&!nav.contains(e)?Math.min(nt,innerHeight):innerHeight;return r.top>=-1&&r.left>=-1&&r.bottom<=lim+1&&r.right<=innerWidth+1;});}""", sel)
+
+
+def tap_text(pg, text, avoid=''):
+    """R3.31: fill-in answers are tapped from tiles. Taps the pad tile of each character; a character with no free tile taps a decoy that is not in `avoid` (a wrong answer stays wrong)."""
+    for ch in text:
+        pg.evaluate("""([t,av])=>{const bs=[...document.querySelectorAll('.wqp-t:not(.back)')].filter(b=>!b.disabled);
+          const b=bs.find(b=>b.textContent===t)||bs.find(b=>b.textContent.length===1&&!av.includes(b.textContent));if(b)b.click()}""", [ch, avoid])
