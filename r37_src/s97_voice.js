@@ -1,6 +1,6 @@
 /* R3.31 s97 - recorded British voice (Piper en_GB-jenny_dioco): plays the pre-made mp3 for known words/sentences, otherwise falls back to the device voice */
 (function(){
-  var ss=window.speechSynthesis; if(!ss||!window.Audio) return;
+  var ss=window.speechSynthesis; if(!ss||!window.Audio||location.protocol==='file:') return;
   var BASE='assets/voice/jenny/', man=null, cur=null, nativeSpeak=ss.speak.bind(ss), nativeCancel=ss.cancel.bind(ss);
   fetch(BASE+'manifest.json').then(function(r){return r.ok?r.json():null}).then(function(j){man=j}).catch(function(){});
   function lookup(t){
