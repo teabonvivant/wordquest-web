@@ -421,7 +421,7 @@ with sync_playwright() as p:
             C.ok(s['fb'] is None and s['nudge'] and s['nudge']['why'] == 'case', f'dictation: monday for Monday -> capital reminder, retry ({s["nudge"]})')
             type_in(pg, 'Monday')
             s = cur(pg)
-            C.ok(s['fb'] and s['fb']['ok'] and not s['fb']['part'], 'R3.31: Monday after the reminder is a full mark')
+            C.ok(s['fb'] and s['fb']['ok'] and s['fb']['part'], 'dictation: Monday after the reminder is still half a mark')
             a = json.loads(ev(pg, "JSON.stringify(db.attempts.at(-1))"))
             C.ok(a['correct'] is True and a['assisted'] is True, 'and the attempt is assisted')
         else:
@@ -434,7 +434,7 @@ with sync_playwright() as p:
         advance(pg)
     C.ok(set(got) == {'Monday', 'ice cream'}, f'both words were asked {list(got)}')
     r = json.loads(ev(pg, "JSON.stringify({c:r37P.correct,ph:r37P.phase})"))
-    C.ok(r['c'] == 2, f'R3.31: dictation score counts the reminder as a full mark: 1 + 1 = {r["c"]}')
+    C.ok(r['c'] == 1.5, f'dictation score still counts the reminder as half: 0.5 + 1 = {r["c"]}')
     ev(pg, "r37P=null")
     # level 2: a hidden capital must be typed as a capital
     jj = ev(pg, "(()=>{const w={id:'x',en:'iPad',zh:'平板'};const q=r37DzCell(w,2);return {cs:q.cs,hide:q.hide}})()")

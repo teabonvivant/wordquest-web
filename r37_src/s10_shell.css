@@ -691,3 +691,5 @@ b.r37-qready{font-size:13px;margin-left:4px}
 .r37-miss li.m>b{grid-row:1;grid-column:2}.r37-miss li.m .r37-mk{grid-row:1;grid-column:3}
 /* the three numbers on a difficulty card wrap on narrow cards; a "· " separator then started the second line - spacing alone separates them */
 .r37-df small>span+span::before{content:none}.r37-df small{column-gap:8px}
+
+.r37-miss .r37-nw{white-space:nowrap}

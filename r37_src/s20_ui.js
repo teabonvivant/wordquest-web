@@ -288,7 +288,7 @@ function r37MissHTML(r){
  const r37MissMc=m=>m.mc!==undefined?!!m.mc:!/^(fill|dz[23]|math)/.test(m.kind||'');
  const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}${m.you?`<small>${r37MissMc(m)?'你選了：':'你寫：'}<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
   :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span>${m.svg?`<div class="r80-fig r37-mfig">${m.svg}</div>`:''}<b>${esc(m.answer)}</b>${m.you?`<small>${r37MissMc(m)?'你選了：':'你答：'}${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}</li>`;
- return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span><span>這次答錯 <em>${items.length}</em> 題${nFix?`，補考後答對 <em>${nFix}</em> 題`:''}</span></h2><ul>${items.map(li).join('')}</ul></div>`;
+ return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span><span><span class="r37-nw">這次答錯 <em>${items.length}</em> 題</span>${nFix?`，<span class="r37-nw">補考後答對 <em>${nFix}</em> 題</span>`:''}</span></h2><ul>${items.map(li).join('')}</ul></div>`;
 }
 function r37Result(){
  const P=r37P,r=P.result,total=r.total||P.qs.length;
@@ -462,7 +462,7 @@ function r37Answer(value){
  }
  const second=!!j.ok&&q.tried===1&&!q.dz;
  const hinted=!!P.hintShown;
- let credit=j.ok?1:0;/* R3.31: a right answer after the case reminder is a full mark (it is still recorded as assisted) */
+ let credit=j.ok?(q.dz&&q.nudged==='case'?.5:1):0;/* R3.31: a right answer after the case reminder is a full mark outside dictation (still recorded as assisted) */
  /* R3.19: a right answer after the hint counts half and is not independent mastery (no 5 stars, cannot clear a retest, vocabulary stays "assisted") */
  if(credit>0&&(hinted||second)&&!q.dz)credit=Math.min(credit,.5);
  const ok=credit>0,hintRight=ok&&(hinted||second)&&!q.dz;
