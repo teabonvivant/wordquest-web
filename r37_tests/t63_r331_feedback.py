@@ -250,6 +250,137 @@ with sync_playwright() as p:
     ok0, tx, n = retest_run(True)
     C.ok(ok0 and '補考答對了' not in tx and n == 0 and '這次答錯 1 題' in tx and '補考後答對' not in tx, f'E6 hinted re-test right: no tick, no text, heading N only: {tx[:80]}')
 
+    # ================================================================ E1 first wrong typed answer: one more try
+    SPY = "(()=>{globalThis.__sp=[];r37Speak=(t)=>{__sp.push(t)};})()"
+    ev(pg, SPY)
+    for kind in ('fill', 'fill-listen'):
+        reset(pg)
+        start(pg)
+        go_quiz(pg)
+        ev(pg, ADD % (json.dumps([['cat', '貓']], ensure_ascii=False), '"t63b"'))
+        inject(pg, 'cat', '貓', kind)
+        ev(pg, SPY)
+        h0, n0, w0 = cur(pg)['hearts'], ev(pg, 'db.attempts.length'), ev(pg, 'r37Get().wrong.length')
+        nq0 = ev(pg, 'r37P.qs.length')
+        type_in(pg, 'dog')
+        s = cur(pg)
+        body = pg.evaluate("document.querySelector('.r37-play').innerText")
+        C.ok(s['fb'] is None and s['nudge'] and s['nudge']['msg'] == '再試一次。第一個字母是 c。', f'E1 {kind}: first wrong -> {s["nudge"]}')
+        C.ok(s['hearts'] == h0 and ev(pg, 'db.attempts.length') == n0 and ev(pg, 'r37Get().wrong.length') == w0 and ev(pg, 'r37P.qs.length') == nq0,
+             f'E1 {kind}: no heart, no attempt, no wrong-word entry, no re-test queued')
+        C.ok(not re.search(r'\bcat\b', body, re.I) and '正確答案' not in body, f'E1 {kind}: the answer is not on screen')
+        C.ok(ev(pg, 'globalThis.__sp.length') == 1 and ev(pg, 'globalThis.__sp[0]') == 'cat', 'E1 the word is read out again')
+        C.ok(pg.evaluate("document.querySelector('#r37-in').value===''"), 'E1 the box is cleared')
+        pg.screenshot(path=str(SHOTS / f'e1_first_wrong_{kind}_phone.png'))
+        type_in(pg, 'dog')
+        s = cur(pg)
+        t2 = text_of(pg, '.r37-fb')
+        C.ok(s['fb'] and not s['fb']['ok'] and '正確答案是 cat' in t2 and s['hearts'] == h0 - 1, f'E1 {kind}: second wrong -> verdict, one heart: {t2[:40]} hearts {s["hearts"]}')
+        C.ok(ev(pg, 'r37P.qs.length') == nq0 + 1 and ev(pg, 'r37Get().wrong.length') == w0 + 1, 'E1 second wrong: re-test queued and word noted')
+        if kind == 'fill':
+            pg.screenshot(path=str(SHOTS / 'e1_second_wrong_phone.png'))
+    # second try right
+    reset(pg)
+    start(pg)
+    go_quiz(pg)
+    ev(pg, ADD % (json.dumps([['cat', '貓']], ensure_ascii=False), '"t63c"'))
+    inject(pg, 'cat', '貓')
+    h0, nq0 = cur(pg)['hearts'], ev(pg, 'r37P.qs.length')
+    type_in(pg, 'dog')
+    type_in(pg, 'cat')
+    s = cur(pg)
+    play = pg.evaluate("document.querySelector('.r37-play').innerText")
+    a = json.loads(ev(pg, "JSON.stringify(db.attempts.at(-1))"))
+    C.ok(s['fb'] and s['fb']['ok'] and '答對了！第二次就拼對了。' in play and '提示' not in play, f'E1 second right: wording, no 提示 on screen: {play[:60]!r}')
+    C.ok(s['correct'] == 0.5 and s['hearts'] == h0 and ev(pg, 'r37P.qs.length') == nq0, f'E1 second right: half mark {s["correct"]}, no heart, no re-test')
+    C.ok(a['correct'] is True and a['assisted'] is True and ev(pg, 'db.attempts.length') == 1, f'E1 second right: one attempt, recorded as assisted {a["assisted"]}')
+    pg.screenshot(path=str(SHOTS / 'e1_second_right_phone.png'))
+    # a question that already had the spelling reminder gets no extra try
+    reset(pg)
+    start(pg)
+    go_quiz(pg)
+    inject(pg, 'cat', '貓')
+    type_in(pg, 'cats')
+    type_in(pg, 'dog')
+    s = cur(pg)
+    C.ok(s['fb'] and not s['fb']['ok'] and s['q']['nudged'] == 'inflect', 'E1 after the reminder a wrong answer is the verdict at once')
+    # the extreme difficulty uses it as well
+    reset(pg)
+    start(pg)
+    go_quiz(pg)
+    inject(pg, 'cat', '貓')
+    ev(pg, 'r37P.diff=5')
+    type_in(pg, 'dog')
+    C.ok(cur(pg)['fb'] is None and cur(pg)['nudge']['why'] == 'again', 'E1 difficulty 5 (極速) gets the extra try too')
+
+    # ================================================================ 新3 case reminder, then right = full mark
+    reset(pg)
+    start(pg)
+    go_quiz(pg)
+    ev(pg, ADD % (json.dumps([['Monday', '星期一']], ensure_ascii=False), '"t63d"'))
+    inject(pg, 'Monday', '星期一')
+    type_in(pg, 'monday')
+    s = cur(pg)
+    C.ok(s['fb'] is None and s['nudge'] and s['nudge']['why'] == 'case', f'新3 reminder first: {s["nudge"]}')
+    type_in(pg, 'Monday')
+    s = cur(pg)
+    a = json.loads(ev(pg, "JSON.stringify(db.attempts.at(-1))"))
+    C.ok(s['fb'] and s['fb']['ok'] and not s['fb']['part'] and s['correct'] == 1, f'新3 full mark after the reminder ({s["correct"]})')
+    C.ok(a['correct'] is True and a['assisted'] is True, f'新3 still recorded as assisted {a["assisted"]}')
+
+    # ================================================================ E10 spelling classroom (l30)
+    reset(pg)
+    ev(pg, "l30Start('U03','spell')")
+    pg.wait_for_timeout(600)
+    ok_page = pg.query_selector('#l30-answer') is not None
+    C.ok(ok_page, 'E10 a typed spelling question is on screen')
+    if ok_page:
+        for _ in range(12):  # skip non-typed steps if the plan starts with one
+            if pg.query_selector('#l30-answer'):
+                break
+            pg.click('[data-l30="submit"]')
+            pg.wait_for_timeout(300)
+        ev(pg, "(()=>{globalThis.__spk=[];const o=speechSynthesis.speak.bind(speechSynthesis);speechSynthesis.speak=(u)=>{__spk.push(u.text);};})()")
+        word = ev(pg, "LIB30.words.get(l30Session().queue[l30Session().index].target).form")
+        first = word[0]
+        mode = ev(pg, "l30Session().queue[l30Session().index].mode")
+        n0 = ev(pg, 'l30State().sessions.at(-1)?l30Read().attempts.length:0')
+        pg.evaluate("(v)=>{const i=document.querySelector('#l30-answer');i.value=v;i.dispatchEvent(new Event('input',{bubbles:true}))}", 'zzqq')
+        if mode == 'listenSpell':
+            ev(pg, "(()=>{const s=l30Session();s.audioHeard=true;})()")
+        pg.click('[data-l30="submit"]')
+        pg.wait_for_timeout(500)
+        note = text_of(pg, '.l30-note')
+        C.ok(pg.query_selector('.l30-feedback') is None and pg.evaluate("!document.querySelector('#l30-answer').disabled"), 'E10 first wrong: no verdict, box still open')
+        C.ok(note == f'再試一次。第一個字母是 {first}。', f'E10 first wrong message: {note!r}')
+        C.ok(pg.evaluate("document.querySelector('#l30-answer').value===''") and ev(pg, 'l30Read().attempts.length') == n0, 'E10 box cleared, nothing recorded yet')
+        C.ok(ev(pg, 'globalThis.__spk.length') >= 1 and ev(pg, 'globalThis.__spk[0]') == word, 'E10 the word is read again')
+        pg.screenshot(path=str(SHOTS / 'e10_first_wrong_phone.png'))
+        pg.evaluate("(v)=>{const i=document.querySelector('#l30-answer');i.value=v;i.dispatchEvent(new Event('input',{bubbles:true}))}", 'zzqq')
+        pg.click('[data-l30="submit"]')
+        pg.wait_for_timeout(500)
+        fbt = text_of(pg, '.l30-feedback')
+        C.ok(f'正確答案是 {word}' in fbt and pg.evaluate("document.querySelector('#l30-answer').disabled"), f'E10 second wrong: {fbt[:40]!r}, box locked')
+        pg.screenshot(path=str(SHOTS / 'e10_second_wrong_phone.png'))
+        # second try right is recorded as assisted
+        ev(pg, "l30Start('U03','spell')")
+        pg.wait_for_timeout(600)
+        for _ in range(12):
+            if pg.query_selector('#l30-answer'):
+                break
+            pg.click('[data-l30="submit"]')
+            pg.wait_for_timeout(300)
+        word = ev(pg, "LIB30.words.get(l30Session().queue[l30Session().index].target).form")
+        mode = ev(pg, "l30Session().queue[l30Session().index].mode")
+        if mode == 'listenSpell':
+            ev(pg, "(()=>{const s=l30Session();s.audioHeard=true;})()")
+        for v in ('zzqq', word):
+            pg.evaluate("(v)=>{const i=document.querySelector('#l30-answer');i.value=v;i.dispatchEvent(new Event('input',{bubbles:true}))}", v)
+            pg.click('[data-l30="submit"]')
+            pg.wait_for_timeout(500)
+        a = json.loads(ev(pg, "JSON.stringify(l30Read().attempts.at(-1))"))
+        C.ok(a['correct'] is True and a['assisted'] is True and a['independent'] is False, f'E10 second try right: correct but assisted, not independent {a["assisted"]} {a["independent"]}')
+
     C.ok(not [e for e in errs if 'favicon' not in e], f'no page errors {errs[:2]}')
     b.close()
 

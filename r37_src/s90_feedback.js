@@ -69,7 +69,7 @@
   const fbEl=q$('#app .l30-quiz .l30-feedback');if(!fbEl||fbEl.dataset.s90)return;
   fbEl.dataset.s90='1';
   const st=q$('strong',fbEl),txt=st?st.textContent.trim():'';
-  const bad=fbEl.classList.contains('try')&&/^答案是/.test(txt),ok=!fbEl.classList.contains('try')&&/^答對/.test(txt);
+  const bad=fbEl.classList.contains('try')&&/^正確答案是/.test(txt),ok=!fbEl.classList.contains('try')&&/^答對/.test(txt);
   if(!bad&&!ok)return;
   fbEl.classList.add(bad?'s90-no':'s90-ok');
   st.classList.add('s90-head',bad?'no':'ok');

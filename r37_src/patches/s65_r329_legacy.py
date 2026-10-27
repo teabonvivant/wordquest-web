@@ -143,6 +143,29 @@ def apply(s, ctx):
     s = o(s, "`<button type=\"button\" class=\"btn primary big\" disabled>再練這些字</button><p class=\"p40-why\">目前沒有要再練的字。</p>`",
           "`<p class=\"p40-why\">目前沒有要再練的字。</p>`")
 
+    # ------------------------------------------------------------------ R3.31 batch 3: E10 spelling classroom - a wrong typed spelling gets one more try
+    # "答案是 X。" -> "正確答案是 X。" (s90_feedback.js looks for the same words)
+    s = o(s, "function p20Said(fb){return '答案是 <b lang=\"en\">'+esc(fb.expected)+'</b>。';}",
+          "function p20Said(fb){return '正確答案是 <b lang=\"en\">'+esc(fb.expected)+'</b>。';}")
+    # the first wrong typed answer (spell / listenSpell) writes nothing: the box is cleared, the first letter is named and the word is read again.
+    # session.hinted (already saved and validated) marks the second try as assisted; l30Again is only the memory of "this question had its extra try".
+    s = o(s, "function l30Submit(technical=false){",
+          """let l30Again='';/* R3.31 E10: 'sessionId:index' of the typed question that already had its extra try */
+function l30SecondTry(s,q,answer){
+ const key=s.id+':'+s.index;if(l30Again===key)return false;
+ const g=L30.grade(q,answer,s.strict),w=LIB30.words.get(q.target);if(!w||g.empty||g.correct||g.caseOnly)return false;
+ l30Again=key;
+ if(!l30Commit(()=>{const t=l30Session();t.hinted=true;t.draft='';}))return false;
+ try{const el=document.getElementById('l30-answer');if(el){el.value='';el.focus({preventScroll:true});}}catch(_){}
+ try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
+ return true;
+}
+function l30Submit(technical=false){""")
+    s = o(s, " l30StopAudio();const sid=s.id;\n",
+          " if(!technical&&['spell','listenSpell'].includes(q.mode)&&l30SecondTry(s,q,answer))return;\n l30StopAudio();const sid=s.id;\n")
+    s = o(s, "if(s.hinted&&!fb)body+=`<div class=\"l30-note\">${p20HintText(w)}</div>`;",
+          "if(s.hinted&&!fb)body+=`<div class=\"l30-note\">${l30Again===s.id+':'+s.index?p20HintText(w).replace(/^提示：第一個字母是/,'再試一次。第一個字母是').replace(/，一共.*$/,'。'):p20HintText(w)}</div>`;")
+
     # ------------------------------------------------------------------ R3.31 batch 1: wording (E3 E4 E7 E9)
     # E9: the spelling classroom's first-letter hint carries the same "提示：" lead as the practice step
     s = o(s, "if(level<=1)return `第一個字母是 <span lang=\"en\">${esc(first)}</span>，一共 ${n} 個字母${k>1?`，分成 ${k} 個字`:''}。`;",

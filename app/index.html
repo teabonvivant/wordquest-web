@@ -21215,7 +21215,7 @@ function l30Learning(){
  else if(q.mode==='edit')body+=`<p>這個英文有一個字母寫錯了。請寫完整正確的詞。</p><div class="l30-bigword" lang="en">${esc(q.incorrect)}</div><div class="l30-prompt">${esc(w.meaning)}</div>`;
  else body+=`${q.mode==='meaning'?l30Picture(w):''}<div class="l30-prompt">${esc(w.meaning)}</div>${q.mode==='missing'?`<div class="l30-bigword" lang="en">${esc(q.mask)}</div><p>只填缺少的字母。</p>`:''}`;
  if(q.choices)body+=l30Choices(q,s);else if(q.mode==='tiles')body+=l30Tiles(q,s);else if(q.mode!=='study')body+=`<label for="l30-answer" class="sr-only">${q.mode==='missing'?'缺少的字母':'你的英文答案'}</label><input id="l30-answer" class="l30-answer" value="${esc(s.draft)}" placeholder="${q.mode==='missing'?'填字母':'輸入英文'}" lang="en" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="120" ${fb?'disabled':''}>`;
- if(q.mode!=='study'&&!fb)body+='<p class="l30-inline-hint" id="l30-answer-hint" role="status" aria-live="polite"></p>';if(s.hinted&&!fb)body+=`<div class="l30-note">${p20HintText(w)}</div>`;
+ if(q.mode!=='study'&&!fb)body+='<p class="l30-inline-hint" id="l30-answer-hint" role="status" aria-live="polite"></p>';if(s.hinted&&!fb)body+=`<div class="l30-note">${l30Again===s.id+':'+s.index?p20HintText(w).replace(/^提示：第一個字母是/,'再試一次。第一個字母是').replace(/，一共.*$/,'。'):p20HintText(w)}</div>`;
  if(fb){const good=fb.correct===true||q.mode==='study',why=fb.technical?'聲音或裝置有問題，這題不評分，稍後補聽。':q.mode==='study'?'已記錄看過教學。下一步試用英文。':fb.caseOnly?'拼法接近了，這次要留意大小寫。':fb.correct?(fb.delayed?'這次完成了隔日複習。':fb.independent?'這次是自己拼對。':'這次完成了練習。剛看過答案或用了字母組合，不算隔日掌握。'):'先看正確答案，下一次再試。';body+=`<div class="l30-feedback ${good?'':'try'}" role="status"><strong>${fb.technical?'先留待補聽':q.mode==='study'?'認識了一個新詞':fb.correct?'答對了！':p20Said(fb)}</strong>${p20Why(q,w,fb,why)}</div>`;}
  return `<section class="l30-quiz"><div class="l30-topline p20-top"><a href="#kid" class="l30-back">← 暫停，回首頁</a><span class="l30-tag">${esc(q36.tag)}</span>${l30Button('怎樣玩？','help','','small')}</div><div class="l30-progress" role="progressbar" aria-label="學習進度" aria-valuenow="${s.index}" aria-valuemin="0" aria-valuemax="${s.queue.length}"><span style="width:${100*s.index/s.queue.length}%"></span></div>
  ${!v23HasLease()?'<div class="l30-alert" role="alert">這個頁面不能編輯。請先關閉另一個正在編輯的分頁。現在不會給金幣，也不能提交答案。</div>':''}${l30Error?p20Alert(l30Error,p20SF,'l30'):''}
@@ -21229,9 +21229,20 @@ function l30Finished(s){
  const line=s.award?'得到 '+s.award+' 枚金幣！':n===5?'這一課今天已經得過金幣，或今天的金幣已領滿。':'拿到 5 顆星，就有金幣。';
  return `<section class="l30-quiz"><div class="l30-empty q36-result">${l30Art('panda')}<div class="l30-eyebrow">${lesson?'考考你完成了':'這一組完成了'}</div>${l30StarsHtml(n,'big')}<h1>${n===5?'全部答對！滿星':n>=3?'做得不錯':'再練一次，會更好'}</h1><p>${total} 題，答對 ${good} 題${hinted?'，其中 '+hinted+' 題用了提示':''}${technical?'，另有 '+technical+' 題待補聽':''}。</p><p class="l30-prompt">${esc(line)}</p>${miss.length?`<p class="l30-muted">要再練：${miss.map(w=>esc(w.form)).join('、')}</p>`:''}<div class="l30-row" style="justify-content:center">${n<5&&lesson?l30Button('再做一次這一課','start',`data-unit="${esc(s.unit)}" data-mode="lesson"`,'primary'):''}${l30Link('選另一課','classroom',n<5&&lesson?'':'primary')}${l30Link('去遊戲街機','game')}${l30Link('回首頁','kid')}</div></div></section>`;
 }
+let l30Again='';/* R3.31 E10: 'sessionId:index' of the typed question that already had its extra try */
+function l30SecondTry(s,q,answer){
+ const key=s.id+':'+s.index;if(l30Again===key)return false;
+ const g=L30.grade(q,answer,s.strict),w=LIB30.words.get(q.target);if(!w||g.empty||g.correct||g.caseOnly)return false;
+ l30Again=key;
+ if(!l30Commit(()=>{const t=l30Session();t.hinted=true;t.draft='';}))return false;
+ try{const el=document.getElementById('l30-answer');if(el){el.value='';el.focus({preventScroll:true});}}catch(_){}
+ try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
+ return true;
+}
 function l30Submit(technical=false){
  const s=l30Session();if(!s||s.feedback||l30Busy||l30Composing)return;const q=s.queue[s.index];if(!l30CanWrite()){toast(v23CapabilityError(),'bad');return;}
  const answer=q.mode==='study'?'':q.choices?s.selected:q.mode==='tiles'?s.tiles.map(i=>L30.shuffle([...q.answer],L30.seed(s.id+':tiles:'+s.index))[i]).join(''):($('#l30-answer')?.value??s.draft);
+ if(!technical&&['spell','listenSpell'].includes(q.mode)&&l30SecondTry(s,q,answer))return;
  l30StopAudio();const sid=s.id;
  l30Commit(()=>{const c=l30State(),live=c.sessions.find(x=>x.id===sid);const result=L30.record(c,live,LIB30,answer,{technical});if(result.duplicate)return;const w=LIB30.words.get(q.target);l30Bridge(result.attempt,w);if(!technical)l30Expose([q.target],result.attempt.time);if(q.mode==='study')l30Advance(live,c);});
 }
@@ -23353,7 +23364,7 @@ function p20Letters(form){
  if(!words.length||!words.every(x=>/^[A-Za-z]+$/.test(x))||words.join('').length>14)return '';
  return words.map(x=>[...x].join('－')).join('　');
 }
-function p20Said(fb){return '答案是 <b lang="en">'+esc(fb.expected)+'</b>。';}
+function p20Said(fb){return '正確答案是 <b lang="en">'+esc(fb.expected)+'</b>。';}
 function p20Why(q,w,fb,why){
  if(fb.technical||q.mode==='study'||fb.caseOnly)return '<p>'+why+'</p>';
  if(fb.correct)return '';
@@ -25314,7 +25325,8 @@ function r37FbHTML(P,q,fb){
  const lock=!fb.ok&&fb.lock>Date.now(),dzFill=q.dz&&q.dz.lvl>1,fillEn=q.mode==='fill'&&!q.mq&&!q.dz;
  let head,sub='';
  if(fb.ok){
-  if(fb.hint)head=`答對了！這次有提示幫忙，稍後再試試自己答。`;
+  if(fb.second)head=`答對了！第二次就拼對了。`;
+  else if(fb.hint)head=`答對了！這次有提示幫忙，稍後再試試自己答。`;
   else if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
   else if(fb.syn)head=`也對！這一題要寫的是 <span lang="en">${esc(q.answer)}</span>（${esc(r37ZhKey(q.zhOf))}），<span lang="en">${esc(fb.syn)}</span> 亦是${esc(r37ZhKey(q.zhOf))}`;
   else head=esc(P.praise);
@@ -25505,14 +25517,24 @@ function r37Answer(value){
   const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
   return;
  }
+ /* R3.31 E1: a typed English answer that is wrong the first time gets one more try: no heart, no answer shown, no re-test, nothing written to the wrong-word list.
+    The word is read out again and the first letter is named. A right answer on the second try counts half and is recorded as assisted (like a hint), without the word "提示" on screen.
+    Not for dictation (q.dz), re-tests, maths, or a question that already had the spelling reminder (q.nudged). */
+ if(!j.ok&&q.mode==='fill'&&!q.dz&&!q.retest&&!q.mq&&q.kind!=='math'&&!q.nudged&&!q.tried){
+  q.tried=1;P.nudge={msg:'再試一次。第一個字母是 '+String(q.answer)[0]+'。',why:'again',value:v};render();
+  const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
+  if(!q.autoPlay)r37Speak(q.audio);/* a listening question is read out again by the render hook */
+  return;
+ }
+ const second=!!j.ok&&q.tried===1&&!q.dz;
  const hinted=!!P.hintShown;
- let credit=j.ok?(q.nudged==='case'?.5:1):0;
+ let credit=j.ok?1:0;/* R3.31: a right answer after the case reminder is a full mark (it is still recorded as assisted) */
  /* R3.19: a right answer after the hint counts half and is not independent mastery (no 5 stars, cannot clear a retest, vocabulary stays "assisted") */
- if(credit>0&&hinted&&!q.dz)credit=Math.min(credit,.5);
- const ok=credit>0,hintRight=ok&&hinted&&!q.dz;
+ if(credit>0&&(hinted||second)&&!q.dz)credit=Math.min(credit,.5);
+ const ok=credit>0,hintRight=ok&&(hinted||second)&&!q.dz;
  P.nudge=null;
- P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight};P.res[P.i]=ok;
- if(hintRight){q.hintedRight=true;if(!q.warm)P.hintedRight=(P.hintedRight||0)+1;}
+ P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight,second:second&&!hinted};P.res[P.i]=ok;
+ if(hintRight){q.hintedRight=true;if(!q.warm&&hinted)P.hintedRight=(P.hintedRight||0)+1;}
  if(q.dz)r37DzRecord(q,P.fb.value,ok);
  const key=q.retest&&q.origKey?q.origKey:r37QKey(q);/* R3.29 B-H1: a maths re-test is a NEW question of the same skill; it settles the original miss */
  if(!q.dz){
@@ -25526,11 +25548,11 @@ function r37Answer(value){
    }else{
     const k=o.wrong.findIndex(x=>x.en===q.word);
     if(k>=0){if(ok&&!hintRight)o.wrong.splice(k,1);else if(!ok){o.wrong[k].n++;o.wrong[k].at=Date.now();}r37Save();}
-    r37RecordEn(P,q,v,ok,'warm',hinted||!!q.nudged);
+    r37RecordEn(P,q,v,ok,'warm',hinted||second||!!q.nudged);
    }
   }else{
    if(!q.retest){P.correct+=credit;}
-   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':P.kind==='quiz'?'quiz':'lv',hinted||!!q.nudged);
+   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':P.kind==='quiz'?'quiz':'lv',hinted||second||!!q.nudged);
    if(!ok){
     if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhOf||'',skill:q.mq&&q.mq.skill||'',n:0};
     P.miss[key].n++;
@@ -25552,7 +25574,7 @@ function r37Answer(value){
   /* retest the same word / skill three questions later, once, in another form */
   if(P.kind==='level'&&!q.retest&&!q.warm&&!P.redo&&!q.dz){const rq=r37Retest(P,q);if(rq)P.qs.splice(Math.min(P.qs.length,P.i+4),0,rq);}
  }
- if(P.hintShown)P.hinted++;
+ if(P.hintShown||second)P.hinted++;
  render();
  try{r37FxAnswer(ok);}catch(_){}
  if(!ok&&(q.dz||q.word))r37Speak(q.audio);
@@ -31753,7 +31775,7 @@ function r80Why(q,fb){
   const fbEl=q$('#app .l30-quiz .l30-feedback');if(!fbEl||fbEl.dataset.s90)return;
   fbEl.dataset.s90='1';
   const st=q$('strong',fbEl),txt=st?st.textContent.trim():'';
-  const bad=fbEl.classList.contains('try')&&/^答案是/.test(txt),ok=!fbEl.classList.contains('try')&&/^答對/.test(txt);
+  const bad=fbEl.classList.contains('try')&&/^正確答案是/.test(txt),ok=!fbEl.classList.contains('try')&&/^答對/.test(txt);
   if(!bad&&!ok)return;
   fbEl.classList.add(bad?'s90-no':'s90-ok');
   st.classList.add('s90-head',bad?'no':'ok');

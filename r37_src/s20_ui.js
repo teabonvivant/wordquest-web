@@ -259,7 +259,8 @@ function r37FbHTML(P,q,fb){
  const lock=!fb.ok&&fb.lock>Date.now(),dzFill=q.dz&&q.dz.lvl>1,fillEn=q.mode==='fill'&&!q.mq&&!q.dz;
  let head,sub='';
  if(fb.ok){
-  if(fb.hint)head=`答對了！這次有提示幫忙，稍後再試試自己答。`;
+  if(fb.second)head=`答對了！第二次就拼對了。`;
+  else if(fb.hint)head=`答對了！這次有提示幫忙，稍後再試試自己答。`;
   else if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
   else if(fb.syn)head=`也對！這一題要寫的是 <span lang="en">${esc(q.answer)}</span>（${esc(r37ZhKey(q.zhOf))}），<span lang="en">${esc(fb.syn)}</span> 亦是${esc(r37ZhKey(q.zhOf))}`;
   else head=esc(P.praise);
@@ -450,14 +451,24 @@ function r37Answer(value){
   const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
   return;
  }
+ /* R3.31 E1: a typed English answer that is wrong the first time gets one more try: no heart, no answer shown, no re-test, nothing written to the wrong-word list.
+    The word is read out again and the first letter is named. A right answer on the second try counts half and is recorded as assisted (like a hint), without the word "提示" on screen.
+    Not for dictation (q.dz), re-tests, maths, or a question that already had the spelling reminder (q.nudged). */
+ if(!j.ok&&q.mode==='fill'&&!q.dz&&!q.retest&&!q.mq&&q.kind!=='math'&&!q.nudged&&!q.tried){
+  q.tried=1;P.nudge={msg:'再試一次。第一個字母是 '+String(q.answer)[0]+'。',why:'again',value:v};render();
+  const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
+  if(!q.autoPlay)r37Speak(q.audio);/* a listening question is read out again by the render hook */
+  return;
+ }
+ const second=!!j.ok&&q.tried===1&&!q.dz;
  const hinted=!!P.hintShown;
- let credit=j.ok?(q.nudged==='case'?.5:1):0;
+ let credit=j.ok?1:0;/* R3.31: a right answer after the case reminder is a full mark (it is still recorded as assisted) */
  /* R3.19: a right answer after the hint counts half and is not independent mastery (no 5 stars, cannot clear a retest, vocabulary stays "assisted") */
- if(credit>0&&hinted&&!q.dz)credit=Math.min(credit,.5);
- const ok=credit>0,hintRight=ok&&hinted&&!q.dz;
+ if(credit>0&&(hinted||second)&&!q.dz)credit=Math.min(credit,.5);
+ const ok=credit>0,hintRight=ok&&(hinted||second)&&!q.dz;
  P.nudge=null;
- P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight};P.res[P.i]=ok;
- if(hintRight){q.hintedRight=true;if(!q.warm)P.hintedRight=(P.hintedRight||0)+1;}
+ P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight,second:second&&!hinted};P.res[P.i]=ok;
+ if(hintRight){q.hintedRight=true;if(!q.warm&&hinted)P.hintedRight=(P.hintedRight||0)+1;}
  if(q.dz)r37DzRecord(q,P.fb.value,ok);
  const key=q.retest&&q.origKey?q.origKey:r37QKey(q);/* R3.29 B-H1: a maths re-test is a NEW question of the same skill; it settles the original miss */
  if(!q.dz){
@@ -471,11 +482,11 @@ function r37Answer(value){
    }else{
     const k=o.wrong.findIndex(x=>x.en===q.word);
     if(k>=0){if(ok&&!hintRight)o.wrong.splice(k,1);else if(!ok){o.wrong[k].n++;o.wrong[k].at=Date.now();}r37Save();}
-    r37RecordEn(P,q,v,ok,'warm',hinted||!!q.nudged);
+    r37RecordEn(P,q,v,ok,'warm',hinted||second||!!q.nudged);
    }
   }else{
    if(!q.retest){P.correct+=credit;}
-   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':P.kind==='quiz'?'quiz':'lv',hinted||!!q.nudged);
+   if(P.track==='english')r37RecordEn(P,q,v,ok,q.retest?'retest':P.kind==='quiz'?'quiz':'lv',hinted||second||!!q.nudged);
    if(!ok){
     if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhOf||'',skill:q.mq&&q.mq.skill||'',n:0};
     P.miss[key].n++;
@@ -497,7 +508,7 @@ function r37Answer(value){
   /* retest the same word / skill three questions later, once, in another form */
   if(P.kind==='level'&&!q.retest&&!q.warm&&!P.redo&&!q.dz){const rq=r37Retest(P,q);if(rq)P.qs.splice(Math.min(P.qs.length,P.i+4),0,rq);}
  }
- if(P.hintShown)P.hinted++;
+ if(P.hintShown||second)P.hinted++;
  render();
  try{r37FxAnswer(ok);}catch(_){}
  if(!ok&&(q.dz||q.word))r37Speak(q.audio);
