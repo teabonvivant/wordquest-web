@@ -85,7 +85,7 @@ def s103(pg):
     pg.wait_for_timeout(300)
     chk('S1-03 after choosing, submit gives feedback', lambda: bool(cur(pg)['fb']))
 
-    for mode, expect in (('spell', '先輸入答案'), ('missing', '先填上缺少的字母'), ('tiles', '先按字塊排出答案')):
+    for mode, expect in (('spell', '先輸入答案'), ('missing', '先填上缺少的字母'), ('tiles', '先按字母組合排出答案')):
         start(pg, mode)
         pg.click('[data-l30="submit"]')
         pg.wait_for_timeout(300)
@@ -299,7 +299,7 @@ def result(pg):
     pg.evaluate("location.hash='#learning-report'")
     pg.wait_for_timeout(600)
     pt = pg.evaluate('document.body.textContent')   # the sentence sits in a collapsed <details>
-    chk('S2-20 parent report carries the 只算練習 sentence', lambda: ('只算練習，不算「自己串對」' in pt, pt[:120].replace('\n', ' / ')), base=True)
+    chk('S2-20 parent report carries the 只算練習 sentence', lambda: ('只算練習，不算「自己拼對」' in pt, pt[:120].replace('\n', ' / ')), base=True)
     pg.evaluate("location.hash='#kid'")
 
 

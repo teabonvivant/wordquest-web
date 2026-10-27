@@ -176,7 +176,7 @@ with sync_playwright() as p:
     C.ok(s['correct'] == 0.5, f'hinted right counts half ({s["correct"]})')
     a = json.loads(ev(pg, "JSON.stringify(db.attempts.at(-1))"))
     C.ok(a['correct'] is True and a['assisted'] is True and a['detail'].get('hinted') is True, f'the attempt is recorded as assisted (not independent): {a["assisted"]}')
-    C.ok('提示' in pg.evaluate("document.querySelector('.r37-fb')?.textContent||''") and '半分' in pg.evaluate("document.querySelector('.r37-fb')?.textContent||''"), 'feedback says the hint made it half a mark')
+    C.ok('提示' in pg.evaluate("document.querySelector('.r37-fb')?.textContent||''") and '稍後再試試自己答' in pg.evaluate("document.querySelector('.r37-fb')?.textContent||''"), 'feedback says the hint made it half a mark')
     advance(pg)
     ev(pg, INJECT % (json.dumps('dog'), json.dumps('狗', ensure_ascii=False)))
     type_in(pg, 'dog')
@@ -186,7 +186,7 @@ with sync_playwright() as p:
     C.ok(s['correct'] == 1.5, f'0.5 + 1 = 1.5 ({s["correct"]})')
     # mastery: a word answered right only with hints never reaches "recently on my own"
     m = ev(pg, "(()=>{db.attempts.length=0;const w=db.words.find(x=>x.en==='dog');const P=r37P;const q=P.qs[P.i];recordAttempt(w,'spell',true,'dog','dog','闖關',{hinted:true});db.attempts.at(-1).assisted=true;return mastery(w)})()")
-    C.ok(m == 2, f'mastery after a hinted right spell is 2 (有提示時串對), not 3 ({m})')
+    C.ok(m == 2, f'mastery after a hinted right spell is 2 (看了提示才答對), not 3 ({m})')
 
     # a hinted retest does not clear the miss
     reset(pg)

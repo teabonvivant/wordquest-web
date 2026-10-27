@@ -143,4 +143,19 @@ def apply(s, ctx):
     s = o(s, "`<button type=\"button\" class=\"btn primary big\" disabled>再練這些字</button><p class=\"p40-why\">目前沒有要再練的字。</p>`",
           "`<p class=\"p40-why\">目前沒有要再練的字。</p>`")
 
+    # ------------------------------------------------------------------ R3.31 batch 1: wording (E3 E4 E7 E9)
+    # E9: the spelling classroom's first-letter hint carries the same "提示：" lead as the practice step
+    s = o(s, "if(level<=1)return `第一個字母是 <span lang=\"en\">${esc(first)}</span>，一共 ${n} 個字母${k>1?`，分成 ${k} 個字`:''}。`;",
+          "if(level<=1)return `提示：第一個字母是 <span lang=\"en\">${esc(first)}</span>，一共 ${n} 個字母${k>1?`，分成 ${k} 個字`:''}。`;")
+    # E7: "剛看過後答對" -> "看了提示才答對" (status name, help text, tooltip)
+    s = o(s, '看了提示再答對，會記成「剛看過後答對」。', '看了提示才答對，下次試試不看提示。')
+    s = o(s, '看了提示再答對，會記成剛看過後答對', '看了提示才答對，下次試試不看提示')
+    s = o(s, '隔一天再自己串對一次便可以。', '隔一天再自己拼對一次，這個字就學會了！')
+    s = sub_all(s, '剛看過後答對', '看了提示才答對')
+    # E4 / E7: one word for a letter group (字母組合) and for typing a word out (拼); 串 elsewhere (一串, 串聯, 字串 ...) is left alone
+    s = s.replace('字塊', '字母組合')
+    s = re.sub(r'串(?=[字對錯法寫出])', '拼', s)
+    for a, b in (('自己串', '自己拼'), ('再串', '再拼'), ('孩子串pen', '孩子拼pen'), ('要串的字', '要拼的字'), ('怎樣串', '怎樣拼')):
+        s = s.replace(a, b)
+
     return s

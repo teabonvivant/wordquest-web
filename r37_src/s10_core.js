@@ -290,13 +290,13 @@ function r37EnBuild(wd,kind,c){
  const syn=r37Syns(wd.en),forms=r37FormMates(wd.en),zhShort=r37ZhKey(wd.zh);
  if(kind==='fill'||kind==='fill-listen'){
   const listen=kind==='fill-listen';
-  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,forms,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'第一個字母是 '+wd.en[0].toUpperCase()+'，共 '+wd.en.length+' 個字母',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
+  return {mode:'fill',kind,prompt:listen?'🔊':wd.zh,emoji:listen?'':emoji,answer:wd.en,accept:[wd.en,...syn],syn,forms,zhOf:wd.zh,audio:wd.en,autoPlay:listen,scaffold:r37Scaffold(wd.en,D.scaffold),hint:'提示：第一個字母是 '+wd.en[0]+'，一共 '+wd.en.length+' 個字母。',explain:wd.zh+' = '+wd.en,word:wd.en,len:wd.en.length,cs:/[A-Z]/.test(wd.en),ck};
  }
  const nOpt=D.opts-1,seenZ=new Set([r37ZhKey(wd.zh)]),seenE=new Set([wd.en]),ds=[];
  const bad=new Set([...syn,...forms]);for(const x of r37EnDistractors(wd,c.near,nOpt+3,D.n===1?'soft':true,rng,c.unit,kind,bad)){if(ds.length>=nOpt)break;if(seenZ.has(r37ZhKey(x.zh))||seenE.has(x.en))continue;seenZ.add(r37ZhKey(x.zh));seenE.add(x.en);ds.push(x);}
  const opts=r37Shuf([wd,...ds],rng),info={};
  const q={mode:'mcq',kind,answer:wd.en,audio:wd.en,word:wd.en,ck,zhOf:wd.zh};
- if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'第一個字母是 '+wd.en[0].toUpperCase(),explain:wd.zh+' = '+wd.en,lang:'en',info});}
+ if(kind==='zh2en'){opts.forEach(o=>{info[o.en]=o.zh;});return Object.assign(q,{prompt:wd.zh,emoji,options:opts.map(o=>o.en),hint:'提示：第一個字母是 '+wd.en[0]+'，一共 '+wd.en.length+' 個字母。',explain:wd.zh+' = '+wd.en,lang:'en',info});}
  if(kind==='en2zh'){opts.forEach(o=>{info[o.zh]=o.en;});return Object.assign(q,{prompt:wd.en,emoji,options:opts.map(o=>o.zh),answer:wd.zh,hint:'第一個字是「'+(zhShort[0]||wd.zh[0])+'」',explain:wd.en+' = '+wd.zh,lang:'zh',info});}
  opts.forEach(o=>{info[o.en]=o.zh;});
  return Object.assign(q,{kind:'listen',prompt:'🔊',emoji:'',options:opts.map(o=>o.en),autoPlay:true,hint:'意思：'+wd.zh,explain:wd.en+' = '+wd.zh,lang:'en',info});

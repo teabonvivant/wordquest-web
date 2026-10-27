@@ -248,7 +248,7 @@ function r37Play(){
   body=`<div class="r37-q">${q.emoji?`<div class="r37-qe" aria-hidden="true">${q.word?r37WordArt(q.word):q.emoji}</div>`:''}${r80Fig(q)}<div class="r37-qt">${esc(q.prompt)}</div>${aud}</div>${q.scaffold?`<div class="r37-sc" lang="en">${esc(q.scaffold)}</div>`:''}<form class="r37-fill" data-r37-form="1"><input id="r37-in" type="text" inputmode="${q.kind==='math'?'decimal':'text'}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" ${fb?'disabled':''} value="${fb?esc(fb.value):''}" aria-label="答案" placeholder="…"><button type="submit" class="r37-ok" ${fb?'disabled':''}>確定</button></form>`;
  }
  const nudge=!fb&&P.nudge?`<div class="r37-nudge" role="status"><span aria-hidden="true">${r37Icon('💡')}</span><b>${esc(P.nudge.msg)}</b></div>`:'';
- const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="提示">${r37Icon('💡')}<b>提示</b></button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
+ const foot=fb?r37FbHTML(P,q,fb):`<div class="r37-pfoot">${D.hint&&q.hint?`<button type="button" class="r37-hintb" data-r37="hint" aria-label="看提示">${r37Icon('💡')}<b>看提示</b></button>`:''}${P.hintShown?`<span class="r37-hint">${esc(q.hint)}</span>`:''}</div>`;
  const bubble=fb?(fb.ok?P.praise:r37WillRetest(P,q)?'記住答案，等一下再考你':'看看正確答案，下一題加油'):(P.hintShown?'慢慢想，不用急':r37AskLine(q));
  const comp=`<div class="r37-comp ${fb?(fb.ok?'ok':'no'):''}"><span class="r37-compav">${r37ChImg(r37Char())}</span><span class="r37-bub" role="status">${esc(bubble)}</span></div>`;
  const title=q.warm?P.warmTitle:P.kind==='level'?P.title:q.review?r37Icon('🔁')+' 溫習':'';
@@ -259,7 +259,7 @@ function r37FbHTML(P,q,fb){
  const lock=!fb.ok&&fb.lock>Date.now(),dzFill=q.dz&&q.dz.lvl>1,fillEn=q.mode==='fill'&&!q.mq&&!q.dz;
  let head,sub='';
  if(fb.ok){
-  if(fb.hint)head=`答對了！不過用了提示，只算半分；下一題試試自己想`;
+  if(fb.hint)head=`答對了！這次有提示幫忙，稍後再試試自己答。`;
   else if(fb.part)head=`字對了，但留意大小寫：<span lang="en">${esc(q.answer)}</span>`;
   else if(fb.syn)head=`也對！這一題要寫的是 <span lang="en">${esc(q.answer)}</span>（${esc(r37ZhKey(q.zhOf))}），<span lang="en">${esc(fb.syn)}</span> 亦是${esc(r37ZhKey(q.zhOf))}`;
   else head=esc(P.praise);
@@ -314,7 +314,7 @@ function r37Result(){
   if(nextOk)next=act('r37-go','data-r37="level-next"','▶',P.track==='olympiad'&&(P.s&1)?'下一單元':'下一關');
   if(P.kind==='level'&&P.track==='english'&&r.passed&&!P.redo&&r37EnStage(P.w,P.s).length>=4)extra=`<button type="button" class="r37-fpsgo" data-r37="fps-level" data-w="${P.w}" data-s="${P.s}" data-from="#lv/english">${r37Icon('🎯')}射擊鞏固</button>`;
   note=P.kind==='level'?(P.redo?(r.passed?'<p class="r37-rn">錯題全部答對了！</p>':'<p class="r37-rn">再試一次！</p>'):!r.passed?`<p class="r37-rn">${r.why==='retest'?'補考還有 '+unfixed+' 題未答對'+(r.hintedFix?'（用了提示答對的不算自己答對）':'')+'，再試一次！':r.why==='life'?'心用完了，再試一次！':'要第一次答對 '+Math.round(R37_DIFF[P.diff-1].pass*100)+'% 才過關（這次 '+Math.round((total?r.correct/total:0)*100)+'%）'+(r.stars>=3?'。星數另計，過關要看這個答對率':'')+'，再試一次！'}</p>`:''):'';
- if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題用了提示才答對，只算半分</p>`;
+ if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題看了提示才答對，下次試試自己答。</p>`;
   lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
  }
