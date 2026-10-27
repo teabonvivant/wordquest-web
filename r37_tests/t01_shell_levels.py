@@ -125,12 +125,18 @@ with sync_playwright() as p:
     # ---- fail path: wrong answers drain hearts, level fails, next stage stays locked ----
     pg.click('.r37-node:not(.lock):not(.done)'); pg.wait_for_timeout(300); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     hearts0 = ev(pg, 'r37P.hearts')
-    for i in range(hearts0):
+    for i in range(hearts0 + 6):  # R3.31: a wrong re-test costs no heart, so the hearts last a little longer
+        if ev(pg, 'r37P.phase') == 'result':
+            break
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
             pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
         else:
-            pg.fill('#r37-in', 'zzzz'); pg.keyboard.press('Enter')
+            # R3.31: #r37-in is a read-only tile-pad field and a first wrong typed answer gets one more try
+            for _try in range(2):
+                pg.evaluate("()=>{document.querySelector('#r37-in').value='zzzz'}"); pg.click('.r37-ok'); pg.wait_for_timeout(250)
+                if ev(pg, 'r37P.fb'):
+                    break
         pg.wait_for_timeout(250)
         pg.click('[data-r37="next"]'); pg.wait_for_timeout(250)
         if ev(pg, 'r37P.phase') == 'learn':

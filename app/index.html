@@ -1889,6 +1889,8 @@ b.r37-qready{font-size:13px;margin-left:4px}
 /* "right value, wrong form" nudge and the part-credit / picked lines of the feedback bar */
 .r37-nudge{display:flex;align-items:center;justify-content:center;gap:10px;max-width:min(100%,520px);padding:10px 16px;border:1px solid rgba(255,201,74,.55);border-radius:16px;background:rgba(255,201,74,.16);color:#fff2c4;font-size:18px;font-weight:800;line-height:1.35;text-align:left}
 .r37-nudge .r37-ic{font-size:24px;flex:none}
+/* R3.31: on a short phone the reminder takes the companion's place, so it does not run into the footer */
+@media (max-height:720px){.r37-stage:has(.r37-nudge) .r37-comp{display:none}}
 .r37-fb.part{background:#8a6a00}
 .r37-fb .r37-picked{margin-top:2px;font-weight:700;opacity:1}
 .r37-next[disabled]{opacity:.45;cursor:not-allowed}
@@ -25354,7 +25356,7 @@ function r37MissHTML(r){
  const r37MissMc=m=>m.mc!==undefined?!!m.mc:!/^(fill|dz[23]|math)/.test(m.kind||'');
  const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}${m.you?`<small>${r37MissMc(m)?'你選了：':'你寫：'}<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
   :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span>${m.svg?`<div class="r80-fig r37-mfig">${m.svg}</div>`:''}<b>${esc(m.answer)}</b>${m.you?`<small>${r37MissMc(m)?'你選了：':'你答：'}${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}</li>`;
- return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span>這次答錯 <em>${items.length}</em> 題${nFix?`，補考後答對 <em>${nFix}</em> 題`:''}</h2><ul>${items.map(li).join('')}</ul></div>`;
+ return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span><span>這次答錯 <em>${items.length}</em> 題${nFix?`，補考後答對 <em>${nFix}</em> 題`:''}</span></h2><ul>${items.map(li).join('')}</ul></div>`;
 }
 function r37Result(){
  const P=r37P,r=P.result,total=r.total||P.qs.length;

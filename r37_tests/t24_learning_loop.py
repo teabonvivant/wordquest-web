@@ -223,7 +223,7 @@ with sync_playwright() as p:
     C.ok(s['hearts'] == h0, 'the nudge costs no heart')
     answer(pg, value='Friday')
     s = cur(pg)
-    C.ok(s['fb']['ok'] and s['fb']['part'], 'the corrected answer counts as half credit')
+    C.ok(s['fb']['ok'] and not s['fb']['part'], 'R3.31: the corrected answer after the case reminder is a full mark (still recorded as assisted)')
     ev(pg, "clearTimeout(r37Timer)")
 
     # ---------------------------------------------------------------- maths: form hint, example card, lesson link

@@ -60,6 +60,8 @@
 /* "right value, wrong form" nudge and the part-credit / picked lines of the feedback bar */
 .r37-nudge{display:flex;align-items:center;justify-content:center;gap:10px;max-width:min(100%,520px);padding:10px 16px;border:1px solid rgba(255,201,74,.55);border-radius:16px;background:rgba(255,201,74,.16);color:#fff2c4;font-size:18px;font-weight:800;line-height:1.35;text-align:left}
 .r37-nudge .r37-ic{font-size:24px;flex:none}
+/* R3.31: on a short phone the reminder takes the companion's place, so it does not run into the footer */
+@media (max-height:720px){.r37-stage:has(.r37-nudge) .r37-comp{display:none}}
 .r37-fb.part{background:#8a6a00}
 .r37-fb .r37-picked{margin-top:2px;font-weight:700;opacity:1}
 .r37-next[disabled]{opacity:.45;cursor:not-allowed}
