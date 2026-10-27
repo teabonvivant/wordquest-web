@@ -282,12 +282,12 @@ function r37FbHTML(P,q,fb){
  return `<div class="r37-fb ${fb.ok?(fb.part||fb.hint?'part':'ok'):'bad'}" role="status"><span class="r37-fbi" aria-hidden="true">${r37Icon(fb.ok?'⭐':'💭')}</span><div><b>${head}</b>${sub}</div><button type="button" class="r37-next" data-r37="next" aria-label="下一題" ${lock?'disabled aria-disabled="true"':''}>▶</button></div>`;
 }
 function r37MissHTML(r){
- const items=(r.missed||[]).slice(0,8);if(!items.length)return '';
+ const items=(r.missed||[]).slice(0,8);if(!items.length)return '';const nFix=(r.missed||[]).filter(m=>m.fixed).length;
  /* R3.29 A-20 / C-21: a choice question says 你選了, a typed one 你寫／你答 (older items without the flag go by the question kind) */
  const r37MissMc=m=>m.mc!==undefined?!!m.mc:!/^(fill|dz[23]|math)/.test(m.kind||'');
- const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}${m.you?`<small>${r37MissMc(m)?'你選了：':'你寫：'}<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
-  :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span>${m.svg?`<div class="r80-fig r37-mfig">${m.svg}</div>`:''}<b>${esc(m.answer)}</b>${m.you?`<small>${r37MissMc(m)?'你選了：':'你答：'}${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk" aria-label="補考答對">✓</i>':''}</li>`;
- return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span>這次答錯 <em>${items.length}</em></h2><ul>${items.map(li).join('')}</ul></div>`;
+ const li=m=>m.en?`<li><button type="button" class="r37-ms" data-r37="speak" data-t="${esc(m.en)}" aria-label="聽 ${esc(m.en)}">${r37Icon('🔊')}</button><b lang="en">${esc(m.en)}</b><span>${esc(m.zh)}</span>${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}${m.you?`<small>${r37MissMc(m)?'你選了：':'你寫：'}<span lang="en">${esc(m.you)}</span></small>`:''}</li>`
+  :`<li class="m"><span class="r37-mqq">${esc(m.q)}</span>${m.svg?`<div class="r80-fig r37-mfig">${m.svg}</div>`:''}<b>${esc(m.answer)}</b>${m.you?`<small>${r37MissMc(m)?'你選了：':'你答：'}${esc(m.you)}</small>`:''}${m.fixed?'<i class="r37-mk"><span aria-hidden="true">✓ </span>補考答對了</i>':''}</li>`;
+ return `<div class="r37-miss" role="region" aria-label="這次答錯"><h2><span aria-hidden="true">${r37Icon('💭')}</span>這次答錯 <em>${items.length}</em> 題${nFix?`，補考後答對 <em>${nFix}</em> 題`:''}</h2><ul>${items.map(li).join('')}</ul></div>`;
 }
 function r37Result(){
  const P=r37P,r=P.result,total=r.total||P.qs.length;
@@ -404,7 +404,7 @@ function r37Retest(P,q){
  if(q.word){
   const wd=r37Lookup(P.w,P.s,q.word);if(!wd)return null;
   const D=R37_DIFF[P.diff-1],wp=r37EnWorldPool(P.w),near=wp.length>20?wp:r37EnPool();
-  const kinds=q.mode==='mcq'?['fill','fill-listen']:['listen','zh2en','en2zh'];
+  const kinds=q.mode==='mcq'?['fill','fill-listen']:q.kind==='fill'?['fill-listen']:['fill'];/* R3.31: a typed question is re-tested as a typed question (the other spelling form of the same word) */
   const rq=r37EnBuild(wd,kinds[Math.floor(rng()*kinds.length)],{D,rng,near,unit:r37UnitOf(P.w,wd)||r37EnStage(P.w,P.s)});
   rq.retest=true;rq.origKey=r37QKey(q);delete rq.ck;return rq;
  }
@@ -491,7 +491,7 @@ function r37Answer(value){
  }
  if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
  else{
-  if(P.kind==='level'&&!q.warm){if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
+  if(P.kind==='level'&&!q.warm&&!q.retest){/* R3.31: a wrong re-test costs no heart and uses no shield */if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
   playSfx('wrong');
   if(!q.dz&&q.word){P.fb.lock=Date.now()+1500;setTimeout(()=>{if(r37P===P&&P.fb&&P.fb.lock&&P.phase==='quiz')render();},1560);}
   /* retest the same word / skill three questions later, once, in another form */

@@ -57,8 +57,9 @@ def answer(pg, right=True, value=None):
         opt = q['answer'] if right else next(o for o in q['options'] if o != q['answer'])
         pg.evaluate("(v)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===v).click()", opt)
     else:
-        pg.fill('#r37-in', value if value is not None else (q['answer'] if right else 'zzzq'))
-        pg.keyboard.press('Enter')
+        # R3.31: #r37-in is a read-only tile-pad field - set its value directly and press 確定 (pg.fill refuses a read-only input)
+        pg.evaluate("(v)=>{document.querySelector('#r37-in').value=v}", value if value is not None else (q['answer'] if right else 'zzzq'))
+        pg.click('.r37-ok')
     pg.wait_for_timeout(250)
 
 

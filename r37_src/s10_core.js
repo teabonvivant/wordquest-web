@@ -341,6 +341,14 @@ function r37QuizQuestions(track,mode,n,diff,seed){
 }
 /* ---- judging: value, form (maths 3/4 for 0.75), capitals, spaces/hyphens, synonyms ---- */
 const r37Apos=x=>String(x==null?'':x).replace(/[‘’ʼ′`´]/g,"'");
+/* R3.31 E5: say what is off at the end of the word, by kind (the typed value and the answer are compared case-insensitively) */
+function r37InflectMsg(v,a){
+ const x=String(v).trim().toLowerCase(),y=String(a).trim().toLowerCase(),L='字母差一點點。看看字尾，';
+ if(x===y+'s'||x===y+'es')return L+'是不是多了 s？';
+ if(y.endsWith('s')&&(x===y.slice(0,-1)||(y.endsWith('es')&&x===y.slice(0,-2))))return L+'是不是少了 s？';
+ if(y.endsWith('ed')&&(x===y.slice(0,-2)||x===y.slice(0,-1)))return L+'是不是要加 ed？';
+ return L+'再試一次。';
+}
 function r37Judge(q,input){
  const raw=String(input??'').trim();
  if(!raw)return {ok:false,why:'empty'};
@@ -356,7 +364,7 @@ function r37Judge(q,input){
  }
  const hit=(q.accept||[]).find(x=>norm(r37Apos(x))===nv);
  if(hit)return hit===q.answer?{ok:true}:{ok:true,syn:hit};
- if(!q.dz&&(q.forms||[]).some(x=>norm(r37Apos(x))===nv))return {ok:false,why:'inflect',msg:`「${v.trim()}」字對了，但形式不對：留意單數／複數或時態，再試一次`};
+ if(!q.dz&&(q.forms||[]).some(x=>norm(r37Apos(x))===nv))return {ok:false,why:'inflect',msg:r37InflectMsg(v,a)};
  const strip=x=>norm(x).replace(/[\s-]+/g,'');
  if((!q.dz||q.dz.lvl===3)&&strip(a)&&strip(v)===strip(a))return {ok:false,why:'space',msg:'字對了，注意空格／連字號'};
  return {ok:false,why:'wrong'};

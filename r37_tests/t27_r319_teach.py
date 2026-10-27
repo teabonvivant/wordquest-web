@@ -111,8 +111,8 @@ with sync_playwright() as p:
     s = cur(pg)
     C.ok(s['fb'] is None and s['nudge'] and s['nudge']['why'] == 'inflect', f'cats for cat: no verdict yet, form hint shown {s["nudge"]}')
     C.ok(s['hearts'] == hearts0, 'the form hint costs no heart')
-    C.ok('形式不對' in s['nudge']['msg'] and 'cats' in s['nudge']['msg'] and '「cat」' not in s['nudge']['msg'], f'hint names the typed form and does not reveal the answer: {s["nudge"]["msg"]}')
-    C.ok('形式不對' in pg.evaluate("document.querySelector('.r37-nudge')?.textContent||''"), 'the hint is on screen')
+    C.ok('字母差一點點' in s['nudge']['msg'] and '多了 s' in s['nudge']['msg'] and '「cat」' not in s['nudge']['msg'], f'hint says the ending has an extra s and does not reveal the answer: {s["nudge"]["msg"]}')
+    C.ok('字母差一點點' in pg.evaluate("document.querySelector('.r37-nudge')?.textContent||''"), 'the hint is on screen')
     shot(pg, 'en_form_hint')
     type_in(pg, 'cat')
     s = cur(pg)
@@ -130,7 +130,7 @@ with sync_playwright() as p:
     C.ok('cat' in info['forms'] and 'cat' not in info['accept'], 'cats: "cat" is a form, not a synonym')
     type_in(pg, 'cat')
     s = cur(pg)
-    C.ok(s['nudge'] and s['nudge']['why'] == 'inflect' and 'cat」' in s['nudge']['msg'] and 'cats' not in s['nudge']['msg'], f'cat for cats -> hint names the typed cat, not the answer ({s["nudge"]})')
+    C.ok(s['nudge'] and s['nudge']['why'] == 'inflect' and '少了 s' in s['nudge']['msg'] and 'cats' not in s['nudge']['msg'], f'cat for cats -> hint says an s is missing, not the answer ({s["nudge"]})')
     # a table of the 14 form pairs from the audit, both directions, all through r37Judge on real built questions
     pairs = [('cat', '貓', 'cats'), ('dog', '狗', 'dogs'), ('toy', '玩具', 'toys'), ('bus', '巴士', 'buses'), ('box', '盒', 'boxes'), ('baby', '嬰兒', 'babies'),
              ('city', '城市', 'cities'), ('puppy', '小狗', 'puppies'), ('tooth', '牙齒（單顆）', 'teeth'), ('foot', '腳（單隻）', 'feet'), ('jump', '跳', 'jumped'),
