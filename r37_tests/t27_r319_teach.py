@@ -74,14 +74,14 @@ def answer(pg, right=True, value=None):
         opt = q['answer'] if right else next(o for o in q['options'] if o != q['answer'])
         pg.evaluate("(v)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===v).click()", opt)
     else:
-        pg.fill('#r37-in', value if value is not None else (q['answer'] if right else 'zzzq'))
-        pg.keyboard.press('Enter')
+        L.tap_text(pg, value if value is not None else (q['answer'] if right else 'zzzq'), '' if right else q['answer'])
+        pg.click('.r37-ok')
     pg.wait_for_timeout(250)
 
 
 def type_in(pg, text):
-    pg.fill('#r37-in', text)
-    pg.keyboard.press('Enter')
+    pg.evaluate("(v)=>{document.querySelector('#r37-in').value=v}", text)
+    pg.click('.r37-ok')
     pg.wait_for_timeout(250)
 
 

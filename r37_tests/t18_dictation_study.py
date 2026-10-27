@@ -96,11 +96,11 @@ def answer(pg, wrong=False):
             c = ch[i]
             if wrong and k == 0:
                 c = 'z' if c.lower() != 'z' else 'q'
-            L.tap_text(pg, c, ''.join(ch))
-        pg.keyboard.press('Enter')
+            L.tap_text(pg, c, ch[i])
+        pg.click('.r37-ok')
     else:
-        pg.fill('#r37-in', ('xx' + q['answer']) if wrong else q['answer'])
-        pg.keyboard.press('Enter')
+        L.tap_text(pg, ('xx' + q['answer']) if wrong else q['answer'], q['answer'] if wrong else '')
+        pg.click('.r37-ok')
     pg.wait_for_selector('.r37-fb', timeout=T)
     return s
 
@@ -240,13 +240,13 @@ with L.sync_playwright() as p:
         return !html.includes('data-t="'+a.toLowerCase()+'"')&&inp.maxLength===-1&&!document.querySelector('.r37-cell,.r37-sc,.r37-cl')&&!/[_＿]/.test(inp.placeholder);}""", ans), 'level 3: no letters, no letter count, no scaffold, answer not in markup')
     C.ok(pg.evaluate("!!document.querySelector('.r37-spk')"), 'level 3: replay button')
     # case + extra spaces tolerated (use a phrase later if present; here upper case + padding)
-    pg.fill('#r37-in', '  ' + ans.upper().replace(' ', '   ') + ' ')
-    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.ok', timeout=T)
+    pg.evaluate("(v)=>{document.querySelector('#r37-in').value=v}", '  ' + ans.upper().replace(' ', '   ') + ' ')
+    pg.click('.r37-ok'); pg.wait_for_selector('.r37-fb.ok', timeout=T)
     C.ok(True, 'level 3: UPPER case and repeated spaces accepted')
     nxt(pg); pg.wait_for_timeout(150)
     s = cur(pg); ans = s['q']['answer']
-    pg.fill('#r37-in', ans[0] + ans[2:])
-    pg.keyboard.press('Enter'); pg.wait_for_selector('.r37-fb.bad', timeout=T)
+    L.tap_text(pg, ans[0] + ans[2:], ans[1])
+    pg.click('.r37-ok'); pg.wait_for_selector('.r37-fb.bad', timeout=T)
     fb = pg.evaluate("(()=>{const f=document.querySelector('.r37-fb.bad');return {ans:f.querySelector('.r37-ans').textContent.replace(/\\s+/g,' ').trim(),bad:f.querySelectorAll('.r37-ans i.bad').length,you:f.querySelector('.r37-you')?.textContent||''};})()")
     C.ok(fb['ans'].replace('·', '') == ans and fb['bad'] == 1 and fb['you'].startswith('你寫'), f'level 3 wrong: answer shown big, the one missing letter coloured {fb}')
     shot(pg, 'phone', 'l3_wrong')

@@ -143,6 +143,9 @@ def fits(pg, sel):
 
 def tap_text(pg, text, avoid=''):
     """R3.31: fill-in answers are tapped from tiles. Taps the pad tile of each character; a character with no free tile taps a decoy that is not in `avoid` (a wrong answer stays wrong)."""
+    pg.wait_for_selector('.wqp-t', timeout=10000); pg.wait_for_timeout(200)
     for ch in text:
+        ch = '空格' if ch == ' ' else ch
         pg.evaluate("""([t,av])=>{const bs=[...document.querySelectorAll('.wqp-t:not(.back)')].filter(b=>!b.disabled);
           const b=bs.find(b=>b.textContent===t)||bs.find(b=>b.textContent.length===1&&!av.includes(b.textContent));if(b)b.click()}""", [ch, avoid])
+        pg.wait_for_timeout(80)

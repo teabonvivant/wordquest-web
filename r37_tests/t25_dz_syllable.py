@@ -39,8 +39,8 @@ def play_fill(pg, wrong_words=()):
         if s['ph'] == 'result':
             return s
         q = s['q']
-        pg.fill('#r37-in', 'zzzzzz' if q['answer'] in wrong_words else q['answer'])
-        pg.keyboard.press('Enter')
+        L.tap_text(pg, 'zzzzzz' if q['answer'] in wrong_words else q['answer'], q['answer'] if q['answer'] in wrong_words else '')
+        pg.click('.r37-ok')
         pg.wait_for_selector('.r37-fb', timeout=4000)
         pg.click('.r37-fb .r37-next')
         pg.wait_for_timeout(200)

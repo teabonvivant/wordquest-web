@@ -25697,7 +25697,7 @@ const R37_DZ_LV=['✅','🧩','✍️'],R37_DZ_NAMES=['選擇','補字母','默�
 /* ---- syllables (R3.18, T06): words of 7+ letters are shown and masked in whole syllables.
    Order: teaching list -> WQ31 compound / chunk recipe -> rule table (suffix, silent e, vowel groups, consonant cluster split). ---- */
 const R37_SYL_EX={};
-`small·er small·est re·write Eng·lish noo·dles week·end base·ball skate·board pal·ette sur·prised beau·ti·ful fa·vour·ite be·cause el·e·phant um·brel·la com·pu·ter dic·tion·ar·y hos·pi·tal choc·o·late break·fast birth·day to·mor·row yes·ter·day to·geth·er re·mem·ber af·ter·noon sand·wich res·tau·rant veg·e·ta·ble kan·ga·roo di·no·saur straw·ber·ry but·ter·fly grand·moth·er grand·fa·ther won·der·ful im·por·tant dif·fer·ent in·ter·est·ing li·brar·y class·room play·ground home·work su·per·mar·ket tel·e·vi·sion tel·e·phone ad·ven·ture ham·bur·ger sau·sage pine·ap·ple wa·ter·mel·on py·ja·mas cal·en·dar Feb·ru·ar·y Sat·ur·day Wednes·day Thurs·day Sep·tem·ber Oc·to·ber No·vem·ber De·cem·ber spa·ghet·ti sun·flower rain·bow foot·ball bas·ket·ball moun·tain neigh·bour some·times ev·ery·one ev·ery·thing pos·si·ble care·ful·ly de·li·cious ex·er·cise ex·cit·ed ques·tion ed·u·ca·tion in·for·ma·tion cel·e·brate hol·i·day com·fort·a·ble vo·cab·u·lar·y bi·cy·cle hap·pi·ness un·hap·py un·kind·ly ex·cuse·me al·pha·bet air·port air·plane aer·o·plane`.split(/\s+/).forEach(x=>{R37_SYL_EX[x.replace(/·/g,'').toLowerCase()]=x.toLowerCase();});
+`small·er small·est re·write Eng·lish noo·dles week·end base·ball skate·board pal·ette sur·prised beau·ti·ful fa·vour·ite be·cause el·e·phant um·brel·la com·pu·ter dic·tion·ar·y hos·pi·tal choc·o·late break·fast birth·day to·mor·row yes·ter·day to·geth·er re·mem·ber af·ter·noon sand·wich res·tau·rant veg·e·ta·ble kan·ga·roo di·no·saur straw·ber·ry butter·fly grand·mother grand·father won·der·ful im·por·tant dif·fer·ent in·ter·est·ing li·brar·y class·room play·ground home·work super·market tel·e·vi·sion tel·e·phone ad·ven·ture ham·burger sau·sage pine·apple water·melon py·ja·mas cal·en·dar Feb·ru·ar·y Sat·ur·day Wednes·day Thurs·day Sep·tem·ber Oc·to·ber No·vem·ber De·cem·ber spa·ghet·ti sun·flower rain·bow foot·ball basket·ball moun·tain neigh·bour some·times every·one every·thing pos·si·ble care·ful·ly de·li·cious ex·er·cise ex·cit·ed ques·tion ed·u·ca·tion in·for·ma·tion cel·e·brate hol·i·day com·fort·a·ble vo·cab·u·lar·y bi·cy·cle hap·pi·ness un·hap·py un·kind·ly ex·cuse·me an·oth·er tea·spoon light·ning cat·er·pil·lar re·cep·tion·ist pho·to·graph·er high·light·er smooth·ie ju·pi·ter al·pha·bet air·port air·plane aer·o·plane`.split(/\s+/).forEach(x=>{R37_SYL_EX[x.replace(/·/g,'').toLowerCase()]=x.toLowerCase();});
 const R37_SYL_ON3=new Set(['str','spr','scr','spl','thr','shr','sch','squ']);
 const R37_SYL_ON2=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr','tw','sw','sc','sk','sl','sm','sn','sp','st','th','sh','ch','ph','wh','kn','wr','qu','gn']);
 const R37_SYL_FLUID=new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','tr']);
@@ -25710,7 +25710,19 @@ function r37SylRecipe(w){
 let r37KnownSet=null;
 function r37KnownWord(x){
  if(!r37KnownSet){r37KnownSet=new Set();try{for(const e of r37EnPool())r37KnownSet.add(e.en);}catch(_){}try{for(const w of LIB30.words.values())r37KnownSet.add(String(w.form).toLowerCase());}catch(_){}}
- return r37KnownSet.has(x);
+ return r37KnownSet.has(x)||(x.length>=3&&typeof v20Dictionary!=='undefined'&&v20Dictionary.has(x));
+}
+/* two meaningful words first (class·mate, police·man): both parts are words of their own, 3+ letters, the second not a bare suffix; the split with the longer shorter part wins */
+const R37_SYL_NOTWORD2=new Set(['age','ate','ant','ent','ice','ion','ire','ore','ear','ale','ode','ace','ess','ism','ist','ite','ose','ure','ute','ant']);
+function r37SylCompound(w){
+ let best=null,bm=0;
+ for(let i=3;i<=w.length-3;i++){
+  const a=w.slice(0,i),b=w.slice(i);
+  if(R37_SYL_NOTWORD2.has(b)||!r37KnownWord(a)||!r37KnownWord(b))continue;
+  const m=Math.min(a.length,b.length);
+  if(m>bm){bm=m;best=[a,b];}
+ }
+ return best;
 }
 function r37SylRule(w){
  const isV=i=>{const c=w[i];if('aeiou'.includes(c))return !(c==='u'&&i>0&&w[i-1]==='q');if(c==='y')return i>0;if(c==='w')return i>0&&'aeiou'.includes(w[i-1]);return false;};
@@ -25723,7 +25735,7 @@ function r37SylRule(w){
  }
  /* R3.19: stem + er / est where the stem is a word of its own that ends in a double consonant (small·er, not smal·ler); let·ter stays let·ter because "lett" is no word */
  const me=/^(.{3,}?)(er|est)$/.exec(w);
- if(me&&/([^aeiou])\1$/.test(me[1])&&r37KnownWord(me[1]))return r37SylRule(me[1]).concat([me[2]]);
+ if(me&&(/([^aeiou])\1$/.test(me[1])||me[1].length>=4)&&r37KnownWord(me[1]))return r37SylRule(me[1]).concat([me[2]]);
  const md=/^(.{3,}[td])ed$/.exec(w);
  if(md)return r37SylRule(md[1]).concat(['ed']);
  let end=w.length;
@@ -25760,7 +25772,7 @@ function r37Syl(en){
  const raw=String(en||'').trim();
  if(!/^[A-Za-z]+$/.test(raw)||raw.length<7)return [raw];
  const w=raw.toLowerCase();
- let parts=R37_SYL_EX[w]?R37_SYL_EX[w].split('·'):(r37SylRecipe(w)||r37SylRule(w));
+ let parts=R37_SYL_EX[w]?R37_SYL_EX[w].split('·'):(r37SylRecipe(w)||r37SylCompound(w)||r37SylRule(w));
  if(parts.join('')!==w||parts.some(x=>x.length<1))parts=[w];
  let p=0;return parts.map(x=>{const r=raw.slice(p,p+x.length);p+=x.length;return r;});
 }
