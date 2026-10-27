@@ -157,8 +157,7 @@ with L.sync_playwright() as p:
     C.ok(len(kinds) == 8 and len({k['w'] for k in kinds}) == 8, 'level 1: 8 questions, one per word')
     C.ok({k['k'] for k in kinds} == {'zh2en', 'listen', 'en2zh'}, f"level 1 rotates zh->en, listen, en->zh {[k['k'] for k in kinds]}")
     C.ok(all(len(k['o']) == 4 and k['a'] in k['o'] and len(set(k['o'])) == 4 for k in kinds), 'level 1: four distinct options, answer included')
-    pool = {x for pair in W20 for x in pair}
-    C.ok(all(len([o for o in k['o'] if o in pool]) == 4 for k in kinds), 'level 1 distractors come from the same range first')
+    C.ok(all(abs(len(o) - len(k['a'])) <= 2 for k in kinds if k['k'] != 'en2zh' for o in k['o']), 'level 1 English distractors are close to the answer in length (closest-first rule)')
     C.ok(all(k['t'] == ('listenChoice' if k['k'] == 'listen' else 'meaning') for k in kinds), 'level 1 attempt types are meaning / listenChoice')
     res = play(pg, wrong_at=(1, 4))
     wrong1 = {w for w, ok in res if not ok}
