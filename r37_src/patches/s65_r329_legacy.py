@@ -147,7 +147,7 @@ def apply(s, ctx):
     # "答案是 X。" -> "正確答案是 X。" (s90_feedback.js looks for the same words)
     s = o(s, "function p20Said(fb){return '答案是 <b lang=\"en\">'+esc(fb.expected)+'</b>。';}",
           "function p20Said(fb){return '正確答案是 <b lang=\"en\">'+esc(fb.expected)+'</b>。';}")
-    # the first wrong typed answer (spell / listenSpell) writes nothing: the box is cleared, the first letter is named and the word is read again.
+    # the first wrong typed answer (spell / listenSpell) writes nothing: the box is cleared, the first letter is named; only listenSpell reads the word again.
     # session.hinted (already saved and validated) marks the second try as assisted; l30Again is only the memory of "this question had its extra try".
     s = o(s, "function l30Submit(technical=false){",
           """let l30Again='';/* R3.31 E10: 'sessionId:index' of the typed question that already had its extra try */
@@ -157,7 +157,7 @@ function l30SecondTry(s,q,answer){
  l30Again=key;
  if(!l30Commit(()=>{const t=l30Session();t.hinted=true;t.draft='';}))return false;
  try{const el=document.getElementById('l30-answer');if(el){el.value='';el.focus({preventScroll:true});}}catch(_){}
- try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
+ if(q.mode==='listenSpell')try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
  return true;
 }
 function l30Submit(technical=false){""")

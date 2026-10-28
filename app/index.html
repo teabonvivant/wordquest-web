@@ -21240,7 +21240,7 @@ function l30SecondTry(s,q,answer){
  l30Again=key;
  if(!l30Commit(()=>{const t=l30Session();t.hinted=true;t.draft='';}))return false;
  try{const el=document.getElementById('l30-answer');if(el){el.value='';el.focus({preventScroll:true});}}catch(_){}
- try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
+ if(q.mode==='listenSpell')try{stopSpeech();const u=new SpeechSynthesisUtterance(w.form);u.lang='en-GB';u.rate=.83;const v=speechSynthesis.getVoices().find(x=>/^en[-_]GB$/i.test(x.lang));if(v)u.voice=v;speechSynthesis.speak(u);}catch(_){}
  return true;
 }
 function l30Submit(technical=false){
@@ -25522,17 +25522,17 @@ function r37Answer(value){
   return;
  }
  /* R3.31 E1: a typed English answer that is wrong the first time gets one more try: no heart, no answer shown, no re-test, nothing written to the wrong-word list.
-    The word is read out again and the first letter is named. A right answer on the second try counts half and is recorded as assisted (like a hint), without the word "提示" on screen.
+    The first letter is named; a listening question is read out again. A right answer on the second try counts half and is recorded as assisted (like a hint), without the word "提示" on screen.
     Not for dictation (q.dz), re-tests, maths, or a question that already had the spelling reminder (q.nudged). */
  if(!j.ok&&q.mode==='fill'&&!q.dz&&!q.retest&&!q.mq&&q.kind!=='math'&&!q.nudged&&!q.tried){
   q.tried=1;P.nudge={msg:'再試一次。第一個字母是 '+String(q.answer)[0]+'。',why:'again',value:v};render();
   const el=document.getElementById('r37-in');if(el){el.value='';el.focus({preventScroll:true});}
-  if(!q.autoPlay)r37Speak(q.audio);/* a listening question is read out again by the render hook */
+  /* only a listening question is read out again (by the render hook); reading a Chinese-prompt word aloud would give the answer away */
   return;
  }
  const second=!!j.ok&&q.tried===1&&!q.dz;
  const hinted=!!P.hintShown;
- let credit=j.ok?(q.dz&&q.nudged==='case'?.5:1):0;/* R3.31: a right answer after the case reminder is a full mark outside dictation (still recorded as assisted) */
+ let credit=j.ok?1:0;/* R3.31: a right answer after the case reminder is a full mark, dictation included (still recorded as assisted) */
  /* R3.19: a right answer after the hint counts half and is not independent mastery (no 5 stars, cannot clear a retest, vocabulary stays "assisted") */
  if(credit>0&&(hinted||second)&&!q.dz)credit=Math.min(credit,.5);
  const ok=credit>0,hintRight=ok&&(hinted||second)&&!q.dz;

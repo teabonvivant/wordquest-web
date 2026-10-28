@@ -269,7 +269,10 @@ with sync_playwright() as p:
         C.ok(s['hearts'] == h0 and ev(pg, 'db.attempts.length') == n0 and ev(pg, 'r37Get().wrong.length') == w0 and ev(pg, 'r37P.qs.length') == nq0,
              f'E1 {kind}: no heart, no attempt, no wrong-word entry, no re-test queued')
         C.ok(not re.search(r'\bcat\b', body, re.I) and '正確答案' not in body, f'E1 {kind}: the answer is not on screen')
-        C.ok(ev(pg, 'globalThis.__sp.length') == 1 and ev(pg, 'globalThis.__sp[0]') == 'cat', 'E1 the word is read out again')
+        if kind == 'fill-listen':
+            C.ok(ev(pg, 'globalThis.__sp.length') >= 1 and ev(pg, 'globalThis.__sp.at(-1)') == 'cat', 'E1 listening: the word is read out again')
+        else:
+            C.ok(ev(pg, 'globalThis.__sp.length') == 0, f'E1 Chinese prompt: the word is NOT read out (would give the answer away) {ev(pg, "globalThis.__sp")}')
         C.ok(pg.evaluate("document.querySelector('#r37-in').value===''"), 'E1 the box is cleared')
         pg.screenshot(path=str(SHOTS / f'e1_first_wrong_{kind}_phone.png'))
         type_in(pg, 'dog')
@@ -354,7 +357,10 @@ with sync_playwright() as p:
         C.ok(pg.query_selector('.l30-feedback') is None and pg.evaluate("!document.querySelector('#l30-answer').disabled"), 'E10 first wrong: no verdict, box still open')
         C.ok(note == f'再試一次。第一個字母是 {first}。', f'E10 first wrong message: {note!r}')
         C.ok(pg.evaluate("document.querySelector('#l30-answer').value===''") and ev(pg, 'l30Read().attempts.length') == n0, 'E10 box cleared, nothing recorded yet')
-        C.ok(ev(pg, 'globalThis.__spk.length') >= 1 and ev(pg, 'globalThis.__spk[0]') == word, 'E10 the word is read again')
+        if mode == 'listenSpell':
+            C.ok(ev(pg, 'globalThis.__spk.length') >= 1 and ev(pg, 'globalThis.__spk[0]') == word, 'E10 listenSpell: the word is read again')
+        else:
+            C.ok(ev(pg, 'globalThis.__spk.length') == 0, 'E10 spell: the word is NOT read (would give the answer away)')
         pg.screenshot(path=str(SHOTS / 'e10_first_wrong_phone.png'))
         pg.evaluate("(v)=>{const i=document.querySelector('#l30-answer');i.value=v;i.dispatchEvent(new Event('input',{bubbles:true}))}", 'zzqq')
         pg.click('[data-l30="submit"]')
