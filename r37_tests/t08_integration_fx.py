@@ -57,7 +57,12 @@ with sync_playwright() as p:
     if q['mode'] == 'mcq':
         pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
     else:
-        pg.fill('#r37-in', (q['answer'][::-1] if q['answer'][::-1] != q['answer'] else q['answer'][1:] or 'a')); pg.keyboard.press('Enter')  # tile pad only accepts tile letters
+        n = len(q['answer'].replace(' ', ''))
+        for _ in range(2):  # R3.31: an English fill gets one more try, so a wrong spelling is sent twice
+            if ev(pg, '!!document.querySelector(".r37-fb")'): break
+            for _ in range(n):
+                pg.click('.wqp-t:not(.back):not([disabled])')  # tile pad re-renders: tap the first free tile each time
+            pg.click('.r37-ok'); pg.wait_for_timeout(500)
     pg.wait_for_timeout(300)
     C.ok(ev(pg, 'r37Streak') == 0, 'a wrong answer resets the combo')
     c0 = ev(pg, 'r37Fx.st.confetti')

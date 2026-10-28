@@ -213,7 +213,10 @@ def sec_play(pg, name):
             pg.evaluate("(a)=>{const o=[...document.querySelectorAll('.r37-opt')].find(x=>x.dataset.v!==a);if(o)o.click()}", a2)
             wrong_ok = True
         elif pg.query_selector('#r37-in:not([disabled])'):
-            a2 = ev(pg, "r37P.qs[r37P.i].answer"); pg.fill('#r37-in', (a2[::-1] if a2[::-1] != a2 else a2[1:] or 'a')); pg.click('.r37-ok')  # R3.32: the tile pad only accepts the tile letters
+            a2 = ev(pg, "r37P.qs[r37P.i].answer"); 
+            for _ in range(2):  # R3.31: an English fill gets one more try, so a wrong spelling is sent twice
+                if pg.query_selector('.r37-fb'): break
+                pg.fill('#r37-in', (a2[::-1] if a2[::-1] != a2 else a2[1:] or 'a')); pg.click('.r37-ok'); pg.wait_for_timeout(200)
             wrong_ok = True
         if wrong_ok:
             pg.wait_for_timeout(120)

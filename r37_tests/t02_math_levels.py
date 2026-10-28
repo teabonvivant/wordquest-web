@@ -20,7 +20,11 @@ def play_all(pg, correct=True):
         if q['mode'] == 'mcq':
             pg.evaluate("([a,ok])=>[...document.querySelectorAll('.r37-opt')].find(b=>ok?b.dataset.v===a:b.dataset.v!==a).click()", [q['answer'], correct])
         else:
-            pg.fill('#r37-in', q['answer'] if correct else '99999'); pg.keyboard.press('Enter')
+            if correct:
+                pg.fill('#r37-in', q['answer']); pg.keyboard.press('Enter')
+            else:  # R3.32 tile pad: only tile characters can be entered, so tap one tile that is not the answer's first character
+                pg.evaluate("(a)=>{const b=[...document.querySelectorAll('.wqp-t:not(.back)')].find(t=>!t.disabled&&t.textContent!==a[0]);if(b)b.click()}", q['answer'])
+                pg.click('.r37-ok')
         pg.wait_for_timeout(900 if correct else 300)
         if not correct and ev(pg, 'r37P&&r37P.phase') == 'quiz' and pg.query_selector('[data-r37="next"]'):
             ev(pg, 'r37P.fb&&(r37P.fb.lock=0)')
