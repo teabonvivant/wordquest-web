@@ -60,6 +60,8 @@ with sync_playwright() as p:
         C.ok(pg.evaluate("!!document.querySelector('.r37-bar .r37-back .r37-logo')"), f'{name}: brand mark in the top bar (still links home)')
         C.ok(pg.evaluate("document.querySelectorAll('.r37-pp').length")==0, f'{name}: no progress bar under planets at 0 progress')
         go(pg, '#p/english', 400)
+        C.ok(pg.evaluate("!!document.querySelector('.r81-hub .r80-cont')&&document.querySelectorAll('.r81-hub .r80-g').length===8"), f'{name}: 英文星 uses the 奧數星 layout (8 worlds + 繼續)')  # R3.32
+        go(pg, '#p/dictation', 400)  # R3.32: the tile hubs are now 默書星 / 遊戲星
         ti = pg.evaluate("(()=>{const i=document.querySelector('.r37-tile:not(.gold) .r37-ti .r37-ic').getBoundingClientRect();return Math.round(i.width)})()")
         C.ok(ti >= (64 if w >= 1024 else 52) - 1 or h <= 520, f'{name}: hub tile icon size {ti}px')
         if w >= 1024:

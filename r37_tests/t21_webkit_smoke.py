@@ -14,7 +14,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 import socket
 _s = socket.socket(); _s.bind(('127.0.0.1', 0)); PORT = _s.getsockname()[1]; _s.close()
 VPS = [('iphone', 390, 844, True), ('ipad', 820, 1180, True), ('desk', 1440, 900, False)]
-SCREENS = [('home', '#kid', '.r37-planet,.r37-home'), ('english', '#p/english', '.r37-tile'),
+SCREENS = [('home', '#kid', '.r37-planet,.r37-home'), ('english', '#p/english', '.r80-g,.r80-cont'),
            ('enlevels', '#lv/english', '.r37-node,.r37-lvnode,[data-lv]'), ('math', '#p/math', '[data-wqm-open]'),
            ('dictation', '#p/dictation', '.r37-tile'), ('games', '#p/games', '.r37-tile'),
            ('fpsmap', '#lv/fps', '.r37-node,.r37-lvnode,[data-lv]'), ('fps', '#fps', 'canvas'),

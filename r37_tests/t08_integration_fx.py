@@ -25,10 +25,10 @@ with sync_playwright() as p:
         go(pg, '#kid', 400)
         C.ok(pg.evaluate("!document.body.classList.contains('r37leg')&&!document.querySelector('.r37-leg')"), f'{name}: planet pages drop the legacy wrapper')
         # maths dialog themed
-        go(pg, '#p/olympiad', 500); pg.click('[data-wqm-open="olympiad"]'); pg.wait_for_timeout(1200)
-        th = pg.evaluate("(()=>{const r=document.getElementById('wqm-app-host')?.shadowRoot;if(!r)return null;const w=r.querySelector('.wqm'),h=r.querySelector('.wq36-home');return {style:!!r.querySelector('#r38-wqm'),bg:getComputedStyle(w).backgroundImage.includes('gradient'),home:getComputedStyle(h,'::after').content}})()")
-        C.ok(th and th['style'] and th['bg'], f'{name}: olympiad dialog uses the planet space theme {th}')
-        C.ok(th and '回星球' in th['home'] or (th and '星球' in th['home']), f'{name}: olympiad back button says it returns to the planet')
+        go(pg, '#p/math', 500); pg.click('[data-wqm-open="normal"]')  # R3.32: 奧數星 no longer opens the dialog; 數學星「主題課堂」does
+        pg.wait_for_timeout(1200)
+        th = pg.evaluate("(()=>{const r=document.getElementById('wqm-app-host')?.shadowRoot;if(!r)return null;return {style:!!r.querySelector('#r38-wqm'),skin:!!r.querySelector('#r319-skin'),main:!!r.querySelector('main')}})()")
+        C.ok(th and th['style'] and th['main'], f'{name}: maths dialog carries the planet space theme styles {th}')  # R3.32: course dialog has no .wqm / .wq36-home any more
         C.ok(not errs, f'{name}: no runtime errors {errs[:2]}')
         b.close()
     # ---- effects with motion on ----
@@ -57,7 +57,7 @@ with sync_playwright() as p:
     if q['mode'] == 'mcq':
         pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
     else:
-        pg.fill('#r37-in', 'zzzz'); pg.keyboard.press('Enter')
+        pg.fill('#r37-in', (q['answer'][::-1] if q['answer'][::-1] != q['answer'] else q['answer'][1:] or 'a')); pg.keyboard.press('Enter')  # tile pad only accepts tile letters
     pg.wait_for_timeout(300)
     C.ok(ev(pg, 'r37Streak') == 0, 'a wrong answer resets the combo')
     c0 = ev(pg, 'r37Fx.st.confetti')

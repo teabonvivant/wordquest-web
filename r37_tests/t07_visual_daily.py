@@ -28,7 +28,7 @@ with sync_playwright() as playwright:
         page.click('.r37-node.cur')
         page.wait_for_timeout(300)
         C.ok(fits(page, '.r37-wc,.r37-go'), name + ': three learning cards and start fit')
-        C.ok(page.evaluate("[...document.querySelectorAll('.r37-wem')].filter(e=>e.querySelector('svg')||/\p{Extended_Pictographic}/u.test(e.textContent)).length") == 3, name + ': first checkpoint shows three pictures')
+        C.ok(page.evaluate("[...document.querySelectorAll('.r37-wem')].filter(e=>e.querySelector('svg,img')||/\p{Extended_Pictographic}/u.test(e.textContent)).length") == 3, name + ': first checkpoint shows three pictures')
         page.screenshot(path=str(SHOTS / ('art_learn_' + name + '.png')))
         go(page, '#kid')
         page.screenshot(path=str(SHOTS / ('art_home_' + name + '.png')))

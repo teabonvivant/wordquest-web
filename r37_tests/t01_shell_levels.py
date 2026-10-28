@@ -22,7 +22,8 @@ with sync_playwright() as p:
             go(pg, '#' + hub)
             sel = '.r37-tile,.r37-wtab,.r37-node,.r37-ptab,.r37-df,.r37-login' if not hub.startswith('p/games') else '.r37-tile'
             # R3.23: the olympiad hub is the new one-screen 奧數路線 hub; #lv/olympiad redirects to the grade-1 star path (checked in t50 in detail)
-            if hub == 'p/olympiad':
+            # R3.32: 英文星 / 數學星 now use the same hub layout as 奧數星
+            if hub in ('p/olympiad', 'p/english', 'p/math'):
                 sel = '.r80-g,.r80-cont,.r80-sec'
             elif hub == 'lv/olympiad':
                 sel = '.r80-gtab,.r80-nd'

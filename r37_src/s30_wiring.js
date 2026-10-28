@@ -173,6 +173,7 @@ document.addEventListener('click',e=>{
  else if(a==='fworld'){r37Mem._fw=+el.dataset.w;render();}
  else if(a==='rworld'){r37Mem._rw=+el.dataset.w;render();}
  else if(a==='world'){(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;render();}
+ else if(a==='wgo'){if(el.classList.contains('lock')){e.preventDefault();return;}(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;}
  else if(a==='learn-go'&&P){if(P.exBack){P.exBack=false;P.phase='result';}else P.phase='quiz';render();}
  else if(a==='ex-again'&&P){const l=((P.result||{}).lessons||[])[+el.dataset.i];if(l&&l.ex){P.exq=l.ex;P.exBack=true;P.phase='example';render();}}
  else if(a==='pick-opt'&&P)r37Answer(el.dataset.v);

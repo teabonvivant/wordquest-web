@@ -3694,6 +3694,25 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
 .r80-wg li .r80-fig{flex:1 1 100%}
 .r37-miss li.m .r80-fig{grid-column:1/-1;justify-self:center;max-width:100%}
 .r37-dchip .r37-dn{white-space:nowrap;font-size:14px;font-weight:800}
+
+/* R3.32 英文星 / 數學星 use the 奧數星 hub: world count sets the grid; the other entries sit in a small three-across row */
+.r81-hub .r80-grades{grid-template-rows:repeat(var(--rows),minmax(0,1fr))}
+.r81-hub .r80-pips{gap:3px}.r81-hub .r80-pips i{width:9px;height:9px}
+.r81-hub .r80-g.lock{filter:saturate(.35) brightness(.8)}
+.r81-more{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.r81-more .r80-sec{grid-column:span 2}.r81-more.n5 .r80-sec:nth-child(n+4){grid-column:span 3}
+.r81-hub .r80-g em{display:none}
+.r81-hub .r80-gt b{white-space:nowrap;font-size:clamp(16px,2.5vh,21px)}
+.r81-more .r80-sec{min-height:48px;font-size:15px;padding:0 6px;gap:5px}
+.r81-more .r80-sec b{white-space:nowrap}
+.r81-hub .r37-assign{margin:0}
+@media(min-aspect-ratio:5/4){.r81-hub .r80-grades{grid-template-columns:repeat(var(--wcols),minmax(0,1fr));grid-template-rows:repeat(var(--wrows),minmax(0,1fr))}
+ .r81-more{grid-template-columns:1fr 1fr}.r81-more .r80-sec,.r81-more.n5 .r80-sec:nth-child(n+4){grid-column:auto}.r81-more.n5 .r80-sec:last-child{grid-column:span 2}.r81-hub .r80-cont{flex:none;min-height:66px}
+ .r81-hub[style*="--wcols:4"] .r80-g{flex-direction:column;justify-content:center;text-align:center;gap:6px;padding:8px 6px}
+ .r81-hub[style*="--wcols:4"] .r80-gt{align-items:center;flex:none;max-width:100%}
+ .r81-hub[style*="--wcols:4"] .r80-gt b{font-size:clamp(15px,2.3vh,19px)}
+ .r81-hub[style*="--wcols:4"] .r80-pips{flex-wrap:wrap;justify-content:center;max-width:70px}}
+@media(min-width:1100px) and (min-aspect-ratio:5/4){.r80-hub .r80-hm{max-width:1160px}}
 </style>
 <style id="wq37-s90-css">
 /* R3.28 s90 - answer feedback on the legacy teaching pages.
@@ -25183,13 +25202,9 @@ function r37Hub(id){
  let tiles='',extra='',pre='';
  const quiz=t=>r37B('✅','選擇題',`data-r37="quiz" data-track="${t}" data-mode="mcq"`,'blue')+r37B('✍️','填充題',`data-r37="quiz" data-track="${t}" data-mode="fill"`,'green');
  if(id==='english'){
-  const q=r37TrackProgress('english');
-  tiles=r37A('🏆','闖關','#lv/english','gold big','english',`${q.done}/${q.total} 關`)+quiz('english')+r37A('📚','課堂','#classroom')+r37A('🧰','字詞工房','#assembly')+r37A('▶','繼續學習','#learning')+r37A('📖','詞庫','#library');
-  extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total} 關</b>`,'英文進度：已過 '+q.done+' 關，共 '+q.total+' 關');pre=r37AssignCard();
+  return r37PathHub('english');/* R3.32: same layout as 奧數星 - world cards, one 繼續, the other entries in a small row */
  }else if(id==='math'){
-  const q=r37TrackProgress('math');
-  tiles=r37B('📚','主題課堂','data-wqm-open="normal"','gold big','math','小一至小六 · 每個主題兩課')+r37A('🏆','闖關','#lv/math','gold','',`${q.done}/${q.total} 關`)+quiz('math')+r37B('📝','考考自己','data-wqm-open="assessment"')+r37B('🔁','再練一練','data-wqm-open="review"');
-  extra=r37Cap(r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))+`<b>${q.done}/${q.total} 關</b>`,'數學進度：已過 '+q.done+' 關，共 '+q.total+' 關');
+  return r37PathHub('math');
  }else if(id==='olympiad'){
   return r80Hub();/* R3.23: one screen - six grade buttons, continue, strategy cards, wrong book (the old tiles' code stays below, no longer an entry) */
  }else if(id==='dictation'){
@@ -25203,6 +25218,31 @@ function r37Hub(id){
   return r37ParentHub();
  }
  return `<section class="r37-hub${pre?' has-assign':''}" data-pl="${id}" style="--h:${p.hue}">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:${p.tilt}deg">${r37OrbHTML(p.id)}</span><h1>${p.name}</h1>${extra}</div>${pre}<div class="r37-tiles">${tiles}</div>${r37Nav('p/'+id)}</section>`;
+}
+/* R3.32 英文星 / 數學星: the 奧數星 layout - one card per world, one 繼續 to the next level, the other entries as small buttons */
+function r37NextStage(t){
+ const W=r37TrackWorlds(t).length;
+ for(let w=0;w<W;w++)for(let s=0;s<10;s++)if(!r37Entry(t,w,s)?.passed&&r37StageOpen(t,w,s))return {w,s};
+ return null;
+}
+function r37PathHub(t){
+ const p=r37Planet(t),worlds=r37TrackWorlds(t),q=r37TrackProgress(t),nx=r37NextStage(t);
+ const sub=(x,w)=>t==='english'?(typeof LIB30!=='undefined'?(LIB30.units.get(x.units?.[0])?.title||''):''):(x.desc||'');
+ const cards=worlds.map((x,w)=>{const open=r37StageOpen(t,w,0),d=r37WorldDone(t,w);
+  return `<a class="r80-g${open?'':' lock'}" href="#lv/${t}" data-r37="wgo" data-track="${t}" data-w="${w}" style="--h:${r37WHue(t,w)}" aria-label="${esc(x.name)}，已過 ${d} 關，共 10 關${open?'':'（未開放）'}"><span class="r80-gi" aria-hidden="true">${r37Icon(open?x.icon||'🌍':'🔒')}</span><span class="r80-gt"><b>${esc(x.name)}</b><small>${esc(sub(x,w))}</small><span class="r80-pips" aria-hidden="true">${Array.from({length:10},(_,i)=>`<i class="${r37Entry(t,w,i)?.passed?'on':''}"></i>`).join('')}</span></span><em>${d}/10</em></a>`;}).join('');
+ const ut=nx&&t==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(worlds[nx.w].units?.[nx.s])?.title||''):'';
+ const cont=nx?`<button type="button" class="r80-cont r80-go" data-r37="level" data-track="${t}" data-w="${nx.w}" data-s="${nx.s}"><span class="r80-ci" aria-hidden="true">${r37Icon('▶')}</span><span class="r80-ctx"><b>繼續</b><small>${esc(worlds[nx.w].name)} · ${nx.s===9?'魔王關':'第 '+(nx.s+1)+' 關'}${ut?' · '+esc(ut):''}</small></span></button>`
+  :`<a class="r80-cont r80-go" href="#lv/${t}"><span class="r80-ci" aria-hidden="true">${r37Icon('🏆')}</span><span class="r80-ctx"><b>全部闖完了</b><small>回地圖再挑戰更高分</small></span></a>`;
+ const sec=(ic,lab,attr)=>attr.startsWith('#')?`<a class="r80-sec" href="${attr}"><span aria-hidden="true">${r37Icon(ic)}</span><b>${lab}</b></a>`:`<button type="button" class="r80-sec" ${attr}><span aria-hidden="true">${r37Icon(ic)}</span><b>${lab}</b></button>`;
+ const quiz=sec('✅','選擇題',`data-r37="quiz" data-track="${t}" data-mode="mcq"`)+sec('✍️','填充題',`data-r37="quiz" data-track="${t}" data-mode="fill"`);
+ let live=false;try{live=t==='english'&&typeof l30Session==='function'&&!!l30Session();}catch(_){}
+ const more=t==='english'?sec('📚','課堂','#classroom')+(live?sec('▶','上次小課','#learning'):'')+sec('🧰','字詞工房','#assembly')+sec('📖','詞庫','#library')+quiz
+  :sec('📚','主題課堂','data-wqm-open="normal"')+sec('📝','考考自己','data-wqm-open="assessment"')+sec('🔁','再練一練','data-wqm-open="review"')+quiz;
+ return `<section class="r37-hub r80-hub r81-hub" data-pl="${t}" style="--h:${p.hue};--rows:${Math.ceil(worlds.length/2)};--wrows:${Math.ceil(worlds.length/3)>2?2:Math.ceil(worlds.length/3)};--wcols:${worlds.length>6?4:3}">${r37Top()}
+ <div class="r80-hm"><div class="r80-hd"><h1>${p.name}</h1><span class="r80-hs">${q.done}/${q.total} 關</span></div>
+ <div class="r80-grades" role="list">${cards}</div>
+ <div class="r80-side">${r37AssignCard()}${cont}<div class="r81-more n${(more.match(/class="r80-sec"/g)||[]).length}">${more}</div></div></div>
+ ${r37Nav('p/'+t)}</section>`;
 }
 function r37GamesHub(){
  const m=r37Mission(),d=r37Get().day,ch=r37Char(),doneN=m.filter(x=>d.claimed.includes(x.id)||(d[x.key]||0)>=x.goal).length,readyN=m.filter(x=>!d.claimed.includes(x.id)&&(d[x.key]||0)>=x.goal).length;
@@ -26278,6 +26318,7 @@ document.addEventListener('click',e=>{
  else if(a==='fworld'){r37Mem._fw=+el.dataset.w;render();}
  else if(a==='rworld'){r37Mem._rw=+el.dataset.w;render();}
  else if(a==='world'){(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;render();}
+ else if(a==='wgo'){if(el.classList.contains('lock')){e.preventDefault();return;}(r37Mem._w=r37Mem._w||{})[el.dataset.track]=+el.dataset.w;}
  else if(a==='learn-go'&&P){if(P.exBack){P.exBack=false;P.phase='result';}else P.phase='quiz';render();}
  else if(a==='ex-again'&&P){const l=((P.result||{}).lessons||[])[+el.dataset.i];if(l&&l.ex){P.exq=l.ex;P.exBack=true;P.phase='example';render();}}
  else if(a==='pick-opt'&&P)r37Answer(el.dataset.v);

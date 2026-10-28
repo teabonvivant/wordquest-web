@@ -76,7 +76,7 @@ def page(pg, h, wait=1100):
 
 # ---------------------------------------------------------------- sections
 def sec_hubs(pg, name, phone):
-    for hub in ['p/english', 'p/math', 'p/games']:  # R3.23: 奧數星改為年級路線，由 t50 檢查
+    for hub in ['p/dictation', 'p/games']:  # R3.23: 奧數星改為年級路線，由 t50 檢查；R3.32: 英文星／數學星同樣改用路線版面（t01 檢查）
         page(pg, '#' + hub)
         r = pg.evaluate("""()=>{const g=document.querySelector('.r37-tiles');const gr=g.getBoundingClientRect();
           const T=[...g.querySelectorAll(':scope>.r37-tile')].map(t=>{const r=t.getBoundingClientRect();const i=t.querySelector('.r37-ti'),n=t.querySelector('.r37-tn');
@@ -92,7 +92,7 @@ def sec_hubs(pg, name, phone):
         if phone:
             C.ok(r['holes'] == 0, f'{name} {hub}: no orphan tile leaving a hole in the row {r}')
             C.ok(r['minH'] >= 64, f'{name} {hub}: every tile >= 64px high (R3.21: 7 tiles on games star; touch target still >= 44) (min {r["minH"]})')
-        if name in ('small', 'phone') and hub in ('p/games', 'p/english'):
+        if name in ('small', 'phone') and hub in ('p/games', 'p/dictation'):
             shot(pg, f'{name}_{hub.replace("/", "_")}')
 
 
@@ -213,7 +213,7 @@ def sec_play(pg, name):
             pg.evaluate("(a)=>{const o=[...document.querySelectorAll('.r37-opt')].find(x=>x.dataset.v!==a);if(o)o.click()}", a2)
             wrong_ok = True
         elif pg.query_selector('#r37-in:not([disabled])'):
-            pg.fill('#r37-in', 'qzqzq'); pg.click('.r37-ok')
+            a2 = ev(pg, "r37P.qs[r37P.i].answer"); pg.fill('#r37-in', (a2[::-1] if a2[::-1] != a2 else a2[1:] or 'a')); pg.click('.r37-ok')  # R3.32: the tile pad only accepts the tile letters
             wrong_ok = True
         if wrong_ok:
             pg.wait_for_timeout(120)

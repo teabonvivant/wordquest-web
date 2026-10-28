@@ -190,3 +190,22 @@
 .r80-wg li .r80-fig{flex:1 1 100%}
 .r37-miss li.m .r80-fig{grid-column:1/-1;justify-self:center;max-width:100%}
 .r37-dchip .r37-dn{white-space:nowrap;font-size:14px;font-weight:800}
+
+/* R3.32 英文星 / 數學星 use the 奧數星 hub: world count sets the grid; the other entries sit in a small three-across row */
+.r81-hub .r80-grades{grid-template-rows:repeat(var(--rows),minmax(0,1fr))}
+.r81-hub .r80-pips{gap:3px}.r81-hub .r80-pips i{width:9px;height:9px}
+.r81-hub .r80-g.lock{filter:saturate(.35) brightness(.8)}
+.r81-more{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.r81-more .r80-sec{grid-column:span 2}.r81-more.n5 .r80-sec:nth-child(n+4){grid-column:span 3}
+.r81-hub .r80-g em{display:none}
+.r81-hub .r80-gt b{white-space:nowrap;font-size:clamp(16px,2.5vh,21px)}
+.r81-more .r80-sec{min-height:48px;font-size:15px;padding:0 6px;gap:5px}
+.r81-more .r80-sec b{white-space:nowrap}
+.r81-hub .r37-assign{margin:0}
+@media(min-aspect-ratio:5/4){.r81-hub .r80-grades{grid-template-columns:repeat(var(--wcols),minmax(0,1fr));grid-template-rows:repeat(var(--wrows),minmax(0,1fr))}
+ .r81-more{grid-template-columns:1fr 1fr}.r81-more .r80-sec,.r81-more.n5 .r80-sec:nth-child(n+4){grid-column:auto}.r81-more.n5 .r80-sec:last-child{grid-column:span 2}.r81-hub .r80-cont{flex:none;min-height:66px}
+ .r81-hub[style*="--wcols:4"] .r80-g{flex-direction:column;justify-content:center;text-align:center;gap:6px;padding:8px 6px}
+ .r81-hub[style*="--wcols:4"] .r80-gt{align-items:center;flex:none;max-width:100%}
+ .r81-hub[style*="--wcols:4"] .r80-gt b{font-size:clamp(15px,2.3vh,19px)}
+ .r81-hub[style*="--wcols:4"] .r80-pips{flex-wrap:wrap;justify-content:center;max-width:70px}}
+@media(min-width:1100px) and (min-aspect-ratio:5/4){.r80-hub .r80-hm{max-width:1160px}}
