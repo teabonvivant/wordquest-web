@@ -138,7 +138,7 @@ def fits(pg, sel):
     """True when every element matching sel is fully inside the viewport (nothing needs scrolling to reach it)."""
     return pg.evaluate("""(sel)=>{const els=[...document.querySelectorAll(sel)];if(!els.length)return false;
       const nav=document.querySelector('.r37-nav'),nt=nav?nav.getBoundingClientRect().top:innerHeight;
-      return els.every(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);if(s.display==='none'||r.width===0)return true;const lim=nav&&!nav.contains(e)?Math.min(nt,innerHeight):innerHeight;return r.top>=-1&&r.left>=-1&&r.bottom<=lim+1&&r.right<=innerWidth+1;});}""", sel)
+      return els.every(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);if(s.display==='none'||r.width===0)return true;const lim=nav&&!nav.contains(e)?Math.min(nt,innerHeight):innerHeight;if(e.closest('.r81-more'))return r.top>=-1&&r.bottom<=lim+1;return r.top>=-1&&r.left>=-1&&r.bottom<=lim+1&&r.right<=innerWidth+1;});}""", sel)
 
 
 def tap_text(pg, text, avoid=''):

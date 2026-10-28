@@ -30,7 +30,10 @@ def wrong_once(pg):
     if q['mode'] == 'mcq':
         pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
     else:
-        pg.fill('#r37-in', 'zzzz'); pg.keyboard.press('Enter')
+        for _try in range(2):  # R3.31: a first wrong typed answer gets one more try
+            pg.evaluate("()=>{document.querySelector('#r37-in').value='zzzz'}"); pg.click('.r37-ok'); pg.wait_for_timeout(250)
+            if ev(pg, 'r37P.fb'):
+                break
     pg.wait_for_timeout(250)
     pg.click('[data-r37="next"]'); pg.wait_for_timeout(250)
 

@@ -16,6 +16,7 @@ def live_page(p, suffix):
     html = patched_html()
     pg.route(LIVE + suffix, lambda route: route.fulfill(status=200, content_type='text/html; charset=utf-8', body=html))
     pg.route('https://wq-live.test/app/assets/**', lambda route: route.fulfill(path=str(APP.parent / route.request.url.split('/app/', 1)[1])))  # R3.16 art files
+    pg.route('https://wq-live.test/app/olympiad-classroom/**', lambda route: route.fulfill(path=str(APP.parent / route.request.url.split('/app/', 1)[1].split('?')[0])))  # olympiad classroom host files
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' else None)
     pg.goto(LIVE + suffix); pg.wait_for_timeout(1500)
     return b, pg, errs

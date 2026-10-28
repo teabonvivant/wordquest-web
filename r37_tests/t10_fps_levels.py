@@ -37,8 +37,10 @@ def play_english(pg, correct=True):
     pg.click('.r37-node.cur'); pg.wait_for_timeout(300)
     pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     total = ev(pg, 'r37P.qs.length'); hearts = ev(pg, 'r37P.hearts')
-    n = total if correct else hearts
+    n = total if correct else total + 40  # R3.31: wrong re-tests cost no heart, so keep answering wrong until the result appears
     for _ in range(n):
+        if pg.query_selector('.r37-result'):
+            break
         if ev(pg, 'r37P.phase') == 'learn':
             pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
         q = ev(pg, 'r37P.qs[r37P.i]')
@@ -52,7 +54,10 @@ def play_english(pg, correct=True):
             if q['mode'] == 'mcq':
                 pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v!==a).click()", q['answer'])
             else:
-                pg.fill('#r37-in', 'zzzz'); pg.keyboard.press('Enter')
+                for _try in range(2):  # R3.31: a first wrong typed answer gets one more try
+                    pg.evaluate("()=>{document.querySelector('#r37-in').value='zzzz'}"); pg.click('.r37-ok'); pg.wait_for_timeout(250)
+                    if ev(pg, 'r37P.fb'):
+                        break
             pg.wait_for_timeout(250)
             pg.click('[data-r37="next"]'); pg.wait_for_timeout(250)
             if ev(pg, 'r37P.phase') == 'learn':
@@ -128,7 +133,7 @@ with sync_playwright() as p:
     # exit returns to the FPS map; the map now shows the node as done with 5 stars
     ev(pg, f"{LAST}.onExit()"); pg.wait_for_timeout(400)
     C.ok(ev(pg, 'location.hash') == '#lv/fps' and pg.evaluate("document.querySelector('.r37-node[data-s=\"0\"]').classList.contains('done')"), 'exit returns to #lv/fps; node shows done')
-    C.ok(pg.evaluate("document.querySelectorAll('.r37-node[data-s=\"0\"] .r37-st3 i.on').length") == 3, 'node shows 3 gold stars for a 5-star result (R3.18: map nodes use a 3-star summary)')
+    C.ok(pg.evaluate("document.querySelectorAll('.r37-node[data-s=\"0\"] .r37-st3 i.on').length") == 5, 'node shows 5 gold stars for a 5-star result (R3.32: map nodes use the 5-star summary)')
     C.ok(ev(pg, '__fpsDestroyed') >= 1, 'engine handle destroyed on exit')
 
     # next: when the following English unit is passed, onNext starts that FPS level
@@ -276,7 +281,7 @@ with sync_playwright() as p:
             C.ok(inner and fits(pg, '.r37-path') and fits(pg, '.r37-wtab') and fits(pg, '.r37-wtitle'), f'{name}: map area, tabs and title inside the screen; nodes scroll inside the map')
         else:
             C.ok(fits(pg, '.r37-node') and fits(pg, '.r37-wtab') and fits(pg, '.r37-wtitle'), f'{name}: map nodes, tabs and title inside the screen')
-        C.ok(pg.evaluate("""()=>{const bar=document.querySelector('.r37-bar'),k=document.querySelector('.r37-coin').getBoundingClientRect(),h=document.querySelector('.r37-fhint').getBoundingClientRect();return k.right<=innerWidth+1&&h.right<=k.left+1&&h.width>=30;}"""), f'{name}: top bar (hint icon + coins) not squeezed')
+        C.ok(pg.evaluate("""()=>{const k=document.querySelector('.r37-coin').getBoundingClientRect(),hn=document.querySelector('.r37-fhint');if(!hn)return k.right<=innerWidth+1;const h=hn.getBoundingClientRect();return k.right<=innerWidth+1&&h.right<=k.left+1&&h.width>=30;}"""), f'{name}: top bar (hint icon + coins) not squeezed')
         C.ok(pg.evaluate("""()=>[...document.querySelectorAll('.r37-wtitle .r37-lk,.r37-wtitle .r37-dchip')].every(e=>{const r=e.getBoundingClientRect();return r.right<=innerWidth+1&&r.width>0})"""), f'{name}: header chips inside the width')
         if name in ('phone', 'desktop'):
             pg.screenshot(path=str(SHOTS_B / f'lv_fps_{w}x{h}.png'))

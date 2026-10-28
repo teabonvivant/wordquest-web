@@ -76,6 +76,7 @@ def play_lesson(pg, unit, wrong=(), hinted=(), mode='lesson', stop_after=None, h
     c0 = coins(pg)
     k = 0
     hinted_done = []
+    retry_wrong = False  # R3.31: a wrong fill gets one more try (no feedback yet), so the resend must be wrong too
     for _ in range(160):
         info = cur(pg)
         if not info:
@@ -83,6 +84,7 @@ def play_lesson(pg, unit, wrong=(), hinted=(), mode='lesson', stop_after=None, h
         if stop_after is not None and k >= stop_after and info['mode'] != 'study' and not info['fb']:
             return dict(c0=c0, c1=coins(pg), result=None, hinted_done=hinted_done, stopped=True)
         if info['fb']:
+            retry_wrong = False
             pg.click('[data-l30="next"]')
         elif info['mode'] == 'study':
             pg.click('[data-l30="submit"]')
@@ -90,7 +92,13 @@ def play_lesson(pg, unit, wrong=(), hinted=(), mode='lesson', stop_after=None, h
             if info['mode'] in ('listenChoice', 'listenSpell'):
                 hear(pg)
                 pg.wait_for_timeout(80)
-            ok = k not in wrong
+            ok = (k not in wrong) and not retry_wrong
+            if retry_wrong:
+                retry_wrong = False
+                answer(pg, False)
+                pg.click('[data-l30="submit"]')
+                pg.wait_for_timeout(90)
+                continue
             if (k in hinted or (hint_first and not hinted_done)) and pg.query_selector('[data-l30="hint"]'):
                 pg.click('[data-l30="hint"]')
                 pg.wait_for_timeout(120)
@@ -98,6 +106,7 @@ def play_lesson(pg, unit, wrong=(), hinted=(), mode='lesson', stop_after=None, h
                 ok = True
             answer(pg, ok)
             pg.click('[data-l30="submit"]')
+            retry_wrong = not ok
             k += 1
         pg.wait_for_timeout(90)
     pg.wait_for_timeout(450)

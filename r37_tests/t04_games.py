@@ -122,7 +122,7 @@ with sync_playwright() as p:
         b, ctx, pg, errs = open_page(p, w, h, True)
         pg.goto(URL); pg.wait_for_timeout(1200); go(pg, '#p/games', 700)
         r = pg.evaluate("""()=>[...document.querySelectorAll('.r37-tiles .r37-tile')].map(t=>{const a=t.getBoundingClientRect(),i=t.querySelector('.r37-ti').getBoundingClientRect();return {h:Math.round(a.height),in:i.top>=a.top-1&&i.bottom<=a.bottom+1}})""")
-        C.ok(len(r) == 4 and all(x['h'] >= 64 and x['in'] for x in r), f'{name}: 4 game tiles >= 64 px high with the picture inside {r}')
+        C.ok(len(r) >= 4 and all(x['h'] >= 64 and x['in'] for x in r), f'{name}: every game tile (7 since R3.21) >= 64 px high with the picture inside {r}')
         C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), f'{name}: games planet needs no page scroll')
         b.close()
 C.done()
