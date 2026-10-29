@@ -3,175 +3,175 @@
     "name": "levels-math-unit",
     "file": "test_levels_math.cjs",
     "returncode": 0,
-    "last_line": "PASS 236807 checks",
-    "seconds": 1
+    "last_line": "PASS 291248 checks",
+    "seconds": 3
   },
   {
     "name": "t01-shell-levels",
     "file": "t01_shell_levels.py",
     "returncode": 0,
-    "last_line": "t01: 139/139 checks passed",
-    "seconds": 84
+    "last_line": "t01: 140/140 checks passed",
+    "seconds": 86
   },
   {
     "name": "t02-math-levels",
     "file": "t02_math_levels.py",
-    "returncode": 1,
-    "last_line": "  - waiting for locator(\".r37-node.cur\")",
-    "seconds": 21
+    "returncode": 0,
+    "last_line": "t02: 28/28 checks passed",
+    "seconds": 40
   },
   {
     "name": "t03-parent-chars",
     "file": "t03_parent_chars.py",
-    "returncode": 0,
-    "last_line": "t03: 51/51 checks passed",
-    "seconds": 43
+    "returncode": 1,
+    "last_line": "  - waiting for locator(\"[data-r37=\\\"next\\\"]\")",
+    "seconds": 76
   },
   {
     "name": "t04-games",
     "file": "t04_games.py",
-    "returncode": 0,
-    "last_line": "t04: 42/42 checks passed",
-    "seconds": 72
+    "returncode": 1,
+    "last_line": "t04: 40/42 checks passed",
+    "seconds": 61
   },
   {
     "name": "t05-admin-regression",
     "file": "t05_admin_regression.py",
-    "returncode": 0,
-    "last_line": "t05: 24/24 checks passed",
-    "seconds": 44
+    "returncode": 1,
+    "last_line": "t05: 23/24 checks passed",
+    "seconds": 48
   },
   {
     "name": "t06-live-admin",
     "file": "t06_live_admin.py",
     "returncode": 1,
     "last_line": "t06: 13/14 checks passed",
-    "seconds": 34
+    "seconds": 24
   },
   {
     "name": "t07-visual-daily",
     "file": "t07_visual_daily.py",
     "returncode": 0,
     "last_line": "t07: 53/53 checks passed",
-    "seconds": 55
+    "seconds": 44
   },
   {
     "name": "t08-integration-fx",
     "file": "t08_integration_fx.py",
-    "returncode": 1,
-    "last_line": "  - waiting for locator(\"[data-wqm-open=\\\"home\\\"]\")",
-    "seconds": 23
+    "returncode": 0,
+    "last_line": "t08: 76/76 checks passed",
+    "seconds": 37
   },
   {
     "name": "t09-arcade",
     "file": "t09_arcade.py",
     "returncode": 0,
     "last_line": "t09: 110/110 checks passed",
-    "seconds": 59
+    "seconds": 55
   },
   {
     "name": "t10-fps-levels",
     "file": "t10_fps_levels.py",
-    "returncode": 0,
-    "last_line": "t10: 104/104 checks passed",
-    "seconds": 101
+    "returncode": 1,
+    "last_line": "  - waiting for locator(\"[data-r37=\\\"next\\\"]\")",
+    "seconds": 84
   },
   {
     "name": "fps-module",
     "file": "test_fps.py",
     "returncode": 1,
-    "last_line": "AssertionError",
-    "seconds": 153
+    "last_line": "AssertionError: missed-words card after the boss",
+    "seconds": 46
   },
   {
     "name": "runner-module",
     "file": "test_runner.py",
-    "returncode": 0,
-    "last_line": "ALL PASSED 13/13",
-    "seconds": 167
+    "returncode": 1,
+    "last_line": "AssertionError",
+    "seconds": 128
   },
   {
     "name": "t11-learn-card",
     "file": "t11_learn_card.py",
     "returncode": 0,
     "last_line": "t11: 72/72 checks passed",
-    "seconds": 57
+    "seconds": 65
   },
   {
     "name": "t12-dictation-import",
     "file": "t12_dictation_import.py",
     "returncode": 0,
     "last_line": "t12 dictation import: 129/129 checks passed",
-    "seconds": 90
+    "seconds": 86
   },
   {
     "name": "morph-module",
     "file": "test_morph.cjs",
     "returncode": 0,
     "last_line": "test_morph: 531/531",
-    "seconds": 1
+    "seconds": 0
   },
   {
     "name": "t13-morph-import",
     "file": "t13_morph_import.py",
-    "returncode": 1,
-    "last_line": "KeyError: 'books'",
-    "seconds": 12
+    "returncode": 0,
+    "last_line": "t13: 75/75 checks passed",
+    "seconds": 11
   },
   {
     "name": "t14-morph-ui",
     "file": "t14_morph_ui.py",
-    "returncode": 0,
-    "last_line": "t14 morph ui: 146/146 checks passed",
-    "seconds": 92
+    "returncode": 1,
+    "last_line": "t14 morph ui: 144/146 checks passed",
+    "seconds": 84
   },
   {
     "name": "t15-dictation-save",
     "file": "t15_dictation_save.py",
     "returncode": 0,
     "last_line": "t15 dictation save: 234/234 checks passed",
-    "seconds": 175
+    "seconds": 185
   },
   {
     "name": "t16-dictation-real",
     "file": "t16_dictation_real.py",
-    "returncode": 0,
-    "last_line": "t16 dictation real ranges: 26/26 checks passed",
-    "seconds": 3139
+    "returncode": 1,
+    "last_line": "t16 dictation real ranges: 25/26 checks passed",
+    "seconds": 3034
   },
   {
     "name": "t17-legacy-fit",
     "file": "t17_legacy_fit.py",
     "returncode": 0,
     "last_line": "t17 legacy fit: 824/824 checks passed",
-    "seconds": 169
+    "seconds": 155
   },
   {
     "name": "t18-dictation-study",
     "file": "t18_dictation_study.py",
     "returncode": 0,
-    "last_line": "t18 dictation study: 113/113 checks passed",
-    "seconds": 93
+    "last_line": "t18 dictation study: 115/115 checks passed",
+    "seconds": 135
   },
   {
     "name": "t19-save-landing",
     "file": "t19_save_landing.py",
     "returncode": 0,
     "last_line": "t19 save landing: 126/126 checks passed",
-    "seconds": 181
+    "seconds": 168
   },
   {
     "name": "t20-brand-ui",
     "file": "t20_brand_ui.py",
     "returncode": 0,
-    "last_line": "t20: 245/245 checks passed",
-    "seconds": 143
+    "last_line": "t20: 249/249 checks passed",
+    "seconds": 128
   },
   {
     "name": "t21-webkit-smoke",
     "file": "t21_webkit_smoke.py",
     "returncode": 0,
     "last_line": "t21 webkit smoke: 57/57 checks passed",
-    "seconds": 71
+    "seconds": 73
   }
 ]

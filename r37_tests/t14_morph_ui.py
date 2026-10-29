@@ -178,7 +178,7 @@ def round_forms(p, w, h, touch, tag):
     C.ok(paste_parse(pg, FORMS), f'{tag}: pasted forms open step 2')
     m = cards(pg)
     pg.screenshot(path=str(SHOTS / f'{w}_forms_step2.png'))
-    want = {'color': '美式串法 colour', 'favorite': '美式 favourite', 'happier': 'happy 的比較級', 'children': '', 'teacher': ''}
+    want = {'color': '美式拼法 colour', 'favorite': '美式 favourite', 'happier': 'happy 的比較級', 'children': '', 'teacher': ''}
     for k, v in want.items():
         C.ok(k in m and m[k]['tag'] == v, f'{tag}: {k} -> {m.get(k, {}).get("tag")!r} (want {v!r})')
     C.ok('ice-cream' in m and m['ice-cream']['tag'] == '寫法 ice cream',

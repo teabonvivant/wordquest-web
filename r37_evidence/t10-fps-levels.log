@@ -1,1 +1,25 @@
-t10: 104/104 checks passed
+  FAIL node shows 3 gold stars for a 5-star result (R3.18: map nodes use a 3-star summary)
+  FAIL failed English level: no 🎯 button
+Traceback (most recent call last):
+  File "/home/workspace/wordquest-web-dev/r37_tests/t10_fps_levels.py", line 282, in <module>
+    C.ok(pg.evaluate("""()=>{const bar=document.querySelector('.r37-bar'),k=document.querySelector('.r37-coin').getBoundingClientRect(),h=document.querySelector('.r37-fhint').getBoundingClientRect();return k.right<=innerWidth+1&&h.right<=k.left+1&&h.width>=30;}"""), f'{name}: top bar (hint icon + coins) not squeezed')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/sync_api/_generated.py", line 9122, in evaluate
+    self._sync(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_page.py", line 469, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_frame.py", line 323, in evaluate
+    await self._channel.send(
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
+    at eval (eval at evaluate (:302:30), <anonymous>:1:151)
+    at UtilityScript.evaluate (<anonymous>:309:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

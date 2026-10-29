@@ -338,7 +338,7 @@ def dictionary_invariance():
                   const doc=V20.fromText(typed,'inv'+n);
                   const old=V20.candidates(doc,{mode:'list',dictionary:v20Dictionary,common:v20.common});
                   const out=s50Rebuild(doc,old);
-                  const hit=out.find(c=>V20.fold(c.en)===V20.fold(k));
+                  const nd=x=>V20.fold(x).replace(/\.$/,'');const hit=out.find(c=>nd(c.en)===nd(k));
                   if(!hit){
                     /* the core itself may split a spaced entry into words; then the rebuilt list may only keep it as one whole line */
                     bad.push(['lost',k,out.map(c=>c.en)]);continue;

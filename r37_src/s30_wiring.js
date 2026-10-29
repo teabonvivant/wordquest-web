@@ -355,3 +355,12 @@ th{background:rgba(255,255,255,.08)!important}td{border-color:rgba(255,255,255,.
  setInterval(()=>{try{sweep();}catch(_){}},1500);
  globalThis.r318DialogSkin=sweep;
 })();
+/* R3.33 swipe row: mouse wheel and drag also scroll the 英文星 / 數學星 secondary entries sideways */
+(function(){let d=null;
+ document.addEventListener('wheel',e=>{const m=e.target.closest&&e.target.closest('.r81-more');if(m&&m.scrollWidth>m.clientWidth&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){m.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});
+ document.addEventListener('pointerdown',e=>{const m=e.pointerType==='mouse'&&e.target.closest&&e.target.closest('.r81-more');if(m)d={m,x:e.clientX,l:m.scrollLeft,moved:false};});
+ document.addEventListener('pointermove',e=>{if(!d)return;const dx=e.clientX-d.x;if(Math.abs(dx)>6)d.moved=true;if(d.moved)d.m.scrollLeft=d.l-dx;});
+ document.addEventListener('dragstart',e=>{if(e.target.closest&&e.target.closest('.r81-more'))e.preventDefault();});
+ document.addEventListener('pointerup',()=>{if(d&&d.moved){const m=d.m;m.dataset.drag='1';setTimeout(()=>delete m.dataset.drag,0);}d=null;});
+ document.addEventListener('click',e=>{const m=e.target.closest&&e.target.closest('.r81-more');if(m&&m.dataset.drag){e.preventDefault();e.stopImmediatePropagation();}},true);
+})();

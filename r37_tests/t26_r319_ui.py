@@ -20,7 +20,7 @@ Four sizes: 390x844, 360x640, 844x390, 1440x900. Admin test account (everything 
            rotate hint shown once, desktop keys on the first screen; uniform thumbnails
   item 8   companion: ok / no classes + animation <= 300ms, animation-name none under prefers-reduced-motion
 Screenshots go to T26_SHOTS (default _team_runs/r319/ui_after/t26)."""
-import os
+import os, time
 import re
 import sys
 from pathlib import Path
@@ -292,6 +292,13 @@ def sec_arcade(pg, name, phone):
     pg.locator('#pg-dialog [data-a28="buy"]').click(); pg.wait_for_selector('#pg-canvas'); pg.wait_for_timeout(800)
     seen_before = pg.evaluate("sessionStorage.getItem('wq34.rot')")
     pg.locator('#pg-overlay [data-a28="play"]').click(timeout=3000); pg.wait_for_timeout(1000)
+    if phone:
+        t0 = time.time()
+        try:
+            pg.wait_for_function("()=>{const e=document.querySelector('.a28-touch-controls');return e&&e.getBoundingClientRect().height>0}", timeout=4000)
+        except Exception:
+            pass
+        print(f'  {name} touch keys visible after +{time.time()-t0:.2f}s')
     d = pg.evaluate("""()=>{const q=s=>{const e=document.querySelector(s);if(!e)return null;const r=e.getBoundingClientRect();return {l:r.left,t:r.top,r:r.right,b:r.bottom,w:r.width,h:r.height}};
       return {cv:q('#pg-canvas'),vp:q('.a28-viewport'),tc:q('.a28-touch-controls'),foot:q('.a28-game-footer>span'),vh:innerHeight,vw:innerWidth,rot:!!document.querySelector('.wq34-rotate')}}""")
     shot(pg, f'{name}_arc_play0')

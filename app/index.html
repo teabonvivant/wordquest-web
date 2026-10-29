@@ -3713,6 +3713,12 @@ html body.r37arc .a28-overlaycard[data-ap-lv="5"] .wq34-line.sub{display:none}
  .r81-hub[style*="--wcols:4"] .r80-gt b{font-size:clamp(15px,2.3vh,19px)}
  .r81-hub[style*="--wcols:4"] .r80-pips{flex-wrap:wrap;justify-content:center;max-width:70px}}
 @media(min-width:1100px) and (min-aspect-ratio:5/4){.r80-hub .r80-hm{max-width:1160px}}
+
+/* R3.33 英文星 / 數學星: the secondary entries become one swipeable row (left/right) instead of a squeezed grid */
+.r81-more,.r81-more.n5{display:flex;grid-template-columns:none;gap:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;user-select:none;-webkit-user-select:none;scrollbar-width:none;padding:2px 22px 2px 2px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+.r81-more::-webkit-scrollbar{display:none}
+.r81-more .r80-sec,.r81-more.n5 .r80-sec:nth-child(n+4),.r81-more.n5 .r80-sec:last-child{flex:0 0 auto;grid-column:auto;min-width:104px;min-height:52px;padding:0 14px}
+@media(min-aspect-ratio:5/4){.r81-more,.r81-more.n5{display:flex}.r81-more .r80-sec,.r81-more.n5 .r80-sec:nth-child(n+4),.r81-more.n5 .r80-sec:last-child{grid-column:auto}}
 </style>
 <style id="wq37-s90-css">
 /* R3.28 s90 - answer feedback on the legacy teaching pages.
@@ -26499,6 +26505,15 @@ th{background:rgba(255,255,255,.08)!important}td{border-color:rgba(255,255,255,.
  /* the bar follows the app: coin / who may change while a dialog is open */
  setInterval(()=>{try{sweep();}catch(_){}},1500);
  globalThis.r318DialogSkin=sweep;
+})();
+/* R3.33 swipe row: mouse wheel and drag also scroll the 英文星 / 數學星 secondary entries sideways */
+(function(){let d=null;
+ document.addEventListener('wheel',e=>{const m=e.target.closest&&e.target.closest('.r81-more');if(m&&m.scrollWidth>m.clientWidth&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){m.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});
+ document.addEventListener('pointerdown',e=>{const m=e.pointerType==='mouse'&&e.target.closest&&e.target.closest('.r81-more');if(m)d={m,x:e.clientX,l:m.scrollLeft,moved:false};});
+ document.addEventListener('pointermove',e=>{if(!d)return;const dx=e.clientX-d.x;if(Math.abs(dx)>6)d.moved=true;if(d.moved)d.m.scrollLeft=d.l-dx;});
+ document.addEventListener('dragstart',e=>{if(e.target.closest&&e.target.closest('.r81-more'))e.preventDefault();});
+ document.addEventListener('pointerup',()=>{if(d&&d.moved){const m=d.m;m.dataset.drag='1';setTimeout(()=>delete m.dataset.drag,0);}d=null;});
+ document.addEventListener('click',e=>{const m=e.target.closest&&e.target.closest('.r81-more');if(m&&m.dataset.drag){e.preventDefault();e.stopImmediatePropagation();}},true);
 })();
 
 /* R3.8 s35 - Arcade+ : one shared reward layer over the 26 legacy arcade games (see s35_arcade.css).
