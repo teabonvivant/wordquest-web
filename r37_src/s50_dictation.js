@@ -471,6 +471,28 @@ updateImportPhoto=function(){
  return r;
 };
 
+/* ---- R3.34 photo: even out the light before recognition. A phone photo is darker on one side or in a corner (shadow of the hand,
+ * a lamp); the OCR then drops whole columns. Each pixel is divided by the local paper brightness (block means of 8 px, 5x5 max,
+ * 9x9 blur), so the paper turns white and the ink stays dark. ---- */
+function s50EvenLight(canvas){
+ const W=canvas.width,H=canvas.height,ctx=canvas.getContext('2d'),img=ctx.getImageData(0,0,W,H),d=img.data,B=8;
+ const w=Math.ceil(W/B),h=Math.ceil(H/B),g=new Float32Array(W*H),m=new Float32Array(w*h),n=new Float32Array(w*h);
+ for(let i=0,j=0;i<d.length;i+=4,j++)g[j]=.299*d[i]+.587*d[i+1]+.114*d[i+2];
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const k=((y/B)|0)*w+((x/B)|0);m[k]+=g[y*W+x];n[k]++;}
+ for(let k=0;k<m.length;k++)m[k]/=n[k];
+ const pass=(src,r,f)=>{const o=new Float32Array(w*h);for(let y=0;y<h;y++)for(let x=0;x<w;x++){let v=f===Math.max?0:0,c=0;
+  for(let dy=-r;dy<=r;dy++){const yy=y+dy;if(yy<0||yy>=h)continue;for(let dx=-r;dx<=r;dx++){const xx=x+dx;if(xx<0||xx>=w)continue;const s=src[yy*w+xx];
+   if(f===Math.max)v=Math.max(v,s);else{v+=s;c++;}}}o[y*w+x]=f===Math.max?v:v/c;}return o;};
+ const bg=pass(pass(m,2,Math.max),4,null);
+ for(let y=0;y<H;y++){const fy=Math.min(h-1,Math.max(0,(y+.5)/B-.5)),y0=fy|0,y1=Math.min(h-1,y0+1),ty=fy-y0;
+  for(let x=0;x<W;x++){const fx=Math.min(w-1,Math.max(0,(x+.5)/B-.5)),x0=fx|0,x1=Math.min(w-1,x0+1),tx=fx-x0;
+   const b=(bg[y0*w+x0]*(1-tx)+bg[y0*w+x1]*tx)*(1-ty)+(bg[y1*w+x0]*(1-tx)+bg[y1*w+x1]*tx)*ty;
+   const v=Math.max(0,Math.min(255,g[y*W+x]/Math.max(b,1)*255)),i=(y*W+x)*4;d[i]=d[i+1]=d[i+2]=v;}}
+ ctx.putImageData(img,0,0);
+ return canvas;
+}
+{const s50PriorProcess=v20ProcessPhoto;v20ProcessPhoto=function(){const c=s50PriorProcess.apply(this,arguments);try{s50EvenLight(c);}catch(_){}return c;};}
+
 /* ---- photo: recognise as soon as a picture is chosen (or cropped) ---- */
 function s50AutoRun(){
  if(!v20Photo||ocrBusy||v20FileLoading||lastRoute!=='range-new'||v20.rawDirty)return;

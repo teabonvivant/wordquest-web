@@ -50,6 +50,15 @@ const WQ_PROPER=new Map();
   v20Dictionary.set(key,{id:'wq-p-'+key,key,en:p.en,senses:[{headword:p.en,zhHK:zh,pos:'proper',category:'proper_noun',sourceLine:0,id:'wq-p-'+key+'-s1'}],examples:[]});
  }
 })();
+/* ---- R3.34 common phrases (tools/build_phrase.py): go jogging, take the rubbish out, a diamond ring... dictation import only, like the
+ * proper nouns above. A phrase the bank already explains keeps its own meaning. ---- */
+(function(){
+ for(const [en,zh] of WQ_BANK.phrase){
+  const key=V20.fold(en),e=s55RawGet.call(v20Dictionary,key);
+  if(e&&Array.isArray(e.senses)&&e.senses.some(x=>x&&x.zhHK))continue;
+  v20Dictionary.set(key,{id:'wq-ph-'+key,key,en,senses:[{headword:en,zhHK:zh,pos:'phrase',category:'phrase',sourceLine:0,id:'wq-ph-'+key+'-s1'}],examples:[]});
+ }
+})();
 const WQ_TITLE={mr:'先生','mr.':'先生',mrs:'太太','mrs.':'太太',ms:'女士','ms.':'女士',miss:'小姐',dr:'醫生','dr.':'醫生',madam:'女士'};
 const wqTitled=new Map();
 function wqTitledEntry(k){
@@ -65,8 +74,9 @@ function wqTitledEntry(k){
 }
 {
  const has0=v20Dictionary.has,get0=v20Dictionary.get;
- v20Dictionary.has=function(k){return has0.call(this,k)||(typeof k==='string'&&!!wqTitledEntry(k));};
- v20Dictionary.get=function(k){const e=get0.call(this,k);return e!==undefined||typeof k!=='string'?e:wqTitledEntry(k);};
+ const art=k=>{const m=typeof k==='string'&&/^(?:a|an|the) (\S.*\s.*|\S+ \S+)$/.exec(k);return m?m[1]:null;};   // "a round face" -> "round face"
+ v20Dictionary.has=function(k){return has0.call(this,k)||(typeof k==='string'&&!!wqTitledEntry(k))||!!(art(k)&&has0.call(this,art(k)));};
+ v20Dictionary.get=function(k){const e=get0.call(this,k);if(e!==undefined||typeof k!=='string')return e;const t=wqTitledEntry(k);if(t)return t;const a=art(k);return a?get0.call(this,a):undefined;};
 }
 /* what kind of proper noun a spelling is: {type, tag, common} (common = also an ordinary word in the bank), or null */
 window.wqProper=en=>{
