@@ -423,7 +423,7 @@ def check_retry():
             t0 = time.time()
             while time.time() - t0 < 60 and len(E.OCRLOG) == n:
                 pg.wait_for_timeout(300)
-            C.ok(len(E.OCRLOG) == n + 1, 't16 retry: 加強對比再試 runs the recognition again')
+            C.ok(len(E.OCRLOG) >= n + 1, 't16 retry: 加強對比再試 runs the recognition again')   # R3.36: plus the one-block second reading
             pg.wait_for_timeout(1500)
             pg.click('[data-s50="retry-crop"]')
             pg.wait_for_timeout(500)

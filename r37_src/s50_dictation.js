@@ -625,7 +625,7 @@ render=function(){
  * Prose lines keep the core's own word items. Nothing here runs on a document the parent already worked on (item.s50 present). */
 const S50_ZH='㐀-䶿一-鿿豈-﫿　-〿＀-￯';
 const S50_ZH_CH='\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff';
-const S50_ZH_RUN=new RegExp('['+S50_ZH_CH+'](?:['+S50_ZH+']|[,;/·](?=['+S50_ZH_CH+']))*','g');
+const S50_ZH_RUN=new RegExp('['+S50_ZH_CH+'](?:['+S50_ZH+']|[,;/·](?=['+S50_ZH_CH+'])|\\s+(?=['+S50_ZH_CH+']))*','g');   // OCR spaces the characters out: 大 嶼 山
 const s50HasZh=t=>/[㐀-䶿一-鿿豈-﫿]/.test(t);
 const S50_LEAD=/^[\s ]*(?:(?:\(?\d{1,3}\s*[.)、:：]|[•●▪·*\-–—.:|]|[A-Za-z]\)|[lI|!](?=\.))+\s*)+/;
 const S50_LEAD_LABEL=/^(?:sentences?|passage|paragraph|text|dictation|example|answer)$/i;
@@ -633,6 +633,27 @@ const S50_STRICT_HEAD=/^(?:vocabulary|dictation|sentences|recitation|syllabus|se
 const S50_LAYOUT_WORDS=/\b(?:vocabulary|dictation|sentences|recitation|syllabus|semester|phonics|bonus|thematic|quiz|word list|sight words|high frequency words|target vocabulary|read dictation)\b/i;
 const S50_INSTR_A=/^[*\s]*(?:please (?:study|read|write|revise|learn|complete|fill|answer|circle|underline|copy|spell|memori[sz]e|prepare)|you (?:need|have) to (?:fill|study|write|read|learn|revise|complete|answer)|here (?:is|are) (?:some|an?) examples?)\b/i;
 const S50_INSTR_B=/^[*\s]*(?:say|read|write|circle|underline|listen|look at|fill|match|tick|copy|study|revise|learn|spell|choose|complete|answer|draw|colou?r)\b.*\b(?:words?|sentences?|following|syllables?|letters?|blanks?|table|examples?|passage|text|below|above|pictures?|each)\b.*[.:]\s*$/i;
+/* R3.36 more of the teacher's notes: what will be dictated, what is for reading only, the parent's signature */
+const S50_INSTR_C=/^[*\s]*(?:(?:all|the|these|those|only)\s+)*(?:following\s+|new\s+)?(?:words?|phrases?|sentences?|vocabulary|items?|spellings?|following)\b[^.!?]{0,30}?\s(?:will|are to|need(?:s)? to|must|should|is to)\s+(?:be\s+)?(?:dictated|tested|memori[sz]ed|learnt|learned|revised|studied)\b/i;
+const S50_INSTR_D=/^[*\s]*(?:words?|phrases?|vocabulary|spellings?|sentences?)\s+(?:to|for)\s+(?:learn|study|revise|dictation|memori[sz]e|spell|recite)\b/i;
+const S50_INSTR_E=/\b(?:parent'?s?'?|guardian'?s?)\s+signature\b|^signature\b|\b(?:in bold|underlined|highlighted)\b.*\b(?:words?|phrases?|sentences?)\b|\b(?:words?|phrases?|sentences?)\b.*\b(?:in bold|underlined|highlighted|in red)\b/i;
+const S50_SKIP_RE="不用默寫?|不需(?:要)?默寫?|毋須默寫?|無須默寫?|免默|只需認讀|只須認讀|只需讀|只需閱讀|認讀即可|不用背|no need to (?:dictate|memori[sz]e|write|spell|learn)|(?:for )?reading only|read only|not (?:for|in) (?:the )?dictation|(?:will )?not (?:be )?(?:dictated|tested)";
+const S50_SKIP=new RegExp(S50_SKIP_RE,'i');
+const S50_SKIP_NOTE=new RegExp('\\s*[(（\\[【*]*\\s*(?:'+S50_SKIP_RE+')[^)）\\]】]*[)）\\]】]?','gi');
+const S50_SKIP_WHY='老師註明只需認讀，不用默';
+/* a line of Chinese with no English item on it (or only Unit / p.12): the teacher's note, never a word's meaning */
+const S50_ZH_INSTR=/默|溫習|背誦|認讀|範圍|家長|簽署|簽名|日期|注意|備註|以下|下列|下面|上面|以上|粗體|劃線|畫線|底線|請|需要|只需|只須|必須|部分|生字|詞語|句子|課文/;
+function s50ZhInstr(s){
+ if(!s50HasZh(s))return false;
+ const en=s.replace(/[\u3400-\u9fff\uf900-\ufaff]/g,' ').replace(/\b(?:unit|lesson|chapter|module|dictation|spelling|test|quiz|vocabulary|words?|sentences?|p|pp|page|pages|no|date|term|book|part|section)\b\.?/gi,' ');
+ if(/[A-Za-z]{2,}/.test(en))return false;
+ const zh=s.replace(/[^\u3400-\u9fff\uf900-\ufaff]/g,'');
+ return /默|範圍|家長|簽署|生字|詞語|句子|課文|注意|備註|日期/.test(s)&&zh.length>=2||S50_ZH_INSTR.test(s)&&zh.length>=4||/[，。：；！？]/.test(s)&&zh.length>=4||zh.length>=10;
+}
+const s50ZhJoin=t=>String(t||'').replace(/([\u3400-\u9fff\uf900-\ufaff，。：；、])\s+(?=[\u3400-\u9fff\uf900-\ufaff，。：；、])/g,'$1');   // OCR: 只 需 認 讀
+function s50SkipOnly(s){
+ return S50_SKIP.test(s)&&!/[A-Za-z]{2,}/.test(s.replace(S50_SKIP_NOTE,' ').replace(/[\u3400-\u9fff\uf900-\ufaff]/g,' ').replace(/\b(?:the|these|those|following|words?|sentences?|phrases?|passage|text|part|section|below|above|only|and|are|is|for|they|it|please)\b/gi,' '));
+}
 const S50_MONTH=/\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s*,?\s*(?:\d{1,2}(?:st|nd|rd|th)?\s*,?\s*)?\d{4}\b/i;
 const S50_AUX=/\b(?:is|are|am|was|were|has|have|had|can|will|do|does|did|likes?|wants?)\b/;
 const S50_PUNCT=/[.!?,;:"“”]|(?:^|\s)['‘’]|['‘’](?:\s|$)/;
@@ -653,6 +674,7 @@ function s50ArticleGlue(w){
  if(w.length<4||s50Dict(k))return w;
  if(/^an[aeiou]/i.test(w)&&w.length>=5&&s50Dict(k.slice(2)))return w.slice(0,2)+' '+w.slice(2);
  if(/^a/i.test(w)&&s50Dict(k.slice(1))&&k.length>=4)return w.slice(0,1)+' '+w.slice(1);
+ if(/a$/.test(w)&&k.length>=5&&s50Dict(k.slice(0,-1)))return w.slice(0,-1)+' a';
  return w;
 }
 /* syllable marks (wa'ter, Pon'to), a lone trailing apostrophe (round'), a broken hyphen (hide-and- seek) */
@@ -688,22 +710,24 @@ function s50Pairs(t){
  const runs=[...t.matchAll(S50_ZH_RUN)];
  if(!runs.length)return [{en:t,zh:''}];
  const out=[];
- let pos=0,pendingZh='';
+ let pos=0,pendingZh='',lead='';
  for(const r of runs){
   const piece=t.slice(pos,r.index);
   const en=piece.replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→(（\[]+$/g,'').trim();
-  if(en&&/[A-Za-z]/.test(en)){out.push({en,zh:r[0].replace(/[\u3000-\u303f\uff00-\uffef\s]+$/,'')});pendingZh='';}
-  else if(!en&&out.length)out[out.length-1].zh+=r[0];
-  else pendingZh=r[0];
+  const zh=r[0].replace(/\s+/g,'');
+  if(en&&/[A-Za-z]/.test(en)){out.push({en,zh:zh.replace(/[\u3000-\u303f\uff00-\uffef]+$/,'')});pendingZh='';}
+  else if(!en&&out.length)out[out.length-1].zh+=zh;
+  else{pendingZh=zh;if(!out.length&&!lead)lead=zh;}
   pos=r.index+r[0].length;
  }
  const tail=t.slice(pos).replace(/^[\s,;，；、:：=|\-–—→(（\[]+|[\s,;，；、:：=|\-–—→)）\]]+$/g,'').trim();
- if(tail&&/[A-Za-z]/.test(tail))out.push({en:tail,zh:pendingZh});
+ if(tail&&/[A-Za-z]/.test(tail))out.push({en:tail,zh:pendingZh,lead:!!pendingZh&&pendingZh===lead});
+ out.lead=lead;
  return out;
 }
 function s50CleanSeg(raw){
  let t=String(raw||'').replace(S50_LEAD,'');
- t=t.replace(/^(?:e\.?\s?g\.?|i\.?\s?e\.?)\s+/i,'');
+ t=t.replace(/^(?:e\.?\s?g\.?|i\.?\s?e\.?)\s+/i,'').replace(/^[A-Z]\.\s+(?=[a-z])/,'');
  return t.replace(/[\s*·|_]+$/,'').trim();
 }
 
@@ -712,14 +736,18 @@ function s50HeadingWhy(t,ctx){
  const s=t.replace(S50_LEAD,'').trim();
  const words=s50Words(s);
  if(!s)return '';
- if(/[%@]/.test(t))return '版面標題（含 % 或 @）';
+ if(/\d\s*%|%\s*@|@\s*\d/.test(t))return '版面標題（含 % 或 @）';
  if(/^\(?\d+\s*words?\)?\.?$/i.test(s))return '字數提示';
- if(/^[A-Z]\.\s*$/.test(s)||/^[A-Z]\.\s/.test(t.trim()))return '版面標題';
+ if(/^[A-Z]\.\s*$/.test(s)||/^[A-Z]\.\s+(?![a-z])/.test(t.trim()))return '版面標題';   // "J. firefighter": an OCR'd 3. before a list item
  const letters=s50LettersOnly(s);
  if(letters.length>=4&&letters===letters.toUpperCase()&&words.length>=2)return '全大寫標題';
  if(/^(?:primary|p\.?)\s*\d/i.test(s)||/^\d{4}\s*[-–/]\s*\d{2,4}\b/.test(s)||/^\d{1,2}(?:st|nd|rd|th)\b/i.test(s)||S50_MONTH.test(s))return '年級或日期';
  if(/\bschool\s*$/i.test(s)&&words.length>=3&&words.length<=7&&words.filter(w=>/^[A-Z]/.test(w)).length>=2)return '校名';
- if(S50_INSTR_A.test(s)||S50_INSTR_B.test(s))return '指示語';
+ const sz=s50ZhJoin(s);
+ if(s50SkipOnly(sz))return '指示語（不用默）';
+ if(S50_INSTR_A.test(s)||S50_INSTR_B.test(s)||S50_INSTR_C.test(s)||S50_INSTR_D.test(s)||S50_INSTR_E.test(s))return '指示語';
+ if(s50ZhInstr(sz))return '中文指示';
+ if(/^(?:spelling|dictation|vocabulary)\s+(?:test|quiz|list|book)\b/i.test(s)&&words.length<=8)return '版面標題';
  const lab=/^([A-Za-z][\w.]*(?:\s+[A-Z0-9][\w.]*){0,2})\s*[:：]\s*(.*)$/.exec(s);
  if(lab&&S50_LEAD_LABEL.test(lab[1])&&words.length>=4)return '';   // "Sentence: The cat is on the mat.": the label is dropped, the sentence is kept
  if(lab&&(words.length<=12)&&/^[A-Z]/.test(lab[1])&&!s50HasZh(lab[2]||'')&&(lab[1].split(/\s+/).length===1||lab[1].split(/\s+/).every(w=>/^[A-Z0-9]/.test(w))))return '標籤行';
@@ -781,7 +809,7 @@ function s50ClassifyLines(d){
    if(!o.segs.length||/^[A-Za-z]?[\s\d.,\-–|]*$/.test(tz)&&!/^[aAI]$/.test(tz)){o.kind='junk';return o;}
   }
   o.why=s50HeadingWhy(tt,d);
-  if(o.why){o.kind='head';return o;}
+  if(o.why){o.kind='head';o.skip=S50_SKIP.test(s50ZhJoin(tt));return o;}
   if(s50HasZh(t)){o.kind='bi';return o;}
   const ok=o.segs.length>0&&o.segs.every(sg=>{
    const c=s50SegText(sg),core=c.replace(/\([^()]*\)/g,' ').trim(),w=s50Words(core);
@@ -872,9 +900,13 @@ function s50Make(d,line,seg,olds,en,zh,opt={}){
  if(!c)return null;
  const src=s50Overlap(olds,line,seg.start,seg.end);
  const tk=s50TokensIn(line,seg);
- const conf=tk.length?tk.map(t=>t.confidence).filter(x=>Number.isFinite(x)&&x>=0):src.map(x=>x.confidenceRaw).filter(Number.isFinite);
+ const tkEn=tk.filter(t=>/[A-Za-z]/.test(t.text));   // the Chinese beside the word has its own (unreliable) confidence
+ const conf=tkEn.length?tkEn.map(t=>t.confidence).filter(x=>Number.isFinite(x)&&x>=0):src.map(x=>x.confidenceRaw).filter(Number.isFinite);
  const g=V20.gloss(c.en,v20Dictionary);
- const teacher=String(zh||'').trim();
+ /* R3.35 Chinese read from a photo is often one character off (大嶼山 -> 次嶼山): the dictionary meaning wins; the photo's Chinese
+  * is only used for a phrase the dictionary does not have, and then it asks to be checked */
+ const zhOcr=!!d.fromOCR&&!!String(zh||'').trim();
+ const teacher=zhOcr&&g.zh?'':String(zh||'').trim();
  const sentence=/[.!?]$/.test(c.en);
  const reasons=[];
  if(conf.length&&Math.min(...conf)<75)reasons.push('原相這裏需要再看');
@@ -883,6 +915,7 @@ function s50Make(d,line,seg,olds,en,zh,opt={}){
  const allKnown=parts.length>1&&parts.every(p=>s50Dict(V20.fold(p)));
  if(!g.known&&!sentence&&!allKnown)reasons.push('內置題庫沒有這個字，核對後可以保留');
  if(g.choices.length>1&&!teacher)reasons.push('請選今次的意思');
+ if(zhOcr&&teacher)reasons.push('中文由相片讀出，請核對');
  Object.assign(c,{
   sourceRegionId:d.id,lineId:line.id,paragraphId:line.paragraphId,sourceText:line.originalText||line.text,
   originalText:String(seg.text||c.en).slice(0,240),zh:teacher||g.zh||'',kind:sentence?'sentence':/\s/.test(c.en)?'phrase':'word',
@@ -926,16 +959,50 @@ function s50TrimNoise(t){
 }
 /* the same on the words' boxes: a trailing word the engine itself was unsure of (confidence < 58) is not part of the item */
 function s50OcrSeg(line,sg,useConf){
- const tk=s50TokensIn(line,sg);
- if(!tk.length)return {start:sg.start,end:sg.end,text:s50TrimNoise(sg.text)};
+ const tk=s50TokensIn(line,sg),art=sg.art?'a ':'';
+ if(!tk.length)return {start:sg.start,end:sg.end,text:art+s50TrimNoise(sg.text),art:!!art};
  const lowConf=t=>!!useConf&&Number.isFinite(t.confidence)&&t.confidence>=0&&t.confidence<58;
  let a=0,b=tk.length;
  while(b-a>1&&(s50NoiseWord(tk[b-1].text,tk[b-2].text)||lowConf(tk[b-1])))b--;
  while(b-a>1&&(s50NoiseWord(tk[a].text,'')||lowConf(tk[a])))a++;
  const start=tk[a].start,end=tk[b-1].end;
- return {start,end,text:String(line.text).slice(start,end)};
+ /* "-@ panda": the engine read the article a as @ */
+ if(a>0&&/^[^A-Za-z0-9@]*@$/.test(tk[a-1].text)&&/^[a-z]{2,}$/.test(tk[a].text)&&s50Dict(tk[a].text))return {start,end,text:'a '+String(line.text).slice(start,end),art:true};
+ return {start,end,text:art+String(line.text).slice(start,end),art:!!art};
+}
+/* R3.36 a second reading of the photo as one block (psm 6) when the parent left 自動分欄: lists in one column and short passages often
+ * come out better, a page in several columns worse. The reading with more confident dictionary words, less half a point per unsure
+ * scrap, wins; a tie keeps the first. */
+function s50OcrScore(data){
+ let n=0;
+ for(const bl of data&&data.blocks||[])for(const p of bl.paragraphs||[])for(const l of p.lines||[])for(const w of l.words||[]){
+  const t=String(w.text||'').trim();
+  if(w.confidence>=80&&/^[A-Za-z]{2,}$/.test(t)&&s50Dict(V20.fold(t)))n++;
+  else if(t&&w.confidence<60)n-=0.5;   // the one-block reading also reads the table and the background as letters
+ }
+ return n;
+}
+window.s50Recognize=async function(worker,image,psm,valid){
+ const opt={text:true,blocks:true,tsv:true,hocr:false,pdf:false};
+ const run=async m=>{await worker.setParameters({tessedit_pageseg_mode:m,preserve_interword_spaces:'1',user_defined_dpi:'300'});return worker.recognize(image,{},opt);};
+ window.s50PassLabel='';
+ const a=await run(psm);
+ if(String(psm)!=='3'||!valid())return a;
+ let b=null;
+ window.s50PassLabel='再核對一次';
+ try{b=await run('6');}catch(_){b=null;}finally{window.s50PassLabel='';}
+ if(!b||!valid())return a;
+ return s50OcrScore(b.data)>s50OcrScore(a.data)?b:a;
+};
+let s50Wrap=null;
+/* a photo's Chinese given to an item made earlier: only when the dictionary has no meaning for it, and then to be checked */
+function s50GiveZh(c,zh){
+ if(!zh||c.known&&c.zh)return;
+ c.zh=zh;
+ if(!c.reviewReasons.includes('中文由相片讀出，請核對'))c.reviewReasons.push('中文由相片讀出，請核對');
 }
 function s50Rebuild(d,old){
+ s50Wrap=null;
  const {info,bilingual}=s50ClassifyLines(d);
  const byLine=new Map();
  for(const c of old){(byLine.get(c.lineId)||byLine.set(c.lineId,[]).get(c.lineId)).push(c);}
@@ -950,6 +1017,7 @@ function s50Rebuild(d,old){
   const olds=byLine.get(o.line.id)||[];
   if(o.kind==='blank'||o.kind==='junk')continue;
   if(o.kind==='head'){
+   s50Wrap=null;
    const en=s50Tidy(s50Charset(s50CleanSeg(o.t).replace(/[%@]+/g,' ').replace(/\(\s*\d*\s*\)/g,' ')));
    if(!(en.match(/[A-Za-z]/g)||[]).length){continue;}
    const seg={start:0,end:o.t.length,text:o.t};
@@ -957,32 +1025,50 @@ function s50Rebuild(d,old){
    if(c){c.selected=false;c.excludedReason='可能是標題或指示：'+o.why;c.reviewReasons=[];c.s50x={list:false,head:true};out.push(c);}
    continue;
   }
+  if(o.kind!=='bi')s50Wrap=null;
   if(o.kind==='bi'||o.kind==='cand'){
+   const wrapOn=ocr&&bilingual&&o.kind==='bi';let lineFirst=true,lastMade=null,lastBare=false;
    const segs=(o.segs||V20.segments(o.line)).map(sg=>ocr&&!s50HasZh(sg.text)?s50OcrSeg(o.line,sg,true):sg).filter(sg=>sg.text&&/[A-Za-z\u3400-\u9fff]/.test(sg.text));
    for(const sg of segs){
     const t0=s50Tidy(s50CleanSeg(sg.text));
     if(!t0)continue;
     const pairs=o.kind==='bi'?s50Pairs(t0):[{en:t0,zh:''}];
+    let cur=0;
     for(const pr of pairs){
-     let en=s50Tidy(s50CleanSeg(pr.en));
+     let psg=sg,carry='';
+     if(wrapOn&&lineFirst){
+      const prev=s50Wrap;
+      if(prev&&pairs.lead){s50GiveZh(prev,pairs.lead);}
+      else if(prev&&!pairs.lead&&/^[A-Za-z]/.test(t0)&&out[out.length-1]===prev&&!/[.!?]$/.test(prev.en)){out.pop();nList--;carry=prev.en;}
+     }
+     lineFirst=false;
+     const prSkip=S50_SKIP.test(pr.en+' '+pr.zh);
+     let prZh=wrapOn&&pr.lead?'':pr.zh;
+     if(prSkip)prZh=prZh.replace(S50_SKIP_NOTE,'').replace(/[\s(（\[【*，,]+$/,'');
+     if(pairs.length>1){const k=String(sg.text).indexOf(pr.en,cur);if(k>=0){psg={start:sg.start+k,end:sg.start+k+pr.en.length,text:pr.en};cur=k+pr.en.length;}}
+     let en=s50Tidy(s50CleanSeg(prSkip?pr.en.replace(S50_SKIP_NOTE,' '):pr.en));
      if(ocr)en=s50TrimNoise(en);
      if(!en||!/[A-Za-z]/.test(en))continue;
+     if(carry)en=carry+' '+en;
      /* the writer gave Chinese: keep the English whole (duck/goose feathers); no Chinese: split a/b and word(suffix) */
-     const forms=pr.zh||s50Dict(V20.fold(en))?[en]:s50Expand(en);   // a dictionary entry itself (his/her, o'clock) is never taken apart
+     const forms=prZh||carry||s50Dict(V20.fold(en))?[en]:s50Expand(en);   // a dictionary entry itself (his/her, o'clock) is never taken apart
      for(let f of forms){
       f=s50Charset(f);
       if(ocr)f=f.split(' ').map(w=>/^[a-z][A-Z]+$/.test(w)&&s50Dict(w.toLowerCase())?w.toLowerCase():w.length>3?s50ArticleGlue(w):w).join(' ').replace(/^((?:a|an)) /i,'$1 ');
       f=f.replace(/^[^A-Za-z]+|[^A-Za-z.!?')]+$/g,'').trim();
       if(!f)continue;
-      const c=s50Make(d,o.line,sg,olds,f,pr.zh);
+      const c=s50Make(d,o.line,psg,olds,f,prZh);
       if(!c)continue;
+      lastMade=c;lastBare=!prZh;
       const bad=s50Looks(c.en,ocr);
-      if(bad){c.selected=false;c.excludedReason=bad;c.reviewReasons=[];}
+      if(prSkip){c.selected=false;c.excludedReason=S50_SKIP_WHY;c.reviewReasons=[];}
+      else if(bad){c.selected=false;c.excludedReason=bad;c.reviewReasons=[];}
       else if(ocr&&c.confidenceRaw!==null&&c.confidenceRaw<40){c.selected=false;c.excludedReason='辨認不太清楚';c.reviewReasons=[];}
       out.push(c);nList++;
      }
     }
    }
+   s50Wrap=wrapOn&&lastMade&&lastBare&&!lastMade.excludedReason?lastMade:null;
    continue;
   }
   /* prose: the core's word items, tidied; names are left un-selected */
@@ -1009,6 +1095,22 @@ function s50Rebuild(d,old){
    out.push(c);nProse++;
   }
  }
+ /* R3.36 "以下句子只需認讀，不用默寫" / "Reading only:": the lines after it (or before it, for 以上 / above) up to the next heading,
+  * and only one block (a list or a passage), are kept but not selected */
+ const skip=new Set();
+ info.forEach((o,k)=>{
+  if(o.kind!=='head'||!o.skip)return;
+  const step=/以上|上面|上列|上述|\babove\b/i.test(s50ZhJoin(o.t))?-1:1;let grp=null;
+  for(let a=k+step;a>=0&&a<info.length;a+=step){
+   const x=info[a];
+   if(x.kind==='blank'||x.kind==='junk')continue;
+   if(x.kind==='head')break;
+   const g=x.kind==='prose'?'p':'l';
+   if(grp&&g!==grp)break;
+   grp=g;skip.add(x.line.id);
+  }
+ });
+ if(skip.size)for(const c of out)if(skip.has(c.lineId)&&!(c.s50x&&c.s50x.head)){c.selected=false;c.excludedReason=S50_SKIP_WHY;c.reviewReasons=[];}
  /* items of lines the reader did not see (should not happen) keep their place at the end */
  for(const c of old)if(!lineIds.has(c.lineId)){c.s50x={list:false};out.push(c);}
  d.s50layout=bilingual?'bilingual':nList>=3&&nList>=nProse*1.5?'list':nProse&&nList?'mixed':'text';
@@ -1031,7 +1133,19 @@ function s50Normalise(){
   const rest=v20.items.filter(c=>!set.has(c));
   const before=v20.items.slice(0,first).filter(c=>!set.has(c));
   v20.items=before.concat(neu,rest.slice(before.length));
+  if(d.fromOCR&&d.p40&&d.p40.unclear)s50Recheck(d,neu);
  }
+}
+/* R3.36 p40 judged the photo "unclear" on the core's items (a sheet where every line has Chinese beside it can leave none of
+ * them usable); the same rule is asked again of the items read above, and a clear page goes on to step 2 as usual */
+function s50Recheck(d,items){
+ const sel=items.filter(c=>c.selected),conf=sel.map(c=>c.confidenceRaw).filter(Number.isFinite).sort((a,b)=>a-b);
+ const st={raw:items.length,pre:sel.length,known:sel.filter(c=>c.known).length,conf};
+ st.medConf=conf.length?(conf.length%2?conf[conf.length>>1]:(conf[conf.length/2-1]+conf[conf.length/2])/2):0;
+ st.unclear=st.raw>0&&(st.pre<3||(st.raw>40&&st.pre/st.raw<.3)||st.known/Math.max(1,st.pre)<.35||(conf.length>0&&st.medConf<60));
+ if(st.unclear||!window.WQP40)return;
+ d.p40=st;
+ setTimeout(()=>{if(v20.documents.includes(d))WQP40.ocrDone(d,items);},0);
 }
 
 /* ===== R3.13 poor recognition: offer the two hidden helpers (straighten / more contrast) instead of a dead end ===== */

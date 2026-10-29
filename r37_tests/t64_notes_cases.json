@@ -1,0 +1,150 @@
+[
+ {
+  "id": "91_instr_zh_bi",
+  "text": "Dictation 3 默書範圍\n請溫習以下生字，要默英文及中文意思。\n1. umbrella 雨傘\n2. raincoat 雨衣\n3. go hiking 遠足\n4. sunny 晴朗的\n5. windy 大風的\n注意：以下句子只需認讀，不用默寫。\nIt is a sunny day.\nWe go hiking on Sunday.\n家長簽署：________",
+  "sel": [
+   "umbrella",
+   "raincoat",
+   "go hiking",
+   "sunny",
+   "windy"
+  ],
+  "off": [
+   "It is a sunny day.",
+   "We go hiking on Sunday."
+  ],
+  "zh": {
+   "windy": "大風的",
+   "umbrella": "雨傘"
+  }
+ },
+ {
+  "id": "92_instr_en",
+  "text": "Spelling Test 2    Date: 15 Oct\nThe following words will be dictated.\nlibrary\nmuseum\npost office\nLearn the words below and their meanings.\nplayground\nswimming pool\nRemarks: Please bring your dictation book.\nParent's signature: __________",
+  "sel": [
+   "library",
+   "museum",
+   "post office",
+   "playground",
+   "swimming pool"
+  ],
+  "off": []
+ },
+ {
+  "id": "93_instr_mixed",
+  "text": "Unit 4 Dictation (下面的字要默)\nbreakfast\nlunch\ndinner\nsnacks\n下面的句子要默：\nI have breakfast at seven o'clock.\nMy mother cooks dinner every evening.",
+  "sel": [
+   "breakfast",
+   "lunch",
+   "dinner",
+   "snacks"
+  ],
+  "off": [],
+  "sentences": [
+   "I have breakfast at seven o'clock.",
+   "My mother cooks dinner every evening."
+  ]
+ },
+ {
+  "id": "94_inline_skip",
+  "text": "1. vegetables 蔬菜\n2. fruit 水果 (不用默)\n3. meat 肉類\n4. rice 米飯\n5. noodles 麵條（只需認讀）",
+  "sel": [
+   "vegetables",
+   "meat",
+   "rice"
+  ],
+  "off": [
+   "fruit",
+   "noodles"
+  ]
+ },
+ {
+  "id": "95_negatives",
+  "text": "read a book 看書\nwrite a letter 寫信\nstudy hard 努力讀書\nrevise 溫習\nbelow 在下面\nfollow the rules 遵守規則\nlearn 學習\nunderline 在下面劃線",
+  "sel": [
+   "read a book",
+   "write a letter",
+   "study hard",
+   "revise",
+   "below",
+   "follow the rules",
+   "learn",
+   "underline"
+  ],
+  "off": []
+ },
+ {
+  "id": "96_en_skip_section",
+  "text": "Words to learn:\ncarrot\npotato\ntomato\nonion\nReading only (no need to dictate):\nThe farmer grows carrots and potatoes.\nHe sells them at the market.",
+  "sel": [
+   "carrot",
+   "potato",
+   "tomato",
+   "onion"
+  ],
+  "off": [
+   "The farmer grows carrots and potatoes.",
+   "He sells them at the market."
+  ]
+ },
+ {
+  "id": "97_parts",
+  "text": "Part A 生字\napple 蘋果\nbanana 香蕉\ngrapes 提子\nPart B 句子\nI like eating apples.\nBananas are yellow.",
+  "sel": [
+   "apple",
+   "banana",
+   "grapes"
+  ],
+  "off": [],
+  "sentences": [
+   "I like eating apples.",
+   "Bananas are yellow."
+  ]
+ },
+ {
+  "id": "98_above_skip",
+  "text": "Dictation 5\nclassroom 課室\nlibrary 圖書館\nplayground 操場\nThe library is on the second floor.\nWe play in the playground.\n（以上句子只需認讀）\ncanteen 小食部\nhall 禮堂",
+  "sel": [
+   "classroom",
+   "library",
+   "playground",
+   "canteen",
+   "hall"
+  ],
+  "off": [
+   "The library is on the second floor.",
+   "We play in the playground."
+  ]
+ },
+ {
+  "id": "99_traps",
+  "text": "Please pass me the salt.\nThe teacher said the words will be tested tomorrow.\nTom has to learn the new words.",
+  "sel": [
+   "salt",
+   "teacher",
+   "tested",
+   "tomorrow",
+   "learn"
+  ],
+  "off": [],
+  "sentences": [
+   "Please pass me the salt.",
+   "The teacher said the words will be tested tomorrow.",
+   "Tom has to learn the new words."
+  ]
+ },
+ {
+  "id": "90_notes_misc",
+  "text": "默書日期：11月3日（星期一）\n範圍：Unit 5 p.20-23\n1. dentist 牙醫\n2. nurse 護士\n3. firefighter 消防員\n4. police officer 警察\n*請家長協助溫習，並於默書簿簽名。\nSpelling: only the words in bold need to be dictated.",
+  "sel": [
+   "dentist",
+   "nurse",
+   "firefighter",
+   "police officer"
+  ],
+  "off": [],
+  "photo_known": {
+   "police officer": "合成相片的格線令 OCR 把 police 與 officer 分成兩格（R3.36 已知，未修）"
+  }
+ }
+]

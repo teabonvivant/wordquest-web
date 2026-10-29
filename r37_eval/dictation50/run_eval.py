@@ -160,13 +160,13 @@ OCRLOG = []
 _OCR_CACHE = {}
 
 
-def ocr_capture(dataurl, psm):
-    key = hashlib.sha1((dataurl or '').encode()).hexdigest() + ':' + str(psm)
+def ocr_capture(dataurl, psm, lang='eng'):
+    key = hashlib.sha1((dataurl or '').encode()).hexdigest() + ':' + str(psm) + ':' + lang
     if key in _OCR_CACHE:        # second flow of the same run: identical image -> identical native result (time kept from the first call)
         r, sec = _OCR_CACHE[key]
     else:
         t = time.time()
-        r = P.native_ocr(dataurl, psm)
+        r = P.native_ocr(dataurl, psm, lang)
         sec = round(time.time() - t, 2)
         _OCR_CACHE[key] = (r, sec)
     OCRLOG.append({'psm': psm, 'sec': sec, 'text': (r.get('data') or {}).get('text', '')})

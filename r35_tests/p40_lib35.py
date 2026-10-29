@@ -67,7 +67,7 @@ STUB = r"""
      if(window.__ocrCanned) return {data:window.__ocrCanned};
      const url=image.toDataURL?image.toDataURL('image/png'):null;
      logger({status:'recognizing text',progress:0.5});
-     const res=await window.__ocr(url,String(params.tessedit_pageseg_mode||'3'));
+     const res=await window.__ocr(url,String(params.tessedit_pageseg_mode||'3'),String(lang||'eng'));
      logger({status:'recognizing text',progress:1});
      return res;
     },
@@ -109,14 +109,14 @@ def tsv_to_data(tsv_text):
     return {'text': '\n'.join(text_lines) + '\n', 'blocks': out_blocks, 'tsv': tsv_text}
 
 
-def native_ocr(dataurl, psm):
+def native_ocr(dataurl, psm, lang='eng'):
     import pytesseract
     from PIL import Image
     if not dataurl:
         return {'data': {'text': '', 'blocks': []}}
     raw = base64.b64decode(dataurl.split(',', 1)[1])
     im = Image.open(io.BytesIO(raw)).convert('RGB')
-    tsv = pytesseract.image_to_data(im, lang='eng', config=f'--psm {psm} -c preserve_interword_spaces=1 --dpi 300')
+    tsv = pytesseract.image_to_data(im, lang=lang, config=f'--psm {psm} -c preserve_interword_spaces=1 --dpi 300')
     return {'data': tsv_to_data(tsv)}
 
 
