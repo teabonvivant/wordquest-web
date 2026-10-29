@@ -4,10 +4,11 @@ helpers it calls (window.s65*) are defined in r37_src/s60_legacy.js. Every ancho
 import re
 
 
-def sub_all(s, a, b, minimum=1):
-    n = s.count(a)
-    if n < minimum:
-        raise ValueError(f'expected at least {minimum} of: {a[:80]} (got {n})')
+def sub_all(s, a, b, n):
+    # R3.37: exact count, so a base or earlier-patch change that adds or removes a copy stops the build instead of silently renaming it
+    got = s.count(a)
+    if got != n:
+        raise ValueError(f'expected {n} of: {a[:80]} (got {got})')
     return s.replace(a, b)
 
 
@@ -15,19 +16,19 @@ def apply(s, ctx):
     o = ctx.once
 
     # ------------------------------------------------------------------ A-11 / C-12 / C-22: one name for one thing
-    s = sub_all(s, '原有拼字教室報告', '拼字課堂報告')
-    s = sub_all(s, '拼字教室', '拼字課堂')                       # the English course = 拼字課堂 (a single lesson stays 拼字小課 01)
-    s = sub_all(s, '拼字課學習情況', '拼字課堂報告')
-    s = sub_all(s, '給家長的學習報告', '字詞工房報告')
-    s = sub_all(s, '組合學習報告', '字詞工房報告')
-    s = sub_all(s, '看組合學習情況', '看字詞工房報告')
-    s = sub_all(s, '詞語組合：孩子學得怎樣？', '字詞工房報告')
-    s = sub_all(s, '安排詞語組合練習', '安排字詞工房練習')
-    s = sub_all(s, '詞語組合工房', '字詞工房')
-    s = sub_all(s, '詞語與圖片庫', '詞語圖片庫')
-    s = sub_all(s, '80 個拼字與生活單元', '拼字課堂')
-    s = sub_all(s, '學習報告', '默書報告', 0)                       # what is left is the dictation report (#report)
-    s = sub_all(s, '安排下一次小課', '安排下一次學習')
+    s = sub_all(s, '原有拼字教室報告', '拼字課堂報告', 1)
+    s = sub_all(s, '拼字教室', '拼字課堂', 15)                       # the English course = 拼字課堂 (a single lesson stays 拼字小課 01)
+    s = sub_all(s, '拼字課學習情況', '拼字課堂報告', 1)
+    s = sub_all(s, '給家長的學習報告', '字詞工房報告', 1)
+    s = sub_all(s, '組合學習報告', '字詞工房報告', 1)
+    s = sub_all(s, '看組合學習情況', '看字詞工房報告', 1)
+    s = sub_all(s, '詞語組合：孩子學得怎樣？', '字詞工房報告', 1)
+    s = sub_all(s, '安排詞語組合練習', '安排字詞工房練習', 1)
+    s = sub_all(s, '詞語組合工房', '字詞工房', 4)
+    s = sub_all(s, '詞語與圖片庫', '詞語圖片庫', 2)
+    s = sub_all(s, '80 個拼字與生活單元', '拼字課堂', 1)
+    s = sub_all(s, '學習報告', '默書報告', 6)                       # what is left is the dictation report (#report)
+    s = sub_all(s, '安排下一次小課', '安排下一次學習', 1)
     s = sub_all(s, '學習計劃', '安排下一次學習', 0)
     s = o(s, "'learning-plan','安排小課'", "'learning-plan','去安排'")
     s = o(s, "'learning-report','看學習情況'", "'learning-report','看拼字課堂報告'")
@@ -174,7 +175,7 @@ function l30Submit(technical=false){""")
     s = o(s, '看了提示再答對，會記成「剛看過後答對」。', '看了提示才答對，下次試試不看提示。')
     s = o(s, '看了提示再答對，會記成剛看過後答對', '看了提示才答對，下次試試不看提示')
     s = o(s, '隔一天再自己串對一次便可以。', '隔一天再自己拼對一次，這個字就學會了！')
-    s = sub_all(s, '剛看過後答對', '看了提示才答對')
+    s = sub_all(s, '剛看過後答對', '看了提示才答對', 4)
     # E4 / E7: one word for a letter group (字母組合) and for typing a word out (拼); 串 elsewhere (一串, 串聯, 字串 ...) is left alone
     s = s.replace('字塊', '字母組合')
     s = re.sub(r'串(?=[字對錯法寫出])', '拼', s)

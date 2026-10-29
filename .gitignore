@@ -17,3 +17,13 @@ Thumbs.db
 _team_runs/
 r37_evidence/r321/**/*.png
 r37_evidence/r321/**/*.jpg
+
+# R3.37: screenshots, logs and build stamp are rewritten by every test run; attach a zip to the release instead of committing them.
+r37_evidence/**/*.png
+r37_evidence/**/*.jpg
+r37_evidence/**/*.log
+r37_evidence/build.json
+r37_tests/*.png
+_eng_tmp/
+_tts_build/
+_tts_compare/

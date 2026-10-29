@@ -14,7 +14,7 @@ R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
 # R3.30: the service-worker cache name follows this label (plus a signature of the shipped art), so a new release always gets a new cache and the old one is dropped on activate.
 # Bump it with every release; tests/r37 t61 and r320_sw_offline.py read it from sw.js.
-RELEASE = 'R3.31.0'
+RELEASE = 'R3.37.0'
 PATCHES = R / 'r37_src/patches'
 
 
@@ -93,7 +93,7 @@ def build(only=None, out=None, base_only=False):
     if out == R and not only and not base_only:
         (R / 'r37_evidence').mkdir(exist_ok=True)
         (R / 'r37_evidence/build.json').write_text(json.dumps({
-            'base': R36_COMMIT, 'version': 'R3.7.0', 'appSHA256': hashlib.sha256(s.encode()).hexdigest(),
+            'base': R36_COMMIT, 'version': RELEASE, 'appSHA256': hashlib.sha256(s.encode()).hexdigest(),
             'swSHA256': hashlib.sha256(sw.encode()).hexdigest(), 'modules': applied}, indent=2))
     print('R3.7 built:' if not base_only else 'R3.6 base:', len(s.encode()), 'bytes; modules:', ','.join(applied) or '(none)')
     return s

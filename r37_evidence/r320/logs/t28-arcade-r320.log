@@ -1,9 +1,0 @@
-    [10:54:36] forest-pong: b1_hud
-    [10:54:36] forest-pong: b2_depth
-    [10:54:38] forest-pong: b3_learn
-    [10:54:44] forest-pong: b4_sfx
-    [10:54:46] forest-pong: b5_fx
-    [10:54:48] forest-pong: b6_result
-    [10:54:56] forest-pong: h_checks
-  forest-pong: 47/47 (163s)
-t28: 109/109 checks passed in 253s; 0 failures

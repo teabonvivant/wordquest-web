@@ -1,9 +1,0 @@
--- phone fresh
--- phone learned
--- phone forms
-  FAIL forms/phone: color -> '美式拼法 colour' (want '美式串法 colour')
--- desktop fresh
--- desktop learned
--- desktop forms
-  FAIL forms/desktop: color -> '美式拼法 colour' (want '美式串法 colour')
-t14 morph ui: 144/146 checks passed

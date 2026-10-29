@@ -1,3 +1,0 @@
-  emoji of word forms (base vs inflected): [['cat', '🐈', 'cats', '🐈'], ['dog', '🐕', 'dogs', '🐕'], ['toy', '🧸', 'toys', '🧸'], ['bus', '🚌', 'buses', '🚌'], ['box', '📦', 'boxes', '📦'], ['baby', '👶', 'babies', '👶'], ['city', '🏙️', 'cities', '🏙️'], ['puppy', '🐶', 'puppies', '🐶'], ['tooth', '🦷', 'teeth', '🦷'], ['foot', '🦶', 'feet', '🦶'], ['play', '⚽', 'played', '⚽'], ['walk', '🚶', 'walked', '🚶'], ['want', '🙋', 'wanted', '🙋']]
-test_math_mark: 772/772 checks passed (36 pattern questions)
-t27 r319 teaching logic: 76/76 checks passed
