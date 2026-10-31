@@ -22,7 +22,7 @@ with sync_playwright() as p:
     go(pg, '#lv/english', 400)
     C.ok(pg.evaluate("document.querySelectorAll('.r37-node.lock').length") == 0, 'Admin: no locked node on the map')
     go(pg, '#p/parent', 500)
-    C.ok(pg.query_selector('.r37-df') is not None, 'Admin passes the parent gate in the test area')
+    C.ok(pg.query_selector('.r37-ptab') is not None, 'Admin passes the parent gate in the test area')
     pg.click('.r37-ptab[data-k="data"]'); pg.wait_for_timeout(300)
     C.ok(pg.query_selector('a[href="#admin"]') is not None, 'parent star links to the test centre for Admin')
     C.ok(not errs, f'no console errors {errs[:3]}')

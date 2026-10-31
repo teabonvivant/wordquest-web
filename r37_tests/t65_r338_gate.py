@@ -199,7 +199,7 @@ with sync_playwright() as p:
 
     # ---------------------------------------------------------------- parent view
     ev(pg, "(()=>{const d=r37Get().day;d.ans=12;d.lapse=3;d.hint=1;d.fix=2;d.gate=1;})()")
-    ev(pg, "r37Mem._ptab='diff'")
+    ev(pg, "r37Mem._ptab='prog'")
     t = ev(pg, 'r37ParentHub()')
     C.ok('遊戲作答' in t and '沒作答' in t and '改正 2 處' in t, 'parent: today shows game answers and no-answers')
     C.ok(not errs, f'no page errors: {errs[:3]}')

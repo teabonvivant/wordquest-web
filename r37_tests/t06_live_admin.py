@@ -46,7 +46,7 @@ with sync_playwright() as p:
         C.ok(try_login(pg, PWD), 'public site: Admin with the private password logs in')
         C.ok(ev(pg, "['english','math','olympiad'].every(t=>[0,1,2,3,4].every(w=>[...Array(10).keys()].every(s=>r37StageOpen(t,w,s))))"), 'public Admin: every level is open')
         go(pg, '#p/parent', 500)
-        C.ok(pg.query_selector('.r37-df') is not None, 'public Admin: parent star opens without the parent password')
+        C.ok(pg.query_selector('.r37-ptab') is not None, 'public Admin: parent star opens without the parent password')
         go(pg, '#admin', 600)
         C.ok('測試中心' in pg.inner_text('body') or pg.query_selector('a[href="#admin"]') is not None, 'public Admin: test centre renders')
         C.ok(ev(pg, "localStorage.getItem('wordquest-v10-current-account')===null&&Object.keys(localStorage).every(k=>!k.startsWith('wordquest-v10-user-'))"), 'public Admin: nothing written to the family storage keys')

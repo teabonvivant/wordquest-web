@@ -35,6 +35,14 @@ const R37_MISSIONS=[
 const r37Mem={};
 const r37Day=()=>dayKey();
 function r37Key(){return 'wq37-'+(WQ_TEST_MODE?'t-':'')+(isLoggedIn()?accountId():'guest')+'-'+(activeChild()?.id||'x');}
+/* R3.40: at the first read of a new day, yesterday's counters go into o.hist (last 35 days with any activity) for the parent's weekly view */
+function r40Archive(o){
+ const h=Array.isArray(o.hist)?o.hist:[],d=o.day;o.hist=h;
+ if(!d||typeof d.d!=='string'||h.some(x=>x.d===d.d))return;
+ const{claimed,cn,...c}=d;
+ if(!Object.entries(c).some(([k,v])=>k!=='d'&&v>0))return;
+ h.push(c);if(h.length>35)h.splice(0,h.length-35);
+}
 function r37Get(){
  const k=r37Key();
  /* R3.19: another child on the same device never inherits the map cursor or a half-played level of the previous child */
@@ -56,7 +64,7 @@ function r37Get(){
  for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
- if(!o.day||o.day.d!==r37Day())o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,cn:0,claimed:[]};
+ if(!o.day||o.day.d!==r37Day()){r40Archive(o);o.day={d:r37Day(),levels:0,correct:0,fps:0,five:0,enok:0,cn:0,claimed:[]};}
  if(!Array.isArray(o.day.claimed))o.day.claimed=[];
  /* R3.23: the six-world olympiad levels are replaced by the 30-unit 奧數路線 (same keys 'olympiad:grade:stage', new meaning). Old passes never count as new levels; coins stay with the child. */
  if(o.olyV!==2){let n=0,st=0;for(const k of Object.keys(o.lv))if(k.startsWith('olympiad:')){if(o.lv[k].passed)n++;st+=o.lv[k].best||0;delete o.lv[k];}if(n||st)o.olyOld={n,st};o.miss=o.miss.filter(m=>m.t!=='olympiad');if(o.seen)delete o.seen.olympiad;o.olyV=2;}

@@ -716,3 +716,33 @@ b.r37-qready{font-size:13px;margin-left:4px}
 .r37-todayrow.n4{grid-template-columns:repeat(4,1fr)}
 .r38-today{margin:8px 0 0;font-size:14px;color:var(--r37-muted)}
 @media(min-aspect-ratio:3/2){.r37-tiles.r37-gt.g8.g6{grid-template-columns:repeat(3,1fr)}}
+
+/* R3.40 one main action on the home page; the mission pill keeps its count beside it */
+.r40-row{position:relative;z-index:2;display:flex;align-items:stretch;gap:8px;margin:6px 14px 8px}
+.r40-row .r37-quest{flex:none;margin:0;padding:0 14px;gap:6px;min-height:60px}
+.r40-row .r37-quest>b{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.r40-row .r37-pips2{display:none}.r40-row .r37-qi{font-size:26px}
+.r40-row .r37-qready{position:absolute;right:6px;top:-10px;margin:0;font-size:12px}
+.r40-cta,.r40-cta.r39-due{flex:1;width:auto;min-width:0;display:flex;align-items:center;gap:10px;min-height:60px;padding:6px 16px;border:0;border-radius:22px;background:linear-gradient(180deg,#ffd76a,#ffc23a);box-shadow:0 5px 0 #b9821c;color:#3b2600;font:inherit;text-align:left;text-decoration:none;cursor:pointer;touch-action:manipulation;transition:transform .12s}
+.r40-cta:active{transform:translateY(3px);box-shadow:0 2px 0 #b9821c}.r40-cta:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.r40-ci{flex:none;display:grid;font-size:26px}.r40-ct{min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.r40-ct b{font-size:19px;font-weight:900;color:#3b2600}.r40-ct small{font-size:14px;font-weight:700;color:#5a3c00;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-aspect-ratio:5/4),(max-width:700px){.r40-row{margin-top:2px;margin-bottom:6px}}
+@media(max-height:500px){.r40-row{margin:2px 14px 4px}.r40-cta,.r40-cta.r39-due,.r40-row .r37-quest{min-height:50px}}
+@media(prefers-reduced-motion:reduce){.r40-cta{transition:none}}
+/* R3.40 本週學習 */
+.r40-lead{margin:4px 0 10px;font-size:16px;line-height:1.6}.r40-lead b{color:var(--r37-gold);font-size:19px}
+.r40-week .r37-todayrow.n3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.r40-bars{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);gap:6px;height:112px;margin:14px 0 6px;padding:0}
+.r40-bars li{position:relative;display:grid;grid-template-rows:18px 1fr 20px;justify-items:center;min-width:0}
+.r40-v{font-size:13px;font-weight:800;color:#f4f6ff}
+.r40-bars i{align-self:end;width:min(100%,22px);height:var(--p);min-height:2px;border-radius:4px 4px 0 0;background:var(--r37-aurora)}
+.r40-bars i[style*="--p:0%"]{height:2px;background:rgba(255,255,255,.2);border-radius:1px}
+.r40-bars small{font-size:13px;color:#c9cef0}.r40-bars li.now small{color:#fff;font-weight:800}
+.r40-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.r40-sub{margin:4px 0 0;font-size:15px;color:#d7dbf6}.r40-week h3{margin:12px 0 6px;font-size:16px}
+.r40-weak{display:flex;flex-wrap:wrap;gap:6px}.r40-weak span{display:inline-flex;gap:6px;padding:6px 10px;border-radius:12px;background:rgba(255,255,255,.08);font-size:14px}
+.r40-note{margin:10px 0 0;font-size:13px;color:#c9cef0;line-height:1.5}
+/* R3.40 difficulty card on a phone: hearts out, one line each */
+@media(max-width:560px){html body .r37-df small{white-space:nowrap}html body .r37-df small .r37-hs{display:none}}
+@media(min-width:701px){.r40-row{box-sizing:border-box;width:min(640px,calc(100% - 28px));margin-inline:auto}}

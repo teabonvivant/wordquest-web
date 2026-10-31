@@ -14,7 +14,7 @@ R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
 # R3.30: the service-worker cache name follows this label (plus a signature of the shipped art), so a new release always gets a new cache and the old one is dropped on activate.
 # Bump it with every release; tests/r37 t61 and r320_sw_offline.py read it from sw.js.
-RELEASE = 'R3.39.0'
+RELEASE = 'R3.40.0'
 PATCHES = R / 'r37_src/patches'
 
 
@@ -53,6 +53,29 @@ def load_modules(only=None):
 LOAD_GUARD = """<script>addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='SCRIPT'||!/\\/data\\/d\\d+-/.test(t.src)||document.getElementById('wq-load-fail'))return;const d=document.createElement('div');d.id='wq-load-fail';d.setAttribute('role','alert');d.style.cssText='position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;background:#fff8ed;color:#3b2a1e;font:18px/1.5 sans-serif;text-align:center';d.innerHTML='<p style="margin:0">學霸星球未能完整載入，請檢查網絡。<br>你的進度沒有遺失。</p><button style="min-height:48px;padding:0 24px;border:0;border-radius:24px;background:#bf4d25;color:#fff;font:inherit">重新載入</button>';d.querySelector('button').onclick=()=>location.reload();document.body.append(d);},true)</script>"""
 
 
+def lift_host_data(s):
+    """R3.40: the two big constants inside the inline host script (1 MB of images, 285 KB of word bank) move into one external block, which the browser can code-cache."""
+    parts = []
+    for name, key in (('BUILTIN_IMAGES', 'WQ_D_IMG'), ('WQ_BANK', 'WQ_D_BANK')):
+        m = re.search(rf'^const {name}=(.*);$', s, re.M)
+        json.loads(m.group(1))
+        s = s[:m.start()] + f'const {name}=globalThis.{key};' + s[m.end():]
+        parts.append(f'globalThis.{key}=JSON.parse({json.dumps(m.group(1), ensure_ascii=False)});')
+    return once(s, '<script data-wq28="host">', '<script data-wq40="host-data">' + ''.join(parts) + '</script>\n<script data-wq28="host">')
+
+
+def json_parse_form(b):
+    """R3.40: a block that is one pure JSON value assigned to a global parses faster as JSON.parse('...') than as a JS literal."""
+    m = re.fullmatch(r'\s*((?:window|globalThis)\.\w+)=([\[{].*[\]}]);?\s*', b.decode(), re.S)
+    if not m:
+        return b
+    try:
+        json.loads(m.group(2))
+    except ValueError:
+        return b
+    return f'{m.group(1)}=JSON.parse({json.dumps(m.group(2), ensure_ascii=False)});'.encode()
+
+
 def split_data(s, sw):
     """R3.39: the large data and library blocks become same-order classic <script src>, so a browser keeps their compiled code between visits (inline scripts get no code cache).
     Measured with 4x CPU slowdown: first open 6.1 s to 4.0 s, later opens 3.3 s to 2.2 s. File names carry a content hash; the service worker precaches them with index.html.
@@ -61,6 +84,7 @@ def split_data(s, sw):
     if d.exists():
         shutil.rmtree(d)
     d.mkdir()
+    s = lift_host_data(s)
     res, pos, names = [], 0, []
     for m in re.finditer(r'<script([^>]*)>', s):
         if m.start() < pos:
@@ -68,6 +92,7 @@ def split_data(s, sw):
         e = s.find('</script>', m.end())
         b = s[m.end():e].encode()
         if len(b) > 500_000 and 'src=' not in m.group(1) and 'data-wq28="host"' not in m.group(1):
+            b = json_parse_form(b)
             name = f'data/d{len(names) + 1}-{hashlib.sha256(b).hexdigest()[:10]}.js'
             (R / 'app' / name).write_bytes(b)
             names.append(name)

@@ -546,7 +546,7 @@
     q$$('.r37-card:has(.r37-diffs)').forEach(c=>{if(c.dataset.s60Help)return;const dl=c.querySelector('.r37-dl'),h=c.querySelector('h2');
      if(dl&&h){dl.classList.add('s60-help-text');c.dataset.s60Help='1';const i=document.createElement('button');i.type='button';i.className='s60-i';i.setAttribute('aria-expanded','false');i.setAttribute('aria-label','說明');i.textContent='ⓘ';h.appendChild(i);}
      c.querySelectorAll('h2').forEach(x=>{const w=document.createTreeWalker(x,NodeFilter.SHOW_TEXT);for(let n=w.nextNode();n;n=w.nextNode()){if(!n.__s60&&EMO.test(n.nodeValue)){n.nodeValue=n.nodeValue.replace(EMO,'');n.__s60=1;}}});});
-    q$$('.r37-ptab').forEach((b,i)=>{if(!b.querySelector('b')){const l=document.createElement('b');l.textContent=['難度','進度','孩子','工具'][i]||'';b.appendChild(l);}});
+    q$$('.r37-ptab').forEach((b,i)=>{if(!b.querySelector('b')){const l=document.createElement('b');l.textContent=['本週','難度','孩子','工具'][i]||'';b.appendChild(l);}});
     s60Tidy();}catch(_){}obs.observe(app,{childList:true,subtree:true});});});
   obs.observe(app,{childList:true,subtree:true});
  }

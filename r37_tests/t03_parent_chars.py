@@ -53,6 +53,7 @@ with sync_playwright() as p:
     pg.evaluate("(()=>{const b=document.createElement('button');b.dataset.r37='diff';b.dataset.n='5';document.body.appendChild(b);b.click();b.remove();})()")
     C.ok(ev(pg, 'r37Get().diff') == 3, 'a child cannot change the difficulty through a stray click while locked')
     pg.fill('#v23-parent-password', PW); pg.click('[data-v23="parent-unlock"]'); pg.wait_for_timeout(1500)
+    pg.click('.r37-ptab[data-k="diff"]'); pg.wait_for_timeout(300)
     C.ok(pg.evaluate("document.querySelectorAll('.r37-df').length") == 5, 'after the password the parent sees 5 difficulty levels')
     C.ok(pg.evaluate("document.documentElement.scrollHeight<=innerHeight+1"), 'parent dashboard needs no page scroll')
     for n in (1, 2, 3, 4, 5):

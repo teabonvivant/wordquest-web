@@ -46,7 +46,7 @@ def t_split(p):
     b, ctx, pg, errs = open_https_page(p)
     html = wq33.APP.read_text(encoding='utf8')
     names = [n for n in __import__('re').findall(r'<script[^>]* src="(data/d\d+-[0-9a-f]+\.js)"', html)]
-    C.ok(len(names) == 6, f'six external data scripts, got {len(names)}')
+    C.ok(len(names) == 7, f'seven external data scripts, got {len(names)}')
     C.ok(len(html.encode()) < 6_500_000, f'index.html under 6.5 MB, got {len(html.encode())}')
     sw = (wq33.APP.parent / 'sw.js').read_text()
     C.ok(all(n in sw for n in names), 'the service worker precaches every data script')

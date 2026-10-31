@@ -66,6 +66,7 @@ function r39Merge(a,b){
  m.wrong=uni(a.wrong,b.wrong,x=>x.en);m.miss=uni(a.miss,b.miss,x=>x.t+'|'+x.q);m.rv=uni(a.rv,b.rv,x=>x.k);
  m.chars=[...new Set([...(a.chars||[]),...(b.chars||[])])];
  if(isO(a.oly)||isO(b.oly))m.oly={...(b.oly||{}),...(a.oly||{}),seen:{...(b.oly?.seen||{}),...(a.oly?.seen||{})}};
+ m.hist=uni(a.hist,b.hist,x=>x.d).sort((x,y)=>x.d<y.d?-1:1).slice(-35);
  m.enV=2;m.olyV=2;m.rvV=1;
  delete m.day;if(a.day)m.day=a.day;/* the daily coin cap and missions are never rewound */
  return m;
@@ -78,4 +79,28 @@ function r39BackupApply(raw){
   const{day,...fresh}=b;
   localStorage.setItem(k,JSON.stringify(a?r39Merge(a,b):fresh));delete r37Mem[k];
  }
+}
+
+/* R3.40 本週學習: the last seven Hong Kong days from o.hist + today. Only recorded answers count; a day with no record stays empty, it is never estimated. Backups are untrusted, so every number goes through r40N. */
+const r40N=v=>Number.isFinite(+v)&&+v>0?Math.floor(+v):0;
+function r40Weeks(o){
+ const by=new Map((Array.isArray(o.hist)?o.hist:[]).map(x=>[x&&x.d,x]));by.set(o.day.d,o.day);
+ const row=off=>{const d=r39Plus(-off),x=by.get(d)||{};return {d,q:r40N(x.qa)+r40N(x.ans),qa:r40N(x.qa),ok:r40N(x.correct),lapse:r40N(x.lapse),hint:r40N(x.hint),en:r40N(x.q_english),ma:r40N(x.q_math),ol:r40N(x.q_olympiad)};};
+ return {days:[6,5,4,3,2,1,0].map(row),prev:[13,12,11,10,9,8,7].map(row)};
+}
+function r40WeekHTML(o){
+ const{days,prev}=r40Weeks(o),sum=(a,k)=>a.reduce((n,x)=>n+x[k],0),q=sum(days,'q'),qa=sum(days,'qa'),ok=sum(days,'ok'),act=days.filter(x=>x.q).length,top=Math.max(1,...days.map(x=>x.q)),pq=sum(prev,'q');
+ const name=['日','一','二','三','四','五','六'],bars=days.map((x,i)=>{const n=name[new Date(x.d+'T12:00:00Z').getUTCDay()],lab=`${x.d}：${x.q?x.q+' 題':'沒有紀錄'}`;
+  return `<li class="${i===6?'now':''}" title="${lab}"><span class="r40-v">${x.q&&x.q===top?x.q:''}</span><i style="--p:${x.q?Math.max(6,Math.round(x.q/top*100)):0}%"></i><small>${n}</small><span class="r40-sr">${lab}</span></li>`;}).join('');
+ const cmp=!pq?'':q>pq?`，比上週多 ${q-pq} 題`:q<pq?`，比上週少 ${pq-q} 題`:'，與上週相同';
+ const subj=[['英文','en'],['數學','ma'],['奧數','ol']].map(([l,k])=>`${l} ${sum(days,k)}`).join('　');
+ const words=o.wrong.filter(x=>x.en).slice().sort((a,b)=>(b.n-a.n)||(b.at-a.at)).slice(0,5);
+ const maths=o.miss.filter(m=>m.t==='math').length+o.miss.filter(m=>m.t==='olympiad').length;
+ const weak=words.length||maths?`<h3>最需要溫</h3><div class="r40-weak">${words.map(x=>`<span><b lang="en">${esc(x.en)}</b>${esc(x.zh||'')}</span>`).join('')}${maths?`<span><b>數學／奧數</b>${maths} 題待改正</span>`:''}</div>`:'';
+ return `<div class="r37-card r40-week"><h2>${r37Icon('📊')}本週學習</h2>
+ ${q?`<p class="r40-lead">最近 7 日學了 <b>${act}</b> 日，共 <b>${q}</b> 題${cmp}。</p>`:`<p class="r40-lead">最近 7 日未有作答紀錄。</p>`}
+ <div class="r37-todayrow n3"><span><b>${qa?Math.round(ok/qa*100)+'%':'—'}</b><small>闖關答對率</small></span><span><b>${sum(days,'hint')}</b><small>用提示</small></span><span><b>${sum(days,'lapse')}</b><small>沒作答</small></span></div>
+ <ol class="r40-bars" aria-label="最近 7 日每日作答題數">${bars}</ol>
+ <p class="r40-sub">${subj}</p>${weak}
+ <p class="r40-note">只計實際作答，遊戲作答計入題數但不計答對率。更新前的日子沒有紀錄。</p></div>`;
 }

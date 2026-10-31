@@ -318,6 +318,7 @@ with sync_playwright() as p:
         pg.fill('#v23-parent-password', L.wq33.PW if hasattr(L.wq33, 'PW') else '1234')
         pg.click('[data-v23="parent-unlock"]')
         pg.wait_for_timeout(1500)
+    pg.click('.r37-ptab[data-k="diff"]'); pg.wait_for_timeout(300)
     txt = pg.evaluate("document.querySelector('.r37-dl')?.textContent||''")
     C.ok('數字大小' in txt, 'parent page explains maths difficulty as number size / steps')
     pg.click('.r37-dsub[data-k="english"]')

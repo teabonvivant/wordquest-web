@@ -16,6 +16,7 @@
 .wqp-t.zh{font-size:20px}.wqp-t.word{font-size:20px;padding:6px 14px}
 .wqp-in[readonly]{caret-color:transparent;cursor:pointer}.wqp-in.wqp-act{outline:3px solid #ffc94a;outline-offset:1px}
 @media (max-width:420px){.wqp{gap:6px}.wqp-t{min-width:42px;min-height:48px;font-size:22px}}
+@media (max-width:420px) and (min-height:720px){.wqp{gap:8px}.wqp-t{min-width:54px;min-height:58px;font-size:26px}.wqp-t.wide{font-size:18px}.wqp-t.zh,.wqp-t.word{font-size:20px}}
 @media (prefers-reduced-motion:reduce){.wqp-t{transition:none}}`;
  function hash(s){let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
  function rng(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;};}
