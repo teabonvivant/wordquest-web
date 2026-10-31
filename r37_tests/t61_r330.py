@@ -263,7 +263,7 @@ def run_gx_fps():
             want = {'default': True, 'parent 90%': False, 'parent 60%': True}[label]
             C.ok(r['stars'] == 3 and r['passed'] is want, f'C-09 字母獵場 at 80% accuracy ({label}): 3 stars, passed={r["passed"]} (expected {want})')
             if label == 'parent 90%':
-                p.wait_for_timeout(2500)
+                p.wait_for_selector('.wq37-need', state='attached', timeout=30000)
                 t = p.evaluate("document.querySelector('.wq37-need')?.textContent||''")
                 C.ok('90%' in t and '才過關' in t, f'C-09 字母獵場 result card says what is needed: {t!r}')
             b.close()

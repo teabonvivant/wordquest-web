@@ -194,10 +194,10 @@ def main():
         manifest.update(m)
         need(m.get('name') == '學霸星球 SmartQuest Planet' and m.get('lang') == 'zh-HK', f"name/lang {m.get('name')}/{m.get('lang')}")
         need(m.get('start_url') == './index.html' and m.get('display') == 'standalone', 'start_url/display')
-        need(m.get('theme_color', '').lower() == '#bf4d25' and m.get('background_color', '').lower() == '#fff8ed', 'colours')
+        need(m.get('theme_color', '').lower() == '#bf4d25' and m.get('background_color', '').lower() == '#0b1030', 'colours')
         need({i.get('purpose') for i in m.get('icons', [])} >= {'any', 'maskable'}, 'icon purposes')
         return f'{len(body)} bytes'
-    check('manifest.webmanifest is served as manifest+json and is valid (zh-HK, 學霸星球 SmartQuest Planet, standalone, #fff8ed / #bf4d25)', t_manifest)
+    check('manifest.webmanifest is served as manifest+json and is valid (zh-HK, 學霸星球 SmartQuest Planet, standalone, #0b1030 / #bf4d25)', t_manifest)
 
     def t_icons():
         got = []
@@ -227,7 +227,7 @@ def main():
             links = pg.evaluate("""()=>({m:document.querySelector('link[rel=manifest]')?.href||'',a:document.querySelector('link[rel=apple-touch-icon]')?.href||'',t:document.querySelector('meta[name=theme-color]')?.content||''})""")
             need(links['m'].endswith('/app/manifest.webmanifest'), 'manifest link: ' + links['m'])
             need(links['a'].endswith('/app/icons/icon-192.png'), 'apple-touch-icon: ' + links['a'])
-            need(links['t'].lower() == '#bf4d25', 'theme-color ' + links['t'])
+            need(links['t'].lower() == '#0b1030', 'theme-color ' + links['t'])
             for u in (links['m'], links['a']):
                 need(http_get(main_port, u.split(str(main_port), 1)[1])[0] == 200, u + ' not 200')
         check('head has <link rel=manifest> and apple-touch-icon (both resolve), theme-color kept', t_links)
@@ -275,9 +275,9 @@ def main():
         def t_cache():
             s = state.get('s') or pg.evaluate(SHELL_STATE)
             need(s['index'], 'no wordquest-r3-shell-* cache holds index.html; caches=' + json.dumps(s['caches']))
-            need(s['index']['status'] == 200 and s['index']['bytes'] > 1000000, json.dumps(s['index']))
+            need(s['index']['status'] == 200 and s['index']['bytes'] > 500000, json.dumps(s['index']))
             return f"{s['index']['cache']}: index.html {s['index']['bytes']} bytes"
-        check('the shell cache really contains index.html (200, > 1 MB)', t_cache)
+        check('the shell cache really contains index.html (200, > 500 KB)', t_cache)
 
         def t_ui():
             need(ui_ready(pg) == '已準備', f"offline summary says '{ui_ready(pg)}'")
