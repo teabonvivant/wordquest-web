@@ -4,10 +4,13 @@
 (function(){
  const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
  for(const [key,g] of WQ_BANK.ext){
-  if(s55HasRaw(key))continue;
-  let r=null;
-  try{r=window.WQMorph.analyse(key,k=>k!==key&&s55HasRaw(k),s55PosOf);}catch(_){}
-  if(r&&(!r.derived||r.form==='adv'&&s55AdvOk(key,r.base)))continue;
+  if(!WQ_BANK.checked){
+   if(s55HasRaw(key))continue;
+   let r=null;
+   try{r=window.WQMorph.analyse(key,k=>k!==key&&s55HasRaw(k),s55PosOf);}catch(_){}
+   if(r&&(!r.derived||r.form==='adv'&&s55AdvOk(key,r.base)))continue;
+   (window.WQ_EXT_KEPT=window.WQ_EXT_KEPT||[]).push(key);
+  }
   const senses=g.split('|').map((x,i)=>{const c=x.indexOf(':');return {headword:key,zhHK:x.slice(c+1),pos:x.slice(0,c),category:'open_dictionary',sourceLine:0,id:'wq-x-'+key+'-s'+(i+1)};});
   const e={id:'wq-x-'+key,key,en:key,senses,examples:[],requiresContextReview:senses.length>1};
   sharedEntries.push(e);sharedByKey.set(norm(key),e);v20Dictionary.set(key,e);

@@ -8,13 +8,13 @@ Base text is `git show <R36_COMMIT>:app/index.html`. Patch modules r37_src/patch
 apply(s, ctx) -> str and optionally apply_sw(s, ctx); ctx.once(s, a, b) replaces exactly one occurrence or raises.
 """
 from pathlib import Path
-import argparse, hashlib, importlib.util, json, re, shutil, subprocess, sys
+import argparse, base64, hashlib, importlib.util, io, json, re, shutil, subprocess, sys
 
 R = Path(__file__).resolve().parents[1]
 R36_COMMIT = 'bd28b55'
 # R3.30: the service-worker cache name follows this label (plus a signature of the shipped art), so a new release always gets a new cache and the old one is dropped on activate.
 # Bump it with every release; tests/r37 t61 and r320_sw_offline.py read it from sw.js.
-RELEASE = 'R3.40.0'
+RELEASE = 'R3.41.0'
 PATCHES = R / 'r37_src/patches'
 
 
@@ -52,6 +52,12 @@ def load_modules(only=None):
 # A missing data script would otherwise leave a blank page: every later block throws on the absent globals.
 LOAD_GUARD = """<script>addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='SCRIPT'||!/\\/data\\/d\\d+-/.test(t.src)||document.getElementById('wq-load-fail'))return;const d=document.createElement('div');d.id='wq-load-fail';d.setAttribute('role','alert');d.style.cssText='position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;background:#fff8ed;color:#3b2a1e;font:18px/1.5 sans-serif;text-align:center';d.innerHTML='<p style="margin:0">學霸星球未能完整載入，請檢查網絡。<br>你的進度沒有遺失。</p><button style="min-height:48px;padding:0 24px;border:0;border-radius:24px;background:#bf4d25;color:#fff;font:inherit">重新載入</button>';d.querySelector('button').onclick=()=>location.reload();document.body.append(d);},true)</script>"""
 
+# R3.41: painted before any script runs. Gone at DOMContentLoaded, when every parser-blocking script has finished.
+SPLASH = """<div id="wq-splash" role="status" aria-label="學霸星球載入中" style="position:fixed;inset:0;z-index:2147483646;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#fff8ed;color:#482c23;font:700 24px/1.3 'PingFang HK','Noto Sans CJK HK','Microsoft JhengHei',system-ui,sans-serif;transition:opacity .18s ease-out"><style>@keyframes wqS{from{transform:translateX(-100%)}to{transform:translateX(250%)}}@media(prefers-reduced-motion:reduce){#wq-splash i{animation:none!important;width:100%!important}}</style><span aria-hidden="true" style="display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#ffd372;color:#bf4d25;font-size:36px">★</span>學霸星球<span aria-hidden="true" style="width:160px;height:6px;border-radius:3px;background:#ffe0c4;overflow:hidden"><i style="display:block;width:40%;height:100%;border-radius:3px;background:#bf4d25;animation:wqS 1.1s ease-in-out infinite"></i></span></div><script>addEventListener('DOMContentLoaded',()=>{const e=document.getElementById('wq-splash');if(!e)return;e.style.pointerEvents='none';e.style.opacity='0';setTimeout(()=>e.remove(),200);})</script>"""
+
+# R3.41: the service worker used to wait for 準備網頁 in the parent page, so nobody got its cache. Skipped on data-saver and on mobile data (it stores about 10 MB once).
+SW_BOOT = """<script>addEventListener('load',()=>setTimeout(()=>{const n=navigator,c=n.connection;if(!('serviceWorker'in n)||!/^https?:$/.test(location.protocol)||!isSecureContext||c&&(c.saveData||c.type==='cellular')||n.webdriver&&!window.WQ_SW_TEST)return;const u=new URL('./',location.href);n.serviceWorker.register(new URL('sw.js',u),{scope:u.pathname}).catch(()=>{});},3000))</script>"""
+
 
 def lift_host_data(s):
     """R3.40: the two big constants inside the inline host script (1 MB of images, 285 KB of word bank) move into one external block, which the browser can code-cache."""
@@ -76,6 +82,25 @@ def json_parse_form(b):
     return f'{m.group(1)}=JSON.parse({json.dumps(m.group(2), ensure_ascii=False)});'.encode()
 
 
+def extract_images(text, names):
+    """R3.41: base64 pictures do not gzip and every visit paid for all of them. Each becomes its own hashed file, fetched only when shown."""
+    from PIL import Image
+
+    def one(m):
+        raw = base64.b64decode(m.group(2))
+        if m.group(1) == 'png':
+            im = Image.open(io.BytesIO(raw))
+            out = io.BytesIO()
+            im.convert('RGBA').save(out, 'WEBP', quality=86, method=6)
+            if out.tell() < len(raw):
+                raw = out.getvalue()
+        name = f'assets/x/{hashlib.sha256(raw).hexdigest()[:12]}.webp'
+        (R / 'app' / name).write_bytes(raw)
+        names.add(name)
+        return name
+    return re.sub(r'data:image/(webp|png);base64,([A-Za-z0-9+/=]{2000,})', one, text)
+
+
 def split_data(s, sw):
     """R3.39: the large data and library blocks become same-order classic <script src>, so a browser keeps their compiled code between visits (inline scripts get no code cache).
     Measured with 4x CPU slowdown: first open 6.1 s to 4.0 s, later opens 3.3 s to 2.2 s. File names carry a content hash; the service worker precaches them with index.html.
@@ -84,14 +109,19 @@ def split_data(s, sw):
     if d.exists():
         shutil.rmtree(d)
     d.mkdir()
-    s = lift_host_data(s)
+    x = R / 'app/assets/x'
+    if x.exists():
+        shutil.rmtree(x)
+    x.mkdir()
+    pics = set()
+    s = extract_images(lift_host_data(s), pics)
     res, pos, names = [], 0, []
     for m in re.finditer(r'<script([^>]*)>', s):
         if m.start() < pos:
             continue
         e = s.find('</script>', m.end())
         b = s[m.end():e].encode()
-        if len(b) > 500_000 and 'src=' not in m.group(1) and 'data-wq28="host"' not in m.group(1):
+        if len(b) > 30_000 and 'src=' not in m.group(1) and 'type=' not in m.group(1):
             b = json_parse_form(b)
             name = f'data/d{len(names) + 1}-{hashlib.sha256(b).hexdigest()[:10]}.js'
             (R / 'app' / name).write_bytes(b)
@@ -99,11 +129,15 @@ def split_data(s, sw):
             res.append(s[pos:m.start()] + (LOAD_GUARD if len(names) == 1 else '') + f'<script{m.group(1)} src="{name}">')
             pos = e
     res.append(s[pos:])
-    (R / 'app/index.html').write_text(''.join(res))
+    (R / 'app/index.html').write_text(once(once(''.join(res), '<body>', '<body>' + SPLASH), '</body>', SW_BOOT + '</body>'))
     sw = once(sw, "await c.addAll([new URL('index.html',BASE).href]);", "await c.addAll(['index.html'," + ','.join(json.dumps(n) for n in names) + "].map(a=>new URL(a,BASE).href));")
+    sw = once(sw, 'try{await c.addAll([', 'try{await c.addAll([' + ''.join(json.dumps(n) + ',' for n in sorted(pics)))
     sw = once(sw, " if(u.pathname===new URL('index.html',BASE).pathname",
               " if(/\\/data\\/d\\d+-[0-9a-f]+\\.js$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
               " if(u.pathname===new URL('index.html',BASE).pathname")
+    # R3.41: a weak network must not hold the page: after 3 s fall back to the saved copy; the fetch still finishes and refreshes it for next time.
+    sw = once(sw, "try{const r=await fetch(req);if(r.ok&&r.headers.get('content-type')?.includes('text/html'))await c.put(new URL('index.html',BASE),r.clone());return r;}catch(err){const saved=await c.match(new URL('index.html',BASE));if(saved)return saved;throw err;}",
+              "const key=new URL('index.html',BASE),net=fetch(req).then(async r=>{if(r.ok&&r.headers.get('content-type')?.includes('text/html'))await c.put(key,r.clone());return r;});e.waitUntil(net.catch(()=>{}));const saved=await c.match(key);if(!saved)return net;return Promise.race([net.catch(()=>saved),new Promise(ok=>setTimeout(()=>ok(saved.clone()),3000))]);")
     (R / 'app/sw.js').write_text(sw)
 
 
@@ -134,7 +168,7 @@ def build(only=None, out=None, base_only=False):
                   "await c.addAll([new URL('index.html',BASE).href]);try{await c.addAll(" + json.dumps(art)
                   + ".map(a=>new URL(a,BASE).href));}catch(_){}")
         sw = once(sw, " if(u.pathname===new URL('index.html',BASE).pathname",
-                  " if(/\\/assets\\/r3(?:16|18|21|23|26)\\/(?:words\\/)?[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
+                  " if(/\\/assets\\/(?:x|r3(?:16|18|21|23|26))\\/(?:words\\/)?[^/]+\\.webp$/.test(u.pathname)){e.respondWith((async()=>{const c=await caches.open(SHELL),hit=await c.match(req,{ignoreSearch:true});if(hit)return hit;const r=await fetch(req);if(r.ok)await c.put(req,r.clone());return r;})());return;}\n"
                   " if(u.pathname===new URL('index.html',BASE).pathname")
         if out == R and not only:
             for anchor, names in (('<script>/* WordQuest Maths 0.1.2', ['course_data.js']),
