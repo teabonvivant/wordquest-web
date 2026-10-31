@@ -96,8 +96,8 @@ def register_form(pg, name='tester', child='小明', pw=None, remember=True):
     pg.wait_for_timeout(1200)
 
 
-def open_page(p, w=390, h=844, touch=True, learn=False):
-    b, ctx, pg, errs = new_page(p, w, h, touch=touch)
+def open_page(p, w=390, h=844, touch=True, learn=False, legacy=True):
+    b, ctx, pg, errs = new_page(p, w, h, touch=touch, legacy=legacy)
     if not learn:  # R3.9 learning card off for the older flow tests; t11 covers it
         ctx.add_init_script("try{localStorage.setItem('wq37-nolearn','1')}catch(e){}")
     html = patched_html()

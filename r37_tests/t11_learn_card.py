@@ -34,6 +34,7 @@ def page(pw, w, h, touch, html, init=''):
     if init: ctx.add_init_script(init)
     p = ctx.new_page(); errs = []
     p.on('pageerror', lambda e: errs.append(str(e)))
+    p.route('https://wq37-run.test/game.js', lambda r: r.fulfill(path=RN.JS, content_type='text/javascript; charset=utf-8'))
     p.goto('file://' + html)
     return b, p, errs
 

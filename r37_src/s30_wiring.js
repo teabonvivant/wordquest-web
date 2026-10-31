@@ -15,15 +15,15 @@ function r37FpsWords(){return r37GameWords(0,17);}
 function r37FpsMount(){
  const box=$('#r37-fps-box');if(!box)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
- r37FpsHandle=WQ37FPS.start(box,{words:r37FpsWords(),difficulty:r37DiffN('english'),rounds:10,sound:sfxEnabled(),
-  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');if(res&&res.stars>=5&&(d.fc||0)<2){coins=r37AddCoins(1);if(coins){d.fc=(d.fc||0)+1;r37Save();}}return coins;},
+ r37FpsHandle=WQ37FPS.start(box,{...r38Hook(box,r38Words()),words:r37FpsWords(),difficulty:r37DiffN('english'),rounds:10,sound:sfxEnabled(),
+  onFinish:res=>{let coins=0;const d=r37Get().day;r37Bump('fps');r38Tally(res);if(res&&res.stars>=5&&(d.fc||0)<2){coins=r37AddCoins(1);if(coins){d.fc=(d.fc||0)+1;r37Save();}}return coins;},
   onExit:()=>{r37FpsStop();location.hash='#p/games';}});
 }
 function r37FpsLvMount(){
  const box=$('#r37-fps-box');if(!box||!r37FpsSel)return;r37FpsStop();
  if(!globalThis.WQ37FPS){box.innerHTML='<div class="r37-card"><h2>🎯</h2></div>';return;}
  const {w,s,from}=r37FpsSel,W=R37_TRACKS.english.worlds[w],u=typeof LIB30!=='undefined'?LIB30.units.get(r37UnitId(w,s)):null,nx=r37FpsNext(w,s);
- const opts={words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,passRate:r37Diff('english').pass/* R3.30 C-09 */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
+ const opts={...r38Hook(box,r38Words()),words:r37FpsUnitWords(w,s),syllables:r37SylText,difficulty:r37DiffN('english'),lockDifficulty:true/* R3.29 C-04: a level uses the parent's difficulty; the child cannot lower it on the start card */,passRate:r37Diff('english').pass/* R3.30 C-09 */,mode:'level',title:(s===9?'👹 ':'')+(W.icon||'')+' '+(u?u.title:W.name+' · '+(s+1)),sound:sfxEnabled(),
   onFinish:res=>r37FpsPay(w,s,res),
   onExit:()=>{r37FpsStop();location.hash=from||'#lv/fps';}};
  if(s===9)opts.boss=true;
@@ -46,7 +46,7 @@ function r37G3Mount(){
  const diff=r37DiffN(subj==='math'?'math':'english'),ch=r37Char(),W=r37G3Worlds(subj)[w],items=r37G3Items(subj,w,s,diff,sel.seed),review=r37G3Review(subj,w,s,diff,sel.seed,items);
  if(items.length<4){toast('這一關還未準備好。','bad');location.hash=from;return;}
  const nx=r37G3Next(g,subj,w,s),ut=subj==='english'&&typeof LIB30!=='undefined'?(LIB30.units.get(r37UnitId(w,s))?.title||''):'';
- const opts={subject:subj,items,review,difficulty:diff,passRate:r37Diff(subj==='math'?'math':'english').pass/* R3.30 C-09: the parent's pass rate, same as the 闖關 */,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
+ const opts={...r38Hook(box,items),subject:subj,items,review,difficulty:diff,passRate:r37Diff(subj==='math'?'math':'english').pass/* R3.30 C-09: the parent's pass rate, same as the 闖關 */,mode:'level',sound:sfxEnabled(),assetBase:'assets/r321/',seed:sel.seed,
   title:G.name,level:{w,s,boss:s===9,title:ut||(W&&W.name)||'',icon:(W&&W.icon)||'',hue:G.hue,grade:r37G3Grade(subj,w)},
   character:{id:ch.id,icon:ch.icon,img:ch.img,name:ch.name,perk:ch.perk},syllables:r37SylText,
   regen:()=>{if(subj!=='math')return null;const sd=(Date.now()&0xfffff)+1,its=r37G3Items(subj,w,s,diff,sd);return {items:its,review:r37G3Review(subj,w,s,diff,sd,its)};},speak:t=>{try{r37Speak(t);}catch(_){}},
@@ -59,11 +59,11 @@ function r37RunMount(){
  const box=$('#r37-run-box');if(!box||!r37RunSel)return;r37RunStop();
  const {w,s}=r37RunSel;if(!globalThis.WQ37Run){box.innerHTML='<div class="r37-card"><h2>🏃</h2></div>';return;}
  const diff=r37DiffN('english'),ch=r37Char();
- r37RunHandle=WQ37Run.start(box,{words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
+ r37RunHandle=WQ37Run.start(box,{...r38Hook(box,r38Words()),words:r37GameWords(w,20).map(x=>Object.assign(x,{emoji:x.emoji==='🔤'?'':x.emoji})),character:{id:ch.id,icon:ch.icon,name:ch.name,perk:ch.perk},world:w,stage:s,difficulty:diff,sound:sfxEnabled(),mode:r37RunSel.endless?'endless':undefined,
   onFinish:res=>{if(r37RunSel&&r37RunSel.endless){r37Bump('run');return 0;}/* R3.29 C-07: endless runs have their own count, not the letter-hunt mission */const o=r37Get(),k=r37LvKey('runner',w,s),old=o.lv[k]||{best:0},stars=res.stars||1;let coins=0;
    const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});
    if(res.passed){const first=!old.passed;e.passed=true;if(first)r37Bump('levels');if(stars===5&&!old.five){e.five=true;coins+=s===2?3:1;if(ch.perk==='coin')coins+=1;r37Bump('five');}if(first&&s===2)coins+=2;}
-   r37Save();coins=r37AddCoins(coins);return coins;},
+   r38Tally(res);r37Save();coins=r37AddCoins(coins);return coins;},
   onExit:()=>{r37RunStop();location.hash='#lv/runner';}});
 }
 function r37Layout(){
@@ -73,12 +73,14 @@ function r37Layout(){
 const r37PriorRender=render;
 render=function(){
  const route=(location.hash||'#kid').slice(1).split('?')[0];
+ if(!r37ArcOpen()&&R38_ARC_ROUTE.test(route)){location.replace(route==='game-settings'?'#p/parent':'#p/games');return;}
  if(!R37_ROUTE.test(route)){
   document.body.classList.remove('r37','r37-playing','r37leg');document.body.classList.toggle('r37arc',/^(playground|arcade-play|gameplay)$/.test(route));r37FpsStop();r37RunStop();
   const out=r37PriorRender.apply(this,arguments);
   try{r37FixNav();}catch(_){}
   try{r37ReportExtra(route);}catch(_){}
   try{r37Wrap(route);}catch(_){}
+  try{r37ArcScrub();}catch(_){}
   return out;
  }
  if(route==='lp/play'&&!r37P){location.replace('#kid');return;}
@@ -111,10 +113,10 @@ render=function(){
  r37Layout();
  if(route==='oly'||route.startsWith('oly/'))r80Mount(route);
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
- if(route==='fps')r37FpsMount();
- if(route==='fp/play')r37FpsLvMount();
- if(route==='rn/play')r37RunMount();
- if(route==='g3/play')r37G3Mount();
+ if(route==='fps')r38Run($('#r37-fps-box'),r38Words(),r37FpsMount);
+ if(route==='fp/play')r38Run($('#r37-fps-box'),r38Words(),r37FpsLvMount);
+ if(route==='rn/play')r38Run($('#r37-run-box'),r38Words(),r37RunMount);
+ if(route==='g3/play'&&r37G3Sel){const q=r37G3Sel;r38Run($('#r37-g3-box'),q.subj==='math'?r37G3Items('math',q.w,q.s,r37DiffN('math'),q.seed):r38Words(),r37G3Mount);}
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
@@ -164,6 +166,7 @@ document.addEventListener('click',e=>{
  const a=el.dataset.r37,P=r37P;
  if(a==='level')r37StartLevel(el.dataset.track,+el.dataset.w,+el.dataset.s);
  else if(a==='quiz')r37StartQuiz(el.dataset.track,el.dataset.mode);
+ else if(a==='due')r39Start();
  else if(a==='run'){r37RunSel={w:+el.dataset.w,s:+el.dataset.s};location.hash='#rn/play';}
  else if(a==='run-endless'){r37RunSel={w:Number.isInteger(r37Mem._rw)?r37Mem._rw:0,s:0,endless:true};location.hash='#rn/play';}
  else if(a==='fps-level')r37StartFps(+el.dataset.w,+el.dataset.s,el.dataset.from);
@@ -185,7 +188,7 @@ document.addEventListener('click',e=>{
  else if(a==='dz-rv')r37DzReview(+el.dataset.g);
  else if(a==='dz-next'&&P&&P.kind==='dz'){const {g,lvl,n}=P.dz;if(lvl<3)r37DzStart(g,lvl+1,true);else if(g<n-1)r37DzStart(g+1,0);}
  else if(a==='exit')r37Exit();
- else if(a==='retry'&&P){if(P.kind==='dz'){if(P.dz.rv)r37DzReview(P.dz.g);else r37DzStart(P.dz.g,P.dz.lvl,true);}else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else r37StartQuiz(P.track,P.mode);}
+ else if(a==='retry'&&P){if(P.kind==='dz'){if(P.dz.rv)r37DzReview(P.dz.g);else r37DzStart(P.dz.g,P.dz.lvl,true);}else if(P.kind==='level')r37StartLevel(P.track,P.w,P.s);else if(P.mode==='due')r39Start();else r37StartQuiz(P.track,P.mode);}
  else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}if(P.track==='olympiad'&&!(s&1)&&!r80Seen('p'+(w+1)+'-'+((s>>1)+1))&&!adminUnlocks()){r37P=null;location.hash='#oly/'+(w+1)+'/'+((s>>1)+1)+'/learn';}else r37StartLevel(P.track,w,s);}
  else if(a==='oly-lesson'&&P&&P.track==='olympiad'){const g=P.w+1,n=(P.s>>1)+1;r37P=null;clearTimeout(r37Timer);location.hash='#oly/'+g+'/'+n+'/learn';}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}const t=r37DiffT(el.dataset.t||r37Mem._dsub||'english');r37Get().diffs[t]=+el.dataset.n;r37Save();render();}

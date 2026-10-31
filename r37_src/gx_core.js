@@ -290,8 +290,12 @@
       return a.length < b.length && b.indexOf(a) === 0 ? 'partial' : 'wrong';
     };
     /* record one answer (ok:boolean). Wrong: the item comes back 2-4 items later, at most twice. Right: counts as done. */
-    L.answer = function (it, ok, ms) {
+    /* R3.38: lapse = the question ran out with no answer given; the item still comes back and still is no first-try hit, but it is not recorded as a wrong answer */
+    function emit(k, it, x) { try { if (o.onEvent) o.onEvent(k, x); } catch (e) { /* */ } }
+    L.note = emit;
+    L.answer = function (it, ok, ms, lapse) {
       var s = stats[it.id]; if (!s) return null; s.tries++; s.ms += ms || 0;
+      if (lapse) { s.lapses = (s.lapses || 0) + 1; emit('lapse', it, { typed: lapse === 'typed' }); } else { emit(ok ? 'ok' : 'wrong', it); if (ok && s.tries > (s.lapses || 0) + 1) emit('fix', it); }
       if (s.firstOk === null) { s.firstOk = !!ok; if (!s.rv) { firstN++; if (ok) firstOkN++; } }
       var out = { ok: !!ok, first: s.tries === 1, requeued: false, item: it };
       if (ok) { s.ok = true; if (!s.rv) correctN++; return out; }
@@ -301,12 +305,13 @@
         /* near the end of the level there may be fewer than 'gapMin' items left: fill the gap with already-solved items (revisit, never counted) so a miss is never asked again straight after its card */
         var need = Math.max(0, Math.min(2, gapMin) - queue.length), cand = items.filter(function (x) { return stats[x.id] && stats[x.id].ok && x.id !== it.id; }), f;
         while (need-- > 0 && cand.length) { f = cand.splice(Math.floor(rng() * cand.length), 1)[0]; fillN++; var fl = Object.assign({}, f, { id: 'fl' + fillN + ':' + f.id, rv: true }); stats[fl.id] = { id: fl.id, rv: true, item: fl, tries: 0, firstOk: null, ok: false, ms: 0, requeued: 0, missed: 0 }; queue.push(fl); }
-        at = Math.min(queue.length, Math.max(at, Math.min(2, gapMin))); queue.splice(Math.max(0, at), 0, it); out.requeued = true;
+        var back = it; if (it.alt) { back = Object.assign({}, it, it.alt, { alt: null }); s.item = back; }
+        at = Math.min(queue.length, Math.max(at, Math.min(2, gapMin))); queue.splice(Math.max(0, at), 0, back); out.requeued = true;
       }
       return out;
     };
     /* the child used a hint on this item: it can no longer count as a first-try hit */
-    L.assisted = function (it) { var s = stats[it.id]; if (!s || s.rv) return; if (s.firstOk === true) { firstOkN--; s.firstOk = false; } else if (s.firstOk === null) { s.firstOk = false; firstN++; } s.hinted = true; };
+    L.assisted = function (it) { var s = stats[it.id]; if (!s || s.rv) return; if (s.firstOk === true) { firstOkN--; s.firstOk = false; } else if (s.firstOk === null) { s.firstOk = false; firstN++; } if (!s.hinted) emit('hint', it); s.hinted = true; };
     L.progress = function () { var okN = 0, k; for (k in stats) if (stats[k].ok && !stats[k].rv) okN++; return { done: okN, total: items.length, tries: Object.keys(stats).reduce(function (n, k) { return n + stats[k].tries; }, 0) }; };
     L.firstAcc = function () { return firstN ? firstOkN / firstN : 0; };
     L.accuracy = function () { var t = 0, ok = 0, k; for (k in stats) { if (stats[k].rv) continue; t += stats[k].tries; if (stats[k].ok) ok++; } return t ? ok / t : 0; };
@@ -315,9 +320,9 @@
     L.passRate = o.passRate != null && isFinite(+o.passRate) && +o.passRate > 0 ? +o.passRate : .70;
     L.result = function (x) {
       x = x || {}; var cleared = x.cleared !== false, core = items.length, fa = core ? firstOkN / core : 0;
-      var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms) }; });
+      var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms), lapses: s.lapses || 0, hinted: !!s.hinted, how: !s.tries ? 'none' : (s.lapses || 0) >= s.tries ? 'lapse' : s.hinted ? 'hint' : s.firstOk ? 'ok' : 'wrong' }; });
       var stars = cleared ? GX.starsOf(fa) : 1;
-      return { stars: stars, passed: cleared && fa >= L.passRate - 1e-9, passRate: L.passRate, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0; }) };
+      return { stars: stars, passed: cleared && fa >= L.passRate - 1e-9, passRate: L.passRate, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0 && p.how !== 'lapse'; }), lapses: per.filter(function (p) { return !p.rv && p.how === 'lapse'; }).length, hints: per.filter(function (p) { return !p.rv && p.hinted; }).length };
     };
     return L;
   };
@@ -430,7 +435,8 @@
     S.every = function (fn, ms) { var id = setInterval(function () { if (!S.dead && !S.paused) fn(); }, ms); intervals.push(id); return id; };
     S.clearLater = function (id) { clearTimeout(id); var i = timers.indexOf(id); if (i >= 0) timers.splice(i, 1); };
     S.sfx = function (n, o2) { S.audio.sfx(n, o2); };
-    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed, passRate: opts.passRate });
+    S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, seed: opts.seed, passRate: opts.passRate, onEvent: opts.onLearn });
+    S.gate = function (it, resume) { return !!(opts.onIdle && opts.onIdle(root, it, resume)); };
     S.syl = function (it) { try { if (typeof opts.syllables === 'function' && it && it.en) return String(opts.syllables(it.en) || ''); } catch (e) { /* */ } return it && it.syl ? it.syl : ''; };
     S.speak = function (text, lang) {
       if (!text || S.audio.muted() || opts.sound === false) return;
@@ -441,7 +447,7 @@
     S.newLearn = function () {
       var r = null; try { if (typeof opts.regen === 'function') r = opts.regen(); } catch (e) { /* */ }
       if (r && r.items && r.items.length >= 4) { opts.items = r.items; if (r.review) opts.review = r.review; }
-      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, passRate: opts.passRate });
+      S.learn = GX.Learn({ items: opts.items, review: opts.review, subject: opts.subject, difficulty: opts.difficulty, mode: opts.mode, passRate: opts.passRate, onEvent: opts.onLearn });
       return S.learn;
     };
     S.say = function (it) { if (it && it.en) S.speak(it.en, 'en-US'); };
@@ -482,7 +488,7 @@
     S.ui = GX.ui(root, S);
     S.openPause = function () {
       if (S.dead || S.paused || S.ended) return; S.paused = true; S.audio.stopMusic();
-      S.ui.pause({ muted: S.audio.muted(), music: S.audio.musicOn(), onMusic: function (v) { S.audio.setMusicOn(v); }, onResume: function () { S.closePause(); }, onRestart: function () { S.paused = false; if (cfg.onRestart) cfg.onRestart(); }, onMute: function (v) { S.audio.setMuted(v); }, onExit: function () { S.paused = false; if (opts.onExit) opts.onExit(); } });
+      S.ui.pause({ muted: S.audio.muted(), music: S.audio.musicOn(), onMusic: function (v) { S.audio.setMusicOn(v); }, onResume: function () { S.closePause(); }, onRestart: function () { S.paused = false; var go = function () { if (cfg.onRestart) cfg.onRestart(); }; if (opts.onAgain) opts.onAgain(go); else go(); }, onMute: function (v) { S.audio.setMuted(v); }, onExit: function () { S.paused = false; if (opts.onExit) opts.onExit(); } });
     };
     S.closePause = function () { if (!S.paused) return; S.paused = false; S.ui.close('pause'); last = 0; if (cfg.music) S.audio.music(cfg.music); if (cfg.onResume) cfg.onResume(); };
     S.pause = S.openPause; S.resume = S.closePause;
@@ -493,7 +499,7 @@
       var coins = 0; try { if (typeof opts.onFinish === 'function') coins = Number(opts.onFinish(JSON.parse(JSON.stringify(res)))) || 0; } catch (e) { /* */ }
       res.coins = coins; S.result = res;
       S.sfx(res.passed ? 'win' : 'lose'); if (res.passed) { S.fx.confetti(S.W, { n: 90 }); S.fx.flash('#ffe9a8', .3); }
-      S.later(function () { S.ui.result(res, { coins: coins, canNext: !!opts.onNext && res.passed, onRetry: function () { S.ui.close('result'); if (cfg.onRestart) cfg.onRestart(); }, onNext: function () { if (opts.onNext) opts.onNext(); }, onExit: function () { if (opts.onExit) opts.onExit(); } }); }, res.passed ? 900 : 450);
+      S.later(function () { S.ui.result(res, { coins: coins, canNext: !!opts.onNext && res.passed, onRetry: function () { S.ui.close('result'); var go = function () { if (cfg.onRestart) cfg.onRestart(); }; if (opts.onAgain) opts.onAgain(go); else go(); }, onNext: function () { if (opts.onNext) opts.onNext(); }, onExit: function () { if (opts.onExit) opts.onExit(); } }); }, res.passed ? 900 : 450);
       return res;
     };
     S.destroy = function () {

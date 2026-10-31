@@ -34,6 +34,7 @@ def main():
         with sync_playwright() as p:
             b = p.chromium.launch(args=['--no-sandbox'])
             ctx = b.new_context(viewport={'width': 1440, 'height': 900}, service_workers='allow')
+            ctx.add_init_script("try{localStorage.setItem('wq37-t-legacy','1')}catch(e){}")  # R3.38: the sealed arcade stays testable offline
             pg = ctx.new_page(); errs = []
             pg.on('pageerror', lambda e: errs.append(str(e)))
             pg.goto(base); pg.wait_for_timeout(2500)

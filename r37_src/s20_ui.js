@@ -99,12 +99,12 @@ function r37AssignCard(){
  }).join('');
 }
 function r37Home(){
- const m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)||(day[x.key]||0)>=x.goal).length/* R3.29 C-25: a finished mission counts before its reward is claimed */,readyN=m.filter(x=>!day.claimed.includes(x.id)&&(day[x.key]||0)>=x.goal).length,asg=r37Assign(),prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
+ const due=r39Due().length,m=r37Mission(),day=r37Get().day,doneN=m.filter(x=>day.claimed.includes(x.id)||(day[x.key]||0)>=x.goal).length/* R3.29 C-25: a finished mission counts before its reward is claimed */,readyN=m.filter(x=>!day.claimed.includes(x.id)&&(day[x.key]||0)>=x.goal).length,asg=r37Assign(),prog={english:r37TrackProgress('english'),math:r37TrackProgress('math'),olympiad:r37TrackProgress('olympiad')};
  const ring=p=>{const q=prog[p.id];if(!q)return '';const v=Math.round(q.done/Math.max(1,q.total)*100);return v>0?`<span class="r37-pp" style="--p:${v}"><b>${q.done}/${q.total}</b></span>`:'';};
  return `<section class="r37-gx">${r37Top()}
  <div class="r37-sys"><div class="r37-sun" aria-hidden="true"><img class="r37-sunimg" src="${R37_ASSET}core_sun.webp" alt="" width="384" height="384" loading="eager" decoding="async"><b>學霸星球</b><small>SmartQuest Planet</small></div><i class="r37-orbit o1"></i><i class="r37-orbit o2"></i><i class="r37-orbit o3"></i>
  ${R37_PLANETS.map((p,i)=>`<a class="r37-planet" href="#p/${p.id}" data-pl="${p.id}" style="--h:${p.hue};--x:${p.x}%;--y:${p.y}%;--d:${(i*.7).toFixed(1)}s;--tilt:${p.tilt}deg"><span class="r37-orb">${r37OrbHTML(p.id)}</span><span class="r37-pn">${p.name}</span>${ring(p)}</a>`).join('')}</div>
- <a class="r37-quest" href="#p/games"><span class="r37-qi" aria-hidden="true">${r37Icon('🎁')}</span><b>今日任務</b><span class="r37-pips2">${m.map(x=>`<i class="${day.claimed.includes(x.id)||(day[x.key]||0)>=x.goal?'on':''}"></i>`).join('')}</span><span>${doneN}/3</span>${readyN?`<em class="r37-qready">${r37Icon('🎁')}可領 ${readyN} 個</em>`:''}</a>
+ ${due?`<button type="button" class="r37-quest r39-due" data-r37="due"><span class="r37-qi" aria-hidden="true">${r37Icon('📅')}</span><b>今日要溫</b><small>${due} 個</small></button>`:`<a class="r37-quest" href="#p/games"><span class="r37-qi" aria-hidden="true">${r37Icon('🎁')}</span><b>今日任務</b><span class="r37-pips2">${m.map(x=>`<i class="${day.claimed.includes(x.id)||(day[x.key]||0)>=x.goal?'on':''}"></i>`).join('')}</span><span>${doneN}/3</span>${readyN?`<em class="r37-qready">${r37Icon('🎁')}可領 ${readyN} 個</em>`:''}</a>`}
  ${asg.length?`<a class="r37-assignchip" href="#p/english"><span aria-hidden="true">${r37Icon('📅')}</span><b>家長安排</b><span>${esc(asg[0].title)}</span></a>`:''}
  ${r37Nav('kid')}</section>`;
 }
@@ -132,8 +132,8 @@ function r37Hub(id){
 }
 /* R3.32 英文星 / 數學星: the 奧數星 layout - one card per world, one 繼續 to the next level, the other entries as small buttons */
 function r37NextStage(t){
- const W=r37TrackWorlds(t).length;
- for(let w=0;w<W;w++)for(let s=0;s<10;s++)if(!r37Entry(t,w,s)?.passed&&r37StageOpen(t,w,s))return {w,s};
+ const W=r37TrackWorlds(t).length,from=t==='math'?r39MathStart():0;
+ for(let i=0;i<W;i++){const w=(from+i)%W;for(let s=0;s<10;s++)if(!r37Entry(t,w,s)?.passed&&r37StageOpen(t,w,s))return {w,s};}
  return null;
 }
 function r37PathHub(t){
@@ -159,7 +159,7 @@ function r37GamesHub(){
  const m=r37Mission(),d=r37Get().day,ch=r37Char(),doneN=m.filter(x=>d.claimed.includes(x.id)||(d[x.key]||0)>=x.goal).length,readyN=m.filter(x=>!d.claimed.includes(x.id)&&(d[x.key]||0)>=x.goal).length;
  const quest=m.map(x=>{const v=Math.min(x.goal,d[x.key]||0),ok=v>=x.goal,got=d.claimed.includes(x.id);return `<div class="r37-mq ${ok?'ok':''}"><span class="r37-mi" aria-hidden="true">${r37Icon(x.icon)}</span><b>${x.name}</b><i style="--p:${Math.round(v/x.goal*100)}%"></i><em>${v}/${x.goal}</em>${got?'<span class="r37-got">✓</span>':ok?`<button type="button" data-r37="claim" data-id="${x.id}">${r37Icon('🎁')}+${x.coins}</button>`:`<span class="r37-rw">${r37Icon('🪙')}${x.coins}</span>`}</div>`;}).join('');
  return `<section class="r37-hub" style="--h:28">${r37Top()}<div class="r37-hero"><span class="r37-bigorb" style="--tilt:20deg">${r37OrbHTML('games')}</span><h1>遊戲星</h1>${r37Cap(r37Icon('🎁')+`<b>${doneN}/3</b>`+(readyN?`<b class="r37-qready">可領 ${readyN} 個</b>`:''),'今日任務：完成 '+doneN+' 個，共 3 個'+(readyN?'，其中 '+readyN+' 個未領獎勵':''))}</div>
- <div class="r37-tiles r37-gt g8">${r37A('🕹️','遊戲街機','#game','gold big','games')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37A('🏰','字母砲台','#lv/td','violet big')+r37A('🌀','字母迷宮','#lv/mz','teal big')+r37A('🃏','字卡征途','#lv/cd','rose big')+r37B(r37ChImg(ch),'角色','data-r37="chars"','blue big')}</div>
+ <div class="r37-tiles r37-gt g8${r37ArcOpen()?'':' g6'}">${(r37ArcOpen()?r37A('🕹️','遊戲街機','#game','gold big','games'):'')+r37A('🏃','星際跑酷','#lv/runner','green big')+r37A('🎯','字母獵場','#lv/fps','pink big')+r37A('🏰','字母砲台','#lv/td','violet big')+r37A('🌀','字母迷宮','#lv/mz','teal big')+r37A('🃏','字卡征途','#lv/cd','rose big')+r37B(r37ChImg(ch),'角色','data-r37="chars"','blue big')}</div>
  <div class="r37-card r37-quests"><h2>${r37Icon('🎁')}今日任務</h2>${quest}</div>${r37Nav('p/games')}</section>`;
 }
 function r37Chars(){
@@ -339,6 +339,7 @@ function r37Result(){
  if(r.hintedRight&&P.kind!=='dz')note+=`<p class="r37-rn r37-rh">有 ${r.hintedRight} 題看了提示才答對，下次試試自己答。</p>`;
   lessons=(r.lessons||[]).map((l,i)=>l.code?act('r37-lesson',`data-r37="lesson" data-code="${esc(l.code)}" data-track="${esc(P.track)}"`,'📚','看課堂'):act('r37-lesson r37-exagain',`data-r37="ex-again" data-i="${i}"`,'💡','再看例題')).join('');
   if(miss.length&&P.kind==='level')redo=act('r37-redo','data-r37="redo-miss"','🔁','只重做錯的');
+  if(P.mode==='due'){retryBtn=r39Due().length?act('r37-go','data-r37="retry"','▶',`繼續要溫（還有 ${r39Due().length} 個）`):'';note+='<p class="r37-rn">答對的會隔幾天再考一次，才算真正記住。</p>';}
  }
  if(r.capped)note+=`<p class="r37-rn r37-rh">今日闖關和遊戲的金幣已達上限（${R37_COIN_CAP} 枚），明天再賺</p>`;
  const exitLabel=P.kind==='dz'?'組別':P.kind==='level'?'地圖':'返回';
@@ -445,7 +446,9 @@ function r37NoteWrong(P,q,value){
   const k=o.wrong.findIndex(x=>x.en===q.word);
   if(k>=0){o.wrong[k].n++;o.wrong[k].at=now;o.wrong[k].w=w;o.wrong[k].s=s;}
   else{o.wrong.push({en:q.word,zh:q.zhOf||'',w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}
+  r39EnrolWord(q.word,q.zhOf||'',w,s);
  }else if(q.mq){
+  if(P.track==='math')r39EnrolSkill(q.mq.skill,w,s);
   o.miss.push({t:P.track,sk:q.mq.skill||'',q:q.mq.q,a:q.answer,at:now,w,s,svg:P.track==='olympiad'&&q.mq.svg&&String(q.mq.svg).length<6000?q.mq.svg:undefined});if(o.miss.length>60)o.miss.shift();
  }
  r37Save();
@@ -491,6 +494,7 @@ function r37Answer(value){
  P.fb={ok,value:v,part:ok&&credit<1&&!hintRight,syn:j.syn||'',hint:hintRight,second:second&&!hinted};P.res[P.i]=ok;
  if(hintRight){q.hintedRight=true;if(!q.warm&&hinted)P.hintedRight=(P.hintedRight||0)+1;}
  if(q.dz)r37DzRecord(q,P.fb.value,ok);
+ if(q.rv&&ok)r39Pass(q.rv,hintRight);
  const key=q.retest&&q.origKey?q.origKey:r37QKey(q);/* R3.29 B-H1: a maths re-test is a NEW question of the same skill; it settles the original miss */
  if(!q.dz){
   P.log.push({key,ok,value:v,retest:!!q.retest,warm:!!q.warm});
@@ -521,7 +525,7 @@ function r37Answer(value){
   if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhd||'',skill:'',n:0};
   P.miss[key].n++;
  }
- if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}playSfx('correct');r37Cheer();}
+ if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}if(q.retest||q.rv)r37Bump('fix');playSfx('correct');r37Cheer();}
  else{
   if(P.kind==='level'&&!q.warm&&!q.retest){/* R3.31: a wrong re-test costs no heart and uses no shield */if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
   playSfx('wrong');
@@ -655,7 +659,7 @@ function r37ReportExtra(route){
 function r37ParentHub(){
  const o=r37Get(),tab=r37Mem._ptab||'diff',c=activeChild();
  const tabs=[['diff','🎚️','難度'],['prog','📊','進度'],['kids','👦','孩子'],['data','🛠️','工具']].map(([k,i,l])=>`<button type="button" class="r37-ptab ${tab===k?'on':''}" data-r37="ptab" data-k="${k}" aria-label="${l}">${r37Icon(i)}<b>${l}</b></button>`).join('');
- const today=`<div class="r37-card r37-today"><h2>${r37Icon('📅')}今日學習</h2><div class="r37-todayrow"><span>${r37Icon('🏆')}<b>${o.day.levels}</b><small>過關</small></span><span>${r37Icon('✅')}<b>${o.day.correct}</b><small>答對</small></span><span>${r37Icon('🎯')}<b>${o.day.fps||0}</b><small>獵場</small></span></div></div>`;
+ const today=`<div class="r37-card r37-today"><h2>${r37Icon('📅')}今日學習</h2><div class="r37-todayrow n4"><span>${r37Icon('🏆')}<b>${o.day.levels}</b><small>過關</small></span><span>${r37Icon('✅')}<b>${o.day.correct}</b><small>答對</small></span><span>${r37Icon('🎯')}<b>${o.day.ans||0}</b><small>遊戲作答</small></span><span>${r37Icon('⏸️')}<b>${o.day.lapse||0}</b><small>沒作答</small></span></div><p class="r38-today">用提示 ${o.day.hint||0} 次，改正 ${o.day.fix||0} 處，暫停答題 ${o.day.gate||0} 次，重溫中 ${o.rv.length} 項（今日到期 ${r39Due().length}）</p></div>`;
  let body='';
  if(tab==='diff'){
   const sub=['english','math','olympiad'].includes(r37Mem._dsub)?r37Mem._dsub:'english',cur=o.diffs[sub],T=R37_TRACKS[sub];

@@ -34,7 +34,7 @@ with sync_playwright() as p:
     # ---- A-02 / A-17 / A-18 / A-10 on the English planet and the map
     go(pg, '#p/english', 600)
     t = txt(pg)
-    C.ok('拼音' not in t and '繼續學習' in t, 'A-02 the 拼音 tile is renamed 繼續學習: ' + t[:80])
+    C.ok('拼音' not in t and pg.locator('.r80-g').count() > 0, 'A-02 no 拼音 tile; since R3.32 the English hub is the world-card layout: ' + t[:80])
     ev(pg, "(()=>{const o=r37Get();o.lv['english:0:0']={passed:true,best:3,at:new Date().toISOString()};r37Save();})()")
     go(pg, '#lv/english', 600)
     n_on = pg.evaluate("document.querySelectorAll('.r37-node .r37-st3 i.on').length")

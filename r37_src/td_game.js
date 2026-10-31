@@ -699,16 +699,20 @@
     }
     function wrongAnswer(e, it, typed, why) {
       if (frozen || e.state !== 'walk') return; frozen = true; e.state = 'fail'; pad.disable(true); events.push('wrong:' + it.id + ':' + (why || 'typed'));
-      var ms = e.age * 1000, out = it.rv ? null : S.learn.answer(it, false, ms), p = enemyXY(e);   /* revisit/filler items (rv) never requeue: gx_core would chain endless fillers */ combo = 0; tier = 0; S.sfx('bad'); S.fx.burst(p.x, p.y, { n: 14, colors: ['#ff6b81', '#c3cbf7'], speed: 130, life: .6, size: 4 }); hudUpdate();
+      var typedAny = e.typed.length > e.pre, lapse = why === 'base' ? (typedAny ? 'typed' : true) : false;   /* R3.38: a monster reaching the base means no answer was given, not a wrong answer */
+      if (it.rv && lapse) S.learn.note('lapse', it, { typed: typedAny });
+      var ms = e.age * 1000, out = it.rv ? null : S.learn.answer(it, false, ms, lapse), p = enemyXY(e);   /* revisit/filler items (rv) never requeue: gx_core would chain endless fillers */ combo = 0; tier = 0; S.sfx('bad'); S.fx.burst(p.x, p.y, { n: 14, colors: ['#ff6b81', '#c3cbf7'], speed: 130, life: .6, size: 4 }); hudUpdate();
       if (why === 'base' && guards[e.lane]) { guards[e.lane] = false; launchGuard(e.lane); }
       else if (why === 'base') { hearts = Math.max(0, hearts - 1); baseHit = 1; S.sfx('basehit'); S.fx.shake(6, .35); S.fx.flash('#ff3c5a', .35); hudUpdate(true); }
-      S.ui.learn(it, { typed: isMath(it) ? '' : (e.typed.length > e.pre ? e.typed : ''), onDone: function () {
+      var after;
+      S.ui.learn(it, { typed: isMath(it) ? '' : (e.typed.length > e.pre ? e.typed : ''), onDone: function () { if (lapse === true && hearts > 0 && S.gate(it, after)) return; after(); } });
+      after = function () {
         frozen = false; pad.disable(false);
         if (e.items && e.phase < e.items.length - 1) { pend = e.items.slice(e.phase + 1).concat(pend); }   /* two-step boss: step 2 only appears after step 1 is right; otherwise it comes back later as a normal monster */
         { e.state = 'gone'; if (e.boss) { e.fail = true; bossAlive = false; cfg.music = diff <= 2 ? 'calm' : 'drive'; S.audio.music(cfg.music); curLayer = 0; banner('魔王逃走了', '', 1200); } S.fx.burst(p.x, p.y, { n: 8, colors: ['#c3cbf7'], speed: 60, life: .5, size: 3, grav: -40 }); }
         if (target === e) target = null; var nt = pickTarget(); if (nt) setTarget(nt, false, true); else { applyPad(); renderQ(); }
         if (hearts <= 0) lose(); hudUpdate(true);
-      } });
+      };
     }
     function musicLayer() {                              /* music intensity follows the fight: boss = kick, boss near the base / last shield = hats + echo; drive tiers add the kick */
       var n = 0, b = null; if (bossAlive) { b = enemies.filter(function (q) { return q.boss && alive(q); })[0]; n = b && (b.shield <= 1 || b.xn < .5) ? 2 : 1; } else if (tier >= 2) n = 1;

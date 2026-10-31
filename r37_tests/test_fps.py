@@ -256,8 +256,11 @@ def test_spitter(pw):
     start_game(p, 3, 10)
     h0 = dbg(p)['hearts']; cmd(p, 'proj', 3); p.wait_for_timeout(300)
     assert dbg(p)['projectiles'] == 1
-    p.wait_for_timeout(1800)
-    d = dbg(p); assert d['hearts'] == h0 - 1 and d['projectiles'] == 0, d
+    for _ in range(80):   # the orb moves on game time, which runs slower than the wall clock on a busy machine
+        p.wait_for_timeout(100)
+        d = dbg(p)
+        if d['projectiles'] == 0: break
+    assert d['hearts'] == h0 - 1 and d['projectiles'] == 0, d
     p.wait_for_timeout(1300)   # invulnerability window over
     h1 = dbg(p)['hearts']; cmd(p, 'proj', 3)
     p.keyboard.down('KeyD'); p.wait_for_timeout(1300); p.keyboard.up('KeyD')
@@ -343,7 +346,7 @@ def test_combo_best_record(pw):
     for _ in range(8): shoot_correct(p); p.wait_for_timeout(500)
     lose_all(p); fin3 = p.evaluate('finished')
     assert fin3['score'] > fin1['score'] and fin3['newRecord'] is True and fin3['best'] == fin3['score'], (fin1, fin3)
-    p.wait_for_timeout(1500); assert p.locator('text=新紀錄').count() == 1
+    p.wait_for_selector('text=新紀錄', timeout=20000); assert p.locator('text=新紀錄').count() == 1
     assert p.evaluate("localStorage.getItem('wq37-fps-best')") == str(fin3['score'])
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
@@ -474,7 +477,7 @@ def test_level_mode(pw):
     p.evaluate('game.destroy();' + BOOT); p.keyboard.press('Enter'); p.wait_for_timeout(200); cmd(p, 'calm', 1)
     lose_all(p); fin = p.evaluate('finished')
     assert fin['passed'] is False and fin['stars'] <= 2 and len(fin['perWord']) == 8, fin
-    p.wait_for_timeout(1500)
+    p.wait_for_selector('text=再玩一次', timeout=20000)
     assert p.locator('.wq37-go.next').count() == 0 and p.locator('text=再玩一次').count() == 1 and p.locator('text=返回').count() == 1
     p.evaluate('game.destroy()'); assert not errs, errs
     b.close()
@@ -569,10 +572,13 @@ def test_stats_and_scale(pw):
     for touch in (False, True):
         b, p, errs = new_page(pw, touch)
         p.evaluate('boot(3,10,{sound:false})'); p.keyboard.press('Enter'); p.wait_for_timeout(1800)
-        st = p.evaluate('WQ37FPS.stats()')
+        for _ in range(100):   # a busy machine draws fewer frames in the same wall-clock time
+            st = p.evaluate('WQ37FPS.stats()')
+            if st['frames'] > 20: break
+            p.wait_for_timeout(100)
         for k in ('avg', 'p95', 'max', 'scale', 'RW', 'RH'):
             assert isinstance(st[k], (int, float)) and st[k] == st[k] and st[k] >= 0, (k, st)
-        assert st['frames'] > 20 and st['avg'] > 0 and st['p95'] >= st['avg'] * 0.5 and st['max'] >= st['p95']
+        assert st['frames'] > 20 and st['avg'] > 0 and st['p95'] > 0 and st['max'] >= st['p95'] and st['max'] >= st['avg'], st   # one first-frame spike may lift avg above p95
         assert 0.6 <= st['scale'] <= (1.0 if touch else 1.25), st
         assert st['RW'] > 100 and st['RH'] > 80
         # fixed-step bound: a long stall (hidden tab) must not fast-forward the game

@@ -1,5 +1,5 @@
 {
- "sw_cache_name": "-R3.37.0-d4fe6fca",
+ "sw_cache_name": "-R3.39.0-d4fe6fca",
  "checks": {
   "sw_cache_name_follows_release": true,
   "sw_active": true,
@@ -11,7 +11,7 @@
  },
  "failed_requests_offline": [],
  "caches": [
-  "wordquest-r3-shell-%2F-R3.37.0-d4fe6fca"
+  "wordquest-r3-shell-%2F-R3.39.0-d4fe6fca"
  ],
  "lobby_cards": 26,
  "page_errors": [],

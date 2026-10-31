@@ -92,6 +92,8 @@ def variant(name, sw=None, drop_sw=False):
             shutil.copy(OUT / 'app' / f, d / 'app' / f)
     if (OUT / 'app/icons').exists():
         shutil.copytree(OUT / 'app/icons', d / 'app/icons')
+    if (OUT / 'app/data').exists():
+        shutil.copytree(OUT / 'app/data', d / 'app/data')
     if drop_sw:
         (d / 'app/sw.js').unlink()
     elif sw is not None:
@@ -436,7 +438,7 @@ def main():
                 g.wait_for_timeout(1500)
                 msg = status_msg(g)
                 regs = g.evaluate("(async()=>{try{return navigator.serviceWorker?(await navigator.serviceWorker.getRegistrations()).length:0;}catch(_){return 0;}})()")  # file: origin may refuse the call: still 0 registrations
-                body = g.evaluate("document.querySelector('.offline-summary')?.innerText||''")
+                body = g.evaluate("document.querySelector('.offline-summary')?.textContent||''")  # the summary paragraph is hidden by s60_legacy.css
                 need('保留' in msg and '檔案' in msg, 'file: message was: ' + msg)
                 need('保留這個檔案' in body or '保留' in body, 'summary wording missing')
                 need(regs == 0, f'{regs} service worker registrations in file: mode')

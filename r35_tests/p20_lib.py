@@ -130,7 +130,9 @@ def answer(pg, correct=True):
         return True
     if pg.query_selector('#l30-answer'):
         ans = q.get('missing') if mode == 'missing' else ans
-        pg.fill('#l30-answer', ans if correct else 'zzq')
+        # R3.31: the tile pad drops letters it does not offer, so a wrong spelling must reuse the word's own letters
+        bad = (ans[::-1] if ans[::-1] != ans else ans[:-1]) if mode in ('spell', 'listenSpell', 'cloze') else 'zzq'
+        pg.fill('#l30-answer', ans if correct else bad)
         return True
     return False
 

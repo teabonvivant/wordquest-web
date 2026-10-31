@@ -147,9 +147,9 @@ with sync_playwright() as pw:
     dis = p.evaluate("()=>{const b=document.querySelector('[data-lc=go]');return b?b.disabled:null}")
     ok(dis is True or lc0['t'] >= lc0['min'], 'F4 the continue button is locked while the card is young')
     r0 = d['round']
-    for k in range(400):
-        if dbg(p)['state'] != 'learn': break
-        step(p, 1)
+    step(p, 60 * 15)
+    ok(dbg(p)['state'] == 'learn', 'F4 R3.38: the wrong-answer card waits for the child, it does not close by itself')
+    p.click('[data-lc=go]'); p.wait_for_timeout(60); step(p, 2)
     d = dbg(p)
     ok(d['state'] == 'play' and d['round'] == r0 + 1 or d['state'] != 'learn', f'F4 next round after the card (round {r0}->{d["round"]})')
     ok(d['timeLeft'] > 20, 'F4 fresh clock for the next round')

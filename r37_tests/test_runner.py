@@ -19,7 +19,7 @@ window.__spoke=[];
 (function(){var m={speak:function(u){window.__spoke.push(u.text)},cancel:function(){},getVoices:function(){return []}};
  try{Object.defineProperty(window,'speechSynthesis',{value:m,configurable:true})}catch(e){}})();
 </script>
-<script src="file://@JS@"></script>
+<script src="https://wq37-run.test/game.js"></script>
 <script>
 window.finished=[]; window.exited=0; window.game=null;
 window.boot=function(o){o=o||{};window.finished=[];window.exited=0;
@@ -28,7 +28,7 @@ window.boot=function(o){o=o||{};window.finished=[];window.exited=0;
   character:o.character||{icon:'🐼',name:'熊貓',perk:o.perk||''},
   world:o.world||0,stage:o.stage||0,difficulty:o.difficulty||2,sound:o.sound!==false,mode:o.mode||'story',
   onFinish:function(r){window.finished.push(r)},onExit:function(){window.exited++}});};
-</script></body></html>'''.replace('@JS@', JS).replace('@W@', json.dumps([dict(en=a, zh=b, emoji=c) for a, b, c in WORDS], ensure_ascii=False)))
+</script></body></html>'''.replace('@W@', json.dumps([dict(en=a, zh=b, emoji=c) for a, b, c in WORDS], ensure_ascii=False)))
 
 
 def dbg(p): return p.evaluate('WQ37Run._debug')
@@ -45,7 +45,11 @@ def new_page(pw, touch, reduced=False):
     p = ctx.new_page(); errs = []
     p.on('console', lambda m: errs.append(m.text) if m.type == 'error' else None)
     p.on('pageerror', lambda e: errs.append(str(e)))
-    p.goto('file://' + PAGE)
+    # https origin: on file:// headless Chromium sometimes loses localStorage across a reload (see README_R3_7 / lib37.open_https_page)
+    url = 'https://wq37-run.test/page.html'
+    p.route(url, lambda r: r.fulfill(path=PAGE, content_type='text/html; charset=utf-8'))
+    p.route('https://wq37-run.test/game.js', lambda r: r.fulfill(path=JS, content_type='text/javascript; charset=utf-8'))
+    p.goto(url)
     return b, p, errs
 
 

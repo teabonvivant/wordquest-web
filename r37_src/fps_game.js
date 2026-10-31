@@ -495,7 +495,7 @@
     '@keyframes wqlcIn{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}' +
     '@keyframes wqlcNo{0%,100%{transform:none}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}' +
     '@media (prefers-reduced-motion:reduce){.wqlc,.wqlc.bad{animation:none}}';
-  var LC_OK = { min: 0.8, max: 2.4 }, LC_BAD = { min: 2.0, max: 8, again: 2.6 };
+  var LC_OK = { min: 0.8, max: 2.4 }, LC_BAD = { min: 2.0, max: Infinity, again: 2.6 };   /* R3.38: a wrong answer card waits for the child */
   function lcEsc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   /* tests switch the card off with localStorage 'wq37-nolearn'='1'; hosts can pass opts.learnCard=false */
   function lcEnabled(o) { if (o && o.learnCard === false) return false; try { return localStorage.getItem('wq37-nolearn') !== '1'; } catch (e) { return true; } }
@@ -1320,7 +1320,7 @@
       if (corr) { if (G.boss) hitLetter(corr); else hitCorrect(corr); }
       else if (nWrong) {
         for (i = 0; i < wrong0.length; i++) popWrong(wrong0[i]);
-        G.wrong++; G.combo = 0; comboM = 1;
+        G.wrong++; G.combo = 0; comboM = 1; ev('wrong');
         if (!G.boss) wrongPick();
         if (G.boss) bossCounter(); else { loseHeart('wrong'); SFX.bad(panOf(wrong0[0].x, wrong0[0].y)); lcShow(false, cur, wrong0[0].w); }
       }
@@ -1329,8 +1329,8 @@
        the card shows the right word while its bubble glows, then the next round starts when the card closes */
     function timeUp() {
       G.timedOut = true; G.timeouts++;
-      var lw = cur;
-      wrongPick(); G.wrong++; G.combo = 0; comboM = 1;
+      var lw = cur, idle = !G.missInRound;
+      wrongPick(); G.wrong++; G.combo = 0; comboM = 1; PW[cur.i].lapse = (PW[cur.i].lapse || 0) + (idle ? 1 : 0); ev('lapse', { typed: !idle }); G.idleAsk = idle ? lw : null;
       floater('時間到！', cw / 2, ch * 0.42, '#fff', 34); SFX.bad(0);
       loseHeart('time'); if (state !== 'play') return;
       hinting = true;
@@ -1338,6 +1338,8 @@
       if (!lc) afterTimeout();
     }
     function afterTimeout() {
+      var iw = G.idleAsk; G.idleAsk = null;
+      if (iw && opts.onIdle && opts.onIdle(root, iw, function () { state = 'play'; lastT = 0; keys = {}; afterTimeout(); })) { state = 'gate'; if (document.pointerLockElement) { try { document.exitPointerLock(); } catch (e) { /* */ } } return; }
       G.timedOut = false;
       if (G.round >= totalRounds) { targets.length = 0; if (bossOn) startBoss(); else finish(true); return; }
       G.round++; startRound(false);
@@ -1351,7 +1353,7 @@
       G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo);
       var m = multOf(G.combo), pts = (100 + 10 * Math.min(G.combo - 1, 5) + bonus) * m;
       G.score += pts; G.shotPts += pts; G.correct++;
-      var rec = PW[cur.i]; rec.tries++; if (!rec.done) { rec.done = true; rec.ok = rec.miss === 0; }
+      var rec = PW[cur.i], fixed = !rec.done && rec.miss > (rec.lapse || 0); rec.tries++; if (hinting && !rec.done) rec.hinted = true; if (!rec.done) { rec.done = true; rec.ok = rec.miss === 0 && !rec.hinted; } ev('ok'); if (fixed) ev('fix'); if (rec.hinted && hinting) ev('hint');
       var pr = project(t.x, t.y, 0.55, PJ);
       floater('+' + pts, pr ? pr.x : cw / 2, pr ? pr.y : ch / 2, '#ffe36a', 34, true);
       burst(t.x, t.y, 0.55, 30, ['#ffe36a', '#ff5fa2', '#7fe3ff', '#ffffff', '#8e6bff'], 1.3);
@@ -1630,12 +1632,13 @@
       s = acc >= 0.9 ? 4 : acc >= 0.75 ? 3 : acc >= 0.5 ? 2 : 1;
       return G.won ? s : Math.min(s, 2);   /* running out of hearts never counts as a pass */
     }
+    function ev(k, x) { try { if (opts.onLearn) opts.onLearn(k, x); } catch (e) { /* */ } }
     function perWord() {
       var out = [], i;
       for (i = 0; i < PW.length; i++) {
         var r = PW[i];
         if (!r.asked && mode !== 'level') continue;
-        out.push({ en: r.en, ok: r.ok, tries: r.tries, solved: r.done });
+        out.push({ en: r.en, ok: r.ok, tries: r.tries, solved: r.done, lapses: r.lapse || 0, hinted: !!r.hinted });
       }
       return out;
     }
@@ -1691,7 +1694,7 @@
     function lcTick(dt) {
       if (!lc) { state = 'play'; return; }
       var t0 = lc.t; lc.t += dt;
-      if (lc.bar) lc.bar.style.width = Math.min(100, lc.t / lc.max * 100).toFixed(1) + '%';
+      if (lc.bar) lc.bar.style.width = Math.min(100, lc.t / (lc.ok ? lc.max : lc.min) * 100).toFixed(1) + '%';
       if (lc.t >= lc.min && lc.go.disabled) { lc.go.disabled = false; if (!touchMode) { try { lc.go.focus({ preventScroll: true }); } catch (e) { /* */ } } }
       if (lc.again && t0 < lc.again && lc.t >= lc.again) speak(lc.w.en);
       if (lc.t >= lc.max) lcDone(true);
@@ -1790,7 +1793,7 @@
         (r.newRecord ? '<div class="wq37-rec">' + ico('trophy', 20) + ' 新紀錄！</div>' : '') + (G.coins ? '<div class="wq37-coin">' + ico('coin', 20) + ' +' + G.coins + '</div>' : '') +
         '<div class="wq37-stat"><div><span>分數</span>' + r.score + '</div><div><span>最高分</span>' + r.best + '</div><div><span>準確度</span>' + acc + '%</div><div><span>最高連擊</span>' + r.maxCombo + '</div></div>' + wd + go +
         '<div class="wq37-btnrow"><button class="wq37-go' + (go ? ' small' : '') + '" data-act="again">↻ 再玩一次</button><button class="wq37-go alt' + (go ? ' small' : '') + '" data-act="back">返回</button></div>',
-        { again: function () { beginPlay(); },
+        { again: function () { if (opts.onAgain) opts.onAgain(beginPlay); else beginPlay(); },
           next: function () { try { if (opts.onNext) opts.onNext(); } catch (e) { console.error(e); } },
           back: function () {
             if (!finishedCalled && lastResult) { finishedCalled = true; callFinish(); }

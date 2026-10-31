@@ -16,12 +16,14 @@ def skip_learn(pg):
 def flawless(pg):
     for _ in range(ev(pg, 'r37P.qs.length')):
         skip_learn(pg)
+        i0 = ev(pg, 'r37P.i')
         q = ev(pg, 'r37P.qs[r37P.i]')
         if q['mode'] == 'mcq':
             pg.evaluate("(a)=>[...document.querySelectorAll('.r37-opt')].find(b=>b.dataset.v===a).click()", q['answer'])
         else:
             pg.fill('#r37-in', q['answer']); pg.keyboard.press('Enter')
-        pg.wait_for_timeout(900)
+        pg.wait_for_function("(i)=>window.__r37('!r37P||r37P.result||r37P.i>'+i)", arg=i0, timeout=15000)  # a review card can land with the next question; a fixed sleep raced it
+        pg.wait_for_timeout(150)
 
 
 def wrong_once(pg):
@@ -142,6 +144,6 @@ with sync_playwright() as p:
     ev(pg, "r37Get().wrong=[];r37StartLevel('english',0,0)"); pg.click('[data-r37="learn-go"]'); pg.wait_for_timeout(200)
     flawless(pg)
     C.ok(ev(pg, 'r37P.result.passed') and ev(pg, 'r37P.result.coins') == 0 and ev(pg, 'r37Coins()') == 0, 'guest can play a level; no coin is promised or stored for a guest')
-    C.ok(ev(pg, "Object.keys(localStorage).filter(k=>k.startsWith('wq37')&&k!=='wq37-nolearn').length") == 0, 'guest progress is not written to localStorage')
+    C.ok(ev(pg, "Object.keys(localStorage).filter(k=>k.startsWith('wq37')&&k!=='wq37-nolearn'&&k!=='wq37-t-legacy').length") == 0, 'guest progress is not written to localStorage')
     b.close()
 C.done()

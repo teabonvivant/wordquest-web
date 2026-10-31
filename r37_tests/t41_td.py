@@ -573,11 +573,10 @@ def main():
         ok(float(card['big'][:-2]) >= 40, f'answer font >= 40px ({card["big"]})')
         pg.wait_for_timeout(900)
         early = pg.evaluate("()=>window.__pn()-window.__t0")
-        pg.click('.gx-learn [data-r="ok"]', force=True, no_wait_after=True)
-        pg.keyboard.press('Enter'); pg.keyboard.press('Space')
-        still = dbg(pg)['ui']['learn']
         if early < 1850:
-            ok(still, f'card cannot be dismissed before 2 s (click + Enter + Space at {early:.0f} ms)')
+            pg.click('.gx-learn [data-r="ok"]', force=True, no_wait_after=True)
+            pg.keyboard.press('Enter'); pg.keyboard.press('Space')
+            ok(dbg(pg)['ui']['learn'], f'card cannot be dismissed before 2 s (click + Enter + Space at {early:.0f} ms)')
         else:
             print('   (machine too slow to assert the early click:', early, 'ms)')
         while pg.evaluate("()=>window.__pn()-window.__t0") < 2150: pg.wait_for_timeout(50)

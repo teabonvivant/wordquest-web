@@ -329,14 +329,14 @@
       if (isMath && G.mainDone > 0 && G.mainDone % 3 === 0 && G.condAfter !== G.mainDone && !S.learn.done()) { G.condAfter = G.mainDone; startCond(); return; }
       var it = S.learn.take(); if (!it) { win(); return; } startWord(it);
     }
-    function failWord(why) {                                                    /* first mistake in a word round = "not first try" (item will come back) */
-      var rd = G.rd; if (!rd || rd.kind !== 'word' || rd.failed) return; rd.failed = true; S.learn.answer(rd.item, false, (G.simT - rd.t0) * 1000);
+    function failWord(lapse) {                                                    /* first mistake in a word round = "not first try" (item will come back) */
+      var rd = G.rd; if (!rd || rd.kind !== 'word' || rd.failed) return; rd.failed = true; S.learn.answer(rd.item, false, (G.simT - rd.t0) * 1000, lapse);
     }
     function assist(rd) {                                                         /* a hint was used: this word can no longer count as a first-try hit (but still completes normally) */
       if (!rd || rd.kind !== 'word' || rd.assisted) return; rd.assisted = true; rd.hinted = true; S.learn.assisted(rd.item);
     }
-    function roundFail(typed) {                                                   /* stop the world, show the learn card (>= 2 s), then go on with the next item */
-      var rd = G.rd; if (!rd.failed) failWord(); G.combo = 0; G.phase = 'card'; G.hold = true; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = [];
+    function roundFail(typed, lapse) {                                                   /* stop the world, show the learn card (>= 2 s), then go on with the next item */
+      var rd = G.rd; if (!rd.failed) failWord(lapse); G.combo = 0; G.phase = 'card'; G.hold = true; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = [];
       S.ui.learn(rd.item, { typed: typed || '', onDone: function () { G.hold = false; nextRound(); } });
     }
     function wrongEat(t, c) {
@@ -387,10 +387,12 @@
       if (rd.kind === 'word') {
         var typed = rd.disp.map(function (d) { return d.filled ? d.ch : ''; }).join('');
         var away = (rd.inputN | 0) === 0; G.toStreak = (G.toStreak | 0) + 1; G.awayStreak = away ? (G.awayStreak | 0) + 1 : 0;
+        if (away) S.learn.note('lapse', rd.item, { typed: false });
+        if (G.awayStreak >= 2) { G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; G.phase = 'card'; G.hold = true; if (S.gate(rd.item, function () { G.hold = false; G.awayStreak = 1; G.toStreak = 0; nextRound(); })) return; G.hold = false; }
         if (G.awayStreak >= 2 || G.toStreak >= 4) { awayEnd(); return; }
         if (away) { G.combo = 0; G.phase = 'reveal'; G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; G.gems = []; S.ui.banner('還在嗎？', '這個字先跳過', 1400); later(1.5, nextRound); return; }
         if (G.toStreak >= 3 && !G.helpGlow) { G.helpGlow = true; S.ui.banner('慢慢來', '接下來每個字會亮燈幫你', 2200); }
-        roundFail(typed && typed.length < String(isMath ? rd.item.a : rd.item.en).length ? typed : '');
+        roundFail(typed && typed.length < String(isMath ? rd.item.a : rd.item.en).length ? typed : '', 'typed');
       } else {
         G.phase = 'reveal'; G.combo = 0; S.ui.banner('時間到', '金光的才對', 1700);
         G.tiles.forEach(function (t) { t.reveal = t.tgt; }); later(2.2, function () { G.tiles = []; G.tileAt = new Array(G.M.N); G.respawn = []; nextRound(); });

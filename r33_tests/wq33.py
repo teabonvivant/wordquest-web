@@ -18,7 +18,7 @@ def launch(p):
     return p.chromium.launch(executable_path=CHROMIUM, args=['--no-sandbox'])
 
 
-def new_page(p, w=390, h=844, touch=False, accept_downloads=False, url_suffix=''):
+def new_page(p, w=390, h=844, touch=False, accept_downloads=False, url_suffix='', legacy=True):
     """Returns (browser, context, page, errors). touch=True emulates a phone (is_mobile)."""
     b = launch(p)
     kw = dict(viewport={'width': w, 'height': h}, accept_downloads=accept_downloads)
@@ -26,6 +26,8 @@ def new_page(p, w=390, h=844, touch=False, accept_downloads=False, url_suffix=''
         kw.update(has_touch=True, is_mobile=True, device_scale_factor=2)
     ctx = b.new_context(**kw)
     pg = ctx.new_page()
+    if legacy:  # R3.38: keep the sealed arcade open and the learning gate off for tests written before them
+        pg.add_init_script("try{localStorage.setItem('wq37-t-legacy','1')}catch(e){}")
     errs = []
     pg.on('pageerror', lambda e: errs.append('PAGEERR ' + str(e)))
     return b, ctx, pg, errs

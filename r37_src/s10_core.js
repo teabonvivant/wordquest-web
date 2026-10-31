@@ -28,7 +28,7 @@ const R37_CHARS=[
 const R37_MISSIONS=[
  {id:'lv',icon:'🏆',name:'過 2 關',key:'levels',goal:2,coins:2},
  {id:'ok',icon:'✅',name:'答對 15 題',key:'correct',goal:15,coins:1},
- {id:'fps',icon:'🎯',name:'玩 1 局獵場',key:'fps',goal:1,coins:1},
+ {id:'fix',icon:'🔁',name:'改正 3 個錯處',key:'fix',goal:3,coins:1},
  {id:'star',icon:'⭐',name:'得 1 個五星',key:'five',goal:1,coins:2},
  {id:'en',icon:'🔤',name:'英文答對 10 題',key:'enok',goal:10,coins:1}
 ];
@@ -50,6 +50,9 @@ function r37Get(){
  Object.defineProperty(o,'diff',{get(){return o.diffs.english;},set(v){if([1,2,3,4,5].includes(+v))o.diffs.english=+v;},enumerable:false,configurable:true});
  if(!Array.isArray(o.miss))o.miss=[];
  if(!Array.isArray(o.wrong))o.wrong=[];
+ if(!Array.isArray(o.rv))o.rv=[];
+ /* R3.39: what is already on the wrong lists joins the review, due today */
+ if(o.rvV!==1){o.rvV=1;const d=r37Day();for(const x of o.wrong)if(x.en&&x.zh)o.rv.push({k:'w:'+x.en,t:'english',en:x.en,zh:x.zh,w:x.w,s:x.s,st:0,due:d});for(const m of o.miss)if(m.t==='math'&&m.sk&&!o.rv.some(x=>x.k==='m:'+m.w+':'+m.sk))o.rv.push({k:'m:'+m.w+':'+m.sk,t:'math',sk:m.sk,w:m.w,s:m.s,st:0,due:d});}
  for(const k of ['seen','recent','warm'])if(!o[k]||typeof o[k]!=='object'||Array.isArray(o[k]))o[k]={};
  if(!Array.isArray(o.chars)||!o.chars.includes('panda'))o.chars=['panda',...(Array.isArray(o.chars)?o.chars:[])];
  if(!R37_CHARS.some(c=>c.id===o.pick&&o.chars.includes(c.id)))o.pick='panda';
@@ -94,19 +97,23 @@ function r37StageOpen(t,w,s){
  if(adminUnlocks())return true;
  if(t==='olympiad'&&globalThis.WQOly)return r80StageOpen(w,s);
  if(s>0)return !!r37Entry(t,w,s-1)?.passed;
- if(w>0)return !!r37Entry(t,w-1,9)?.passed;
+ if(w>0)return (t==='math'&&w<=r39MathStart())||!!r37Entry(t,w-1,9)?.passed;
  return true;
 }
+/* R3.39: a child starts maths at their own school year (world 2 is P.3); the worlds below stay open, the ones above unlock in the usual order */
+function r39MathStart(){return Math.max(0,Math.min(5,(+activeChild()?.grade||1)-1));}
 /* FPS level map: node (w,s) is the English unit (w,s); open once that unit is passed (classroom completion counts) or for Admin */
 function r37FpsOpen(w,s){return adminUnlocks()||!!r37Entry('english',w,s)?.passed;}
 function r37FpsWorldOpen(w){return adminUnlocks()||Array.from({length:10},(_,s)=>s).some(s=>!!r37Entry('english',w,s)?.passed);}
 function r37FpsNext(w,s){let nw=w,ns=s+1;if(ns>9){nw++;ns=0;}return nw<R37_TRACKS.english.worlds.length?{w:nw,s:ns}:null;}
 function r37FpsUnitWords(w,s){return r37EnStage(w,s).map(x=>({en:x.en,zh:x.zh,emoji:r37Emoji(x.en)||'🔤'}));}
+/* R3.38: the 答對 mission also counts the shooter and the runner */
+function r38Tally(res){const n=res&&Array.isArray(res.perWord)?res.perWord.filter(p=>p.ok).length:Number(res&&res.correct)||0;if(n){r37Bump('correct',n);r37Bump('enok',n);}}
 function r37FpsPay(w,s,res){
  const o=r37Get(),k=r37LvKey('fps',w,s),old=o.lv[k]||{best:0},stars=Math.max(1,Math.min(5,Math.round(Number(res&&res.stars))||1)),passed=res&&res.passed!==undefined?!!res.passed:stars>=3;
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
  if(passed){if(!old.passed){if(s===9)coins+=2;r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
- r37Bump('fps');r37Save();
+ r37Bump('fps');r38Tally(res);r37Save();
  if(!isLoggedIn())coins=0;
  coins=r37AddCoins(coins);
  return coins;
@@ -132,7 +139,9 @@ function r37G3Next(g,subj,w,s){let nw=w,ns=s+1;if(ns>9){nw++;ns=0;}return nw<r37
 function r37G3Items(subj,w,s,diff,seed){
  if(subj==='math'){
   const qs=WQ37Math.make('math',w,s,8,diff,seed,(r37Get().recent.math||[]).slice(-30));
-  return qs.map((x,i)=>({id:'m'+w+'-'+s+'-'+i,kind:'math',q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}));
+  /* R3.38: a missed sum comes back as another sum of the same skill, so the answer on the card is not simply copied */
+  const mk=x=>({q:x.q,a:x.answer,explain:x.explain||'',hint:x.hint||'',skill:x.skill||'',pad:(/[\/.]/.test(x.answer)||x.form)?'frac':'digits',check:t=>WQ37Math.check(x,t),detail:t=>WQ37Math.checkDetail(x,t)}),more=WQ37Math.make('math',w,s,8,diff,seed+131,qs.map(x=>x.q));
+  return qs.map((x,i)=>{const v=more.find(y=>y.skill===x.skill&&y.q!==x.q&&y.answer!==x.answer);return Object.assign({id:'m'+w+'-'+s+'-'+i,kind:'math'},mk(x),v?{alt:mk(v)}:{});});
  }
  return r37EnStage(w,s).map(x=>({id:'e:'+x.en,kind:'word',en:x.en,zh:x.zh,emoji:r37Pic(x.en)||'',ex:x.ex||''}));
 }
@@ -156,10 +165,10 @@ function r37G3Pay(g,subj,w,s,res,items){
  const now=Date.now(),by={};items.forEach(x=>{by[x.id]=x;});
  for(const p of (res&&res.perItem)||[]){
   if(p.rv){if(subj!=='math'&&p.firstOk&&p.en){const j=o.wrong.findIndex(x=>x.en===p.en);if(j>=0){o.wrong[j].n--;if(o.wrong[j].n<=0)o.wrong.splice(j,1);}}continue;}
-  if(!p.tries)continue;const it=by[p.id];if(!it)continue;
-  if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();}continue;}
+  if(!p.tries||p.how==='lapse')continue;/* R3.38: no answer given is not a wrong answer */const it=by[p.id];if(!it)continue;
+  if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();r39EnrolSkill(it.skill,w,s);}continue;}
   const i=o.wrong.findIndex(x=>x.en===p.en);
-  if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}}
+  if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}r39EnrolWord(p.en,p.zh,w,s);}
   else if(i>=0&&o.wrong[i].n<=1)o.wrong.splice(i,1);
   try{if(isLoggedIn()){const c=activeChild(),wd=db.words.find(x=>x.childId===c?.id&&norm(x.en)===norm(p.en));if(wd){recordAttempt(wd,'spell',!!p.firstOk,p.firstOk?p.en:'',p.en,'遊戲',{src:'g3-'+g,track:'english',w,s});}}}catch(_){}
  }

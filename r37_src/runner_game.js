@@ -167,7 +167,7 @@
     '@keyframes wqlcIn{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}' +
     '@keyframes wqlcNo{0%,100%{transform:none}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}' +
     '@media (prefers-reduced-motion:reduce){.wqlc,.wqlc.bad{animation:none}}';
-  var LC_OK = { min: 0.8, max: 2.4 }, LC_BAD = { min: 2.0, max: 8, again: 2.6 };
+  var LC_OK = { min: 0.8, max: 2.4 }, LC_BAD = { min: 2.0, max: Infinity, again: 2.6 };   /* R3.38: a wrong answer card waits for the child */
   function lcEsc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   /* tests switch the card off with localStorage 'wq37-nolearn'='1'; hosts can pass opts.learnCard=false */
   function lcEnabled(o) { if (o && o.learnCard === false) return false; try { return localStorage.getItem('wq37-nolearn') !== '1'; } catch (e) { return true; } }
@@ -291,7 +291,7 @@
 
     function resetGame() {
       rng = mulberry(seedBase + seedN * 7919); trng = mulberry((seedBase ^ 0x9e3779b9) + seedN); lrng = mulberry((seedBase ^ 0x51ed270b) + seedN * 31);
-      dist = 0; scr = scr || 0; lane = 1; vl = 1; hearts = startHearts; score = 0; combo = 0; maxCombo = 0; correct = 0; wrong = 0; coins = 0; heartsLost = 0;
+      lapses = 0; idleAsk = null; dist = 0; scr = scr || 0; lane = 1; vl = 1; hearts = startHearts; score = 0; combo = 0; maxCombo = 0; correct = 0; wrong = 0; coins = 0; heartsLost = 0;
       shieldT = perk === 'shield' ? 1e9 : 0; obstacles = []; pickups = []; parts = []; floaters = []; toast = null; gate = null; genX = 720;
       inv = 0; dash = 0; dashCd = 0; magnet = 0; slowT = 0; x2T = 0; shake = 0; ts = 1; bossStreak = 0; bossOn = false; bossIn = 0; bossDone = false; bossT = 0; throwFlash = 0;
       jt = 0; slideT = 0; landT = 0; slideBuf = 0; patN = 0; atks = []; atkT = 2; atkN = 0; bossHp = bossMax; bossPhase = 1; bossFlash = 0; banner = null; scoreFrac = 0;
@@ -451,7 +451,7 @@
         card.appendChild(h('div', 'wq37r-row', '最佳 ' + r.best.dist + ' 米 · ' + r.best.score + ' 分'));
       } else card.appendChild(h('div', 'wq37r-row', '分數 ' + r.score + '　' + r.seconds + ' 秒'));
       card.appendChild(h('div', 'wq37r-row', '準確率 ' + acc + '%　金幣 ' + r.coins));
-      card.appendChild(btn('↻ 再玩', '', replay)); card.appendChild(btn('返回', 'alt', doExit));
+      card.appendChild(btn('↻ 再玩', '', function () { if (opts.onAgain) opts.onAgain(replay); else replay(); })); card.appendChild(btn('返回', 'alt', doExit));
     }
     function doExit() { if (exited || dead) return; exited = true; try { if (opts.onExit) opts.onExit(); } catch (e) { console.error(e); } }
 
@@ -462,9 +462,9 @@
     function resume() { if (state !== 'paused') return; clearOverlay(); state = 'play'; lastT = 0; }
     function changeLane(d) {
       if (state !== 'play') return; var n = clamp(lane + d, 0, 2);
-      if (n !== lane) { lane = n; sfx('lane'); }
+      if (gate) gate.steered = true; if (n !== lane) { lane = n; sfx('lane'); }
     }
-    function setLane(n) { if (state !== 'play') return; n = clamp(n, 0, 2); if (n !== lane) { lane = n; sfx('lane'); } }
+    function setLane(n) { if (state !== 'play') return; n = clamp(n, 0, 2); if (gate) gate.steered = true; if (n !== lane) { lane = n; sfx('lane'); } }
     function jh() { if (jt <= 0) return 0; var u = jt / JD; return 4 * u * (1 - u); }
     function doJump() {
       if (state !== 'play' || jt > 0) return;
@@ -560,7 +560,7 @@
     function lcTick(dt) {
       if (!lc) { state = 'play'; return; }
       var t0 = lc.t; lc.t += dt;
-      if (lc.bar) lc.bar.style.width = Math.min(100, lc.t / lc.max * 100).toFixed(1) + '%';
+      if (lc.bar) lc.bar.style.width = Math.min(100, lc.t / (lc.ok ? lc.max : lc.min) * 100).toFixed(1) + '%';
       if (lc.t >= lc.min && lc.go.disabled) { lc.go.disabled = false; if (!touchMode) { try { lc.go.focus({ preventScroll: true }); } catch (e) { /* */ } } }
       if (lc.again && t0 < lc.again && lc.t >= lc.again) speak(lc.w.en);
       if (lc.t >= lc.max) lcDone(true);
@@ -571,9 +571,13 @@
       lc = null;
       if (state === 'learn') { state = 'play'; lastT = 0; }
     }
+    /* R3.38: a gate passed without touching a lane control is no answer; two in a row stop the run for one untimed question */
+    var lapses = 0, idleAsk = null;
+    function ev(k, x) { try { if (opts.onLearn) opts.onLearn(k, x); } catch (e) { /* */ } }
     function resolveGate(g, ok, endX) {
       gateIdx++; lastGateX = endX;
       var t = g.target, py = laneY(vl, L.px);
+      if (ok) ev('ok'); else if (g.steered) ev('wrong'); else { lapses++; ev('lapse', { typed: false }); idleAsk = t; }
       if (ok) {
         correct++; combo++; maxCombo = Math.max(maxCombo, combo); var bonus = addScore(100 + 20 * Math.min(combo, 10) + (g.kind === 'spell' ? 40 : 0));
         if (g.boss) { bossStreak++; hitBoss(); }
@@ -726,10 +730,10 @@
     function endRun(alive) {
       if (state !== 'play') return;
       var tot = correct + wrong, acc = tot ? correct / tot : 0, passed = alive && acc >= 0.5, stars, m = (dist / 50) | 0;
-      if (endless) { passed = correct > 0 || m >= 100; stars = m >= 800 ? 5 : m >= 500 ? 4 : m >= 250 ? 3 : m >= 100 ? 2 : 1; }
+      if (endless) { passed = correct > 0; stars = m >= 800 ? 5 : m >= 500 ? 4 : m >= 250 ? 3 : m >= 100 ? 2 : 1; }
       else if (alive && tot > 0 && wrong === 0 && heartsLost === 0) stars = 5; else stars = acc >= 0.9 ? 4 : acc >= 0.75 ? 3 : acc >= 0.5 ? 2 : 1;
       lastResult = { score: score, correct: correct, wrong: wrong, coins: coins, seconds: Math.round(runTime * 10) / 10, stars: stars, passed: passed, world: worldI, stage: stageI,
-        mode: endless ? 'endless' : 'story', distance: m, maxCombo: maxCombo, dodges: dodges, bossDefeated: bossDone, newRecord: false };
+        mode: endless ? 'endless' : 'story', distance: m, maxCombo: maxCombo, dodges: dodges, bossDefeated: bossDone, newRecord: false, lapses: lapses };
       if (endless) {
         var b = loadBest(), nr = m > b.dist || score > b.score;
         if (nr) { b.dist = Math.max(b.dist, m); b.score = Math.max(b.score, score); saveBest(b); }
@@ -743,6 +747,7 @@
     function expire(v, dt, label) { if (v > 0) { v -= dt; if (v <= 0) { v = 0; floater(label, L.px, laneY(vl, L.px) - 90, '#fff', 24); } } return v; }
 
     function step(dt, ff) {
+      if (state === 'play' && idleAsk) { var ia = idleAsk; idleAsk = null; if (opts.onIdle && opts.onIdle(root, ia, function () { state = 'play'; lastT = 0; })) { state = 'gate'; return; } }
       tAnim += dt;
       var i, o;
       if (state === 'play') {
