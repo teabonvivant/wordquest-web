@@ -192,6 +192,7 @@ document.addEventListener('click',e=>{
  else if(a==='level-next'&&P){let w=P.w,s=P.s+1;if(s>9){w++;s=0;}if(P.track==='olympiad'&&!(s&1)&&!r80Seen('p'+(w+1)+'-'+((s>>1)+1))&&!adminUnlocks()){r37P=null;location.hash='#oly/'+(w+1)+'/'+((s>>1)+1)+'/learn';}else r37StartLevel(P.track,w,s);}
  else if(a==='oly-lesson'&&P&&P.track==='olympiad'){const g=P.w+1,n=(P.s>>1)+1;r37P=null;clearTimeout(r37Timer);location.hash='#oly/'+g+'/'+n+'/learn';}
  else if(a==='diff'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}const t=r37DiffT(el.dataset.t||r37Mem._dsub||'english');r37Get().diffs[t]=+el.dataset.n;r37Save();render();}
+ else if(a==='cap'){if(isLoggedIn()&&!v23ParentAllowed()){render();return;}r37Get().cap=+el.dataset.n;r37Save();render();}
  else if(a==='dsub'){r37Mem._dsub=el.dataset.k;render();}
  else if(a==='redo-miss')r37Redo();
  else if(a==='lesson'){r37OpenLesson(el.dataset.code,el.dataset.track);}

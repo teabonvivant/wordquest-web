@@ -64,3 +64,15 @@ function r38Run(box,pool,go){
 }
 function r38Hook(box,pool){return {onLearn:r38Ev,onIdle:(root,it,resume)=>r38Idle(root||box,pool,it,resume),onAgain:go=>r38Run(box,pool,go)};}
 const r38Words=()=>r37GameWords(0,8);
+/* R3.42: every 闖關 level can be started only R38_CAP times per Hong Kong day (parent can set 1-5 or off: o.cap=0). Counted when a level starts, so quitting or reloading never gives the play back; the wrong-answer redo does not count. The count is kept with the child's save (o.plays) and resets the next day. */
+const R38_CAP=2;
+function r38Cap(){const c=r37Get().cap;return c===0?0:[1,2,3,4,5].includes(c)?c:R38_CAP;}
+function r38Plays(){const o=r37Get();if(!o.plays||o.plays.d!==r37Day()||typeof o.plays.n!=='object')o.plays={d:r37Day(),n:{}};return o.plays;}
+function r38Left(track,w,s){const c=r38Cap();return c?Math.max(0,c-(r38Plays().n[r37LvKey(track,w,s)]||0)):Infinity;}
+function r38TryStart(track,w,s,opts){
+ if((opts&&opts.redo)||r37TestOld())return true;const c=r38Cap();if(!c)return true;
+ if(r38Left(track,w,s)<=0){toast(`這一關今天已玩了 ${c} 次，明天再來。先去下一關學新東西吧！`,'bad');return false;}
+ const p=r38Plays(),k=r37LvKey(track,w,s);p.n[k]=(p.n[k]||0)+1;r37Save();
+ if(c-p.n[k]===0)toast('這是這一關今天最後一次機會，加油！');
+ return true;
+}

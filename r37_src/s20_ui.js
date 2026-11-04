@@ -398,6 +398,7 @@ function r37WarmMathQs(track,w,diff,seed){
 }
 function r37StartLevel(track,w,s,opts){
  opts=opts||{};
+ if(!r38TryStart(track,w,s,opts))return;
  r37Get().lastT=track;
  const diff=r37DiffN(track),D=R37_DIFF[diff-1],ch=r37Char(),seed=r37Mem._seed!==undefined?r37Mem._seed:(Date.now()&0xfffff);
  let qs=track==='english'?r37EnQuestions(w,s,diff,seed):r37MathQuestions(track,w,s,diff,seed);
@@ -692,7 +693,7 @@ function r37ParentHub(){
    ?`<li>${nums}。每個生字至少考 1 題，魔王關最少 12 題。</li><li><b>1</b> 3 個選項、填充題先顯示首字母；<b>2</b> 4 個選項、填充題顯示字母空格；<b>3</b> 標準，沒有字形提示</li><li><b>4–5</b> 選項改為拼法相近的字；<b>5</b> 填充題更多、沒有提示${cur===5?'（目前）':''}</li><li>答錯的詞，3 題後換題型補考。合格＝第一次答對率達標，而且答錯的詞補考要全對；星星按第一次答對率計</li>`
    :`<li>${nums}。</li><li>難度改變的是<b>數字大小與步驟數</b>：<b>1–2</b> 較小的數、較少步驟；<b>3</b> 標準（${sub==='olympiad'?'奧數':'數學'}年級內常見大小）；<b>4–5</b> 較大的數、多一兩步，${sub==='olympiad'?'更像比賽題':'接近下一年級'}</li>`;
   body=`<div class="r37-card"><h2>${r37Icon('🎚️')}難度</h2><div class="r37-dsubs" role="tablist">${subs}</div><div class="r37-diffs">${R37_DIFF.map(d=>`<button type="button" class="r37-df ${cur===d.n?'on':''}" data-r37="diff" data-t="${sub}" data-n="${d.n}"><span class="r37-dfi">${r37Icon(d.icon)}</span><b>${d.n} ${d.name}</b><small><span class="r37-dq">${sub==='english'?'≥'+Math.max(d.qs,8):d.qs} 題</span><span class="r37-hs" aria-label="${d.hearts} 顆心">${r37Icon('❤️').repeat(d.hearts)}</span><span class="r37-dp">合格 ${Math.round(d.pass*100)}%</span></small></button>`).join('')}</div>
-  <ul class="r37-dl">${note}</ul></div>`;
+  <ul class="r37-dl">${note}</ul></div><div class="r37-card"><h2>${r37Icon('🔒')}每關每日次數</h2><div class="r37-diffs">${[1,2,3,0].map(n=>`<button type="button" class="r37-df ${r38Cap()===n?'on':''}" style="height:auto;min-height:64px;justify-content:center" data-r37="cap" data-n="${n}" aria-pressed="${r38Cap()===n}"><b>${n?n+' 次':'不限'}</b></button>`).join('')}</div><ul class="r37-dl"><li>每一關每天最多開始 ${r38Cap()||'不限'} 次（香港時間第二天重新計算），避免只重複玩同一關。中途離開也算一次；「只重做錯的」不計。</li></ul></div>`;
  }else if(tab==='prog'){
   body=r40WeekHTML(o)+today+['english','math','olympiad'].map(t=>{const q=r37TrackProgress(t),T=R37_TRACKS[t];return `<div class="r37-card r37-pr"><div class="r37-prh"><span>${r37Icon(T.icon)}</span><b>${T.name}</b><em>${q.done}/${q.total} 關</em></div><div class="r37-bar2"><i style="width:${Math.round(q.done/Math.max(1,q.total)*100)}%"></i></div><div class="r37-prs">${r37Stars(Math.min(5,Math.round(q.stars/Math.max(1,q.max)*5)))}<b>${q.stars}/${q.max}</b></div></div>`;}).join('')+r37WrongHTML()+(c?`<div class="r37-card"><div class="r37-prh r37-prh3"><span>${r37Icon('🪙')}</span><b>${r37Coins()}</b><small>金幣</small><span>${r37Icon('🔥')}</span><b>${o.day.levels}</b><small>今日過關</small><span>${r37Icon('✅')}</span><b>${o.day.correct}</b><small>今日答對</small></div></div>`:'');
  }else if(tab==='kids'){

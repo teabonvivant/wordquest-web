@@ -19,7 +19,7 @@
   "math_course_src/style_bundle.js": "869fc5a41583f95d59394554bf8163ffb0284c3e1920e4b9c0158b4b304619cf",
   "math_course_src/tools_bundle.js": "69014f03ca893403a4a3dd016fadc71f9da03ff018aa74c76a65888a6c437468",
   "math_course_src/tools_iframe.html": "0b26b55e83b9e3aaa882e027e294c329774310e8da0c568dbe12399b59aa8d64",
-  "app/index.html": "0a52de6f9fb5fa3455439382ff5d23231e1719424639287f990f85b1a7a37711",
+  "app/index.html": "0bc81602cf79a4fca2043c63a70dd3b01f5b5376102fb570bbca612953cca9da",
   "math_course_preview.html": "c4deed76b776ee4f42d3e633781ca3fea6cd5e6c5019d5b3f6838046a28904b2",
-  "app/sw.js": "964e30fd6c7fd698abc903fe5befc377b145efd44879770273ef13e4f8d16001"
+  "app/sw.js": "ca928458a790681b264f28cc1245c2fd27d4bd28f8b0265ddbfd349512f0df59"
 }
