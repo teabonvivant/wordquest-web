@@ -2945,7 +2945,7 @@ async function r3Digest(value){if(!crypto.subtle)throw Error('這個瀏覽器不
 const r3BlobURL=blob=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error||Error('圖片或音檔讀取失敗，請再試一次。'));r.readAsDataURL(blob);});
 function r3DataBlob(row){const raw=atob(row.data.split(',')[1]),a=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)a[i]=raw.charCodeAt(i);return new Blob([a],{type:row.mime});}
 function r3Download(name,data,mime='application/json'){const blob=new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type:mime});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function r3OwnedKeys(a=accountId()){const main=DBKEY_PREFIX+a,mp='wqm-state-v1:'+a+':';return Array.from({length:localStorage.length},(_,i)=>localStorage.key(i)).filter(k=>k===main||k===main+'-before-restore'||k===main+'-v24-protection'||k===r3FamilyKey(a)||k?.startsWith(mp)||k?.startsWith('wordquest-v32-characters:normal:'+a+':')||k?.startsWith('wordquest-v32-characters:sandbox:'+a+':'));}
+function r3OwnedKeys(a=accountId()){const main=DBKEY_PREFIX+a,mp='wqm-state-v1:'+a+':';return Array.from({length:localStorage.length},(_,i)=>localStorage.key(i)).filter(k=>k===main||k===main+'-before-restore'||k===main+'-v24-protection'||k===r3FamilyKey(a)||k?.startsWith(mp)||k?.startsWith('wordquest-v32-characters:normal:'+a+':')||k?.startsWith('wordquest-v32-characters:sandbox:'+a+':')||k?.startsWith('wq37-'+a+'-')||k?.startsWith('wq37-t-'+a+'-'));}
 function r3ReadKV(a=accountId()){return Object.fromEntries(r3OwnedKeys(a).map(k=>[k,localStorage.getItem(k)]));}
 // A separate durable IndexedDB journal supports recovery across localStorage and media transactions.
 function r3OpenJournal(){return new Promise((resolve,reject)=>{const r=indexedDB.open('wordquest-family-journal-r3',1);r.onupgradeneeded=()=>r.result.createObjectStore('transactions',{keyPath:'owner'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error||Error('無法建立備用紀錄。請稍後再試。'));r.onblocked=()=>reject(Error('請關閉其他分頁再重試'));});}
@@ -2969,8 +2969,8 @@ async function r3Recover(){
  try{const marker=localStorage.getItem(r3Marker(owner)),j=await r3Journal('get',owner);if(!['prepared','committed','rolled-back'].includes(marker))throw Error('未完成操作的狀態不明，資料沒有改動。');if(marker==='prepared'){if(!j)throw Error('備用紀錄不見了，不能安全地處理。請保留現有資料，並用家庭備份還原。');WQR32Safety.validateJournal(j,owner,DBKEY_PREFIX+owner);validateDb(JSON.parse(j.before[DBKEY_PREFIX+owner]));r3ReplaceKV(owner,j.before);await r3ReplaceMedia(owner,j.beforeMedia);localStorage.setItem(r3Marker(owner),'rolled-back');}if(j)await r3Journal('delete',owner);localStorage.removeItem(r3Marker(owner));loadBlocked=false;persistenceIssue='';db=load();r3ReloadSettings();await syncMediaOwner(true);window.dispatchEvent(new Event('wq-r3-data-replaced'));toast(marker==='committed'?'已完成未完成的操作。':'已回到操作之前的資料。');return true;
  }finally{r3Busy=false;document.body.inert=inert;render();}
 }
-async function r3Export(){const wq20R=wq20Marked();r3Parent(wq20R);r3PauseWork({rescue:wq20R});if(wq20R)wq20RescueExportCheck();const exportInert=document.body.inert;r3Busy=true;document.body.inert=true;try{const owner=accountId(),intent=v23Owner(),raw=localStorage.getItem(dbKey()),familyRaw=localStorage.getItem(r3FamilyKey()),MC=window.WQMathCore,lib=MC.library(window.WQMathData);const english=validateDb(r3Clone(db));const math=english.children.map(c=>{const a=localStorage.getItem(r3MathKey(c.id)),b=localStorage.getItem(r3MathKey(c.id)+':before-restore');return {childId:c.id,state:a?MC.validateState(JSON.parse(a),lib):null,recovery:b?MC.validateState(JSON.parse(b),lib):null};});const allKeys=r3ReadKV();const rows=await wq20ExportMediaRows(owner),media=[];for(const row of rows){const {blob,id,owner:ignored,key,kind,...meta}=row;const entry={key,kind,meta};if(blob instanceof Blob){entry.mime=blob.type;entry.data=await r3BlobURL(blob);}media.push(entry);}if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||raw!==localStorage.getItem(dbKey())||familyRaw!==localStorage.getItem(r3FamilyKey())||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出期間資料有改動，所以沒有建立備份。請先暫停學習，再試一次。');const family=r3Clone(r3Settings());const characterPreferences=[];for(const c of english.children)for(const mode of ['normal','sandbox']){const raw=localStorage.getItem('wordquest-v32-characters:'+mode+':'+owner+':'+c.id);if(raw)characterPreferences.push({childId:c.id,mode,preferences:JSON.parse(raw)});}const payload={sourceOwner:owner,english,math,family,media,characterPreferences};F3.validatePayload(payload,validateDb,MC,lib);const pack={format:'wordquest-family',version:1,createdAt:new Date().toISOString(),appVersion:'R3.7.0',warning:'備份檔有孩子的姓名和學習紀錄，沒有加密。不含帳戶密碼和語音服務的金鑰。',payload,integrity:{algorithm:'SHA-256',digest:await r3Digest(payload)}};if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||!v23HasLease()||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出檢查期間，資料或帳戶有改動，所以沒有建立備份。請再試一次。');const serial=JSON.stringify(pack,null,2);if(!WQR32Safety.canExport(new TextEncoder().encode(serial).length))throw Error('家庭備份超過 140 MB，所以沒有建立備份檔。');r3Download('SmartQuest_Family_'+F3.day()+'.json',serial);return pack;}finally{r3Busy=false;document.body.inert=exportInert;}}
-async function r3ValidatePack(file){if(!file||file.size>140000000)throw Error('家庭備份檔超過 140 MB，或還沒選擇檔案。');const pack=F3.envelope(JSON.parse(await file.text()));if(await r3Digest(pack.payload)!==pack.integrity.digest)throw Error('備份檢查失敗，檔案可能不完整，或有人改過。資料沒有改動。');return F3.validatePayload(pack.payload,validateDb,window.WQMathCore,window.WQMathCore.library(window.WQMathData));}
+async function r3Export(){const wq20R=wq20Marked();r3Parent(wq20R);r3PauseWork({rescue:wq20R});if(wq20R)wq20RescueExportCheck();const exportInert=document.body.inert;r3Busy=true;document.body.inert=true;try{const owner=accountId(),intent=v23Owner(),raw=localStorage.getItem(dbKey()),familyRaw=localStorage.getItem(r3FamilyKey()),MC=window.WQMathCore,lib=MC.library(window.WQMathData);const english=validateDb(r3Clone(db));const math=english.children.map(c=>{const a=localStorage.getItem(r3MathKey(c.id)),b=localStorage.getItem(r3MathKey(c.id)+':before-restore');return {childId:c.id,state:a?MC.validateState(JSON.parse(a),lib):null,recovery:b?MC.validateState(JSON.parse(b),lib):null};});const allKeys=r3ReadKV();const rows=await wq20ExportMediaRows(owner),media=[];for(const row of rows){const {blob,id,owner:ignored,key,kind,...meta}=row;const entry={key,kind,meta};if(blob instanceof Blob){entry.mime=blob.type;entry.data=await r3BlobURL(blob);}media.push(entry);}if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||raw!==localStorage.getItem(dbKey())||familyRaw!==localStorage.getItem(r3FamilyKey())||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出期間資料有改動，所以沒有建立備份。請先暫停學習，再試一次。');const family=r3Clone(r3Settings());const characterPreferences=[];for(const c of english.children)for(const mode of ['normal','sandbox']){const raw=localStorage.getItem('wordquest-v32-characters:'+mode+':'+owner+':'+c.id);if(raw)characterPreferences.push({childId:c.id,mode,preferences:JSON.parse(raw)});}const payload={sourceOwner:owner,english,math,family,media,characterPreferences,r39Progress:r43ProgressOut(english.children)};F3.validatePayload(payload,validateDb,MC,lib);const pack={format:'wordquest-family',version:1,createdAt:new Date().toISOString(),appVersion:'R3.7.0',warning:'備份檔有孩子的姓名和學習紀錄，沒有加密。不含帳戶密碼和語音服務的金鑰。',payload,integrity:{algorithm:'SHA-256',digest:await r3Digest(payload)}};if(owner!==accountId()||intent!==v23Owner()||!v23ParentAllowed()||!v23HasLease()||JSON.stringify(allKeys)!==JSON.stringify(r3ReadKV()))throw Error('匯出檢查期間，資料或帳戶有改動，所以沒有建立備份。請再試一次。');const serial=JSON.stringify(pack,null,2);if(!WQR32Safety.canExport(new TextEncoder().encode(serial).length))throw Error('家庭備份超過 140 MB，所以沒有建立備份檔。');r3Download('SmartQuest_Family_'+F3.day()+'.json',serial);return pack;}finally{r3Busy=false;document.body.inert=exportInert;}}
+async function r3ValidatePack(file){if(!file||file.size>140000000)throw Error('家庭備份檔超過 140 MB，或還沒選擇檔案。');const pack=F3.envelope(JSON.parse(await file.text()));if(await r3Digest(pack.payload)!==pack.integrity.digest)throw Error('備份檢查失敗，檔案可能不完整，或有人改過。資料沒有改動。');const clean=F3.validatePayload(pack.payload,validateDb,window.WQMathCore,window.WQMathCore.library(window.WQMathData));clean.r39Progress=r43ProgressIn(pack.payload.r39Progress,clean.english.children);return clean;}
 async function r3Restore(payload){const wq20R=wq20Marked();r3Parent(wq20R);const MC=window.WQMathCore,owner=accountId();const clean=F3.validatePayload(payload,validateDb,MC,MC.library(window.WQMathData));const english=clean.english;
  if(clean.sourceOwner===owner){
   for(const c of english.children){const old=db.children.find(o=>o.id===c.id);if(old)c.stars=old.stars;}
@@ -2979,7 +2979,7 @@ async function r3Restore(payload){const wq20R=wq20Marked();r3Parent(wq20R);const
   const current=wq20SafeSettings();for(const cid of english.children.map(c=>c.id))for(const [day,row] of Object.entries(current.usage[cid]||{})){const days=clean.family.usage[cid]||(clean.family.usage[cid]={}),prev=days[day]||(days[day]={english:0,math:0,olympiad:0,arcade:0});for(const subject of Object.keys(prev))prev[subject]=Math.max(prev[subject],row[subject]||0);}
   F3.validateSettings(clean.family);validateDb(english);
  }
- english.writeRevision=(db.writeRevision||0)+1;const values={[dbKey()]:JSON.stringify(english),[r3FamilyKey()]:JSON.stringify(clean.family)};for(const m of clean.math){if(m.state)values[r3MathKey(m.childId)]=JSON.stringify(m.state);if(m.recovery)values[r3MathKey(m.childId)+':before-restore']=JSON.stringify(m.recovery);}for(const row of clean.characterPreferences)values['wordquest-v32-characters:'+row.mode+':'+owner+':'+row.childId]=JSON.stringify(row.preferences);const media=wq20LiveMediaRows(clean.media,english.words).map(row=>({...row.meta,key:row.key,kind:row.kind,...(row.kind==='note'?{}:{blob:r3DataBlob(row)}),owner,updatedAt:new Date().toISOString()}));await r3Transaction(values,media,'restore-family',{rescue:wq20R});toast('家庭備份已還原。所有孩子、數學紀錄、圖片和音檔都已處理。舊的數學獎勵不會再給一次。');}
+ english.writeRevision=(db.writeRevision||0)+1;const values={[dbKey()]:JSON.stringify(english),[r3FamilyKey()]:JSON.stringify(clean.family)};for(const m of clean.math){if(m.state)values[r3MathKey(m.childId)]=JSON.stringify(m.state);if(m.recovery)values[r3MathKey(m.childId)+':before-restore']=JSON.stringify(m.recovery);}for(const row of clean.characterPreferences)values['wordquest-v32-characters:'+row.mode+':'+owner+':'+row.childId]=JSON.stringify(row.preferences);const media=wq20LiveMediaRows(clean.media,english.words).map(row=>({...row.meta,key:row.key,kind:row.kind,...(row.kind==='note'?{}:{blob:r3DataBlob(row)}),owner,updatedAt:new Date().toISOString()}));r43ProgressValues(values,{...clean,r39Progress:r43ProgressIn(payload&&payload.r39Progress,clean.english.children)},owner);await r3Transaction(values,media,'restore-family',{rescue:wq20R});toast('家庭備份已還原。所有孩子、數學紀錄、圖片和音檔都已處理。舊的數學獎勵不會再給一次。');}
 resetAll=async function(){try{const wq20R=wq20Marked();r3Parent(wq20R);if(wq20R)await wq20RescueCheck();if(!confirm(wq20R?'上次有一個操作沒有完成。\\n\\n清除目前帳戶的資料後，所有孩子、教材、進度和自訂的圖片音檔都會消失，未完成的標記也會一起清除，之後只能用家庭備份還原。\\n\\n如果你有家庭備份，請按「取消」，改用「還原家庭備份」。\\n\\n仍要清除目前帳戶的資料嗎？':'要清除目前家庭的英文、數學、奧數、遊戲、使用時間紀錄、自訂圖片／音檔，和所有備用副本嗎？其他家庭不受影響。請先匯出家庭完整備份。'))return;const fresh=isTestAdmin()?adminInitialDb():upgradeDb(newUserDb('小朋友'));fresh.writeRevision=(db.writeRevision||0)+1;await r3Transaction({[dbKey()]:JSON.stringify(fresh)},[],'reset-family',{rescue:wq20R});clearMiniTimers();miniGame=null;clearImportDraft();r3SettingsOwner='';go('parent');render();toast('目前家庭的資料和備用副本已清除。');}catch(e){toast(e.message,'bad');}};
 const r3PriorSave=save;save=function(){if(r3Busy||isLoggedIn()&&localStorage.getItem(r3Marker())){persistenceIssue='家庭資料的處理還沒完成，暫時不能儲存其他資料。請到「家長 → 家庭管理」處理。';showSaveIssue();return false;}return r3PriorSave.apply(this,arguments);};
 function r3Weekly(){const c=activeChild(),raw=isLoggedIn()?localStorage.getItem(r3MathKey(c.id)):null;let math=null;if(raw)math=window.WQMathCore.validateState(JSON.parse(raw),window.WQMathCore.library(window.WQMathData));return F3.weekly(db,math,c.id);}
@@ -5792,7 +5792,19 @@ function r37Get(){
  if(!o.oly.seen||typeof o.oly.seen!=='object'||Array.isArray(o.oly.seen))o.oly.seen={};
  return r37Mem[k]=o;
 }
-function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
+/* R3.43 STATE-02: the same writer lease and revision check as the main save. A tab without the lease never writes, and a stale copy never overwrites a newer one (o.rev). Returns true when stored. */
+function r37Save(){
+ if(!isLoggedIn())return true;
+ const k=r37Key(),o=r37Get();
+ if(!v23HasLease()){if(v23Ready){persistenceIssue=v23CapabilityError();showSaveIssue();}return false;}
+ try{
+  const raw=localStorage.getItem(k),cur=raw?JSON.parse(raw):null;
+  if(cur&&(Number(cur.rev)||0)!==(Number(o.rev)||0)){delete r37Mem[k];persistenceIssue='另一個分頁更新了學習進度，這裏沒有蓋掉它。請重新整理頁面。';showSaveIssue();return false;}
+ }catch(_){}
+ const rev=Number(o.rev)||0;o.rev=rev+1;
+ try{localStorage.setItem(k,JSON.stringify(o));return true;}catch(_){o.rev=rev;toast('儲存不了，請先匯出備份。','bad');return false;}
+}
+try{window.addEventListener('storage',e=>{if(e.key&&e.key.startsWith('wq37-')&&r37Mem[e.key])delete r37Mem[e.key];});}catch(_){}
 /* difficulty is stored per subject (diffs.english / math / olympiad); games and dictation follow the English setting */
 const r37DiffT=t=>t==='math'||t==='olympiad'?t:'english';
 function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
@@ -5805,8 +5817,9 @@ const R37_COIN_CAP=10;
 const r37CoinToday=()=>Math.min(R37_COIN_CAP,(r37Get().day.cn)||0);
 function r37AddCoins(n,free,quiet){
  const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;
- if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;r37Get().day.cn=((r37Get().day.cn)||0)+n;r37Save();}
- c.stars+=n;save();return n;
+ /* R3.43 STATE-02: paid only when both the daily count and the wallet are stored; either failing undoes the other */
+ if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;const d=r37Get().day;d.cn=(d.cn||0)+n;if(!r37Save()){d.cn-=n;return 0;}}
+ c.stars+=n;if(!save()){c.stars-=n;if(!free){r37Get().day.cn-=n;r37Save();}return 0;}return n;
 }
 try{window.r37CoinToday=r37CoinToday;window.R37_COIN_CAP=R37_COIN_CAP;}catch(_){}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
@@ -5890,11 +5903,12 @@ function r37G3Pay(g,subj,w,s,res,items){
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
  if(passed){if(!old.passed){coins+=1+(s===9?2:0);r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  /* learning loop: a first-try miss goes into the same wrong bank / maths mistake list the quiz uses, so the warm-up and review pick it up; a first-try hit clears a word from the bank */
- const now=Date.now(),by={};items.forEach(x=>{by[x.id]=x;});
+ const now=Date.now();
  for(const p of (res&&res.perItem)||[]){
   if(p.rv){if(subj!=='math'&&p.firstOk&&p.en){const j=o.wrong.findIndex(x=>x.en===p.en);if(j>=0){o.wrong[j].n--;if(o.wrong[j].n<=0)o.wrong.splice(j,1);}}continue;}
-  if(!p.tries||p.how==='lapse')continue;/* R3.38: no answer given is not a wrong answer */const it=by[p.id];if(!it)continue;
-  if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();r39EnrolSkill(it.skill,w,s);}continue;}
+  if(!p.tries||p.how==='lapse')continue;/* R3.38: no answer given is not a wrong answer */
+  /* R3.43 G01: what is saved is the question this run really asked (the result's own snapshot), never the list of the first run of the level */
+  if(subj==='math'){if(!p.firstOk&&p.q){o.miss.push({t:'math',sk:p.skill||'',q:p.q,a:p.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();r39EnrolSkill(p.skill,w,s);}continue;}
   const i=o.wrong.findIndex(x=>x.en===p.en);
   if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}r39EnrolWord(p.en,p.zh,w,s);}
   else if(i>=0&&o.wrong[i].n<=1)o.wrong.splice(i,1);
@@ -6764,7 +6778,7 @@ function r37Answer(value){
   if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhd||'',skill:'',n:0};
   P.miss[key].n++;
  }
- if(!q.warm&&!q.retest){r37Bump('qa');r37Bump('q_'+P.track);}
+ if(!q.warm&&!q.retest){r37Bump('qa');r37Bump('qn');if(ok)r37Bump('qok');/* R3.43 STATE-01: 闖關答對率 = qok/qn, counted together for the same questions (games add to correct, never here); days before R3.43 have no qn and show no rate */r37Bump('q_'+P.track);}
  if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}if(q.retest||q.rv)r37Bump('fix');playSfx('correct');r37Cheer();}
  else{
   if(P.kind==='level'&&!q.warm&&!q.retest){/* R3.31: a wrong re-test costs no heart and uses no shield */if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
@@ -7371,6 +7385,25 @@ function r39Merge(a,b){
  delete m.day;if(a.day)m.day=a.day;/* the daily coin cap and missions are never rewound */
  return m;
 }
+/* R3.43 STATE-03/04: the family backup (r3Export / r3Restore) carries the same per-child progress. Restoring is a replace: a child with no progress in the file starts empty,
+ * so a new family's 小芳 (c_demo again) never inherits the old c_demo. The same family merges as the normal backup does. Today's coin count, plays and gate never go back. */
+function r43ProgressOut(children){const p={};for(const c of children){const o=r39Read(r39KeyOf(c.id));if(o)p[c.id]=JSON.parse(JSON.stringify(o));}return p;}
+function r43ProgressIn(p,children){
+ const isO=x=>x&&typeof x==='object'&&!Array.isArray(x),out={};if(!isO(p))return out;
+ for(const c of children)if(isO(p[c.id])&&isO(p[c.id].lv||{}))out[c.id]=JSON.parse(JSON.stringify(p[c.id]));
+ return out;
+}
+function r43ProgressValues(values,clean,owner){
+ const same=clean.sourceOwner===owner,today=r37Day(),inP=clean.r39Progress||{};
+ for(const c of clean.english.children){
+  const k=r39KeyOf(c.id),a=r39Read(k),b=inP[c.id]||null;let v=null;
+  if(same)v=a&&b?r39Merge(a,b):(a||b);
+  else if(b){v=b;if(a){if(a.day&&a.day.d===today)v.day=a.day;if(a.plays&&a.plays.d===today)v.plays=a.plays;}}
+  if(v){delete v.rev;v.rev=(Number(a&&a.rev)||0)+1;values[k]=JSON.stringify(v);}
+  const g=localStorage.getItem(k+'-gate');if(g!==null)values[k+'-gate']=g;
+ }
+}
+try{window.addEventListener('wq-r3-data-replaced',()=>{for(const k of Object.keys(r37Mem))if(k.startsWith('wq37-'))delete r37Mem[k];r37P=null;});}catch(_){}
 function r39BackupApply(raw){
  const p=raw&&raw.r39Progress;if(!p||typeof p!=='object'||Array.isArray(p))return;
  for(const c of db.children){
@@ -7385,7 +7418,7 @@ function r39BackupApply(raw){
 const r40N=v=>Number.isFinite(+v)&&+v>0?Math.floor(+v):0;
 function r40Weeks(o){
  const by=new Map((Array.isArray(o.hist)?o.hist:[]).map(x=>[x&&x.d,x]));by.set(o.day.d,o.day);
- const row=off=>{const d=r39Plus(-off),x=by.get(d)||{};return {d,q:r40N(x.qa)+r40N(x.ans),qa:r40N(x.qa),ok:r40N(x.correct),lapse:r40N(x.lapse),hint:r40N(x.hint),en:r40N(x.q_english),ma:r40N(x.q_math),ol:r40N(x.q_olympiad)};};
+ const row=off=>{const d=r39Plus(-off),x=by.get(d)||{};return {d,q:r40N(x.qa)+r40N(x.ans),qa:r40N(x.qn),ok:Math.min(r40N(x.qok),r40N(x.qn)),lapse:r40N(x.lapse),hint:r40N(x.hint),en:r40N(x.q_english),ma:r40N(x.q_math),ol:r40N(x.q_olympiad)};};
  return {days:[6,5,4,3,2,1,0].map(row),prev:[13,12,11,10,9,8,7].map(row)};
 }
 function r40WeekHTML(o){
@@ -7424,7 +7457,7 @@ function r37ArcScrub(){
 }
 const r38Key=()=>r37Key()+'-gate';
 function r38Load(){let s=null;try{s=JSON.parse(localStorage.getItem(r38Key())||'null');}catch(_){}if(!s||s.d!==r37Day())s={d:r37Day(),runs:0,got:0,idle:0};return s;}
-function r38Save(s){try{localStorage.setItem(r38Key(),JSON.stringify(s));}catch(_){}}
+function r38Save(s){if(isLoggedIn()&&!v23HasLease())return;try{localStorage.setItem(r38Key(),JSON.stringify(s));}catch(_){}}
 function r38Ev(kind,x){
  const s=r38Load();
  if(kind==='ok'||kind==='wrong'){s.idle=0;if(++s.got>=R38.enough)s.runs=0;r38Save(s);r37Bump('ans');}
@@ -7479,7 +7512,9 @@ function r38Left(track,w,s){const c=r38Cap();return c?Math.max(0,c-(r38Plays().n
 function r38TryStart(track,w,s,opts){
  if((opts&&opts.redo)||r37TestOld())return true;const c=r38Cap();if(!c)return true;
  if(r38Left(track,w,s)<=0){toast(`這一關今天已玩了 ${c} 次，明天再來。先去下一關學新東西吧！`,'bad');return false;}
- const p=r38Plays(),k=r37LvKey(track,w,s);p.n[k]=(p.n[k]||0)+1;r37Save();
+ const p=r38Plays(),k=r37LvKey(track,w,s);p.n[k]=(p.n[k]||0)+1;
+ /* R3.43 STATE-02: a play that cannot be counted (another tab holds the save) does not start */
+ if(!r37Save()&&isLoggedIn()){p.n[k]--;toast(persistenceIssue||'這一次未能記錄，請重新整理頁面。','bad');return false;}
  if(c-p.n[k]===0)toast('這是這一關今天最後一次機會，加油！');
  return true;
 }
@@ -7599,10 +7634,11 @@ render=function(){
  r37Layout();
  if(route==='oly'||route.startsWith('oly/'))r80Mount(route);
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
- if(route==='fps')r38Run($('#r37-fps-box'),r38Words(),r37FpsMount);
- if(route==='fp/play')r38Run($('#r37-fps-box'),r38Words(),r37FpsLvMount);
- if(route==='rn/play')r38Run($('#r37-run-box'),r38Words(),r37RunMount);
- if(route==='g3/play'&&r37G3Sel){const q=r37G3Sel;r38Run($('#r37-g3-box'),q.subj==='math'?r37G3Items('math',q.w,q.s,r37DiffN('math'),q.seed):r38Words(),r37G3Mount);}
+ const r43Go=(route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play')&&r43CanPlay();
+ if(route==='fps'&&r43Go)r38Run($('#r37-fps-box'),r38Words(),r37FpsMount);
+ if(route==='fp/play'&&r43Go)r38Run($('#r37-fps-box'),r38Words(),r37FpsLvMount);
+ if(route==='rn/play'&&r43Go)r38Run($('#r37-run-box'),r38Words(),r37RunMount);
+ if(route==='g3/play'&&r37G3Sel&&r43Go){const q=r37G3Sel;r38Run($('#r37-g3-box'),q.subj==='math'?r37G3Items('math',q.w,q.s,r37DiffN('math'),q.seed):r38Words(),r37G3Mount);}
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
@@ -7647,6 +7683,12 @@ function r37FixNav(){
   const t=a.textContent.trim();if(t==='練習')a.textContent='英文';else if(t==='首頁')a.textContent='星系';
  }
 }
+/* R3.43 STATE-06: the five games (字母獵場, 星際跑酷, 字母砲台, 字母迷宮, 字卡征途) count towards the parent's daily game time like the old games: time runs while one is mounted on its
+ * play page (r3Tick still skips a hidden or unfocused page), a game cannot start once the time is used up, and reaching the limit mid-game stops it. */
+function r43InGame(){const rt=(location.hash||'#kid').slice(1).split('?')[0];return ((rt==='fps'||rt==='fp/play')&&!!r37FpsHandle)||(rt==='rn/play'&&!!r37RunHandle)||(rt==='g3/play'&&!!r37G3Handle);}
+const r43PriorSubject=r3CurrentSubject;r3CurrentSubject=function(){return r43PriorSubject.apply(this,arguments)||(r43InGame()?'arcade':null);};
+const r43PriorBlock=r3Block;r3Block=function(){r37FpsStop();r37RunStop();r37G3Stop();return r43PriorBlock.apply(this,arguments);};
+function r43CanPlay(){try{window.WQR3.assertPlay();return true;}catch(e){toast(e.message,'bad');location.replace('#p/games');return false;}}
 document.addEventListener('click',e=>{
  const el=e.target.closest?.('[data-r37]');if(!el)return;
  const a=el.dataset.r37,P=r37P;
@@ -7667,7 +7709,7 @@ document.addEventListener('click',e=>{
  else if(a==='ex-again'&&P){const l=((P.result||{}).lessons||[])[+el.dataset.i];if(l&&l.ex){P.exq=l.ex;P.exBack=true;P.phase='example';render();}}
  else if(a==='pick-opt'&&P)r37Answer(el.dataset.v);
  else if(a==='next')r37Next();
- else if(a==='hint'&&P){P.hintShown=true;render();}
+ else if(a==='hint'&&P)r43ShowHint(P);
  else if(a==='speak')r37Speak(el.dataset.t);
  else if(a==='qspeak'&&P&&P.qs[P.i])r37Speak(P.qs[P.i].audio);
  else if(a==='dz-go')r37DzStart(+el.dataset.g,+el.dataset.l||0);
@@ -7693,6 +7735,8 @@ document.addEventListener('submit',e=>{
  const el=$('#r37-in');if(el)r37Answer(el.value);else r37DzSubmit();
 });
 document.addEventListener('input',e=>{if(e.target.classList?.contains('r37-cell')&&!e.isComposing)r37DzCellInput(e.target,e);});
+/* R3.43 STATE-05: the first time a question's hint is shown is one 用提示 for the parent (button and H key alike); showing it again adds nothing */
+function r43ShowHint(P){if(P.hintShown)return;P.hintShown=true;r37Bump('hint');render();}
 document.addEventListener('keydown',e=>{if(e.target.classList?.contains('r37-cell'))r37DzCellKey(e.target,e);});
 document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cell'))e.target.select();});
 document.addEventListener('keydown',e=>{
@@ -7704,7 +7748,7 @@ document.addEventListener('keydown',e=>{
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}
  const q=P.qs[P.i],typing=document.activeElement&&document.activeElement.id==='r37-in';
  if(q.mode==='mcq'&&/^[1-9]$/.test(e.key)){const o=q.options[+e.key-1];if(o!==undefined){e.preventDefault();r37Answer(o);}}
- else if(!typing&&(e.key==='h'||e.key==='H')&&R37_DIFF[P.diff-1].hint&&q.hint){P.hintShown=true;render();}
+ else if(!typing&&(e.key==='h'||e.key==='H')&&R37_DIFF[P.diff-1].hint&&q.hint)r43ShowHint(P);
 });
 window.addEventListener('resize',()=>{try{r37Layout();}catch(_){}});
 /* R3.8 maths dialog joins the planet look: space backdrop, white text outside the cards, back button returns to the planet */
@@ -8291,11 +8335,15 @@ function s50SaveList(){
  for(const c of v20Selected()){
   if(!s50Usable(c))continue;
   const k=V20.fold(c.en);
-  if(!at.has(k)){at.set(k,out.length);out.push(c);}
-  else if(!out[at.get(k)].zh&&c.zh)out[at.get(k)]=c;
+  if(!at.has(k)){at.set(k,out.length);out.push(c);continue;}
+  /* R3.43 DICT-01: one English word is one dictation word; another meaning the parent ticked joins it (銀行；河岸) instead of being dropped */
+  const i=at.get(k),z=String(c.zh||'').trim(),zs=String(out[i].zh||'').split('；').map(x=>x.trim()).filter(Boolean);
+  if(z&&!zs.includes(z))out[i]={...out[i],zh:[...zs,z].join('；').slice(0,300)};
  }
  return out;
 }
+/* R3.43 DICT-01: ticked cards that are another meaning of a word already in the list (shown, never called 格式不對) */
+const s50Merged=list=>v20Selected().filter(s50Usable).length-list.length;
 
 /* Recompute which items the filter keeps. Hand-made choices (a change that this function did not make) always win. */
 /* a selected card must be something 儲存 can store: clean it, else leave it un-selected and say why (never a silent drop at the end) */
@@ -8400,7 +8448,8 @@ function s50FixLabels(){
  const raw=v20.items.filter(c=>!c.s50?.dup).length;
  if(s50Over&&n<=120)s50Over=false;
  const cnt=$('#v20-selected-count');
- if(cnt)cnt.textContent=`已選 ${n} 個`;
+ const mg=s50Merged(list);
+ if(cnt)cnt.textContent=`已選 ${n} 個字`+(mg>0?`（${mg} 個多義已合併）`:'');
  const sm=$('#v20-pending-count');
  if(sm)sm.textContent='';
  /* the one primary button: it saves. It is never dead; 先揀字 answers with a nudge, a busy photo says so in its own label */
@@ -8423,7 +8472,7 @@ function s50FixLabels(){
   if(le)le.hidden=!(isLoggedIn()&&!v23HasLease());
  }
  const msg=$('#v20-message');
- if(msg&&v20.items.length&&!v20.rawDirty)msg.textContent=`共 ${raw} 項，已選 ${n} 個`;
+ if(msg&&v20.items.length&&!v20.rawDirty)msg.textContent=`共 ${raw} 項，已選 ${n} 個字`+(mg>0?`（${mg} 個多義已合併）`:'');
  const root=s50Root();
  if(root)root.dataset.s50Items=v20.items.length?'1':'0';
 }
@@ -8516,7 +8565,7 @@ function s50Commit(list){
  if(title.length>120){s50Err('名稱請用 120 字以內。');$('#range-title')?.focus();return;}
  let date=String(importDraft.date||'');
  if(date){try{WQEducation.validDate(date);}catch(_){date='';}}
- const dropped=v20Selected().length-list.length;
+ const dropped=v20Selected().filter(c=>!s50Usable(c)).length,merged=s50Merged(list);
  const before=structuredClone(db);
  v20.saving=true;
  try{
@@ -8531,7 +8580,7 @@ function s50Commit(list){
   if(!save()||!s50Landed(r.id,list.length)){db=before;s50Err('儲存失敗，沒有寫入。選好的字和草稿還在，請先備份再試。');return;}
   clearImportDraft();
   mediaSelectedRange=r.id;mediaMessage='已加入你選定的默書內容。請核對圖片及準備讀音。';
-  s50Saved={rid:r.id,n:list.length,title,dropped};
+  s50Saved={rid:r.id,n:list.length,title,dropped,merged};
   s50Over=false;s50Review=null;s50Pend=null;
   render();
   if(!s50Root())toast(`已儲存 ${list.length} 個字。`);     // the parent unlock ran out in this very instant: the host drew its gate over the card
@@ -8819,7 +8868,7 @@ function s50SavedCard(root){
  if(card)return;
  card=document.createElement('section');
  card.id='s50-saved';card.className='card s50-saved';card.setAttribute('role','status');
- card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
+ card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.merged>0?`<p class="small muted">同一個英文字的不同意思已合成一個字（${s50Saved.merged} 項）。</p>`:''}${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
  (root.querySelector('#p40-steps')||root.firstElementChild).after(card);
 }
 function s50Enhance(){
@@ -10474,7 +10523,7 @@ function s56Apply(){
  for(const c of v20.items){
   const m=c.s50;
   if(!m)continue;
-  m.learned='';m.root='';m.rootEn='';
+  m.learned='';m.root='';m.rootEn='';m.sense='';
   if(m.dup||m.skip||s50HostExcluded(c)||!s56Single(c))continue;
   const hit=s56FindLearned(learnedIdx,c.en);
   if(hit){
@@ -10499,6 +10548,8 @@ function s56Apply(){
   for(const c of g){
    if(c===rep)continue;
    const m=c.s50;
+   /* R3.43 DICT-01: the same spelling with another Chinese meaning is the teacher's second meaning, not a word form: it stays selected and joins the first on save */
+   if(s56Fold(c.en)===s56Fold(rep.en)&&String(c.zh||'').trim()&&String(c.zh||'').trim()!==String(rep.zh||'').trim()){m.sense=rep.en;continue;}
    m.root=rep.id;m.rootEn=rep.en;
    if(!m.manual&&c.selected){c.selected=false;m.sel=false;}
   }
@@ -10542,6 +10593,7 @@ function s56Tag(c){
  const m=c.s50||{},en=String(c.en||'');
  if(m.learned)return {kind:'learned',text:'已學過 '+m.learned,title:'孩子的詞庫已有 '+m.learned};
  if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（句中大寫），預設沒有選；要默寫的話按一下加回'};
+ if(m.sense)return {kind:'root',text:'另一個意思',title:'與 '+m.sense+' 同一個英文字：儲存時兩個意思合成一個字'};
  if(m.root)return {kind:'root',text:'同字根 '+m.rootEn,title:en+' 與 '+m.rootEn+' 同字根（同一個字），只預選了先寫的一個；按一下可加回'};
  let L=null;
  try{L=window.s55Info&&window.s55Info(en);}catch(_){}

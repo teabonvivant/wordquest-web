@@ -48,11 +48,15 @@ function s50SaveList(){
  for(const c of v20Selected()){
   if(!s50Usable(c))continue;
   const k=V20.fold(c.en);
-  if(!at.has(k)){at.set(k,out.length);out.push(c);}
-  else if(!out[at.get(k)].zh&&c.zh)out[at.get(k)]=c;
+  if(!at.has(k)){at.set(k,out.length);out.push(c);continue;}
+  /* R3.43 DICT-01: one English word is one dictation word; another meaning the parent ticked joins it (銀行；河岸) instead of being dropped */
+  const i=at.get(k),z=String(c.zh||'').trim(),zs=String(out[i].zh||'').split('；').map(x=>x.trim()).filter(Boolean);
+  if(z&&!zs.includes(z))out[i]={...out[i],zh:[...zs,z].join('；').slice(0,300)};
  }
  return out;
 }
+/* R3.43 DICT-01: ticked cards that are another meaning of a word already in the list (shown, never called 格式不對) */
+const s50Merged=list=>v20Selected().filter(s50Usable).length-list.length;
 
 /* Recompute which items the filter keeps. Hand-made choices (a change that this function did not make) always win. */
 /* a selected card must be something 儲存 can store: clean it, else leave it un-selected and say why (never a silent drop at the end) */
@@ -157,7 +161,8 @@ function s50FixLabels(){
  const raw=v20.items.filter(c=>!c.s50?.dup).length;
  if(s50Over&&n<=120)s50Over=false;
  const cnt=$('#v20-selected-count');
- if(cnt)cnt.textContent=`已選 ${n} 個`;
+ const mg=s50Merged(list);
+ if(cnt)cnt.textContent=`已選 ${n} 個字`+(mg>0?`（${mg} 個多義已合併）`:'');
  const sm=$('#v20-pending-count');
  if(sm)sm.textContent='';
  /* the one primary button: it saves. It is never dead; 先揀字 answers with a nudge, a busy photo says so in its own label */
@@ -180,7 +185,7 @@ function s50FixLabels(){
   if(le)le.hidden=!(isLoggedIn()&&!v23HasLease());
  }
  const msg=$('#v20-message');
- if(msg&&v20.items.length&&!v20.rawDirty)msg.textContent=`共 ${raw} 項，已選 ${n} 個`;
+ if(msg&&v20.items.length&&!v20.rawDirty)msg.textContent=`共 ${raw} 項，已選 ${n} 個字`+(mg>0?`（${mg} 個多義已合併）`:'');
  const root=s50Root();
  if(root)root.dataset.s50Items=v20.items.length?'1':'0';
 }
@@ -273,7 +278,7 @@ function s50Commit(list){
  if(title.length>120){s50Err('名稱請用 120 字以內。');$('#range-title')?.focus();return;}
  let date=String(importDraft.date||'');
  if(date){try{WQEducation.validDate(date);}catch(_){date='';}}
- const dropped=v20Selected().length-list.length;
+ const dropped=v20Selected().filter(c=>!s50Usable(c)).length,merged=s50Merged(list);
  const before=structuredClone(db);
  v20.saving=true;
  try{
@@ -288,7 +293,7 @@ function s50Commit(list){
   if(!save()||!s50Landed(r.id,list.length)){db=before;s50Err('儲存失敗，沒有寫入。選好的字和草稿還在，請先備份再試。');return;}
   clearImportDraft();
   mediaSelectedRange=r.id;mediaMessage='已加入你選定的默書內容。請核對圖片及準備讀音。';
-  s50Saved={rid:r.id,n:list.length,title,dropped};
+  s50Saved={rid:r.id,n:list.length,title,dropped,merged};
   s50Over=false;s50Review=null;s50Pend=null;
   render();
   if(!s50Root())toast(`已儲存 ${list.length} 個字。`);     // the parent unlock ran out in this very instant: the host drew its gate over the card
@@ -576,7 +581,7 @@ function s50SavedCard(root){
  if(card)return;
  card=document.createElement('section');
  card.id='s50-saved';card.className='card s50-saved';card.setAttribute('role','status');
- card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
+ card.innerHTML=`<div class="s50-saved-mark" aria-hidden="true">✓</div><h2>已儲存 ${s50Saved.n} 個字</h2>${s50Saved.merged>0?`<p class="small muted">同一個英文字的不同意思已合成一個字（${s50Saved.merged} 項）。</p>`:''}${s50Saved.dropped>0?`<p class="small muted">另有 ${s50Saved.dropped} 項格式不對，沒有儲存。</p>`:''}<div class="s50-saved-btns"><button type="button" class="btn primary big" data-s50="practice">開始練習</button><button type="button" class="btn secondary big" data-s50="again">再上傳</button></div>`;
  (root.querySelector('#p40-steps')||root.firstElementChild).after(card);
 }
 function s50Enhance(){

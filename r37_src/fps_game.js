@@ -1749,7 +1749,9 @@
       if (soundOn) h += '<div class="wq37-opt"><span>聲音</span><button class="wq37-mutebig" data-act="mute" aria-label="聲音">' + (muted ? '🔇' : '🔊') + '</button></div>';
       if (!touchMode) h += '<div class="wq37-opt"><span>滑鼠靈敏度</span><input type="range" min="40" max="250" value="' + Math.round(sens * 100) + '" data-role="sens" aria-label="滑鼠靈敏度"></div>';
       h += '<button class="wq37-go" data-act="res">繼續</button>';
-      showOv(h, { res: function () { resume(); }, mute: function () { setMuted(!muted); } });
+      /* R3.43 UX-01: a way out from the pause card; the host's onExit destroys the game (sound, input, loop) and goes back */
+      if (typeof opts.onExit === 'function') h += '<button class="wq37-go alt" data-act="quit">離開（這局不記錄）</button>';
+      showOv(h, { res: function () { resume(); }, mute: function () { setMuted(!muted); }, quit: function () { try { opts.onExit(); } catch (e) { console.error(e); } } });
       var sl = ovEl.querySelector('[data-role="sens"]');
       if (sl) sl.addEventListener('input', function () { sens = clamp(sl.value / 100, 0.4, 2.5); saveSens(sens); });
     }
@@ -1826,6 +1828,7 @@
       if (c === 'KeyM' && soundOn && !e.repeat) { setMuted(!muted); return; }
       if (state === 'over' && missCardUp && (c === 'Enter' || c === 'Space')) { e.preventDefault(); missCardUp = false; showResult(); return; }
       if (state === 'over' && resultShown && c === 'Enter') { e.preventDefault(); beginPlay(); return; }
+      if (state === 'paused' && c === 'Enter' && e.target && e.target.getAttribute && e.target.getAttribute('data-act') === 'quit') return;
       if (state === 'paused' && (c === 'Enter' || c === 'KeyP' || c === 'Escape')) { e.preventDefault(); resume(); return; }
       if (state === 'learn') {
         if ((c === 'Enter' || c === 'NumpadEnter' || c === 'Space') && !e.repeat) { e.preventDefault(); lcDone(false); }

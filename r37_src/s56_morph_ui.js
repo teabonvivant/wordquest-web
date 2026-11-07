@@ -71,7 +71,7 @@ function s56Apply(){
  for(const c of v20.items){
   const m=c.s50;
   if(!m)continue;
-  m.learned='';m.root='';m.rootEn='';
+  m.learned='';m.root='';m.rootEn='';m.sense='';
   if(m.dup||m.skip||s50HostExcluded(c)||!s56Single(c))continue;
   const hit=s56FindLearned(learnedIdx,c.en);
   if(hit){
@@ -96,6 +96,8 @@ function s56Apply(){
   for(const c of g){
    if(c===rep)continue;
    const m=c.s50;
+   /* R3.43 DICT-01: the same spelling with another Chinese meaning is the teacher's second meaning, not a word form: it stays selected and joins the first on save */
+   if(s56Fold(c.en)===s56Fold(rep.en)&&String(c.zh||'').trim()&&String(c.zh||'').trim()!==String(rep.zh||'').trim()){m.sense=rep.en;continue;}
    m.root=rep.id;m.rootEn=rep.en;
    if(!m.manual&&c.selected){c.selected=false;m.sel=false;}
   }
@@ -139,6 +141,7 @@ function s56Tag(c){
  const m=c.s50||{},en=String(c.en||'');
  if(m.learned)return {kind:'learned',text:'已學過 '+m.learned,title:'孩子的詞庫已有 '+m.learned};
  if(c.s50x&&c.s50x.name)return {kind:'name',text:'像人名，未選',title:en+' 像人名（句中大寫），預設沒有選；要默寫的話按一下加回'};
+ if(m.sense)return {kind:'root',text:'另一個意思',title:'與 '+m.sense+' 同一個英文字：儲存時兩個意思合成一個字'};
  if(m.root)return {kind:'root',text:'同字根 '+m.rootEn,title:en+' 與 '+m.rootEn+' 同字根（同一個字），只預選了先寫的一個；按一下可加回'};
  let L=null;
  try{L=window.s55Info&&window.s55Info(en);}catch(_){}

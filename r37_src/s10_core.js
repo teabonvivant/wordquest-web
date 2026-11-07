@@ -72,7 +72,19 @@ function r37Get(){
  if(!o.oly.seen||typeof o.oly.seen!=='object'||Array.isArray(o.oly.seen))o.oly.seen={};
  return r37Mem[k]=o;
 }
-function r37Save(){if(!isLoggedIn())return;try{localStorage.setItem(r37Key(),JSON.stringify(r37Get()));}catch(_){toast('儲存不了，請先匯出備份。','bad');}}
+/* R3.43 STATE-02: the same writer lease and revision check as the main save. A tab without the lease never writes, and a stale copy never overwrites a newer one (o.rev). Returns true when stored. */
+function r37Save(){
+ if(!isLoggedIn())return true;
+ const k=r37Key(),o=r37Get();
+ if(!v23HasLease()){if(v23Ready){persistenceIssue=v23CapabilityError();showSaveIssue();}return false;}
+ try{
+  const raw=localStorage.getItem(k),cur=raw?JSON.parse(raw):null;
+  if(cur&&(Number(cur.rev)||0)!==(Number(o.rev)||0)){delete r37Mem[k];persistenceIssue='另一個分頁更新了學習進度，這裏沒有蓋掉它。請重新整理頁面。';showSaveIssue();return false;}
+ }catch(_){}
+ const rev=Number(o.rev)||0;o.rev=rev+1;
+ try{localStorage.setItem(k,JSON.stringify(o));return true;}catch(_){o.rev=rev;toast('儲存不了，請先匯出備份。','bad');return false;}
+}
+try{window.addEventListener('storage',e=>{if(e.key&&e.key.startsWith('wq37-')&&r37Mem[e.key])delete r37Mem[e.key];});}catch(_){}
 /* difficulty is stored per subject (diffs.english / math / olympiad); games and dictation follow the English setting */
 const r37DiffT=t=>t==='math'||t==='olympiad'?t:'english';
 function r37DiffN(t){return r37Get().diffs[r37DiffT(t)];}
@@ -85,8 +97,9 @@ const R37_COIN_CAP=10;
 const r37CoinToday=()=>Math.min(R37_COIN_CAP,(r37Get().day.cn)||0);
 function r37AddCoins(n,free,quiet){
  const c=activeChild();if(!c||!isLoggedIn()||!n)return 0;
- if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;r37Get().day.cn=((r37Get().day.cn)||0)+n;r37Save();}
- c.stars+=n;save();return n;
+ /* R3.43 STATE-02: paid only when both the daily count and the wallet are stored; either failing undoes the other */
+ if(!free){const req=n;n=Math.min(n,Math.max(0,R37_COIN_CAP-((r37Get().day.cn)||0)));if(n<req&&!quiet)toast('今日闖關和遊戲的金幣已達上限（'+R37_COIN_CAP+' 枚），明天再賺。');if(n<=0)return 0;const d=r37Get().day;d.cn=(d.cn||0)+n;if(!r37Save()){d.cn-=n;return 0;}}
+ c.stars+=n;if(!save()){c.stars-=n;if(!free){r37Get().day.cn-=n;r37Save();}return 0;}return n;
 }
 try{window.r37CoinToday=r37CoinToday;window.R37_COIN_CAP=R37_COIN_CAP;}catch(_){}
 function r37Bump(key,n=1){const d=r37Get().day;d[key]=(d[key]||0)+n;r37Save();}
@@ -170,11 +183,12 @@ function r37G3Pay(g,subj,w,s,res,items){
  const e=o.lv[k]=Object.assign({},old,{best:Math.max(old.best||0,stars),at:new Date().toISOString()});let coins=0;
  if(passed){if(!old.passed){coins+=1+(s===9?2:0);r37Bump('levels');}e.passed=true;if(stars===5&&!old.five){e.five=true;coins+=1+(r37Char().perk==='coin'?1:0);r37Bump('five');}}
  /* learning loop: a first-try miss goes into the same wrong bank / maths mistake list the quiz uses, so the warm-up and review pick it up; a first-try hit clears a word from the bank */
- const now=Date.now(),by={};items.forEach(x=>{by[x.id]=x;});
+ const now=Date.now();
  for(const p of (res&&res.perItem)||[]){
   if(p.rv){if(subj!=='math'&&p.firstOk&&p.en){const j=o.wrong.findIndex(x=>x.en===p.en);if(j>=0){o.wrong[j].n--;if(o.wrong[j].n<=0)o.wrong.splice(j,1);}}continue;}
-  if(!p.tries||p.how==='lapse')continue;/* R3.38: no answer given is not a wrong answer */const it=by[p.id];if(!it)continue;
-  if(subj==='math'){if(!p.firstOk){o.miss.push({t:'math',sk:it.skill||'',q:it.q,a:it.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();r39EnrolSkill(it.skill,w,s);}continue;}
+  if(!p.tries||p.how==='lapse')continue;/* R3.38: no answer given is not a wrong answer */
+  /* R3.43 G01: what is saved is the question this run really asked (the result's own snapshot), never the list of the first run of the level */
+  if(subj==='math'){if(!p.firstOk&&p.q){o.miss.push({t:'math',sk:p.skill||'',q:p.q,a:p.a,at:now,w,s});if(o.miss.length>60)o.miss.shift();r39EnrolSkill(p.skill,w,s);}continue;}
   const i=o.wrong.findIndex(x=>x.en===p.en);
   if(!p.firstOk){if(i>=0){o.wrong[i].n++;o.wrong[i].at=now;o.wrong[i].w=w;o.wrong[i].s=s;}else{o.wrong.push({en:p.en,zh:p.zh,w,s,at:now,n:1});if(o.wrong.length>60)o.wrong.shift();}r39EnrolWord(p.en,p.zh,w,s);}
   else if(i>=0&&o.wrong[i].n<=1)o.wrong.splice(i,1);

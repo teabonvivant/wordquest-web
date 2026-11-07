@@ -92,15 +92,15 @@ def t_week(p):
     ev(pg, "(()=>{const o=r37Get();o.hist=[];for(let i=50;i>0;i--){o.day={d:r39Plus(-i),qa:1};r40Archive(o);}o.day={d:r37Day(),claimed:[]};})()")
     C.ok(ev(pg, "r37Get().hist.length") == 35 and ev(pg, "r37Get().hist[34].d") == ev(pg, 'r39Plus(-1)'), 'the history keeps the newest 35 days')
     # numbers of the weekly view
-    ev(pg, """(()=>{const o=r37Get();o.hist=[{d:r39Plus(-8),qa:30},{d:r39Plus(-2),qa:20,correct:15,ans:4,hint:2,lapse:1,q_english:20},{d:r39Plus(-1),qa:20,correct:15,q_math:20}];
-      Object.assign(o.day,{qa:10,correct:10,q_english:10});o.wrong=[{en:'cat',zh:'貓',n:1,at:1},{en:'bat',zh:'蝙蝠',n:5,at:1}];o.miss=[];r37Save();})()""")
+    ev(pg, """(()=>{const o=r37Get();o.hist=[{d:r39Plus(-8),qa:30},{d:r39Plus(-2),qa:20,qn:20,qok:15,correct:19,ans:4,hint:2,lapse:1,q_english:20},{d:r39Plus(-1),qa:20,qn:20,qok:15,correct:15,q_math:20}];
+      Object.assign(o.day,{qa:10,qn:10,qok:10,correct:10,q_english:10});o.wrong=[{en:'cat',zh:'貓',n:1,at:1},{en:'bat',zh:'蝙蝠',n:5,at:1}];o.miss=[];r37Save();})()""")
     w = json.loads(ev(pg, "JSON.stringify(r40Weeks(r37Get()))"))
     C.ok(len(w['days']) == 7 and w['days'][6]['d'] == ev(pg, 'r37Day()') and w['days'][0]['q'] == 0, 'seven days ending today; a day with no record is empty')
     parent_ok(pg)
     C.ok(pg.locator('.r37-ptab.on[data-k=prog]').count() == 1 and pg.locator('.r40-week').count() == 1, 'the parent planet opens on 本週')
     t = pg.inner_text('.r40-week').replace('\n', ' ')
     C.ok('學了 3 日' in t and '共 54 題' in t and '比上週多 24 題' in t, 'days, total (games included) and last week: ' + t[:90])
-    C.ok('80%' in t, 'answer rate 40/50 leaves game answers out')
+    C.ok('80%' in t, 'answer rate 40/50 (qok/qn) leaves the 4 game answers in correct out')
     C.ok('英文 30' in t and '數學 20' in t and '奧數 0' in t, 'per subject')
     C.ok(t.index('bat') < t.index('cat'), 'the word missed most comes first')
     bars = pg.evaluate("[...document.querySelectorAll('.r40-bars i')].map(i=>i.getBoundingClientRect().height)")

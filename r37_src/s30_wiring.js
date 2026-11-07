@@ -113,10 +113,11 @@ render=function(){
  r37Layout();
  if(route==='oly'||route.startsWith('oly/'))r80Mount(route);
  try{r37Sky.attach();if(route==='lp/play'&&r37P&&r37P.phase==='result'&&!r37P.fxDone){r37P.fxDone=1;r37FxResult(r37P.result);}}catch(_){}
- if(route==='fps')r38Run($('#r37-fps-box'),r38Words(),r37FpsMount);
- if(route==='fp/play')r38Run($('#r37-fps-box'),r38Words(),r37FpsLvMount);
- if(route==='rn/play')r38Run($('#r37-run-box'),r38Words(),r37RunMount);
- if(route==='g3/play'&&r37G3Sel){const q=r37G3Sel;r38Run($('#r37-g3-box'),q.subj==='math'?r37G3Items('math',q.w,q.s,r37DiffN('math'),q.seed):r38Words(),r37G3Mount);}
+ const r43Go=(route==='fps'||route==='fp/play'||route==='rn/play'||route==='g3/play')&&r43CanPlay();
+ if(route==='fps'&&r43Go)r38Run($('#r37-fps-box'),r38Words(),r37FpsMount);
+ if(route==='fp/play'&&r43Go)r38Run($('#r37-fps-box'),r38Words(),r37FpsLvMount);
+ if(route==='rn/play'&&r43Go)r38Run($('#r37-run-box'),r38Words(),r37RunMount);
+ if(route==='g3/play'&&r37G3Sel&&r43Go){const q=r37G3Sel;r38Run($('#r37-g3-box'),q.subj==='math'?r37G3Items('math',q.w,q.s,r37DiffN('math'),q.seed):r38Words(),r37G3Mount);}
  if(route==='lp/play'&&r37P&&r37P.phase==='quiz'&&!r37P.fb){
   const q=r37P.qs[r37P.i];
   if(q.mode==='fill'){const el=$('#r37-in');if(el)el.focus({preventScroll:true});}
@@ -161,6 +162,12 @@ function r37FixNav(){
   const t=a.textContent.trim();if(t==='練習')a.textContent='英文';else if(t==='首頁')a.textContent='星系';
  }
 }
+/* R3.43 STATE-06: the five games (字母獵場, 星際跑酷, 字母砲台, 字母迷宮, 字卡征途) count towards the parent's daily game time like the old games: time runs while one is mounted on its
+ * play page (r3Tick still skips a hidden or unfocused page), a game cannot start once the time is used up, and reaching the limit mid-game stops it. */
+function r43InGame(){const rt=(location.hash||'#kid').slice(1).split('?')[0];return ((rt==='fps'||rt==='fp/play')&&!!r37FpsHandle)||(rt==='rn/play'&&!!r37RunHandle)||(rt==='g3/play'&&!!r37G3Handle);}
+const r43PriorSubject=r3CurrentSubject;r3CurrentSubject=function(){return r43PriorSubject.apply(this,arguments)||(r43InGame()?'arcade':null);};
+const r43PriorBlock=r3Block;r3Block=function(){r37FpsStop();r37RunStop();r37G3Stop();return r43PriorBlock.apply(this,arguments);};
+function r43CanPlay(){try{window.WQR3.assertPlay();return true;}catch(e){toast(e.message,'bad');location.replace('#p/games');return false;}}
 document.addEventListener('click',e=>{
  const el=e.target.closest?.('[data-r37]');if(!el)return;
  const a=el.dataset.r37,P=r37P;
@@ -181,7 +188,7 @@ document.addEventListener('click',e=>{
  else if(a==='ex-again'&&P){const l=((P.result||{}).lessons||[])[+el.dataset.i];if(l&&l.ex){P.exq=l.ex;P.exBack=true;P.phase='example';render();}}
  else if(a==='pick-opt'&&P)r37Answer(el.dataset.v);
  else if(a==='next')r37Next();
- else if(a==='hint'&&P){P.hintShown=true;render();}
+ else if(a==='hint'&&P)r43ShowHint(P);
  else if(a==='speak')r37Speak(el.dataset.t);
  else if(a==='qspeak'&&P&&P.qs[P.i])r37Speak(P.qs[P.i].audio);
  else if(a==='dz-go')r37DzStart(+el.dataset.g,+el.dataset.l||0);
@@ -207,6 +214,8 @@ document.addEventListener('submit',e=>{
  const el=$('#r37-in');if(el)r37Answer(el.value);else r37DzSubmit();
 });
 document.addEventListener('input',e=>{if(e.target.classList?.contains('r37-cell')&&!e.isComposing)r37DzCellInput(e.target,e);});
+/* R3.43 STATE-05: the first time a question's hint is shown is one 用提示 for the parent (button and H key alike); showing it again adds nothing */
+function r43ShowHint(P){if(P.hintShown)return;P.hintShown=true;r37Bump('hint');render();}
 document.addEventListener('keydown',e=>{if(e.target.classList?.contains('r37-cell'))r37DzCellKey(e.target,e);});
 document.addEventListener('focusin',e=>{if(e.target.classList?.contains('r37-cell'))e.target.select();});
 document.addEventListener('keydown',e=>{
@@ -218,7 +227,7 @@ document.addEventListener('keydown',e=>{
  if(P.fb){if(e.key==='Enter'||e.key===' '){e.preventDefault();r37Next();}return;}
  const q=P.qs[P.i],typing=document.activeElement&&document.activeElement.id==='r37-in';
  if(q.mode==='mcq'&&/^[1-9]$/.test(e.key)){const o=q.options[+e.key-1];if(o!==undefined){e.preventDefault();r37Answer(o);}}
- else if(!typing&&(e.key==='h'||e.key==='H')&&R37_DIFF[P.diff-1].hint&&q.hint){P.hintShown=true;render();}
+ else if(!typing&&(e.key==='h'||e.key==='H')&&R37_DIFF[P.diff-1].hint&&q.hint)r43ShowHint(P);
 });
 window.addEventListener('resize',()=>{try{r37Layout();}catch(_){}});
 /* R3.8 maths dialog joins the planet look: space backdrop, white text outside the cards, back button returns to the planet */

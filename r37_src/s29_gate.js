@@ -17,7 +17,7 @@ function r37ArcScrub(){
 }
 const r38Key=()=>r37Key()+'-gate';
 function r38Load(){let s=null;try{s=JSON.parse(localStorage.getItem(r38Key())||'null');}catch(_){}if(!s||s.d!==r37Day())s={d:r37Day(),runs:0,got:0,idle:0};return s;}
-function r38Save(s){try{localStorage.setItem(r38Key(),JSON.stringify(s));}catch(_){}}
+function r38Save(s){if(isLoggedIn()&&!v23HasLease())return;try{localStorage.setItem(r38Key(),JSON.stringify(s));}catch(_){}}
 function r38Ev(kind,x){
  const s=r38Load();
  if(kind==='ok'||kind==='wrong'){s.idle=0;if(++s.got>=R38.enough)s.runs=0;r38Save(s);r37Bump('ans');}
@@ -72,7 +72,9 @@ function r38Left(track,w,s){const c=r38Cap();return c?Math.max(0,c-(r38Plays().n
 function r38TryStart(track,w,s,opts){
  if((opts&&opts.redo)||r37TestOld())return true;const c=r38Cap();if(!c)return true;
  if(r38Left(track,w,s)<=0){toast(`這一關今天已玩了 ${c} 次，明天再來。先去下一關學新東西吧！`,'bad');return false;}
- const p=r38Plays(),k=r37LvKey(track,w,s);p.n[k]=(p.n[k]||0)+1;r37Save();
+ const p=r38Plays(),k=r37LvKey(track,w,s);p.n[k]=(p.n[k]||0)+1;
+ /* R3.43 STATE-02: a play that cannot be counted (another tab holds the save) does not start */
+ if(!r37Save()&&isLoggedIn()){p.n[k]--;toast(persistenceIssue||'這一次未能記錄，請重新整理頁面。','bad');return false;}
  if(c-p.n[k]===0)toast('這是這一關今天最後一次機會，加油！');
  return true;
 }

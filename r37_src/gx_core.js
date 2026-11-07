@@ -305,7 +305,8 @@
         /* near the end of the level there may be fewer than 'gapMin' items left: fill the gap with already-solved items (revisit, never counted) so a miss is never asked again straight after its card */
         var need = Math.max(0, Math.min(2, gapMin) - queue.length), cand = items.filter(function (x) { return stats[x.id] && stats[x.id].ok && x.id !== it.id; }), f;
         while (need-- > 0 && cand.length) { f = cand.splice(Math.floor(rng() * cand.length), 1)[0]; fillN++; var fl = Object.assign({}, f, { id: 'fl' + fillN + ':' + f.id, rv: true }); stats[fl.id] = { id: fl.id, rv: true, item: fl, tries: 0, firstOk: null, ok: false, ms: 0, requeued: 0, missed: 0 }; queue.push(fl); }
-        var back = it; if (it.alt) { back = Object.assign({}, it, it.alt, { alt: null }); s.item = back; }
+        /* R3.43 G02/G05: the follow-up question is a new object linked to the miss (s.alt); s.item keeps the question that was really missed, and the copy drops the cached features (_f) of the old answer */
+        var back = it; if (it.alt) { back = Object.assign({}, it, it.alt, { alt: null }); delete back._f; s.alt = back; }
         at = Math.min(queue.length, Math.max(at, Math.min(2, gapMin))); queue.splice(Math.max(0, at), 0, back); out.requeued = true;
       }
       return out;
@@ -320,7 +321,7 @@
     L.passRate = o.passRate != null && isFinite(+o.passRate) && +o.passRate > 0 ? +o.passRate : .70;
     L.result = function (x) {
       x = x || {}; var cleared = x.cleared !== false, core = items.length, fa = core ? firstOkN / core : 0;
-      var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms), lapses: s.lapses || 0, hinted: !!s.hinted, how: !s.tries ? 'none' : (s.lapses || 0) >= s.tries ? 'lapse' : s.hinted ? 'hint' : s.firstOk ? 'ok' : 'wrong' }; });
+      var per = Object.keys(stats).map(function (k) { var s = stats[k], it = s.item; return { id: s.id, rv: s.rv, en: it.en || '', zh: it.zh || '', q: it.q || '', a: it.a != null ? String(it.a) : '', skill: it.skill || '', alt: s.alt ? { q: s.alt.q || '', a: s.alt.a != null ? String(s.alt.a) : '' } : null, emoji: it.emoji || '', tries: s.tries, firstOk: s.firstOk === true, ok: s.ok, missed: s.missed, ms: Math.round(s.ms), lapses: s.lapses || 0, hinted: !!s.hinted, how: !s.tries ? 'none' : (s.lapses || 0) >= s.tries ? 'lapse' : s.hinted ? 'hint' : s.firstOk ? 'ok' : 'wrong' }; });
       var stars = cleared ? GX.starsOf(fa) : 1;
       return { stars: stars, passed: cleared && fa >= L.passRate - 1e-9, passRate: L.passRate, cleared: cleared, accuracy: Math.round(L.accuracy() * 1000) / 1000, firstTryAccuracy: Math.round(fa * 1000) / 1000, firstTryCorrect: firstOkN, total: core, score: x.score || 0, maxCombo: x.maxCombo || 0, seconds: Math.round(x.seconds || 0), difficulty: x.difficulty || o.difficulty || 1, mode: x.mode || o.mode || 'level', subject: o.subject || '', perItem: per, missed: per.filter(function (p) { return !p.rv && p.missed > 0 && p.how !== 'lapse'; }), lapses: per.filter(function (p) { return !p.rv && p.how === 'lapse'; }).length, hints: per.filter(function (p) { return !p.rv && p.hinted; }).length };
     };

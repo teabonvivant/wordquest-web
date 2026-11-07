@@ -1,92 +1,92 @@
 {
  "frames_game_runs": [
   {
-   "frames": 721,
-   "avg": 20.6,
-   "p95": 33.4,
-   "max": 150,
-   "over33": 21,
-   "over50": 6
+   "frames": 516,
+   "avg": 28.9,
+   "p95": 50,
+   "max": 366.6,
+   "over33": 32,
+   "over50": 19
   },
   {
-   "frames": 709,
-   "avg": 21.0,
-   "p95": 33.4,
-   "max": 149.9,
-   "over33": 28,
-   "over50": 9
+   "frames": 524,
+   "avg": 28.5,
+   "p95": 50,
+   "max": 366.6,
+   "over33": 33,
+   "over50": 22
   },
   {
-   "frames": 704,
-   "avg": 21.2,
-   "p95": 33.4,
-   "max": 133.3,
-   "over33": 27,
-   "over50": 10
+   "frames": 505,
+   "avg": 29.5,
+   "p95": 50,
+   "max": 383.3,
+   "over33": 32,
+   "over50": 19
   }
  ],
  "frames_control_runs": [
   {
-   "frames": 894,
-   "avg": 16.7,
+   "frames": 671,
+   "avg": 22.2,
    "p95": 16.8,
-   "max": 33.4,
-   "over33": 0,
-   "over50": 0
+   "max": 333.3,
+   "over33": 15,
+   "over50": 15
   },
   {
-   "frames": 894,
-   "avg": 16.7,
-   "p95": 16.7,
-   "max": 33.4,
-   "over33": 0,
-   "over50": 0
+   "frames": 667,
+   "avg": 21.8,
+   "p95": 16.8,
+   "max": 300,
+   "over33": 14,
+   "over50": 14
   },
   {
-   "frames": 891,
-   "avg": 16.7,
+   "frames": 678,
+   "avg": 22.0,
    "p95": 16.8,
-   "max": 33.3,
-   "over33": 0,
-   "over50": 0
+   "max": 300,
+   "over33": 15,
+   "over50": 15
   }
  ],
  "frames_summary": {
-  "game_median_over33_per_15s": 27,
-  "control_median_over33_per_15s": 0,
-  "game_median_avg_ms": 21.0,
-  "control_median_avg_ms": 16.7,
-  "game_median_p95": 33.4,
-  "game_median_max": 149.9
+  "game_median_over33_per_15s": 32,
+  "control_median_over33_per_15s": 15,
+  "game_median_avg_ms": 28.9,
+  "control_median_avg_ms": 22.0,
+  "game_median_p95": 50,
+  "game_median_max": 366.6
  },
  "control_blank_canvas": {
-  "max": 14.8,
+  "max": 248.9,
   "p95": 0.2,
-  "avg": 0.2
+  "avg": 2.2
  },
  "en": {
   "n": 1280,
-  "avg": 0.10250000000160071,
-  "p95": 0.10000000055879354,
-  "max": 13.300000000745058,
+  "avg": 0.3661718750023283,
+  "p95": 0.6999999955296516,
+  "max": 323.3999999985099,
   "ops_max_ms": {
-   "end_turn": 2.6,
-   "enemy_and_deal_20_frames": 19
+   "end_turn": 2.2,
+   "enemy_and_deal_20_frames": 18
   },
   "real": null
  },
  "ma": {
   "n": 1270,
-  "avg": 0.1348818897643662,
-  "p95": 0.10000000055879354,
-  "max": 20.799999999813735,
+  "avg": 0.11110236220589773,
+  "p95": 0.5,
+  "max": 15.399999998509884,
   "ops_max_ms": {
-   "open_cast": 26.6,
-   "type": 2.7,
-   "submit": 25,
-   "frames30": 0.2,
-   "end_turn": 3.9,
-   "enemy_and_deal_20_frames": 10.4
+   "open_cast": 28,
+   "type": 1.5,
+   "submit": 26.4,
+   "frames30": 0.6,
+   "end_turn": 3.2,
+   "enemy_and_deal_20_frames": 8.3
   },
   "real": null
  }

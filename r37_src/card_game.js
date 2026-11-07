@@ -353,7 +353,7 @@
     function takeItem() {
       var it = S.learn.take(); if (it) return it; if (!G.recycle.length) recycleNow(); var r = G.recycle.shift(); return r ? r.item : null;
     }
-    function mkCard(it) { var c = { uid: ++G.uid, item: it, meta: G.meta[it.id] }; if (!c.meta) { var f = featOf(S, it), ty = 'atk', cost = costOf0(it, f); c.meta = G.meta[it.id] = { type: ty, cost: cost, base: basePower(ty, cost, f), f: f }; } return c; }
+    function mkCard(it) { var c = { uid: ++G.uid, item: it, meta: G.meta[it.id] }; if (c.meta && c.meta.f !== featOf(S, it)) { var f2 = featOf(S, it); c.meta = G.meta[it.id] = Object.assign({}, c.meta, { f: f2, base: basePower(c.meta.type, c.meta.cost, f2) }); } /* R3.43 G05: a follow-up question keeps the card's slot but is judged by its own answer */ if (!c.meta) { var f = featOf(S, it), ty = 'atk', cost = costOf0(it, f); c.meta = G.meta[it.id] = { type: ty, cost: cost, base: basePower(ty, cost, f), f: f }; } return c; }
     function drawCards(n, stagger, quiet) {
       var got = 0, i;
       for (i = 0; i < n; i++) {
@@ -582,12 +582,12 @@
       var cs = G.cast; if (!cs || cs.fin) return false; G.cast = null; closeSheet(null); S.sfx('tap'); relayout(); hud(); return true;
     }
     function removeFromHand(c) { var i = G.hand.indexOf(c); if (i >= 0) G.hand.splice(i, 1); }
-    function answerCast(ok, typed) {
+    function answerCast(ok, typed, lapse) {
       var cs = G.cast; if (!cs || cs.done) return; cs.done = true; var it = cs.item, ms = Math.round(cs.t * 1000), card = cs.card; G.cast = null;
       if (cs.hinted) markNonFirst(it);
-      if (cs.fin) { closeSheet(ok); return finAnswer(it, ok, typed, ms, cs.filler); }
+      if (cs.fin) { closeSheet(ok); return finAnswer(it, ok, typed, ms, cs.filler, lapse); }
       closeSheet(ok); relayout(); removeFromHand(card); G.energy = Math.max(0, G.energy - costOf(card)); G.spent += costOf(card); G.focus = Math.min(G.focus, G.hand.length - 1);
-      var out = S.learn.answer(it, !!ok, ms), eff = null;
+      var out = S.learn.answer(it, !!ok, ms, lapse), eff = null;
       if (ok) {
         eff = calcEffect(card); G.combo++; G.maxCombo = Math.max(G.maxCombo, G.combo); G.okN[it.id] = (G.okN[it.id] || 0) + 1; G.score += (eff.hit ? 150 : 100) + G.combo * 10; G.discard.push(card);
         S.sfx(eff.hit ? 'great' : 'good'); if (G.combo >= 2) S.sfx('combo', { n: G.combo }); S.ui.ok(it, { ms: 900, top: Math.round(lay.mcy - 24) });
@@ -598,12 +598,12 @@
         G.combo = 0; if (card.el) { card.el.classList.add('brk'); var be = card.el; S.later(function () { if (be.parentNode) be.parentNode.removeChild(be); }, 650); card.el = null; } G.discard.push({ item: it, meta: card.meta, broken: true, uid: card.uid });
         S.sfx('bad'); S.fx.shake(3, .2); S.fx.flash('#ff4060', .18); S.fx.text(S.W / 2, S.H * 0.45, '牌破損了…', { color: '#ff8a9a', size: 26 });
         if (opts.character && opts.character.perk === 'shield' && !G.wrongFirst) { G.wrongFirst = true; G.energy = Math.min(MAX_EN, G.energy + costOf(card)); S.fx.text(S.W / 2, S.H * 0.52, (opts.character.name||'角色')+'守護：能量退還', { color: '#9fd0ff', size: 16 }); }
-        G.phase = 'player'; layoutHand(); hud(); S.ui.learn(it, { typed: !isMath(it) ? typed : '', onDone: function () { G.lockUntil = G.clock + 0.2; hud(); } });
+        G.phase = 'player'; layoutHand(); hud(); var back = function () { G.lockUntil = G.clock + 0.2; hud(); }; S.ui.learn(it, { typed: !isMath(it) ? typed : '', onDone: function () { if (lapse === true && S.gate(it, back)) return; back(); } });
         void out;
       }
     }
-    function finAnswer(it, ok, typed, ms, filler) {
-      var out = S.learn.answer(it, !!ok, ms), mc = monCenter(), f = G.fin;
+    function finAnswer(it, ok, typed, ms, filler, lapse) {
+      var out = S.learn.answer(it, !!ok, ms, lapse), mc = monCenter(), f = G.fin;
       if (filler) { /* revisit of a solved item: no blow, still a real question */
         if (ok) { G.okN[it.id] = (G.okN[it.id] || 0) + 1; S.sfx('good'); S.ui.ok(it, { ms: 900, top: Math.round(lay.mcy - 24) }); after(0.7, nextFinisher); }
         else { G.combo = 0; S.sfx('bad'); S.fx.flash('#ff4060', .18); S.ui.learn(it, { typed: !isMath(it) ? typed : '', onDone: function () { after(0.15, nextFinisher); } }); }
@@ -631,7 +631,7 @@
       var i, f; for (i = G.flights.length - 1; i >= 0; i--) { f = G.flights[i]; f.t += dt; if (f.t > 0) { var k = Math.min(1, f.t / 0.3); S.fx.trail(f.x0 + (f.x1 - f.x0) * k, f.y0 + (f.y1 - f.y0) * k, f.col, 4); } if (f.t > 0.32) G.flights.splice(i, 1); }
       if (blocked() || S.ui.open('pause')) return;
       G.clock += dt; runTl();
-      var cs = G.cast; if (cs && !cs.done) { cs.t += dt; if (cs.limit) { var before = Math.ceil(cs.left); cs.left -= dt; updateTimer(); if (cs.left <= 3 && Math.ceil(cs.left) !== before && cs.left > 0) S.sfx('tick'); if (cs.left <= 0) { var txt = composeText(cs); cs.left = 0; S.fx.text(S.W / 2, S.H * 0.3, '時間到！', { color: '#ff8a9a', size: 28 }); answerCast(false, txt); } } }
+      var cs = G.cast; if (cs && !cs.done) { cs.t += dt; if (cs.limit) { var before = Math.ceil(cs.left); cs.left -= dt; updateTimer(); if (cs.left <= 3 && Math.ceil(cs.left) !== before && cs.left > 0) S.sfx('tick'); if (cs.left <= 0) { var txt = composeText(cs); cs.left = 0; S.fx.text(S.W / 2, S.H * 0.3, '時間到！', { color: '#ff8a9a', size: 28 }); answerCast(false, txt, cs.buf ? 'typed' : true); /* R3.43 G03: running out of time is no answer, not a wrong answer */ } } }
     }
     var bgCache = null, bgKey = '';
     /* the backdrop lives on its own canvas behind the game canvas and is repainted only when the size, DPR or art changes (not every frame) */

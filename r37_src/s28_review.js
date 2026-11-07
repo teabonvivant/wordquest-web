@@ -71,6 +71,25 @@ function r39Merge(a,b){
  delete m.day;if(a.day)m.day=a.day;/* the daily coin cap and missions are never rewound */
  return m;
 }
+/* R3.43 STATE-03/04: the family backup (r3Export / r3Restore) carries the same per-child progress. Restoring is a replace: a child with no progress in the file starts empty,
+ * so a new family's 小芳 (c_demo again) never inherits the old c_demo. The same family merges as the normal backup does. Today's coin count, plays and gate never go back. */
+function r43ProgressOut(children){const p={};for(const c of children){const o=r39Read(r39KeyOf(c.id));if(o)p[c.id]=JSON.parse(JSON.stringify(o));}return p;}
+function r43ProgressIn(p,children){
+ const isO=x=>x&&typeof x==='object'&&!Array.isArray(x),out={};if(!isO(p))return out;
+ for(const c of children)if(isO(p[c.id])&&isO(p[c.id].lv||{}))out[c.id]=JSON.parse(JSON.stringify(p[c.id]));
+ return out;
+}
+function r43ProgressValues(values,clean,owner){
+ const same=clean.sourceOwner===owner,today=r37Day(),inP=clean.r39Progress||{};
+ for(const c of clean.english.children){
+  const k=r39KeyOf(c.id),a=r39Read(k),b=inP[c.id]||null;let v=null;
+  if(same)v=a&&b?r39Merge(a,b):(a||b);
+  else if(b){v=b;if(a){if(a.day&&a.day.d===today)v.day=a.day;if(a.plays&&a.plays.d===today)v.plays=a.plays;}}
+  if(v){delete v.rev;v.rev=(Number(a&&a.rev)||0)+1;values[k]=JSON.stringify(v);}
+  const g=localStorage.getItem(k+'-gate');if(g!==null)values[k+'-gate']=g;
+ }
+}
+try{window.addEventListener('wq-r3-data-replaced',()=>{for(const k of Object.keys(r37Mem))if(k.startsWith('wq37-'))delete r37Mem[k];r37P=null;});}catch(_){}
 function r39BackupApply(raw){
  const p=raw&&raw.r39Progress;if(!p||typeof p!=='object'||Array.isArray(p))return;
  for(const c of db.children){
@@ -85,7 +104,7 @@ function r39BackupApply(raw){
 const r40N=v=>Number.isFinite(+v)&&+v>0?Math.floor(+v):0;
 function r40Weeks(o){
  const by=new Map((Array.isArray(o.hist)?o.hist:[]).map(x=>[x&&x.d,x]));by.set(o.day.d,o.day);
- const row=off=>{const d=r39Plus(-off),x=by.get(d)||{};return {d,q:r40N(x.qa)+r40N(x.ans),qa:r40N(x.qa),ok:r40N(x.correct),lapse:r40N(x.lapse),hint:r40N(x.hint),en:r40N(x.q_english),ma:r40N(x.q_math),ol:r40N(x.q_olympiad)};};
+ const row=off=>{const d=r39Plus(-off),x=by.get(d)||{};return {d,q:r40N(x.qa)+r40N(x.ans),qa:r40N(x.qn),ok:Math.min(r40N(x.qok),r40N(x.qn)),lapse:r40N(x.lapse),hint:r40N(x.hint),en:r40N(x.q_english),ma:r40N(x.q_math),ol:r40N(x.q_olympiad)};};
  return {days:[6,5,4,3,2,1,0].map(row),prev:[13,12,11,10,9,8,7].map(row)};
 }
 function r40WeekHTML(o){

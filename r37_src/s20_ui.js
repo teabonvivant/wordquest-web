@@ -548,7 +548,7 @@ function r37Answer(value){
   if(!P.miss[key])P.miss[key]={key,q,value:v,fixed:false,kind:q.kind,en:q.word||'',zh:q.zhd||'',skill:'',n:0};
   P.miss[key].n++;
  }
- if(!q.warm&&!q.retest){r37Bump('qa');r37Bump('q_'+P.track);}
+ if(!q.warm&&!q.retest){r37Bump('qa');r37Bump('qn');if(ok)r37Bump('qok');/* R3.43 STATE-01: 闖關答對率 = qok/qn, counted together for the same questions (games add to correct, never here); days before R3.43 have no qn and show no rate */r37Bump('q_'+P.track);}
  if(ok){if(!q.warm&&!q.retest){r37Bump('correct');if(P.track==='english')r37Bump('enok');}if(q.retest||q.rv)r37Bump('fix');playSfx('correct');r37Cheer();}
  else{
   if(P.kind==='level'&&!q.warm&&!q.retest){/* R3.31: a wrong re-test costs no heart and uses no shield */if(P.shield){P.shield=false;P.fb.shielded=true;}else P.hearts--;}
